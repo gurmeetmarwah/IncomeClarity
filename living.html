@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rent vs Buy Calculator — Should You Rent or Buy? True Cost Over Time | Income Clarity</title>
+  <meta name="description" content="Free US rent vs buy calculator: is it better to rent or buy a house? See when buying becomes cheaper than renting, true cost over time, break-even, and charts. Compare rent vs buy with your income, stay length, rate, and appreciation.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://incomeclarity.com/living">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path === "/index.html") {
+        cleanPath = "/";
+      } else if (path.endsWith("/index.html")) {
+        cleanPath = path.slice(0, -10);
+      } else if (path.endsWith(".html")) {
+        cleanPath = path.slice(0, -5);
+      }
+      if (cleanPath !== path) {
+        window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">Income Clarity</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="income.html">Income</a>
+        <a href="debt.html">Debt</a>
+        <a href="living.html">Living</a>
+        <a href="freelance.html">Freelance</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container living-page">
+    <section class="living-hero" aria-labelledby="living-hero-title">
+      <span class="label">Living Tools</span>
+      <h1 id="living-hero-title">Should You Rent or Buy? See the True Cost Over Time</h1>
+      <p class="lead living-hero-lead">Compare renting vs buying based on your income, location, and future plans—so you make the right financial decision.</p>
+    </section>
+
+    <section class="rvb-calculator-shell" aria-labelledby="rent-vs-buy-title" id="rent-vs-buy">
+      <h2 id="rent-vs-buy-title" class="rvb-section-title">Rent vs buy calculator</h2>
+      <p class="tool-subtitle">Enter your numbers below. We estimate cumulative costs and show how renting and buying stack up year by year.</p>
+
+      <form class="rvb-form" id="rent-buy-form" aria-label="Rent versus buy comparison">
+        <div class="rvb-split">
+          <div class="rvb-panel rvb-panel-rent">
+            <h3 class="rvb-panel-title">Rent inputs</h3>
+            <label class="form-field" for="monthly-rent">
+              <span>Monthly rent ($)</span>
+              <input type="number" id="monthly-rent" min="0" step="1" value="2400" required>
+            </label>
+            <label class="form-field" for="rent-increase">
+              <span>Annual rent increase (%)</span>
+              <input type="number" id="rent-increase" min="0" max="20" step="0.1" value="3" required>
+            </label>
+            <label class="form-field" for="renter-insurance">
+              <span>Renter’s insurance ($/year)</span>
+              <input type="number" id="renter-insurance" min="0" step="1" value="180" required>
+            </label>
+          </div>
+
+          <div class="rvb-panel rvb-panel-buy">
+            <h3 class="rvb-panel-title">Buy inputs</h3>
+            <label class="form-field" for="home-price">
+              <span>Home price ($)</span>
+              <input type="number" id="home-price" min="1" step="1" value="450000" required>
+            </label>
+            <label class="form-field" for="down-payment-pct">
+              <span>Down payment (%)</span>
+              <input type="number" id="down-payment-pct" min="0" max="100" step="0.5" value="20" required>
+            </label>
+            <label class="form-field" for="interest-rate">
+              <span>Interest rate (%)</span>
+              <input type="number" id="interest-rate" min="0" max="25" step="0.01" value="6.5" required>
+            </label>
+            <label class="form-field" for="loan-term">
+              <span>Loan term</span>
+              <select id="loan-term" required>
+                <option value="30" selected>30 years</option>
+                <option value="15">15 years</option>
+              </select>
+            </label>
+            <label class="form-field" for="property-tax-pct">
+              <span>Property tax (% of home value / year)</span>
+              <input type="number" id="property-tax-pct" min="0" max="10" step="0.01" value="1.1" required>
+            </label>
+            <div class="form-field">
+              <span>Maintenance</span>
+              <div class="rvb-inline-row">
+                <select id="maintenance-type" aria-label="Maintenance input type">
+                  <option value="pct">% of home value / year</option>
+                  <option value="usd">Fixed $ / year</option>
+                </select>
+                <input type="number" id="maintenance-value" min="0" step="0.1" value="1" aria-label="Maintenance value">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rvb-panel rvb-panel-global">
+          <h3 class="rvb-panel-title">Planning horizon &amp; assumptions</h3>
+          <div class="rvb-global-grid">
+            <label class="form-field" for="years-stay">
+              <span>Years you plan to stay</span>
+              <input type="number" id="years-stay" min="1" max="40" step="1" value="10" required>
+            </label>
+            <label class="form-field" for="appreciation">
+              <span>Expected home appreciation (% / year)</span>
+              <input type="number" id="appreciation" min="-10" max="20" step="0.1" value="3" required>
+            </label>
+            <label class="form-field" for="investment-return">
+              <span>Investment return on savings (% / year)</span>
+              <input type="number" id="investment-return" min="0" max="20" step="0.1" value="6" required>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn rvb-submit">Compare Rent vs Buy</button>
+      </form>
+
+      <div class="result-panel rvb-result" id="rent-buy-result" aria-live="polite"></div>
+    </section>
+
+    <section aria-labelledby="rvb-us-context" class="living-us-context">
+      <h2 id="rvb-us-context">Rent vs Buy in the US</h2>
+      <p class="living-us-lead">National figures move every quarter—these are typical ranges for planning and SEO context. Your city may be higher or lower; always plug in <strong>your</strong> rent, price, and rate above.</p>
+      <div class="living-us-grid">
+        <article class="living-us-card">
+          <h3>Average rent</h3>
+          <p class="living-us-stat">~$1,900–$2,200<span class="living-us-unit">/month median ask</span></p>
+          <p class="living-us-note">U.S. median asking rent often clusters in this band; coastal metros run higher, smaller markets lower.</p>
+        </article>
+        <article class="living-us-card">
+          <h3>Average home price</h3>
+          <p class="living-us-stat">~$400k–$430k<span class="living-us-unit">median sale</span></p>
+          <p class="living-us-note">Existing-home median varies by region; use local comps for real offers.</p>
+        </article>
+        <article class="living-us-card">
+          <h3>Typical mortgage rates</h3>
+          <p class="living-us-stat">~6%–7%<span class="living-us-unit">30-year fixed (APR)</span></p>
+          <p class="living-us-note">Rates change daily with markets and your credit profile—match the rate you can actually lock.</p>
+        </article>
+      </div>
+      <p class="note living-us-disclaimer">Illustrative ranges, not live quotes. Sources aggregate public housing and lending surveys; verify with lenders and listings.</p>
+    </section>
+
+    <section class="living-quick-guide-section" aria-labelledby="rvb-quick-guide-heading" id="quick-decision-guide">
+      <h2 id="rvb-quick-guide-heading">Quick decision guide</h2>
+      <div id="rvb-quick-guide-mount" class="rvb-quick-guide-mount" aria-live="polite">
+        <p class="rvb-guide-placeholder">Run the <strong>Rent vs buy calculator</strong> above and click <strong>Compare Rent vs Buy</strong>. Your personalized guide—stay length bands and which side wins on net cost—will appear here.</p>
+      </div>
+    </section>
+
+    <section class="living-seo-deep" aria-labelledby="living-seo-deep-title">
+      <h2 id="living-seo-deep-title" class="living-seo-deep-kicker">Rent vs buy in America</h2>
+      <p class="living-seo-deep-intro">Straight answers to the searches people run when deciding whether to rent or own—tie them to the calculator at the top of this page.</p>
+
+      <article class="living-seo-block" id="is-it-better-to-rent-or-buy">
+        <h2>Is it better to rent or buy a house?</h2>
+        <p>Neither choice is “better” everywhere: it depends on <strong>how long you’ll stay</strong>, <strong>local prices and rents</strong>, <strong>mortgage rate and taxes</strong>, and how much cash you can put down. Renting often wins for short horizons or maximum flexibility; buying can win when you stay long enough for equity and appreciation to offset closing costs and early interest-heavy payments.</p>
+        <p>Use our US rent vs buy calculator to plug in <em>your</em> rent, home price, rate, and years planned—then compare <strong>total cost of renting vs net cost of buying</strong> (including a fair guess at equity), not just the monthly payment.</p>
+      </article>
+
+      <article class="living-seo-block" id="when-does-buying-become-cheaper-than-renting">
+        <h2>When does buying become cheaper than renting?</h2>
+        <p>Buying typically becomes cheaper than renting on a <strong>net economic</strong> basis only after you’ve been in the home long enough for principal paydown and (expected) appreciation to outweigh the upfront costs of purchasing and the early years when interest makes up a large share of the mortgage payment.</p>
+        <p>That “break-even” year is different in every market and for every household. After you run the calculator, check the <strong>break-even point</strong> and year-by-year chart: they show when the buy path catches up under <strong>your</strong> assumptions—not national averages alone.</p>
+      </article>
+
+      <article class="living-seo-block" id="rent-vs-buy-calculator-us">
+        <h2>Rent vs buy calculator US</h2>
+        <p>Income Clarity’s calculator is built for U.S.-style assumptions: monthly rent with annual increases, a fixed-rate mortgage, property taxes as a share of value, maintenance, renter’s insurance, expected appreciation, and an optional return on savings (for the opportunity cost of your down payment). Results are estimates—actual taxes, insurance, HOA, and closing costs vary by state and lender.</p>
+        <p>If you’re comparing “rent vs buy calculator US” options online, prioritize tools that show <strong>cumulative cost over time</strong> and a <strong>clear break-even</strong>, not a single monthly payment snapshot. Scroll up to adjust inputs anytime; all sections below update after you click compare.</p>
+      </article>
+    </section>
+
+    <section class="living-faq-section" aria-labelledby="living-faq-title" id="rent-vs-buy-faq">
+      <h2 id="living-faq-title">Rent vs buy FAQ</h2>
+      <p class="living-faq-lead">Straight answers for common searches—pair these with the calculator above for numbers tailored to your situation.</p>
+      <div class="faq-stack">
+        <article class="faq-item">
+          <h3>Is renting a waste of money?</h3>
+          <p>Rent is not “thrown away”: it buys housing, flexibility, and often lower repair risk. Whether renting is a poor financial choice depends on your timeline, local prices, and opportunity cost of a down payment. Many households build wealth while renting by investing savings elsewhere; others come out ahead buying after a long enough stay. Use this page’s tool to compare <strong>total cost</strong> over your horizon, not slogans.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How long should you stay for buying to make sense?</h3>
+          <p>Buying usually needs enough years for equity buildup and (expected) appreciation to offset closing costs and early interest-heavy mortgage payments. In many U.S. markets that break-even falls around <strong>roughly 5–10 years</strong>, but it varies sharply by price, rate, taxes, rent growth, and how long you’ll actually stay. After you run the calculator, use the <strong>break-even point</strong> and chart—those reflect <em>your</em> inputs.</p>
+        </article>
+        <article class="faq-item">
+          <h3>What costs are hidden in buying?</h3>
+          <p>Beyond principal and interest, buyers often face <strong>closing costs</strong>, <strong>property taxes</strong>, <strong>homeowners insurance</strong>, <strong>maintenance and repairs</strong>, HOA fees in some buildings, and occasional large replacements (roof, HVAC). Opportunity cost matters too: cash tied up in a down payment could otherwise be invested. Our breakdown section lists taxes, maintenance, and mortgage interest explicitly—add mentally any fees your lender and locality charge at closing.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="interlink-section living-page-interlink" aria-labelledby="living-related-tools-title">
+      <h2 id="living-related-tools-title">Related tools</h2>
+      <p class="lead">After comparing rent vs buy, explore debt payoff and freelance vs employee take-home with Income Clarity.</p>
+      <div class="interlink-grid">
+        <a class="interlink-card" href="debt.html#payoff">
+          <h3>Credit card payoff tool</h3>
+          <p>Estimate payoff timelines and total interest on the <strong>Debt</strong> page—helpful when housing choices affect how much you can put toward balances.</p>
+          <span class="interlink-cta">Open credit card payoff tool</span>
+        </a>
+        <a class="interlink-card" href="freelance.html#freelance-calculator">
+          <h3>1099 vs W-2 take-home calculator</h3>
+          <p>Compare contractor and employee after-tax income on the <strong>Freelance</strong> page when your work or side income is 1099-style.</p>
+          <span class="interlink-cta">Open 1099 vs W-2 calculator</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Housing decisions are easier when affordability is visible.</p>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="income.html">Income Tools</a>
+        <a href="debt.html">Debt Tools</a>
+      </nav>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is renting a waste of money?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Rent is not thrown away: it pays for housing, flexibility, and often lower repair risk. Whether renting is a poor financial choice depends on your timeline, local prices, and opportunity cost of a down payment. Compare total cost over your horizon with a rent vs buy calculator."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long should you stay for buying to make sense?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Buying usually needs enough years for equity and expected appreciation to offset closing costs and early interest-heavy payments. Break-even often falls around roughly 5 to 10 years in many markets but varies by price, rate, taxes, and rent growth. Use a calculator break-even and chart with your own inputs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What costs are hidden in buying?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Beyond principal and interest, buyers face closing costs, property taxes, homeowners insurance, maintenance and repairs, possible HOA fees, and large replacements over time. Opportunity cost of a down payment also matters."
+        }
+      }
+    ]
+  }
+  </script>
+  <script src="living.js"></script>
+</body>
+</html>

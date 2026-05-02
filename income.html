@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Income Calculators | Hourly to Salary & Take-Home Pay | Income Clarity</title>
+  <meta name="description" content="Estimate annual salary from hourly wages and calculate your paycheck after tax with Income Clarity income tools.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://incomeclarity.com/income">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path === "/index.html") {
+        cleanPath = "/";
+      } else if (path.endsWith("/index.html")) {
+        cleanPath = path.slice(0, -10);
+      } else if (path.endsWith(".html")) {
+        cleanPath = path.slice(0, -5);
+      }
+      if (cleanPath !== path) {
+        window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">Income Clarity</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="income.html">Income</a>
+        <a href="debt.html">Debt</a>
+        <a href="living.html">Living</a>
+        <a href="freelance.html">Freelance</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container income-page">
+    <section class="intro-section">
+      <span class="label">Income Tools</span>
+      <h1>$X/hour → See Your Real Take-Home Pay After Taxes</h1>
+      <p class="lead">Instantly convert your hourly wage into yearly, monthly, and after-tax income—based on where you live.</p>
+    </section>
+
+    <section aria-label="Hourly salary calculator" id="hourly-salary-section">
+      <form class="inline-form" aria-label="Hourly to salary form" id="hourly-salary-form">
+        <input type="number" id="hourly-rate" placeholder="Hourly wage (for example, 25)" min="1" step="0.01" required>
+        <input type="number" id="hours-per-week" placeholder="Hours per week (for example, 40)" min="1" max="100" step="0.5" required>
+        <input id="state" list="state-list" placeholder="Type to search state (for example, Texas)" autocomplete="off" required>
+        <datalist id="state-list"></datalist>
+        <button type="submit">See my real income</button>
+      </form>
+      <div class="result-panel" id="hourly-salary-result" aria-live="polite"></div>
+    </section>
+
+    <section class="state-table-wrap" aria-label="Hourly to yearly salary examples">
+      <h2>“$15, $20, $30, $40 an hour is how much a year?"</h2>
+      <div class="seo-pay-blocks">
+        <article class="seo-pay-block">
+          <h3 class="seo-pay-block-title">$15/hour is how much a year?</h3>
+          <div class="seo-pay-block-answer" role="group" aria-label="Annual salary before tax">
+            <div class="seo-pay-equation">
+              <span class="seo-pay-rate">$15/hour</span>
+              <span class="seo-pay-equals" aria-hidden="true">=</span>
+              <span class="seo-pay-year-wrap">
+                <span class="seo-pay-year-amount">$31,200</span><span class="seo-pay-year-unit">/year</span>
+              </span>
+            </div>
+            <p class="seo-pay-tax-note">Before tax · full-time (40 hrs/week × 52 weeks)</p>
+          </div>
+          <p class="seo-pay-block-after-tax"><strong>After tax (US average):</strong> ~$2,050/month</p>
+          <div class="seo-pay-explainer">
+            <strong>Short explanation:</strong>
+            <p>"Working full-time at this rate is typically entry-level income in the US, so housing and local cost of living can have a big impact on savings."</p>
+          </div>
+        </article>
+        <article class="seo-pay-block">
+          <h3 class="seo-pay-block-title">$20/hour is how much a year?</h3>
+          <div class="seo-pay-block-answer" role="group" aria-label="Annual salary before tax">
+            <div class="seo-pay-equation">
+              <span class="seo-pay-rate">$20/hour</span>
+              <span class="seo-pay-equals" aria-hidden="true">=</span>
+              <span class="seo-pay-year-wrap">
+                <span class="seo-pay-year-amount">$41,600</span><span class="seo-pay-year-unit">/year</span>
+              </span>
+            </div>
+            <p class="seo-pay-tax-note">Before tax · full-time (40 hrs/week × 52 weeks)</p>
+          </div>
+          <p class="seo-pay-block-after-tax"><strong>After tax (US average):</strong> ~$2,650/month</p>
+          <div class="seo-pay-explainer">
+            <strong>Short explanation:</strong>
+            <p>"Working full-time at this rate is often lower-to-mid income in many US locations, with affordability depending heavily on state taxes and rent."</p>
+          </div>
+        </article>
+        <article class="seo-pay-block">
+          <h3 class="seo-pay-block-title">$30/hour is how much a year?</h3>
+          <div class="seo-pay-block-answer" role="group" aria-label="Annual salary before tax">
+            <div class="seo-pay-equation">
+              <span class="seo-pay-rate">$30/hour</span>
+              <span class="seo-pay-equals" aria-hidden="true">=</span>
+              <span class="seo-pay-year-wrap">
+                <span class="seo-pay-year-amount">$62,400</span><span class="seo-pay-year-unit">/year</span>
+              </span>
+            </div>
+            <p class="seo-pay-tax-note">Before tax · full-time (40 hrs/week × 52 weeks)</p>
+          </div>
+          <p class="seo-pay-block-after-tax"><strong>After tax (US average):</strong> ~$3,750/month</p>
+          <div class="seo-pay-explainer">
+            <strong>Short explanation:</strong>
+            <p>"Working full-time at this rate can support a solid middle-income lifestyle across many US regions, depending on taxes, debt, and housing costs."</p>
+          </div>
+        </article>
+        <article class="seo-pay-block">
+          <h3 class="seo-pay-block-title">$40/hour is how much a year?</h3>
+          <div class="seo-pay-block-answer" role="group" aria-label="Annual salary before tax">
+            <div class="seo-pay-equation">
+              <span class="seo-pay-rate">$40/hour</span>
+              <span class="seo-pay-equals" aria-hidden="true">=</span>
+              <span class="seo-pay-year-wrap">
+                <span class="seo-pay-year-amount">$83,200</span><span class="seo-pay-year-unit">/year</span>
+              </span>
+            </div>
+            <p class="seo-pay-tax-note">Before tax · full-time (40 hrs/week × 52 weeks)</p>
+          </div>
+          <p class="seo-pay-block-after-tax"><strong>After tax (US average):</strong> ~$4,850/month</p>
+          <div class="seo-pay-explainer">
+            <strong>Short explanation:</strong>
+            <p>"Working full-time at this rate is typically upper-mid income in many parts of the US, which can create stronger room for savings and investing."</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="state-table-wrap" id="state-tax-table-panel" aria-label="Tax by state in United States of America (estimated)"></section>
+
+    <section aria-label="Related calculators" class="interlink-section">
+      <h2>Related calculators</h2>
+      <p class="lead">Plan your full money picture with these tools after checking your take-home pay.</p>
+      <div class="interlink-grid">
+        <a class="interlink-card" href="living.html#rent-vs-buy">
+          <h3>Rent vs buy calculator</h3>
+          <p>Compare long-run rent vs buy costs and see break-even insights on the Living page.</p>
+          <span class="interlink-cta">Go to rent vs buy calculator</span>
+        </a>
+        <a class="interlink-card" href="debt.html">
+          <h3>Credit card payoff calculator</h3>
+          <p>Estimate payoff timeline and interest impact, then compare repayment options on the Debt page.</p>
+          <span class="interlink-cta">Go to Debt calculator</span>
+        </a>
+        <a class="interlink-card" href="freelance.html">
+          <h3>1099 vs W2 calculator</h3>
+          <p>Compare contractor vs employee take-home estimates and tax differences on the Freelance page.</p>
+          <span class="interlink-cta">Go to 1099 vs W2 calculator</span>
+        </a>
+      </div>
+    </section>
+
+    <section aria-labelledby="income-faqs">
+      <h2 id="income-faqs">Popular Income Questions (FAQ)</h2>
+      <div class="faq-stack">
+        <article class="faq-item" id="is-25-hour-good">
+          <h3>Is $25/hour good in the US?</h3>
+          <p>$25/hour can be solid in lower-cost areas, but affordability depends on taxes, rent, debt, and local prices. Use the calculator above to estimate your actual take-home first.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How much rent can you afford on $25/hour?</h3>
+          <p>A common guideline is to keep rent around 30% of monthly take-home pay. On $25/hour, your workable rent budget changes by state taxes and weekly hours worked.</p>
+        </article>
+        <article class="faq-item">
+          <h3>$30/hour is how much per year?</h3>
+          <p>At 40 hours per week, $30/hour is about $62,400 gross yearly before taxes.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How much do taxes take from hourly pay?</h3>
+          <p>Most workers see federal income tax, Social Security, Medicare, and state income tax withholding. The exact share changes by pay level and state.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Next step: compare income with debt and living costs.</p>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="debt.html">Debt Tools</a>
+        <a href="living.html">Living Tools</a>
+        <a href="freelance.html">Freelance Tools</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="income.js"></script>
+</body>
+</html>

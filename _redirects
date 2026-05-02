@@ -1,0 +1,10 @@
+/index.html    /             301!
+/income.html   /income       301!
+/debt.html     /debt         301!
+/living.html   /living       301!
+/freelance.html /freelance   301!
+
+/income        /income.html  200
+/debt          /debt.html    200
+/living        /living.html  200
+/freelance     /freelance.html 200

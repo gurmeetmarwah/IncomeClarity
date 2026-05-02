@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Credit Card Minimum Payment Calculator | Income Clarity</title>
+  <meta name="description" content="Use this credit card minimum payment calculator to estimate how long to pay off credit card minimum payment plans and how much interest you will pay over time.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://incomeclarity.com/debt">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path === "/index.html") {
+        cleanPath = "/";
+      } else if (path.endsWith("/index.html")) {
+        cleanPath = path.slice(0, -10);
+      } else if (path.endsWith(".html")) {
+        cleanPath = path.slice(0, -5);
+      }
+      if (cleanPath !== path) {
+        window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">Income Clarity</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="income.html">Income</a>
+        <a href="debt.html">Debt</a>
+        <a href="living.html">Living</a>
+        <a href="freelance.html">Freelance</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container debt-page">
+    <section class="debt-hero">
+      <span class="label">Debt Tools</span>
+      <h1>Credit Card Minimum Payment Calculator</h1>
+      <p class="lead">Find out how long to pay off credit card minimum payment balances, how much interest you will pay, and how debt changes year by year.</p>
+      <div class="debt-highlight-grid">
+        <article class="debt-highlight-card">
+          <h3>Debt payoff timeline</h3>
+          <p>Understand your debt-free date before making repayment decisions.</p>
+        </article>
+        <article class="debt-highlight-card">
+          <h3>Total interest cost</h3>
+          <p>See the real cost of carrying debt over time with your current minimum payment.</p>
+        </article>
+        <article class="debt-highlight-card">
+          <h3>Year-by-year visual table</h3>
+          <p>Track principal paid, interest paid, and remaining balance each year.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="payoff" class="debt-tool-shell">
+      <h2 id="payoff">Credit Card Payoff Tool</h2>
+      <p class="tool-subtitle">Enter your current debt details to get instant payoff years, interest paid, and an annual breakdown.</p>
+      <form class="inline-form debt-input-grid" aria-label="Credit card payoff form" id="payoff-form">
+        <label class="form-field" for="balance">
+          <span>Balance</span>
+          <input type="number" id="balance" placeholder="For example, 8500" min="1" step="1" required>
+        </label>
+        <label class="form-field" for="interest-rate">
+          <span>Interest rate (%)</span>
+          <input type="number" id="interest-rate" placeholder="For example, 24.9" min="0" max="99" step="0.1" required>
+        </label>
+        <label class="form-field" for="minimum-payment">
+          <span>Minimum payment</span>
+          <input type="number" id="minimum-payment" placeholder="For example, 250" min="1" step="1" required>
+        </label>
+        <button type="submit">Calculate My Payoff Time</button>
+      </form>
+      <div class="result-panel" id="payoff-result" aria-live="polite"></div>
+    </section>
+
+    <section aria-labelledby="how-long-payoff">
+      <h2 id="how-long-payoff">How long does it take to pay off credit card debt?</h2>
+      <p class="lead">The payoff timeline depends on three things: your starting balance, your interest rate, and how much you pay each month. For many people, minimum-only payments can stretch repayment over many years.</p>
+      <div class="faq-stack">
+        <article class="faq-item">
+          <h3>Minimum payments</h3>
+          <p>Minimum payments are often small compared to total balance, so debt reduces slowly. A large share of each payment can go toward interest first, leaving less to reduce principal.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Compounding interest</h3>
+          <p>Interest is charged repeatedly on remaining balance. As long as a balance remains, ongoing interest keeps adding to your total cost, especially with high APR cards.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Why it takes long</h3>
+          <p>Low monthly payments and high interest rates create a slow payoff curve. Early payments may mostly cover interest, so principal falls gradually and debt can last for years.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Why credit card debt grows fast</h3>
+          <p>Credit card debt can grow quickly when APR is high and payments are low. New purchases, fees, and revolving balances increase the amount that interest is charged on, so balances can rise faster than many borrowers expect.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How interest is calculated</h3>
+          <p>Most issuers convert APR into a daily or monthly rate and apply it to your outstanding balance. In simple terms, interest is charged repeatedly on what you still owe, so the longer the balance remains, the more cumulative interest you pay.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-label="Related calculators" class="interlink-section">
+      <h2>Related calculators</h2>
+      <p class="lead">Keep planning your money after using this credit card payoff calculator.</p>
+      <div class="interlink-grid">
+        <a class="interlink-card" href="income.html#hourly-salary-form">
+          <h3>Hourly to salary calculator</h3>
+          <p>Convert hourly wage to yearly salary and estimate take-home pay after taxes on the Income page.</p>
+          <span class="interlink-cta">Open hourly → salary calculator</span>
+        </a>
+        <a class="interlink-card" href="living.html#rent-vs-buy">
+          <h3>Rent vs buy calculator</h3>
+          <p>Compare housing costs over time and see whether renting or buying fits your plan.</p>
+          <span class="interlink-cta">Go to rent vs buy calculator</span>
+        </a>
+      </div>
+    </section>
+
+    <section aria-labelledby="credit-card-faqs">
+      <h2 id="credit-card-faqs">Credit Card Minimum Payment FAQ</h2>
+      <div class="faq-stack">
+        <article class="faq-item">
+          <h3>How is credit card minimum payment calculated?</h3>
+          <p>Most issuers use a formula based on your balance and APR—often around 1–3% of the statement balance plus that month’s interest and fees, or a flat floor (commonly about $25–$40) when the percentage would be lower. Your statement lists the exact minimum; it changes as your balance and rate change.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Does paying only minimum hurt your credit score?</h3>
+          <p>Paying at least the minimum on time helps your payment history. What can hurt scores is high credit utilization—using a large share of your limit—even if you pay the minimum. Lower balances relative to limits generally help scores more than minimum-only payments alone.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How to get out of credit card debt faster?</h3>
+          <p>Pay above the minimum whenever possible, prioritize highest APR cards first, and avoid adding new balances while paying down existing debt.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How long to pay off credit card minimum payment plans?</h3>
+          <p>With minimum-only payments, payoff can take many years depending on APR and balance. Use the calculator above to estimate your exact payoff timeline.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Minimum payment credit card 5000 balance: how much interest will I pay?</h3>
+          <p>On a $5,000 balance, total interest can become very high if you only pay the minimum. The exact amount depends on your APR and monthly payment amount.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How much interest will I pay on a credit card over time?</h3>
+          <p>Interest grows each month on the remaining balance. Higher APR and lower payments increase total interest, while larger monthly payments reduce long-term cost.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Debt becomes manageable when the numbers are clear.</p>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="income.html">Income Tools</a>
+        <a href="living.html">Living Tools</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="debt.js"></script>
+</body>
+</html>
