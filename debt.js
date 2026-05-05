@@ -162,6 +162,10 @@ payoffForm?.addEventListener("submit", (event) => {
       ${highInterestWarning}
       <div class="debt-result-kpis">
         <article class="debt-result-kpi">
+          <span>Monthly installment in this estimate</span>
+          <strong>${fmtUSD(payment)}</strong>
+        </article>
+        <article class="debt-result-kpi">
           <span>You’ll be in debt for</span>
           <strong>${payoffDuration}</strong>
         </article>

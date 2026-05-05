@@ -1,10 +1,25 @@
 /index.html    /             301!
-/income.html   /income       301!
-/debt.html     /debt         301!
-/living.html   /living       301!
-/freelance.html /freelance   301!
 
-/income        /income.html  200
-/debt          /debt.html    200
-/living        /living.html  200
-/freelance     /freelance.html 200
+# Legacy file names → new SEO URLs
+/income.html   /hourly-to-salary-after-tax       301!
+/debt.html     /credit-card-payoff-calculator    301!
+/living.html   /rent-vs-buy-calculator           301!
+/freelance.html /1099-vs-w2-calculator           301!
+
+# Legacy short URLs → new SEO URLs
+/income        /hourly-to-salary-after-tax       301!
+/debt          /credit-card-payoff-calculator    301!
+/living        /rent-vs-buy-calculator           301!
+/freelance     /1099-vs-w2-calculator            301!
+
+# Direct .html requests → canonical paths (avoid duplicate URLs)
+/hourly-to-salary-after-tax.html        /hourly-to-salary-after-tax       301!
+/credit-card-payoff-calculator.html     /credit-card-payoff-calculator    301!
+/rent-vs-buy-calculator.html            /rent-vs-buy-calculator           301!
+/1099-vs-w2-calculator.html             /1099-vs-w2-calculator            301!
+
+# Pretty URLs → static files
+/hourly-to-salary-after-tax        /hourly-to-salary-after-tax.html        200
+/credit-card-payoff-calculator     /credit-card-payoff-calculator.html     200
+/rent-vs-buy-calculator            /rent-vs-buy-calculator.html            200
+/1099-vs-w2-calculator             /1099-vs-w2-calculator.html             200
