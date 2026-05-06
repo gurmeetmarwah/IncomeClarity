@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Income Calculators | Hourly to Salary & Take-Home Pay | Income Clarity</title>
-  <meta name="description" content="Estimate annual salary from hourly wages and calculate your paycheck after tax with Income Clarity income tools.">
+  <title>US Hourly to Salary After Tax Calculator | Income Clarity</title>
+  <meta name="description" content="Free US hourly to salary calculator: convert hourly wage to annual salary and hourly to monthly salary after tax by state. Includes $15–$40/hour yearly benchmarks and FAQs for hourly to yearly salary.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://incomeclarity.com/hourly-to-salary-after-tax">
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script>
     (function () {
       const path = window.location.pathname;
@@ -42,24 +43,30 @@
     <section class="intro-section">
       <span class="label">Income Tools</span>
       <h1>$X/hour → See Your Real Take-Home Pay After Taxes</h1>
-      <p class="lead">Instantly convert your hourly wage into yearly, monthly, and after-tax income—based on where you live.</p>
+      <p class="lead">Built for US users only, instantly convert your hourly wage into yearly, monthly, and after-tax income by state.</p>
     </section>
 
     <section aria-label="Hourly salary calculator" id="hourly-salary-section">
       <form class="inline-form" aria-label="Hourly to salary form" id="hourly-salary-form">
-        <input type="number" id="hourly-rate" placeholder="Hourly wage (for example, 25)" min="1" step="0.01" required>
-        <input type="number" id="hours-per-week" placeholder="Hours per week (for example, 40)" min="1" max="100" step="0.5" required>
+        <input type="number" id="hourly-rate" placeholder="Hourly wage (for example, 25)" min="1" step="0.01" value="25" required>
+        <input type="number" id="hours-per-week" placeholder="Hours per week (for example, 40)" min="1" max="100" step="0.5" value="40" required>
         <input id="state" list="state-list" placeholder="Type to search state (for example, Texas)" autocomplete="off" required>
         <datalist id="state-list"></datalist>
         <button type="submit">See my real income</button>
       </form>
+      <p class="income-preview-hint">Before you submit, the calculator shows an example at <strong>$25/hour</strong>, <strong>40 hours/week</strong>, and <strong>U.S. average take-home</strong> (all states + D.C.). Add your wage and state for personalized numbers.</p>
       <div class="result-panel" id="hourly-salary-result" aria-live="polite"></div>
     </section>
 
-    <section class="state-table-wrap" aria-label="Hourly to yearly salary examples">
+    <aside class="income-context-nudge" aria-label="Housing cost planning">
+      <p class="income-context-nudge-text">Before planning your budget, <a href="rent-vs-buy-calculator.html#rent-vs-buy">calculate how much you’ll spend on housing</a>—rent versus buying over time, with break-even and full cost in view.</p>
+    </aside>
+
+    <section class="state-table-wrap hourly-benchmark-section" aria-label="Hourly to yearly salary examples" id="hourly-wage-yearly-guide">
       <h2>“$15, $20, $30, $40 an hour is how much a year?"</h2>
+      <p class="seo-pay-section-intro">If you are searching for an <strong>hourly to salary calculator</strong> mindset without doing math by hand, start by converting your <strong>hourly wage to annual salary</strong> using the standard full-time assumption: multiply your hourly rate by weekly hours, then multiply by 52 weeks. That gross figure is what employers often annualize from an hourly job posting. To <strong>convert hourly to yearly salary</strong> into something you can budget, you still need after-tax cash flow—which changes by filing status, deductions, and state. Our calculator above turns your inputs into estimated take-home pay by state. The cards below walk through common benchmarks—<strong>$15, $20, $30, and $40 per hour</strong>—with gross totals, rough monthly equivalents, and how to think about taxes before you compare rent, debt, or savings goals.</p>
       <div class="seo-pay-blocks">
-        <article class="seo-pay-block">
+        <article class="seo-pay-block" id="fifteen-per-hour-yearly">
           <h3 class="seo-pay-block-title">$15/hour is how much a year?</h3>
           <div class="seo-pay-block-answer" role="group" aria-label="Annual salary before tax">
             <div class="seo-pay-equation">
@@ -71,13 +78,20 @@
             </div>
             <p class="seo-pay-tax-note">Before tax · full-time (40 hrs/week × 52 weeks)</p>
           </div>
-          <p class="seo-pay-block-after-tax"><strong>After tax (US average):</strong> ~$2,050/month</p>
-          <div class="seo-pay-explainer">
-            <strong>Short explanation:</strong>
-            <p>"Working full-time at this rate is typically entry-level income in the US, so housing and local cost of living can have a big impact on savings."</p>
+          <p class="seo-pay-block-after-tax seo-pay-net-strip"><strong>After tax (US average):</strong> ~$2,050/month</p>
+          <div class="seo-pay-deep">
+            <p class="seo-pay-deep-label">Details</p>
+            <h4>Gross annual salary (before taxes)</h4>
+            <p>To <strong>convert hourly wage to annual salary</strong> at $15/hour on a 40-hour week, use <strong>$15 × 40 × 52 = $31,200 per year</strong> gross. That is the headline number job seekers compare when asking “how much a year” from an hourly rate.</p>
+            <h4>Hourly to monthly salary (gross)</h4>
+            <p>For a quick <strong>hourly to monthly salary</strong> view, divide the annual amount by 12: about <strong>$2,600/month gross</strong>. Biweekly pay is common in the US; with 26 pay periods, each check is roughly half of your monthly gross before deductions, depending on how payroll is configured.</p>
+            <h4>After taxes and real-world budgeting</h4>
+            <p>Take-home pay is lower once federal income tax, Social Security, Medicare, and state taxes apply. The ~$2,050/month after-tax figure shown here is an approximate national-average illustration—your state can move this materially. Use the <strong>hourly to salary calculator</strong> at the top of this page with your state to personalize it.</p>
+            <h4>Who this level often describes</h4>
+            <p>Many entry-level hourly roles cluster near this band. Housing costs and local prices matter more than the gross stat alone, which is why pairing this benchmark with an actual estimate beats relying on a single national average.</p>
           </div>
         </article>
-        <article class="seo-pay-block">
+        <article class="seo-pay-block" id="twenty-per-hour-yearly">
           <h3 class="seo-pay-block-title">$20/hour is how much a year?</h3>
           <div class="seo-pay-block-answer" role="group" aria-label="Annual salary before tax">
             <div class="seo-pay-equation">
@@ -89,13 +103,20 @@
             </div>
             <p class="seo-pay-tax-note">Before tax · full-time (40 hrs/week × 52 weeks)</p>
           </div>
-          <p class="seo-pay-block-after-tax"><strong>After tax (US average):</strong> ~$2,650/month</p>
-          <div class="seo-pay-explainer">
-            <strong>Short explanation:</strong>
-            <p>"Working full-time at this rate is often lower-to-mid income in many US locations, with affordability depending heavily on state taxes and rent."</p>
+          <p class="seo-pay-block-after-tax seo-pay-net-strip"><strong>After tax (US average):</strong> ~$2,650/month</p>
+          <div class="seo-pay-deep">
+            <p class="seo-pay-deep-label">Details</p>
+            <h4>Gross annual salary (before taxes)</h4>
+            <p>Using the same full-time schedule, <strong>$20/hour × 40 × 52 = $41,600</strong> gross per year. That is the straightforward answer when someone asks you to <strong>convert hourly to yearly salary</strong> from a posted wage.</p>
+            <h4>Hourly to monthly salary (gross)</h4>
+            <p>Dividing by 12 gives roughly <strong>$3,467/month gross</strong>. If you are comparing offers, also confirm expected weekly hours—overtime or uneven schedules will change the annualization.</p>
+            <h4>Take-home pay varies by state</h4>
+            <p>After-tax income still depends on withholding and state tax rules. The approximate ~$2,650/month average helps orient expectations, but plugging your location into our calculator answers “what hits my bank account” more accurately than a rule of thumb.</p>
+            <h4>Practical context</h4>
+            <p>This band often lands in lower-to-mid earnings for many metro areas. Debt payments, rent, and commuting costs determine whether the gross number feels comfortable—two households at $20/hour can have very different outcomes.</p>
           </div>
         </article>
-        <article class="seo-pay-block">
+        <article class="seo-pay-block" id="thirty-per-hour-yearly">
           <h3 class="seo-pay-block-title">$30/hour is how much a year?</h3>
           <div class="seo-pay-block-answer" role="group" aria-label="Annual salary before tax">
             <div class="seo-pay-equation">
@@ -107,13 +128,20 @@
             </div>
             <p class="seo-pay-tax-note">Before tax · full-time (40 hrs/week × 52 weeks)</p>
           </div>
-          <p class="seo-pay-block-after-tax"><strong>After tax (US average):</strong> ~$3,750/month</p>
-          <div class="seo-pay-explainer">
-            <strong>Short explanation:</strong>
-            <p>"Working full-time at this rate can support a solid middle-income lifestyle across many US regions, depending on taxes, debt, and housing costs."</p>
+          <p class="seo-pay-block-after-tax seo-pay-net-strip"><strong>After tax (US average):</strong> ~$3,750/month</p>
+          <div class="seo-pay-deep">
+            <p class="seo-pay-deep-label">Details</p>
+            <h4>Gross annual salary (before taxes)</h4>
+            <p>At $30/hour, full-time annual gross pay is <strong>$62,400</strong>. This is one of the most searched conversion levels because it sits near many skilled hourly and specialist roles—people frequently pair the phrase <strong>hourly wage to annual salary</strong> with this rate when evaluating offers.</p>
+            <h4>Hourly to monthly salary (gross)</h4>
+            <p><strong>Hourly to monthly salary</strong> gross is about <strong>$5,200/month</strong> (annual ÷ 12). If you are budgeting from biweekly checks, remember each pay period covers two weeks of hours, not half of a calendar month.</p>
+            <h4>Taxes and benefits</h4>
+            <p>Higher gross pay can push more income through marginal tax brackets, so average tax rates may rise compared with lower hourly tiers. Pretax benefits like health premiums or 401(k) contributions also change net pay even when gross stays constant.</p>
+            <h4>Lifestyle band (high level)</h4>
+            <p>In many regions, this gross level supports a middle-income household budget if housing stays within typical guidelines—but coastal rents or large debt loads can still squeeze cash flow, which is why after-tax estimates matter.</p>
           </div>
         </article>
-        <article class="seo-pay-block">
+        <article class="seo-pay-block" id="forty-per-hour-yearly">
           <h3 class="seo-pay-block-title">$40/hour is how much a year?</h3>
           <div class="seo-pay-block-answer" role="group" aria-label="Annual salary before tax">
             <div class="seo-pay-equation">
@@ -125,10 +153,17 @@
             </div>
             <p class="seo-pay-tax-note">Before tax · full-time (40 hrs/week × 52 weeks)</p>
           </div>
-          <p class="seo-pay-block-after-tax"><strong>After tax (US average):</strong> ~$4,850/month</p>
-          <div class="seo-pay-explainer">
-            <strong>Short explanation:</strong>
-            <p>"Working full-time at this rate is typically upper-mid income in many parts of the US, which can create stronger room for savings and investing."</p>
+          <p class="seo-pay-block-after-tax seo-pay-net-strip"><strong>After tax (US average):</strong> ~$4,850/month</p>
+          <div class="seo-pay-deep">
+            <p class="seo-pay-deep-label">Details</p>
+            <h4>Gross annual salary (before taxes)</h4>
+            <p>Full-time annual gross pay at $40/hour is <strong>$83,200</strong>. If your goal is simply to <strong>convert hourly to yearly salary</strong> for negotiation or loan paperwork, that gross annual figure is usually the right starting point.</p>
+            <h4>Hourly to monthly salary (gross)</h4>
+            <p>Dividing by 12 yields roughly <strong>$6,933/month gross</strong>. For financial planning, compare that to fixed costs first—housing, transportation, childcare—then layer savings and investing targets.</p>
+            <h4>Taxes at higher earnings</h4>
+            <p>As earnings rise, federal marginal rates and phaseouts can matter more for planning (even when headline averages look smooth). State taxes also widen the gap between similar hourly rates in different parts of the country.</p>
+            <h4>Why use the calculator anyway</h4>
+            <p>Benchmarks help, but your actual withholding and deductions determine cash flow. The interactive tool above is built to reflect US wage modeling so you can align “on paper pay” with “money I can spend.”</p>
           </div>
         </article>
       </div>
@@ -161,34 +196,148 @@
     <section aria-labelledby="income-faqs">
       <h2 id="income-faqs">Popular Income Questions (FAQ)</h2>
       <div class="faq-stack">
+        <article class="faq-item" id="faq-hourly-to-salary-calculator">
+          <h3>What is an hourly to salary calculator?</h3>
+          <p>An <strong>hourly to salary calculator</strong> converts your pay rate into yearly and monthly estimates—usually gross pay first, then take-home after taxes. Instead of manually multiplying hours by weeks, you enter your hourly rate, typical weekly hours, and location so federal and state withholding assumptions better match US paycheck patterns. It is most useful when comparing job offers, raises stated “per hour,” or freelance hourly quotes that you want to compare with salaried roles.</p>
+        </article>
+        <article class="faq-item" id="faq-hourly-wage-to-annual-salary">
+          <h3>How do I convert hourly wage to annual salary?</h3>
+          <p>To <strong>convert hourly wage to annual salary</strong>, multiply your hourly pay by the hours you work each week, then multiply by 52 weeks: <strong>annual gross ≈ hourly × weekly hours × 52</strong>. Full-time is often modeled as 40 hours per week. If your schedule varies, use your realistic average weekly hours so the annual figure reflects overtime or part-time work accurately.</p>
+        </article>
+        <article class="faq-item" id="faq-convert-hourly-to-monthly-salary">
+          <h3>How do I convert hourly to monthly salary?</h3>
+          <p>To <strong>convert hourly to monthly salary</strong> on a gross basis, first compute annual gross pay (hourly × weekly hours × 52), then divide by 12. That yields calendar-month gross income. If you are budgeting from paychecks, remember biweekly pay does not map cleanly onto calendar months—some months have three biweekly checks—which is why monthly gross from annualization is a planning shortcut, not always identical to cash hitting your account each calendar month.</p>
+        </article>
+        <article class="faq-item" id="faq-convert-hourly-to-yearly-formula">
+          <h3>What is the formula to convert hourly to yearly salary?</h3>
+          <p>The common US formula to <strong>convert hourly to yearly salary</strong> before taxes is: <strong>hourly rate × hours per week × 52 weeks</strong>. For example, $24/hour at 40 hours/week is $24 × 40 × 52 = $49,920 gross per year. After-tax income requires estimating withholdings—use the calculator on this page with your state for a closer net-pay figure.</p>
+        </article>
         <article class="faq-item" id="is-25-hour-good">
           <h3>Is $25/hour good in the US?</h3>
-          <p>$25/hour can be solid in lower-cost areas, but affordability depends on taxes, rent, debt, and local prices. Use the calculator above to estimate your actual take-home first.</p>
+          <p>$25/hour can be a healthy wage in lower-cost regions and tighter for high-rent metros once taxes and benefits are considered. “Good” depends on household size, debt, childcare, and savings goals—not only the gross rate. Use the tool above to estimate take-home pay in your state, then compare rent and fixed bills to see what remains for savings and discretionary spending.</p>
         </article>
-        <article class="faq-item">
+        <article class="faq-item" id="faq-rent-25-hour">
           <h3>How much rent can you afford on $25/hour?</h3>
-          <p>A common guideline is to keep rent around 30% of monthly take-home pay. On $25/hour, your workable rent budget changes by state taxes and weekly hours worked.</p>
+          <p>A common rule of thumb is to target rent near <strong>30% of monthly take-home pay</strong>, though real budgets often require trade-offs. Because taxes vary by state, two people earning $25/hour can afford different rent ceilings. Estimate net monthly income first with this page’s <strong>hourly to salary calculator</strong>, then multiply by 0.30 as a starting point and adjust for debt payments and savings targets.</p>
         </article>
-        <article class="faq-item">
+        <article class="faq-item" id="faq-thirty-hour-year">
           <h3>$30/hour is how much per year?</h3>
-          <p>At 40 hours per week, $30/hour is about $62,400 gross yearly before taxes.</p>
+          <p>At 40 hours per week, $30/hour equals about <strong>$62,400 gross per year</strong> before taxes ($30 × 40 × 52). Monthly gross is roughly $5,200 (annual ÷ 12). Net pay depends on withholding and state taxes—run your scenario above for an estimated after-tax monthly figure tailored to your location.</p>
         </article>
-        <article class="faq-item">
+        <article class="faq-item" id="faq-taxes-hourly-pay">
           <h3>How much do taxes take from hourly pay?</h3>
-          <p>Most workers see federal income tax, Social Security, Medicare, and state income tax withholding. The exact share changes by pay level and state.</p>
+          <p>Most US employees see federal income tax withholding, Social Security and Medicare (FICA), and often state income tax. Effective rates vary by income level and deductions; higher hourly rates may face higher marginal federal rates. Self-employed workers have different rules (for example, self-employment tax), which is why W-2 hourly modeling differs from 1099-style income—use specialized tools if you are contractor-paid.</p>
         </article>
       </div>
     </section>
   </main>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an hourly to salary calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An hourly to salary calculator converts your pay rate into yearly and monthly estimates—usually gross pay first, then take-home after taxes—using typical US withholding patterns by state."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I convert hourly wage to annual salary?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Multiply hourly pay by weekly hours, then multiply by 52 weeks: annual gross ≈ hourly × weekly hours × 52. Full-time is often modeled as 40 hours per week."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I convert hourly to monthly salary?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Compute annual gross (hourly × weekly hours × 52), then divide by 12 for calendar-month gross income. Biweekly payroll cycles do not always match calendar months."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the formula to convert hourly to yearly salary?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The common US formula before taxes is hourly rate × hours per week × 52 weeks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is $25/hour good in the US?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on location, household costs, and savings goals. Estimate take-home pay by state and compare rent and fixed bills to judge affordability."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much rent can you afford on $25/hour?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A common guideline targets rent near 30% of monthly take-home pay, but taxes vary by state so estimate net income first."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "$30/hour is how much per year?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "At 40 hours per week, $30/hour is about $62,400 gross per year before taxes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much do taxes take from hourly pay?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most employees pay federal withholding, Social Security and Medicare, and often state income tax; rates vary by income and deductions."
+        }
+      }
+    ]
+  }
+  </script>
+
   <footer class="site-footer">
-    <div class="container">
-      <p>Next step: compare income with debt and living costs.</p>
-      <nav class="footer-links" aria-label="Footer">
-        <a href="credit-card-payoff-calculator.html">Debt Tools</a>
-        <a href="rent-vs-buy-calculator.html">Living Tools</a>
-        <a href="1099-vs-w2-calculator.html">Freelance Tools</a>
-      </nav>
+    <div class="container footer-layout">
+      <p class="footer-description">US-only tools to calculate your real income after tax, understand debt, and make smarter financial decisions.</p>
+      <div class="footer-grid" role="navigation" aria-label="Footer">
+        <section class="footer-column" aria-labelledby="footer-popular-calculators">
+          <h2 id="footer-popular-calculators">Popular Calculators</h2>
+          <a href="hourly-to-salary-after-tax.html">Hourly to Salary After Tax</a>
+          <a href="credit-card-payoff-calculator.html">Credit Card Payoff Calculator</a>
+          <a href="rent-vs-buy-calculator.html">Rent vs Buy Calculator</a>
+          <a href="1099-vs-w2-calculator.html">1099 vs W2 Calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-tools-category">
+          <h2 id="footer-tools-category">Tools by Category</h2>
+          <a href="hourly-to-salary-after-tax.html">Income</a>
+          <a href="credit-card-payoff-calculator.html">Debt</a>
+          <a href="rent-vs-buy-calculator.html">Living</a>
+          <a href="1099-vs-w2-calculator.html">Freelance</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-explore-more">
+          <h2 id="footer-explore-more">Explore More</h2>
+          <a href="hourly-to-salary-after-tax.html#is-25-hour-good">$25 an hour after tax</a>
+          <a href="credit-card-payoff-calculator.html#how-long-payoff">How long to pay off credit card</a>
+          <a href="rent-vs-buy-calculator.html#quick-decision-guide">Rent vs buy guide</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-company">
+          <h2 id="footer-company">Company</h2>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+        </section>
+      </div>
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
     </div>
   </footer>
   <script src="income.js"></script>

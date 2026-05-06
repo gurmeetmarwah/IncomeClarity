@@ -8,6 +8,7 @@
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://incomeclarity.com/rent-vs-buy-calculator">
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script>
     (function () {
       const path = window.location.pathname;
@@ -42,7 +43,7 @@
     <section class="living-hero" aria-labelledby="living-hero-title">
       <span class="label">Living Tools</span>
       <h1 id="living-hero-title">Should You Rent or Buy? See the True Cost Over Time</h1>
-      <p class="lead living-hero-lead">Compare renting vs buying based on your income, location, and future plans—so you make the right financial decision.</p>
+      <p class="lead living-hero-lead">Built for US users only, compare renting vs buying based on your income, location, and future plans—so you make the right financial decision.</p>
     </section>
 
     <section class="rvb-calculator-shell" aria-labelledby="rent-vs-buy-title" id="rent-vs-buy">
@@ -107,17 +108,18 @@
 
         <div class="rvb-panel rvb-panel-global">
           <h3 class="rvb-panel-title">Planning horizon &amp; assumptions</h3>
+          <p class="rvb-assumption-help">Each field shows which side it affects: <span class="rvb-scope-pill rvb-scope-pill-rent">Rent</span>, <span class="rvb-scope-pill rvb-scope-pill-buy">Buy</span>, or <span class="rvb-scope-pill rvb-scope-pill-both">Both</span>.</p>
           <div class="rvb-global-grid">
             <label class="form-field" for="years-stay">
-              <span>Years you plan to stay</span>
+              <span>Years you plan to stay <em class="rvb-field-scope rvb-field-scope-both">Both</em></span>
               <input type="number" id="years-stay" min="1" max="40" step="1" value="10" required>
             </label>
             <label class="form-field" for="appreciation">
-              <span>Expected home appreciation (% / year)</span>
+              <span>Expected home appreciation (% / year) <em class="rvb-field-scope rvb-field-scope-buy">Buy</em></span>
               <input type="number" id="appreciation" min="-10" max="20" step="0.1" value="3" required>
             </label>
             <label class="form-field" for="investment-return">
-              <span>Investment return on savings (% / year)</span>
+              <span>Investment return on savings (% / year) <em class="rvb-field-scope rvb-field-scope-rent">Rent</em></span>
               <input type="number" id="investment-return" min="0" max="20" step="0.1" value="6" required>
             </label>
           </div>
@@ -127,36 +129,108 @@
       </form>
 
       <div class="result-panel rvb-result" id="rent-buy-result" aria-live="polite"></div>
-    </section>
 
-    <section aria-labelledby="rvb-us-context" class="living-us-context">
-      <h2 id="rvb-us-context">Rent vs Buy in the US</h2>
-      <p class="living-us-lead">National figures move every quarter—these are typical ranges for planning and SEO context. Your city may be higher or lower; always plug in <strong>your</strong> rent, price, and rate above.</p>
-      <div class="living-us-grid">
-        <article class="living-us-card">
-          <h3>Average rent</h3>
-          <p class="living-us-stat">~$1,900–$2,200<span class="living-us-unit">/month median ask</span></p>
-          <p class="living-us-note">U.S. median asking rent often clusters in this band; coastal metros run higher, smaller markets lower.</p>
-        </article>
-        <article class="living-us-card">
-          <h3>Average home price</h3>
-          <p class="living-us-stat">~$400k–$430k<span class="living-us-unit">median sale</span></p>
-          <p class="living-us-note">Existing-home median varies by region; use local comps for real offers.</p>
-        </article>
-        <article class="living-us-card">
-          <h3>Typical mortgage rates</h3>
-          <p class="living-us-stat">~6%–7%<span class="living-us-unit">30-year fixed (APR)</span></p>
-          <p class="living-us-note">Rates change daily with markets and your credit profile—match the rate you can actually lock.</p>
-        </article>
-      </div>
-      <p class="note living-us-disclaimer">Illustrative ranges, not live quotes. Sources aggregate public housing and lending surveys; verify with lenders and listings.</p>
-    </section>
+      <section id="rvb-typical-example" class="rvb-typical-example" aria-labelledby="rvb-typical-example-title">
+        <h2 id="rvb-typical-example-title">Rent vs Buy: A typical US example</h2>
+        <div class="rvb-typical-inputs">
+          <p><strong>Home price:</strong> $400,000</p>
+          <p><strong>Down payment:</strong> 20%</p>
+          <p><strong>Interest rate:</strong> 6.5%</p>
+          <p><strong>Rent:</strong> $2,000/month</p>
+          <p><strong>Time horizon:</strong> 7 years</p>
+        </div>
+        <div class="rvb-typical-results">
+          <article class="rvb-typical-result-card">
+            <span>Renting cost</span>
+            <strong>~$168,000</strong>
+          </article>
+          <article class="rvb-typical-result-card">
+            <span>Buying cost (net)</span>
+            <strong>~$155,000</strong>
+          </article>
+          <article class="rvb-typical-result-card rvb-typical-result-card--winner">
+            <span>Estimated advantage</span>
+            <strong>Buying saves ~$13,000</strong>
+          </article>
+        </div>
+        <p class="rvb-typical-insight">Insight: In this scenario, buying becomes cheaper after about 5-6 years.</p>
+      </section>
 
-    <section class="living-quick-guide-section" aria-labelledby="rvb-quick-guide-heading" id="quick-decision-guide">
-      <h2 id="rvb-quick-guide-heading">Quick decision guide</h2>
-      <div id="rvb-quick-guide-mount" class="rvb-quick-guide-mount" aria-live="polite">
-        <p class="rvb-guide-placeholder">Run the <strong>Rent vs buy calculator</strong> above and click <strong>Compare Rent vs Buy</strong>. Your personalized guide—stay length bands and which side wins on net cost—will appear here.</p>
-      </div>
+      <section class="rvb-when-rent-better" aria-labelledby="rvb-when-rent-better-title">
+        <h2 id="rvb-when-rent-better-title">When renting is better vs buying</h2>
+        <div class="rvb-when-grid">
+          <article class="rvb-when-card rvb-when-card-rent">
+            <h3>Scenario A (short-term)</h3>
+            <p><strong>Stay:</strong> 3 years</p>
+            <p><strong>Renting:</strong> cheaper</p>
+            <p><strong>Buying:</strong> loses money (closing costs + fees)</p>
+            <p class="rvb-when-line">If you stay less than 5 years, renting is often the better choice.</p>
+          </article>
+          <article class="rvb-when-card rvb-when-card-buy">
+            <h3>Scenario B (long-term)</h3>
+            <p><strong>Stay:</strong> 10 years</p>
+            <p><strong>Buying:</strong> wins</p>
+            <p><strong>Reason:</strong> equity builds over time</p>
+            <p class="rvb-when-line">Over longer periods, buying usually becomes more cost-effective.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="rvb-buy-cheaper-window" aria-labelledby="rvb-buy-cheaper-window-title">
+        <h2 id="rvb-buy-cheaper-window-title">When does buying become cheaper than renting?</h2>
+        <p>In most US markets, buying becomes cheaper after 5-7 years, depending on interest rates and rent growth.</p>
+      </section>
+
+      <section class="rvb-rate-impact" aria-labelledby="rvb-rate-impact-title">
+        <h2 id="rvb-rate-impact-title">How interest rates change the decision</h2>
+        <div class="rvb-rate-impact-grid">
+          <article class="rvb-rate-impact-card">
+            <h3>Rate goes down (-1%)</h3>
+            <p><strong>Interest rate:</strong> <span id="rvb-rate-lower-rate">5.5%</span></p>
+            <p><strong>Monthly mortgage:</strong> <span id="rvb-rate-lower-monthly">decreases</span></p>
+            <p><strong>Outcome:</strong> <span id="rvb-rate-lower-outcome">Buying becomes more attractive</span></p>
+            <p class="rvb-rate-impact-insight rvb-rate-impact-insight-good" id="rvb-rate-lower-insight">Insight: Lower rates reduce monthly payments and can bring break-even earlier.</p>
+          </article>
+          <article class="rvb-rate-impact-card">
+            <h3>Rate goes up (+1%)</h3>
+            <p><strong>Interest rate:</strong> <span id="rvb-rate-higher-rate">7.5%</span></p>
+            <p><strong>Monthly mortgage:</strong> <span id="rvb-rate-higher-monthly">increases</span></p>
+            <p><strong>Outcome:</strong> <span id="rvb-rate-higher-outcome">Buying becomes less attractive</span></p>
+            <p class="rvb-rate-impact-insight" id="rvb-rate-higher-insight">Insight: Higher interest rates delay the break-even point, making renting more attractive in the short term.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="rvb-down-payment-impact" aria-labelledby="rvb-down-payment-impact-title">
+        <h2 id="rvb-down-payment-impact-title">What if you put less money down?</h2>
+        <div class="rvb-down-payment-grid">
+          <article class="rvb-down-payment-card">
+            <h3>Less down payment (-5%)</h3>
+            <p><strong>Down payment:</strong> <span id="rvb-down-lower-value">15%</span></p>
+            <p><strong>Monthly cost:</strong> <span id="rvb-down-lower-monthly">higher</span></p>
+            <p><strong>Extra cost:</strong> <span id="rvb-down-lower-pmi">PMI added</span></p>
+            <p class="rvb-down-payment-insight" id="rvb-down-lower-insight">Insight: Lower down payments increase monthly costs and reduce the financial advantage of buying.</p>
+          </article>
+          <article class="rvb-down-payment-card">
+            <h3>More down payment (+5%)</h3>
+            <p><strong>Down payment:</strong> <span id="rvb-down-higher-value">25%</span></p>
+            <p><strong>Monthly cost:</strong> <span id="rvb-down-higher-monthly">lower</span></p>
+            <p><strong>Extra cost:</strong> <span id="rvb-down-higher-pmi">PMI usually not required</span></p>
+            <p class="rvb-down-payment-insight rvb-down-payment-insight-good" id="rvb-down-higher-insight">Insight: Higher down payments often lower monthly costs and can improve long-term buying economics.</p>
+          </article>
+        </div>
+      </section>
+
+      <aside class="rvb-scenario-note" aria-label="Scenario reminder">
+        <p><strong>These are typical scenarios. Your situation may be different.</strong> <a href="#rent-vs-buy">Compare your own rent vs buy numbers above.</a></p>
+      </aside>
+
+      <section class="rvb-income-affordability" aria-labelledby="rvb-income-affordability-title">
+        <h2 id="rvb-income-affordability-title">What can you afford based on income?</h2>
+        <p>With a $70,000 income, a typical home budget is around $250,000-$300,000 depending on debt and interest rates.</p>
+        <p class="rvb-income-affordability-nudge">Before locking in a home budget, estimate your monthly take-home pay with the <a href="hourly-to-salary-after-tax.html#hourly-salary-form">Income calculator</a>.</p>
+      </section>
+
     </section>
 
     <section class="living-seo-deep" aria-labelledby="living-seo-deep-title">
@@ -220,13 +294,38 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>Housing decisions are easier when affordability is visible.</p>
-      <nav class="footer-links" aria-label="Footer">
-        <a href="index.html">Home</a>
-        <a href="hourly-to-salary-after-tax.html">Income Tools</a>
-        <a href="credit-card-payoff-calculator.html">Debt Tools</a>
-      </nav>
+    <div class="container footer-layout">
+      <p class="footer-description">US-only tools to calculate your real income after tax, understand debt, and make smarter financial decisions.</p>
+      <div class="footer-grid" role="navigation" aria-label="Footer">
+        <section class="footer-column" aria-labelledby="footer-popular-calculators">
+          <h2 id="footer-popular-calculators">Popular Calculators</h2>
+          <a href="hourly-to-salary-after-tax.html">Hourly to Salary After Tax</a>
+          <a href="credit-card-payoff-calculator.html">Credit Card Payoff Calculator</a>
+          <a href="rent-vs-buy-calculator.html">Rent vs Buy Calculator</a>
+          <a href="1099-vs-w2-calculator.html">1099 vs W2 Calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-tools-category">
+          <h2 id="footer-tools-category">Tools by Category</h2>
+          <a href="hourly-to-salary-after-tax.html">Income</a>
+          <a href="credit-card-payoff-calculator.html">Debt</a>
+          <a href="rent-vs-buy-calculator.html">Living</a>
+          <a href="1099-vs-w2-calculator.html">Freelance</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-explore-more">
+          <h2 id="footer-explore-more">Explore More</h2>
+          <a href="hourly-to-salary-after-tax.html#is-25-hour-good">$25 an hour after tax</a>
+          <a href="credit-card-payoff-calculator.html#how-long-payoff">How long to pay off credit card</a>
+          <a href="rent-vs-buy-calculator.html#quick-decision-guide">Rent vs buy guide</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-company">
+          <h2 id="footer-company">Company</h2>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+        </section>
+      </div>
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
     </div>
   </footer>
   <script type="application/ld+json">

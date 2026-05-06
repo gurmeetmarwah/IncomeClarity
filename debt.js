@@ -85,9 +85,13 @@ function buildWhatIfScenarios(balance, apr, payment) {
 
 const payoffForm = document.getElementById("payoff-form");
 const payoffResult = document.getElementById("payoff-result");
+const payoffStaticScenarios = document.getElementById("payoff-static-scenarios");
 
 payoffForm?.addEventListener("submit", (event) => {
   event.preventDefault();
+  if (payoffStaticScenarios) {
+    payoffStaticScenarios.hidden = true;
+  }
   const balance = Number(document.getElementById("balance")?.value);
   const apr = Number(document.getElementById("interest-rate")?.value);
   const payment = Number(document.getElementById("minimum-payment")?.value);
@@ -186,4 +190,7 @@ payoffForm?.addEventListener("submit", (event) => {
       ${whatIfHtml}
     </div>
   `;
+
+  payoffResult.focus({ preventScroll: true });
+  payoffResult.scrollIntoView({ behavior: "smooth", block: "start" });
 });

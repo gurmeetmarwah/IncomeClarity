@@ -297,7 +297,7 @@ function buildQuickDecisionGuideHtml(inputs) {
 function buildBreakEvenSpotlight(breakEvenYear, yearsStay) {
   if (breakEvenYear === null) {
     return `<div class="rvb-break-even-spotlight rvb-break-even-spotlight--soft" role="status">
-      <p class="rvb-break-even-spotlight-lead">On a net-cost basis, <strong>renting stays ahead</strong> through your full <strong>${yearsStay}-year</strong> plan with these numbers. The lines show cumulative cash out—<strong>no orange break-even line</strong> because buying does not pull ahead in this window.</p>
+      <p class="rvb-break-even-spotlight-lead">On a net-cost basis, <strong>renting stays ahead</strong> through your full <strong>${yearsStay}-year</strong> plan with these numbers.</p>
     </div>`;
   }
   const isMilestone = breakEvenYear <= 2;
@@ -308,7 +308,7 @@ function buildBreakEvenSpotlight(breakEvenYear, yearsStay) {
   return `<div class="rvb-break-even-spotlight ${isMilestone ? "rvb-break-even-spotlight--milestone" : ""}" role="status">
     <div class="rvb-break-even-spotlight-badge">Break-even</div>
     <p class="rvb-break-even-spotlight-lead">${main}</p>
-    <p class="rvb-break-even-spotlight-note">The <strong>orange dashed line</strong> on the chart marks this year. Hover the dots to see rent vs buy totals at each year.</p>
+    <p class="rvb-break-even-spotlight-note">Think of this as the point where buying’s long-term equity finally offsets higher upfront cash out.</p>
   </div>`;
 }
 
@@ -416,6 +416,63 @@ function buildLineChart(rentSeries, buySeries, opts = {}) {
 
 const rentBuyForm = document.getElementById("rent-buy-form");
 const rentBuyResult = document.getElementById("rent-buy-result");
+const rvbRateLowerRate = document.getElementById("rvb-rate-lower-rate");
+const rvbRateLowerMonthly = document.getElementById("rvb-rate-lower-monthly");
+const rvbRateLowerOutcome = document.getElementById("rvb-rate-lower-outcome");
+const rvbRateLowerInsight = document.getElementById("rvb-rate-lower-insight");
+const rvbRateHigherRate = document.getElementById("rvb-rate-higher-rate");
+const rvbRateHigherMonthly = document.getElementById("rvb-rate-higher-monthly");
+const rvbRateHigherOutcome = document.getElementById("rvb-rate-higher-outcome");
+const rvbRateHigherInsight = document.getElementById("rvb-rate-higher-insight");
+const rvbDownLowerValue = document.getElementById("rvb-down-lower-value");
+const rvbDownLowerMonthly = document.getElementById("rvb-down-lower-monthly");
+const rvbDownLowerPmi = document.getElementById("rvb-down-lower-pmi");
+const rvbDownLowerInsight = document.getElementById("rvb-down-lower-insight");
+const rvbDownHigherValue = document.getElementById("rvb-down-higher-value");
+const rvbDownHigherMonthly = document.getElementById("rvb-down-higher-monthly");
+const rvbDownHigherPmi = document.getElementById("rvb-down-higher-pmi");
+const rvbDownHigherInsight = document.getElementById("rvb-down-higher-insight");
+
+function updateStaticDecisionCards(inputs) {
+  const baseDownPct = Math.min(100, Math.max(0, inputs.downPct));
+  const baseLoan = Math.max(inputs.homePrice * (1 - baseDownPct / 100), 0);
+
+  const lowerRate = Math.max(0, inputs.interestRate - 1);
+  const higherRate = Math.max(0, inputs.interestRate + 1);
+  const lowerRatePi = monthlyPI(baseLoan, lowerRate, inputs.loanTermYears);
+  const higherRatePi = monthlyPI(baseLoan, higherRate, inputs.loanTermYears);
+  const lowerRateSim = simulateRentVsBuy({ ...inputs, interestRate: lowerRate }, inputs.yearsStay);
+  const higherRateSim = simulateRentVsBuy({ ...inputs, interestRate: higherRate }, inputs.yearsStay);
+
+  if (rvbRateLowerRate) rvbRateLowerRate.textContent = `${lowerRate.toFixed(2).replace(/\.00$/, "")}%`;
+  if (rvbRateLowerMonthly) rvbRateLowerMonthly.textContent = `${money(lowerRatePi)}/month`;
+  if (rvbRateLowerOutcome) rvbRateLowerOutcome.textContent = lowerRateSim.buyingBetter ? "Buying tends to look stronger" : "Renting can still be competitive";
+  if (rvbRateLowerInsight) rvbRateLowerInsight.textContent = "Insight: Lower rates usually reduce monthly pressure and can move break-even earlier.";
+
+  if (rvbRateHigherRate) rvbRateHigherRate.textContent = `${higherRate.toFixed(2).replace(/\.00$/, "")}%`;
+  if (rvbRateHigherMonthly) rvbRateHigherMonthly.textContent = `${money(higherRatePi)}/month`;
+  if (rvbRateHigherOutcome) rvbRateHigherOutcome.textContent = higherRateSim.buyingBetter ? "Buying can still work, but margin narrows" : "Renting tends to look stronger";
+  if (rvbRateHigherInsight) rvbRateHigherInsight.textContent = "Insight: Higher rates often delay break-even, making renting more attractive in the short term.";
+
+  const lowerDownPct = Math.min(100, Math.max(0, baseDownPct - 5));
+  const higherDownPct = Math.min(100, Math.max(0, baseDownPct + 5));
+  const lowerDownLoan = Math.max(inputs.homePrice * (1 - lowerDownPct / 100), 0);
+  const higherDownLoan = Math.max(inputs.homePrice * (1 - higherDownPct / 100), 0);
+  const lowerDownPi = monthlyPI(lowerDownLoan, inputs.interestRate, inputs.loanTermYears);
+  const higherDownPi = monthlyPI(higherDownLoan, inputs.interestRate, inputs.loanTermYears);
+
+  if (rvbDownLowerValue) rvbDownLowerValue.textContent = `${lowerDownPct.toFixed(1).replace(/\.0$/, "")}%`;
+  if (rvbDownLowerMonthly) rvbDownLowerMonthly.textContent = `${money(lowerDownPi)}/month`;
+  if (rvbDownLowerPmi) rvbDownLowerPmi.textContent = lowerDownPct < 20 ? "PMI likely added (until ~20% equity)" : "PMI usually not required";
+  if (rvbDownLowerInsight) rvbDownLowerInsight.textContent = lowerDownPct < 20
+    ? "Insight: Lower down payments increase monthly costs and can reduce buying advantage."
+    : "Insight: Even with this lower down payment, PMI may be avoided at or above 20%.";
+
+  if (rvbDownHigherValue) rvbDownHigherValue.textContent = `${higherDownPct.toFixed(1).replace(/\.0$/, "")}%`;
+  if (rvbDownHigherMonthly) rvbDownHigherMonthly.textContent = `${money(higherDownPi)}/month`;
+  if (rvbDownHigherPmi) rvbDownHigherPmi.textContent = higherDownPct < 20 ? "PMI may still apply" : "PMI usually not required";
+  if (rvbDownHigherInsight) rvbDownHigherInsight.textContent = "Insight: Higher down payments usually lower monthly costs and improve buying economics over time.";
+}
 
 rentBuyForm?.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -443,13 +500,7 @@ rentBuyForm?.addEventListener("submit", (event) => {
   const breakEvenYear = findBreakEvenYear(inputs, inputs.yearsStay);
   const breakEvenEver = findBreakEvenYear(inputs, 40);
   const whatItMeansHtml = buildWhatItMeansHtml(inputs, r, breakEvenEver);
-  const quickGuideHtml = buildQuickDecisionGuideHtml(inputs);
-  const quickGuideMount = document.getElementById("rvb-quick-guide-mount");
-  if (quickGuideMount) {
-    quickGuideMount.innerHTML = quickGuideHtml;
-  }
-
-  const breakEvenSpotlightHtml = buildBreakEvenSpotlight(breakEvenYear, inputs.yearsStay);
+  updateStaticDecisionCards(inputs);
 
   const verdictMain = r.buyingBetter
     ? `Buying saves you ${money(r.margin)} over ${r.yearsStay} years`
@@ -458,74 +509,11 @@ rentBuyForm?.addEventListener("submit", (event) => {
   const verdictDetail =
     "Net comparison uses rent plus insurance (adjusted for investing your down payment at your assumed return), minus ending home equity from buying.";
 
-  const chartHtml = buildLineChart([0, ...r.cumulativeRentSeries], [0, ...r.cumulativeBuySeries], {
-    breakEvenYear
-  });
-
-  const stayShort = Math.min(3, Math.max(1, inputs.yearsStay));
-  const stayLong = Math.max(10, Math.min(30, inputs.yearsStay + 5));
-  const shortScenario = simulateRentVsBuy({ ...inputs, yearsStay: stayShort }, stayShort);
-  const longScenario = simulateRentVsBuy({ ...inputs, yearsStay: stayLong }, stayLong);
-  const rateUpScenario = simulateRentVsBuy(
-    { ...inputs, interestRate: inputs.interestRate + 1 },
-    inputs.yearsStay
-  );
-  const rentSpikeScenario = simulateRentVsBuy(
-    { ...inputs, rentIncrease: inputs.rentIncrease + 2 },
-    inputs.yearsStay
-  );
-
-  const rateUpWins = rateUpScenario.buyingBetter;
-  const sensitivityItems = [
-    {
-      label: "Mortgage rate is higher than you hoped",
-      text: `If your rate is about <strong>one point higher</strong> than you entered, the overall winner on net cost is still <strong>${rateUpWins ? "buying" : "renting"}</strong>—but monthly payments feel heavier, so it’s worth re-checking with a real quote.`
-    },
-    {
-      label: "You might move sooner—or stay much longer",
-      text: `At <strong>${stayShort} years</strong>, this model favors <strong>${shortScenario.buyingBetter ? "buying" : "renting"}</strong> on net cost. At <strong>${stayLong} years</strong>, it favors <strong>${longScenario.buyingBetter ? "buying" : "renting"}</strong>. Length of stay often moves the answer more than small tweaks to rates or rent growth.`
-    },
-    {
-      label: "Rent goes up faster than you assumed",
-      text: `If yearly rent increases run <strong>hotter</strong> than your estimate (about two extra percentage points), owning often looks relatively better because part of your housing cost is locked in. In your setup, that scenario still points to <strong>${rentSpikeScenario.buyingBetter ? "buying" : "renting"}</strong> on net cost—use it as a directional check, not a prediction.`
-    }
-  ];
-
-  const sensitivityHtml = sensitivityItems
-    .map(
-      (item) => `
-    <li class="rvb-whatif-item">
-      <strong>${item.label}</strong>
-      <p>${item.text}</p>
-    </li>`
-    )
-    .join("");
-
   rentBuyResult.innerHTML = `
     <div class="rvb-verdict">
       <p class="rvb-verdict-lead">${verdictMain}</p>
       <p class="rvb-verdict-sub">${verdictDetail}</p>
     </div>
-    <div class="rvb-kpi-grid">
-      <article class="rvb-kpi">
-        <span class="rvb-kpi-label">Total cost of renting</span>
-        <strong>${money(r.totalRentAndInsurance)}</strong>
-        <small>Rent + renter insurance over ${r.yearsStay} years (before investing-down-payment adjustment).</small>
-      </article>
-      <article class="rvb-kpi">
-        <span class="rvb-kpi-label">Total cost of buying (net)</span>
-        <strong>${money(r.netBuyCost)}</strong>
-        <small>Cash out for down payment, mortgage, taxes, and maintenance, minus estimated equity (${money(r.equityEnd)}) at ${r.yearsStay} years.</small>
-      </article>
-      <article class="rvb-kpi rvb-kpi-diff">
-        <span class="rvb-kpi-label">Net difference (economically)</span>
-        <strong>${money(Math.abs(r.netRentCost - r.netBuyCost))}</strong>
-        <small>Compares rent (adjusted for investing the down payment) vs net buy cost. Home value ≈ ${money(r.homeValueEnd)}; loan balance ≈ ${money(r.remainingLoan)}.</small>
-      </article>
-    </div>
-    <h3 class="rvb-chart-title">Cost over time</h3>
-    ${breakEvenSpotlightHtml}
-    ${chartHtml}
     <h2 class="rvb-prose-h2">Full cost breakdown</h2>
     <div class="rvb-breakdown-grid">
       <div class="rvb-breakdown-col">
@@ -557,15 +545,6 @@ rentBuyForm?.addEventListener("submit", (event) => {
         </dl>
       </div>
     </div>
-    <h2 class="rvb-prose-h2">What if things change?</h2>
-    <p class="rvb-whatif-intro">Quick gut-checks—not precise forecasts. Read them as “directionally what shifts,” then adjust inputs above and compare again.</p>
-    <ul class="rvb-whatif-list">
-      ${sensitivityHtml}
-    </ul>
-    <p class="rvb-whatif-examples">
-      <span class="rvb-whatif-examples-label">Try it yourself</span><br>
-      Nudge <strong>years you plan to stay</strong> or <strong>mortgage rate</strong> in the form above—the numbers refresh right away so you can compare a few “what if” stories without memorizing figures here.
-    </p>
     ${whatItMeansHtml}
     <p class="note rvb-note">Estimates only. Actual taxes, insurance, maintenance, rent increases, and appreciation vary by market. Not tax or legal advice.</p>
   `;

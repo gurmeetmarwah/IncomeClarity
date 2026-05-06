@@ -210,6 +210,168 @@ function getStateEffectiveRate(stateCode, annualGross) {
   return clamp(baseRate + adjustment, 0, 0.15);
 }
 
+/**
+ * Typical rent burden as % of take-home varies with local market costs.
+ * California and New York (and similar tiers) use wider/higher planning bands than the classic 25–35% rule.
+ */
+function getStateRentAffordabilityParams(stateCode) {
+  const veryHighCost = new Set(["CA", "NY"]);
+  const highCost = new Set([
+    "HI",
+    "DC",
+    "MA",
+    "NJ",
+    "WA",
+    "OR",
+    "MD",
+    "VA",
+    "CO",
+    "CT",
+    "IL"
+  ]);
+
+  if (veryHighCost.has(stateCode)) {
+    return {
+      tier: "very-high",
+      lowPct: 0.32,
+      highPct: 0.48,
+      suggestedPct: 0.38
+    };
+  }
+
+  if (highCost.has(stateCode)) {
+    return {
+      tier: "high",
+      lowPct: 0.27,
+      highPct: 0.42,
+      suggestedPct: 0.34
+    };
+  }
+
+  return {
+    tier: "typical",
+    lowPct: 0.25,
+    highPct: 0.35,
+    suggestedPct: 0.3
+  };
+}
+
+function formatPctRange(low, high) {
+  return `${Math.round(low * 100)}–${Math.round(high * 100)}%`;
+}
+
+/** Mean monthly take-home across every state + DC for the same gross (national-average baseline). */
+function getNationalAverageMonthlyNet(annualGross) {
+  const codes = Object.keys(stateTaxData);
+  if (codes.length === 0) {
+    return 0;
+  }
+  let sumAnnualNet = 0;
+  for (const code of codes) {
+    sumAnnualNet += estimateTaxes(annualGross, code).annualNet;
+  }
+  return sumAnnualNet / codes.length / 12;
+}
+
+const DEFAULT_PREVIEW_HOURLY = 25;
+const DEFAULT_PREVIEW_HOURS = 40;
+const NATIONAL_RENT_PARAMS = { tier: "typical", lowPct: 0.25, highPct: 0.35, suggestedPct: 0.3 };
+
+function buildRentAffordabilityPillarNote(
+  mode,
+  stateName,
+  rentParams,
+  rentBandLabel,
+  targetPctLabel,
+  suggestedRentMonthly,
+  suggestedRentYearly
+) {
+  if (mode === "national") {
+    return `Rent uses <strong>${rentBandLabel}</strong> of <strong>national-average take-home</strong> (mean of estimated net pay across all 50 states and D.C. at this wage). Common planning target <strong>${targetPctLabel}</strong>: ~${formatCurrency(
+      suggestedRentMonthly
+    )}/mo · ~${formatCurrency(suggestedRentYearly)}/yr. Submit your <strong>hourly rate, hours, and state</strong> above for localized rent tiers and take-home.`;
+  }
+
+  if (rentParams.tier === "very-high") {
+    return `<strong>${stateName}</strong> is treated as a <strong>very high-cost</strong> rental market—similar to how planners discuss <strong>California</strong> and <strong>New York</strong> metros where median asking rents often exceed a strict 30% rule. This rent range uses <strong>${rentBandLabel}</strong> of take-home (materially wider than the 25–35% band common in lower-cost states). A common planning anchor is about <strong>${targetPctLabel}</strong> of take-home: ~${formatCurrency(
+      suggestedRentMonthly
+    )}/mo · ~${formatCurrency(suggestedRentYearly)}/yr. Dollar amounts also reflect this state’s tax impact on net pay.`;
+  }
+
+  if (rentParams.tier === "high") {
+    return `For <strong>${stateName}</strong> we use a <strong>high-cost</strong> planning band of about <strong>${rentBandLabel}</strong> of take-home—higher than typical national guidelines. Many renters target near <strong>${targetPctLabel}</strong>: ~${formatCurrency(
+      suggestedRentMonthly
+    )}/mo · ~${formatCurrency(suggestedRentYearly)}/yr.`;
+  }
+
+  return `Typical band is about <strong>${rentBandLabel}</strong> of take-home. Many budgets target near <strong>${targetPctLabel}</strong> (~${formatCurrency(
+    suggestedRentMonthly
+  )}/mo · ~${formatCurrency(suggestedRentYearly)}/yr).`;
+}
+
+function buildAffordabilitySectionHtml({ mode, hourlyTitle, monthlyNet, annualGross, rentParams, stateName }) {
+  const rentRangeLow = monthlyNet * rentParams.lowPct;
+  const rentRangeHigh = monthlyNet * rentParams.highPct;
+  const suggestedRentMonthly = monthlyNet * rentParams.suggestedPct;
+  const suggestedRentYearly = suggestedRentMonthly * 12;
+  const rentBandLabel = formatPctRange(rentParams.lowPct, rentParams.highPct);
+  const targetPctLabel = `${Math.round(rentParams.suggestedPct * 100)}%`;
+
+  const rentAffordabilityNote = buildRentAffordabilityPillarNote(
+    mode,
+    stateName,
+    rentParams,
+    rentBandLabel,
+    targetPctLabel,
+    suggestedRentMonthly,
+    suggestedRentYearly
+  );
+
+  const averageSavingsRate = getAverageSavingsRate(annualGross);
+  const averageSavingsMonthly = monthlyNet * averageSavingsRate;
+  const averageSavingsYearly = averageSavingsMonthly * 12;
+  const goodLifestyleSavingsRate = 0.2;
+  const goodLifestyleSavingsMonthly = monthlyNet * goodLifestyleSavingsRate;
+  const goodLifestyleSavingsYearly = goodLifestyleSavingsMonthly * 12;
+  const savingsGapMonthly = goodLifestyleSavingsMonthly - averageSavingsMonthly;
+  const savingsGapYearly = goodLifestyleSavingsYearly - averageSavingsYearly;
+  const lifestyle = getLifestyleInsight(annualGross);
+
+  const h2Heading =
+    mode === "national"
+      ? `What can you afford on $${hourlyTitle}/hour?`
+      : `What can you afford on $${hourlyTitle}/hour in ${stateName}?`;
+
+  const previewBanner =
+    mode === "national"
+      ? `<p class="affordability-preview-lead"><span class="affordability-preview-badge">Example</span> $${hourlyTitle}/hr · 40 hrs/wk · <strong>U.S. average</strong> take-home (all states + D.C.) · typical <strong>25–35%</strong> rent band</p>`
+      : "";
+
+  return `
+    <section class="affordability-section${mode === "national" ? " affordability-section--preview" : ""}" aria-labelledby="affordability-heading">
+      ${previewBanner}
+      <h2 id="affordability-heading" class="affordability-h2">${h2Heading}</h2>
+      <div class="affordability-pillars">
+        <article class="affordability-pillar">
+          <h3 class="affordability-pillar-title">Rent range (${rentBandLabel} of take-home)</h3>
+          <p class="affordability-pillar-value">${formatCurrency(rentRangeLow)} – ${formatCurrency(rentRangeHigh)}<span class="affordability-unit">/month</span></p>
+          <p class="affordability-pillar-note">${rentAffordabilityNote}</p>
+        </article>
+        <article class="affordability-pillar">
+          <h3 class="affordability-pillar-title">Savings potential</h3>
+          <p class="affordability-pillar-value">${formatCurrency(averageSavingsMonthly)} – ${formatCurrency(goodLifestyleSavingsMonthly)}<span class="affordability-unit">/month</span></p>
+          <p class="affordability-pillar-note">From <strong>typical U.S. savings</strong> at this income (${(averageSavingsRate * 100).toFixed(0)}%) up to a <strong>20%</strong> savings goal. Closing that gap adds about <strong>${formatCurrency(savingsGapMonthly)}/mo</strong> (~${formatCurrency(savingsGapYearly)}/yr).</p>
+        </article>
+        <article class="affordability-pillar">
+          <h3 class="affordability-pillar-title">Lifestyle level</h3>
+          <p class="affordability-pillar-lifestyle">${lifestyle.title}</p>
+          <p class="affordability-pillar-note">${lifestyle.text}</p>
+        </article>
+      </div>
+    </section>
+  `;
+}
+
 function getAverageSavingsRate(annualGross) {
   if (annualGross < 40000) {
     return 0.05;
@@ -384,20 +546,18 @@ hourlySalaryForm?.addEventListener("submit", (event) => {
   const monthlyNet = annualNet / 12;
   const biweeklyNet = annualNet / 26;
   const weeklyNet = annualNet / 52;
-  const suggestedRentMonthly = monthlyNet * 0.3;
-  const suggestedRentYearly = suggestedRentMonthly * 12;
-  const averageSavingsRate = getAverageSavingsRate(annualGross);
-  const averageSavingsMonthly = monthlyNet * averageSavingsRate;
-  const averageSavingsYearly = averageSavingsMonthly * 12;
-  const goodLifestyleSavingsRate = 0.2;
-  const goodLifestyleSavingsMonthly = monthlyNet * goodLifestyleSavingsRate;
-  const goodLifestyleSavingsYearly = goodLifestyleSavingsMonthly * 12;
-  const savingsGapMonthly = goodLifestyleSavingsMonthly - averageSavingsMonthly;
-  const savingsGapYearly = goodLifestyleSavingsYearly - averageSavingsYearly;
-  const rentRangeLow = monthlyNet * 0.25;
-  const rentRangeHigh = monthlyNet * 0.35;
-  const lifestyle = getLifestyleInsight(annualGross);
+  const stateName = stateTaxData[stateCode]?.name || "your state";
+  const rentParams = getStateRentAffordabilityParams(stateCode);
   const hourlyTitle = formatHourlyForTitle(hourlyRate);
+
+  const affordabilitySectionHtml = buildAffordabilitySectionHtml({
+    mode: "state",
+    hourlyTitle,
+    monthlyNet,
+    annualGross,
+    rentParams,
+    stateName
+  });
 
   const annualGrossPct = 100;
   const federalPct = (federalTax / annualGross) * 100;
@@ -428,27 +588,7 @@ hourlySalaryForm?.addEventListener("submit", (event) => {
         <strong>${formatCurrency(weeklyNet)}</strong>
       </article>
     </div>
-    <section class="affordability-section" aria-labelledby="affordability-heading">
-      <h2 id="affordability-heading" class="affordability-h2">What can you afford on $${hourlyTitle}/hour?</h2>
-      <p class="affordability-lead">Planning snapshot from your estimated take-home—not a lease or loan qualification.</p>
-      <div class="affordability-pillars">
-        <article class="affordability-pillar">
-          <h3 class="affordability-pillar-title">Rent range</h3>
-          <p class="affordability-pillar-value">${formatCurrency(rentRangeLow)} – ${formatCurrency(rentRangeHigh)}<span class="affordability-unit">/month</span></p>
-          <p class="affordability-pillar-note">Typical band is about <strong>25–35%</strong> of take-home. Many budgets target near <strong>30%</strong> (~${formatCurrency(suggestedRentMonthly)}/mo · ~${formatCurrency(suggestedRentYearly)}/yr).</p>
-        </article>
-        <article class="affordability-pillar">
-          <h3 class="affordability-pillar-title">Savings potential</h3>
-          <p class="affordability-pillar-value">${formatCurrency(averageSavingsMonthly)} – ${formatCurrency(goodLifestyleSavingsMonthly)}<span class="affordability-unit">/month</span></p>
-          <p class="affordability-pillar-note">From <strong>typical U.S. savings</strong> at this income (${(averageSavingsRate * 100).toFixed(0)}%) up to a <strong>20%</strong> savings goal. Closing that gap adds about <strong>${formatCurrency(savingsGapMonthly)}/mo</strong> (~${formatCurrency(savingsGapYearly)}/yr).</p>
-        </article>
-        <article class="affordability-pillar">
-          <h3 class="affordability-pillar-title">Lifestyle level</h3>
-          <p class="affordability-pillar-lifestyle">${lifestyle.title}</p>
-          <p class="affordability-pillar-note">${lifestyle.text}</p>
-        </article>
-      </div>
-    </section>
+    ${affordabilitySectionHtml}
     <div class="tax-breakdown">
       <h3>Estimated tax and withholding breakdown (${stateTaxData[stateCode]?.name || "Selected state"})</h3>
       <p>Gross income: <strong>${formatCurrency(annualGross)}</strong> · Total withholding: <strong>${formatCurrency(totalTax)}</strong></p>
@@ -466,4 +606,21 @@ hourlySalaryForm?.addEventListener("submit", (event) => {
     <p class="note">Biweekly and weekly figures shown above are after-tax estimates.</p>
   `;
   renderStateTaxTable(annualGross, stateCode);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const resultEl = document.getElementById("hourly-salary-result");
+  if (!resultEl) {
+    return;
+  }
+  const annualGrossPreview = DEFAULT_PREVIEW_HOURLY * DEFAULT_PREVIEW_HOURS * 52;
+  const monthlyNetPreview = getNationalAverageMonthlyNet(annualGrossPreview);
+  resultEl.innerHTML = buildAffordabilitySectionHtml({
+    mode: "national",
+    hourlyTitle: formatHourlyForTitle(DEFAULT_PREVIEW_HOURLY),
+    monthlyNet: monthlyNetPreview,
+    annualGross: annualGrossPreview,
+    rentParams: NATIONAL_RENT_PARAMS,
+    stateName: ""
+  });
 });
