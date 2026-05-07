@@ -4529,6 +4529,7 @@ main.fl-page h2 {
   border: 1px solid #e2ecf5;
   border-radius: 14px;
   padding: clamp(1rem, 2.5vw, 1.4rem);
+  margin-top: 0;
 }
 
 .state-salary-kpis {
@@ -4575,6 +4576,10 @@ main.fl-page h2 {
   color: #5b4419;
   font-size: 0.95rem;
   line-height: 1.55;
+}
+
+.state-page-result .note {
+  margin: 0.65rem 0 0;
 }
 
 .state-page-section {
