@@ -27,3 +27,11 @@
 /contact                           /contact.html                           200
 /privacy-policy                    /privacy-policy.html                    200
 /terms                             /terms.html                             200
+
+# State pages (canonical with trailing slash)
+/hourly-to-salary-after-tax/state/california     /hourly-to-salary-after-tax/state/california/   301!
+/hourly-to-salary-after-tax/state/texas          /hourly-to-salary-after-tax/state/texas/        301!
+/hourly-to-salary-after-tax/state/florida        /hourly-to-salary-after-tax/state/florida/      301!
+/hourly-to-salary-after-tax/state/new-york       /hourly-to-salary-after-tax/state/new-york/     301!
+/hourly-to-salary-after-tax/state/washington     /hourly-to-salary-after-tax/state/washington/   301!
+/hourly-to-salary-after-tax/state/illinois       /hourly-to-salary-after-tax/state/illinois/     301!

@@ -971,6 +971,127 @@ section {
   border-top: 1px solid #d6e6f5;
 }
 
+.salary-by-state-section {
+  margin-top: 1.4rem;
+  padding: 1.05rem 1.05rem 1.1rem;
+  border: 1px solid #d6e6f5;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fbfdff 0%, #f5f9ff 100%);
+}
+
+.salary-by-state-section h2 {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.1rem, 2.4vw, 1.32rem);
+  color: #102a43;
+  line-height: 1.25;
+}
+
+.salary-by-state-intro {
+  margin: 0 0 0.85rem;
+  color: #486581;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.salary-by-state-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.6rem;
+}
+
+.salary-state-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid #d6e5f4;
+  border-radius: 12px;
+  padding: 0.72rem 0.78rem;
+  display: grid;
+  gap: 0.18rem;
+  box-shadow: 0 6px 14px rgba(16, 42, 67, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  /* When the card itself is an <a>, reset link styling */
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.salary-state-card:hover {
+  transform: translateY(-1px);
+  border-color: #b9d3ee;
+  box-shadow: 0 10px 20px rgba(16, 42, 67, 0.08);
+}
+
+.salary-state-card h3 {
+  margin: 0;
+  font-size: 0.98rem;
+  color: #1f3c58;
+}
+
+.salary-state-card-insight {
+  margin: 0;
+  font-size: 0.86rem;
+  color: #486581;
+  line-height: 1.4;
+}
+
+.salary-state-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.32rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #2d6a9f;
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.salary-state-card-link::after {
+  content: "→";
+  font-size: 0.85rem;
+  transition: transform 0.15s ease;
+}
+
+.salary-state-card:hover .salary-state-card-link {
+  color: #0f7b6c;
+  border-bottom-color: #0f7b6c;
+}
+
+.salary-state-card:hover .salary-state-card-link::after {
+  transform: translateX(2px);
+}
+
+.salary-state-card:focus-visible {
+  outline: 2px solid #2d6a9f;
+  outline-offset: 2px;
+}
+
+.salary-state-card--good {
+  border-color: #bde6da;
+  background: linear-gradient(180deg, #f3fffb 0%, #ffffff 100%);
+}
+
+.salary-state-card--good .salary-state-card-insight {
+  color: #2d5a52;
+  font-weight: 600;
+}
+
+.salary-state-card--neutral {
+  border-color: #cfdcef;
+  background: linear-gradient(180deg, #f7faff 0%, #ffffff 100%);
+}
+
+@media (max-width: 520px) {
+  .salary-by-state-section {
+    padding: 0.9rem;
+  }
+
+  .salary-by-state-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .seo-pay-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -4259,4 +4380,443 @@ main.fl-page h2 {
   max-width: 44rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* ==========================================================================
+   State pages (e.g. /hourly-to-salary-after-tax/state/california/)
+   ========================================================================== */
+.state-page {
+  display: grid;
+  gap: 2rem;
+  padding-bottom: 3rem;
+}
+
+.state-page h2 {
+  display: block;
+  margin: 0 0 0.85rem;
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  color: #102a43;
+  line-height: 1.25;
+}
+
+.state-page-hero {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f8fc 100%);
+  border: 1px solid #e2ecf5;
+  border-radius: 16px;
+  padding: clamp(1.4rem, 3vw, 2.1rem);
+  display: grid;
+  gap: 0.9rem;
+}
+
+.state-page-hero .label {
+  display: inline-block;
+  align-self: start;
+  background: #e6f1fb;
+  color: #1f5f93;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+}
+
+.state-page-hero h1 {
+  margin: 0;
+  font-size: clamp(1.65rem, 4vw, 2.2rem);
+  color: #0b2840;
+  line-height: 1.2;
+}
+
+.state-page-hero .lead {
+  margin: 0;
+  font-size: clamp(0.98rem, 2vw, 1.05rem);
+  color: #2d4862;
+  line-height: 1.55;
+  max-width: 44rem;
+}
+
+.state-page-facts {
+  list-style: none;
+  margin: 0.2rem 0 0.2rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.state-page-facts li {
+  background: #ffffff;
+  border: 1px solid #dde9f3;
+  border-radius: 999px;
+  padding: 0.32rem 0.75rem;
+  font-size: 0.84rem;
+  color: #2d4862;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  box-shadow: 0 1px 0 rgba(16, 42, 67, 0.04);
+}
+
+.state-page-fact-label {
+  color: #4a6783;
+  font-weight: 500;
+}
+
+.state-page-fact-value {
+  color: #0b2840;
+  font-weight: 700;
+}
+
+.state-page-fact-value--good {
+  color: #0a5f53;
+}
+
+.state-page-fact-value--warn {
+  color: #8a3c12;
+}
+
+.state-page-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: stretch;
+  margin-top: 0.4rem;
+}
+
+.state-page-form input[type="number"] {
+  flex: 1 1 12rem;
+  min-width: 10rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid #cfd8e3;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #ffffff;
+  color: #102a43;
+}
+
+.state-page-form input[type="number"]:focus {
+  outline: 2px solid #2d6a9f;
+  outline-offset: 1px;
+  border-color: #2d6a9f;
+}
+
+.state-page-form button {
+  flex: 1 1 14rem;
+  background: #0f7b6c;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  font-size: 0.98rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.state-page-form button:hover {
+  background: #0c655a;
+}
+
+.state-page-form-hint {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #486581;
+}
+
+.state-page-result {
+  background: #ffffff;
+  border: 1px solid #e2ecf5;
+  border-radius: 14px;
+  padding: clamp(1rem, 2.5vw, 1.4rem);
+}
+
+.state-salary-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.7rem;
+}
+
+.state-salary-kpi {
+  background: #f7fbfe;
+  border: 1px solid #dde9f3;
+  border-radius: 12px;
+  padding: 0.85rem 0.95rem;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.state-salary-kpi span {
+  font-size: 0.8rem;
+  color: #4a6783;
+  letter-spacing: 0.01em;
+}
+
+.state-salary-kpi strong {
+  font-size: 1.2rem;
+  color: #0b2840;
+}
+
+.state-salary-kpi--primary {
+  background: #ecf8f4;
+  border-color: #b8e6d8;
+}
+
+.state-salary-kpi--primary strong {
+  color: #0a5f53;
+}
+
+.state-salary-insight {
+  margin: 1rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  background: #fff8e8;
+  border: 1px solid #f5e0a8;
+  color: #5b4419;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.state-page-section {
+  background: #ffffff;
+  border: 1px solid #e2ecf5;
+  border-radius: 14px;
+  padding: clamp(1.1rem, 2.5vw, 1.6rem);
+}
+
+.state-page-section-lead {
+  margin: 0 0 1rem;
+  color: #486581;
+  font-size: 0.97rem;
+  line-height: 1.6;
+}
+
+.state-page-disclaimer {
+  margin: 1rem 0 0;
+  font-size: 0.82rem;
+  color: #6b7c93;
+  font-style: italic;
+}
+
+/* Common hourly wage cards */
+.state-page-wage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.85rem;
+}
+
+.state-page-wage-card {
+  background: #f7fbfe;
+  border: 1px solid #dde9f3;
+  border-radius: 12px;
+  padding: 1rem 1.05rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.state-page-wage-card h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #0b2840;
+  line-height: 1.3;
+}
+
+.state-page-wage-stats {
+  margin: 0;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.state-page-wage-stats > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  flex-wrap: wrap;
+}
+
+.state-page-wage-stats dt {
+  margin: 0;
+  color: #4a6783;
+}
+
+.state-page-wage-stats dd {
+  margin: 0;
+  color: #0a5f53;
+  font-weight: 700;
+  text-align: right;
+}
+
+.state-page-wage-note {
+  margin: 0.2rem 0 0;
+  font-size: 0.88rem;
+  color: #334e68;
+  line-height: 1.55;
+}
+
+/* Cost of living */
+.state-page-cost-grid,
+.state-page-tax-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 0.85rem;
+  margin-top: 0.6rem;
+}
+
+.state-page-cost-card,
+.state-page-tax-card {
+  background: #f7fbfe;
+  border: 1px solid #dde9f3;
+  border-radius: 12px;
+  padding: 0.95rem 1rem;
+}
+
+.state-page-cost-card h3,
+.state-page-tax-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 0.98rem;
+  color: #0b2840;
+}
+
+.state-page-cost-card p,
+.state-page-tax-card p {
+  margin: 0;
+  color: #334e68;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* Comparison table */
+.state-page-table-wrap {
+  overflow-x: auto;
+  margin-top: 0.6rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.state-page-compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  font-size: 0.92rem;
+  min-width: 32rem;
+}
+
+.state-page-compare-table thead th {
+  background: #f1f6fb;
+  color: #1f3c58;
+  text-align: left;
+  padding: 0.7rem 0.85rem;
+  border-bottom: 1px solid #dde9f3;
+  font-weight: 700;
+  font-size: 0.86rem;
+  letter-spacing: 0.02em;
+}
+
+.state-page-compare-table tbody th,
+.state-page-compare-table tbody td {
+  padding: 0.7rem 0.85rem;
+  border-bottom: 1px solid #edf2f7;
+  text-align: left;
+  vertical-align: top;
+}
+
+.state-page-compare-table tbody th {
+  font-weight: 700;
+  color: #0b2840;
+  width: 8rem;
+}
+
+.state-page-compare-table a {
+  color: #2d6a9f;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+}
+
+.state-page-compare-table a:hover {
+  color: #0f7b6c;
+  border-bottom-color: #0f7b6c;
+}
+
+/* Affordability section */
+.state-page-affordability p {
+  margin: 0 0 0.7rem;
+  color: #334e68;
+  line-height: 1.6;
+}
+
+.state-page-affordability p:last-child {
+  margin-bottom: 0;
+}
+
+.state-page-affordability-nudge {
+  background: #ecf8f4;
+  border: 1px solid #b8e6d8;
+  padding: 0.75rem 0.95rem;
+  border-radius: 10px;
+  font-size: 0.94rem;
+}
+
+.state-page-affordability-nudge a {
+  color: #0a5f53;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px dashed #0a5f53;
+}
+
+.state-page-affordability-nudge a:hover {
+  color: #0c655a;
+}
+
+/* FAQ */
+.state-page-faq .faq-stack {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.state-page-faq .faq-item {
+  background: #f7fbfe;
+  border: 1px solid #dde9f3;
+  border-radius: 12px;
+  padding: 0.95rem 1.05rem;
+}
+
+.state-page-faq .faq-item h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1rem;
+  color: #0a5f53;
+  line-height: 1.3;
+}
+
+.state-page-faq .faq-item p {
+  margin: 0;
+  color: #334e68;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* Internal links + state navigation */
+.state-page-internal-links .interlink-grid,
+.state-page-state-nav .salary-by-state-grid {
+  margin-top: 0.6rem;
+}
+
+@media (max-width: 640px) {
+  .state-page {
+    gap: 1.4rem;
+  }
+
+  .state-page-hero,
+  .state-page-section,
+  .state-page-result {
+    padding: 1.05rem 1rem;
+  }
+
+  .state-page-form button {
+    flex-basis: 100%;
+  }
+
+  .state-salary-kpi strong {
+    font-size: 1.1rem;
+  }
 }
