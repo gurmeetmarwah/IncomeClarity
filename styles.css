@@ -1744,6 +1744,114 @@ section {
   border-top: 1px solid #d6e6f5;
 }
 
+.debt-page .debt-guides-hub {
+  margin-top: 1.25rem;
+}
+
+.debt-guides-hub-lead {
+  margin: 0.35rem 0 0.85rem;
+  max-width: 52rem;
+  color: #486581;
+}
+
+.debt-stats-callout {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1.05rem 1.15rem;
+  border-radius: 12px;
+  border: 1px solid #cfe0f1;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f9fc 100%);
+  box-shadow: 0 6px 18px rgba(16, 42, 67, 0.06);
+}
+
+.debt-stats-callout-title {
+  margin: 0 0 0.65rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #102a43;
+}
+
+.debt-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  gap: 0.85rem;
+}
+
+.debt-stat-block {
+  padding: 0.55rem 0.45rem 0;
+  border-top: 3px solid #2d9cdb;
+}
+
+.debt-stat-value {
+  display: block;
+  font-size: clamp(1.2rem, 2.8vw, 1.45rem);
+  font-weight: 800;
+  color: #0b6bcb;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.debt-stat-label {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #627d98;
+}
+
+.debt-data-table-wrap {
+  margin: 1rem 0 1.25rem;
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid #e3edf7;
+}
+
+.debt-data-table {
+  width: 100%;
+  min-width: 280px;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.debt-data-table caption {
+  caption-side: top;
+  text-align: left;
+  padding: 0.65rem 0.85rem;
+  font-weight: 700;
+  color: #102a43;
+  background: #f0f6fc;
+  border-bottom: 1px solid #e3edf7;
+}
+
+.debt-data-table th,
+.debt-data-table td {
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #eef4fa;
+}
+
+.debt-data-table th {
+  background: #f8fbff;
+  color: #334e68;
+  font-weight: 600;
+}
+
+.debt-data-table tbody tr:last-child th,
+.debt-data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.debt-sources-list {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #627d98;
+}
+
+.debt-sources-list a {
+  font-weight: 600;
+}
+
 .interlink-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -2010,6 +2118,194 @@ section {
   line-height: 1.25;
 }
 
+.debt-minimum-edu-link {
+  margin: 0.65rem 0 0.85rem;
+  padding: 0.65rem 0.85rem;
+  max-width: 52rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #486581;
+  background: linear-gradient(180deg, #f0faf7 0%, #f7fbfe 100%);
+  border: 1px solid #c5e4dc;
+  border-radius: 10px;
+}
+
+.debt-minimum-edu-link a {
+  font-weight: 700;
+  color: var(--primary-dark);
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.15em;
+}
+
+.debt-minimum-edu-link a:hover {
+  color: var(--primary);
+}
+
+.debt-minimum-edu-hint {
+  font-weight: 400;
+  color: #627d98;
+}
+
+.debt-minimum-guide .debt-minimum-guide-back {
+  margin: 0 0 1rem;
+}
+
+.debt-minimum-guide-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--primary-dark);
+  text-decoration: none;
+}
+
+.debt-minimum-guide-back-link:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* Why paying minimum is bad — richer layout */
+.debt-minimum-pitfall .minimum-pitfall-kicker {
+  margin: 0 0 1rem;
+  padding: 0.55rem 0.95rem;
+  max-width: 52rem;
+  border-radius: 10px;
+  border-left: 4px solid #e12d39;
+  background: linear-gradient(90deg, rgba(225, 45, 57, 0.09), rgba(248, 251, 255, 0.5));
+  font-weight: 700;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  color: #102a43;
+}
+
+.debt-minimum-pitfall .minimum-pitfall-glance {
+  border-color: #c5e4dc;
+}
+
+.debt-minimum-pitfall .minimum-pitfall-stats {
+  margin-top: 0.5rem;
+}
+
+.debt-minimum-pitfall .minimum-pitfall-stats-lead {
+  margin: 0 0 0.75rem;
+  max-width: 52rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #627d98;
+}
+
+.debt-minimum-pitfall .minimum-pitfall-stats-foot {
+  margin: 0.85rem 0 0;
+  max-width: 52rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #486581;
+}
+
+.debt-minimum-pitfall .minimum-pitfall-stat-warn {
+  border-top-color: #e8590c;
+}
+
+.debt-minimum-pitfall .minimum-myth-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.debt-minimum-pitfall .minimum-myth-card {
+  position: relative;
+  padding: 1.05rem 1rem 1rem 1.15rem;
+  border-radius: 12px;
+  border: 1px solid #e3edf7;
+  background: linear-gradient(165deg, #ffffff 0%, #f8fbff 55%, #f0faf7 100%);
+  box-shadow: 0 8px 22px rgba(16, 42, 67, 0.06);
+}
+
+.debt-minimum-pitfall .minimum-myth-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-bottom: 0.45rem;
+  border-radius: 999px;
+  background: #0f7b6c;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.debt-minimum-pitfall .minimum-myth-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  color: #102a43;
+  line-height: 1.3;
+}
+
+.debt-minimum-pitfall .minimum-myth-feel {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #829ab1;
+  line-height: 1.45;
+}
+
+.debt-minimum-pitfall .minimum-myth-truth {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #334e68;
+}
+
+.debt-minimum-pitfall .minimum-split-visual {
+  margin: 1.25rem 0 1.15rem;
+  max-width: 42rem;
+}
+
+.debt-minimum-pitfall .minimum-split-bar {
+  display: flex;
+  height: 2.4rem;
+  overflow: hidden;
+  border-radius: 10px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #fff;
+  text-transform: uppercase;
+  box-shadow: inset 0 0 0 1px rgba(16, 42, 67, 0.08);
+}
+
+.debt-minimum-pitfall .minimum-split-interest {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #f59f00 0%, #e8590c 100%);
+  min-width: 2.75rem;
+}
+
+.debt-minimum-pitfall .minimum-split-principal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #37b24d 0%, #0f7b6c 100%);
+  min-width: 2.75rem;
+}
+
+.debt-minimum-pitfall .minimum-split-caption {
+  margin: 0.55rem 0 0;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: #627d98;
+}
+
+.debt-minimum-pitfall .minimum-action-list li + li {
+  margin-top: 0.45rem;
+}
+
 .debt-minimum-lead {
   margin: 0 0 0.85rem;
   max-width: 52rem;
@@ -2184,6 +2480,13 @@ section {
 .debt-result-kpi.interest-kpi {
   border-color: #f6cf8b;
   background: linear-gradient(180deg, #fffaf1 0%, #fff6e6 100%);
+}
+
+.debt-timeline-heading {
+  margin: 0.85rem 0 0.35rem;
+  font-size: clamp(1.05rem, 2vw, 1.22rem);
+  color: #102a43;
+  line-height: 1.25;
 }
 
 .debt-timeline-wrap {
@@ -3574,6 +3877,230 @@ section {
 
 .take-home-guide-toc a {
   font-weight: 600;
+}
+
+.take-home-guide-toc-external {
+  font-weight: 400;
+  font-size: 0.88em;
+  color: #829ab1;
+}
+
+.debt-guide-related {
+  margin: 1.15rem 0 0;
+  max-width: 52rem;
+}
+
+.debt-guide-related-inner {
+  margin: 0;
+  padding: 0.65rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid #e3edf7;
+  background: #f8fbff;
+}
+
+.debt-guide-related-inner-second {
+  margin-top: 0.55rem;
+}
+
+.interest-works-back-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+}
+
+.interest-works-back-sep {
+  color: #9fb3c8;
+  font-weight: 600;
+}
+
+/* How credit card interest works — diagrams */
+.debt-interest-works .interest-viz-figure {
+  margin: 1.15rem 0 1rem;
+  padding: 0;
+  border: none;
+}
+
+.debt-interest-works .interest-viz-caption {
+  margin: 0 0 0.55rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #334e68;
+}
+
+.debt-interest-works .interest-viz-note {
+  margin: 0.75rem 0 0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: #627d98;
+  max-width: 48rem;
+}
+
+.debt-interest-works .interest-viz-pipeline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 0.45rem 0.35rem;
+  padding: 1rem 0.85rem;
+  border-radius: 12px;
+  border: 1px solid #cfe0f1;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f9fc 100%);
+  box-shadow: 0 6px 18px rgba(16, 42, 67, 0.06);
+}
+
+.debt-interest-works .interest-viz-step {
+  flex: 1 1 140px;
+  min-width: 120px;
+  padding: 0.65rem 0.6rem;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #e3edf7;
+  text-align: center;
+}
+
+.debt-interest-works .interest-viz-step-mid {
+  border-color: #9fc4e8;
+  box-shadow: 0 2px 8px rgba(15, 123, 108, 0.12);
+}
+
+.debt-interest-works .interest-viz-step-label {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0b6bcb;
+  letter-spacing: -0.02em;
+}
+
+.debt-interest-works .interest-viz-step-detail {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: #627d98;
+}
+
+.debt-interest-works .interest-viz-arrow {
+  align-self: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #829ab1;
+  padding: 0 0.15rem;
+}
+
+.debt-interest-works .interest-viz-cycleboard {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.debt-interest-works .interest-viz-cycle-step {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  padding: 0.75rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid #e3edf7;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(16, 42, 67, 0.04);
+}
+
+.debt-interest-works .interest-viz-cycle-icon {
+  flex-shrink: 0;
+  width: 1.85rem;
+  height: 1.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #0f7b6c;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.debt-interest-works .interest-viz-cycle-step strong {
+  display: block;
+  color: #102a43;
+  margin-bottom: 0.15rem;
+}
+
+.debt-interest-works .interest-viz-cycle-step span:last-child {
+  font-size: 0.88rem;
+  color: #486581;
+  line-height: 1.45;
+}
+
+.debt-interest-works .interest-viz-fork {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.debt-interest-works .interest-viz-fork-path {
+  padding: 1rem 0.95rem;
+  border-radius: 12px;
+  border: 1px solid #e3edf7;
+}
+
+.debt-interest-works .interest-viz-fork-good {
+  background: linear-gradient(165deg, #f0faf7 0%, #ffffff 55%);
+  border-color: #8ce99a;
+}
+
+.debt-interest-works .interest-viz-fork-caution {
+  background: linear-gradient(165deg, #fff8f6 0%, #ffffff 55%);
+  border-color: #ffc9c9;
+}
+
+.debt-interest-works .interest-viz-fork-title {
+  display: block;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #102a43;
+  margin-bottom: 0.5rem;
+}
+
+.debt-interest-works .interest-viz-fork-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #334e68;
+}
+
+.debt-interest-works .interest-viz-splitbar {
+  display: flex;
+  height: 2.5rem;
+  overflow: hidden;
+  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #fff;
+  max-width: 42rem;
+  box-shadow: inset 0 0 0 1px rgba(16, 42, 67, 0.08);
+}
+
+.debt-interest-works .interest-viz-split-interest {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #f59f00 0%, #e8590c 100%);
+  min-width: 3rem;
+}
+
+.debt-interest-works .interest-viz-split-principal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #37b24d 0%, #0f7b6c 100%);
+  min-width: 3rem;
 }
 
 .take-home-guide-cta-wrap {

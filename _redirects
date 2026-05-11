@@ -15,12 +15,27 @@
 # Direct .html requests → canonical paths (avoid duplicate URLs)
 /hourly-to-salary-after-tax.html        /hourly-to-salary-after-tax       301!
 /credit-card-payoff-calculator.html     /credit-card-payoff-calculator    301!
+/why-paying-minimum-is-bad.html         /why-paying-minimum-is-bad       301!
+/what-is-credit-card-apr.html          /what-is-credit-card-apr         301!
+/average-credit-card-debt-by-income.html   /average-credit-card-debt-by-income   301!
+/how-much-credit-card-debt-is-normal.html  /how-much-credit-card-debt-is-normal  301!
+/how-credit-card-interest-works.html   /how-credit-card-interest-works   301!
 /rent-vs-buy-calculator.html            /rent-vs-buy-calculator           301!
 /1099-vs-w2-calculator.html             /1099-vs-w2-calculator            301!
 
 # Pretty URLs → static files
 /hourly-to-salary-after-tax        /hourly-to-salary-after-tax.html        200
 /credit-card-payoff-calculator     /credit-card-payoff-calculator.html     200
+/why-paying-minimum-is-bad/        /why-paying-minimum-is-bad              301!
+/why-paying-minimum-is-bad         /why-paying-minimum-is-bad.html         200
+/what-is-credit-card-apr/          /what-is-credit-card-apr               301!
+/what-is-credit-card-apr           /what-is-credit-card-apr.html          200
+/average-credit-card-debt-by-income/   /average-credit-card-debt-by-income    301!
+/average-credit-card-debt-by-income    /average-credit-card-debt-by-income.html  200
+/how-much-credit-card-debt-is-normal/  /how-much-credit-card-debt-is-normal  301!
+/how-much-credit-card-debt-is-normal     /how-much-credit-card-debt-is-normal.html 200
+/how-credit-card-interest-works/   /how-credit-card-interest-works      301!
+/how-credit-card-interest-works    /how-credit-card-interest-works.html  200
 /rent-vs-buy-calculator            /rent-vs-buy-calculator.html            200
 /1099-vs-w2-calculator             /1099-vs-w2-calculator.html             200
 /about                             /about.html                             200
