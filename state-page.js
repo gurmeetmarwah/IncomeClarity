@@ -93,7 +93,15 @@ function spStateInsightCopy(stateCode) {
   }
 }
 
-const spTakeHomeLearnLinkHtml = `<p class="take-home-edu"><a href="/what-is-take-home-pay.html">What is take home pay?</a></p>`;
+function spUrlToSiteGuide(filename) {
+  try {
+    return new URL(`../../../${filename}`, window.location.href).href;
+  } catch (_e) {
+    return filename;
+  }
+}
+
+const spTakeHomeLearnLinkHtml = `<p class="take-home-edu"><a href="${spUrlToSiteGuide("what-is-take-home-pay.html")}">What is take home pay?</a></p>`;
 
 const spStatePageRoot = document.querySelector("[data-state-page]");
 const spStateCode = spStatePageRoot?.dataset.stateCode || "CA";
