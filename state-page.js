@@ -93,6 +93,8 @@ function spStateInsightCopy(stateCode) {
   }
 }
 
+const spTakeHomeLearnLinkHtml = `<p class="take-home-edu"><a href="/what-is-take-home-pay.html">What is take home pay?</a></p>`;
+
 const spStatePageRoot = document.querySelector("[data-state-page]");
 const spStateCode = spStatePageRoot?.dataset.stateCode || "CA";
 const spStateName = SP_STATE_TAX_DATA[spStateCode]?.name || "your state";
@@ -103,7 +105,11 @@ function spRenderResult(annualGross) {
   if (!spResult) return;
   const tax = spEstimateTaxes(annualGross, spStateCode);
   const monthlyNet = tax.annualNet / 12;
+  const biweeklyNet = tax.annualNet / 26;
+  const weeklyNet = tax.annualNet / 52;
   const monthlyTakeHome = spFormatCurrency(monthlyNet);
+  const biweeklyTakeHome = spFormatCurrency(biweeklyNet);
+  const weeklyTakeHome = spFormatCurrency(weeklyNet);
   const yearlyGross = spFormatCurrency(annualGross);
   const yearlyNet = spFormatCurrency(tax.annualNet);
   const stateTaxStr = spFormatCurrency(tax.stateTax);
@@ -116,12 +122,20 @@ function spRenderResult(annualGross) {
         <strong>${yearlyGross}</strong>
       </article>
       <article class="state-salary-kpi state-salary-kpi--primary">
-        <span>Monthly take-home</span>
+        <span>Take home (yearly)</span>
+        <strong>${yearlyNet}</strong>
+      </article>
+      <article class="state-salary-kpi">
+        <span>Take home (monthly)</span>
         <strong>${monthlyTakeHome}</strong>
       </article>
       <article class="state-salary-kpi">
-        <span>Yearly take-home</span>
-        <strong>${yearlyNet}</strong>
+        <span>Take home (biweekly)</span>
+        <strong>${biweeklyTakeHome}</strong>
+      </article>
+      <article class="state-salary-kpi">
+        <span>Take home (weekly)</span>
+        <strong>${weeklyTakeHome}</strong>
       </article>
       <article class="state-salary-kpi">
         <span>Estimated ${spStateName} tax</span>
@@ -132,6 +146,7 @@ function spRenderResult(annualGross) {
         <strong>${federalTaxStr}</strong>
       </article>
     </div>
+    ${spTakeHomeLearnLinkHtml}
     <p class="state-salary-insight" role="note">${spStateInsightCopy(spStateCode)}</p>
     <p class="note">Estimate only—actual withholding can vary by filing status, deductions, and local taxes.</p>
   `;

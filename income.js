@@ -29,6 +29,10 @@ function formatHourlyForTitle(rate) {
   return Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(2).replace(/\.?0+$/, "");
 }
 
+function buildTakeHomePayLinkHtml() {
+  return `<p class="take-home-edu"><a href="what-is-take-home-pay.html">What is take home pay?</a></p>`;
+}
+
 function getLifestyleInsight(annualGross) {
   if (annualGross < 42000) {
     return {
@@ -572,22 +576,23 @@ hourlySalaryForm?.addEventListener("submit", (event) => {
         <strong>${formatCurrency(annualGross)}</strong>
       </article>
       <article class="kpi-card">
-        <span class="kpi-label">After-tax income (yearly)</span>
+        <span class="kpi-label">Take home (yearly)</span>
         <strong>${formatCurrency(annualNet)}</strong>
       </article>
       <article class="kpi-card">
-        <span class="kpi-label">Monthly income (after tax)</span>
+        <span class="kpi-label">Take home (monthly)</span>
         <strong>${formatCurrency(monthlyNet)}</strong>
       </article>
       <article class="kpi-card">
-        <span class="kpi-label">Biweekly income (after tax)</span>
+        <span class="kpi-label">Take home (biweekly)</span>
         <strong>${formatCurrency(biweeklyNet)}</strong>
       </article>
       <article class="kpi-card">
-        <span class="kpi-label">Weekly income (after tax)</span>
+        <span class="kpi-label">Take home (weekly)</span>
         <strong>${formatCurrency(weeklyNet)}</strong>
       </article>
     </div>
+    ${buildTakeHomePayLinkHtml()}
     ${affordabilitySectionHtml}
     <div class="tax-breakdown">
       <h3>Estimated tax and withholding breakdown (${stateTaxData[stateCode]?.name || "Selected state"})</h3>
@@ -598,12 +603,12 @@ hourlySalaryForm?.addEventListener("submit", (event) => {
         ${bar(`Social Security: ${formatCurrency(socialSecurityTax)} (${socialSecurityPct.toFixed(1)}%)`, socialSecurityPct, "viz-tax")}
         ${bar(`Medicare: ${formatCurrency(medicareTax)} (${medicarePct.toFixed(1)}%)`, medicarePct, "viz-tax")}
         ${bar(`State tax: ${formatCurrency(stateTax)} (${statePct.toFixed(1)}%)`, statePct, "viz-tax")}
-        ${bar(`Net pay: ${formatCurrency(annualNet)} (${netPct.toFixed(1)}%)`, netPct, "viz-takehome")}
+        ${bar(`Take home: ${formatCurrency(annualNet)} (${netPct.toFixed(1)}%)`, netPct, "viz-takehome")}
       </div>
     </div>
     <p class="note">This is an estimate for planning and may differ from actual payroll withholding.</p>
     <p class="note">State rates are modeled as effective withholding estimates with low/mid/high income-band calibration for closer cross-state comparisons.</p>
-    <p class="note">Biweekly and weekly figures shown above are after-tax estimates.</p>
+    <p class="note">Biweekly and weekly figures shown above are take-home estimates.</p>
   `;
   renderStateTaxTable(annualGross, stateCode);
 });
@@ -615,12 +620,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   const annualGrossPreview = DEFAULT_PREVIEW_HOURLY * DEFAULT_PREVIEW_HOURS * 52;
   const monthlyNetPreview = getNationalAverageMonthlyNet(annualGrossPreview);
-  resultEl.innerHTML = buildAffordabilitySectionHtml({
-    mode: "national",
-    hourlyTitle: formatHourlyForTitle(DEFAULT_PREVIEW_HOURLY),
-    monthlyNet: monthlyNetPreview,
-    annualGross: annualGrossPreview,
-    rentParams: NATIONAL_RENT_PARAMS,
-    stateName: ""
-  });
+  resultEl.innerHTML =
+    buildAffordabilitySectionHtml({
+      mode: "national",
+      hourlyTitle: formatHourlyForTitle(DEFAULT_PREVIEW_HOURLY),
+      monthlyNet: monthlyNetPreview,
+      annualGross: annualGrossPreview,
+      rentParams: NATIONAL_RENT_PARAMS,
+      stateName: ""
+    }) + buildTakeHomePayLinkHtml();
 });
