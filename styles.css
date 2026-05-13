@@ -2620,6 +2620,183 @@ section {
   max-width: 42rem;
 }
 
+.living-hero .rvb-rent-afford-nudge {
+  max-width: 46rem;
+}
+
+.live-alone-promo-lead {
+  margin: 0;
+  max-width: 46rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #334e68;
+}
+
+.live-alone-promo .take-home-guide-cta-wrap {
+  margin-top: 0.55rem;
+}
+
+.rvb-ca-promo {
+  border-color: #e5d3b6;
+  background: linear-gradient(180deg, #fffdf9 0%, #f7f2e8 100%);
+  box-shadow: 0 6px 18px rgba(90, 60, 20, 0.07);
+}
+
+.rvb-ca-promo-lead {
+  margin: 0 0 0.65rem;
+  max-width: 48rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #334e68;
+}
+
+.rvb-ca-promo .take-home-guide-cta-wrap {
+  margin-top: 0.45rem;
+}
+
+/* California vs Texas guide — tax section (visual-first) */
+.col-tx-dual-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0;
+}
+
+.col-tx-dual-cta .take-home-guide-cta {
+  margin: 0;
+}
+
+.col-tx-tax-section .col-tx-tax-lead {
+  max-width: 40rem;
+  margin: 0 0 1rem;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: #334e68;
+}
+
+.col-tx-tax-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.85rem;
+  margin: 1rem 0 0.75rem;
+}
+
+.col-tx-tax-card {
+  padding: 1rem 1rem 0.85rem;
+  border-radius: 12px;
+  border: 1px solid #e3edf7;
+  background: linear-gradient(165deg, #fbfdff 0%, #f4f9fc 100%);
+  box-shadow: 0 4px 14px rgba(16, 42, 67, 0.05);
+}
+
+.col-tx-tax-card-ca {
+  border-color: #ffc9c9;
+  background: linear-gradient(165deg, #fff8f6 0%, #ffffff 55%);
+}
+
+.col-tx-tax-card-tx {
+  border-color: #8ce99a;
+  background: linear-gradient(165deg, #f0faf7 0%, #ffffff 55%);
+}
+
+.col-tx-tax-card-kicker {
+  margin: 0 0 0.15rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #627d98;
+}
+
+.col-tx-tax-card-label {
+  margin: 0 0 0.65rem;
+  font-size: 0.82rem;
+  color: #486581;
+}
+
+.col-tx-tax-dl {
+  margin: 0;
+  padding: 0;
+}
+
+.col-tx-tax-dl > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  border-top: 1px solid rgba(16, 42, 67, 0.08);
+  font-size: 0.92rem;
+}
+
+.col-tx-tax-dl > div:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.col-tx-tax-dl dt {
+  margin: 0;
+  font-weight: 600;
+  color: #486581;
+}
+
+.col-tx-tax-dl dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: #102a43;
+}
+
+.col-tx-tax-net {
+  margin: 0.75rem 0 0;
+  padding-top: 0.65rem;
+  border-top: 2px solid rgba(15, 123, 108, 0.35);
+  font-size: 1.05rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.col-tx-tax-net-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #0f7b6c;
+}
+
+.col-tx-tax-gap-line {
+  margin: 0.65rem 0 1rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  background: #f8fbff;
+  border: 1px solid #d6e8f5;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: #334e68;
+}
+
+.col-tx-tax-footnote {
+  margin: 1rem 0 0.35rem;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: #627d98;
+  max-width: 44rem;
+}
+
+.col-tx-tax-bars {
+  margin-top: 0.35rem;
+}
+
+.col-tx-tax-table caption {
+  font-size: 0.82rem;
+}
+
+.col-tx-tax-section .col-tx-dual-cta {
+  margin-top: 0.65rem;
+}
+
 .living-page section {
   padding: 1.75rem 0;
 }

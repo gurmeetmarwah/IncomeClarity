@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How Much House Can I Afford? US Rules, Median Context &amp; Examples | Income Clarity</title>
+  <meta name="description" content="How much house can you afford in the US? Plain-English 28/36 rules, income-to-price context vs national medians, down payment and rate effects, visuals, and links to rent vs buy and after-tax tools—not a lender decision.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://incomeclarity.com/how-much-house-can-i-afford">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path === "/index.html") {
+        cleanPath = "/";
+      } else if (path.endsWith("/index.html")) {
+        cleanPath = path.slice(0, -10);
+      } else if (path.endsWith(".html")) {
+        cleanPath = path.slice(0, -5);
+      }
+      if (cleanPath !== path) {
+        window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How much house can I afford?",
+    "description": "US-focused explanation of mortgage affordability heuristics such as 28 and 36 percent rules, comparison to national median home price and income context, and borrower next steps.",
+    "author": { "@type": "Organization", "name": "IncomeClarityLab" },
+    "publisher": { "@type": "Organization", "name": "IncomeClarityLab" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://incomeclarity.com/how-much-house-can-i-afford" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to estimate how much house you can afford",
+    "description": "Start from gross income, apply common housing-debt ratios, adjust for down payment and interest rate, then compare to a personal sleep-at-night payment below lender maximums.",
+    "totalTime": "PT30M",
+    "step": [
+      { "@type": "HowToStep", "position": 1, "name": "Confirm gross monthly income", "text": "Use stable pre-tax income lenders will document, not side income you cannot prove." },
+      { "@type": "HowToStep", "position": 2, "name": "Apply the 28 percent housing test", "text": "Estimate principal, interest, taxes, and insurance as a share of gross monthly income." },
+      { "@type": "HowToStep", "position": 3, "name": "Apply the 36 percent total debt test", "text": "Add minimum payments on cars, cards, and student loans to housing to see if you stay near typical back-end limits." },
+      { "@type": "HowToStep", "position": 4, "name": "Layer down payment and rate", "text": "A larger down payment or lower rate raises the price that fits a fixed payment; the opposite shrinks it." },
+      { "@type": "HowToStep", "position": 5, "name": "Stress-test with a rent vs buy model", "text": "Use a calculator with your horizon, taxes, and maintenance to see if ownership fits cash flow beyond the mortgage." }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much house can I afford based on my salary?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Lenders often start with rules of thumb like roughly 28 percent of gross monthly income for housing payment PITI and roughly 36 percent for all monthly debt. The price you can afford also depends on down payment, interest rate, property taxes, insurance, HOA, and credit. A conservative personal budget may be lower than the lender maximum."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the 28/36 rule for buying a house?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The 28/36 rule is a common guideline: housing expenses around 28 percent of gross monthly income and total debt payments around 36 percent of gross monthly income. Exact underwriting standards vary by lender and loan program."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many times my salary should my house be?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A simple rule some buyers hear is roughly two and a half to three times gross annual income for the purchase price, but it breaks down when rates, taxes, or debts are high. Use payment-based math and lender ratios instead of multiples alone."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I use gross or net income for how much house I can afford?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mortgage underwriting usually focuses on gross income for ratio tests, but your household should also check take-home pay after taxes and savings goals so the payment feels sustainable month to month."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Rent vs buy calculator",
+        "item": "https://incomeclarity.com/rent-vs-buy-calculator"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Salary needed to live comfortably",
+        "item": "https://incomeclarity.com/salary-needed-to-live-comfortably"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How much house can I afford",
+        "item": "https://incomeclarity.com/how-much-house-can-i-afford"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">Income Clarity</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="hourly-to-salary-after-tax.html">Income</a>
+        <a href="credit-card-payoff-calculator.html">Debt</a>
+        <a href="rent-vs-buy-calculator.html">Living</a>
+        <a href="1099-vs-w2-calculator.html">Freelance</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content-page debt-interest-works">
+    <nav class="take-home-return-nav" aria-label="Breadcrumb">
+      <ol class="take-home-return-breadcrumbs">
+        <li><a href="rent-vs-buy-calculator.html">Rent vs buy calculator</a></li>
+        <li><a href="salary-needed-to-live-comfortably.html">Salary needed to live comfortably</a></li>
+        <li aria-current="page">How much house can I afford</li>
+      </ol>
+    </nav>
+
+    <p class="debt-minimum-guide-back">
+      <a class="debt-minimum-guide-back-link" href="salary-needed-to-live-comfortably.html">← Salary needed to live comfortably</a>
+    </p>
+
+    <article>
+      <header class="take-home-guide-header">
+        <span class="label">Living · Home buying</span>
+        <h1>How much house can I afford?</h1>
+        <p class="lead take-home-guide-lead">Lenders answer with <strong>ratios</strong>; your stomach answers with <strong>cash flow after taxes</strong>. This page explains the <strong>28/36 rules</strong> people actually hear at pre-approval, compares them to <strong>rough US median context</strong> (with links to official series), and shows <strong>side-by-side payment math</strong> you can re-run with <em>your</em> rate and taxes. It is <strong>education only</strong>—not a loan approval.</p>
+      </header>
+
+      <p class="state-salary-insight take-home-guide-at-a-glance" role="note"><strong>At a glance:</strong> If your household earns about <strong>$7,500/month before tax</strong> ($90,000/year), a common <strong>28% housing</strong> guideline points to about <strong>$2,100/month</strong> for <strong>PITI</strong> (principal, interest, taxes, insurance)—not the whole price of the house. Whether that supports a <strong>$350,000</strong> home or a <strong>$500,000</strong> home swings wildly with <strong>down payment, rate, property tax, and HOA</strong>. National <strong>median sale prices</strong> are published quarterly; many public charts land in the <strong>roughly $400,000-ish</strong> neighborhood in recent years—see <a href="#sources-house">sources</a> for the latest line, not a blog snapshot.</p>
+
+      <nav class="take-home-guide-toc" aria-label="On this page">
+        <h2 class="take-home-guide-toc-title">On this page</h2>
+        <ul>
+          <li><a href="#rules-2836">The 28% and 36% rules (simple)</a></li>
+          <li><a href="#us-context">US median context (income &amp; prices)</a></li>
+          <li><a href="#visual-flow">From income to payment (visual)</a></li>
+          <li><a href="#examples-table">Comparative examples at different incomes</a></li>
+          <li><a href="#down-rate">Down payment &amp; interest rate levers</a></li>
+          <li><a href="#lender-vs-you">Lender max vs “sleep at night”</a></li>
+          <li><a href="#next-house-tools">Next steps &amp; tools</a></li>
+          <li><a href="#faq-house">FAQ</a></li>
+          <li><a href="#sources-house">Sources</a></li>
+        </ul>
+      </nav>
+
+      <section id="rules-2836" aria-labelledby="rules-2836-title">
+        <h2 id="rules-2836-title">The 28% and 36% rules (what loan officers mention)</h2>
+        <p>These are <strong>guidelines</strong>, not laws—programs like FHA, VA, and jumbo loans have different overlays. They still help you decode “how did they get that number?”</p>
+        <div class="debt-stats-grid">
+          <div class="debt-stat-block">
+            <span class="debt-stat-value">~28%</span>
+            <span class="debt-stat-label"><strong>Front-end (housing):</strong> monthly <strong>PITI</strong> often compared to <strong>gross</strong> monthly income—roughly <strong>28%</strong> in classic teaching examples.</span>
+          </div>
+          <div class="debt-stat-block">
+            <span class="debt-stat-value">~36%</span>
+            <span class="debt-stat-label"><strong>Back-end (all debt):</strong> housing plus car, cards, student loans, etc.—often near <strong>36%</strong> of gross in the same textbook story.</span>
+          </div>
+          <div class="debt-stat-block">
+            <span class="debt-stat-value">2.5–3×</span>
+            <span class="debt-stat-label"><strong>Price multiple:</strong> some buyers hear <strong>2.5–3× gross annual income</strong> as a <em>very</em> rough price ceiling—useful only when rates and debts are “average.”</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="us-context" aria-labelledby="us-context-title">
+        <h2 id="us-context-title">US median context (why “national average” stories exist)</h2>
+        <p>Your offer depends on <strong>your</strong> city; medians help you see whether you are near typical US scale.</p>
+        <div class="debt-data-table-wrap">
+          <table class="debt-data-table">
+            <caption>Rough US benchmarks people compare against (figures move every quarter)</caption>
+            <thead>
+              <tr>
+                <th scope="col">Measure</th>
+                <th scope="col">Typical public range / idea</th>
+                <th scope="col">Why it matters for “how much house”</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Median household income</th>
+                <td>Often discussed around <strong>high $60,000s–$80,000s</strong> in recent Census-style releases (year-dependent).</td>
+                <td>Sets a <strong>gross income anchor</strong> for ratio math—many households earn above or below.</td>
+              </tr>
+              <tr>
+                <th scope="row">Median existing-home sale price</th>
+                <td>Many national series show <strong>mid–high $300,000s to $400,000s+</strong> in recent years before your local market adjustment.</td>
+                <td>Shows why a <strong>payment-first</strong> budget matters: the “typical” price is not affordable at every income without a large down payment or dual earners.</td>
+              </tr>
+              <tr>
+                <th scope="row">Your metro</th>
+                <td>Can be <strong>far above or below</strong> US medians.</td>
+                <td>Two people with the <strong>same salary</strong> qualify for different houses in Cleveland vs San Francisco because taxes, insurance, and prices diverge.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="interest-viz-note">Pull the <strong>current</strong> quarter from the sources below—do not treat any blog table as the live market.</p>
+      </section>
+
+      <section id="visual-flow" aria-labelledby="visual-flow-title">
+        <h2 id="visual-flow-title">From income to payment (one picture)</h2>
+        <figure class="interest-viz-figure" aria-labelledby="house-flow-caption">
+          <figcaption id="house-flow-caption" class="interest-viz-caption">How underwriters often <em>start</em> the conversation (simplified)</figcaption>
+          <div class="interest-viz-pipeline" role="presentation">
+            <div class="interest-viz-step">
+              <span class="interest-viz-step-label">Gross income</span>
+              <span class="interest-viz-step-detail">Monthly, documented</span>
+            </div>
+            <span class="interest-viz-arrow" aria-hidden="true">→</span>
+            <div class="interest-viz-step interest-viz-step-mid">
+              <span class="interest-viz-step-label">28% guideline</span>
+              <span class="interest-viz-step-detail">Housing payment ceiling</span>
+            </div>
+            <span class="interest-viz-arrow" aria-hidden="true">→</span>
+            <div class="interest-viz-step">
+              <span class="interest-viz-step-label">PITI budget</span>
+              <span class="interest-viz-step-detail">Maps to price via rate &amp; taxes</span>
+            </div>
+          </div>
+        </figure>
+
+        <figure class="interest-viz-figure" aria-labelledby="split-lender-caption">
+          <figcaption id="split-lender-caption" class="interest-viz-caption">Split your gross monthly dollar (illustrative)</figcaption>
+          <div class="interest-viz-splitbar" role="img" aria-label="Twenty eight percent housing guideline and seventy two percent everything else before other debts">
+            <span class="interest-viz-split-interest" style="flex: 28;">~28% housing guideline</span>
+            <span class="interest-viz-split-principal" style="flex: 72;">~72% taxes, life, savings, other (before 36% total debt test)</span>
+          </div>
+          <p class="interest-viz-note">Real life includes <strong>federal tax, FICA, 401(k)</strong>—so net cash feels tighter than 72% implies. That is why we link <a href="hourly-to-salary-after-tax.html#hourly-salary-form">take-home pay</a> from the <a href="salary-needed-to-live-comfortably.html">salary comfort guide</a>.</p>
+        </figure>
+      </section>
+
+      <section id="examples-table" aria-labelledby="examples-table-title">
+        <h2 id="examples-table-title">Comparative examples (28% of gross → payment budget)</h2>
+        <p>Multiply <strong>annual gross × 1/12</strong> to get monthly gross, then <strong>× 0.28</strong> for a textbook housing payment budget. <strong>Not a pre-approval.</strong></p>
+        <div class="debt-data-table-wrap">
+          <table class="debt-data-table">
+            <caption>Illustrative monthly PITI budgets from the 28% guideline</caption>
+            <thead>
+              <tr>
+                <th scope="col">Household gross (example)</th>
+                <th scope="col">Monthly gross</th>
+                <th scope="col">~28% PITI line</th>
+                <th scope="col">Rough 3× income price idea</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">$60,000 / yr</th>
+                <td>$5,000</td>
+                <td><strong>~$1,400</strong></td>
+                <td>~$180,000 purchase (very rough)</td>
+              </tr>
+              <tr>
+                <th scope="row">$90,000 / yr</th>
+                <td>$7,500</td>
+                <td><strong>~$2,100</strong></td>
+                <td>~$270,000 purchase (very rough)</td>
+              </tr>
+              <tr>
+                <th scope="row">$120,000 / yr</th>
+                <td>$10,000</td>
+                <td><strong>~$2,800</strong></td>
+                <td>~$360,000 purchase (very rough)</td>
+              </tr>
+              <tr>
+                <th scope="row">$150,000 / yr</th>
+                <td>$12,500</td>
+                <td><strong>~$3,500</strong></td>
+                <td>~$450,000 purchase (very rough)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="interest-viz-note">The “3× income” column is only a <strong>conversation shortcut</strong>. At <strong>7%–8%</strong> mortgage rates, the <strong>payment</strong> for a given price is higher than in the 3% era—so banks may approve less house for the same income unless you put more down.</p>
+      </section>
+
+      <section id="down-rate" aria-labelledby="down-rate-title">
+        <h2 id="down-rate-title">Down payment &amp; rate: two levers that move price</h2>
+        <div class="interest-viz-fork" role="presentation">
+          <div class="interest-viz-fork-path interest-viz-fork-good">
+            <span class="interest-viz-fork-title">More down / lower rate</span>
+            <ul class="interest-viz-fork-list">
+              <li>Smaller loan amount → <strong>lower principal &amp; interest</strong>.</li>
+              <li>May remove <strong>PMI</strong> near 20% equity—another monthly cost line.</li>
+            </ul>
+          </div>
+          <div class="interest-viz-fork-path interest-viz-fork-caution">
+            <span class="interest-viz-fork-title">Less down / higher rate</span>
+            <ul class="interest-viz-fork-list">
+              <li>Bigger loan + higher interest → <strong>payment eats the same 28% faster</strong>.</li>
+              <li>Same salary suddenly maps to a <strong>lower</strong> affordable price.</li>
+            </ul>
+          </div>
+        </div>
+        <p>Use the <a href="rent-vs-buy-calculator.html#rent-vs-buy">rent vs buy calculator</a> on Income Clarity to stress-test <strong>price, rate, taxes, and insurance</strong> together.</p>
+      </section>
+
+      <section id="lender-vs-you" aria-labelledby="lender-vs-you-title">
+        <h2 id="lender-vs-you-title">Lender maximum vs “sleep at night” payment</h2>
+        <p>Banks can approve you <strong>at the edge</strong> of ratios; families often choose <strong>5–15% under</strong> the ceiling to keep room for daycare, travel, or job change. If the 28% line feels tight on your <strong>actual take-home</strong>, treat the bank’s number as a <strong>ceiling</strong>, not a <strong>target</strong>.</p>
+      </section>
+
+      <section id="next-house-tools" aria-labelledby="next-house-tools-title">
+        <h2 id="next-house-tools-title">Next steps on Income Clarity</h2>
+        <ol>
+          <li><a href="rent-vs-buy-calculator.html#rent-vs-buy"><strong>Rent vs buy calculator</strong></a> — set price, rate, taxes, horizon.</li>
+          <li><a href="hourly-to-salary-after-tax.html#hourly-salary-form"><strong>After-tax income</strong></a> — reconcile gross ratios with net reality.</li>
+          <li><a href="salary-needed-to-live-comfortably.html"><strong>Salary needed to live comfortably</strong></a> — budget beyond the mortgage.</li>
+          <li><a href="how-much-rent-can-i-afford.html"><strong>How much rent can I afford</strong></a> — if you are still comparing leasing.</li>
+        </ol>
+        <p class="take-home-guide-cta-wrap">
+          <a class="take-home-guide-cta" href="rent-vs-buy-calculator.html#rent-vs-buy">Open rent vs buy calculator</a>
+        </p>
+      </section>
+
+      <section class="living-faq-section" id="faq-house" aria-labelledby="faq-house-title">
+        <h2 id="faq-house-title">Frequently asked questions</h2>
+        <div class="faq-stack">
+          <article class="faq-item">
+            <h3>How much house can I afford based on my salary?</h3>
+            <p>Start with <strong>gross monthly income</strong>, apply the <strong>~28% PITI</strong> idea and <strong>~36% total debt</strong> idea, then adjust for your <strong>down payment, rate, taxes, and insurance</strong>. Your lender’s underwriting system will produce the real limit.</p>
+          </article>
+          <article class="faq-item">
+            <h3>What is the 28/36 rule?</h3>
+            <p><strong>28%</strong> of gross for housing (PITI) and <strong>36%</strong> of gross for all required debt payments—classic teaching numbers that many buyers still hear in simplified form.</p>
+          </article>
+          <article class="faq-item">
+            <h3>How many times my salary should my house be?</h3>
+            <p><strong>2.5–3× gross</strong> is a napkin check. High rates or other debts mean you should lean on <strong>payment math</strong> and lender ratios instead.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Should I use gross or net income?</h3>
+            <p><strong>Gross</strong> drives most ratio tests; <strong>net</strong> drives whether you enjoy homeownership. Check both.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="sources-house" aria-labelledby="sources-house-title">
+        <h2 id="sources-house-title">Sources (refresh numbers here)</h2>
+        <ul class="debt-sources-list">
+          <li><a href="https://fred.stlouisfed.org/series/MSPUS">Federal Reserve Economic Data (FRED), Median Sales Price of Houses Sold for the United States</a> — quarterly median sale prices.</li>
+          <li><a href="https://www.census.gov/topics/income-poverty/income.html">U.S. Census Bureau, income topics</a> — median household income releases and methodology.</li>
+          <li>Consumer-facing overviews of housing affordability (e.g., CFPB / HUD materials) for vocabulary like PITI and DTI—search current pages from those agencies.</li>
+        </ul>
+      </section>
+
+      <footer class="take-home-guide-disclaimer">
+        <p class="note">Educational content for US readers only, not mortgage, tax, or legal advice. Ratios and medians change; lenders use full underwriting files. Verify every number with a licensed loan officer and your actual Loan Estimate.</p>
+      </footer>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-description">US-only tools to calculate your real income after tax, understand debt, and make smarter financial decisions.</p>
+      <div class="footer-grid" role="navigation" aria-label="Footer">
+        <section class="footer-column" aria-labelledby="footer-popular-calculators">
+          <h2 id="footer-popular-calculators">Popular Calculators</h2>
+          <a href="hourly-to-salary-after-tax.html">Hourly to Salary After Tax</a>
+          <a href="credit-card-payoff-calculator.html">Credit Card Payoff Calculator</a>
+          <a href="rent-vs-buy-calculator.html">Rent vs Buy Calculator</a>
+          <a href="1099-vs-w2-calculator.html">1099 vs W2 Calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-tools-category">
+          <h2 id="footer-tools-category">Tools by Category</h2>
+          <a href="hourly-to-salary-after-tax.html">Income</a>
+          <a href="credit-card-payoff-calculator.html">Debt</a>
+          <a href="rent-vs-buy-calculator.html">Living</a>
+          <a href="1099-vs-w2-calculator.html">Freelance</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-explore-more">
+          <h2 id="footer-explore-more">Explore More</h2>
+          <a href="salary-needed-to-live-comfortably.html">Salary needed to live comfortably</a>
+          <a href="how-much-rent-can-i-afford.html">How much rent can I afford</a>
+          <a href="cost-of-living-california-vs-texas.html">Cost of living: California vs Texas</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-company">
+          <h2 id="footer-company">Company</h2>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+        </section>
+      </div>
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
+</body>
+</html>
