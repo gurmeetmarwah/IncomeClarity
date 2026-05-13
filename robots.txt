@@ -1,4 +1,12 @@
+# robots.txt — Income Clarity (https://incomeclarity.com/)
+# Purpose: tell crawlers the whole public site may be fetched; point to the XML sitemap.
+# After deploy, submit the Sitemap URL in Google Search Console and Bing Webmaster Tools.
+
 User-agent: *
 Allow: /
 
+# Optional: uncomment if you later add a non-public area (e.g. /drafts/ or /api/private/).
+# Disallow: /private/
+
+# Primary sitemap (list of indexable URLs). Keep in sync when adding major new pages.
 Sitemap: https://incomeclarity.com/sitemap.xml
