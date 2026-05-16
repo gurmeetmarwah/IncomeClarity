@@ -4,27 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rent vs Buy Calculator — Should You Rent or Buy? True Cost Over Time | Income Clarity</title>
-  <meta name="description" content="Free US rent vs buy calculator for break-even and true cost over time—plus plain-language guides on how much rent you can afford, rent vs buy in California (prices, taxes, break-even framing), and what salary often supports a comfortable monthly budget in different US situations.">
+  <meta name="description" content="Free US rent vs buy calculator for break-even and true cost over time—plus plain-language guides on average monthly expenses (budget buckets and examples), how much rent you can afford, rent vs buy in California, and what salary often supports a comfortable monthly budget in different US situations.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://incomeclarity.com/rent-vs-buy-calculator">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <script>
-    (function () {
-      const path = window.location.pathname;
-      let cleanPath = path;
-      if (path === "/index.html") {
-        cleanPath = "/";
-      } else if (path.endsWith("/index.html")) {
-        cleanPath = path.slice(0, -10);
-      } else if (path.endsWith(".html")) {
-        cleanPath = path.slice(0, -5);
-      }
-      if (cleanPath !== path) {
-        window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
-      }
-    })();
-  </script>
 </head>
 <body>
   <header class="site-header">
@@ -45,10 +29,7 @@
       <h1 id="living-hero-title">Should You Rent or Buy? See the True Cost Over Time</h1>
       <p class="lead living-hero-lead">Built for US users only, compare renting vs buying based on your income, location, and future plans—so you make the right financial decision.</p>
       <aside class="rvb-scenario-note rvb-rent-afford-nudge" aria-label="Rent budget guide">
-        <p><strong>Renting first?</strong> Size your monthly rent with examples and simple visuals in <a href="how-much-rent-can-i-afford.html">how much rent can I afford</a>—then plug a realistic rent into the calculator below.</p>
-      </aside>
-      <aside class="rvb-scenario-note rvb-salary-comfort-nudge" aria-label="Salary and lifestyle guide">
-        <p><strong>Choosing a city or a lease?</strong> See what “comfortable” can mean in dollars—worked monthly budgets and a gross-pay reality check in <a href="salary-needed-to-live-comfortably.html">salary needed to live comfortably</a> (US examples, easy charts).</p>
+        <p><strong>Renting first?</strong> Size your monthly rent under <a href="#living-afford-hub-title">Housing and Rent</a> below—then plug a realistic rent into the calculator.</p>
       </aside>
     </section>
 
@@ -182,9 +163,16 @@
         </div>
       </section>
 
-      <section class="rvb-buy-cheaper-window" aria-labelledby="rvb-buy-cheaper-window-title">
+      <section class="rvb-buy-cheaper-window" id="when-buying-better-than-renting-guide" aria-labelledby="rvb-buy-cheaper-window-title">
         <h2 id="rvb-buy-cheaper-window-title">When does buying become cheaper than renting?</h2>
         <p>In most US markets, buying becomes cheaper after 5-7 years, depending on interest rates and rent growth. That window is the usual <strong>rent vs buy break even point</strong>, but your numbers can shift it earlier or later.</p>
+        <div class="debt-stats-callout rvb-when-buy-promo" aria-labelledby="rvb-when-buy-promo-title">
+          <h3 class="debt-stats-callout-title" id="rvb-when-buy-promo-title">Go deeper: when buying beats renting (for your stay)</h3>
+          <p class="rvb-when-buy-promo-lead">Break-even is not a slogan—it is <strong>net cost over the years you actually stay</strong>, with rent growth, equity, closing costs, and two real-life “household shapes” spelled out in plain English. Read the short guide, then plug your listing and lease numbers into the calculator above.</p>
+          <div class="take-home-guide-cta-wrap">
+            <a class="take-home-guide-cta" href="when-buying-is-better-than-renting.html">Read: when buying is better than renting</a>
+          </div>
+        </div>
       </section>
 
       <section class="rvb-rate-impact" aria-labelledby="rvb-rate-impact-title">
@@ -231,45 +219,213 @@
         <p><strong>These are typical scenarios. Your situation may be different.</strong> <a href="#rent-vs-buy">Compare your own rent vs buy numbers above.</a></p>
       </aside>
 
-      <section class="rvb-income-affordability" aria-labelledby="rvb-income-affordability-title">
-        <h2 id="rvb-income-affordability-title">What can you afford based on income?</h2>
-        <p>With a $70,000 income, a typical home budget is around $250,000-$300,000 depending on debt and interest rates.</p>
-        <p class="rvb-income-affordability-nudge">If you are <strong>leasing</strong> instead of buying, start with <a href="how-much-rent-can-i-afford.html"><strong>how much rent can I afford</strong></a>—the 30% rule, the “40× rent” landlord check, and take-home examples with charts—then come back and enter that rent above.</p>
-        <p class="rvb-income-affordability-nudge">Wondering what income supports a <strong>comfortable</strong> month after housing? Read <a href="salary-needed-to-live-comfortably.html"><strong>salary needed to live comfortably</strong></a>—budget tables, a 50/30/20-style picture, and how to translate take-home targets into a gross salary (then revisit this calculator).</p>
-        <p class="rvb-income-affordability-nudge">Before locking in a home budget, estimate your monthly take-home pay with the <a href="hourly-to-salary-after-tax.html#hourly-salary-form">Income calculator</a>.</p>
-      </section>
+      <div class="rvb-seo-guide-hub">
+        <p id="living-seo-deep-title" class="living-seo-deep-kicker">Rent vs buy in America</p>
+        <p class="living-seo-deep-intro living-seo-deep-intro--compact">Straight answers to the searches people run when deciding whether to rent or own—tie them to <a href="#rent-vs-buy">the calculator above</a>, then open <a href="#living-col-hub-title">Cost of living comparisons</a> for every Living guide on this page.</p>
 
-    </section>
+        <article class="living-seo-block living-seo-rvb-guide" aria-labelledby="living-rvb-seo-hub-title" id="rent-vs-buy-us-guide">
+          <h2 id="living-rvb-seo-hub-title">Rent vs buy in the US: which is better, when buying wins, and how this calculator models it</h2>
+          <p class="living-seo-rvb-guide-lead">People usually search in three layers—<strong>whether</strong> renting or owning fits, <strong>when</strong> the math flips, and <strong>what a US rent vs buy calculator</strong> should include. Use <a href="#rent-vs-buy">the calculator on this page</a> for rent, price, rate, and stay length; the notes below explain how to read the result.</p>
 
-    <section class="living-seo-deep" aria-labelledby="living-seo-deep-title">
-      <h2 id="living-seo-deep-title" class="living-seo-deep-kicker">Rent vs buy in America</h2>
-      <p class="living-seo-deep-intro">Straight answers to the searches people run when deciding whether to rent or own—tie them to the calculator at the top of this page.</p>
+          <div class="living-seo-rvb-topic-grid">
+            <section class="living-seo-rvb-topic" id="is-it-better-to-rent-or-buy" aria-labelledby="rvb-seo-topic-rent-buy-title">
+              <h3 id="rvb-seo-topic-rent-buy-title">Is it better to rent or buy a house?</h3>
+              <p>Neither choice is “better” everywhere: it depends on <strong>how long you’ll stay</strong>, <strong>local prices and rents</strong>, <strong>mortgage rate and taxes</strong>, and how much cash you can put down. Renting often wins for short horizons or maximum flexibility; buying can win when you stay long enough for equity and appreciation to offset closing costs and early interest-heavy payments.</p>
+              <p>Use this US rent vs buy calculator with <em>your</em> numbers—compare <strong>total cost of renting vs net cost of buying</strong> (including equity), not only the headline monthly payment.</p>
+            </section>
 
-      <div class="debt-stats-callout rvb-ca-promo" id="rent-vs-buy-california-guide" aria-labelledby="rvb-ca-promo-title">
-        <h3 class="debt-stats-callout-title" id="rvb-ca-promo-title">Rent vs buy in California</h3>
-        <p class="rvb-ca-promo-lead">Sticker prices and rents in coastal job centers often sit <strong>far above US “typical” examples</strong>, and <strong>California state income tax</strong> shrinks the paycheck you use for housing. If you are deciding in <strong>LA, the Bay Area, San Diego, or Sacramento</strong>, start with a <strong>California-shaped</strong> walkthrough—worked payments, a rent-vs-buy table, and visuals—then plug your real listing numbers into the calculator above.</p>
-        <div class="take-home-guide-cta-wrap">
-          <a class="take-home-guide-cta" href="rent-vs-buy-california.html">Open: rent vs buy (California guide)</a>
+            <section class="living-seo-rvb-topic" id="when-does-buying-become-cheaper-than-renting" aria-labelledby="rvb-seo-topic-break-even-title">
+              <h3 id="rvb-seo-topic-break-even-title">When does buying become cheaper than renting?</h3>
+              <p>Buying typically becomes cheaper on a <strong>net economic</strong> basis only after you’ve been in the home long enough for principal paydown and (expected) appreciation to outweigh closing costs and the early interest-heavy years of the mortgage.</p>
+              <p>Break-even differs by city and household. If you’re asking <strong>how long before buying is better than renting</strong>, estimate a personalized <strong>rent vs buy break-even point</strong> with your inputs above—not a national average. For narratives and tables, see <a href="when-buying-is-better-than-renting.html">when buying is better than renting</a>, then validate here.</p>
+            </section>
+
+            <section class="living-seo-rvb-topic" id="rent-vs-buy-calculator-us" aria-labelledby="rvb-seo-topic-calc-us-title">
+              <h3 id="rvb-seo-topic-calc-us-title">Rent vs buy calculator US</h3>
+              <p>Income Clarity models US-style renting and buying together: rising rent, fixed-rate mortgage, property tax as % of value, maintenance, renters insurance, expected appreciation, and return on uninvested down payment (<strong>opportunity cost</strong>). Outputs are illustrative—taxes, insurance, HOA, and closing stacks vary by state and lender.</p>
+              <p>Searching for the best “rent vs buy calculator US”? Favor tools that show <strong>cumulative cost over time</strong> and a <strong>clear break-even</strong>, not a single payment snapshot; adjust assumptions at <a href="#rent-vs-buy">the form above</a> and re-run anytime.</p>
+            </section>
+          </div>
+        </article>
+      </div>
+
+      <div class="interlink-grid living-page-interlink-grid rvb-tool-hub-grid" aria-label="Living guides and cost of living comparisons">
+        <div class="interlink-cluster interlink-cluster--living-hub living-hub" role="region" aria-labelledby="living-col-hub-title">
+          <header class="living-hub-header">
+            <h3 id="living-col-hub-title" class="interlink-cluster-title">Cost of living comparisons</h3>
+            <p class="living-hub-lead">Living guides by topic—expand a section, then return to <a href="#rent-vs-buy">the calculator</a>.</p>
+          </header>
+
+          <nav class="living-hub-jump" aria-label="Jump to topic">
+            <a class="living-hub-jump-pill" href="#living-afford-hub-title" data-living-hub-target="living-afford-hub-title">Housing</a>
+            <a class="living-hub-jump-pill" href="#living-hub-cost-of-living" data-living-hub-target="living-hub-cost-of-living">Cost of living</a>
+            <a class="living-hub-jump-pill" href="#living-hub-lifestyle-family" data-living-hub-target="living-hub-lifestyle-family">Lifestyle</a>
+            <a class="living-hub-jump-pill" href="#living-hub-budgeting" data-living-hub-target="living-hub-budgeting">Budgeting</a>
+          </nav>
+
+          <div class="living-hub-groups">
+            <details class="living-hub-group" id="living-afford-hub-title" open>
+              <summary class="living-hub-group-summary">
+                <span class="living-hub-group-label">Housing and Rent</span>
+                <span class="living-hub-group-count" aria-hidden="true">4</span>
+              </summary>
+              <ul class="living-hub-links living-hub-links--housing">
+                <li>
+                  <a class="living-hub-link" href="living/housing/how-much-rent-can-i-afford.html">
+                    <span class="living-hub-link-text">
+                      <span class="living-hub-link-name">How much rent can I afford?</span>
+                      <span class="living-hub-link-desc">30% / 40× rules and utilities—size a lease, then paste rent above.</span>
+                    </span>
+                    <span class="living-hub-link-chevron" aria-hidden="true"></span>
+                  </a>
+                </li>
+                <li>
+                  <a class="living-hub-link" href="living/housing/how-much-house-can-i-afford.html">
+                    <span class="living-hub-link-text">
+                      <span class="living-hub-link-name">How much house can I afford?</span>
+                      <span class="living-hub-link-desc">28/36 guardrails and payment examples for your price and rate.</span>
+                    </span>
+                    <span class="living-hub-link-chevron" aria-hidden="true"></span>
+                  </a>
+                </li>
+                <li>
+                  <a class="living-hub-link" href="living/housing/rent-vs-buy-california.html" id="rent-vs-buy-california-guide">
+                    <span class="living-hub-link-text">
+                      <span class="living-hub-link-name">Rent vs buy in California</span>
+                      <span class="living-hub-link-desc">Coastal prices, state tax, Prop 13—then plug your listing above.</span>
+                    </span>
+                    <span class="living-hub-link-chevron" aria-hidden="true"></span>
+                  </a>
+                </li>
+                <li>
+                  <a class="living-hub-link" href="living/housing/when-buying-is-better-than-renting.html">
+                    <span class="living-hub-link-text">
+                      <span class="living-hub-link-name">When buying is better than renting</span>
+                      <span class="living-hub-link-desc">Break-even over the years you actually plan to stay.</span>
+                    </span>
+                    <span class="living-hub-link-chevron" aria-hidden="true"></span>
+                  </a>
+                </li>
+              </ul>
+            </details>
+
+            <details class="living-hub-group" id="living-hub-cost-of-living">
+              <summary class="living-hub-group-summary">
+                <span class="living-hub-group-label">Cost of Living</span>
+                <span class="living-hub-group-count" aria-hidden="true">3</span>
+              </summary>
+              <ul class="living-hub-links living-hub-links--col">
+                <li>
+                  <a class="living-hub-link" href="living/cost-of-living/cost-of-living-california-vs-texas.html">
+                    <span class="living-hub-link-text">
+                      <span class="living-hub-link-name">California vs Texas</span>
+                      <span class="living-hub-link-desc">State tax vs no state tax and coastal vs Texas metros.</span>
+                    </span>
+                    <span class="living-hub-link-chevron" aria-hidden="true"></span>
+                  </a>
+                </li>
+                <li>
+                  <a class="living-hub-link" href="living/cost-of-living/nyc-vs-austin-cost-of-living.html">
+                    <span class="living-hub-link-text">
+                      <span class="living-hub-link-name">NYC vs Austin</span>
+                      <span class="living-hub-link-desc">City wage tax, rent density, subway vs car budgets.</span>
+                    </span>
+                    <span class="living-hub-link-chevron" aria-hidden="true"></span>
+                  </a>
+                </li>
+                <li>
+                  <a class="living-hub-link" href="living/cost-of-living/seattle-vs-denver-cost-of-living.html">
+                    <span class="living-hub-link-text">
+                      <span class="living-hub-link-name">Seattle vs Denver</span>
+                      <span class="living-hub-link-desc">Washington vs Colorado and Puget Sound vs Front Range.</span>
+                    </span>
+                    <span class="living-hub-link-chevron" aria-hidden="true"></span>
+                  </a>
+                </li>
+              </ul>
+            </details>
+
+            <details class="living-hub-group" id="living-hub-lifestyle-family">
+              <summary class="living-hub-group-summary">
+                <span class="living-hub-group-label">Lifestyle and Family</span>
+                <span class="living-hub-group-count" aria-hidden="true">2</span>
+              </summary>
+              <ul class="living-hub-links living-hub-links--lifestyle">
+                <li>
+                  <a class="living-hub-link" href="living/family-budgeting/can-i-afford-to-live-alone.html">
+                    <span class="living-hub-link-text">
+                      <span class="living-hub-link-name">Can I afford to live alone?</span>
+                      <span class="living-hub-link-desc">Solo lease vs roommate split on take-home pay.</span>
+                    </span>
+                    <span class="living-hub-link-chevron" aria-hidden="true"></span>
+                  </a>
+                </li>
+                <li>
+                  <a class="living-hub-link" href="living/family-budgeting/salary-needed-to-live-comfortably.html">
+                    <span class="living-hub-link-text">
+                      <span class="living-hub-link-name">Salary needed to live comfortably</span>
+                      <span class="living-hub-link-desc">Monthly comfort budget → gross salary framing.</span>
+                    </span>
+                    <span class="living-hub-link-chevron" aria-hidden="true"></span>
+                  </a>
+                </li>
+              </ul>
+            </details>
+
+            <details class="living-hub-group" id="living-hub-budgeting">
+              <summary class="living-hub-group-summary">
+                <span class="living-hub-group-label">Budgeting</span>
+                <span class="living-hub-group-count" aria-hidden="true">2</span>
+              </summary>
+              <ul class="living-hub-links living-hub-links--budgeting">
+                <li>
+                  <a class="living-hub-link" href="living/budgeting/average-monthly-expenses.html">
+                    <span class="living-hub-link-text">
+                      <span class="living-hub-link-name">Average monthly expenses</span>
+                      <span class="living-hub-link-desc">Bill buckets and example household tables.</span>
+                    </span>
+                    <span class="living-hub-link-chevron" aria-hidden="true"></span>
+                  </a>
+                </li>
+                <li>
+                  <a class="living-hub-link" href="living/budgeting/50-30-20-budget-rule.html">
+                    <span class="living-hub-link-text">
+                      <span class="living-hub-link-name">50/30/20 budget rule</span>
+                      <span class="living-hub-link-desc">Needs, wants, savings—and when rent breaks the split.</span>
+                    </span>
+                    <span class="living-hub-link-chevron" aria-hidden="true"></span>
+                  </a>
+                </li>
+              </ul>
+            </details>
+          </div>
         </div>
       </div>
 
-      <article class="living-seo-block" id="is-it-better-to-rent-or-buy">
-        <h2>Is it better to rent or buy a house?</h2>
-        <p>Neither choice is “better” everywhere: it depends on <strong>how long you’ll stay</strong>, <strong>local prices and rents</strong>, <strong>mortgage rate and taxes</strong>, and how much cash you can put down. Renting often wins for short horizons or maximum flexibility; buying can win when you stay long enough for equity and appreciation to offset closing costs and early interest-heavy payments.</p>
-        <p>Use our US rent vs buy calculator to plug in <em>your</em> rent, home price, rate, and years planned—then compare <strong>total cost of renting vs net cost of buying</strong> (including a fair guess at equity), not just the monthly payment.</p>
-      </article>
+    </section>
 
-      <article class="living-seo-block" id="when-does-buying-become-cheaper-than-renting">
-        <h2>When does buying become cheaper than renting?</h2>
-        <p>Buying typically becomes cheaper than renting on a <strong>net economic</strong> basis only after you’ve been in the home long enough for principal paydown and (expected) appreciation to outweigh the upfront costs of purchasing and the early years when interest makes up a large share of the mortgage payment.</p>
-        <p>That “break-even” year is different in every market and for every household. If you’re asking <strong>how long before buying is better than renting</strong>, use your own inputs above to estimate a personalized <strong>rent vs buy break even point</strong> instead of relying on a national average.</p>
-      </article>
-
-      <article class="living-seo-block" id="rent-vs-buy-calculator-us">
-        <h2>Rent vs buy calculator US</h2>
-        <p>Income Clarity’s calculator is built for U.S.-style assumptions: monthly rent with annual increases, a fixed-rate mortgage, property taxes as a share of value, maintenance, renter’s insurance, expected appreciation, and an optional return on savings (for the opportunity cost of your down payment). Results are estimates—actual taxes, insurance, HOA, and closing costs vary by state and lender.</p>
-        <p>If you’re comparing “rent vs buy calculator US” options online, prioritize tools that show <strong>cumulative cost over time</strong> and a <strong>clear break-even</strong>, not a single monthly payment snapshot. Scroll up to adjust inputs anytime; all sections below update after you click compare.</p>
-      </article>
+    <section class="interlink-section living-page-interlink" aria-labelledby="living-related-tools-title">
+      <header class="living-page-interlink-header">
+        <h2 id="living-related-tools-title">Related tools &amp; guides</h2>
+        <p class="lead living-page-interlink-lead">Income, debt, and freelance tools when take-home pay, balances, or 1099 work shape what you can put toward rent or a mortgage.</p>
+      </header>
+      <div class="interlink-grid living-page-interlink-grid">
+        <a class="interlink-card" href="hourly-to-salary-after-tax.html#hourly-salary-form" id="rvb-income-affordability-title">
+          <h3>What can you afford based on income?</h3>
+          <p>On <strong>$70,000</strong> gross, a typical home budget often lands around <strong>$250,000–$300,000</strong> depending on debt and rates—start from <strong>take-home</strong> on the <strong>Income</strong> page, then cross-check <strong>Housing and Rent</strong> in the hub above.</p>
+          <span class="interlink-cta">Open after-tax income calculator</span>
+        </a>
+        <a class="interlink-card" href="credit-card-payoff-calculator.html#payoff">
+          <h3>Credit card payoff tool</h3>
+          <p>Estimate payoff timelines and total interest on the <strong>Debt</strong> page—helpful when housing choices affect how much you can put toward balances.</p>
+          <span class="interlink-cta">Open credit card payoff tool</span>
+        </a>
+        <a class="interlink-card" href="1099-vs-w2-calculator.html#freelance-calculator">
+          <h3>1099 vs W-2 take-home calculator</h3>
+          <p>Compare contractor and employee after-tax income on the <strong>Freelance</strong> page when your work or side income is 1099-style.</p>
+          <span class="interlink-cta">Open 1099 vs W-2 calculator</span>
+        </a>
+      </div>
     </section>
 
     <section class="living-faq-section" aria-labelledby="living-faq-title" id="rent-vs-buy-faq">
@@ -292,48 +448,10 @@
           <h3>Is it better to rent or buy in California?</h3>
           <p>California does not change the <strong>logic</strong>—still mostly <strong>how long you stay</strong>, <strong>local price vs rent</strong>, and <strong>rates</strong>—but it often changes the <strong>magnitudes</strong>: higher purchase prices, higher rents in major metros, and <strong>lower take-home after state tax</strong> on the same gross offer. Walk through illustrative payments, a metro-style rent line, and Prop 13 context in <a href="rent-vs-buy-california.html">rent vs buy in California</a>, then return here to model your exact inputs.</p>
         </article>
-      </div>
-    </section>
-
-    <section class="interlink-section living-page-interlink" aria-labelledby="living-related-tools-title">
-      <h2 id="living-related-tools-title">Related tools &amp; guides</h2>
-      <p class="lead">Pair housing decisions with a rent budget you can explain to a landlord—and with debt and income tools from the rest of the site.</p>
-      <div class="interlink-grid">
-        <a class="interlink-card" href="rent-vs-buy-california.html">
-          <h3>Rent vs buy in California</h3>
-          <p>High coastal prices, state tax on your paycheck, homeowners insurance context, and a break-even mindset—facts, figures, and visuals built for CA searches (then use the calculator above).</p>
-          <span class="interlink-cta">Read the California guide</span>
-        </a>
-        <a class="interlink-card" href="how-much-rent-can-i-afford.html">
-          <h3>How much rent can I afford?</h3>
-          <p>30% rules (gross vs take-home), the 40× rent income check landlords use, utilities and insurance, and worked examples—so your rent input here matches real life.</p>
-          <span class="interlink-cta">Read the rent affordability guide</span>
-        </a>
-        <a class="interlink-card" href="how-much-house-can-i-afford.html">
-          <h3>How much house can I afford?</h3>
-          <p>28/36 rules, rough US median income and home-price context, payment examples, and visuals—pair with the calculator above for price, rate, and horizon.</p>
-          <span class="interlink-cta">Read the home affordability guide</span>
-        </a>
-        <a class="interlink-card" href="salary-needed-to-live-comfortably.html">
-          <h3>Salary needed to live comfortably</h3>
-          <p>Turn “comfortable” into a monthly dollar plan—example budgets for different US-style situations, visuals, and how to gross up take-home using the Income calculator.</p>
-          <span class="interlink-cta">Read the salary comfort guide</span>
-        </a>
-        <a class="interlink-card" href="cost-of-living-california-vs-texas.html">
-          <h3>Cost of living: California vs Texas</h3>
-          <p>State income tax vs none, housing context, same-offer thinking, and links to California and Texas after-tax pages—before you pick a market in the calculator above.</p>
-          <span class="interlink-cta">Compare California and Texas</span>
-        </a>
-        <a class="interlink-card" href="credit-card-payoff-calculator.html#payoff">
-          <h3>Credit card payoff tool</h3>
-          <p>Estimate payoff timelines and total interest on the <strong>Debt</strong> page—helpful when housing choices affect how much you can put toward balances.</p>
-          <span class="interlink-cta">Open credit card payoff tool</span>
-        </a>
-        <a class="interlink-card" href="1099-vs-w2-calculator.html#freelance-calculator">
-          <h3>1099 vs W-2 take-home calculator</h3>
-          <p>Compare contractor and employee after-tax income on the <strong>Freelance</strong> page when your work or side income is 1099-style.</p>
-          <span class="interlink-cta">Open 1099 vs W-2 calculator</span>
-        </a>
+        <article class="faq-item">
+          <h3>What are typical monthly living expenses?</h3>
+          <p>Most households cluster spending around <strong>housing</strong>, <strong>utilities</strong>, <strong>food</strong>, <strong>transportation</strong>, <strong>insurance</strong>, <strong>debt minimums</strong>, then smaller lines like <strong>subscriptions</strong> and <strong>cash miscellaneous</strong>. There is no one national “right” total—see <a href="average-monthly-expenses.html">average monthly expenses</a> for a simple category map, two rounded example budgets, and visuals you can compare to your bank exports.</p>
+        </article>
       </div>
     </section>
   </main>
@@ -361,11 +479,14 @@
           <a href="how-much-rent-can-i-afford.html">How much rent can I afford</a>
           <a href="how-much-house-can-i-afford.html">How much house can I afford</a>
           <a href="salary-needed-to-live-comfortably.html">Salary needed to live comfortably</a>
+          <a href="average-monthly-expenses.html">Average monthly expenses</a>
           <a href="cost-of-living-california-vs-texas.html">Cost of living: California vs Texas</a>
+          <a href="nyc-vs-austin-cost-of-living.html">NYC vs Austin cost of living</a>
+          <a href="seattle-vs-denver-cost-of-living.html">Seattle vs Denver cost of living</a>
           <a href="rent-vs-buy-california.html">Rent vs buy in California</a>
           <a href="hourly-to-salary-after-tax.html#is-25-hour-good">$25 an hour after tax</a>
           <a href="credit-card-payoff-calculator.html#how-long-payoff">How long to pay off credit card</a>
-          <a href="rent-vs-buy-calculator.html#quick-decision-guide">Rent vs buy guide</a>
+          <a href="rent-vs-buy-calculator.html#rent-vs-buy">Rent vs buy guide</a>
         </section>
         <section class="footer-column" aria-labelledby="footer-company">
           <h2 id="footer-company">Company</h2>
@@ -414,9 +535,33 @@
           "@type": "Answer",
           "text": "The decision framework is the same as elsewhere—primarily how long you will stay, local purchase price versus rent, interest rates, and all-in ownership costs—but California often means higher coastal prices and rents, lower take-home after state income tax on the same gross salary, and different insurance and property tax mechanics than a national average. Use a California-focused rent versus buy guide for context, then a calculator with your actual listing numbers."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "What are typical monthly living expenses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Typical monthly living expenses include housing and utilities, groceries and household supplies, transportation, insurance, healthcare out-of-pocket costs, minimum debt payments, phone and internet, subscriptions, and miscellaneous personal spending. Exact totals vary by city and household; use a categorized monthly budget guide with examples and compare to take-home pay."
+        }
       }
     ]
   }
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var path = window.location.pathname;
+      var cleanPath = path;
+      if (path === "/index.html") {
+        cleanPath = "/";
+      } else if (path.endsWith("/index.html")) {
+        cleanPath = path.slice(0, -10);
+      } else if (path.endsWith(".html")) {
+        cleanPath = path.slice(0, -5);
+      }
+      if (cleanPath !== path) {
+        window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+      }
+    });
   </script>
   <script src="living.js"></script>
 </body>
