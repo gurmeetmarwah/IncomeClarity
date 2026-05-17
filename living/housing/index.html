@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Housing Affordability &amp; Rent Planning (US): Tools, Guides &amp; Comparisons | Income Clarity</title>
+  <meta name="description" content="Plan US housing with rent and home affordability calculators, 28/36 and 30% rules, state rent-vs-buy guides, budget tools, and FAQs—built around take-home pay, debt, and cost of living.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://incomeclarity.com/living/housing">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path === "/index.html") {
+        cleanPath = "/";
+      } else if (path.endsWith("/index.html")) {
+        cleanPath = path.slice(0, -10);
+      } else if (path.endsWith(".html")) {
+        cleanPath = path.slice(0, -5);
+      }
+      if (cleanPath !== path) {
+        window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Housing Affordability & Rent Planning",
+    "description": "US housing hub with rent and home affordability tools, guides, state comparisons, and rent vs buy resources.",
+    "url": "https://incomeclarity.com/living/housing",
+    "isPartOf": { "@type": "WebSite", "name": "Income Clarity", "url": "https://incomeclarity.com/" },
+    "about": { "@type": "Thing", "name": "Housing affordability in the United States" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Rent vs buy calculator", "item": "https://incomeclarity.com/rent-vs-buy-calculator" },
+      { "@type": "ListItem", "position": 2, "name": "Housing affordability", "item": "https://incomeclarity.com/living/housing" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Housing affordability tools and guides",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "How much rent can I afford", "url": "https://incomeclarity.com/living/housing/how-much-rent-can-i-afford" },
+      { "@type": "ListItem", "position": 2, "name": "How much house can I afford", "url": "https://incomeclarity.com/living/housing/how-much-house-can-i-afford" },
+      { "@type": "ListItem", "position": 3, "name": "Rent vs buy calculator", "url": "https://incomeclarity.com/rent-vs-buy-calculator" },
+      { "@type": "ListItem", "position": 4, "name": "Rent vs buy in California", "url": "https://incomeclarity.com/living/housing/rent-vs-buy-california" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much rent is too much?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A common rule is keeping all-in housing near 30% of gross income or a tighter share of take-home pay. If rent plus utilities leaves little room for debt payoff and savings, the lease is likely too high for your cash flow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is renting cheaper than buying?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on local prices, how long you stay, interest rates, taxes, and maintenance. Short horizons often favor renting; longer stays can favor buying when equity and appreciation offset carrying costs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What salary is needed to buy a home?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Lenders often use debt-to-income limits near 28% for housing and 36% total debt. Translate your target payment into required gross income using after-tax pay and local tax rates—not headline salary alone."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I buy a house with credit card debt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You may still qualify, but high revolving balances raise DTI and can reduce approval amounts. Paying down high-APR debt before applying often improves buying power and monthly breathing room."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What percentage of income should go to housing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Many planners use 30% of gross income as a ceiling for rent, while mortgage lenders often cite 28% of gross for housing costs and 36% for all debt. Take-home pay and local taxes usually provide a sharper personal limit than gross salary alone."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="housing-hub-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="/index.html">Income Clarity</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/hourly-to-salary-after-tax">Income</a>
+        <a href="/credit-card-payoff-calculator">Debt</a>
+        <a href="/rent-vs-buy-calculator" aria-current="page">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container housing-hub">
+    <nav class="take-home-return-nav housing-hub-crumb" aria-label="Breadcrumb">
+      <ol class="take-home-return-breadcrumbs">
+        <li><a href="/rent-vs-buy-calculator#rent-vs-buy">Living (rent vs buy)</a></li>
+        <li aria-current="page">Housing</li>
+      </ol>
+    </nav>
+
+    <p class="debt-minimum-guide-back housing-hub-back">
+      <a class="debt-minimum-guide-back-link" href="/rent-vs-buy-calculator#living-afford-hub-title">← Back to Living tools</a>
+    </p>
+
+    <section class="housing-hub-hero" aria-labelledby="housing-hub-title">
+      <span class="label">Living · Housing</span>
+      <h1 id="housing-hub-title">Housing Affordability &amp; Rent Planning</h1>
+      <p class="housing-hub-hero-lead">Understand how much rent or home you can realistically afford based on your income, debt, and cost of living. Use calculators, guides, and comparisons in one place—without guessing from national averages alone.</p>
+      <p class="state-salary-insight housing-hub-glance" role="note"><strong>At a glance:</strong> Start with <strong>take-home pay</strong>, then size rent (30% / 40× rules) or a mortgage (28/36 DTI). Compare <strong>rent vs buy</strong> for how long you will stay. Layer in state taxes and metro costs before you sign a lease or make an offer.</p>
+      <div class="housing-hub-pills" role="navigation" aria-label="Quick housing tools">
+        <a class="housing-hub-pill housing-hub-pill--rent" href="/living/housing/how-much-rent-can-i-afford">How much rent can I afford?</a>
+        <a class="housing-hub-pill housing-hub-pill--house" href="/living/housing/how-much-house-can-i-afford">How much house can I afford?</a>
+        <a class="housing-hub-pill housing-hub-pill--rvb" href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy calculator</a>
+      </div>
+    </section>
+
+    <nav class="housing-hub-jump" aria-label="On this page">
+      <a class="housing-hub-jump-pill" href="#housing-tools">Tools</a>
+      <a class="housing-hub-jump-pill" href="#housing-guides">Guides</a>
+      <a class="housing-hub-jump-pill" href="#housing-geo">States &amp; cities</a>
+      <a class="housing-hub-jump-pill" href="#housing-budget-guides">Budgets</a>
+      <a class="housing-hub-jump-pill" href="#housing-rent-vs-buy">Rent vs buy</a>
+      <a class="housing-hub-jump-pill" href="#housing-faq">FAQ</a>
+    </nav>
+
+    <section class="housing-hub-panel housing-hub-intro" aria-labelledby="housing-intro-title">
+      <h2 id="housing-intro-title" class="housing-hub-sr-only">About this housing hub</h2>
+      <p class="housing-hub-intro-text">Whether you are renewing a lease, touring open houses, or comparing a move from California to Texas, housing decisions should start with <strong>cash flow you can repeat every month</strong>—not a headline salary or a friend’s rent. This hub groups Income Clarity’s <strong>US housing calculators and guides</strong> so you can move from “what can I pay?” to “should I rent or buy here?” without bouncing between unrelated pages.</p>
+      <p class="housing-hub-intro-text">We focus on practical rules landlords and lenders actually use (<strong>30% gross</strong> and <strong>40× rent</strong> tests for leases; <strong>28/36 debt-to-income</strong> guardrails for mortgages), then stress-test those limits against <strong>after-tax income</strong> and <strong>revolving debt</strong>. High-cost metros, state income tax, and insurance spikes can make the same dollar income feel very different in Austin versus New York—so geographic guides sit beside the core tools, not buried in a generic blog list.</p>
+    </section>
+
+    <section class="housing-hub-panel housing-hub-panel--tools" id="housing-tools" aria-labelledby="housing-tools-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker housing-hub-kicker--teal">Step 1 · Calculate</p>
+        <h2 id="housing-tools-title">Housing affordability tools</h2>
+        <p class="housing-hub-section-lead">Pick the path that matches your next decision—lease, mortgage, or long-term comparison.</p>
+      </header>
+      <div class="housing-hub-tool-grid">
+        <a class="housing-hub-tool-card housing-hub-tool-card--rent" href="/living/housing/how-much-rent-can-i-afford">
+          <span class="housing-hub-card-badge" aria-hidden="true">🔑</span>
+          <h3>Rent affordability</h3>
+          <p>Estimate realistic monthly rent using income rules and take-home reality—not landlord marketing.</p>
+          <span class="housing-hub-card-cta">Explore guide →</span>
+        </a>
+        <a class="housing-hub-tool-card housing-hub-tool-card--house" href="/living/housing/how-much-house-can-i-afford">
+          <span class="housing-hub-card-badge" aria-hidden="true">🏡</span>
+          <h3>House affordability</h3>
+          <p>Translate income into a price range with lender-style DTI limits and payment examples.</p>
+          <span class="housing-hub-card-cta">Explore guide →</span>
+        </a>
+        <a class="housing-hub-tool-card housing-hub-tool-card--rvb" href="/rent-vs-buy-calculator#rent-vs-buy">
+          <span class="housing-hub-card-badge" aria-hidden="true">⚖️</span>
+          <h3>Rent vs buy</h3>
+          <p>Model break-even years, carrying costs, and stay horizons with your real inputs.</p>
+          <span class="housing-hub-card-cta">Open calculator →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel housing-hub-panel--guides" id="housing-guides" aria-labelledby="housing-guides-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker housing-hub-kicker--blue">Step 2 · Read</p>
+        <h2 id="housing-guides-title">Core housing guides</h2>
+        <p class="housing-hub-section-lead">Deeper walkthroughs for the questions people search before they sign.</p>
+      </header>
+      <div class="housing-hub-guide-grid">
+        <a class="housing-hub-guide-card housing-hub-guide-card--rent" href="/living/housing/how-much-rent-can-i-afford">
+          <h3>How much rent can I afford?</h3>
+          <p>30% / 40× rules, utilities, and landlord income tests—size a lease before you apply.</p>
+          <span class="housing-hub-card-cta">Read guide →</span>
+        </a>
+        <a class="housing-hub-guide-card housing-hub-guide-card--house" href="/living/housing/how-much-house-can-i-afford">
+          <h3>How much house can I afford?</h3>
+          <p>28/36 guardrails, down payment, rate shocks, and payment you can sleep on.</p>
+          <span class="housing-hub-card-cta">Read guide →</span>
+        </a>
+        <a class="housing-hub-guide-card housing-hub-guide-card--ca" href="/living/housing/rent-vs-buy-california.html" id="rent-vs-buy-california-guide">
+          <h3>Rent vs buy in California</h3>
+          <p>Coastal prices, state tax, insurance, and Prop 13 context for CA markets.</p>
+          <span class="housing-hub-card-cta">Read guide →</span>
+        </a>
+        <a class="housing-hub-guide-card housing-hub-guide-card--decision" href="/living/housing/when-buying-is-better-than-renting.html" id="when-buying-better-than-renting-guide">
+          <h3>When buying beats renting</h3>
+          <p>Break-even timelines, stay length, and when flexibility still wins.</p>
+          <span class="housing-hub-card-cta">Read guide →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel housing-hub-panel--geo" id="housing-geo" aria-labelledby="housing-geo-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker housing-hub-kicker--violet">Explore · Geography</p>
+        <h2 id="housing-geo-title">Housing costs by state &amp; city</h2>
+        <p class="housing-hub-section-lead">Swipe to compare markets before you relocate or negotiate a lease.</p>
+      </header>
+      <div class="housing-hub-scroll" tabindex="0" role="region" aria-label="State and city housing comparisons">
+        <a class="housing-hub-chip-card housing-hub-chip-card--ca" href="/living/housing/rent-vs-buy-california.html">
+          <span class="housing-hub-chip-tag">California</span>
+          <h3>Rent vs buy California</h3>
+          <p>Tax, insurance, and coastal price context.</p>
+        </a>
+        <a class="housing-hub-chip-card housing-hub-chip-card--tx" href="/living/cost-of-living/cost-of-living-california-vs-texas.html">
+          <span class="housing-hub-chip-tag">States</span>
+          <h3>California vs Texas</h3>
+          <p>Income tax vs housing dollars in each state.</p>
+        </a>
+        <a class="housing-hub-chip-card housing-hub-chip-card--metro" href="/living/cost-of-living/nyc-vs-austin-cost-of-living.html">
+          <span class="housing-hub-chip-tag">Cities</span>
+          <h3>NYC vs Austin</h3>
+          <p>Big-city rent density vs Sun Belt growth.</p>
+        </a>
+        <a class="housing-hub-chip-card housing-hub-chip-card--income" href="/best-states-for-take-home-pay.html">
+          <span class="housing-hub-chip-tag">Income</span>
+          <h3>Best states for take-home pay</h3>
+          <p>Where paychecks stretch after withholding.</p>
+        </a>
+        <a class="housing-hub-chip-card housing-hub-chip-card--ca" href="/living/housing/how-much-house-can-i-afford-in-california.html">
+          <span class="housing-hub-chip-tag">California</span>
+          <h3>House affordability in CA</h3>
+          <p>High-cost market guardrails and examples.</p>
+        </a>
+        <a class="housing-hub-chip-card housing-hub-chip-card--metro" href="/living/cost-of-living/seattle-vs-denver-cost-of-living.html">
+          <span class="housing-hub-chip-tag">Cities</span>
+          <h3>Seattle vs Denver</h3>
+          <p>Puget Sound vs Front Range housing pressure.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel housing-hub-panel--budget" id="housing-budget-guides" aria-labelledby="housing-budget-guides-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker housing-hub-kicker--gold">Plan · Household</p>
+        <h2 id="housing-budget-guides-title">Housing budget guides</h2>
+        <p class="housing-hub-section-lead">Editorial framing when you need a full monthly picture—not a single payment line.</p>
+      </header>
+      <div class="housing-hub-editorial-grid">
+        <a class="housing-hub-editorial-card housing-hub-editorial-card--salary" href="/living/family-budgeting/salary-needed-to-live-comfortably.html">
+          <h3>Salary needed to live comfortably</h3>
+          <p>Comfort budget → gross salary framing for your metro and household size.</p>
+        </a>
+        <a class="housing-hub-editorial-card housing-hub-editorial-card--solo" href="/living/family-budgeting/can-i-afford-to-live-alone.html">
+          <h3>Living alone budget</h3>
+          <p>Solo lease vs roommate split on real take-home pay.</p>
+        </a>
+        <a class="housing-hub-editorial-card housing-hub-editorial-card--bills" href="/living/budgeting/average-monthly-expenses.html">
+          <h3>Average monthly expenses</h3>
+          <p>Bill buckets, tables, and where housing usually lands.</p>
+        </a>
+        <a class="housing-hub-editorial-card housing-hub-editorial-card--rule" href="/living/budgeting/50-30-20-budget-rule.html">
+          <h3>50/30/20 budget rule</h3>
+          <p>When rent breaks the needs / wants / savings split.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel housing-hub-split" id="housing-rent-vs-buy" aria-labelledby="housing-rvb-title">
+      <div class="housing-hub-split-copy">
+        <p class="housing-hub-kicker housing-hub-kicker--amber">Decide · Rent or own</p>
+        <h2 id="housing-rvb-title">Renting vs buying</h2>
+        <p>Renting trades equity for flexibility and predictable move costs; buying builds ownership but adds maintenance, taxes, insurance, and rate risk. The better call depends on <strong>how long you will stay</strong>, <strong>local price-to-rent</strong>, and whether your budget already carries high-APR debt.</p>
+        <p class="housing-hub-split-extra">Use the <a href="/rent-vs-buy-calculator#rent-vs-buy">rent vs buy calculator</a> with your actual rent quote, target home price, and horizon—then read the guides below for California-specific costs or a plain-English “when ownership wins” frame.</p>
+      </div>
+      <div class="housing-hub-split-cards">
+        <a class="housing-hub-decision-card" href="/living/housing/rent-vs-buy-california.html">
+          <h3>Rent vs buy California</h3>
+          <p>State-specific costs and stay horizons.</p>
+          <span class="housing-hub-card-cta">Explore →</span>
+        </a>
+        <a class="housing-hub-decision-card" href="/living/housing/when-buying-is-better-than-renting.html">
+          <h3>Is buying worth it?</h3>
+          <p>When ownership math beats rent flexibility.</p>
+          <span class="housing-hub-card-cta">Explore →</span>
+        </a>
+        <a class="housing-hub-decision-card" href="/credit-card-payoff-calculator#payoff">
+          <h3>Pay off debt before buying?</h3>
+          <p>See how card balances change DTI and cash flow.</p>
+          <span class="housing-hub-card-cta">Explore →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel housing-hub-panel--edu" id="housing-education" aria-labelledby="housing-education-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker housing-hub-kicker--slate">Learn · Rules of thumb</p>
+        <h2 id="housing-education-title">Understanding housing affordability</h2>
+        <p class="housing-hub-section-lead">Quick reference blocks—expand any topic you need before you commit.</p>
+      </header>
+      <div class="housing-hub-accordion">
+        <details class="housing-hub-accordion-item">
+          <summary>What % of income should go to rent?</summary>
+          <p>Many planners cite <strong>30% of gross income</strong> as a ceiling; others prefer <strong>take-home</strong> math after tax. Landlords may use gross multiples (e.g., <strong>40× annual rent</strong>). Pick one definition and include utilities, renters insurance, and parking in your all-in housing line—then compare to our <a href="/living/housing/how-much-rent-can-i-afford">rent affordability guide</a>.</p>
+        </details>
+        <details class="housing-hub-accordion-item">
+          <summary>How lenders evaluate affordability</summary>
+          <p>Mortgage underwriting often targets roughly <strong>28% of gross</strong> for housing costs and <strong>36%</strong> for total debt. Student loans, car notes, and minimum card payments count. Run your numbers in <a href="/living/housing/how-much-house-can-i-afford">how much house you can afford</a> before you tour homes above your true range.</p>
+        </details>
+        <details class="housing-hub-accordion-item">
+          <summary>Hidden homeownership costs</summary>
+          <p>Beyond principal and interest: <strong>property tax</strong>, <strong>insurance</strong>, <strong>HOA</strong>, maintenance reserves, and occasional capex (roof, HVAC). Renters trade those for rent increases and less control—both sides have costs that do not appear in a listing price alone.</p>
+        </details>
+        <details class="housing-hub-accordion-item">
+          <summary>Why taxes matter for housing</summary>
+          <p>State and local income tax change <strong>take-home pay</strong>; property tax changes <strong>monthly ownership cost</strong>. The same salary buys different housing in Texas vs California once withholding and carrying costs differ—see our <a href="/living/cost-of-living/cost-of-living-california-vs-texas.html">California vs Texas comparison</a>.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel housing-hub-panel--finance" id="housing-related-finance" aria-labelledby="housing-related-finance-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker housing-hub-kicker--indigo">Connect · Income &amp; debt</p>
+        <h2 id="housing-related-finance-title">Related financial planning</h2>
+        <p class="housing-hub-section-lead">Housing never sits in a vacuum—link Living with Income and Debt tools.</p>
+      </header>
+      <div class="housing-hub-compact-grid">
+        <a class="housing-hub-compact-card housing-hub-compact-card--dti" href="/living/housing/how-much-house-can-i-afford">
+          <h3>Debt-to-income ratio</h3>
+          <p>How lenders size your housing payment.</p>
+        </a>
+        <a class="housing-hub-compact-card housing-hub-compact-card--income" href="/hourly-to-salary-after-tax#hourly-salary-form">
+          <h3>Salary after tax</h3>
+          <p>Anchor rent and mortgage to take-home pay.</p>
+        </a>
+        <a class="housing-hub-compact-card housing-hub-compact-card--budget" href="/living/budgeting/average-monthly-expenses.html">
+          <h3>Monthly budget planner</h3>
+          <p>See housing beside other bill buckets.</p>
+        </a>
+        <a class="housing-hub-compact-card housing-hub-compact-card--debt" href="/credit-card-payoff-calculator#payoff">
+          <h3>Pay off debt vs save</h3>
+          <p>Model balances before you add a mortgage.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel housing-hub-panel--faq" id="housing-faq" aria-labelledby="housing-faq-title">
+      <header class="housing-hub-section-head">
+        <h2 id="housing-faq-title">Frequently asked questions</h2>
+        <p class="housing-hub-section-lead">Straight answers tied to the tools and guides on this page.</p>
+      </header>
+      <div class="housing-hub-accordion faq-stack">
+        <details class="housing-hub-accordion-item faq-item">
+          <summary>How much rent is too much?</summary>
+          <p>If all-in housing crowds out debt payoff, emergency savings, or essentials, it is too high—even if a landlord approves you on gross income. Use our <a href="/living/housing/how-much-rent-can-i-afford">rent affordability guide</a> with your real take-home pay and utility averages.</p>
+        </details>
+        <details class="housing-hub-accordion-item faq-item">
+          <summary>Is renting cheaper than buying?</summary>
+          <p>Sometimes. Short stays, high prices, or elevated rates can favor renting. Longer horizons may favor buying when equity and appreciation offset costs. Run your market in the <a href="/rent-vs-buy-calculator#rent-vs-buy">rent vs buy calculator</a> and read <a href="/living/housing/when-buying-is-better-than-renting.html">when buying beats renting</a>.</p>
+        </details>
+        <details class="housing-hub-accordion-item faq-item">
+          <summary>What salary is needed to buy a home?</summary>
+          <p>Translate target payment → required income using DTI limits and local taxes. Start with <a href="/living/housing/how-much-house-can-i-afford">how much house you can afford</a> and verify take-home on the <a href="/hourly-to-salary-after-tax">income calculator</a>.</p>
+        </details>
+        <details class="housing-hub-accordion-item faq-item">
+          <summary>Can I buy a house with credit card debt?</summary>
+          <p>Possible, but high revolving balances raise DTI and stress cash flow. Paying down high-APR debt first often improves approval and monthly margin—see the <a href="/credit-card-payoff-calculator#payoff">debt calculator</a> and <a href="/debt/financial-health/how-much-credit-card-debt-is-normal.html">typical debt benchmarks</a>.</p>
+        </details>
+        <details class="housing-hub-accordion-item faq-item">
+          <summary>What percentage of income should go to housing?</summary>
+          <p>Renters often hear <strong>30% of gross</strong>; buyers hear <strong>28/36 DTI</strong>. Your safest number is the payment you can make after tax, debt minimums, and savings—especially in high-cost cities where insurance and utilities spike the all-in total.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel housing-hub-panel--more" id="housing-more" aria-labelledby="housing-more-title">
+      <header class="housing-hub-section-head">
+        <h2 id="housing-more-title">Explore more Living guides</h2>
+      </header>
+      <nav class="housing-hub-link-grid" aria-label="More living guides">
+        <a href="/best-states-for-take-home-pay.html">Best states for take-home pay</a>
+        <a href="/living/cost-of-living/cost-of-living-california-vs-texas.html">Moving: California to Texas</a>
+        <a href="/living/lifestyle-family">Lifestyle &amp; family hub</a>
+        <a href="/living/budgeting?from=housing">Budget planning hub</a>
+        <a href="/living/family-budgeting/can-i-afford-to-live-alone.html">Living alone budget</a>
+        <a href="/living/cost-of-living/seattle-vs-denver-cost-of-living.html">Seattle vs Denver</a>
+        <a href="/rent-vs-buy-calculator#living-col-hub-title">All cost-of-living topics</a>
+        <a href="/living/cost-of-living/nyc-vs-austin-cost-of-living.html">NYC vs Austin</a>
+      </nav>
+    </section>
+
+    <p class="housing-hub-disclaimer note">Educational content for US readers only—not financial, tax, or legal advice. Housing costs, lender rules, and tax treatment vary by location and year.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-description">US-only tools to calculate your real income after tax, understand debt, and make smarter financial decisions.</p>
+      <div class="footer-grid" role="navigation" aria-label="Footer">
+        <section class="footer-column" aria-labelledby="footer-popular-calculators">
+          <h2 id="footer-popular-calculators">Popular Calculators</h2>
+          <a href="/hourly-to-salary-after-tax">Hourly to Salary After Tax</a>
+          <a href="/credit-card-payoff-calculator">Credit Card Payoff Calculator</a>
+          <a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a>
+          <a href="/1099-vs-w2-calculator">1099 vs W2 Calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-tools-category">
+          <h2 id="footer-tools-category">Tools by Category</h2>
+          <a href="/hourly-to-salary-after-tax">Income</a>
+          <a href="/credit-card-payoff-calculator">Debt</a>
+          <a href="/rent-vs-buy-calculator">Living</a>
+          <a href="/1099-vs-w2-calculator">Freelance</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-explore-more">
+          <h2 id="footer-explore-more">Explore More</h2>
+          <a href="/living/housing/how-much-rent-can-i-afford">How much rent can I afford</a>
+          <a href="/living/housing/how-much-house-can-i-afford">How much house can I afford</a>
+          <a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-company">
+          <h2 id="footer-company">Company</h2>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms</a>
+        </section>
+      </div>
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
+</body>
+</html>

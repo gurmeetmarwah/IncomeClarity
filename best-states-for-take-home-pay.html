@@ -74,10 +74,10 @@
     <div class="container nav-wrap">
       <a class="logo" href="index.html">Income Clarity</a>
       <nav class="nav-links" aria-label="Primary">
-        <a href="hourly-to-salary-after-tax.html">Income</a>
-        <a href="credit-card-payoff-calculator.html">Debt</a>
-        <a href="rent-vs-buy-calculator.html">Living</a>
-        <a href="1099-vs-w2-calculator.html">Freelance</a>
+        <a href="/hourly-to-salary-after-tax">Income</a>
+        <a href="/credit-card-payoff-calculator">Debt</a>
+        <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
       </nav>
     </div>
   </header>
@@ -132,7 +132,7 @@
 
       <section id="calculator-states" aria-labelledby="calculator-states-title">
         <h2 id="calculator-states-title">Run hourly take-home estimates by state</h2>
-        <p>Our <a href="hourly-to-salary-after-tax.html">hourly to take-home calculator</a> models take-home pay using US-style federal and effective state withholding comparisons. For deeper state pages, start here:</p>
+        <p>Our <a href="/hourly-to-salary-after-tax">hourly to take-home calculator</a> models take-home pay using US-style federal and effective state withholding comparisons. For deeper state pages, start here:</p>
         <ul class="best-states-link-list">
           <li><a href="/hourly-to-salary-after-tax/state/texas/">Texas take-home calculator</a> — no state wage income tax</li>
           <li><a href="/hourly-to-salary-after-tax/state/florida/">Florida take-home calculator</a> — no state wage income tax</li>
@@ -142,7 +142,7 @@
           <li><a href="/hourly-to-salary-after-tax/state/illinois/">Illinois take-home calculator</a> — flat state income tax baseline</li>
         </ul>
         <p class="take-home-guide-cta-wrap">
-          <a class="take-home-guide-cta" href="hourly-to-salary-after-tax.html">Open the full US income calculator</a>
+          <a class="take-home-guide-cta" href="/hourly-to-salary-after-tax">Open the full US income calculator</a>
         </p>
       </section>
 
@@ -176,23 +176,23 @@
       <div class="footer-grid" role="navigation" aria-label="Footer">
         <section class="footer-column" aria-labelledby="footer-popular-calculators">
           <h2 id="footer-popular-calculators">Popular Calculators</h2>
-          <a href="hourly-to-salary-after-tax.html">Hourly to Salary After Tax</a>
-          <a href="credit-card-payoff-calculator.html">Credit Card Payoff Calculator</a>
-          <a href="rent-vs-buy-calculator.html">Rent vs Buy Calculator</a>
-          <a href="1099-vs-w2-calculator.html">1099 vs W2 Calculator</a>
+          <a href="/hourly-to-salary-after-tax">Hourly to Salary After Tax</a>
+          <a href="/credit-card-payoff-calculator">Credit Card Payoff Calculator</a>
+          <a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a>
+          <a href="/1099-vs-w2-calculator">1099 vs W2 Calculator</a>
         </section>
         <section class="footer-column" aria-labelledby="footer-tools-category">
           <h2 id="footer-tools-category">Tools by Category</h2>
-          <a href="hourly-to-salary-after-tax.html">Income</a>
-          <a href="credit-card-payoff-calculator.html">Debt</a>
-          <a href="rent-vs-buy-calculator.html">Living</a>
-          <a href="1099-vs-w2-calculator.html">Freelance</a>
+          <a href="/hourly-to-salary-after-tax">Income</a>
+          <a href="/credit-card-payoff-calculator">Debt</a>
+          <a href="/rent-vs-buy-calculator">Living</a>
+          <a href="/1099-vs-w2-calculator">Freelance</a>
         </section>
         <section class="footer-column" aria-labelledby="footer-explore-more">
           <h2 id="footer-explore-more">Explore More</h2>
           <a href="what-is-take-home-pay.html">What is take home pay?</a>
           <a href="best-states-for-take-home-pay.html">Best states for take-home pay</a>
-          <a href="hourly-to-salary-after-tax.html#is-25-hour-good">$25 an hour after tax</a>
+          <a href="/hourly-to-salary-after-tax#is-25-hour-good">$25 an hour after tax</a>
         </section>
         <section class="footer-column" aria-labelledby="footer-company">
           <h2 id="footer-company">Company</h2>
@@ -222,6 +222,10 @@
 
       function isBestStatesPath(pathname) {
         return stripPath(pathname) === "/best-states-for-take-home-pay";
+      }
+
+      function isHousingHubPath(pathname) {
+        return stripPath(pathname) === "/living/housing";
       }
 
       function friendlyLabel(pathname) {
@@ -265,6 +269,9 @@
         }
         if (lower.includes("rent-vs-buy")) {
           return "Rent vs buy";
+        }
+        if (isHousingHubPath(pathname)) {
+          return "Housing affordability";
         }
         if (lower.includes("1099-vs-w2")) {
           return "1099 vs W-2 calculator";
@@ -333,8 +340,13 @@
 
         var liPrev = document.createElement("li");
         var a = document.createElement("a");
-        a.href = refUrl.href;
-        a.textContent = friendlyLabel(refUrl.pathname);
+        if (isHousingHubPath(refUrl.pathname)) {
+          a.href = "/living/housing" + refUrl.hash;
+          a.textContent = "Housing affordability";
+        } else {
+          a.href = refUrl.pathname + refUrl.search + refUrl.hash;
+          a.textContent = friendlyLabel(refUrl.pathname);
+        }
         liPrev.appendChild(a);
 
         var liHere = document.createElement("li");
@@ -346,6 +358,17 @@
         nav.appendChild(ol);
 
         root.appendChild(nav);
+
+        if (isHousingHubPath(refUrl.pathname)) {
+          var back = document.createElement("p");
+          back.className = "debt-minimum-guide-back";
+          var backLink = document.createElement("a");
+          backLink.className = "debt-minimum-guide-back-link";
+          backLink.href = "/living/housing" + refUrl.hash;
+          backLink.textContent = "← Back to housing affordability";
+          back.appendChild(backLink);
+          root.appendChild(back);
+        }
       }
 
       document.addEventListener("DOMContentLoaded", mountReturnNav);

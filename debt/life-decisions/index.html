@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Debt &amp; Major Financial Decisions (US) | Income Clarity</title>
+  <meta name="description" content="How debt affects buying a house, saving, investing, and life goals: DTI tradeoffs, payoff vs invest decisions, and realistic priority frameworks for US households.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://incomeclarity.com/debt/life-decisions">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path === "/index.html") {
+        cleanPath = "/";
+      } else if (path.endsWith("/index.html")) {
+        cleanPath = path.slice(0, -10);
+      } else if (path.endsWith(".html")) {
+        cleanPath = path.slice(0, -5);
+      }
+      if (cleanPath !== path) {
+        window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Debt & Major Financial Decisions",
+    "description": "US hub connecting credit card debt with housing, saving, investing, and long-term life planning tradeoffs.",
+    "url": "https://incomeclarity.com/debt/life-decisions",
+    "isPartOf": { "@type": "WebSite", "name": "Income Clarity", "url": "https://incomeclarity.com/" },
+    "about": { "@type": "Thing", "name": "Debt and major financial life decisions in the United States" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Credit card payoff calculator", "item": "https://incomeclarity.com/credit-card-payoff-calculator" },
+      { "@type": "ListItem", "position": 2, "name": "Debt vs life decisions", "item": "https://incomeclarity.com/debt/life-decisions" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Debt and life decision guides",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "How much house can I afford", "url": "https://incomeclarity.com/living/housing/how-much-house-can-i-afford" },
+      { "@type": "ListItem", "position": 2, "name": "Rent vs buy calculator", "url": "https://incomeclarity.com/rent-vs-buy-calculator" },
+      { "@type": "ListItem", "position": 3, "name": "Debt payoff strategies", "url": "https://incomeclarity.com/debt/payoff-strategies" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Should I pay off debt before buying a house?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Often yes for high-APR revolving debt before applying, because it can improve debt-to-income ratios and monthly margin. The right order depends on your DTI, down payment timeline, and whether you have a starter emergency buffer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it okay to invest while in debt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Many people still capture an employer 401(k) match while paying high-APR cards, but aggressive investing instead of attacking expensive revolving debt rarely wins mathematically. Compare your card APR to expected after-tax investment returns honestly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What debt level affects mortgage approval?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Lenders focus on debt-to-income ratio, payment history, and total required monthly obligations. High revolving balances and minimum payments can reduce approval amounts even when you make payments on time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I save or pay debt first?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A small starter emergency fund plus attacking high-APR revolving debt is a common approach. Exact priority depends on job stability, access to low-cost credit in a crisis, and whether you are missing an employer match."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="debt-life-decisions-hub-page debt-payoff-hub-page housing-hub-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="/index.html">Income Clarity</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/hourly-to-salary-after-tax">Income</a>
+        <a href="/credit-card-payoff-calculator" aria-current="page">Debt</a>
+        <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container housing-hub debt-payoff-hub debt-life-decisions-hub">
+    <nav class="take-home-return-nav housing-hub-crumb" aria-label="Breadcrumb">
+      <ol class="take-home-return-breadcrumbs">
+        <li><a href="/credit-card-payoff-calculator#payoff">Credit card payoff calculator</a></li>
+        <li aria-current="page">Debt vs life decisions</li>
+      </ol>
+    </nav>
+
+    <p class="debt-minimum-guide-back housing-hub-back">
+      <a class="debt-minimum-guide-back-link" id="debt-guide-back-link" href="/credit-card-payoff-calculator#debt-hub-life" data-debt-back-default="/credit-card-payoff-calculator#debt-hub-life">← Back to browse debt topics</a>
+    </p>
+
+    <section class="housing-hub-hero debt-life-decisions-hub-hero debt-payoff-hub-hero" aria-labelledby="debt-life-decisions-hub-title">
+      <span class="label">Debt · Life decisions</span>
+      <h1 id="debt-life-decisions-hub-title">Debt &amp; Major Financial Decisions</h1>
+      <p class="housing-hub-hero-lead">Explore how debt affects major financial decisions like buying a house, saving, investing, and long-term financial planning. Compare tradeoffs, affordability impacts, and strategies for balancing debt with future goals.</p>
+      <p class="state-salary-insight housing-hub-glance debt-life-decisions-hub-glance" role="note"><strong>Future freedom:</strong> Required debt payments are also decisions about what you cannot fund later—housing, moves, savings, and career risk.</p>
+      <div class="housing-hub-pills debt-life-decisions-hub-pills" role="navigation" aria-label="Quick life decision topics">
+        <span class="housing-hub-pill debt-life-decisions-hub-pill--house debt-payoff-hub-pill--soon" aria-disabled="true">Buy house with debt <em class="debt-payoff-hub-soon-label">(coming soon)</em></span>
+        <span class="housing-hub-pill debt-life-decisions-hub-pill--invest debt-payoff-hub-pill--soon" aria-disabled="true">Debt vs investing <em class="debt-payoff-hub-soon-label">(coming soon)</em></span>
+        <a class="housing-hub-pill debt-life-decisions-hub-pill--plan" href="/debt/payoff-strategies">Debt priority planner</a>
+      </div>
+    </section>
+
+    <nav class="housing-hub-jump" aria-label="On this page">
+      <a class="housing-hub-jump-pill" href="#debt-life-tools">Tools</a>
+      <a class="housing-hub-jump-pill" href="#debt-life-goals">Life goals</a>
+      <a class="housing-hub-jump-pill" href="#debt-life-house">Housing</a>
+      <a class="housing-hub-jump-pill" href="#debt-life-save-invest">Save vs invest</a>
+      <a class="housing-hub-jump-pill" href="#debt-life-flexibility">Flexibility</a>
+      <a class="housing-hub-jump-pill" href="#debt-life-frameworks">Frameworks</a>
+      <a class="housing-hub-jump-pill" href="#debt-life-faq">FAQ</a>
+    </nav>
+
+    <section class="housing-hub-panel housing-hub-intro" aria-labelledby="debt-life-decisions-intro-title">
+      <h2 id="debt-life-decisions-intro-title" class="housing-hub-sr-only">About this life decisions hub</h2>
+      <p class="housing-hub-intro-text">Debt is not only a monthly bill—it is a <strong>constraint on future choices</strong>. This hub helps you see tradeoffs between paying cards down, saving, investing, and milestones like homeownership—without pretending one priority order fits every household.</p>
+      <p class="housing-hub-intro-text">Use <a href="/hourly-to-salary-after-tax#hourly-salary-form">salary after tax</a> for real payment capacity, <a href="/rent-vs-buy-calculator#rent-vs-buy">rent vs buy</a> for housing math, and <a href="/debt/payoff-strategies">payoff strategies</a> for attack order. Guides still in production are marked <strong>coming soon</strong>.</p>
+    </section>
+
+    <section class="housing-hub-panel housing-hub-panel--tools debt-life-decisions-hub-panel--tools" id="debt-life-tools" aria-labelledby="debt-life-tools-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker debt-life-decisions-hub-kicker--violet">🧮 Step 1 · Plan</p>
+        <h2 id="debt-life-tools-title">Debt decision tools</h2>
+        <p class="housing-hub-section-lead">Future-oriented, practical entry points—run numbers before you commit to a timeline.</p>
+      </header>
+      <div class="housing-hub-tool-grid debt-payoff-hub-tool-grid">
+        <div class="housing-hub-tool-card debt-life-decisions-hub-tool-card--house debt-payoff-hub-tool-card--soon" aria-disabled="true">
+          <span class="housing-hub-card-badge" aria-hidden="true">🏠</span>
+          <h3>Can I buy a house with debt?</h3>
+          <p>Estimate housing affordability and DTI impact.</p>
+          <span class="debt-payoff-hub-soon-tag">Coming soon</span>
+        </div>
+        <div class="housing-hub-tool-card debt-payoff-hub-tool-card--soon" aria-disabled="true">
+          <span class="housing-hub-card-badge" aria-hidden="true">📈</span>
+          <h3>Debt vs investing calculator</h3>
+          <p>Compare payoff vs investment tradeoffs.</p>
+          <span class="debt-payoff-hub-soon-tag">Coming soon</span>
+        </div>
+        <a class="housing-hub-tool-card debt-life-decisions-hub-tool-card--plan" href="/debt/payoff-strategies">
+          <span class="housing-hub-card-badge" aria-hidden="true">📋</span>
+          <h3>Debt priority planner</h3>
+          <p>Organize financial priorities realistically.</p>
+          <span class="housing-hub-card-cta">Strategies hub →</span>
+        </a>
+        <div class="housing-hub-tool-card debt-life-decisions-hub-tool-card--save debt-payoff-hub-tool-card--soon" aria-disabled="true">
+          <span class="housing-hub-card-badge" aria-hidden="true">⚖️</span>
+          <h3>Savings vs debt payoff</h3>
+          <p>Model payment size and long-run interest cost.</p>
+          <span class="debt-payoff-hub-soon-tag">Coming soon</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel debt-life-decisions-hub-panel--goals" id="debt-life-goals" aria-labelledby="debt-life-goals-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker debt-life-decisions-hub-kicker--teal">🏡 Step 2 · Goals</p>
+        <h2 id="debt-life-goals-title">How debt affects life goals</h2>
+        <p class="housing-hub-section-lead">What debt may be delaying—framed as tradeoffs, not failure.</p>
+      </header>
+      <div class="housing-hub-scroll" tabindex="0" role="region" aria-label="Life goal scenario cards">
+        <a class="housing-hub-chip-card debt-life-decisions-chip-card--house" href="/living/housing/how-much-house-can-i-afford">
+          <span class="housing-hub-chip-tag">Home</span>
+          <h3>Buying a house</h3>
+          <p>DTI, down payment, and cash flow.</p>
+        </a>
+        <a class="housing-hub-chip-card debt-life-decisions-chip-card--move" href="/living/housing">
+          <span class="housing-hub-chip-tag">Move</span>
+          <h3>Moving to a new city</h3>
+          <p>Rent, deposits, and debt payments together.</p>
+        </a>
+        <a class="housing-hub-chip-card debt-life-decisions-chip-card--family" href="/living/lifestyle-family">
+          <span class="housing-hub-chip-tag">Family</span>
+          <h3>Starting a family</h3>
+          <p>Budget margin and lifestyle costs.</p>
+        </a>
+        <div class="housing-hub-chip-card debt-payoff-hub-chip-card--soon" aria-disabled="true">
+          <span class="housing-hub-chip-tag">Retire</span>
+          <h3>Saving for retirement</h3>
+          <p>Match vs high-APR debt order.</p>
+          <span class="debt-payoff-hub-soon-tag">Coming soon</span>
+        </div>
+        <a class="housing-hub-chip-card debt-life-decisions-chip-card--income" href="/hourly-to-salary-after-tax#hourly-salary-form">
+          <span class="housing-hub-chip-tag">Career</span>
+          <h3>Career flexibility</h3>
+          <p>Take-home pay and fixed obligations.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel housing-hub-split debt-life-decisions-hub-house-split" id="debt-life-house" aria-labelledby="debt-life-house-title">
+      <div class="housing-hub-split-copy">
+        <p class="housing-hub-kicker debt-life-decisions-hub-kicker--blue">🏠 Step 3 · Housing</p>
+        <h2 id="debt-life-house-title">Buying a house while in debt</h2>
+        <p><strong>Debt-to-income impact:</strong> Revolving minimums count in DTI—high card payments shrink the mortgage room lenders will offer.</p>
+        <p><strong>Mortgage qualification:</strong> On-time history matters, but so does total obligations versus gross income. See <a href="/debt/financial-health">financial health &amp; DTI</a>.</p>
+        <p><strong>Down payment tradeoffs:</strong> Dollars sent to cards cannot fund a down payment—sometimes paying down high-APR debt first improves both DTI and savings velocity.</p>
+        <p><strong>Rate environment:</strong> Housing cost still includes taxes, insurance, and maintenance—not just the mortgage payment. Pair with <a href="/rent-vs-buy-calculator#rent-vs-buy">rent vs buy</a>.</p>
+      </div>
+      <div class="housing-hub-split-cards debt-life-decisions-house-cards" aria-label="Housing affordability examples">
+        <div class="debt-life-decisions-example-card">
+          <h3>Healthier DTI band</h3>
+          <p>Total obligations often under ~36% of gross income—more lender headroom (rules vary).</p>
+        </div>
+        <div class="debt-life-decisions-example-card">
+          <h3>Riskier DTI band</h3>
+          <p>Above ~43–50% total DTI can limit approval or require compensating factors.</p>
+        </div>
+        <a class="debt-life-decisions-example-card debt-life-decisions-example-card--link" href="/living/housing/how-much-house-can-i-afford">
+          <h3>Debt reduction before buying</h3>
+          <p>Paying down revolving balances can free monthly margin and improve qualification math.</p>
+          <span class="housing-hub-card-cta">Run affordability →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel debt-life-decisions-hub-panel--invest" id="debt-life-save-invest" aria-labelledby="debt-life-save-invest-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker debt-life-decisions-hub-kicker--gold">📈 Step 4 · Compare</p>
+        <h2 id="debt-life-save-invest-title">Pay off debt or save &amp; invest?</h2>
+        <p class="housing-hub-section-lead">Highly searched tradeoffs—math plus behavior, not slogans. <strong>Guides in this section are coming soon.</strong></p>
+      </header>
+      <div class="debt-life-decisions-compare-wrap">
+        <table class="state-page-compare-table debt-life-decisions-compare-table">
+          <thead>
+            <tr>
+              <th scope="col">Scenario</th>
+              <th scope="col">Often better priority</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">High-interest debt</th>
+              <td>Pay debt first</td>
+            </tr>
+            <tr>
+              <th scope="row">Employer 401(k) match</th>
+              <td>Invest simultaneously</td>
+            </tr>
+            <tr>
+              <th scope="row">No emergency savings</th>
+              <td>Build savings first</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="housing-hub-guide-grid debt-life-decisions-invest-grid">
+        <div class="housing-hub-guide-card debt-life-decisions-invest-card debt-payoff-hub-guide-card--soon" aria-disabled="true">
+          <h3>High APR debt</h3>
+          <p>When card rates beat likely investment returns after tax and risk.</p>
+          <span class="debt-payoff-hub-soon-tag">Coming soon</span>
+        </div>
+        <div class="housing-hub-guide-card debt-payoff-hub-guide-card--soon" aria-disabled="true">
+          <h3>Retirement contributions</h3>
+          <p>Match capture vs avalanche order.</p>
+          <span class="debt-payoff-hub-soon-tag">Coming soon</span>
+        </div>
+        <div class="housing-hub-guide-card debt-payoff-hub-guide-card--soon" aria-disabled="true">
+          <h3>Emergency fund building</h3>
+          <p>Starter buffer size while paying cards.</p>
+          <span class="debt-payoff-hub-soon-tag">Coming soon</span>
+        </div>
+        <div class="housing-hub-guide-card debt-life-decisions-invest-card debt-payoff-hub-guide-card--soon" aria-disabled="true">
+          <h3>Investing while repaying debt</h3>
+          <p>When split strategies make sense.</p>
+          <span class="debt-payoff-hub-soon-tag">Coming soon</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel debt-life-decisions-hub-panel--flexibility" id="debt-life-flexibility" aria-labelledby="debt-life-flexibility-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker debt-life-decisions-hub-kicker--coral">💸 Step 5 · Flexibility</p>
+        <h2 id="debt-life-flexibility-title">How debt limits financial flexibility</h2>
+        <p class="housing-hub-section-lead">Emotionally relatable constraints—fixed payments change what “optional” means.</p>
+      </header>
+      <div class="debt-payoff-hub-stat-grid">
+        <blockquote class="debt-payoff-hub-stat-card debt-life-decisions-flex-card">
+          <p>Reduced monthly cash flow</p>
+          <footer>Minimums plus housing and other bills leave less for goals and surprises.</footer>
+        </blockquote>
+        <blockquote class="debt-payoff-hub-stat-card debt-life-decisions-flex-card">
+          <p>Less relocation flexibility</p>
+          <footer>Moves need deposits, moving costs, and stable income—debt raises the bar.</footer>
+        </blockquote>
+        <blockquote class="debt-payoff-hub-stat-card debt-life-decisions-flex-card">
+          <p>Delayed travel &amp; lifestyle goals</p>
+          <footer>Discretionary spend competes with interest—see <a href="/living/budgeting?from=life-decisions">budget planning</a>.</footer>
+        </blockquote>
+        <blockquote class="debt-payoff-hub-stat-card debt-life-decisions-flex-card">
+          <p>Stress from fixed obligations</p>
+          <footer>Knowing payments are locked in can shrink risk tolerance for career or family changes.</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel debt-life-decisions-hub-panel--opportunity" id="debt-life-opportunity" aria-labelledby="debt-life-opportunity-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker debt-life-decisions-hub-kicker--slate">⏳ Step 6 · Future</p>
+        <h2 id="debt-life-opportunity-title">Long-term financial tradeoffs</h2>
+        <p class="housing-hub-section-lead">Future-awareness—interest paid to issuers cannot compound for you at the same time.</p>
+      </header>
+      <div class="housing-hub-guide-grid">
+        <div class="housing-hub-guide-card debt-payoff-hub-guide-card--soon" aria-disabled="true">
+          <h3>Investing early vs carrying debt</h3>
+          <p>When high APR dominates the math.</p>
+          <span class="debt-payoff-hub-soon-tag">Coming soon</span>
+        </div>
+        <div class="housing-hub-guide-card debt-payoff-hub-guide-card--soon" aria-disabled="true">
+          <h3>Delayed retirement savings</h3>
+          <p>Years of card interest vs long-run compounding.</p>
+          <span class="debt-payoff-hub-soon-tag">Coming soon</span>
+        </div>
+        <a class="housing-hub-guide-card debt-life-decisions-opportunity-card" href="/living/housing/how-much-house-can-i-afford">
+          <h3>Home equity delays</h3>
+          <p>DTI and down payment when balances stay high.</p>
+          <span class="housing-hub-card-cta">Housing guide →</span>
+        </a>
+        <a class="housing-hub-guide-card debt-life-decisions-opportunity-card" href="/debt/hidden-costs">
+          <h3>Lost compound growth</h3>
+          <p>Hidden costs of long payoff timelines.</p>
+          <span class="housing-hub-card-cta">Hidden costs hub →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel housing-hub-panel--edu debt-life-decisions-hub-panel--frameworks" id="debt-life-frameworks" aria-labelledby="debt-life-frameworks-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker debt-life-decisions-hub-kicker--violet">🧠 Step 7 · Prioritize</p>
+        <h2 id="debt-life-frameworks-title">How to prioritize financial goals</h2>
+        <p class="housing-hub-section-lead">Strategic blocks—pick an order you can hold for twelve months.</p>
+      </header>
+      <div class="housing-hub-accordion">
+        <details class="housing-hub-accordion-item" open>
+          <summary>High-interest debt priority</summary>
+          <p>Attack revolving APR above plausible investment returns first while paying minimums everywhere else. See <a href="/debt/payoff/best-way-to-pay-off-credit-card-debt.html">best way to pay off credit card debt</a>.</p>
+        </details>
+        <details class="housing-hub-accordion-item">
+          <summary>Emergency fund first?</summary>
+          <p>Many households keep a <strong>starter buffer</strong> ($500–$2,000+) while paying high-APR cards so a flat tire does not become a new charge. <em>Dedicated guide coming soon.</em></p>
+        </details>
+        <details class="housing-hub-accordion-item">
+          <summary>Housing vs debt payoff</summary>
+          <p>If buying soon, model DTI with and without lower card balances. Sometimes six months of aggressive payoff improves approval more than the same cash as a smaller down payment. Use <a href="/living/housing/how-much-house-can-i-afford">house affordability</a> and <a href="/rent-vs-buy-calculator#rent-vs-buy">rent vs buy</a>.</p>
+        </details>
+        <details class="housing-hub-accordion-item">
+          <summary>Investing while paying debt</summary>
+          <p>Capture employer match if available; do not skip free compensation. Beyond that, high-APR cards usually win until rates fall or balances shrink. <a href="/debt/payoff-strategies">Payoff strategies hub</a>.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel housing-hub-panel--finance" id="debt-life-related-finance" aria-labelledby="debt-life-related-finance-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker debt-payoff-hub-kicker--slate">🧠 Connect · Debt ↔ Living ↔ Income</p>
+        <h2 id="debt-life-related-finance-title">Related financial planning</h2>
+        <p class="housing-hub-section-lead">Life decisions need income, housing, and debt on the same page.</p>
+      </header>
+      <div class="housing-hub-compact-grid">
+        <div class="housing-hub-compact-card debt-payoff-hub-compact-card--dti debt-payoff-hub-guide-card--soon" aria-disabled="true">
+          <h3>Debt-to-income ratio</h3>
+          <p>DTI framing and stress signals.</p>
+          <span class="debt-payoff-hub-soon-tag">Coming soon</span>
+        </div>
+        <a class="housing-hub-compact-card debt-payoff-hub-compact-card--budget" href="/living/budgeting?from=life-decisions">
+          <h3>Budget planning</h3>
+          <p>Monthly map for goals and margin.</p>
+        </a>
+        <a class="housing-hub-compact-card debt-payoff-hub-compact-card--income" href="/hourly-to-salary-after-tax#hourly-salary-form">
+          <h3>Salary after tax</h3>
+          <p>Real take-home for tradeoffs.</p>
+        </a>
+        <a class="housing-hub-compact-card debt-payoff-hub-compact-card--rent" href="/living/housing/how-much-rent-can-i-afford">
+          <h3>Rent affordability</h3>
+          <p>Housing share of take-home.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel housing-hub-panel--faq" id="debt-life-faq" aria-labelledby="debt-life-faq-title">
+      <header class="housing-hub-section-head">
+        <h2 id="debt-life-faq-title">Frequently asked questions</h2>
+        <p class="housing-hub-section-lead">Life decision searches—answered in plain language.</p>
+      </header>
+      <div class="housing-hub-accordion faq-stack">
+        <details class="housing-hub-accordion-item faq-item" open>
+          <summary>Should I pay off debt before buying a house?</summary>
+          <p>Often <strong>yes for high-APR revolving debt</strong> before applying—it can improve DTI and monthly margin. Run scenarios with <a href="/living/housing/how-much-house-can-i-afford">house affordability</a> and your actual card payments.</p>
+        </details>
+        <details class="housing-hub-accordion-item faq-item">
+          <summary>Is it okay to invest while in debt?</summary>
+          <p>Many people still take an <strong>employer 401(k) match</strong>. Beyond that, compare card APR to realistic after-tax investment returns. High-APR cards usually come first.</p>
+        </details>
+        <details class="housing-hub-accordion-item faq-item">
+          <summary>What debt level affects mortgage approval?</summary>
+          <p>Lenders weigh <strong>DTI</strong>, payment history, and total monthly obligations. High revolving balances hurt even when you pay on time. See <a href="/debt/financial-health">financial health hub</a>.</p>
+        </details>
+        <details class="housing-hub-accordion-item faq-item">
+          <summary>Should I save or pay debt first?</summary>
+          <p>Starter emergency cash plus high-APR payoff is common. Details depend on job stability and match availability—see <a href="#debt-life-save-invest">save vs invest</a> above.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel housing-hub-panel--more" id="debt-life-more" aria-labelledby="debt-life-more-title">
+      <header class="housing-hub-section-head">
+        <h2 id="debt-life-more-title">Explore more debt guides</h2>
+      </header>
+      <nav class="housing-hub-link-grid" aria-label="More debt guides">
+        <a href="/debt/payoff-strategies">Debt payoff strategies</a>
+        <a href="/debt/interest-apr">Interest &amp; APR</a>
+        <a href="/living/budgeting?from=life-decisions">Budgeting to pay debt</a>
+        <a href="/debt/financial-health">Financial health &amp; DTI</a>
+        <a href="/debt/hidden-costs">Hidden costs of debt</a>
+        <a href="/credit-card-payoff-calculator#debt-hub-title">Browse all debt topics</a>
+      </nav>
+    </section>
+
+    <p class="housing-hub-disclaimer note">Educational content for US readers only—not financial, tax, or legal advice. Lender rules, tax treatment, and personal circumstances vary.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-description">US-only tools to calculate your real income after tax, understand debt, and make smarter financial decisions.</p>
+      <div class="footer-grid" role="navigation" aria-label="Footer">
+        <section class="footer-column" aria-labelledby="footer-popular-calculators">
+          <h2 id="footer-popular-calculators">Popular Calculators</h2>
+          <a href="/hourly-to-salary-after-tax">Hourly to Salary After Tax</a>
+          <a href="/credit-card-payoff-calculator">Credit Card Payoff Calculator</a>
+          <a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a>
+          <a href="/1099-vs-w2-calculator">1099 vs W2 Calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-tools-category">
+          <h2 id="footer-tools-category">Tools by Category</h2>
+          <a href="/hourly-to-salary-after-tax">Income</a>
+          <a href="/credit-card-payoff-calculator">Debt</a>
+          <a href="/rent-vs-buy-calculator">Living</a>
+          <a href="/1099-vs-w2-calculator">Freelance</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-explore-more">
+          <h2 id="footer-explore-more">Explore More</h2>
+          <a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy with debt</a>
+          <a href="/debt/life-decisions">Debt vs life decisions hub</a>
+          <a href="/living/housing">Housing hub</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-company">
+          <h2 id="footer-company">Company</h2>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms</a>
+        </section>
+      </div>
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
+  <script src="/debt-guide-back.js"></script>
+</body>
+</html>

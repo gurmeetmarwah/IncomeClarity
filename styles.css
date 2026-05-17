@@ -88,18 +88,22 @@ a:hover {
   background-size: contain;
 }
 
+.nav-links a[href="/hourly-to-salary-after-tax"]::before,
 .nav-links a[href="hourly-to-salary-after-tax.html"]::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%230f7b6c'%3E%3Cpath d='M3 14h3V7H3v7zm5 0h3V3H8v11zm5 0h3V9h-3v5z'/%3E%3C/svg%3E");
 }
 
+.nav-links a[href="/credit-card-payoff-calculator"]::before,
 .nav-links a[href="credit-card-payoff-calculator.html"]::before {
   background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23c05621"%3E%3Cpath d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 4v5H7v-2h2V6h2zm-4 7h6v2H7v-2z"/%3E%3C/svg%3E');
 }
 
+.nav-links a[href="/rent-vs-buy-calculator"]::before,
 .nav-links a[href="rent-vs-buy-calculator.html"]::before {
   background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%232d6a9f"%3E%3Cpath d="M10 3l7 6v8h-5v-5H8v5H3V9l7-6z"/%3E%3C/svg%3E');
 }
 
+.nav-links a[href="/1099-vs-w2-calculator"]::before,
 .nav-links a[href="1099-vs-w2-calculator.html"]::before {
   background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%236b46c1"%3E%3Cpath d="M4 4h12v2H4V4zm0 5h8v2H4V9zm0 5h12v2H4v-2zm10-5l2 2-2 2v-4z"/%3E%3C/svg%3E');
 }
@@ -1762,6 +1766,184 @@ section {
   color: #486581;
 }
 
+.debt-guides-hub-lead a {
+  font-weight: 600;
+}
+
+/* Topic hub cards (Debt + Living): always-visible links per category */
+.debt-topic-hub,
+.living-topic-hub {
+  margin-top: 0.65rem;
+}
+
+.debt-topic-hub-header,
+.living-topic-hub-header {
+  margin-bottom: 0.9rem;
+  max-width: 44rem;
+}
+
+.debt-topic-hub-header h3,
+.living-topic-hub-header h3 {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  color: #102a43;
+  line-height: 1.25;
+}
+
+.debt-topic-hub-lead,
+.living-topic-hub-lead {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #627d98;
+}
+
+.debt-topic-hub-lead a,
+.living-topic-hub-lead a {
+  font-weight: 600;
+}
+
+.debt-topic-grid,
+.living-topic-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+  align-items: stretch;
+}
+
+.debt-topic-card,
+.living-topic-card {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0.7rem 0.75rem 0.75rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #dfe7f4;
+  border-left-width: 3px;
+  border-left-color: var(--topic-accent, #2d6a9f);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 4px 14px rgba(16, 42, 67, 0.05);
+  scroll-margin-top: 5.5rem;
+}
+
+.debt-topic-card:nth-child(1),
+.living-topic-card:nth-child(1) {
+  --topic-accent: #0a5f53;
+}
+
+.debt-topic-card:nth-child(2),
+.living-topic-card:nth-child(2) {
+  --topic-accent: #1d6fa5;
+}
+
+.debt-topic-card:nth-child(3),
+.living-topic-card:nth-child(3) {
+  --topic-accent: #2e6b5c;
+}
+
+.debt-topic-card:nth-child(4),
+.living-topic-card:nth-child(4) {
+  --topic-accent: #3d5a80;
+}
+
+.debt-topic-card:nth-child(5) {
+  --topic-accent: #9a5b14;
+}
+
+.debt-topic-card:nth-child(6) {
+  --topic-accent: #5c4d7a;
+}
+
+.debt-topic-card-title,
+.living-topic-card-title {
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid #e8f0f7;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--topic-accent, #2d6a9f);
+  line-height: 1.3;
+}
+
+.debt-topic-card-links,
+.living-topic-card-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  flex: 1 1 auto;
+}
+
+.debt-topic-link,
+.living-topic-link {
+  display: block;
+  padding: 0.45rem 0.5rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.debt-topic-link:hover,
+.living-topic-link:hover {
+  border-color: #cfe0f1;
+  background: #fff;
+  text-decoration: none;
+}
+
+.debt-topic-link-name,
+.living-topic-link-name {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #102a43;
+  line-height: 1.35;
+}
+
+.debt-topic-link-desc,
+.living-topic-link-desc {
+  display: block;
+  margin-top: 0.12rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: #627d98;
+}
+
+@media (min-width: 560px) {
+  .debt-topic-grid,
+  .living-topic-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+}
+
+@media (min-width: 960px) {
+  .debt-topic-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .living-topic-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .debt-topic-card,
+  .living-topic-card {
+    padding: 0.75rem 0.8rem 0.8rem;
+  }
+}
+
+.rvb-tool-hub-grid .living-topic-hub {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: none;
+}
+
 .debt-stats-callout {
   margin: 1.25rem 0 1.5rem;
   padding: 1.05rem 1.15rem;
@@ -1967,7 +2149,8 @@ section {
 }
 
 .living-page-interlink .interlink-cluster,
-.rvb-tool-hub-grid .interlink-cluster {
+.rvb-tool-hub-grid .interlink-cluster,
+.rvb-tool-hub-grid .living-topic-hub {
   grid-column: 1 / -1;
   width: 100%;
   max-width: none;
@@ -2312,6 +2495,84 @@ section {
 .living-page-interlink-grid > .interlink-card .interlink-cta {
   margin-top: auto;
   padding-top: 0.35rem;
+}
+
+/* Guide pages: featured calculator + related links (in-article) */
+.guide-related-interlink {
+  margin: 1.85rem 0 0;
+  padding: 1.35rem 1.15rem 1.2rem;
+  border-radius: 14px;
+  border: 1px solid #cfe0f1;
+  background: linear-gradient(180deg, #f4f9fc 0%, #ffffff 55%);
+  box-shadow: 0 10px 28px rgba(16, 42, 67, 0.07);
+}
+
+.guide-related-interlink-header {
+  max-width: 44rem;
+  margin-bottom: 1.05rem;
+}
+
+.guide-related-interlink-header h2 {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  color: #102a43;
+  line-height: 1.2;
+}
+
+.guide-related-interlink-lead {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.55;
+  color: #486581;
+}
+
+.guide-related-interlink-grid {
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  align-items: stretch;
+}
+
+.guide-related-interlink-grid > .interlink-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  height: 100%;
+}
+
+.guide-related-interlink-grid > .interlink-card p {
+  flex: 1 1 auto;
+  font-size: 0.9rem;
+  line-height: 1.48;
+}
+
+.guide-related-interlink-grid > .interlink-card .interlink-cta {
+  margin-top: auto;
+  padding-top: 0.35rem;
+}
+
+.guide-related-interlink-grid > .interlink-card h3 {
+  font-size: 1.02rem;
+}
+
+@media (min-width: 560px) {
+  .guide-related-interlink-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+  }
+}
+
+@media (min-width: 960px) {
+  .guide-related-interlink {
+    padding: 1.5rem 1.35rem 1.35rem;
+  }
+
+  .guide-related-interlink-grid {
+    gap: 1rem;
+  }
+}
+
+#rent-vs-buy-in-america.rvb-seo-guide-hub {
+  scroll-margin-top: 5.5rem;
 }
 
 .fl-page-interlink {
@@ -3070,6 +3331,37 @@ section {
 
 .rent-related-guide .take-home-guide-cta-wrap {
   margin-top: 0;
+}
+
+.debt-payoff-bridge.rent-related-guide {
+  margin: 1.85rem 0 1.5rem;
+  scroll-margin-top: 5.5rem;
+}
+
+.debt-payoff-bridge-grid {
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+.debt-payoff-bridge-grid > .interlink-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.debt-payoff-bridge-grid > .interlink-card p {
+  flex: 1 1 auto;
+}
+
+.debt-payoff-bridge-grid > .interlink-card .interlink-cta {
+  margin-top: auto;
+  padding-top: 0.35rem;
+}
+
+@media (min-width: 640px) {
+  .debt-payoff-bridge-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .rvb-ca-promo {
@@ -5006,6 +5298,104 @@ section {
   max-width: 46rem;
 }
 
+/* How much rent can I afford — tighter section rhythm */
+.rent-afford-guide .take-home-return-nav {
+  margin-bottom: 0.65rem;
+}
+
+.rent-afford-guide .debt-minimum-guide-back {
+  margin: 0 0 0.35rem;
+}
+
+.rent-afford-guide article > section,
+.rent-afford-guide article > .rent-related-guide,
+.rent-afford-guide article > .living-faq-section {
+  padding: 0.75rem 0;
+  scroll-margin-top: 4.5rem;
+}
+
+.rent-afford-guide .take-home-guide-header {
+  margin-bottom: 0.65rem;
+}
+
+.rent-afford-guide .take-home-guide-at-a-glance {
+  margin: 0.5rem 0 0.65rem;
+}
+
+.rent-afford-guide .take-home-guide-toc {
+  margin: 0 0 0.75rem;
+  padding: 0.75rem 0.9rem;
+}
+
+.rent-afford-guide article > section > p:first-of-type,
+.rent-afford-guide article > section > h2 + p {
+  margin-top: 0.35rem;
+}
+
+.rent-afford-guide .debt-stats-callout {
+  margin: 0.55rem 0 0.65rem;
+  padding: 0.85rem 0.95rem;
+}
+
+.rent-afford-guide .debt-stats-callout:last-child {
+  margin-bottom: 0.35rem;
+}
+
+.rent-afford-guide .debt-data-table-wrap {
+  margin: 0.5rem 0 0.65rem;
+}
+
+.rent-afford-guide .interest-viz-figure {
+  margin: 0.55rem 0 0.5rem;
+}
+
+.rent-afford-guide .interest-viz-note {
+  margin: 0.45rem 0 0;
+}
+
+.rent-afford-guide .debt-stats-grid {
+  gap: 0.55rem;
+  margin: 0.45rem 0 0.35rem;
+}
+
+.rent-afford-guide .rent-related-guide {
+  margin: 0;
+  padding: 0.85rem 0.95rem;
+}
+
+.rent-afford-guide .living-faq-section {
+  padding: 0.65rem 0 0.35rem;
+  border-top: 1px solid #e4edf5;
+  margin-top: 0.25rem;
+}
+
+.rent-afford-guide .living-faq-lead {
+  margin: 0 0 0.55rem;
+}
+
+.rent-afford-guide .faq-stack {
+  gap: 0.45rem;
+}
+
+.rent-afford-guide .faq-item {
+  padding: 0.75rem 0.85rem;
+}
+
+.rent-afford-guide .take-home-guide-cta-wrap {
+  margin: 0.55rem 0 0;
+}
+
+.rent-afford-guide .take-home-guide-disclaimer {
+  margin-top: 0.5rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--border);
+}
+
+.rent-afford-guide article > section > ol {
+  margin: 0.35rem 0 0.5rem;
+  padding-left: 1.25rem;
+}
+
 .take-home-guide-cta-wrap {
   margin: 1rem 0 0;
 }
@@ -6609,4 +6999,2348 @@ main.fl-page h2 {
     overflow-wrap: break-word;
     hyphens: auto;
   }
+}
+
+/* Living topic card — explore hub (Housing and Rent) */
+.living-topic-card--explore {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.living-topic-explore-desc {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #486581;
+}
+
+.living-topic-explore-btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0a5f53;
+  background: #e6f4f1;
+  border: 1px solid #9fd4c8;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.living-topic-explore-btn:hover {
+  background: #d4ede8;
+  border-color: #6fc4b4;
+  box-shadow: 0 4px 12px rgba(10, 95, 83, 0.12);
+  text-decoration: none;
+}
+
+/* Housing hub (/living/housing) */
+.housing-hub-page {
+  background: linear-gradient(180deg, #eef4f9 0%, #f7fafc 12rem, #f7fafc 100%);
+}
+
+.housing-hub-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.housing-hub {
+  display: grid;
+  gap: 0.85rem;
+  padding-bottom: 1.5rem;
+}
+
+.housing-hub-crumb,
+.housing-hub-back {
+  margin-bottom: 0;
+}
+
+.housing-hub-hero {
+  padding: 1rem 1rem 1.1rem;
+  border-radius: 14px;
+  background: linear-gradient(128deg, #ffffff 0%, #edf6ff 42%, #e8f6f2 100%);
+  border: 1px solid #c5d9ec;
+  box-shadow: 0 8px 24px rgba(16, 42, 67, 0.08);
+}
+
+.housing-hub-hero .label {
+  margin-bottom: 0.25rem;
+}
+
+.housing-hub-hero h1 {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1.5rem, 4vw, 1.95rem);
+  line-height: 1.18;
+  color: #102a43;
+  letter-spacing: -0.02em;
+}
+
+.housing-hub-hero-lead {
+  margin: 0 0 0.65rem;
+  max-width: 44rem;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: #486581;
+}
+
+.housing-hub-glance {
+  margin: 0 0 0.75rem;
+  padding: 0.65rem 0.75rem;
+  font-size: 0.88rem;
+  line-height: 1.48;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid #d4e4f4;
+}
+
+.housing-hub-pills {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.4rem;
+}
+
+@media (min-width: 560px) {
+  .housing-hub-pills {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .housing-hub-pills {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.housing-hub-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.housing-hub-pill--rent {
+  color: #0a5f53;
+  background: #e3f5f1;
+  border: 1px solid #8fd4c6;
+}
+
+.housing-hub-pill--house {
+  color: #1a4d8c;
+  background: #e8f1fc;
+  border: 1px solid #9fc0e8;
+}
+
+.housing-hub-pill--rvb {
+  color: #6b4423;
+  background: #fff4e8;
+  border: 1px solid #e8c9a8;
+}
+
+.housing-hub-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(16, 42, 67, 0.1);
+  text-decoration: none;
+}
+
+.housing-hub-jump {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.35rem;
+  overflow-x: auto;
+  padding: 0.15rem 0 0.35rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.housing-hub-jump-pill {
+  flex: 0 0 auto;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #334e68;
+  background: #ffffff;
+  border: 1px solid #d9e6f2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.housing-hub-jump-pill:hover {
+  color: #0a5f53;
+  border-color: #8fd4c6;
+  background: #eefaf7;
+  text-decoration: none;
+}
+
+.housing-hub-panel {
+  display: grid;
+  gap: 0.65rem;
+  padding: 0.85rem 0.9rem 0.95rem;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #dce8f4;
+  box-shadow: 0 4px 14px rgba(16, 42, 67, 0.04);
+}
+
+.housing-hub-panel--tools {
+  background: linear-gradient(180deg, #f4fbf9 0%, #ffffff 100%);
+  border-color: #bfe8de;
+}
+
+.housing-hub-panel--guides {
+  background: linear-gradient(180deg, #f3f8ff 0%, #ffffff 100%);
+  border-color: #c8daf2;
+}
+
+.housing-hub-panel--geo {
+  background: linear-gradient(180deg, #f6f3ff 0%, #ffffff 100%);
+  border-color: #d4c8f0;
+}
+
+.housing-hub-panel--budget {
+  background: linear-gradient(180deg, #fffbf3 0%, #ffffff 100%);
+  border-color: #ead9b8;
+}
+
+.housing-hub-panel--edu,
+.housing-hub-panel--faq {
+  background: #fafcfd;
+}
+
+.housing-hub-panel--finance {
+  background: linear-gradient(180deg, #f2f4ff 0%, #ffffff 100%);
+  border-color: #c9cff0;
+}
+
+.housing-hub-panel--more {
+  background: #ffffff;
+}
+
+.housing-hub-intro {
+  background: #ffffff;
+  border-color: #d9e6f2;
+}
+
+.housing-hub-intro-text {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.58;
+  color: #486581;
+}
+
+.housing-hub-intro-text + .housing-hub-intro-text {
+  margin-top: 0.55rem;
+}
+
+.housing-hub-section-head {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.housing-hub-kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.housing-hub-kicker--teal { color: #0a7a6a; }
+.housing-hub-kicker--blue { color: #1a5fad; }
+.housing-hub-kicker--violet { color: #5b4bb4; }
+.housing-hub-kicker--gold { color: #9a6b1a; }
+.housing-hub-kicker--amber { color: #a65c1e; }
+.housing-hub-kicker--slate { color: #52606d; }
+.housing-hub-kicker--indigo { color: #3d4eac; }
+
+.housing-hub-section-head h2 {
+  margin: 0;
+  font-size: 1.12rem;
+  color: #102a43;
+  letter-spacing: -0.01em;
+}
+
+.housing-hub-section-lead {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: #627d98;
+}
+
+.housing-hub-tool-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+}
+
+@media (min-width: 640px) {
+  .housing-hub-tool-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.housing-hub-tool-card {
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.85rem 0.9rem;
+  border-radius: 11px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 12px rgba(16, 42, 67, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.housing-hub-tool-card--rent {
+  background: linear-gradient(165deg, #ffffff 0%, #e8f8f4 100%);
+  border-color: #9fd4c8;
+}
+
+.housing-hub-tool-card--house {
+  background: linear-gradient(165deg, #ffffff 0%, #e9f2fd 100%);
+  border-color: #a8c8eb;
+}
+
+.housing-hub-tool-card--rvb {
+  background: linear-gradient(165deg, #ffffff 0%, #fff5ea 100%);
+  border-color: #e8c9a0;
+}
+
+.housing-hub-tool-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(16, 42, 67, 0.1);
+  text-decoration: none;
+}
+
+.housing-hub-card-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  line-height: 1;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 6px rgba(16, 42, 67, 0.06);
+}
+
+.housing-hub-tool-card h3 {
+  margin: 0;
+  font-size: 0.98rem;
+  color: #102a43;
+}
+
+.housing-hub-tool-card p {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.42;
+  color: #486581;
+}
+
+.housing-hub-card-cta {
+  margin-top: 0.1rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0a5f53;
+}
+
+.housing-hub-tool-card--house .housing-hub-card-cta { color: #1a5fad; }
+.housing-hub-tool-card--rvb .housing-hub-card-cta { color: #a65c1e; }
+
+.housing-hub-guide-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+@media (min-width: 560px) {
+  .housing-hub-guide-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.housing-hub-guide-card {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.8rem 0.85rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.housing-hub-guide-card--rent {
+  background: #f0fbf8;
+  border-color: #b8e8dc;
+}
+
+.housing-hub-guide-card--house {
+  background: #f2f7fe;
+  border-color: #bdd4f2;
+}
+
+.housing-hub-guide-card--ca {
+  background: #f8f4ff;
+  border-color: #d4c4f5;
+}
+
+.housing-hub-guide-card--decision {
+  background: #fff8f0;
+  border-color: #ecd4b0;
+}
+
+.housing-hub-guide-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(16, 42, 67, 0.08);
+  text-decoration: none;
+}
+
+.housing-hub-guide-card h3 {
+  margin: 0;
+  font-size: 0.94rem;
+  color: #102a43;
+}
+
+.housing-hub-guide-card p {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #627d98;
+}
+
+.housing-hub-scroll {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.1rem 0 0.45rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.housing-hub-chip-card {
+  flex: 0 0 min(78vw, 220px);
+  scroll-snap-align: start;
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 11px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.housing-hub-chip-card--ca {
+  background: linear-gradient(145deg, #ffffff, #f3edff);
+  border-color: #cfc0ef;
+}
+
+.housing-hub-chip-card--tx {
+  background: linear-gradient(145deg, #ffffff, #eef8f0);
+  border-color: #b8dfc0;
+}
+
+.housing-hub-chip-card--metro {
+  background: linear-gradient(145deg, #ffffff, #eef4fc);
+  border-color: #b8d0ea;
+}
+
+.housing-hub-chip-card--income {
+  background: linear-gradient(145deg, #ffffff, #fff8ec);
+  border-color: #e8d4a8;
+}
+
+.housing-hub-chip-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(16, 42, 67, 0.09);
+  text-decoration: none;
+}
+
+.housing-hub-chip-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #627d98;
+}
+
+.housing-hub-chip-card h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #102a43;
+}
+
+.housing-hub-chip-card p {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.38;
+  color: #627d98;
+}
+
+.housing-hub-editorial-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .housing-hub-editorial-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.housing-hub-editorial-card {
+  padding: 0.85rem 0.9rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1px solid #e2e8f0;
+  border-left-width: 4px;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.housing-hub-editorial-card--salary { border-left-color: #6b9fd4; background: #f8fbff; }
+.housing-hub-editorial-card--solo { border-left-color: #7bc4a8; background: #f6fcfa; }
+.housing-hub-editorial-card--bills { border-left-color: #a88fd4; background: #faf8ff; }
+.housing-hub-editorial-card--rule { border-left-color: #d4a574; background: #fffaf5; }
+
+.housing-hub-editorial-card:hover {
+  box-shadow: 0 6px 16px rgba(16, 42, 67, 0.07);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.housing-hub-editorial-card h3 {
+  margin: 0 0 0.25rem;
+  font-size: 0.94rem;
+  color: #102a43;
+}
+
+.housing-hub-editorial-card p {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.42;
+  color: #486581;
+}
+
+.housing-hub-split {
+  display: grid;
+  gap: 0.65rem;
+  padding: 0.85rem 0.9rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #fff9f2 0%, #ffffff 55%, #f5faff 100%);
+  border: 1px solid #ecd9c4;
+  box-shadow: 0 4px 14px rgba(16, 42, 67, 0.04);
+}
+
+@media (min-width: 768px) {
+  .housing-hub-split {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 0.75rem;
+  }
+}
+
+.housing-hub-split-copy h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+  color: #102a43;
+}
+
+.housing-hub-split-copy p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.52;
+  color: #486581;
+}
+
+.housing-hub-split-extra {
+  margin-top: 0.45rem;
+}
+
+.housing-hub-split-cards {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.housing-hub-decision-card {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 9px;
+  background: #ffffff;
+  border: 1px solid #e8d5c4;
+  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.housing-hub-decision-card:hover {
+  border-color: #d4a574;
+  box-shadow: 0 5px 14px rgba(120, 72, 32, 0.08);
+  text-decoration: none;
+}
+
+.housing-hub-decision-card h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #5c3d1e;
+}
+
+.housing-hub-decision-card p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #627d98;
+}
+
+.housing-hub-accordion {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.housing-hub-accordion-item {
+  border-radius: 9px;
+  background: #ffffff;
+  border: 1px solid #d9e6f2;
+  overflow: hidden;
+}
+
+.housing-hub-accordion-item summary {
+  padding: 0.65rem 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #102a43;
+  cursor: pointer;
+  list-style: none;
+}
+
+.housing-hub-accordion-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.housing-hub-accordion-item summary::after {
+  content: "+";
+  float: right;
+  color: #627d98;
+  font-weight: 400;
+}
+
+.housing-hub-accordion-item[open] summary::after {
+  content: "−";
+}
+
+.housing-hub-accordion-item p {
+  margin: 0;
+  padding: 0 0.8rem 0.7rem;
+  font-size: 0.86rem;
+  line-height: 1.52;
+  color: #486581;
+}
+
+.housing-hub-compact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+@media (min-width: 768px) {
+  .housing-hub-compact-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.housing-hub-compact-card {
+  padding: 0.65rem 0.7rem;
+  border-radius: 9px;
+  text-decoration: none;
+  border: 1px solid #d9e6f2;
+  background: #ffffff;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.housing-hub-compact-card--dti { border-color: #a8c8eb; background: #f5f9ff; }
+.housing-hub-compact-card--income { border-color: #8fd4c8; background: #f2fbf8; }
+.housing-hub-compact-card--budget { border-color: #cfc0ef; background: #faf8ff; }
+.housing-hub-compact-card--debt { border-color: #e8b8b8; background: #fff8f8; }
+
+.housing-hub-compact-card:hover {
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.housing-hub-compact-card h3 {
+  margin: 0 0 0.15rem;
+  font-size: 0.82rem;
+  color: #102a43;
+}
+
+.housing-hub-compact-card p {
+  margin: 0;
+  font-size: 0.74rem;
+  line-height: 1.38;
+  color: #627d98;
+}
+
+.housing-hub-link-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+@media (min-width: 640px) {
+  .housing-hub-link-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.housing-hub-link-grid a {
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #334e68;
+  background: #f8fbff;
+  border: 1px solid #d9e6f2;
+  text-decoration: none;
+}
+
+.housing-hub-link-grid a:hover {
+  border-color: #9fc4e8;
+  background: #eef6ff;
+  color: #102a43;
+  text-decoration: none;
+}
+
+.housing-hub-disclaimer {
+  margin: 0;
+  padding: 0.5rem 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #627d98;
+}
+
+/* Lifestyle & family hub (/living/lifestyle-family) */
+.lifestyle-hub-page {
+  background: linear-gradient(180deg, #faf4f8 0%, #f7fafc 12rem, #f7fafc 100%);
+}
+
+.lifestyle-hub-hero {
+  background: linear-gradient(128deg, #ffffff 0%, #fdf2f8 42%, #f5f0ff 100%);
+  border-color: #e8c4d8;
+}
+
+.lifestyle-hub-pill--solo {
+  color: #7a3d6b;
+  background: #fceef8;
+  border: 1px solid #e4b8d4;
+}
+
+.lifestyle-hub-pill--comfort {
+  color: #5c4a8c;
+  background: #f2effc;
+  border: 1px solid #cfc0ef;
+}
+
+.lifestyle-hub-pill--soon {
+  color: #627d98;
+  background: #f4f6f8;
+  border: 1px dashed #bcccdc;
+  cursor: default;
+  pointer-events: none;
+}
+
+.lifestyle-hub-soon-label {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.78em;
+  opacity: 0.85;
+}
+
+.lifestyle-hub-kicker--rose { color: #b44d7a; }
+.lifestyle-hub-kicker--coral { color: #c45c3a; }
+.lifestyle-hub-kicker--plum { color: #6b4a8c; }
+.lifestyle-hub-kicker--gold { color: #9a6b1a; }
+.lifestyle-hub-kicker--alert { color: #a63d3d; }
+
+.lifestyle-hub-panel--tools {
+  background: linear-gradient(180deg, #fdf5fa 0%, #ffffff 100%);
+  border-color: #e8c4d8;
+}
+
+.lifestyle-hub-panel--situations {
+  background: linear-gradient(180deg, #fff8f5 0%, #ffffff 100%);
+  border-color: #ecd4c8;
+}
+
+.lifestyle-hub-panel--family {
+  background: linear-gradient(180deg, #f8f4ff 0%, #ffffff 100%);
+  border-color: #d4c8f0;
+}
+
+.lifestyle-hub-panel--reality {
+  background: linear-gradient(180deg, #fff8f8 0%, #ffffff 100%);
+  border-color: #e8c4c4;
+}
+
+.lifestyle-hub-tool-grid {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .lifestyle-hub-tool-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.lifestyle-hub-tool-card--solo {
+  background: linear-gradient(165deg, #ffffff 0%, #fceef8 100%);
+  border-color: #e4b8d4;
+}
+
+.lifestyle-hub-tool-card--comfort {
+  background: linear-gradient(165deg, #ffffff 0%, #f2effc 100%);
+  border-color: #cfc0ef;
+}
+
+.lifestyle-hub-tool-card--bills {
+  background: linear-gradient(165deg, #ffffff 0%, #eef6fc 100%);
+  border-color: #b8d0ea;
+}
+
+.lifestyle-hub-tool-card--soon,
+.lifestyle-hub-chip-card--soon,
+.lifestyle-hub-guide-card--soon {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.92;
+  background: #f8fafc;
+  border: 1px dashed #c5d3e0;
+}
+
+.lifestyle-hub-tool-card--soon .housing-hub-card-cta,
+.lifestyle-hub-chip-card--soon:hover,
+.lifestyle-hub-guide-card--soon:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.lifestyle-hub-soon-tag {
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #627d98;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.lifestyle-hub-chip-card--solo {
+  background: linear-gradient(145deg, #ffffff, #fceef8);
+  border-color: #e4b8d4;
+}
+
+.lifestyle-hub-chip-card--soon {
+  background: linear-gradient(145deg, #ffffff, #f4f6f8);
+  border-color: #c5d3e0;
+}
+
+.lifestyle-hub-guide-card--soon {
+  background: #f8fafc;
+  border-color: #d9e6f2;
+}
+
+.lifestyle-hub-salary-split {
+  background: linear-gradient(135deg, #fff9fc 0%, #ffffff 55%, #f8f4ff 100%);
+  border-color: #e8d0e4;
+}
+
+.lifestyle-hub-salary-cards {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.lifestyle-hub-salary-card {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 9px;
+  background: #ffffff;
+  border: 1px dashed #d9e6f2;
+}
+
+.lifestyle-hub-salary-card--soon {
+  pointer-events: none;
+  opacity: 0.92;
+  background: #f8fafc;
+}
+
+.lifestyle-hub-salary-card h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #102a43;
+}
+
+.lifestyle-hub-salary-card p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #627d98;
+}
+
+.lifestyle-hub-decision-card--solo {
+  border-color: #e4b8d4;
+}
+
+.lifestyle-hub-decision-card--family {
+  border-color: #cfc0ef;
+}
+
+.lifestyle-hub-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .lifestyle-hub-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.lifestyle-hub-stat-card {
+  margin: 0;
+  padding: 0.85rem 0.95rem;
+  border-radius: 10px;
+  background: #ffffff;
+  border-left: 4px solid #d4849f;
+  box-shadow: 0 4px 12px rgba(90, 40, 60, 0.06);
+}
+
+.lifestyle-hub-stat-card p {
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #102a43;
+}
+
+.lifestyle-hub-stat-card footer {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.48;
+  color: #486581;
+  font-style: normal;
+}
+
+.lifestyle-hub-compact-card--rent { border-color: #b8e8dc; background: #f2fbf8; }
+.lifestyle-hub-compact-card--dti { border-color: #a8c8eb; background: #f5f9ff; }
+.lifestyle-hub-compact-card--income { border-color: #cfc0ef; background: #faf8ff; }
+.lifestyle-hub-compact-card--debt { border-color: #e8b8b8; background: #fff8f8; }
+
+/* Budget planning hub (/living/budgeting) */
+.budget-hub-page {
+  background: linear-gradient(180deg, #f2f7f6 0%, #f7fafc 12rem, #f7fafc 100%);
+}
+
+.budget-hub-hero {
+  background: linear-gradient(128deg, #ffffff 0%, #eef6f4 42%, #f4f8fc 100%);
+  border-color: #b8d9d2;
+}
+
+.budget-hub-pill--rule {
+  color: #0a6b5c;
+  background: #e6f5f1;
+  border: 1px solid #9fd4c8;
+}
+
+.budget-hub-pill--expenses {
+  color: #2d5a8c;
+  background: #eaf2fa;
+  border: 1px solid #a8c4e4;
+}
+
+.budget-hub-pill--soon {
+  color: #627d98;
+  background: #f4f6f8;
+  border: 1px dashed #bcccdc;
+  cursor: default;
+  pointer-events: none;
+}
+
+.budget-hub-soon-label {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.78em;
+  opacity: 0.85;
+}
+
+.budget-hub-soon-tag {
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #627d98;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.budget-hub-kicker--teal { color: #0a7a6a; }
+.budget-hub-kicker--gold { color: #8a7340; }
+.budget-hub-kicker--slate { color: #52606d; }
+.budget-hub-kicker--indigo { color: #3d5a8c; }
+.budget-hub-kicker--mint { color: #2d7a62; }
+.budget-hub-kicker--alert { color: #a65c3a; }
+
+.budget-hub-panel--tools {
+  background: linear-gradient(180deg, #f0f8f6 0%, #ffffff 100%);
+  border-color: #b8d9d2;
+}
+
+.budget-hub-panel--methods {
+  background: linear-gradient(180deg, #fffbf5 0%, #ffffff 100%);
+  border-color: #e8dcc8;
+}
+
+.budget-hub-panel--categories {
+  background: linear-gradient(180deg, #f6f9fc 0%, #ffffff 100%);
+  border-color: #c8d8ea;
+}
+
+.budget-hub-panel--savings {
+  background: linear-gradient(180deg, #f2faf6 0%, #ffffff 100%);
+  border-color: #b8e0cc;
+}
+
+.budget-hub-panel--reality {
+  background: linear-gradient(180deg, #fffaf6 0%, #ffffff 100%);
+  border-color: #e8d4c4;
+}
+
+.budget-hub-tool-grid {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .budget-hub-tool-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.budget-hub-tool-card--rule {
+  background: linear-gradient(165deg, #ffffff 0%, #e8f6f2 100%);
+  border-color: #9fd4c8;
+}
+
+.budget-hub-tool-card--soon,
+.budget-hub-editorial-card--soon {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.92;
+  background: #f8fafc;
+  border: 1px dashed #c5d3e0;
+}
+
+.budget-hub-tool-card--soon:hover,
+.budget-hub-editorial-card--soon:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.budget-hub-editorial-card--rule {
+  border-left-color: #5aab96;
+  background: #f4fbf9;
+}
+
+.budget-hub-category-note {
+  margin: 0 0 0.55rem;
+  font-size: 0.86rem;
+  line-height: 1.48;
+  color: #627d98;
+}
+
+.budget-hub-category-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+@media (min-width: 560px) {
+  .budget-hub-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .budget-hub-category-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.budget-hub-category-card {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #dce8f4;
+  font-size: 0.84rem;
+}
+
+.budget-hub-category-card--housing {
+  border-color: #b8e8dc;
+  background: #f8fcfb;
+}
+
+.budget-hub-category-card--overview {
+  border-color: #a8c4e4;
+  background: #f5f9ff;
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 900px) {
+  .budget-hub-category-card--overview {
+    grid-column: span 2;
+  }
+}
+
+.budget-hub-category-card h3 {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #102a43;
+}
+
+.budget-hub-category-card p {
+  margin: 0;
+  line-height: 1.42;
+  color: #486581;
+}
+
+.budget-hub-category-card a {
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+.budget-hub-category-cta {
+  display: inline-block;
+  margin-top: 0.2rem;
+  font-weight: 700;
+  color: #1a5fad;
+}
+
+.budget-hub-category-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: #e8eef4;
+  overflow: hidden;
+}
+
+.budget-hub-category-bar span {
+  display: block;
+  height: 100%;
+  width: var(--pct, 20%);
+  border-radius: inherit;
+  background: linear-gradient(90deg, #5aab96, #6b9fd4);
+}
+
+.budget-hub-income-split {
+  background: linear-gradient(135deg, #f4faf8 0%, #ffffff 55%, #f2f6fc 100%);
+  border-color: #c5ddd8;
+}
+
+.budget-hub-scenario-card {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 9px;
+  background: #ffffff;
+  border: 1px dashed #d9e6f2;
+}
+
+.budget-hub-scenario-card--soon {
+  pointer-events: none;
+  opacity: 0.92;
+  background: #f8fafc;
+}
+
+.budget-hub-scenario-card h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #102a43;
+}
+
+.budget-hub-scenario-card p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #627d98;
+}
+
+.budget-hub-decision-card--expenses {
+  border-color: #a8c4e4;
+}
+
+.budget-hub-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .budget-hub-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.budget-hub-stat-card {
+  margin: 0;
+  padding: 0.85rem 0.95rem;
+  border-radius: 10px;
+  background: #ffffff;
+  border-left: 4px solid #5aab96;
+  box-shadow: 0 4px 12px rgba(16, 42, 67, 0.06);
+}
+
+.budget-hub-stat-card p {
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #102a43;
+}
+
+.budget-hub-stat-card footer {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.48;
+  color: #486581;
+  font-style: normal;
+}
+
+.budget-hub-compact-card--income { border-color: #cfc0ef; background: #faf8ff; }
+.budget-hub-compact-card--rent { border-color: #b8e8dc; background: #f2fbf8; }
+.budget-hub-compact-card--dti { border-color: #a8c8eb; background: #f5f9ff; }
+.budget-hub-compact-card--debt { border-color: #e8b8b8; background: #fff8f8; }
+
+/* Debt topic card — explore hub */
+.debt-topic-card.debt-topic-card--explore {
+  --topic-accent: #3d4eac;
+  gap: 0.65rem;
+}
+
+.debt-topic-card#debt-hub-apr.debt-topic-card--explore {
+  --topic-accent: #1d6fa5;
+}
+
+.debt-topic-explore-btn--apr {
+  color: #1d6fa5;
+  background: #e8f4fc;
+  border-color: #9ec8e8;
+}
+
+.debt-topic-explore-btn--apr:hover {
+  background: #d4ebf8;
+  border-color: #6eb0d4;
+  box-shadow: 0 4px 12px rgba(29, 111, 165, 0.12);
+}
+
+.debt-topic-card#debt-hub-strategies.debt-topic-card--explore {
+  --topic-accent: #2e6b5c;
+}
+
+.debt-topic-explore-btn--strategies {
+  color: #2e6b5c;
+  background: #e8f5f0;
+  border-color: #9fd4c8;
+}
+
+.debt-topic-explore-btn--strategies:hover {
+  background: #d4ede4;
+  border-color: #6fc4a8;
+  box-shadow: 0 4px 12px rgba(46, 107, 92, 0.12);
+}
+
+.debt-topic-card#debt-hub-health.debt-topic-card--explore {
+  --topic-accent: #52606d;
+}
+
+.debt-topic-explore-btn--health {
+  color: #52606d;
+  background: #eef2f6;
+  border-color: #b8c5d3;
+}
+
+.debt-topic-explore-btn--health:hover {
+  background: #dfe6ee;
+  border-color: #9aadc0;
+  box-shadow: 0 4px 12px rgba(82, 96, 109, 0.12);
+}
+
+.debt-topic-card#debt-hub-hidden-costs.debt-topic-card--explore {
+  --topic-accent: #9a5b14;
+}
+
+.debt-topic-explore-btn--hidden {
+  color: #9a5b14;
+  background: #fdf6eb;
+  border-color: #e8c99a;
+}
+
+.debt-topic-explore-btn--hidden:hover {
+  background: #f8ecd4;
+  border-color: #d4a85c;
+  box-shadow: 0 4px 12px rgba(154, 91, 20, 0.12);
+}
+
+.debt-topic-card#debt-hub-life.debt-topic-card--explore {
+  --topic-accent: #5c4d7a;
+}
+
+.debt-topic-explore-btn--life {
+  color: #5c4d7a;
+  background: #f4f0fa;
+  border-color: #c8b8e8;
+}
+
+.debt-topic-explore-btn--life:hover {
+  background: #ebe4f8;
+  border-color: #a898d4;
+  box-shadow: 0 4px 12px rgba(92, 77, 122, 0.12);
+}
+
+.debt-topic-card--explore {
+  display: flex;
+  flex-direction: column;
+}
+
+.debt-topic-card--explore .debt-topic-card-title {
+  margin-bottom: 0.35rem;
+  padding-bottom: 0.4rem;
+}
+
+.debt-topic-explore-desc {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #486581;
+}
+
+.debt-topic-explore-btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #3d4eac;
+  background: #eef0fc;
+  border: 1px solid #b8c0e8;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.debt-topic-explore-btn:hover {
+  background: #e0e4f8;
+  border-color: #9aa8dc;
+  box-shadow: 0 4px 12px rgba(61, 78, 172, 0.12);
+  text-decoration: none;
+}
+
+/* Debt payoff scenarios hub (/debt/payoff-scenarios) */
+.debt-payoff-hub-page {
+  background: linear-gradient(180deg, #f0f2fa 0%, #f7fafc 12rem, #f7fafc 100%);
+}
+
+.debt-payoff-hub-hero {
+  background: linear-gradient(128deg, #ffffff 0%, #eef0fc 42%, #fdf4f6 100%);
+  border-color: #c4c8e8;
+}
+
+.debt-payoff-hub-pill--calc {
+  color: #3d4eac;
+  background: #eef0fc;
+  border: 1px solid #a8b0dc;
+}
+
+.debt-payoff-hub-pill--soon {
+  color: #627d98;
+  background: #f4f6f8;
+  border: 1px dashed #bcccdc;
+  cursor: default;
+  pointer-events: none;
+}
+
+.debt-payoff-hub-soon-label {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.78em;
+  opacity: 0.85;
+}
+
+.debt-payoff-hub-soon-tag {
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #627d98;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.debt-payoff-hub-kicker--indigo { color: #3d4eac; }
+.debt-payoff-hub-kicker--violet { color: #5b4bb4; }
+.debt-payoff-hub-kicker--alert { color: #b44d4d; }
+.debt-payoff-hub-kicker--gold { color: #8a7340; }
+.debt-payoff-hub-kicker--teal { color: #0a7a6a; }
+.debt-payoff-hub-kicker--slate { color: #52606d; }
+
+.debt-payoff-hub-panel--tools {
+  background: linear-gradient(180deg, #f2f4fc 0%, #ffffff 100%);
+  border-color: #c4c8e8;
+}
+
+.debt-payoff-hub-panel--scenarios {
+  background: linear-gradient(180deg, #f8f4ff 0%, #ffffff 100%);
+  border-color: #d4c8f0;
+}
+
+.debt-payoff-hub-trap-split {
+  background: linear-gradient(135deg, #fff8f8 0%, #ffffff 55%, #f2f4fc 100%);
+  border-color: #e8c4c4;
+}
+
+.debt-payoff-hub-panel--interest {
+  background: linear-gradient(180deg, #fffbf5 0%, #ffffff 100%);
+  border-color: #ead9b8;
+}
+
+.debt-payoff-hub-panel--strategies {
+  background: linear-gradient(180deg, #f0fbf8 0%, #ffffff 100%);
+  border-color: #b8e8dc;
+}
+
+.debt-payoff-hub-panel--reality {
+  background: linear-gradient(180deg, #fdf4f6 0%, #ffffff 100%);
+  border-color: #e8c4d0;
+}
+
+.debt-payoff-hub-tool-grid {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .debt-payoff-hub-tool-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.debt-payoff-hub-tool-card--calc {
+  background: linear-gradient(165deg, #ffffff 0%, #eef0fc 100%);
+  border-color: #a8b0dc;
+}
+
+.debt-payoff-hub-tool-card--soon,
+.debt-payoff-hub-guide-card--soon,
+.housing-hub-compact-card.debt-payoff-hub-guide-card--soon {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.92;
+  background: #f8fafc;
+  border: 1px dashed #c5d3e0;
+}
+
+.debt-payoff-hub-tool-card--soon:hover,
+.debt-payoff-hub-guide-card--soon:hover,
+.housing-hub-compact-card.debt-payoff-hub-guide-card--soon:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.debt-payoff-hub-chip-card--trap {
+  background: linear-gradient(145deg, #ffffff, #fff5f5);
+  border-color: #e8b8b8;
+}
+
+.debt-payoff-hub-chip-card--income {
+  background: linear-gradient(145deg, #ffffff, #f4fbf9);
+  border-color: #b8e0cc;
+}
+
+.debt-payoff-hub-chip-card--soon {
+  background: linear-gradient(145deg, #ffffff, #f4f6f8);
+  border-color: #c5d3e0;
+  pointer-events: none;
+  cursor: default;
+}
+
+.debt-payoff-hub-shock-card {
+  margin: 0;
+  padding: 0.75rem 0.85rem;
+  border-radius: 9px;
+  background: #ffffff;
+  border-left: 4px solid #c45c5c;
+  box-shadow: 0 4px 12px rgba(100, 40, 40, 0.06);
+}
+
+.debt-payoff-hub-shock-card p {
+  margin: 0 0 0.3rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.38;
+  color: #102a43;
+}
+
+.debt-payoff-hub-shock-card footer {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.42;
+  color: #627d98;
+  font-style: normal;
+}
+
+.debt-payoff-hub-guide-card--avalanche {
+  background: #f2f4fc;
+  border-color: #b8c0e8;
+}
+
+.debt-payoff-hub-guide-card--transfer {
+  background: #fff8f0;
+  border-color: #ecd4b0;
+}
+
+.debt-payoff-hub-guide-card--budget {
+  background: #f0fbf8;
+  border-color: #b8e8dc;
+}
+
+.debt-payoff-hub-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .debt-payoff-hub-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.debt-payoff-hub-stat-card {
+  margin: 0;
+  padding: 0.85rem 0.95rem;
+  border-radius: 10px;
+  background: #ffffff;
+  border-left: 4px solid #6b7ac4;
+  box-shadow: 0 4px 12px rgba(40, 50, 100, 0.06);
+}
+
+.debt-payoff-hub-stat-card p {
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #102a43;
+}
+
+.debt-payoff-hub-stat-card footer {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.48;
+  color: #486581;
+  font-style: normal;
+}
+
+.debt-payoff-hub-compact-card--dti { border-color: #a8c8eb; background: #f5f9ff; }
+.debt-payoff-hub-compact-card--income { border-color: #cfc0ef; background: #faf8ff; }
+.debt-payoff-hub-compact-card--rent { border-color: #b8e8dc; background: #f2fbf8; }
+.debt-payoff-hub-compact-card--budget { border-color: #9fd4c8; background: #f0fbf8; }
+
+/* Debt interest & APR hub (/debt/interest-apr) */
+.debt-interest-apr-hub-page {
+  background: linear-gradient(180deg, #eef6fc 0%, #f7fafc 12rem, #f7fafc 100%);
+}
+
+.debt-interest-apr-hub-hero {
+  background: linear-gradient(128deg, #ffffff 0%, #e8f4fc 45%, #f0f8ff 100%);
+  border-color: #9ec8e8;
+}
+
+.debt-interest-apr-hub-glance {
+  border-left-color: #1d6fa5;
+}
+
+.debt-interest-apr-hub-pill--apr {
+  color: #1d6fa5;
+  background: #e8f4fc;
+  border: 1px solid #9ec8e8;
+}
+
+.debt-interest-apr-hub-pill--calc {
+  color: #3d4eac;
+  background: #eef0fc;
+  border: 1px solid #a8b0dc;
+}
+
+.debt-interest-apr-hub-pill--min {
+  color: #b44d4d;
+  background: #fff5f5;
+  border: 1px solid #e8b8b8;
+}
+
+.debt-interest-apr-hub-kicker--blue { color: #1d6fa5; }
+.debt-interest-apr-hub-kicker--teal { color: #0a7a8a; }
+.debt-interest-apr-hub-kicker--gold { color: #8a7340; }
+.debt-interest-apr-hub-kicker--violet { color: #5b4bb4; }
+
+.debt-interest-apr-hub-panel--tools {
+  background: linear-gradient(180deg, #e8f4fc 0%, #ffffff 100%);
+  border-color: #9ec8e8;
+}
+
+.debt-interest-apr-hub-panel--examples {
+  background: linear-gradient(180deg, #f5f9ff 0%, #ffffff 100%);
+  border-color: #b8d4ec;
+}
+
+.debt-interest-apr-hub-split {
+  background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 55%, #f8fbff 100%);
+  border-color: #b8d4ec;
+}
+
+.debt-interest-apr-hub-trap-split {
+  background: linear-gradient(135deg, #fff8f8 0%, #ffffff 55%, #eef6fc 100%);
+  border-color: #e8c4c4;
+}
+
+.debt-interest-apr-hub-panel--comparisons {
+  background: linear-gradient(180deg, #f8f4ff 0%, #ffffff 100%);
+  border-color: #d4c8f0;
+}
+
+.debt-interest-apr-hub-panel--strategies {
+  background: linear-gradient(180deg, #f0fbf8 0%, #ffffff 100%);
+  border-color: #b8e8dc;
+}
+
+.debt-interest-apr-hub-panel--reality {
+  background: linear-gradient(180deg, #eef6fc 0%, #ffffff 100%);
+  border-color: #9ec8e8;
+}
+
+.debt-interest-apr-hub-tool-card--apr {
+  background: linear-gradient(165deg, #ffffff 0%, #e8f4fc 100%);
+  border-color: #9ec8e8;
+}
+
+.debt-interest-apr-hub-tool-card--calc {
+  background: linear-gradient(165deg, #ffffff 0%, #eef0fc 100%);
+  border-color: #a8b0dc;
+}
+
+.debt-interest-apr-hub-tool-card--min {
+  background: linear-gradient(165deg, #ffffff 0%, #fff5f5 100%);
+  border-color: #e8b8b8;
+}
+
+.debt-interest-apr-visual-card {
+  margin: 0;
+  padding: 0.75rem 0.85rem;
+  border-radius: 9px;
+  background: #ffffff;
+  border-left: 4px solid #1d6fa5;
+  box-shadow: 0 4px 12px rgba(29, 111, 165, 0.08);
+}
+
+.debt-interest-apr-visual-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1d6fa5;
+  line-height: 1.3;
+}
+
+.debt-interest-apr-visual-card p {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #486581;
+}
+
+.debt-interest-apr-hub-chip-card--trap {
+  background: linear-gradient(145deg, #ffffff, #fff5f5);
+  border-color: #e8b8b8;
+}
+
+.debt-interest-apr-hub-chip-card--calc {
+  background: linear-gradient(145deg, #ffffff, #eef6fc);
+  border-color: #9ec8e8;
+}
+
+.debt-interest-apr-hub-guide-card--apr {
+  background: #e8f4fc;
+  border-color: #9ec8e8;
+}
+
+.debt-interest-apr-hub-guide-card--pay {
+  background: #eef0fc;
+  border-color: #a8b0dc;
+}
+
+.debt-interest-apr-stat-card {
+  border-left-color: #1d6fa5;
+}
+
+.debt-interest-apr-compact-card--strategy {
+  border-color: #b8c0e8;
+  background: #f2f4fc;
+}
+
+/* Debt payoff strategies hub (/debt/payoff-strategies) */
+.debt-strategies-hub-page {
+  background: linear-gradient(180deg, #eef8f4 0%, #f7fafc 12rem, #f7fafc 100%);
+}
+
+.debt-strategies-hub-hero {
+  background: linear-gradient(128deg, #ffffff 0%, #e8f5f0 45%, #f0fbf8 100%);
+  border-color: #9fd4c8;
+}
+
+.debt-strategies-hub-glance {
+  border-left-color: #2e6b5c;
+}
+
+.debt-strategies-hub-pill--compare {
+  color: #2e6b5c;
+  background: #e8f5f0;
+  border: 1px solid #9fd4c8;
+}
+
+.debt-strategies-hub-pill--faster {
+  color: #3d4eac;
+  background: #eef0fc;
+  border: 1px solid #a8b0dc;
+}
+
+.debt-strategies-hub-pill--planner {
+  color: #1d6fa5;
+  background: #e8f4fc;
+  border: 1px solid #9ec8e8;
+}
+
+.debt-strategies-hub-kicker--green { color: #2e6b5c; }
+.debt-strategies-hub-kicker--teal { color: #0a7a6a; }
+.debt-strategies-hub-kicker--gold { color: #8a7340; }
+.debt-strategies-hub-kicker--violet { color: #5b4bb4; }
+.debt-strategies-hub-kicker--slate { color: #52606d; }
+
+.debt-strategies-hub-panel--tools {
+  background: linear-gradient(180deg, #e8f5f0 0%, #ffffff 100%);
+  border-color: #9fd4c8;
+}
+
+.debt-strategies-hub-panel--methods {
+  background: linear-gradient(180deg, #f4fbf9 0%, #ffffff 100%);
+  border-color: #b8e8dc;
+}
+
+.debt-strategies-hub-compare-split {
+  background: linear-gradient(135deg, #f0fbf8 0%, #ffffff 55%, #f2f4fc 100%);
+  border-color: #b8e8dc;
+}
+
+.debt-strategies-hub-panel--faster {
+  background: linear-gradient(180deg, #fffbf5 0%, #ffffff 100%);
+  border-color: #ead9b8;
+}
+
+.debt-strategies-hub-panel--psychology {
+  background: linear-gradient(180deg, #f8f4ff 0%, #ffffff 100%);
+  border-color: #d4c8f0;
+}
+
+.debt-strategies-hub-panel--frameworks {
+  background: linear-gradient(180deg, #f5f9ff 0%, #ffffff 100%);
+  border-color: #b8d4ec;
+}
+
+.debt-strategies-hub-panel--reality {
+  background: linear-gradient(180deg, #fff8f8 0%, #ffffff 100%);
+  border-color: #e8c4c4;
+}
+
+.debt-strategies-hub-tool-card--compare {
+  background: linear-gradient(165deg, #ffffff 0%, #e8f5f0 100%);
+  border-color: #9fd4c8;
+}
+
+.debt-strategies-hub-tool-card--planner {
+  background: linear-gradient(165deg, #ffffff 0%, #e8f4fc 100%);
+  border-color: #9ec8e8;
+}
+
+.debt-strategies-hub-tool-card--faster {
+  background: linear-gradient(165deg, #ffffff 0%, #eef0fc 100%);
+  border-color: #a8b0dc;
+}
+
+.debt-strategies-methods-grid {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .debt-strategies-methods-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.debt-strategies-method-card {
+  background: #ffffff;
+  border-color: #b8e8dc;
+}
+
+.debt-strategies-method-card p {
+  margin: 0 0 0.5rem;
+  font-size: 0.84rem;
+  line-height: 1.48;
+  color: #486581;
+}
+
+.debt-strategies-compare-table-wrap {
+  overflow-x: auto;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.debt-strategies-compare-table {
+  margin: 0;
+  min-width: 280px;
+}
+
+.debt-strategies-recommend-card {
+  margin: 0;
+  padding: 0.75rem 0.85rem;
+  border-radius: 9px;
+  background: #ffffff;
+  border-left: 4px solid #2e6b5c;
+  box-shadow: 0 4px 12px rgba(46, 107, 92, 0.08);
+}
+
+.debt-strategies-recommend-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #2e6b5c;
+  line-height: 1.3;
+}
+
+.debt-strategies-recommend-card p {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #486581;
+}
+
+.debt-strategies-hub-guide-card--pay {
+  background: #eef0fc;
+  border-color: #a8b0dc;
+}
+
+.debt-strategies-hub-guide-card--apr {
+  background: #e8f4fc;
+  border-color: #9ec8e8;
+}
+
+.debt-strategies-hub-guide-card--budget {
+  background: #f0fbf8;
+  border-color: #b8e8dc;
+}
+
+.debt-strategies-insight-card {
+  border-left-color: #5b4bb4;
+}
+
+.debt-strategies-reality-card {
+  border-left-color: #c45c5c;
+}
+
+/* Debt & financial health hub (/debt/financial-health) */
+.debt-financial-health-hub-page {
+  background: linear-gradient(180deg, #eef2f6 0%, #f7fafc 12rem, #f7fafc 100%);
+}
+
+.debt-financial-health-hub-hero {
+  background: linear-gradient(128deg, #ffffff 0%, #eef2f6 45%, #f8fafc 100%);
+  border-color: #b8c5d3;
+}
+
+.debt-financial-health-hub-glance {
+  border-left-color: #52606d;
+}
+
+.debt-financial-health-hub-pill--dti {
+  color: #1d6fa5;
+  background: #e8f4fc;
+  border: 1px solid #9ec8e8;
+}
+
+.debt-financial-health-hub-pill--afford {
+  color: #2e6b5c;
+  background: #e8f5f0;
+  border: 1px solid #9fd4c8;
+}
+
+.debt-financial-health-hub-pill--check {
+  color: #52606d;
+  background: #eef2f6;
+  border: 1px solid #b8c5d3;
+}
+
+.debt-financial-health-hub-kicker--slate { color: #52606d; }
+.debt-financial-health-hub-kicker--blue { color: #1d6fa5; }
+.debt-financial-health-hub-kicker--gold { color: #8a7340; }
+.debt-financial-health-hub-kicker--teal { color: #0a7a6a; }
+.debt-financial-health-hub-kicker--violet { color: #5b4bb4; }
+
+.debt-financial-health-hub-panel--tools {
+  background: linear-gradient(180deg, #eef2f6 0%, #ffffff 100%);
+  border-color: #b8c5d3;
+}
+
+.debt-financial-health-hub-panel--levels {
+  background: linear-gradient(180deg, #fff8f8 0%, #ffffff 100%);
+  border-color: #e8c4c4;
+}
+
+.debt-financial-health-hub-dti-split {
+  background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 55%, #eef2f6 100%);
+  border-color: #b8d4ec;
+}
+
+.debt-financial-health-hub-cashflow-split {
+  background: linear-gradient(135deg, #fffbf5 0%, #ffffff 55%, #eef2f6 100%);
+  border-color: #ead9b8;
+}
+
+.debt-financial-health-hub-panel--warnings {
+  background: linear-gradient(180deg, #fff5f5 0%, #ffffff 100%);
+  border-color: #e8c4c4;
+}
+
+.debt-financial-health-hub-panel--recovery {
+  background: linear-gradient(180deg, #f0fbf8 0%, #ffffff 100%);
+  border-color: #b8e8dc;
+}
+
+.debt-financial-health-hub-panel--life {
+  background: linear-gradient(180deg, #f8f4ff 0%, #ffffff 100%);
+  border-color: #d4c8f0;
+}
+
+.debt-financial-health-hub-tool-card--dti {
+  background: linear-gradient(165deg, #ffffff 0%, #e8f4fc 100%);
+  border-color: #9ec8e8;
+}
+
+.debt-financial-health-hub-tool-card--afford {
+  background: linear-gradient(165deg, #ffffff 0%, #e8f5f0 100%);
+  border-color: #9fd4c8;
+}
+
+.debt-financial-health-dti-table-wrap {
+  overflow-x: auto;
+  margin: 0 0 0.65rem;
+}
+
+.debt-financial-health-dti-table {
+  margin: 0;
+  min-width: 220px;
+}
+
+.debt-financial-health-chip-card--normal {
+  background: linear-gradient(145deg, #ffffff, #eef2f6);
+  border-color: #b8c5d3;
+}
+
+.debt-financial-health-chip-card--income {
+  background: linear-gradient(145deg, #ffffff, #f4fbf9);
+  border-color: #b8e0cc;
+}
+
+.debt-financial-health-chip-card--warn {
+  background: linear-gradient(145deg, #ffffff, #fff5f5);
+  border-color: #e8b8b8;
+}
+
+.debt-financial-health-chip-card--compare {
+  background: linear-gradient(145deg, #ffffff, #f0f8ff);
+  border-color: #9ec8e8;
+}
+
+.debt-financial-health-pressure-card {
+  border-left-color: #8a7340;
+}
+
+.debt-financial-health-checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.debt-financial-health-checklist-item {
+  margin: 0;
+  padding: 0.7rem 0.85rem;
+  border-radius: 9px;
+  background: #ffffff;
+  border-left: 4px solid #c45c5c;
+  box-shadow: 0 4px 12px rgba(100, 40, 40, 0.05);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #102a43;
+}
+
+.debt-financial-health-checklist-item span {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.82rem;
+  color: #627d98;
+  font-weight: 400;
+}
+
+.debt-financial-health-guide-card--dti {
+  background: #e8f4fc;
+  border-color: #9ec8e8;
+}
+
+.debt-financial-health-guide-card--budget {
+  background: #f0fbf8;
+  border-color: #b8e8dc;
+}
+
+.debt-financial-health-guide-card--apr {
+  background: #e8f5f0;
+  border-color: #9fd4c8;
+}
+
+.debt-financial-health-guide-card--house {
+  background: #eef2f6;
+  border-color: #b8c5d3;
+}
+
+.debt-financial-health-guide-card--move {
+  background: #f5f9ff;
+  border-color: #b8d4ec;
+}
+
+.debt-financial-health-compact-card--strategy {
+  border-color: #9fd4c8;
+  background: #f0fbf8;
+}
+
+/* Hidden costs of debt hub (/debt/hidden-costs) */
+.debt-hidden-costs-hub-page {
+  background: linear-gradient(180deg, #fdf8f0 0%, #f7fafc 12rem, #f7fafc 100%);
+}
+
+.debt-hidden-costs-hub-hero {
+  background: linear-gradient(128deg, #ffffff 0%, #fdf6eb 45%, #fff8f5 100%);
+  border-color: #e8c99a;
+}
+
+.debt-hidden-costs-hub-glance {
+  border-left-color: #9a5b14;
+}
+
+.debt-hidden-costs-hub-pill--min {
+  color: #b44d4d;
+  background: #fff5f5;
+  border: 1px solid #e8b8b8;
+}
+
+.debt-hidden-costs-hub-pill--interest {
+  color: #1d6fa5;
+  background: #e8f4fc;
+  border: 1px solid #9ec8e8;
+}
+
+.debt-hidden-costs-hub-pill--check {
+  color: #9a5b14;
+  background: #fdf6eb;
+  border: 1px solid #e8c99a;
+}
+
+.debt-hidden-costs-hub-kicker--amber { color: #9a5b14; }
+.debt-hidden-costs-hub-kicker--gold { color: #8a7340; }
+.debt-hidden-costs-hub-kicker--coral { color: #b44d4d; }
+.debt-hidden-costs-hub-kicker--violet { color: #5b4bb4; }
+.debt-hidden-costs-hub-kicker--teal { color: #0a7a6a; }
+.debt-hidden-costs-hub-kicker--slate { color: #52606d; }
+
+.debt-hidden-costs-hub-panel--tools {
+  background: linear-gradient(180deg, #fdf6eb 0%, #ffffff 100%);
+  border-color: #e8c99a;
+}
+
+.debt-hidden-costs-hub-minimum-split {
+  background: linear-gradient(135deg, #fff8f8 0%, #ffffff 55%, #fdf6eb 100%);
+  border-color: #e8c4c4;
+}
+
+.debt-hidden-costs-hub-panel--interest {
+  background: linear-gradient(180deg, #fffbf5 0%, #ffffff 100%);
+  border-color: #ead9b8;
+}
+
+.debt-hidden-costs-hub-panel--lifestyle {
+  background: linear-gradient(180deg, #fff5f5 0%, #ffffff 100%);
+  border-color: #e8c4c4;
+}
+
+.debt-hidden-costs-hub-panel--emotional {
+  background: linear-gradient(180deg, #f8f4ff 0%, #ffffff 100%);
+  border-color: #d4c8f0;
+}
+
+.debt-hidden-costs-hub-panel--opportunity {
+  background: linear-gradient(180deg, #eef2f6 0%, #ffffff 100%);
+  border-color: #b8c5d3;
+}
+
+.debt-hidden-costs-hub-panel--warnings {
+  background: linear-gradient(180deg, #fff5f5 0%, #ffffff 100%);
+  border-color: #e8b8b8;
+}
+
+.debt-hidden-costs-hub-panel--recovery {
+  background: linear-gradient(180deg, #f0fbf8 0%, #ffffff 100%);
+  border-color: #b8e8dc;
+}
+
+.debt-hidden-costs-hub-tool-card--calc {
+  background: linear-gradient(165deg, #ffffff 0%, #fff5f5 100%);
+  border-color: #e8b8b8;
+}
+
+.debt-hidden-costs-hub-tool-card--interest {
+  background: linear-gradient(165deg, #ffffff 0%, #fdf6eb 100%);
+  border-color: #e8c99a;
+}
+
+.debt-hidden-costs-chip-card--guide {
+  background: linear-gradient(145deg, #ffffff, #e8f4fc);
+  border-color: #9ec8e8;
+}
+
+.debt-hidden-costs-chip-card--calc {
+  background: linear-gradient(145deg, #ffffff, #fff5f5);
+  border-color: #e8b8b8;
+}
+
+.debt-hidden-costs-chip-card--scenarios {
+  background: linear-gradient(145deg, #ffffff, #eef0fc);
+  border-color: #a8b0dc;
+}
+
+.debt-hidden-costs-lifestyle-card {
+  background: #ffffff;
+  border-color: #e8c4c4;
+}
+
+.debt-hidden-costs-emotional-card {
+  border-left-color: #5b4bb4;
+}
+
+.debt-hidden-costs-opportunity-card {
+  background: #eef2f6;
+  border-color: #b8c5d3;
+}
+
+.debt-hidden-costs-recovery-card {
+  background: #f0fbf8;
+  border-color: #b8e8dc;
+}
+
+.debt-hidden-costs-compact-card--strategy {
+  border-color: #9fd4c8;
+  background: #f0fbf8;
+}
+
+.debt-hidden-costs-checklist .debt-financial-health-checklist-item {
+  border-left-color: #c45c5c;
+}
+
+/* Debt vs life decisions hub (/debt/life-decisions) */
+.debt-life-decisions-hub-page {
+  background: linear-gradient(180deg, #f4f0fa 0%, #f7fafc 12rem, #f7fafc 100%);
+}
+
+.debt-life-decisions-hub-hero {
+  background: linear-gradient(128deg, #ffffff 0%, #f4f0fa 45%, #f8f6fc 100%);
+  border-color: #c8b8e8;
+}
+
+.debt-life-decisions-hub-glance {
+  border-left-color: #5c4d7a;
+}
+
+.debt-life-decisions-hub-pill--house {
+  color: #1d6fa5;
+  background: #e8f4fc;
+  border: 1px solid #9ec8e8;
+}
+
+.debt-life-decisions-hub-pill--invest {
+  color: #2e6b5c;
+  background: #e8f5f0;
+  border: 1px solid #9fd4c8;
+}
+
+.debt-life-decisions-hub-pill--plan {
+  color: #5c4d7a;
+  background: #f4f0fa;
+  border: 1px solid #c8b8e8;
+}
+
+.debt-life-decisions-hub-kicker--violet { color: #5c4d7a; }
+.debt-life-decisions-hub-kicker--teal { color: #0a7a6a; }
+.debt-life-decisions-hub-kicker--blue { color: #1d6fa5; }
+.debt-life-decisions-hub-kicker--gold { color: #8a7340; }
+.debt-life-decisions-hub-kicker--coral { color: #b44d4d; }
+.debt-life-decisions-hub-kicker--slate { color: #52606d; }
+
+.debt-life-decisions-hub-panel--tools {
+  background: linear-gradient(180deg, #f4f0fa 0%, #ffffff 100%);
+  border-color: #c8b8e8;
+}
+
+.debt-life-decisions-hub-panel--goals {
+  background: linear-gradient(180deg, #f0fbf8 0%, #ffffff 100%);
+  border-color: #b8e8dc;
+}
+
+.debt-life-decisions-hub-house-split {
+  background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 55%, #f4f0fa 100%);
+  border-color: #b8d4ec;
+}
+
+.debt-life-decisions-hub-panel--invest {
+  background: linear-gradient(180deg, #fffbf5 0%, #ffffff 100%);
+  border-color: #ead9b8;
+}
+
+.debt-life-decisions-hub-panel--flexibility {
+  background: linear-gradient(180deg, #f8f4ff 0%, #ffffff 100%);
+  border-color: #d4c8f0;
+}
+
+.debt-life-decisions-hub-panel--opportunity {
+  background: linear-gradient(180deg, #eef2f6 0%, #ffffff 100%);
+  border-color: #b8c5d3;
+}
+
+.debt-life-decisions-hub-panel--frameworks {
+  background: linear-gradient(180deg, #f5f9ff 0%, #ffffff 100%);
+  border-color: #b8d4ec;
+}
+
+.debt-life-decisions-hub-tool-card--house {
+  background: linear-gradient(165deg, #ffffff 0%, #e8f4fc 100%);
+  border-color: #9ec8e8;
+}
+
+.debt-life-decisions-hub-tool-card--plan {
+  background: linear-gradient(165deg, #ffffff 0%, #f4f0fa 100%);
+  border-color: #c8b8e8;
+}
+
+.debt-life-decisions-hub-tool-card--save {
+  background: linear-gradient(165deg, #ffffff 0%, #e8f5f0 100%);
+  border-color: #9fd4c8;
+}
+
+.debt-life-decisions-chip-card--house {
+  background: linear-gradient(145deg, #ffffff, #e8f4fc);
+  border-color: #9ec8e8;
+}
+
+.debt-life-decisions-chip-card--move {
+  background: linear-gradient(145deg, #ffffff, #eef2f6);
+  border-color: #b8c5d3;
+}
+
+.debt-life-decisions-chip-card--family {
+  background: linear-gradient(145deg, #ffffff, #f4fbf9);
+  border-color: #b8e0cc;
+}
+
+.debt-life-decisions-chip-card--income {
+  background: linear-gradient(145deg, #ffffff, #f4f0fa);
+  border-color: #c8b8e8;
+}
+
+.debt-life-decisions-example-card {
+  margin: 0;
+  padding: 0.75rem 0.85rem;
+  border-radius: 9px;
+  background: #ffffff;
+  border-left: 4px solid #5c4d7a;
+  box-shadow: 0 4px 12px rgba(92, 77, 122, 0.08);
+}
+
+.debt-life-decisions-example-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #5c4d7a;
+  line-height: 1.3;
+}
+
+.debt-life-decisions-example-card p {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #486581;
+}
+
+.debt-life-decisions-example-card--link {
+  display: block;
+  text-decoration: none;
+}
+
+.debt-life-decisions-compare-wrap {
+  overflow-x: auto;
+  margin: 0 0 1rem;
+}
+
+.debt-life-decisions-compare-table {
+  margin: 0;
+  min-width: 280px;
+}
+
+.debt-life-decisions-invest-grid {
+  margin-top: 0.5rem;
+}
+
+.debt-life-decisions-invest-card {
+  background: #f4f0fa;
+  border-color: #c8b8e8;
+}
+
+.debt-life-decisions-flex-card {
+  border-left-color: #5b4bb4;
+}
+
+.debt-life-decisions-opportunity-card {
+  background: #eef2f6;
+  border-color: #b8c5d3;
 }

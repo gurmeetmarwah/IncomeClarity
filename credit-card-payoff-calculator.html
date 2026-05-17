@@ -7,8 +7,12 @@
   <meta name="description" content="Free US credit card payoff calculator and minimum payment calculator. See how long to pay off a credit card, total interest (credit card interest calculator style), and minimum payment credit card time with a year-by-year breakdown.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://incomeclarity.com/credit-card-payoff-calculator">
-  <link rel="stylesheet" href="styles.css">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="styles.css?v=debt-hub-explore">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script src="debt-hub-cache-guard.js"></script>
   <script>
     (function () {
       const path = window.location.pathname;
@@ -79,10 +83,10 @@
     <div class="container nav-wrap">
       <a class="logo" href="index.html">Income Clarity</a>
       <nav class="nav-links" aria-label="Primary">
-        <a href="hourly-to-salary-after-tax.html">Income</a>
-        <a href="credit-card-payoff-calculator.html">Debt</a>
-        <a href="rent-vs-buy-calculator.html">Living</a>
-        <a href="1099-vs-w2-calculator.html">Freelance</a>
+        <a href="/hourly-to-salary-after-tax">Income</a>
+        <a href="/credit-card-payoff-calculator" aria-current="page">Debt</a>
+        <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
       </nav>
     </div>
   </header>
@@ -130,7 +134,7 @@
       <section id="payoff-static-scenarios" class="debt-minimum-scenarios" aria-labelledby="minimum-payoff-headline">
         <h2 id="minimum-payoff-headline">What happens if you only pay the minimum?</h2>
         <p class="debt-minimum-lead">Two example snapshots below show the “small monthly bite” pattern. After you tap <strong>Calculate My Payoff Time</strong>, these boxes update to <strong>your balance, APR, and payment</strong>—plus a side-by-side “pay a bit more” comparison when it applies.</p>
-        <p class="debt-minimum-edu-link"><a href="why-paying-minimum-is-bad.html">Why Paying minimum is bad</a><span class="debt-minimum-edu-hint"> — interest, years on the clock, and practical next steps.</span></p>
+        <p class="debt-minimum-edu-link"><a href="/debt/debt-reality/why-paying-minimum-is-bad.html">Why Paying minimum is bad</a><span class="debt-minimum-edu-hint"> — interest, years on the clock, and practical next steps.</span></p>
         <div class="debt-minimum-grid" id="debt-minimum-cards-root">
           <article class="debt-minimum-card">
             <h3 class="debt-minimum-card-heading">
@@ -167,24 +171,53 @@
 
     <section aria-labelledby="debt-guides-heading" class="interlink-section debt-guides-hub">
       <h2 id="debt-guides-heading">Debt guides</h2>
-      <p class="lead debt-guides-hub-lead">Benchmarks and language people search for—helpful context once you have used the payoff tool above.</p>
-      <div class="interlink-grid">
-        <a class="interlink-card" href="best-way-to-pay-off-credit-card-debt.html">
-          <h3>Best way to pay off credit card debt</h3>
-          <p>Avalanche vs snowball, pausing new charges, when balance transfers help—and simple diagrams to turn your calculator results into a repeatable plan.</p>
-          <span class="interlink-cta">Read payoff strategies</span>
-        </a>
-        <a class="interlink-card" href="average-credit-card-debt-by-income.html">
-          <h3>Average credit card debt by income</h3>
-          <p>What income-bracket charts actually measure, why a national average is not a personal target, and how to pair survey context with your take-home pay.</p>
-          <span class="interlink-cta">Read average debt by income</span>
-        </a>
-        <a class="interlink-card" href="how-much-credit-card-debt-is-normal.html">
-          <h3>How much credit card debt is normal?</h3>
-          <p>Typical versus manageable balances, warning signs, and how to reframe “normal” around payoff time and interest—not headlines alone.</p>
-          <span class="interlink-cta">Read what “normal” means</span>
-        </a>
+      <p class="lead debt-guides-hub-lead">Benchmarks and language people search for—browse by topic after you run the <a href="#payoff">payoff calculator</a> above.</p>
+
+      <div class="debt-topic-hub" role="region" aria-labelledby="debt-hub-title">
+        <header class="debt-topic-hub-header">
+          <h3 id="debt-hub-title">Browse debt topics</h3>
+          <p class="debt-topic-hub-lead">Six topic areas—open a hub or jump to a guide below. Return to <a href="#payoff">your payoff numbers</a> anytime.</p>
+        </header>
+
+        <div class="debt-topic-grid">
+          <article class="debt-topic-card debt-topic-card--explore" id="debt-hub-scenarios">
+            <h4 class="debt-topic-card-title">Debt Payoff Scenarios</h4>
+            <p class="debt-topic-explore-desc">See how long credit card debt takes to pay off by balance, APR, and payment size—minimum payment traps, interest totals, and popular payoff timelines in one place.</p>
+            <a class="debt-topic-explore-btn" href="/debt/payoff-scenarios">Explore payoff scenarios</a>
+          </article>
+
+          <article class="debt-topic-card debt-topic-card--explore" id="debt-hub-apr">
+            <h4 class="debt-topic-card-title">Interest &amp; APR Education</h4>
+            <p class="debt-topic-explore-desc">Learn how APR, daily compounding, and minimum payments drive interest costs—with tools, examples, and strategies to pay less over time.</p>
+            <a class="debt-topic-explore-btn debt-topic-explore-btn--apr" href="/debt/interest-apr">Explore interest &amp; APR</a>
+          </article>
+
+          <article class="debt-topic-card debt-topic-card--explore" id="debt-hub-strategies">
+            <h4 class="debt-topic-card-title">Debt Payoff Strategies</h4>
+            <p class="debt-topic-explore-desc">Compare snowball vs avalanche, prioritize debts, and build a realistic payoff plan—with tools, psychology, and planning frameworks in one place.</p>
+            <a class="debt-topic-explore-btn debt-topic-explore-btn--strategies" href="/debt/payoff-strategies">Explore payoff strategies</a>
+          </article>
+
+          <article class="debt-topic-card debt-topic-card--explore" id="debt-hub-health">
+            <h4 class="debt-topic-card-title">Debt &amp; Financial Health</h4>
+            <p class="debt-topic-explore-desc">Evaluate debt health, debt-to-income ratio, affordability risk, and stress indicators—with tools and frameworks to improve stability.</p>
+            <a class="debt-topic-explore-btn debt-topic-explore-btn--health" href="/debt/financial-health">Explore financial health</a>
+          </article>
+
+          <article class="debt-topic-card debt-topic-card--explore" id="debt-hub-hidden-costs">
+            <h4 class="debt-topic-card-title">Hidden Costs of Debt</h4>
+            <p class="debt-topic-explore-desc">See invisible costs—minimum payment traps, quiet interest growth, lifestyle limits, and long-term opportunity cost—so the true price of debt clicks.</p>
+            <a class="debt-topic-explore-btn debt-topic-explore-btn--hidden" href="/debt/hidden-costs">Explore hidden costs</a>
+          </article>
+
+          <article class="debt-topic-card debt-topic-card--explore" id="debt-hub-life">
+            <h4 class="debt-topic-card-title">Debt vs Life Decisions</h4>
+            <p class="debt-topic-explore-desc">See how debt shapes buying a home, saving, investing, and major life goals—with tradeoffs, DTI impact, and realistic priority frameworks.</p>
+            <a class="debt-topic-explore-btn debt-topic-explore-btn--life" href="/debt/life-decisions">Explore life decisions</a>
+          </article>
+        </div>
       </div>
+
     </section>
 
     <section aria-labelledby="how-long-payoff" id="minimum-payment-explainer">
@@ -221,19 +254,19 @@
     </section>
 
     <aside class="debt-context-nudge" aria-label="Income context for repayment planning">
-      <p class="debt-context-nudge-text">Your repayment depends on your monthly take-home income, not just your balance—use the <a href="hourly-to-salary-after-tax.html#hourly-salary-form">Income calculator to estimate your after-tax monthly pay</a> before locking in a debt payoff target.</p>
+      <p class="debt-context-nudge-text">Your repayment depends on your monthly take-home income, not just your balance—use the <a href="/hourly-to-salary-after-tax#hourly-salary-form">Income calculator to estimate your after-tax monthly pay</a> before locking in a debt payoff target.</p>
     </aside>
 
     <section aria-label="Related calculators" class="interlink-section">
       <h2>Related calculators</h2>
       <p class="lead">Keep planning your money after using this credit card payoff calculator.</p>
       <div class="interlink-grid">
-        <a class="interlink-card" href="hourly-to-salary-after-tax.html#hourly-salary-form">
+        <a class="interlink-card" href="/hourly-to-salary-after-tax#hourly-salary-form">
           <h3>Hourly to salary calculator</h3>
           <p>Convert hourly wage to yearly salary and estimate take-home pay after taxes on the Income page.</p>
           <span class="interlink-cta">Open hourly → salary calculator</span>
         </a>
-        <a class="interlink-card" href="rent-vs-buy-calculator.html#rent-vs-buy">
+        <a class="interlink-card" href="/rent-vs-buy-calculator#rent-vs-buy">
           <h3>Rent vs buy calculator</h3>
           <p>Compare housing costs over time and see whether renting or buying fits your plan.</p>
           <span class="interlink-cta">Go to rent vs buy calculator</span>
@@ -283,25 +316,31 @@
       <div class="footer-grid" role="navigation" aria-label="Footer">
         <section class="footer-column" aria-labelledby="footer-popular-calculators">
           <h2 id="footer-popular-calculators">Popular Calculators</h2>
-          <a href="hourly-to-salary-after-tax.html">Hourly to Salary After Tax</a>
-          <a href="credit-card-payoff-calculator.html">Credit Card Payoff Calculator</a>
-          <a href="rent-vs-buy-calculator.html">Rent vs Buy Calculator</a>
-          <a href="1099-vs-w2-calculator.html">1099 vs W2 Calculator</a>
+          <a href="/hourly-to-salary-after-tax">Hourly to Salary After Tax</a>
+          <a href="/credit-card-payoff-calculator">Credit Card Payoff Calculator</a>
+          <a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a>
+          <a href="/1099-vs-w2-calculator">1099 vs W2 Calculator</a>
         </section>
         <section class="footer-column" aria-labelledby="footer-tools-category">
           <h2 id="footer-tools-category">Tools by Category</h2>
-          <a href="hourly-to-salary-after-tax.html">Income</a>
-          <a href="credit-card-payoff-calculator.html">Debt</a>
-          <a href="rent-vs-buy-calculator.html">Living</a>
-          <a href="1099-vs-w2-calculator.html">Freelance</a>
+          <a href="/hourly-to-salary-after-tax">Income</a>
+          <a href="/credit-card-payoff-calculator">Debt</a>
+          <a href="/rent-vs-buy-calculator">Living</a>
+          <a href="/1099-vs-w2-calculator">Freelance</a>
         </section>
         <section class="footer-column" aria-labelledby="footer-explore-more">
           <h2 id="footer-explore-more">Explore More</h2>
-          <a href="average-credit-card-debt-by-income.html">Average credit card debt by income</a>
-          <a href="how-much-credit-card-debt-is-normal.html">How much credit card debt is normal</a>
-          <a href="hourly-to-salary-after-tax.html#is-25-hour-good">$25 an hour after tax</a>
-          <a href="credit-card-payoff-calculator.html#how-long-payoff">How long to pay off credit card</a>
-          <a href="rent-vs-buy-calculator.html#rent-vs-buy">Rent vs buy guide</a>
+          <a href="/debt/payoff-scenarios">Debt payoff scenarios hub</a>
+          <a href="/debt/interest-apr">Interest &amp; APR hub</a>
+          <a href="/debt/payoff-strategies">Debt payoff strategies hub</a>
+          <a href="/debt/financial-health">Debt &amp; financial health hub</a>
+          <a href="/debt/hidden-costs">Hidden costs of debt hub</a>
+          <a href="/debt/life-decisions">Debt vs life decisions hub</a>
+          <a href="/debt/strategies/average-credit-card-debt-by-income.html">Average credit card debt by income</a>
+          <a href="/debt/financial-health/how-much-credit-card-debt-is-normal.html">How much credit card debt is normal</a>
+          <a href="/hourly-to-salary-after-tax#is-25-hour-good">$25 an hour after tax</a>
+          <a href="/credit-card-payoff-calculator#how-long-payoff">How long to pay off credit card</a>
+          <a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy guide</a>
         </section>
         <section class="footer-column" aria-labelledby="footer-company">
           <h2 id="footer-company">Company</h2>
