@@ -8372,6 +8372,12 @@ main.fl-page h2 {
   border: 1px solid #a8b0dc;
 }
 
+.debt-payoff-hub-pill--5k {
+  color: #0a5f53;
+  background: #e8f6f2;
+  border: 1px solid #8fd4c6;
+}
+
 .debt-payoff-hub-pill--soon {
   color: #627d98;
   background: #f4f6f8;
@@ -9343,4 +9349,670 @@ main.fl-page h2 {
 .debt-life-decisions-opportunity-card {
   background: #eef2f6;
   border-color: #b8c5d3;
+}
+
+/* $5k debt payoff scenario landing (/debt/payoff-scenarios/how-long-to-pay-off-5000-debt) */
+.debt-scenario-page {
+  background: linear-gradient(180deg, #eef4f9 0%, #f7fafc 14rem, #f7fafc 100%);
+}
+
+.sc5-page {
+  display: grid;
+  gap: 0.85rem;
+  padding-bottom: 2rem;
+}
+
+.sc5-crumb,
+.sc5-back {
+  margin: 0;
+}
+
+.sc5-jump {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.35rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sc5-jump a {
+  flex: 0 0 auto;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #334e68;
+  background: #fff;
+  border: 1px solid #d9e6f2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.sc5-jump a:hover {
+  color: #0a5f53;
+  border-color: #8fd4c6;
+  background: #eefaf7;
+}
+
+.sc5-hero {
+  display: grid;
+  gap: 1rem;
+  padding: 1.1rem 1rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ffffff 0%, #edf6ff 45%, #e8f6f2 100%);
+  border: 1px solid #c5d9ec;
+  box-shadow: 0 10px 28px rgba(16, 42, 67, 0.08);
+}
+
+@media (min-width: 900px) {
+  .sc5-hero {
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+  }
+}
+
+.sc5-hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.55rem, 4.2vw, 2.05rem);
+  line-height: 1.15;
+  color: #102a43;
+  letter-spacing: -0.02em;
+}
+
+.sc5-hero-lead {
+  margin: 0 0 1rem;
+  max-width: 36rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #486581;
+}
+
+.sc5-hero-preview {
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #bfe0d4;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.sc5-preview-kicker {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0a5f53;
+}
+
+.sc5-preview-stats {
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.sc5-preview-stats div {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.sc5-preview-stats dt {
+  color: #627d98;
+  font-weight: 600;
+}
+
+.sc5-preview-stats dd {
+  margin: 0;
+  font-weight: 800;
+  color: #102a43;
+}
+
+.sc5-panel {
+  padding: 1rem;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #dce8f4;
+  box-shadow: 0 4px 14px rgba(16, 42, 67, 0.04);
+}
+
+.sc5-panel--quick {
+  background: linear-gradient(180deg, #f4fbf9 0%, #fff 100%);
+  border-color: #bfe8de;
+}
+
+.sc5-panel--planner {
+  background: linear-gradient(180deg, #f3f8ff 0%, #fff 100%);
+  border-color: #c8daf2;
+}
+
+.sc5-panel--what-if {
+  background: linear-gradient(180deg, #fffbf3 0%, #fff 100%);
+  border-color: #ead9b8;
+}
+
+.sc5-panel--faq {
+  background: #fafcfd;
+}
+
+.sc5-section-head h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+  color: #102a43;
+}
+
+.sc5-section-head p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #486581;
+}
+
+.sc5-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.65rem;
+  padding: 0.55rem 1.1rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sc5-btn--primary {
+  color: #fff;
+  background: linear-gradient(135deg, #0a5f53 0%, #0d7a6a 100%);
+  box-shadow: 0 4px 14px rgba(10, 95, 83, 0.25);
+}
+
+.sc5-btn--secondary {
+  color: #0a5f53;
+  background: #e8f6f2;
+  border: 1px solid #8fd4c6;
+}
+
+.sc5-btn--lg {
+  font-size: 1rem;
+  padding: 0.7rem 1.35rem;
+}
+
+.sc5-btn:hover {
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.sc5-quick-form {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .sc5-quick-form {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+    align-items: end;
+  }
+}
+
+.sc5-field {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334e68;
+}
+
+.sc5-field input,
+.sc5-field select {
+  min-height: 2.5rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #bcccdc;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #102a43;
+  background: #fff;
+}
+
+.sc5-slider-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.sc5-slider-row input[type="range"] {
+  width: 100%;
+}
+
+.sc5-quick-results {
+  margin-top: 0.75rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 10px;
+  background: #e8f6f2;
+  border: 1px solid #8fd4c6;
+}
+
+.sc5-quick-result-main {
+  margin: 0 0 0.25rem;
+  font-size: 1.15rem;
+}
+
+.sc5-planner-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+}
+
+@media (min-width: 960px) {
+  .sc5-planner-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: start;
+  }
+}
+
+.sc5-planner-inputs {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.sc5-fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.sc5-fieldset legend {
+  margin-bottom: 0.45rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #334e68;
+}
+
+.sc5-debt-type-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+@media (min-width: 560px) {
+  .sc5-debt-type-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.sc5-debt-type-card {
+  min-height: 2.75rem;
+  padding: 0.45rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+  color: #334e68;
+  background: #f0f4f8;
+  border: 2px solid #d9e2ec;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.sc5-debt-type-card.is-selected {
+  color: #0a5f53;
+  background: #e8f6f2;
+  border-color: #0a5f53;
+}
+
+.sc5-hint {
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #627d98;
+  line-height: 1.45;
+}
+
+.sc5-results-sticky {
+  position: sticky;
+  top: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background: linear-gradient(160deg, #102a43 0%, #243b53 100%);
+  color: #f0f4f8;
+  box-shadow: 0 12px 32px rgba(16, 42, 67, 0.2);
+}
+
+.sc5-results-title {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #9fb3c8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sc5-results-dl {
+  margin: 0 0 1rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.sc5-result-row {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.sc5-result-row dt {
+  font-size: 0.78rem;
+  color: #9fb3c8;
+  font-weight: 600;
+}
+
+.sc5-result-row dd {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.sc5-result-row--primary dd {
+  font-size: 1.45rem;
+  color: #6fc4b4;
+}
+
+.sc5-result-row--highlight dd {
+  color: #fadb5f;
+}
+
+.sc5-result-warning {
+  margin: 0 0 0.75rem;
+  padding: 0.5rem 0.6rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  border-radius: 8px;
+  background: rgba(229, 62, 62, 0.15);
+  color: #feb2b2;
+}
+
+.sc5-results-sticky .sc5-btn--secondary {
+  width: 100%;
+}
+
+.sc5-timeline-track {
+  position: relative;
+  height: 2rem;
+  margin: 0.5rem 0 0.25rem;
+  border-radius: 999px;
+  background: #e0e7ef;
+  overflow: hidden;
+}
+
+.sc5-timeline-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #0a5f53, #3ebd9a);
+}
+
+.sc5-timeline-start,
+.sc5-timeline-end {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #334e68;
+  z-index: 1;
+}
+
+.sc5-timeline-start {
+  left: 0.5rem;
+}
+
+.sc5-timeline-end {
+  right: 0.5rem;
+}
+
+.sc5-timeline-caption {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #486581;
+}
+
+.sc5-balance-chart-wrap {
+  margin-top: 1rem;
+}
+
+.sc5-chart-heading {
+  margin: 0 0 0.35rem;
+  font-size: 0.9rem;
+  color: #334e68;
+}
+
+.sc5-balance-chart {
+  height: 120px;
+  padding: 0.5rem;
+  border-radius: 10px;
+  background: #f0f4f8;
+  color: #0a5f53;
+}
+
+.sc5-chart-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.sc5-chart-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #627d98;
+  margin-top: 0.25rem;
+}
+
+.sc5-what-if-grid {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 0.65rem;
+}
+
+@media (min-width: 640px) {
+  .sc5-what-if-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.sc5-what-if-card {
+  padding: 0.85rem;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #ead9b8;
+}
+
+.sc5-what-if-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.9rem;
+  color: #6b4423;
+}
+
+.sc5-what-if-stat {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #102a43;
+}
+
+.sc5-what-if-benefit {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #486581;
+}
+
+.sc5-table-wrap {
+  overflow-x: auto;
+  margin-top: 0.5rem;
+}
+
+.sc5-compare-table {
+  min-width: 320px;
+}
+
+.sc5-strategy-grid,
+.sc5-interest-grid,
+.sc5-related-grid,
+.sc5-realistic-grid {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 0.65rem;
+}
+
+@media (min-width: 640px) {
+  .sc5-strategy-grid,
+  .sc5-interest-grid,
+  .sc5-related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sc5-realistic-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .sc5-related-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.sc5-strategy-card,
+.sc5-interest-card,
+.sc5-related-card,
+.sc5-realistic-card {
+  display: block;
+  padding: 0.85rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1px solid #dce8f4;
+  background: #fafcfd;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.sc5-strategy-card:hover,
+.sc5-interest-card:hover,
+.sc5-related-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(16, 42, 67, 0.08);
+  text-decoration: none;
+}
+
+.sc5-strategy-card h3,
+.sc5-interest-card h3,
+.sc5-related-card h3,
+.sc5-realistic-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  color: #102a43;
+}
+
+.sc5-strategy-card p,
+.sc5-interest-card p,
+.sc5-related-card p,
+.sc5-realistic-card p {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: #486581;
+}
+
+.sc5-card-cta {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #0a5f53;
+}
+
+.sc5-interest-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.sc5-related-card--soon {
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.sc5-realistic-card--comfortable {
+  border-color: #8fd4c6;
+  background: #f4fbf9;
+}
+
+.sc5-realistic-card--moderate {
+  border-color: #9fc0e8;
+  background: #f3f8ff;
+}
+
+.sc5-realistic-card--aggressive {
+  border-color: #e8c9a8;
+  background: #fff8f0;
+}
+
+.sc5-realistic-payment {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #102a43 !important;
+}
+
+.sc5-realistic-interest {
+  font-size: 0.8rem !important;
+  color: #627d98 !important;
+}
+
+.sc5-budget-impact {
+  margin: 0 0 0.5rem;
+  padding: 0.85rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  border-radius: 10px;
+  background: #fff8e6;
+  border: 1px solid #f0d78c;
+  color: #5c4a1f;
+}
+
+.sc5-budget-links {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #486581;
+}
+
+.sc5-cta-panel {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #0a5f53 0%, #0d7a6a 100%);
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(10, 95, 83, 0.25);
+}
+
+.sc5-cta-panel h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.sc5-cta-panel p {
+  margin: 0 0 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+}
+
+.sc5-cta-panel .sc5-btn--primary {
+  background: #fff;
+  color: #0a5f53;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 }

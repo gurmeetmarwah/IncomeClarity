@@ -66,10 +66,32 @@ class NoCacheHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=ROOT, **kwargs)
 
+    def _resolve_serve_path(self, path):
+        """Map request path to a file under ROOT (redirect rules + .html / index fallbacks)."""
+        serve, redirect, fragment = self.rules.resolve(path)
+        if redirect is not None:
+            return serve, redirect, fragment
+
+        rel = (serve or path.lstrip("/")).lstrip("/")
+        if not rel:
+            return serve, redirect, fragment
+
+        candidates = [rel]
+        if not rel.endswith(".html"):
+            candidates.append(rel + ".html")
+        if not rel.endswith("/index.html"):
+            candidates.append(os.path.join(rel.rstrip("/"), "index.html"))
+
+        for candidate in candidates:
+            if os.path.isfile(os.path.join(ROOT, candidate)):
+                return candidate, None, fragment
+
+        return rel, None, fragment
+
     def do_GET(self):
         parsed = urlparse(self.path)
         path = parsed.path or "/"
-        serve, redirect, fragment = self.rules.resolve(path)
+        serve, redirect, fragment = self._resolve_serve_path(path)
 
         if redirect is not None:
             loc = redirect

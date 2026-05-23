@@ -70,6 +70,9 @@
 /living/budgeting                  /living/budgeting/index.html            200
 /debt/payoff-scenarios/            /debt/payoff-scenarios                  301!
 /debt/payoff-scenarios             /debt/payoff-scenarios/index.html       200
+/debt/payoff-scenarios/how-long-to-pay-off-5000-debt.html  /debt/payoff-scenarios/how-long-to-pay-off-5000-debt  301!
+/debt/payoff-scenarios/how-long-to-pay-off-5000-debt  /debt/payoff-scenarios/how-long-to-pay-off-5000-debt/  301!
+/debt/payoff-scenarios/how-long-to-pay-off-5000-debt/  /debt/payoff-scenarios/how-long-to-pay-off-5000-debt/index.html  200
 /debt/interest-apr/                /debt/interest-apr                      301!
 /debt/interest-apr                 /debt/interest-apr/index.html           200
 /debt/payoff-strategies/           /debt/payoff-strategies                 301!
