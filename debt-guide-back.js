@@ -259,10 +259,14 @@
   }
 
   function applyHubBackLink(link, hub) {
-    link.href = parentHref(hub);
-    link.textContent = backText(hub);
     if (isDebtGuidePage()) {
       applyHubBreadcrumbs(hub);
+    }
+    if (window.IncomeClarityBack) {
+      window.IncomeClarityBack.enhance(link, {
+        fallbackHref: parentHref(hub),
+        fallbackLabel: backText(hub),
+      });
     }
   }
 
@@ -357,14 +361,12 @@
 
     var hub = resolveParentHub(link);
 
-    if (!hub) {
-      if (parentFromKey) {
-        cleanFromQueryParam();
-      }
-      return;
+    if (hub) {
+      applyHubBackLink(link, hub);
+    } else if (window.IncomeClarityBack) {
+      window.IncomeClarityBack.enhance(link);
     }
 
-    applyHubBackLink(link, hub);
     cleanFromQueryParam();
   }
 

@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Can You Afford Childcare? Cost &amp; Income Calculator by City | Income Clarity</title>
+  <meta name="description" content="Estimate daycare, nanny, and preschool costs by US city. See childcare as a percent of household income, affordability level, and remaining monthly budget—free family planning calculator.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://incomeclarity.com/living/lifestyle-family/childcare-affordability">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path === "/index.html") cleanPath = "/";
+      else if (path.endsWith("/index.html")) cleanPath = path.slice(0, -10);
+      else if (path.endsWith(".html")) cleanPath = path.slice(0, -5);
+      if (cleanPath !== path) window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Childcare Affordability Calculator",
+    "description": "Estimate monthly childcare costs by city, care type, and children. Compare affordability to household income with budget impact framing.",
+    "url": "https://incomeclarity.com/living/lifestyle-family/childcare-affordability",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Rent vs buy calculator", "item": "https://incomeclarity.com/rent-vs-buy-calculator" },
+      { "@type": "ListItem", "position": 2, "name": "Lifestyle & family", "item": "https://incomeclarity.com/living/lifestyle-family" },
+      { "@type": "ListItem", "position": 3, "name": "Childcare affordability", "item": "https://incomeclarity.com/living/lifestyle-family/childcare-affordability" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does childcare cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Costs vary by city, age, and care type. Daycare for one toddler often runs $1,000–$1,600/month in mid-cost metros and $1,800–$2,500+ in expensive cities. Nanny care is typically higher. Use city-specific estimates rather than one national average."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What income is needed to afford daycare?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A common planning frame is keeping childcare under 10–20% of gross household income for moderate affordability. At $1,500/month care, that implies roughly $90,000–$180,000 gross depending on your comfort band and other expenses."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is childcare cheaper than a nanny?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Usually yes—center or home daycare is often lower than full-time nanny pay, but nannies offer more schedule flexibility. Au pairs and part-time care can narrow the gap."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much should childcare cost relative to income?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Under 10% of gross income is often comfortable, 10–20% is moderate, and above 20% is financially stressful for many families. Your safe line depends on housing, debt, and savings goals."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What states have affordable childcare?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Lower-cost metros in Texas, Arizona, Georgia, and parts of the South often show lower daycare averages than coastal cities—but affordability still depends on your income. Compare your city and care type in a budget calculator."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="lifestyle-family-guide-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="/">Income Clarity</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/hourly-to-salary-after-tax">Income</a>
+        <a href="/credit-card-payoff-calculator">Debt</a>
+        <a href="/rent-vs-buy-calculator" aria-current="page">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container cc-page lifestyle-family-guide-page">
+    <nav class="take-home-return-nav cc-crumb" aria-label="Breadcrumb">
+      <ol class="take-home-return-breadcrumbs">
+        <li><a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy</a></li>
+        <li><a href="/living/lifestyle-family">Lifestyle &amp; family</a></li>
+        <li aria-current="page">Childcare affordability</li>
+      </ol>
+    </nav>
+
+    <p class="cc-back">
+      <a class="debt-minimum-guide-back-link" id="living-hub-back-link" href="/living/lifestyle-family" data-living-back-default="/living/lifestyle-family">← Back to lifestyle &amp; family</a>
+    </p>
+
+    <nav class="cc-jump" aria-label="On this page">
+      <a href="#cc-quick-calc">Quick calc</a>
+      <a href="#cc-planner">Planner</a>
+      <a href="#cc-by-city">By city</a>
+      <a href="#cc-breakdown">Breakdown</a>
+      <a href="#cc-affordable">Affordable?</a>
+      <a href="#cc-daycare-vs-nanny">Daycare vs nanny</a>
+      <a href="#cc-one-income">One income</a>
+      <a href="#cc-budget-impact">Budget impact</a>
+      <a href="#cc-lower">Save money</a>
+      <a href="#cc-examples">Examples</a>
+      <a href="#cc-salary">Salary need</a>
+      <a href="#cc-related">Related</a>
+      <a href="#cc-faq">FAQ</a>
+    </nav>
+
+    <!-- 1. HERO -->
+    <section class="cc-hero" id="cc-hero" aria-labelledby="cc-hero-title">
+      <div class="cc-hero-copy">
+        <span class="label">Lifestyle &amp; family · Childcare</span>
+        <h1 id="cc-hero-title">Can You Afford Childcare?</h1>
+        <p class="cc-hero-lead">Estimate daycare, nanny, preschool, and after-school care costs based on your income, city, and family size—then see whether the numbers are realistic for your household.</p>
+        <button type="button" class="cc-btn cc-btn--primary" data-scroll-to="cc-quick-calc">Calculate childcare costs</button>
+      </div>
+      <aside class="cc-hero-preview" id="cc-hero-preview" aria-label="Childcare affordability preview">
+        <p class="cc-preview-kicker">Live preview</p>
+        <dl class="cc-preview-stats">
+          <div><dt>City</dt><dd data-cc-preview-city>Dallas, TX</dd></div>
+          <div><dt>Monthly childcare</dt><dd data-cc-preview-cost>—</dd></div>
+          <div><dt>Household income</dt><dd data-cc-preview-income>$100,000</dd></div>
+          <div><dt>Affordability level</dt><dd><span class="cc-afford-badge cc-afford-badge--moderate" data-cc-preview-afford>Moderate</span></dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <!-- 2. QUICK CALCULATOR -->
+    <section class="cc-panel cc-panel--quick" id="cc-quick-calc" aria-labelledby="cc-quick-title">
+      <header class="cc-section-head">
+        <h2 id="cc-quick-title">Quick childcare affordability calculator</h2>
+        <p>City, children, care type, and income—results update as you change inputs.</p>
+      </header>
+      <div class="cc-quick-layout">
+        <form class="cc-quick-form" id="cc-quick-form">
+          <label class="cc-field">
+            <span>City</span>
+            <select id="cc-quick-city" aria-label="City">
+              <option value="dallas" selected>Dallas, TX</option>
+              <option value="austin">Austin, TX</option>
+              <option value="phoenix">Phoenix, AZ</option>
+              <option value="tampa">Tampa, FL</option>
+              <option value="atlanta">Atlanta, GA</option>
+              <option value="denver">Denver, CO</option>
+              <option value="seattle">Seattle, WA</option>
+              <option value="chicago">Chicago, IL</option>
+              <option value="nyc">New York, NY</option>
+            </select>
+          </label>
+          <label class="cc-field">
+            <span>Children</span>
+            <select id="cc-quick-children" aria-label="Number of children">
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3+</option>
+            </select>
+          </label>
+          <label class="cc-field">
+            <span>Childcare type</span>
+            <select id="cc-quick-care" aria-label="Childcare type">
+              <option value="daycare_center" selected>Daycare center</option>
+              <option value="home_daycare">Home daycare</option>
+              <option value="nanny">Nanny</option>
+              <option value="preschool">Preschool</option>
+              <option value="afterschool">After-school care</option>
+            </select>
+          </label>
+          <label class="cc-field">
+            <span>Household income</span>
+            <input type="number" id="cc-quick-income" min="30000" max="300000" step="1000" value="100000" aria-label="Household income per year">
+          </label>
+          <button type="submit" class="cc-btn cc-btn--primary">Calculate</button>
+        </form>
+        <aside class="cc-quick-results" id="cc-quick-results" aria-live="polite" aria-atomic="true" aria-label="Quick calculator result"></aside>
+      </div>
+    </section>
+
+    <!-- 3. ADVANCED PLANNER -->
+    <section class="cc-panel cc-panel--planner" id="cc-planner" aria-labelledby="cc-planner-title">
+      <header class="cc-section-head">
+        <h2 id="cc-planner-title">Advanced childcare planner</h2>
+        <p>Fine-tune ages, care type, frequency, housing context, and income—results update live on the right.</p>
+      </header>
+      <div class="cc-planner-grid">
+        <div class="cc-planner-inputs">
+          <label class="cc-field">
+            <span>A. City</span>
+            <select id="cc-city" aria-label="City">
+              <option value="dallas" selected>Dallas, TX</option>
+              <option value="austin">Austin, TX</option>
+              <option value="phoenix">Phoenix, AZ</option>
+              <option value="tampa">Tampa, FL</option>
+              <option value="atlanta">Atlanta, GA</option>
+              <option value="denver">Denver, CO</option>
+              <option value="seattle">Seattle, WA</option>
+              <option value="chicago">Chicago, IL</option>
+              <option value="nyc">New York, NY</option>
+            </select>
+          </label>
+
+          <fieldset class="cc-fieldset">
+            <legend>B. Number of children</legend>
+            <div class="cc-chip-grid" role="group" aria-label="Number of children">
+              <button type="button" class="cc-chip" data-cc-children="1" aria-pressed="false">1</button>
+              <button type="button" class="cc-chip is-selected" data-cc-children="2" aria-pressed="true">2</button>
+              <button type="button" class="cc-chip" data-cc-children="3" aria-pressed="false">3+</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="cc-fieldset">
+            <legend>C. Child age group (primary child)</legend>
+            <div class="cc-card-grid" role="group" aria-label="Child age group">
+              <button type="button" class="cc-age-card" data-cc-age="infant" aria-pressed="false"><strong>Infant</strong><span>Highest rates</span></button>
+              <button type="button" class="cc-age-card is-selected" data-cc-age="toddler" aria-pressed="true"><strong>Toddler</strong><span>Typical daycare age</span></button>
+              <button type="button" class="cc-age-card" data-cc-age="preschool" aria-pressed="false"><strong>Preschool</strong><span>Often lower tuition</span></button>
+              <button type="button" class="cc-age-card" data-cc-age="school_age" aria-pressed="false"><strong>School-age</strong><span>After-school focus</span></button>
+            </div>
+          </fieldset>
+
+          <label class="cc-field">
+            <span>D. Childcare type</span>
+            <select id="cc-care-type" aria-label="Childcare type">
+              <option value="daycare_center" selected>Daycare center</option>
+              <option value="home_daycare">Home daycare</option>
+              <option value="nanny">Nanny</option>
+              <option value="au_pair">Au pair</option>
+              <option value="preschool">Preschool</option>
+              <option value="afterschool">After-school care</option>
+            </select>
+          </label>
+
+          <label class="cc-field">
+            <span>E. Care frequency</span>
+            <select id="cc-frequency" aria-label="Care frequency">
+              <option value="full_time" selected>Full-time</option>
+              <option value="part_time">Part-time</option>
+              <option value="three_day">3 days/week</option>
+              <option value="afterschool_only">After-school only</option>
+            </select>
+          </label>
+
+          <label class="cc-field">
+            <span>F. Household income</span>
+            <input type="range" id="cc-income" min="30000" max="300000" step="1000" value="100000" aria-label="Household income">
+            <output id="cc-income-output" for="cc-income">$100,000</output>
+          </label>
+
+          <label class="cc-field">
+            <span>G. Housing status</span>
+            <select id="cc-housing" aria-label="Housing status">
+              <option value="renting" selected>Renting</option>
+              <option value="mortgage">Mortgage</option>
+              <option value="owned">Owned home (low payment)</option>
+            </select>
+          </label>
+        </div>
+
+        <aside class="cc-results-sticky" aria-live="polite" aria-atomic="true">
+          <h3 class="cc-results-title">Estimated monthly childcare cost</h3>
+          <div class="cc-planner-income-hero">
+            <span class="cc-planner-income-kicker">Monthly childcare cost</span>
+            <p class="cc-planner-income-value" id="cc-result-monthly">—</p>
+            <p class="cc-planner-income-sub" id="cc-result-pct">—</p>
+            <p class="cc-planner-afford-row">Affordability: <span class="cc-afford-badge cc-afford-badge--moderate" id="cc-result-afford">—</span></p>
+          </div>
+          <dl class="cc-results-dl">
+            <div class="cc-result-row cc-result-row--highlight">
+              <dt>Est. remaining budget</dt>
+              <dd id="cc-result-remaining">—</dd>
+            </div>
+          </dl>
+          <div class="cc-budget-list" id="cc-budget-list" aria-label="Cost breakdown"></div>
+          <a class="cc-btn cc-btn--secondary" href="/hourly-to-salary-after-tax#hourly-salary-form">Check take-home pay</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 4. BY CITY -->
+    <section class="cc-panel cc-panel--cities" id="cc-by-city" aria-labelledby="cc-city-title">
+      <header class="cc-section-head">
+        <h2 id="cc-city-title">Childcare cost by city</h2>
+        <p>Same care assumptions—different metros. Click a city to load it in the planner.</p>
+      </header>
+      <p class="cc-city-context" id="cc-city-context" aria-live="polite"></p>
+      <div class="cc-city-grid" id="cc-city-compare"></div>
+    </section>
+
+    <!-- 5. BREAKDOWN -->
+    <section class="cc-panel cc-panel--pie" id="cc-breakdown" aria-labelledby="cc-pie-title">
+      <header class="cc-section-head">
+        <h2 id="cc-pie-title">Childcare cost breakdown</h2>
+        <p id="cc-breakdown-intro">How a typical monthly bill may split—tuition dominates most families’ care line.</p>
+      </header>
+      <div class="cc-pie-wrap">
+        <div class="cc-pie-chart" id="cc-pie-chart" role="img" aria-label="Childcare cost pie chart"></div>
+        <div class="cc-pie-legend" id="cc-pie-legend"></div>
+      </div>
+    </section>
+
+    <!-- 6. WHAT IS AFFORDABLE -->
+    <section class="cc-panel" id="cc-affordable" aria-labelledby="cc-affordable-title">
+      <header class="cc-section-head">
+        <h2 id="cc-affordable-title">What is affordable childcare?</h2>
+        <p>Context matters more than shame—these bands help you frame care costs against gross household income.</p>
+      </header>
+      <p class="cc-afford-context" id="cc-afford-context" aria-live="polite"></p>
+      <div class="cc-band-grid" id="cc-band-grid">
+        <article class="cc-band-card cc-band-card--comfortable" data-cc-band="comfortable">
+          <h3>Under 10% of income</h3>
+          <p><strong>Comfortable</strong> for many families—care is meaningful but not swallowing the budget.</p>
+        </article>
+        <article class="cc-band-card cc-band-card--moderate" data-cc-band="moderate">
+          <h3>10–20% of income</h3>
+          <p><strong>Moderate burden</strong>—common in dual-income households; tighten discretionary spend.</p>
+        </article>
+        <article class="cc-band-card cc-band-card--tight" data-cc-band="tight">
+          <h3>20–30% of income</h3>
+          <p><strong>Financially tight</strong>—may require tradeoffs in housing, savings, or work structure.</p>
+        </article>
+        <article class="cc-band-card cc-band-card--burden" data-cc-band="burden">
+          <h3>30%+ of income</h3>
+          <p><strong>High burden</strong>—often unsustainable without assistance, family help, or higher income.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 7. DAYCARE VS NANNY -->
+    <section class="cc-panel cc-panel--compare" id="cc-daycare-vs-nanny" aria-labelledby="cc-vs-title">
+      <header class="cc-section-head">
+        <h2 id="cc-vs-title">Daycare vs nanny cost</h2>
+        <p>Same city and age settings from your planner—compare the two most common full-time options.</p>
+      </header>
+      <div class="cc-vs-grid">
+        <article class="cc-vs-card">
+          <h3>Daycare center</h3>
+          <p class="cc-vs-cost" id="cc-compare-daycare">—</p>
+          <ul>
+            <li>Usually lower cost</li>
+            <li>Structured environment &amp; licensing</li>
+            <li>Less schedule flexibility</li>
+          </ul>
+        </article>
+        <article class="cc-vs-card cc-vs-card--nanny">
+          <h3>Nanny</h3>
+          <p class="cc-vs-cost" id="cc-compare-nanny">—</p>
+          <ul>
+            <li>Higher cost in most metros</li>
+            <li>More flexibility &amp; one-on-one care</li>
+            <li>Employer/payroll complexity</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- 8. ONE INCOME -->
+    <section class="cc-panel" id="cc-one-income" aria-labelledby="cc-one-income-title">
+      <header class="cc-section-head">
+        <h2 id="cc-one-income-title">Can one income cover childcare?</h2>
+        <p>Many parents ask whether staying home beats paid care—start with the monthly number.</p>
+      </header>
+      <div class="cc-note-box" id="cc-one-income-note"></div>
+    </section>
+
+    <!-- 9. BUDGET IMPACT -->
+    <section class="cc-panel" id="cc-budget-impact" aria-labelledby="cc-impact-title">
+      <header class="cc-section-head">
+        <h2 id="cc-impact-title">Family budget impact</h2>
+        <p>Childcare often becomes the second-largest monthly expense after housing.</p>
+      </header>
+      <div class="cc-note-box" id="cc-budget-impact-note"></div>
+    </section>
+
+    <!-- 10. LOWER COSTS -->
+    <section class="cc-panel" id="cc-lower" aria-labelledby="cc-lower-title">
+      <header class="cc-section-head">
+        <h2 id="cc-lower-title">Ways to lower childcare costs</h2>
+        <p>Practical levers families use—none replace your own eligibility research for programs.</p>
+      </header>
+      <div class="cc-tip-grid">
+        <article class="cc-tip-card"><h3>Flexible work schedules</h3><p>Shift hours so parents cover more care time and pay for fewer full-time days.</p></article>
+        <article class="cc-tip-card"><h3>Shared nanny arrangements</h3><p>Split one nanny between two families—lower cost per household with coordination overhead.</p></article>
+        <article class="cc-tip-card"><h3>State assistance programs</h3><p>Subsidies and tax credits vary by state and income—check official eligibility portals.</p></article>
+        <article class="cc-tip-card"><h3>Family care support</h3><p>Relative care may reduce cash cost; still budget for supplies and fair compensation.</p></article>
+        <article class="cc-tip-card"><h3>Employer childcare benefits</h3><p>FSAs, backup care, or on-site options can reduce out-of-pocket costs.</p></article>
+      </div>
+    </section>
+
+    <!-- 11. EXAMPLES -->
+    <section class="cc-panel" id="cc-examples" aria-labelledby="cc-examples-title">
+      <header class="cc-section-head">
+        <h2 id="cc-examples-title">Real family examples</h2>
+        <p id="cc-examples-intro">Illustrative scenarios—your planner settings update the first card when you change city.</p>
+      </header>
+      <div class="cc-example-grid" id="cc-example-cards"></div>
+    </section>
+
+    <!-- 12. SALARY -->
+    <section class="cc-panel" id="cc-salary" aria-labelledby="cc-salary-title">
+      <header class="cc-section-head">
+        <h2 id="cc-salary-title">How much salary do you need?</h2>
+        <p>Childcare pushes the income target up—especially with two children in high-cost metros.</p>
+      </header>
+      <div class="cc-note-box" id="cc-salary-note"></div>
+    </section>
+
+    <!-- 13. RELATED -->
+    <section class="cc-panel cc-panel--related" id="cc-related" aria-labelledby="cc-related-title">
+      <header class="cc-section-head">
+        <h2 id="cc-related-title">Related calculators</h2>
+      </header>
+      <div class="cc-related-grid">
+        <a class="cc-related-card" href="/living/lifestyle-family/family-of-4-income-guide"><h3>Family of 4 income guide</h3><p>Full household budget with childcare line.</p></a>
+        <a class="cc-related-card" href="/living/cost-of-living/nyc-vs-austin-cost-of-living.html"><h3>Cost of living calculator</h3><p>Compare metros before you move.</p></a>
+        <a class="cc-related-card" href="/living/budgeting/average-monthly-expenses.html"><h3>Budget planner</h3><p>Category map for monthly expenses.</p></a>
+        <a class="cc-related-card" href="/living/housing/how-much-rent-can-i-afford.html"><h3>Rent affordability</h3><p>Housing + care stacking test.</p></a>
+        <a class="cc-related-card" href="/living/lifestyle-family/budgeting-for-roommates"><h3>Roommate budget</h3><p>Lower housing to offset care costs.</p></a>
+      </div>
+    </section>
+
+    <!-- 14. FAQ -->
+    <section class="cc-panel cc-panel--faq" id="cc-faq" aria-labelledby="cc-faq-title">
+      <header class="cc-section-head">
+        <h2 id="cc-faq-title">Frequently asked questions</h2>
+      </header>
+      <div class="housing-hub-accordion faq-stack">
+        <details class="housing-hub-accordion-item faq-item" open>
+          <summary>How much does childcare cost?</summary>
+          <p>Costs vary by city, age, and care type. Daycare for one toddler often runs <strong>$1,000–$1,600/month</strong> in mid-cost metros and <strong>$1,800–$2,500+</strong> in expensive cities. Nanny care is typically higher.</p>
+        </details>
+        <details class="housing-hub-accordion-item faq-item">
+          <summary>What income is needed to afford daycare?</summary>
+          <p>Many planners use <strong>10–20% of gross income</strong> as a moderate band. At <strong>$1,500/month</strong> care, that implies roughly <strong>$90k–$180k</strong> gross depending on your target percentage.</p>
+        </details>
+        <details class="housing-hub-accordion-item faq-item">
+          <summary>Is childcare cheaper than a nanny?</summary>
+          <p>Usually <strong>yes</strong> for center or home daycare vs full-time nanny pay. Nannies offer flexibility; daycare offers structure and often lower cost.</p>
+        </details>
+        <details class="housing-hub-accordion-item faq-item">
+          <summary>How much should childcare cost relative to income?</summary>
+          <p><strong>Under 10%</strong> comfortable · <strong>10–20%</strong> moderate · <strong>20%+</strong> stressful for many families. Your safe line depends on housing and debt.</p>
+        </details>
+        <details class="housing-hub-accordion-item faq-item">
+          <summary>What states have affordable childcare?</summary>
+          <p>Lower-cost metros in <strong>Texas, Arizona, Georgia</strong>, and parts of the South often show lower averages than coastal cities—still compare your income in the planner.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 15. CTA -->
+    <section class="cc-cta-panel" id="cc-cta" aria-labelledby="cc-cta-title">
+      <h2 id="cc-cta-title">Calculate your childcare budget</h2>
+      <p>Run your city, children, care type, and income in the planner—then verify take-home pay with our salary calculator.</p>
+      <button type="button" class="cc-btn cc-btn--primary cc-btn--lg" data-scroll-to="cc-planner">Open childcare calculator</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-description">US-only tools to calculate your real income after tax, understand debt, and make smarter financial decisions.</p>
+      <div class="footer-grid" role="navigation" aria-label="Footer">
+        <section class="footer-column" aria-labelledby="footer-popular-calculators">
+          <h2 id="footer-popular-calculators">Popular Calculators</h2>
+          <a href="/hourly-to-salary-after-tax">Hourly to Salary After Tax</a>
+          <a href="/credit-card-payoff-calculator">Credit Card Payoff Calculator</a>
+          <a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-explore-more">
+          <h2 id="footer-explore-more">Explore More</h2>
+          <a href="/living/lifestyle-family">Lifestyle &amp; family hub</a>
+          <a href="/living/lifestyle-family/family-of-4-income-guide">Family of 4 income guide</a>
+        </section>
+      </div>
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
+
+  <script src="/guide-back.js"></script>
+  <script src="/living-hub-back.js"></script>
+  <script>
+    (function () {
+      const income = document.getElementById("cc-income");
+      const out = document.getElementById("cc-income-output");
+      if (income && out) {
+        const sync = function () {
+          out.textContent = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(Number(income.value));
+        };
+        income.addEventListener("input", sync);
+        sync();
+      }
+    })();
+  </script>
+  <script src="/living/lifestyle-family/childcare-affordability/childcare-affordability.js"></script>
+</body>
+</html>

@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Budgeting for Roommates: Split Rent &amp; Shared Bills Fairly | Income Clarity</title>
+  <meta name="description" content="Plan shared living costs with roommates. Split rent and utilities fairly by city, compare split methods, see monthly cost per person, savings vs living alone, and income needed—free US roommate budget calculator.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://incomeclarity.com/living/lifestyle-family/budgeting-for-roommates">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path === "/index.html") cleanPath = "/";
+      else if (path.endsWith("/index.html")) cleanPath = path.slice(0, -10);
+      else if (path.endsWith(".html")) cleanPath = path.slice(0, -5);
+      if (cleanPath !== path) window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Roommate Budget & Rent Split Calculator",
+    "description": "Estimate shared living costs, split rent and utilities fairly by city and roommate count, compare split methods, and see savings vs living alone.",
+    "url": "https://incomeclarity.com/living/lifestyle-family/budgeting-for-roommates",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@type": "WebSite", "name": "Income Clarity", "url": "https://incomeclarity.com/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Rent vs buy calculator", "item": "https://incomeclarity.com/rent-vs-buy-calculator" },
+      { "@type": "ListItem", "position": 2, "name": "Lifestyle & family", "item": "https://incomeclarity.com/living/lifestyle-family" },
+      { "@type": "ListItem", "position": 3, "name": "Budgeting for roommates", "item": "https://incomeclarity.com/living/lifestyle-family/budgeting-for-roommates" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How should roommates split rent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Equal split works when bedrooms are similar. Split by bedroom size when one person has a master suite. Income-based splits can help when salaries differ widely. Put the agreed method in writing before move-in."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is living with roommates cheaper?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Usually yes—you share rent, utilities, internet, and sometimes groceries. Savings vs a solo 1-bedroom often run 30–45% in many US metros, depending on city and how many roommates share the lease."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much money can roommates save?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Savings depend on city rent and roommate count. In a $2,400 apartment split three ways, each person might pay $800–$1,150/month all-in versus $1,500–$2,100+ for a solo 1-bedroom in the same metro."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should roommates split utilities equally?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Equal splits are simplest when usage is similar. If one person runs AC all day or works from home on heavy Wi-Fi, a utility-weighted or income-based split may feel fairer—document it upfront."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What salary is needed with roommates?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A common planning range is $45,000–$55,000 gross per person in mid-cost cities when your share is roughly $1,000–$1,200/month all-in. High-cost metros need more; use city-specific rent and tax assumptions."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="lifestyle-family-guide-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="/">Income Clarity</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/hourly-to-salary-after-tax">Income</a>
+        <a href="/credit-card-payoff-calculator">Debt</a>
+        <a href="/rent-vs-buy-calculator" aria-current="page">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container rm-page lifestyle-family-guide-page">
+    <nav class="take-home-return-nav rm-crumb" aria-label="Breadcrumb">
+      <ol class="take-home-return-breadcrumbs">
+        <li><a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy</a></li>
+        <li><a href="/living/lifestyle-family">Lifestyle &amp; family</a></li>
+        <li aria-current="page">Budgeting for roommates</li>
+      </ol>
+    </nav>
+
+    <p class="rm-back">
+      <a class="debt-minimum-guide-back-link" id="living-hub-back-link" href="/living/lifestyle-family" data-living-back-default="/living/lifestyle-family">← Back to lifestyle &amp; family</a>
+    </p>
+
+    <nav class="rm-jump" aria-label="On this page">
+      <a href="#rm-quick-calc">Quick calc</a>
+      <a href="#rm-planner">Planner</a>
+      <a href="#rm-split-fair">Split rent</a>
+      <a href="#rm-budget-pie">Breakdown</a>
+      <a href="#rm-city-section">By city</a>
+      <a href="#rm-alone">vs alone</a>
+      <a href="#rm-compatibility">Compatibility</a>
+      <a href="#rm-income">Income</a>
+      <a href="#rm-best-cities">Best cities</a>
+      <a href="#rm-examples">Examples</a>
+      <a href="#rm-mistakes">Mistakes</a>
+      <a href="#rm-related">Related</a>
+      <a href="#rm-faq">FAQ</a>
+    </nav>
+
+    <!-- 1. HERO -->
+    <section class="rm-hero" id="rm-hero" aria-labelledby="rm-hero-title">
+      <div class="rm-hero-copy">
+        <span class="label">Lifestyle &amp; family · Shared living</span>
+        <h1 id="rm-hero-title">Budgeting for Roommates</h1>
+        <p class="rm-hero-lead">Estimate shared living costs, split rent and utilities fairly, and build a realistic roommate budget based on your city and lifestyle—not generic college advice.</p>
+        <button type="button" class="rm-btn rm-btn--primary" data-scroll-to="rm-quick-calc">Start budget planner</button>
+      </div>
+      <aside class="rm-hero-preview" id="rm-hero-preview" aria-label="Roommate budget preview">
+        <p class="rm-preview-kicker">Live preview</p>
+        <dl class="rm-preview-stats">
+          <div><dt>Apartment rent</dt><dd data-rm-preview-rent>$2,400</dd></div>
+          <div><dt>Roommates</dt><dd data-rm-preview-roommates>3</dd></div>
+          <div><dt>Rent share</dt><dd data-rm-preview-rent-share>—</dd></div>
+          <div><dt>All-in estimate</dt><dd data-rm-preview-allin>—</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <!-- 2. QUICK CALCULATOR -->
+    <section class="rm-panel rm-panel--quick" id="rm-quick-calc" aria-labelledby="rm-quick-title">
+      <header class="rm-section-head">
+        <h2 id="rm-quick-title">Quick roommate budget calculator</h2>
+        <p>Select city, rent, and roommate count—your per-person estimate updates instantly.</p>
+      </header>
+      <div class="rm-quick-layout">
+        <form class="rm-quick-form" id="rm-quick-form">
+          <label class="rm-field">
+            <span>City</span>
+            <select id="rm-quick-city" aria-label="City">
+              <option value="austin" selected>Austin, TX</option>
+              <option value="dallas">Dallas, TX</option>
+              <option value="phoenix">Phoenix, AZ</option>
+              <option value="tampa">Tampa, FL</option>
+              <option value="atlanta">Atlanta, GA</option>
+              <option value="denver">Denver, CO</option>
+              <option value="chicago">Chicago, IL</option>
+              <option value="seattle">Seattle, WA</option>
+            </select>
+          </label>
+          <label class="rm-field">
+            <span>Monthly rent</span>
+            <input type="number" id="rm-quick-rent" min="500" max="10000" step="50" value="2400" aria-label="Monthly rent">
+          </label>
+          <label class="rm-field">
+            <span>Roommates</span>
+            <select id="rm-quick-roommates" aria-label="Number of roommates">
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </label>
+          <label class="rm-field">
+            <span>Utilities included?</span>
+            <select id="rm-quick-util-included" aria-label="Utilities included in rent">
+              <option value="no" selected>No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </label>
+          <button type="submit" class="rm-btn rm-btn--primary">Calculate split</button>
+        </form>
+        <aside class="rm-quick-results" id="rm-quick-results" aria-live="polite" aria-atomic="true" aria-label="Quick calculator result"></aside>
+      </div>
+    </section>
+
+    <!-- 3. ADVANCED PLANNER -->
+    <section class="rm-panel rm-panel--planner" id="rm-planner" aria-labelledby="rm-planner-title">
+      <header class="rm-section-head">
+        <h2 id="rm-planner-title">Advanced roommate budget planner</h2>
+        <p>Fine-tune bedroom structure, shared bills, and split method—results update live on the right.</p>
+      </header>
+      <div class="rm-planner-grid">
+        <div class="rm-planner-inputs">
+          <label class="rm-field">
+            <span>A. City</span>
+            <select id="rm-city" aria-label="City">
+              <option value="austin" selected>Austin, TX</option>
+              <option value="dallas">Dallas, TX</option>
+              <option value="phoenix">Phoenix, AZ</option>
+              <option value="tampa">Tampa, FL</option>
+              <option value="atlanta">Atlanta, GA</option>
+              <option value="denver">Denver, CO</option>
+              <option value="chicago">Chicago, IL</option>
+              <option value="seattle">Seattle, WA</option>
+            </select>
+          </label>
+
+          <fieldset class="rm-fieldset">
+            <legend>B. Number of roommates</legend>
+            <div class="rm-chip-grid" role="group" aria-label="Number of roommates">
+              <button type="button" class="rm-chip" data-rm-roommates="2" aria-pressed="false">2</button>
+              <button type="button" class="rm-chip is-selected" data-rm-roommates="3" aria-pressed="true">3</button>
+              <button type="button" class="rm-chip" data-rm-roommates="4" aria-pressed="false">4</button>
+              <button type="button" class="rm-chip" data-rm-roommates="5" aria-pressed="false">5</button>
+              <button type="button" class="rm-chip" data-rm-roommates="6" aria-pressed="false">5+</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="rm-fieldset">
+            <legend>C. Bedroom structure</legend>
+            <p class="rm-field-note">Bedroom structure controls how <strong>rent</strong> is split. Shared bills follow your split method in section F.</p>
+            <div class="rm-card-grid" role="group" aria-label="Bedroom structure">
+              <button type="button" class="rm-structure-card is-selected" data-rm-structure="equal" aria-pressed="true">
+                <strong>Equal bedrooms</strong>
+                <span>Same-size rooms, simplest split</span>
+              </button>
+              <button type="button" class="rm-structure-card" data-rm-structure="master" aria-pressed="false">
+                <strong>Master bedroom split</strong>
+                <span>Larger room pays more rent</span>
+              </button>
+              <button type="button" class="rm-structure-card" data-rm-structure="shared" aria-pressed="false">
+                <strong>Shared rooms</strong>
+                <span>Some roommates share a bedroom</span>
+              </button>
+              <button type="button" class="rm-structure-card" data-rm-structure="mix" aria-pressed="false">
+                <strong>Private + shared mix</strong>
+                <span>Blend of private and shared spaces</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <label class="rm-field">
+            <span>D. Monthly rent</span>
+            <input type="range" id="rm-rent" min="500" max="10000" step="50" value="2400" aria-valuemin="500" aria-valuemax="10000" aria-label="Monthly rent slider">
+            <output id="rm-rent-output" for="rm-rent">$2,400</output>
+          </label>
+
+          <fieldset class="rm-fieldset">
+            <legend>E. Shared expenses</legend>
+            <div class="rm-check-grid">
+              <label class="rm-check"><input type="checkbox" id="rm-util" checked> Utilities</label>
+              <label class="rm-check"><input type="checkbox" id="rm-internet" checked> Internet</label>
+              <label class="rm-check"><input type="checkbox" id="rm-streaming"> Streaming services</label>
+              <label class="rm-check"><input type="checkbox" id="rm-groceries"> Groceries (shared)</label>
+              <label class="rm-check"><input type="checkbox" id="rm-parking"> Parking</label>
+              <label class="rm-check"><input type="checkbox" id="rm-cleaning"> Cleaning supplies</label>
+            </div>
+            <label class="rm-field rm-field--inline">
+              <span>Utilities in rent?</span>
+              <select id="rm-util-included" aria-label="Utilities included in rent">
+                <option value="no" selected>No — split separately</option>
+                <option value="yes">Yes — included in rent</option>
+              </select>
+            </label>
+          </fieldset>
+
+          <fieldset class="rm-fieldset">
+            <legend>F. Split method</legend>
+            <div class="rm-card-grid rm-card-grid--split" role="group" aria-label="Split method">
+              <button type="button" class="rm-split-card is-selected" data-rm-split="equal" aria-pressed="true">
+                <strong>Equal split</strong>
+                <span>Everyone pays the same share</span>
+              </button>
+              <button type="button" class="rm-split-card" data-rm-split="bedroom" aria-pressed="false">
+                <strong>Split by room size</strong>
+                <span>Weighted by bedroom structure</span>
+              </button>
+              <button type="button" class="rm-split-card" data-rm-split="income" aria-pressed="false">
+                <strong>Split by income</strong>
+                <span>Higher earners pay slightly more</span>
+              </button>
+              <button type="button" class="rm-split-card" data-rm-split="custom" aria-pressed="false">
+                <strong>Custom split</strong>
+                <span>Room-weighted rent + flexible bills</span>
+              </button>
+            </div>
+          </fieldset>
+        </div>
+
+        <aside class="rm-results-sticky" aria-live="polite" aria-atomic="true">
+          <h3 class="rm-results-title">Estimated cost per person</h3>
+          <div class="rm-planner-income-hero">
+            <span class="rm-planner-income-kicker">All-in monthly cost per roommate</span>
+            <p class="rm-planner-income-value" id="rm-result-per-person-hero">—</p>
+            <p class="rm-planner-income-sub" id="rm-result-range">—</p>
+            <p class="rm-planner-income-rent" id="rm-result-rent-share">—</p>
+          </div>
+          <p class="rm-split-context" id="rm-split-context">—</p>
+          <div class="rm-split-breakdown" id="rm-split-breakdown" aria-label="Per-roommate split breakdown"></div>
+          <dl class="rm-results-dl">
+            <div class="rm-result-row rm-result-row--highlight">
+              <dt>Savings vs living alone</dt>
+              <dd id="rm-result-savings">—</dd>
+            </div>
+            <div class="rm-result-row">
+              <dt>Suggested income</dt>
+              <dd id="rm-result-income">—</dd>
+            </div>
+          </dl>
+          <div class="rm-budget-list" id="rm-budget-list" aria-label="Expense breakdown per person"></div>
+          <a class="rm-btn rm-btn--secondary" href="/hourly-to-salary-after-tax#hourly-salary-form">Check take-home pay</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 4. HOW TO SPLIT RENT FAIRLY -->
+    <section class="rm-panel" id="rm-split-fair" aria-labelledby="rm-split-fair-title">
+      <header class="rm-section-head">
+        <h2 id="rm-split-fair-title">How to split rent fairly</h2>
+        <p>Pick a strategy before move-in—money conflicts often start with unclear splits, not bad intentions.</p>
+      </header>
+      <div class="rm-strategy-grid">
+        <article class="rm-strategy-card">
+          <h3>Equal split</h3>
+          <p>Best when bedrooms are <strong>identical</strong> and everyone uses shared space similarly. Simplest to track; hardest to defend if one room is clearly larger.</p>
+        </article>
+        <article class="rm-strategy-card">
+          <h3>Split by bedroom size</h3>
+          <p>Most common in real leases. Master suite pays <strong>10–20% more</strong>; shared rooms pay less. Use square footage or agreed weights in the planner.</p>
+        </article>
+        <article class="rm-strategy-card">
+          <h3>Split by income</h3>
+          <p>Useful when salaries differ widely. Higher earners cover a slightly larger share so no one is house-poor. Put percentages in writing.</p>
+        </article>
+        <article class="rm-strategy-card">
+          <h3>Utility-weighted split</h3>
+          <p>Fair when one person runs AC constantly, has a home office, or uses more bandwidth. Split base rent equally; weight utilities by usage or income.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. SHARED EXPENSE BREAKDOWN -->
+    <section class="rm-panel rm-panel--pie" id="rm-budget-pie" aria-labelledby="rm-pie-title">
+      <header class="rm-section-head">
+        <h2 id="rm-pie-title">Shared expense breakdown</h2>
+        <p>Typical per-person mix from your planner settings—rent usually dominates roommate budgets.</p>
+      </header>
+      <div class="rm-pie-wrap">
+        <div class="rm-pie-chart" id="rm-pie-chart" role="img" aria-label="Roommate budget pie chart"></div>
+        <div class="rm-pie-legend" id="rm-pie-legend"></div>
+      </div>
+    </section>
+
+    <!-- 6. ROOMMATE SAVINGS BY CITY -->
+    <section class="rm-panel rm-panel--cities" id="rm-city-section" aria-labelledby="rm-city-title">
+      <header class="rm-section-head">
+        <h2 id="rm-city-title">Roommate savings by city</h2>
+        <p>Same split assumptions—different metros. Click a city to load it in the planner.</p>
+      </header>
+      <div class="rm-city-grid" id="rm-city-compare"></div>
+    </section>
+
+    <!-- 7. LIVING ALONE VS ROOMMATES -->
+    <section class="rm-panel rm-panel--compare" id="rm-alone" aria-labelledby="rm-alone-title">
+      <header class="rm-section-head">
+        <h2 id="rm-alone-title">Living alone vs roommates</h2>
+        <p>The emotional trade-off: privacy and control vs lower housing share.</p>
+      </header>
+      <div class="rm-compare-box" id="rm-alone-compare">
+        <p>Loading comparison…</p>
+      </div>
+      <p class="rm-compare-note">Compare solo math in our <a href="/living/family-budgeting/can-i-afford-to-live-alone.html">can I afford to live alone?</a> guide.</p>
+    </section>
+
+    <!-- 8. ROOMMATE COMPATIBILITY -->
+    <section class="rm-panel" id="rm-compatibility" aria-labelledby="rm-compat-title">
+      <header class="rm-section-head">
+        <h2 id="rm-compat-title">Roommate compatibility checklist</h2>
+        <p>Budget fairness only works when lifestyle expectations align. Discuss these before signing.</p>
+      </header>
+      <div class="rm-compat-grid">
+        <article class="rm-compat-card">
+          <h3>Cleaning expectations</h3>
+          <p>Who handles dishes, trash, and common areas? A shared chore chart prevents resentment when one person pays more but cleans less.</p>
+        </article>
+        <article class="rm-compat-card">
+          <h3>Guest policies</h3>
+          <p>Overnight guests, partners staying often, and quiet hours affect everyone’s sleep and utility usage—set boundaries early.</p>
+        </article>
+        <article class="rm-compat-card">
+          <h3>Grocery sharing</h3>
+          <p>Shared staples vs labeled shelves. Decide whether groceries are split equally, itemized, or mostly separate.</p>
+        </article>
+        <article class="rm-compat-card">
+          <h3>Bill payment habits</h3>
+          <p>One person on the lease? Use a shared spreadsheet or app. Due dates, autopay, and reimbursement within 48 hours reduce conflict.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 9. INCOME WITH ROOMMATES -->
+    <section class="rm-panel" id="rm-income" aria-labelledby="rm-income-title">
+      <header class="rm-section-head">
+        <h2 id="rm-income-title">What income do you need with roommates?</h2>
+        <p>Roommates can significantly lower the salary needed to live comfortably in expensive cities.</p>
+      </header>
+      <div class="rm-income-box" id="rm-income-note">
+        <p>Loading income estimate…</p>
+      </div>
+    </section>
+
+    <!-- 10. BEST CITIES -->
+    <section class="rm-panel" id="rm-best-cities" aria-labelledby="rm-best-title">
+      <header class="rm-section-head">
+        <h2 id="rm-best-title">Best cities for roommate living</h2>
+        <p>Affordability, rent-sharing benefits, and young-professional rental markets.</p>
+      </header>
+      <div class="rm-best-grid" id="rm-best-cities-grid"></div>
+    </section>
+
+    <!-- 11. REAL EXAMPLES -->
+    <section class="rm-panel" id="rm-examples" aria-labelledby="rm-examples-title">
+      <header class="rm-section-head">
+        <h2 id="rm-examples-title">Real roommate budget examples</h2>
+        <p>Round-number scenarios you can compare to your lease quote.</p>
+      </header>
+      <div class="rm-example-grid" id="rm-example-cards"></div>
+    </section>
+
+    <!-- 12. MONEY MISTAKES -->
+    <section class="rm-panel" id="rm-mistakes" aria-labelledby="rm-mistakes-title">
+      <header class="rm-section-head">
+        <h2 id="rm-mistakes-title">Roommate money mistakes to avoid</h2>
+        <p>Most conflicts are preventable with clear agreements upfront.</p>
+      </header>
+      <div class="rm-mistake-grid">
+        <article class="rm-mistake-card">
+          <h3>Unequal utility usage</h3>
+          <p>One person cranks heat or runs servers 24/7 while others subsidize. Track usage or switch to weighted splits.</p>
+        </article>
+        <article class="rm-mistake-card">
+          <h3>Unclear rent splits</h3>
+          <p>Verbal “we’ll figure it out” deals break when someone gets the master bedroom. Write percentages before move-in.</p>
+        </article>
+        <article class="rm-mistake-card">
+          <h3>No shared expense tracking</h3>
+          <p>Streaming, toilet paper, and cleaning supplies add up. Use a shared ledger or rotation system.</p>
+        </article>
+        <article class="rm-mistake-card">
+          <h3>No emergency plan</h3>
+          <p>If one roommate loses income, can others cover a month? Discuss backup plans before you need them.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 13. RELATED CALCULATORS -->
+    <section class="rm-panel rm-panel--related" id="rm-related" aria-labelledby="rm-related-title">
+      <header class="rm-section-head">
+        <h2 id="rm-related-title">Related calculators</h2>
+        <p>Cross-check take-home pay, rent limits, and broader budgeting.</p>
+      </header>
+      <div class="rm-related-grid">
+        <a class="rm-related-card" href="/living/cost-of-living/nyc-vs-austin-cost-of-living.html">
+          <h3>Cost of living calculator</h3>
+          <p>Compare metros before picking roommates and rent.</p>
+        </a>
+        <a class="rm-related-card" href="/hourly-to-salary-after-tax#hourly-salary-form">
+          <h3>Salary calculator</h3>
+          <p>Gross to take-home after tax by state.</p>
+        </a>
+        <a class="rm-related-card" href="/living/budgeting/average-monthly-expenses.html">
+          <h3>Budget planner</h3>
+          <p>Category map for full monthly expenses.</p>
+        </a>
+        <a class="rm-related-card" href="/living/housing/how-much-rent-can-i-afford.html">
+          <h3>Rent affordability calculator</h3>
+          <p>30% rule and 40× rent checks.</p>
+        </a>
+        <a class="rm-related-card" href="/living/family-budgeting/can-i-afford-to-live-alone.html">
+          <h3>Living alone vs roommates</h3>
+          <p>Solo lease math on the same paycheck.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- 14. FAQ -->
+    <section class="rm-panel rm-panel--faq" id="rm-faq" aria-labelledby="rm-faq-title">
+      <header class="rm-section-head">
+        <h2 id="rm-faq-title">Frequently asked questions</h2>
+      </header>
+      <div class="housing-hub-accordion faq-stack">
+        <details class="housing-hub-accordion-item faq-item" open>
+          <summary>How should roommates split rent?</summary>
+          <p><strong>Equal split</strong> when rooms match. <strong>Bedroom-size split</strong> when one suite is larger. <strong>Income-based</strong> when salaries differ. Document the method and percentages before anyone moves in.</p>
+        </details>
+        <details class="housing-hub-accordion-item faq-item">
+          <summary>Is living with roommates cheaper?</summary>
+          <p>Usually yes—you share rent, utilities, internet, and sometimes groceries. Savings vs a solo 1-bedroom often run <strong>30–45%</strong> depending on city and roommate count.</p>
+        </details>
+        <details class="housing-hub-accordion-item faq-item">
+          <summary>How much money can roommates save?</summary>
+          <p>In a <strong>$2,400</strong> apartment split three ways, each person might pay <strong>$800–$1,150/month</strong> all-in versus <strong>$1,500–$2,100+</strong> for a solo 1-bedroom in the same metro.</p>
+        </details>
+        <details class="housing-hub-accordion-item faq-item">
+          <summary>Should roommates split utilities equally?</summary>
+          <p>Equal splits work when usage is similar. Heavy AC, WFH, or extra devices may warrant a <strong>utility-weighted</strong> or income-based split—decide upfront.</p>
+        </details>
+        <details class="housing-hub-accordion-item faq-item">
+          <summary>What salary is needed with roommates?</summary>
+          <p>Often <strong>$45k–$55k gross</strong> per person in mid-cost cities when your share is ~$1,000–$1,200/month all-in. High-cost metros need more—use the planner with your city.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 15. PRIMARY CTA -->
+    <section class="rm-cta-panel" id="rm-cta" aria-labelledby="rm-cta-title">
+      <h2 id="rm-cta-title">Plan your roommate budget</h2>
+      <p>Run your city, rent, roommate count, and split method—then verify take-home pay with our salary calculator.</p>
+      <button type="button" class="rm-btn rm-btn--primary rm-btn--lg" data-scroll-to="rm-planner">Open budget calculator</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-description">US-only tools to calculate your real income after tax, understand debt, and make smarter financial decisions.</p>
+      <div class="footer-grid" role="navigation" aria-label="Footer">
+        <section class="footer-column" aria-labelledby="footer-popular-calculators">
+          <h2 id="footer-popular-calculators">Popular Calculators</h2>
+          <a href="/hourly-to-salary-after-tax">Hourly to Salary After Tax</a>
+          <a href="/credit-card-payoff-calculator">Credit Card Payoff Calculator</a>
+          <a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a>
+          <a href="/1099-vs-w2-calculator">1099 vs W2 Calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-tools-category">
+          <h2 id="footer-tools-category">Tools by Category</h2>
+          <a href="/hourly-to-salary-after-tax">Income</a>
+          <a href="/credit-card-payoff-calculator">Debt</a>
+          <a href="/rent-vs-buy-calculator">Living</a>
+          <a href="/1099-vs-w2-calculator">Freelance</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-explore-more">
+          <h2 id="footer-explore-more">Explore More</h2>
+          <a href="/living/lifestyle-family">Lifestyle &amp; family hub</a>
+          <a href="/living/lifestyle-family/budgeting-for-roommates">Roommate budgeting</a>
+          <a href="/living/housing/how-much-rent-can-i-afford">Rent affordability</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-company">
+          <h2 id="footer-company">Company</h2>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms">Terms</a>
+        </section>
+      </div>
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
+
+  <script src="/guide-back.js"></script>
+  <script src="/living-hub-back.js"></script>
+  <script>
+    (function () {
+      const rent = document.getElementById("rm-rent");
+      const out = document.getElementById("rm-rent-output");
+      if (rent && out) {
+        const sync = function () {
+          out.textContent = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(Number(rent.value));
+        };
+        rent.addEventListener("input", sync);
+        sync();
+      }
+    })();
+  </script>
+  <script src="/living/lifestyle-family/budgeting-for-roommates/roommate-budget.js"></script>
+</body>
+</html>

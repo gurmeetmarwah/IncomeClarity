@@ -54,7 +54,9 @@
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Credit card payoff calculator", "url": "https://incomeclarity.com/credit-card-payoff-calculator" },
       { "@type": "ListItem", "position": 2, "name": "Why paying the minimum is bad", "url": "https://incomeclarity.com/debt/debt-reality/why-paying-minimum-is-bad" },
-      { "@type": "ListItem", "position": 3, "name": "Average credit card debt by income", "url": "https://incomeclarity.com/debt/strategies/average-credit-card-debt-by-income" }
+      { "@type": "ListItem", "position": 3, "name": "How long to pay off $5,000 debt", "url": "https://incomeclarity.com/debt/payoff-scenarios/how-long-to-pay-off-5000-debt" },
+      { "@type": "ListItem", "position": 4, "name": "How long to pay off $10,000 debt", "url": "https://incomeclarity.com/debt/payoff-scenarios/how-long-to-pay-off-10000-debt" },
+      { "@type": "ListItem", "position": 5, "name": "Average credit card debt by income", "url": "https://incomeclarity.com/debt/strategies/average-credit-card-debt-by-income" }
     ]
   }
   </script>
@@ -131,7 +133,7 @@
       <p class="state-salary-insight housing-hub-glance" role="note"><strong>At a glance:</strong> The same <strong>$5,000 balance</strong> can mean <strong>a few years</strong> or <strong>well over a decade</strong> depending on APR and whether you pay the minimum or a fixed amount. Run your numbers first, then read the guides below.</p>
       <div class="housing-hub-pills debt-payoff-hub-pills" role="navigation" aria-label="Quick payoff scenarios">
         <a class="housing-hub-pill debt-payoff-hub-pill--5k" href="/debt/payoff-scenarios/how-long-to-pay-off-5000-debt?from=payoff-scenarios">$5k debt payoff</a>
-        <span class="housing-hub-pill debt-payoff-hub-pill--soon" aria-disabled="true">$10k debt payoff <em class="debt-payoff-hub-soon-label">(coming soon)</em></span>
+        <a class="housing-hub-pill debt-payoff-hub-pill--10k" href="/debt/payoff-scenarios/how-long-to-pay-off-10000-debt?from=payoff-scenarios">$10k debt payoff</a>
         <a class="housing-hub-pill debt-payoff-hub-pill--calc" href="/credit-card-payoff-calculator#payoff">Minimum payment calculator</a>
       </div>
     </section>
@@ -166,12 +168,12 @@
           <p>Estimate payoff timeline and total interest at your APR and payment.</p>
           <span class="housing-hub-card-cta">Open $5k planner →</span>
         </a>
-        <div class="housing-hub-tool-card debt-payoff-hub-tool-card--soon" aria-disabled="true">
+        <a class="housing-hub-tool-card debt-payoff-hub-tool-card--10k" href="/debt/payoff-scenarios/how-long-to-pay-off-10000-debt?from=payoff-scenarios">
           <span class="housing-hub-card-badge" aria-hidden="true">🔟</span>
           <h3>How long to pay off $10,000 debt</h3>
           <p>See long-term repayment impact when payments stay flat.</p>
-          <span class="debt-payoff-hub-soon-tag">Coming soon</span>
-        </div>
+          <span class="housing-hub-card-cta">Open $10k planner →</span>
+        </a>
         <a class="housing-hub-tool-card debt-payoff-hub-tool-card--calc" href="/credit-card-payoff-calculator#payoff">
           <span class="housing-hub-card-badge" aria-hidden="true">📉</span>
           <h3>Minimum payment calculator</h3>
@@ -199,9 +201,14 @@
           <h3>$5k debt payoff timeline</h3>
           <p>How long at your APR and monthly payment.</p>
         </a>
+        <a class="housing-hub-chip-card debt-payoff-hub-chip-card--10k" href="/debt/payoff-scenarios/how-long-to-pay-off-10000-debt?from=payoff-scenarios">
+          <span class="housing-hub-chip-tag">$10k</span>
+          <h3>$10k debt payoff timeline</h3>
+          <p>How long at your APR and monthly payment.</p>
+        </a>
         <a class="housing-hub-chip-card debt-payoff-hub-chip-card--trap" href="/debt/debt-reality/why-paying-minimum-is-bad?from=payoff-scenarios">
           <span class="housing-hub-chip-tag">Minimum</span>
-          <h3>$10k minimum payment trap</h3>
+          <h3>Minimum payment trap</h3>
           <p>Why years disappear to interest.</p>
         </a>
         <div class="housing-hub-chip-card debt-payoff-hub-chip-card--soon" aria-disabled="true">
@@ -364,7 +371,7 @@
       <div class="housing-hub-accordion faq-stack">
         <details class="housing-hub-accordion-item faq-item">
           <summary>How long does it take to pay off credit card debt?</summary>
-          <p>There is no single answer—only a balance, APR, and payment path. At 24% APR, a <strong>$5,000</strong> balance with a <strong>$150</strong> fixed payment might clear in a few years; minimum-only paths can stretch far longer. See the <a href="/debt/payoff-scenarios/how-long-to-pay-off-5000-debt?from=payoff-scenarios">$5,000 payoff timeline page</a> or use the <a href="/credit-card-payoff-calculator#payoff">payoff calculator</a> with your statement figures. <em>$10k scenario page coming soon.</em></p>
+          <p>There is no single answer—only a balance, APR, and payment path. At 24% APR, a <strong>$5,000</strong> balance with a <strong>$150</strong> fixed payment might clear in a few years; a <strong>$10,000</strong> balance often needs <strong>$350–$500+</strong> to make similar progress. See the <a href="/debt/payoff-scenarios/how-long-to-pay-off-5000-debt?from=payoff-scenarios">$5,000</a> or <a href="/debt/payoff-scenarios/how-long-to-pay-off-10000-debt?from=payoff-scenarios">$10,000 payoff timeline pages</a>, or use the <a href="/credit-card-payoff-calculator#payoff">payoff calculator</a> with your statement figures.</p>
         </details>
         <details class="housing-hub-accordion-item faq-item">
           <summary>Is paying minimum payment bad?</summary>
@@ -442,6 +449,7 @@
       <p class="footer-copy">© 2026 IncomeClarityLab</p>
     </div>
   </footer>
+  <script src="/guide-back.js"></script>
   <script src="/debt-guide-back.js"></script>
 </body>
 </html>

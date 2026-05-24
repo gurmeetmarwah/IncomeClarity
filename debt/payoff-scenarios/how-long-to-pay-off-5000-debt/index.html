@@ -265,13 +265,25 @@
         <p>See how your balance shrinks month by month at your current inputs.</p>
       </header>
       <div id="sc5-timeline-bar"></div>
-      <div class="sc5-balance-chart-wrap">
-        <h3 class="sc5-chart-heading">Balance over time</h3>
-        <div class="sc5-balance-chart" id="sc5-balance-chart" aria-hidden="true"></div>
-      </div>
-      <div class="sc5-principal-interest-legend" aria-hidden="true">
-        <span><i class="sc5-legend-principal"></i> Principal paid each year (in full calculator)</span>
-        <span><i class="sc5-legend-interest"></i> Interest paid each year (in full calculator)</span>
+      <div class="sc5-viz-panel" id="sc5-viz-panel">
+        <div class="sc5-chart-summary" id="sc5-chart-summary" aria-live="polite"></div>
+        <div class="sc5-chart-grid">
+          <div class="sc5-chart-card">
+            <h3 class="sc5-chart-heading">Where your payments go</h3>
+            <p class="sc5-chart-sub">Stacked by year—<strong class="sc5-chart-sub-interest">interest</strong> vs <strong class="sc5-chart-sub-principal">principal</strong> from each payment.</p>
+            <div class="sc5-stacked-chart" id="sc5-stacked-chart" role="img" aria-label="Yearly principal and interest breakdown"></div>
+            <div class="sc5-chart-legend">
+              <span class="sc5-legend-item sc5-legend-item--principal"><i aria-hidden="true"></i> Principal</span>
+              <span class="sc5-legend-item sc5-legend-item--interest"><i aria-hidden="true"></i> Interest</span>
+            </div>
+          </div>
+          <div class="sc5-chart-card sc5-chart-card--balance">
+            <h3 class="sc5-chart-heading">Balance shrinking</h3>
+            <p class="sc5-chart-sub">Remaining debt after each year of payments.</p>
+            <div class="sc5-balance-chart" id="sc5-balance-chart"></div>
+            <p class="sc5-chart-insight" id="sc5-chart-insight"></p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -401,9 +413,13 @@
           <p>DTI and housing headroom.</p>
           <span class="debt-payoff-hub-soon-tag">Coming soon</span>
         </div>
+        <a class="sc5-related-card" href="/debt/payoff-scenarios/how-long-to-pay-off-10000-debt?from=payoff-5000">
+          <h3>$10,000 debt payoff timeline</h3>
+          <p>Longer balances, higher payments, minimum traps.</p>
+        </a>
         <a class="sc5-related-card" href="/debt/payoff-scenarios">
-          <h3>More payoff scenarios</h3>
-          <p>$10k traps, timelines, benchmarks.</p>
+          <h3>All payoff scenarios</h3>
+          <p>Hub for balances, traps, and strategies.</p>
         </a>
       </div>
     </section>
@@ -446,28 +462,44 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
+    <div class="container footer-layout">
       <p class="footer-description">US-only tools to calculate your real income after tax, understand debt, and make smarter financial decisions.</p>
-      <div class="footer-links">
-        <strong>Tools</strong>
-        <a href="/hourly-to-salary-after-tax">Income</a>
-        <a href="/credit-card-payoff-calculator">Debt</a>
-        <a href="/rent-vs-buy-calculator">Living</a>
+      <div class="footer-grid" role="navigation" aria-label="Footer">
+        <section class="footer-column" aria-labelledby="footer-popular-calculators">
+          <h2 id="footer-popular-calculators">Popular Calculators</h2>
+          <a href="/hourly-to-salary-after-tax">Hourly to Salary After Tax</a>
+          <a href="/credit-card-payoff-calculator">Credit Card Payoff Calculator</a>
+          <a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a>
+          <a href="/1099-vs-w2-calculator">1099 vs W2 Calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-tools-category">
+          <h2 id="footer-tools-category">Tools by Category</h2>
+          <a href="/hourly-to-salary-after-tax">Income</a>
+          <a href="/credit-card-payoff-calculator">Debt</a>
+          <a href="/rent-vs-buy-calculator">Living</a>
+          <a href="/1099-vs-w2-calculator">Freelance</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-explore-more">
+          <h2 id="footer-explore-more">Explore More</h2>
+          <a href="/debt/payoff-scenarios?from=payoff-scenarios">Debt payoff scenarios hub</a>
+          <a href="/debt/debt-reality/why-paying-minimum-is-bad?from=payoff-scenarios">Why paying minimum is bad</a>
+          <a href="/credit-card-payoff-calculator#payoff">Full payoff calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-company">
+          <h2 id="footer-company">Company</h2>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms">Terms</a>
+        </section>
       </div>
-      <div class="footer-links">
-        <strong>Legal</strong>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-        <a href="/privacy-policy">Privacy Policy</a>
-        <a href="/terms">Terms</a>
-      </div>
-    </div>
-    <div class="container">
       <p class="footer-copy">© 2026 IncomeClarityLab</p>
     </div>
   </footer>
 
+  <script src="/guide-back.js"></script>
   <script src="/debt-guide-back.js"></script>
+  <script src="/debt/payoff-scenarios/payoff-scenario-engine.js"></script>
   <script src="/debt/payoff-scenarios/payoff-5000-scenario.js"></script>
 </body>
 </html>

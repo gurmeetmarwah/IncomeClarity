@@ -283,14 +283,22 @@
   }
 
   function applyDebtParentNav(link, hub) {
-    link.href = hubHref(hub);
-    link.textContent = "← Back to " + hub.label;
     applyDebtSiloBreadcrumbs(hub);
+    if (window.IncomeClarityBack) {
+      window.IncomeClarityBack.enhance(link, {
+        fallbackHref: hubHref(hub),
+        fallbackLabel: "← Back to " + hub.label,
+      });
+    }
   }
 
   function applyLivingSiloParentNav(link, hub) {
-    link.href = hubHref(hub);
-    link.textContent = "← Back to " + hub.label;
+    if (window.IncomeClarityBack) {
+      window.IncomeClarityBack.enhance(link, {
+        fallbackHref: hubHref(hub),
+        fallbackLabel: "← Back to " + hub.label,
+      });
+    }
     if (stripPath(hub.path) === stripPath(HOUSING_HUB_PATH)) {
       applyHousingSiloBreadcrumbs(hubHref(hub), hub.label);
     } else if (stripPath(hub.path) === stripPath(RENT_VS_BUY_PATH)) {
@@ -329,9 +337,11 @@
     var href = housingHubHref(refUrl);
     var link = document.getElementById(LINK_ID);
 
-    if (link) {
-      link.href = href;
-      link.textContent = HOUSING_BACK_TEXT;
+    if (link && window.IncomeClarityBack) {
+      window.IncomeClarityBack.enhance(link, {
+        fallbackHref: href,
+        fallbackLabel: HOUSING_BACK_TEXT,
+      });
     }
 
     applyHousingSiloBreadcrumbs(href, HOUSING_HUB_LABEL);
@@ -341,9 +351,11 @@
     var href = housingHubHref(refUrl);
     var link = document.getElementById(LINK_ID);
 
-    if (link) {
-      link.href = href;
-      link.textContent = HOUSING_BACK_TEXT;
+    if (link && window.IncomeClarityBack) {
+      window.IncomeClarityBack.enhance(link, {
+        fallbackHref: href,
+        fallbackLabel: HOUSING_BACK_TEXT,
+      });
     }
 
     if (isHousingSiloGuidePage()) {
@@ -359,8 +371,13 @@
       return;
     }
 
-    link.href = refUrl.pathname + refUrl.search + refUrl.hash;
-    link.textContent = "← Back to Living (rent vs buy)";
+    var href = refUrl.pathname + refUrl.search + refUrl.hash;
+    if (window.IncomeClarityBack) {
+      window.IncomeClarityBack.enhance(link, {
+        fallbackHref: href,
+        fallbackLabel: "← Back to Living (rent vs buy)",
+      });
+    }
     applyHousingSiloBreadcrumbs(
       refUrl.pathname + refUrl.hash,
       "Living (rent vs buy)"
@@ -418,11 +435,17 @@
         return;
       }
 
+      if (window.IncomeClarityBack) {
+        window.IncomeClarityBack.enhance(link);
+      }
       return;
     }
 
     var refUrl = getValidReferrer();
     if (!refUrl) {
+      if (window.IncomeClarityBack) {
+        window.IncomeClarityBack.enhance(link);
+      }
       return;
     }
 
@@ -433,6 +456,11 @@
 
     if (isRentVsBuyPath(refUrl.pathname)) {
       applyRentVsBuyBackLink(refUrl);
+      return;
+    }
+
+    if (window.IncomeClarityBack) {
+      window.IncomeClarityBack.enhance(link);
     }
   }
 

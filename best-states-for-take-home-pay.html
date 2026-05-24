@@ -366,6 +366,7 @@
           backLink.className = "debt-minimum-guide-back-link";
           backLink.href = "/living/housing" + refUrl.hash;
           backLink.textContent = "← Back to housing affordability";
+          if (window.IncomeClarityBack) { window.IncomeClarityBack.enhance(backLink, { fallbackHref: backLink.href, fallbackLabel: backLink.textContent }); }
           back.appendChild(backLink);
           root.appendChild(back);
         }
@@ -374,5 +375,6 @@
       document.addEventListener("DOMContentLoaded", mountReturnNav);
     })();
   </script>
+  <script src="/guide-back.js"></script>
 </body>
 </html>

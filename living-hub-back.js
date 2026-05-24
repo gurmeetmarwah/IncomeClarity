@@ -270,9 +270,13 @@
   }
 
   function applyParentNav(link, hub) {
-    link.href = hubHref(hub);
-    link.textContent = "← Back to " + hub.label;
     applyBreadcrumbs(hub);
+    if (window.IncomeClarityBack) {
+      window.IncomeClarityBack.enhance(link, {
+        fallbackHref: hubHref(hub),
+        fallbackLabel: "← Back to " + hub.label,
+      });
+    }
   }
 
   function cleanFromQueryParam() {
@@ -302,11 +306,12 @@
       hubFromReferrer(getValidReferrer()) ||
       defaultHubFromLink(link);
 
-    if (!hub) {
-      return;
+    if (hub) {
+      applyParentNav(link, hub);
+    } else if (window.IncomeClarityBack) {
+      window.IncomeClarityBack.enhance(link);
     }
 
-    applyParentNav(link, hub);
     cleanFromQueryParam();
   }
 
