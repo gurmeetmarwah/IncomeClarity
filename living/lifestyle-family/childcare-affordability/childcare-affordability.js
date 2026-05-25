@@ -12,7 +12,13 @@
   };
 
   const COMPARE_KEYS = ["dallas", "austin", "phoenix", "seattle"];
-  const PIE_COLORS = { tuition: "#dd6b20", meals: "#38a169", transport: "#3182ce", supplies: "#805ad5", fees: "#718096" };
+  const PIE_COLORS = {
+    tuition: "#0f7b6c",
+    meals: "#38a169",
+    transport: "#3182ce",
+    supplies: "#2d6a9f",
+    fees: "#94a3b8",
+  };
 
   const CARE_TYPES = {
     daycare_center: { label: "Daycare center", base: "daycare", mul: 1 },

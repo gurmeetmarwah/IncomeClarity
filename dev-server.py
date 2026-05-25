@@ -30,6 +30,14 @@ class RedirectRules:
                 elif status == "200":
                     self.rewrites[from_path] = to_path
 
+    @staticmethod
+    def _normalize_path(path):
+        """Compare paths regardless of trailing slash."""
+        p = path or "/"
+        if p != "/":
+            p = p.rstrip("/")
+        return p
+
     def resolve(self, path):
         """Return (serve_relative_path | None, redirect_path | None, fragment)."""
         fragment = ""
@@ -39,7 +47,9 @@ class RedirectRules:
                 dest = self.redirects[current]
                 if "#" in dest:
                     dest, fragment = dest.split("#", 1)
-                return None, dest, fragment
+                if self._normalize_path(dest) != self._normalize_path(current):
+                    return None, dest, fragment
+                fragment = ""
 
             if current in self.rewrites:
                 dest = self.rewrites[current]
@@ -48,10 +58,19 @@ class RedirectRules:
                 rel = dest.lstrip("/")
                 return rel, None, fragment
 
+            # Trailing-slash pretty URLs: serve index.html when present (before slash redirects)
+            if current.endswith("/") and current != "/":
+                index_rel = current.lstrip("/") + "index.html"
+                if os.path.isfile(os.path.join(ROOT, index_rel)):
+                    return index_rel, None, fragment
+
             alt = current.rstrip("/") if current.endswith("/") else current + "/"
             if alt != current and alt in self.redirects:
-                current = alt
-                continue
+                dest = self.redirects[alt]
+                dest_path = dest.split("#", 1)[0]
+                if self._normalize_path(dest_path) != self._normalize_path(current):
+                    current = alt
+                    continue
             if alt != current and alt in self.rewrites:
                 current = alt
                 continue
@@ -61,14 +80,25 @@ class RedirectRules:
 
 
 class NoCacheHandler(SimpleHTTPRequestHandler):
-    rules = RedirectRules(os.path.join(ROOT, "_redirects"))
+    _rules = None
+    _rules_mtime = None
+
+    @classmethod
+    def get_rules(cls):
+        """Reload _redirects when the file changes (dev server stays running across edits)."""
+        redirects_path = os.path.join(ROOT, "_redirects")
+        mtime = os.path.getmtime(redirects_path) if os.path.isfile(redirects_path) else 0
+        if cls._rules is None or cls._rules_mtime != mtime:
+            cls._rules = RedirectRules(redirects_path)
+            cls._rules_mtime = mtime
+        return cls._rules
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=ROOT, **kwargs)
 
     def _resolve_serve_path(self, path):
         """Map request path to a file under ROOT (redirect rules + .html / index fallbacks)."""
-        serve, redirect, fragment = self.rules.resolve(path)
+        serve, redirect, fragment = self.get_rules().resolve(path)
         if redirect is not None:
             return serve, redirect, fragment
 

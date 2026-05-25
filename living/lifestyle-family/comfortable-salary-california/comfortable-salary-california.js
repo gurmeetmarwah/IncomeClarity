@@ -13,7 +13,14 @@
   const COMPARE_KEYS = ["san_francisco", "los_angeles", "san_diego", "sacramento", "san_jose", "fresno"];
   const AFFORDABLE_KEYS = ["sacramento", "fresno", "bakersfield", "riverside"];
   const CA_TAX = 0.28;
-  const PIE_COLORS = { housing: "#b45309", transportation: "#3182ce", food: "#38a169", healthcare: "#d53f8c", childcare: "#dd6b20", lifestyle: "#805ad5" };
+  const PIE_COLORS = {
+    housing: "#0f7b6c",
+    transportation: "#3182ce",
+    food: "#38a169",
+    healthcare: "#627d98",
+    childcare: "#2d6a9f",
+    lifestyle: "#94a3b8",
+  };
 
   const LIFESTYLES = {
     basic: { label: "Basic survival", multiplier: 0.78, savingsRate: 0.04, classLabel: "Essentials-focused", food: 780, lifestyle: 280 },

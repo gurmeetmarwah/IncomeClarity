@@ -9,6 +9,17 @@
   --border: #d9e2ec;
   --shadow: 0 10px 30px rgba(16, 42, 67, 0.08);
   --max-width: 1080px;
+  --content-gutter: 1.25rem;
+  --content-gutter-lg: 1.5rem;
+  /* Interactive lifestyle guides (calculators) */
+  --guide-teal-soft: #e8f8f4;
+  --guide-teal-muted: #d9f6ef;
+  --guide-teal-border: #9fd4c8;
+  --guide-teal-ring: rgba(15, 123, 108, 0.22);
+  --guide-hero-gradient: linear-gradient(135deg, #ffffff 0%, #e8f8f4 45%, #f7fafc 100%);
+  --guide-panel-accent: linear-gradient(180deg, #f3fbf9 0%, #ffffff 100%);
+  --guide-blue: #2d6a9f;
+  --guide-slate: #627d98;
 }
 
 *,
@@ -39,8 +50,19 @@ a:hover {
 }
 
 .container {
-  width: min(var(--max-width), 92%);
+  width: 100%;
+  max-width: var(--max-width);
   margin: 0 auto;
+  padding-left: max(var(--content-gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--content-gutter), env(safe-area-inset-right, 0px));
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: max(var(--content-gutter-lg), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--content-gutter-lg), env(safe-area-inset-right, 0px));
+  }
 }
 
 .site-header {
@@ -195,7 +217,7 @@ h3 {
 }
 
 section {
-  padding: 2.6rem 0;
+  padding-block: 2.6rem;
 }
 
 .income-page .intro-section {
@@ -4356,7 +4378,7 @@ section {
 
 .rvb-buy-cheaper-window {
   margin-top: 0.9rem;
-  padding: 0.8rem 0.9rem;
+  padding: 0.85rem max(1rem, var(--content-gutter));
   border-radius: 12px;
   border: 1px solid #d6e5f4;
   background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
@@ -5014,12 +5036,12 @@ section {
 .content-page article > section,
 .content-page article > .living-faq-section,
 .content-page article > .rent-related-guide {
-  padding: 0.75rem 0;
+  padding-block: 0.75rem;
   scroll-margin-top: 4.5rem;
 }
 
 .content-page > section {
-  padding: 1.15rem 0;
+  padding-block: 1.15rem;
 }
 
 .content-page .take-home-return-nav {
@@ -5058,6 +5080,13 @@ section {
 .content-page article > section > ol,
 .content-page article > section > ul {
   margin: 0.35rem 0 0.5rem;
+  padding-left: 1.35rem;
+}
+
+.content-page article > section > h2,
+.content-page article > section > h3,
+.content-page > section > h2 {
+  padding-left: 0;
 }
 
 .content-page article .living-faq-section {
@@ -5101,34 +5130,83 @@ section {
   margin: 0.5rem 0 0;
 }
 
-.housing-hub > section {
-  padding: 0;
-}
-
-.sc5-page > section {
-  padding: 0;
-}
-
-.f4-page > section {
-  padding: 0;
-}
-
-.rm-page > section {
-  padding: 0;
+/* Hub / guide pages: cancel default section block spacing only (keep panel inline padding) */
+.housing-hub > section,
+.sc5-page > section,
+.f4-page > section,
+.rm-page > section,
+.cc-page > section {
+  padding-block: 0;
 }
 
 .ca-page > section,
 .tx-page > section {
-  padding: 0;
+  padding-block: 0;
   margin-bottom: 1.25rem;
 }
 
-.cc-page > section {
-  padding: 0;
+.housing-hub > section.housing-hub-panel {
+  padding: 0.85rem 0.9rem 0.95rem;
 }
 
-.debt-page section {
-  padding: 1rem 0;
+.housing-hub > section.housing-hub-hero {
+  padding: 1rem 1rem 1.1rem;
+}
+
+.f4-page > section.f4-hero {
+  padding: 1.1rem 1rem;
+}
+
+.f4-page > section.f4-panel {
+  padding: 1rem;
+}
+
+.rm-page > section.rm-hero {
+  padding: 1rem 0 1.25rem;
+}
+
+.rm-page > section.rm-panel {
+  padding: 1rem 0.85rem;
+}
+
+.cc-page > section.cc-hero {
+  padding: 1rem 0 1.25rem;
+}
+
+.cc-page > section.cc-panel {
+  padding: 1rem 0.85rem;
+}
+
+.ca-page > section.ca-hero {
+  padding: 1.25rem;
+}
+
+.ca-page > section.ca-panel {
+  padding: 1.1rem 1.15rem;
+}
+
+.tx-page > section.tx-hero {
+  padding: 1.25rem;
+}
+
+.tx-page > section.tx-panel {
+  padding: 1.1rem 1.15rem;
+}
+
+.sc5-page > section.sc5-hero {
+  padding: 1.1rem 1rem;
+}
+
+.sc5-page > section.sc5-panel {
+  padding: 1rem;
+}
+
+.debt-page > section.debt-tool-shell {
+  padding: 0.95rem;
+}
+
+.debt-page > section {
+  padding-block: 1rem;
 }
 
 .debt-page .debt-hero {
@@ -5136,16 +5214,16 @@ section {
   padding-bottom: 0.35rem;
 }
 
-.living-page section {
-  padding: 1.15rem 0;
+.living-page > section {
+  padding-block: 1.15rem;
 }
 
 .living-page .living-seo-section {
   padding-bottom: 1.5rem;
 }
 
-.income-page section {
-  padding: 1.15rem 0;
+.income-page > section {
+  padding-block: 1.15rem;
 }
 
 .income-page .intro-section {
@@ -5158,15 +5236,15 @@ section {
 }
 
 .state-page > section {
-  padding: 0.75rem 0;
+  padding-block: 0.75rem;
 }
 
-.fl-page section {
-  padding: 1.15rem 0;
+.fl-page > section {
+  padding-block: 1.15rem;
 }
 
-.home-page section {
-  padding: 2.6rem 0;
+.home-page > section {
+  padding-block: 2.6rem;
 }
 
 .take-home-return-nav {
@@ -5506,7 +5584,7 @@ section {
 .rent-afford-guide article > section,
 .rent-afford-guide article > .rent-related-guide,
 .rent-afford-guide article > .living-faq-section {
-  padding: 0.75rem 0;
+  padding-block: 0.75rem;
   scroll-margin-top: 4.5rem;
 }
 
@@ -7242,8 +7320,8 @@ main.fl-page h2 {
   main.container.income-page.state-page {
     width: 100%;
     max-width: 100%;
-    padding-left: max(0.65rem, env(safe-area-inset-left, 0px));
-    padding-right: max(0.65rem, env(safe-area-inset-right, 0px));
+    padding-left: max(var(--content-gutter), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--content-gutter), env(safe-area-inset-right, 0px));
     box-sizing: border-box;
   }
 
@@ -8048,7 +8126,7 @@ main.fl-page h2 {
 
 /* Lifestyle & family hub (/living/lifestyle-family) */
 .lifestyle-hub-page {
-  background: linear-gradient(180deg, #faf4f8 0%, #f7fafc 12rem, #f7fafc 100%);
+  background: linear-gradient(180deg, var(--guide-teal-muted) 0%, var(--bg) 12rem, var(--bg) 100%);
 }
 
 .lifestyle-hub-hero {
@@ -10778,7 +10856,7 @@ a.lifestyle-hub-salary-card:hover {
 
 /* Family of 4 income guide (/living/lifestyle-family/family-of-4-income-guide) */
 .lifestyle-family-guide-page {
-  background: linear-gradient(180deg, #faf4f8 0%, #f7fafc 14rem, #f7fafc 100%);
+  background: linear-gradient(180deg, var(--guide-teal-muted) 0%, var(--bg) 12rem, var(--bg) 100%);
 }
 
 .lifestyle-hub-pill--family {
@@ -11435,7 +11513,11 @@ a.lifestyle-hub-salary-card:hover {
 .rm-panel--cities { background: linear-gradient(180deg, #fff 0%, #ecfdf5 100%); }
 .rm-panel--compare { border-color: #5eead4; }
 .rm-panel--related { background: #f8fafc; }
-.rm-panel--faq { border: none; background: transparent; padding-left: 0; padding-right: 0; }
+.rm-panel--faq {
+  border: none;
+  background: transparent;
+  padding-inline: 0;
+}
 
 .rm-section-head h2 { margin: 0 0 0.35rem; font-size: 1.2rem; color: #102a43; }
 .rm-section-head p { margin: 0; font-size: 0.92rem; line-height: 1.5; color: #627d98; }
@@ -11918,7 +12000,11 @@ a.lifestyle-hub-salary-card:hover {
 .cc-panel--cities { background: linear-gradient(180deg, #fff 0%, #fffaf0 100%); }
 .cc-panel--compare { border-color: #fbd38d; }
 .cc-panel--related { background: #f8fafc; }
-.cc-panel--faq { border: none; background: transparent; padding-left: 0; padding-right: 0; }
+.cc-panel--faq {
+  border: none;
+  background: transparent;
+  padding-inline: 0;
+}
 
 .cc-section-head h2 { margin: 0 0 0.35rem; font-size: 1.2rem; color: #102a43; }
 .cc-section-head p { margin: 0; font-size: 0.92rem; line-height: 1.5; color: #627d98; }
@@ -13313,3 +13399,750 @@ a.lifestyle-hub-salary-card:hover {
 }
 
 .lifestyle-hub-salary-card--texas .housing-hub-card-cta { color: #1e3a5f; }
+
+/* =============================================================================
+   Lifestyle interactive guides — unified theme (f4 / rm / cc / ca / tx)
+   Aligns calculator pages with site primary teal, neutral surfaces, and hub UX.
+   ============================================================================= */
+
+.f4-page,
+.rm-page,
+.cc-page,
+.ca-page,
+.tx-page {
+  gap: 0.85rem;
+  padding-bottom: 2rem;
+}
+
+.f4-jump a,
+.rm-jump a,
+.cc-jump a,
+.ca-jump a,
+.tx-jump a {
+  color: var(--primary-dark);
+  background: var(--surface);
+  border: 1px solid var(--guide-teal-border);
+  text-decoration: none;
+}
+
+.f4-jump a:hover,
+.rm-jump a:hover,
+.cc-jump a:hover,
+.ca-jump a:hover,
+.tx-jump a:hover {
+  color: var(--primary);
+  background: var(--guide-teal-soft);
+  border-color: var(--primary);
+}
+
+.f4-hero,
+.rm-hero,
+.cc-hero,
+.ca-hero,
+.tx-hero {
+  background: var(--guide-hero-gradient);
+  border: 1px solid var(--guide-teal-border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.cc-hero {
+  padding: 1.1rem 1rem;
+  border-bottom: none;
+}
+
+.f4-hero h1,
+.rm-hero h1,
+.cc-hero h1,
+.ca-hero h1,
+.tx-hero h1 {
+  color: var(--text);
+}
+
+.f4-hero-lead,
+.rm-hero-lead,
+.cc-hero-lead,
+.ca-hero-lead,
+.tx-hero-lead {
+  color: var(--muted);
+}
+
+.f4-hero-preview,
+.rm-hero-preview,
+.cc-hero-preview,
+.ca-hero-preview,
+.tx-hero-preview {
+  background: var(--surface);
+  border: 1px solid var(--guide-teal-border);
+}
+
+.f4-preview-kicker,
+.rm-preview-kicker,
+.cc-preview-kicker,
+.ca-preview-kicker,
+.tx-preview-kicker {
+  color: var(--primary-dark);
+}
+
+.f4-preview-stats dd,
+.rm-preview-stats dd,
+.cc-preview-stats dd,
+.ca-preview-stats dd,
+.tx-preview-stats dd {
+  color: var(--text);
+}
+
+.f4-panel,
+.rm-panel,
+.cc-panel,
+.ca-panel,
+.tx-panel {
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.f4-panel--quick,
+.rm-panel--quick,
+.cc-panel--quick,
+.ca-panel--quick,
+.tx-panel--quick,
+.f4-panel--planner,
+.rm-panel--planner,
+.cc-panel--planner,
+.ca-panel--planner,
+.tx-panel--planner {
+  background: var(--guide-panel-accent);
+  border-color: var(--guide-teal-border);
+}
+
+.f4-panel--cities,
+.rm-panel--cities,
+.cc-panel--cities,
+.ca-panel--cities,
+.tx-panel--cities,
+.f4-panel--pie,
+.cc-panel--pie,
+.ca-panel--pie,
+.tx-panel--pie {
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.cc-panel--tax,
+.tx-panel--tax {
+  background: linear-gradient(180deg, var(--guide-teal-soft) 0%, var(--surface) 100%);
+  border-color: var(--guide-teal-border);
+}
+
+.ca-panel--affordable,
+.tx-panel--affordable,
+.f4-panel--affordable {
+  background: linear-gradient(180deg, var(--guide-teal-muted) 0%, var(--surface) 100%);
+  border-color: var(--guide-teal-border);
+}
+
+.tx-panel--compare,
+.cc-panel--compare,
+.ca-panel--highlight,
+.tx-panel--highlight {
+  background: linear-gradient(180deg, #fff9ef 0%, var(--surface) 100%);
+  border-color: #e8d4a8;
+}
+
+.f4-section-head h2,
+.rm-section-head h2,
+.cc-section-head h2,
+.ca-section-head h2,
+.tx-section-head h2 {
+  color: var(--text);
+}
+
+.f4-section-head p,
+.rm-section-head p,
+.cc-section-head p,
+.ca-section-head p,
+.tx-section-head p {
+  color: var(--guide-slate);
+}
+
+.f4-btn--primary,
+.rm-btn--primary,
+.cc-btn--primary,
+.ca-btn--primary,
+.tx-btn--primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.f4-btn--primary:hover,
+.rm-btn--primary:hover,
+.cc-btn--primary:hover,
+.ca-btn--primary:hover,
+.tx-btn--primary:hover {
+  background: var(--primary-dark);
+}
+
+.f4-btn--secondary,
+.rm-btn--secondary,
+.cc-btn--secondary,
+.ca-btn--secondary,
+.tx-btn--secondary {
+  background: var(--surface);
+  color: var(--primary-dark);
+  border: 1px solid var(--guide-teal-border);
+}
+
+.f4-field input,
+.f4-field select,
+.rm-field input,
+.rm-field select,
+.cc-field input,
+.cc-field select,
+.ca-field input,
+.ca-field select,
+.tx-field input,
+.tx-field select {
+  border: 1px solid var(--border);
+}
+
+.f4-field input:focus,
+.f4-field select:focus,
+.rm-field input:focus,
+.rm-field select:focus,
+.cc-field input:focus,
+.cc-field select:focus,
+.ca-field input:focus,
+.ca-field select:focus,
+.tx-field input:focus,
+.tx-field select:focus {
+  outline: 2px solid var(--guide-teal-ring);
+  border-color: var(--primary);
+}
+
+.f4-quick-results,
+.rm-quick-results,
+.cc-quick-results,
+.ca-quick-results,
+.tx-quick-results {
+  background: linear-gradient(145deg, var(--surface) 0%, var(--guide-teal-soft) 100%);
+  border: 2px solid var(--primary);
+  box-shadow: 0 8px 24px rgba(15, 123, 108, 0.12);
+}
+
+.f4-quick-result-kicker,
+.rm-quick-result-kicker,
+.cc-quick-result-kicker,
+.ca-quick-result-kicker,
+.tx-quick-result-kicker {
+  color: var(--primary-dark);
+}
+
+.f4-quick-result-range,
+.rm-quick-result-range,
+.cc-quick-result-range,
+.ca-quick-result-range,
+.tx-quick-result-range {
+  color: var(--primary-dark);
+}
+
+.f4-quick-result-link,
+.rm-quick-result-link,
+.cc-quick-result-link,
+.ca-quick-result-link,
+.tx-quick-result-link {
+  color: var(--primary);
+}
+
+.f4-results-sticky,
+.rm-results-sticky,
+.cc-results-sticky,
+.ca-results-sticky,
+.tx-results-sticky {
+  border: 1px solid var(--guide-teal-border);
+  background: var(--surface);
+}
+
+.f4-results-title,
+.rm-results-title,
+.cc-results-title,
+.ca-results-title,
+.tx-results-title {
+  color: var(--primary-dark);
+}
+
+.f4-planner-income-hero,
+.rm-planner-income-hero,
+.cc-planner-income-hero,
+.ca-planner-income-hero,
+.tx-planner-income-hero {
+  background: var(--guide-teal-soft);
+  border: 1px solid var(--guide-teal-border);
+}
+
+.f4-planner-income-kicker,
+.rm-planner-income-kicker,
+.cc-planner-income-kicker,
+.ca-planner-income-kicker,
+.tx-planner-income-kicker {
+  color: var(--primary-dark);
+}
+
+.f4-planner-income-value,
+.rm-planner-income-value,
+.cc-planner-income-value,
+.ca-planner-income-value,
+.tx-planner-income-value {
+  color: var(--text);
+}
+
+.f4-result-row--primary dd,
+.rm-result-row--primary dd,
+.cc-result-row--primary dd,
+.ca-result-row--primary dd,
+.tx-result-row--primary dd,
+.f4-planner-income-value,
+.ca-planner-income-value {
+  color: var(--primary-dark);
+}
+
+.tx-result-row--takehome dd,
+.f4-result-row--highlight dd,
+.rm-result-row--highlight dd,
+.cc-result-row--highlight dd,
+.ca-result-row--highlight dd,
+.tx-result-row--highlight dd {
+  color: var(--primary-dark);
+}
+
+.f4-fieldset,
+.rm-fieldset,
+.cc-fieldset,
+.ca-fieldset,
+.tx-fieldset {
+  border-color: var(--border);
+}
+
+.f4-lifestyle-card,
+.rm-lifestyle-card,
+.cc-lifestyle-card,
+.ca-lifestyle-card,
+.tx-lifestyle-row {
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.f4-lifestyle-card.is-selected,
+.rm-lifestyle-card.is-selected,
+.cc-lifestyle-card.is-selected,
+.ca-lifestyle-card.is-selected,
+.tx-lifestyle-row.is-selected {
+  border-color: var(--primary);
+  background: var(--guide-teal-soft);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.f4-family-pill,
+.rm-family-pill,
+.cc-family-pill,
+.ca-family-pill,
+.tx-family-pill {
+  border-color: var(--border);
+  color: var(--muted);
+  background: var(--surface);
+}
+
+.f4-family-pill.is-selected,
+.rm-family-pill.is-selected,
+.cc-family-pill.is-selected,
+.ca-family-pill.is-selected,
+.tx-family-pill.is-selected {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.f4-city-card,
+.rm-city-card,
+.cc-city-card,
+.ca-city-card,
+.tx-city-card,
+.f4-family-card,
+.rm-family-card,
+.cc-family-card,
+.ca-family-card,
+.tx-family-card {
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.f4-city-card.is-active,
+.rm-city-card.is-active,
+.cc-city-card.is-active,
+.ca-city-card.is-active,
+.tx-city-card.is-active,
+.f4-family-card.is-active,
+.rm-family-card.is-active,
+.cc-family-card.is-active,
+.ca-family-card.is-active,
+.tx-family-card.is-active {
+  border-color: var(--primary);
+  background: var(--guide-teal-soft);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.f4-city-card-income,
+.rm-city-card-income,
+.cc-city-card-income,
+.ca-city-card-income,
+.tx-city-card-income,
+.f4-family-card-salary,
+.rm-family-card-salary,
+.ca-family-card-salary,
+.tx-family-card-salary,
+.ca-affordable-salary,
+.tx-affordable-salary {
+  color: var(--primary-dark);
+}
+
+.f4-city-context,
+.rm-city-context,
+.cc-city-context,
+.ca-city-context,
+.tx-city-context,
+.f4-note-box,
+.rm-note-box,
+.cc-note-box,
+.ca-note-box,
+.tx-note-box {
+  background: var(--guide-teal-soft);
+  border: 1px solid var(--guide-teal-border);
+  color: var(--text);
+}
+
+.cc-afford-badge--comfortable,
+.f4-result-row--highlight dd {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.cc-afford-badge--moderate {
+  background: #fef3c7;
+  color: #744210;
+}
+
+.cc-afford-badge--tight {
+  background: #fee2e2;
+  color: #742a2a;
+}
+
+.cc-afford-badge--burden {
+  background: #e2e8f0;
+  color: #334e68;
+}
+
+.cc-band-card.is-active,
+.ca-lifestyle-explainer-card.is-active,
+.tx-lifestyle-explainer-card.is-active,
+.f4-lifestyle-explainer-card.is-active {
+  border-color: var(--primary);
+  background: var(--guide-teal-soft);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.f4-lifestyle-explainer-card,
+.cc-lifestyle-explainer-card,
+.ca-lifestyle-explainer-card,
+.tx-lifestyle-explainer-card,
+.cc-band-card,
+.f4-tip-card,
+.rm-tip-card,
+.cc-tip-card,
+.ca-tip-card,
+.tx-tip-card {
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.f4-affordable-card,
+.cc-affordable-card,
+.ca-affordable-card,
+.tx-affordable-card {
+  background: var(--guide-teal-soft);
+  border-color: var(--guide-teal-border);
+}
+
+.f4-example-card--yours,
+.rm-example-card--yours,
+.cc-example-card--yours,
+.ca-example-card--yours,
+.tx-example-card--yours {
+  border-color: var(--primary);
+  background: linear-gradient(165deg, var(--surface) 0%, var(--guide-teal-soft) 100%);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.f4-related-card:hover,
+.rm-related-card:hover,
+.cc-related-card:hover,
+.ca-related-card:hover,
+.tx-related-card:hover {
+  border-color: var(--primary);
+  background: var(--guide-teal-soft);
+}
+
+.f4-related-card h3,
+.rm-related-card h3,
+.cc-related-card h3,
+.ca-related-card h3,
+.tx-related-card h3 {
+  color: var(--primary-dark);
+}
+
+.f4-cta-panel,
+.rm-cta-panel,
+.cc-cta-panel,
+.ca-cta-panel,
+.tx-cta-panel {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #fff;
+}
+
+.f4-cta-panel .f4-btn--primary,
+.rm-cta-panel .rm-btn--primary,
+.cc-cta-panel .cc-btn--primary,
+.ca-cta-panel .ca-btn--primary,
+.tx-cta-panel .tx-btn--primary {
+  background: var(--surface);
+  color: var(--primary-dark);
+}
+
+.f4-budget-list,
+.rm-budget-list,
+.cc-budget-list,
+.ca-budget-list,
+.tx-budget-list {
+  border-top-color: var(--border);
+}
+
+/* Debt payoff scenario calculators (sc5 — shared with $10k) */
+.sc5-jump a {
+  color: var(--primary-dark);
+  background: var(--surface);
+  border: 1px solid var(--guide-teal-border);
+}
+
+.sc5-jump a:hover {
+  color: var(--primary);
+  background: var(--guide-teal-soft);
+  border-color: var(--primary);
+}
+
+.sc5-hero,
+.sc5-hero--10k {
+  background: var(--guide-hero-gradient);
+  border: 1px solid var(--guide-teal-border);
+  box-shadow: var(--shadow);
+}
+
+.sc5-panel--quick,
+.sc5-panel--planner {
+  background: var(--guide-panel-accent);
+  border-color: var(--guide-teal-border);
+}
+
+.sc5-panel--what-if {
+  background: linear-gradient(180deg, #fff9ef 0%, var(--surface) 100%);
+  border-color: #e8d4a8;
+}
+
+.sc5-btn--primary {
+  background: var(--primary);
+  box-shadow: 0 4px 14px rgba(15, 123, 108, 0.22);
+}
+
+.sc5-btn--primary:hover {
+  background: var(--primary-dark);
+}
+
+.sc5-btn--secondary {
+  color: var(--primary-dark);
+  background: var(--guide-teal-soft);
+  border: 1px solid var(--guide-teal-border);
+}
+
+.sc5-quick-results,
+.sc5-results-sticky {
+  border-color: var(--primary);
+  background: linear-gradient(145deg, var(--surface) 0%, var(--guide-teal-soft) 100%);
+}
+
+/* Hub tool cards — teal family (replaces rainbow accents) */
+.lifestyle-hub-pill--family,
+.lifestyle-hub-pill--childcare,
+.lifestyle-hub-pill--california,
+.lifestyle-hub-pill--texas {
+  color: var(--primary-dark);
+  background: var(--guide-teal-soft);
+  border: 1px solid var(--guide-teal-border);
+}
+
+.lifestyle-hub-tool-card--family,
+.lifestyle-hub-tool-card--childcare,
+.lifestyle-hub-tool-card--california,
+.lifestyle-hub-tool-card--texas,
+.lifestyle-hub-guide-card--family,
+.lifestyle-hub-guide-card--childcare,
+.lifestyle-hub-guide-card--california,
+.lifestyle-hub-guide-card--texas,
+.lifestyle-hub-chip-card--childcare,
+.lifestyle-hub-salary-card--california,
+.lifestyle-hub-salary-card--texas {
+  background: linear-gradient(165deg, var(--surface) 0%, var(--guide-teal-soft) 100%);
+  border-color: var(--guide-teal-border);
+}
+
+.lifestyle-hub-tool-card--family .housing-hub-card-cta,
+.lifestyle-hub-tool-card--childcare .housing-hub-card-cta,
+.lifestyle-hub-tool-card--california .housing-hub-card-cta,
+.lifestyle-hub-tool-card--texas .housing-hub-card-cta,
+.lifestyle-hub-guide-card--family .housing-hub-card-cta,
+.lifestyle-hub-guide-card--childcare .housing-hub-card-cta,
+.lifestyle-hub-guide-card--california .housing-hub-card-cta,
+.lifestyle-hub-guide-card--texas .housing-hub-card-cta,
+.lifestyle-hub-salary-card--california .housing-hub-card-cta,
+.lifestyle-hub-salary-card--texas .housing-hub-card-cta {
+  color: var(--primary-dark);
+}
+
+.lifestyle-hub-hero {
+  background: var(--guide-hero-gradient);
+  border-color: var(--guide-teal-border);
+}
+
+.lifestyle-hub-panel--tools,
+.lifestyle-hub-panel--family {
+  background: var(--guide-panel-accent);
+  border-color: var(--guide-teal-border);
+}
+
+.lifestyle-hub-panel--situations {
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  border-color: var(--border);
+}
+
+.lifestyle-hub-salary-split {
+  background: linear-gradient(135deg, var(--surface) 0%, var(--guide-teal-muted) 100%);
+  border-color: var(--guide-teal-border);
+}
+
+/* =============================================================================
+   Content gutters — keep text off viewport & panel border edges (wins cascade)
+   ============================================================================= */
+
+.housing-hub > section.housing-hub-panel,
+.housing-hub > section.housing-hub-hero,
+.housing-hub-panel,
+.housing-hub-hero,
+.housing-hub-intro,
+.housing-hub-split-copy,
+.housing-hub-tool-card,
+.housing-hub-chip-card,
+.housing-hub-guide-card,
+.housing-hub-decision-card,
+.housing-hub-accordion-item summary,
+.housing-hub-accordion-item p,
+.lifestyle-hub-stat-card,
+.lifestyle-hub-salary-card,
+.sc5-context-card,
+.debt-payoff-hub-hero,
+.debt-payoff-hub-shock-card,
+.f4-page > section.f4-hero,
+.f4-page > section.f4-panel,
+.f4-hero,
+.f4-panel,
+.rm-page > section.rm-hero,
+.rm-page > section.rm-panel,
+.rm-hero,
+.rm-panel:not(.rm-panel--faq),
+.cc-page > section.cc-hero,
+.cc-page > section.cc-panel,
+.cc-hero,
+.cc-panel:not(.cc-panel--faq),
+.ca-page > section.ca-hero,
+.ca-page > section.ca-panel,
+.ca-hero,
+.ca-panel:not(.ca-panel--faq),
+.tx-page > section.tx-hero,
+.tx-page > section.tx-panel,
+.tx-hero,
+.tx-panel:not(.tx-panel--faq),
+.sc5-page > section.sc5-hero,
+.sc5-page > section.sc5-panel,
+.sc5-hero,
+.sc5-panel,
+.living-page > section.living-hero,
+.living-hero,
+.rvb-calculator-shell,
+.rvb-calculator-shell > section.rvb-buy-cheaper-window,
+.rvb-calculator-shell > section.rvb-rate-impact,
+.rvb-calculator-shell > section.rvb-when-rent-better,
+.rvb-buy-cheaper-window,
+.rvb-rate-impact,
+.rvb-when-rent-better,
+.living-seo-rvb-topic,
+.rvb-panel,
+.debt-page > section.debt-tool-shell,
+.debt-tool-shell,
+.debt-stats-callout,
+.take-home-guide-at-a-glance,
+.take-home-guide-toc,
+.state-salary-insight,
+.housing-hub-glance,
+.interlink-card,
+.faq-item {
+  padding-inline: max(1.15rem, var(--content-gutter));
+}
+
+@media (min-width: 768px) {
+  .housing-hub > section.housing-hub-panel,
+  .housing-hub > section.housing-hub-hero,
+  .housing-hub-panel,
+  .housing-hub-hero,
+  .f4-page > section.f4-hero,
+  .f4-page > section.f4-panel,
+  .f4-hero,
+  .f4-panel,
+  .rm-page > section.rm-hero,
+  .rm-page > section.rm-panel,
+  .rm-hero,
+  .rm-panel:not(.rm-panel--faq),
+  .cc-page > section.cc-hero,
+  .cc-page > section.cc-panel,
+  .cc-hero,
+  .cc-panel:not(.cc-panel--faq),
+  .ca-page > section.ca-hero,
+  .ca-page > section.ca-panel,
+  .ca-hero,
+  .ca-panel:not(.ca-panel--faq),
+  .tx-page > section.tx-hero,
+  .tx-page > section.tx-panel,
+  .tx-hero,
+  .tx-panel:not(.tx-panel--faq),
+  .sc5-page > section.sc5-hero,
+  .sc5-page > section.sc5-panel,
+  .sc5-hero,
+  .sc5-panel {
+    padding-inline: max(1.25rem, var(--content-gutter-lg));
+  }
+}
+
+.take-home-return-nav,
+.take-home-return-breadcrumbs {
+  margin-inline: 0;
+}
+
+.content-page article .faq-item,
+.content-page article .debt-stats-callout,
+.content-page article .take-home-guide-toc {
+  padding-inline: 1.15rem;
+}

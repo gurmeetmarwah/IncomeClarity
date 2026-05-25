@@ -27,7 +27,14 @@
   const STATE_COMFORT = { Texas: 108000, Florida: 112000, California: 158000, Arizona: 106000, Georgia: 104000, Colorado: 122000, Washington: 138000, Illinois: 118000, "New York": 165000 };
   const TAX_RATE = { Texas: 0.22, Florida: 0.22, Arizona: 0.23, Georgia: 0.23, Colorado: 0.24, Washington: 0.25, California: 0.28, Illinois: 0.25, "New York": 0.29 };
   const COMPARE_KEYS = ["dallas", "austin", "phoenix", "tampa"];
-  const PIE_COLORS = { housing: "#5b4bb4", childcare: "#e8590c", food: "#38a169", transportation: "#3182ce", healthcare: "#d53f8c", misc: "#718096" };
+  const PIE_COLORS = {
+    housing: "#0f7b6c",
+    childcare: "#2d6a9f",
+    food: "#38a169",
+    transportation: "#3182ce",
+    healthcare: "#627d98",
+    misc: "#94a3b8",
+  };
 
   function fmtUSD(n) {
     return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);

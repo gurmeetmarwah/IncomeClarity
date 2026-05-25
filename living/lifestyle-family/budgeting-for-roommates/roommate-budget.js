@@ -12,7 +12,13 @@
 
   const COMPARE_KEYS = ["austin", "dallas", "phoenix", "tampa"];
   const BEST_KEYS = ["austin", "chicago", "denver", "atlanta"];
-  const PIE_COLORS = { rent: "#0d9488", utilities: "#3182ce", food: "#38a169", internet: "#805ad5", misc: "#718096" };
+  const PIE_COLORS = {
+    rent: "#0f7b6c",
+    utilities: "#2d6a9f",
+    food: "#38a169",
+    internet: "#3182ce",
+    misc: "#94a3b8",
+  };
 
   // Monthly household estimates (split among roommates — not multiplied per person).
   const SHARED_DEFAULTS = {
