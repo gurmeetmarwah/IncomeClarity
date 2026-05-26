@@ -176,46 +176,89 @@
       <div class="container">
         <span class="label home-hero-label">For US households and workers</span>
         <h1>See what your income really looks like after taxes, debt, and living costs</h1>
-        <p class="lead home-hero-lead">Gross pay and list prices tell you almost nothing about cash you can actually spend. Income Clarity is built around the problems people <strong>Google at 11 p.m.</strong>—take-home after state and federal taxes, how long debt lasts with real payments, whether renting or buying wins on <strong>your</strong> timeline, and what 1099 work really nets after self-employment tax—without an account, in your browser.</p>
+        <p class="lead home-hero-lead">A $75,000 salary in California is about <strong>$54,000 in your pocket</strong>. In Texas it is closer to <strong>$59,000</strong>. That gap pays your car. Or your kid's daycare. Or your card debt. Income Clarity shows you the real number — after tax, after debt, after rent — in your browser, with no account.</p>
         <div class="cta-row">
-          <a class="btn" href="/hourly-to-salary-after-tax#hourly-salary-section">Estimate after-tax take-home pay</a>
-          <a class="btn secondary" href="/credit-card-payoff-calculator#payoff">See credit card payoff time &amp; interest</a>
+          <a class="btn" href="/hourly-to-salary-after-tax#hourly-salary-section">See my take-home pay</a>
+          <a class="btn secondary" href="/credit-card-payoff-calculator#payoff">When am I debt-free?</a>
         </div>
         <div class="cta-row home-hero-cta-secondary">
-          <a class="home-text-cta" href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy—true cost over time</a>
-          <a class="home-text-cta" href="/1099-vs-w2-calculator#freelance-calculator">1099 vs W-2 take-home comparison</a>
+          <a class="home-text-cta" href="/rent-vs-buy-calculator#rent-vs-buy">Rent or buy — true cost over time</a>
+          <a class="home-text-cta" href="/1099-vs-w2-calculator#freelance-calculator">1099 vs W-2 take-home</a>
         </div>
       </div>
     </section>
 
+    <section class="home-snapshot" id="home-mini-calc" aria-labelledby="home-mini-calc-title">
+      <div class="container">
+        <span class="home-snapshot-kicker">⚡ 10-second snapshot</span>
+        <h2 id="home-mini-calc-title" class="home-section-heading home-section-heading--left home-snapshot-heading">Your real numbers, before you scroll</h2>
+        <p class="home-snapshot-intro">Type your salary. Pick your state. See your real take-home, max rent, and a smart monthly debt cap. No account. No download.</p>
+        <form id="home-snap-form" class="apr-mini-calc home-snapshot-form" onsubmit="return false;">
+          <label class="apr-mini-calc__field"><span>Gross salary ($/year)</span><input type="number" id="home-gross" min="20000" step="2500" value="75000" required></label>
+          <label class="apr-mini-calc__field"><span>State group</span>
+            <select id="home-state">
+              <option value="notax">No state tax (TX, FL, WA, NV, TN)</option>
+              <option value="low">Low tax (AZ, CO, NC, GA)</option>
+              <option value="mid" selected>Mid tax (IL, VA, MA)</option>
+              <option value="high">High tax (NY, NJ, OR)</option>
+              <option value="ca">California (top brackets)</option>
+            </select>
+          </label>
+          <button type="button" id="home-btn" class="apr-mini-calc__btn">Show my numbers</button>
+          <output id="home-out" class="apr-mini-calc__out" aria-live="polite">Press <strong>Show my numbers</strong> for your snapshot.</output>
+        </form>
+      </div>
+      <script>
+        (function(){
+          var btn = document.getElementById('home-btn');
+          var out = document.getElementById('home-out');
+          if(!btn || !out) return;
+          function fmt(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+          // Combined effective rates (fed + FICA + state), rough single filer
+          var rates = { notax: 0.205, low: 0.235, mid: 0.260, high: 0.290, ca: 0.305 };
+          function run(){
+            var gross = parseFloat(document.getElementById('home-gross').value) || 0;
+            var st = document.getElementById('home-state').value;
+            var net = gross * (1 - rates[st]);
+            var monthly = net / 12;
+            var rentCap = monthly * 0.30;
+            var debtCap = monthly * 0.10;
+            out.innerHTML = '<strong>Take-home:</strong> ' + fmt(net) + '/yr (' + fmt(monthly) + '/mo).<br><strong>Max rent</strong> at 30% of take-home: ' + fmt(rentCap) + '/mo.<br><strong>Smart debt-payment cap</strong> at 10% of take-home: ' + fmt(debtCap) + '/mo.<br><a href="/hourly-to-salary-after-tax#hourly-salary-section">Open the full take-home calculator</a> for state-by-state precision.';
+          }
+          btn.addEventListener('click', run);
+          run();
+        })();
+      </script>
+    </section>
+
     <section class="home-pain" id="pain-points" aria-labelledby="pain-title">
       <div class="container">
-        <h2 id="pain-title" class="home-section-heading home-section-heading--left">The money questions this site is built to answer</h2>
-        <p class="home-pain-intro">Most “calculator” homepages list features. Here we start from <strong>stress</strong>—then route you to the right free tool in one click.</p>
+        <h2 id="pain-title" class="home-section-heading home-section-heading--left">The money questions this site answers</h2>
+        <p class="home-pain-intro">Most calculator sites list features. We start with the stress — then send you to the right free tool in one click.</p>
         <div class="home-pain-grid">
           <article class="home-pain-card">
-            <h3>I only know my hourly rate—what do I really earn?</h3>
-            <p>Annual and monthly <strong>take-home pay</strong> changes by state taxes, FICA, and filing context. Use the income tool to convert hourly to salary and see estimated net pay, not just a gross multiple.</p>
+            <h3>I know my hourly rate. But what do I really earn?</h3>
+            <p>$25 an hour sounds like $52,000 a year. After tax and FICA, it is closer to <strong>$3,200 a month</strong> in your bank. Convert any hourly wage to real take-home pay by state.</p>
             <a href="/hourly-to-salary-after-tax#hourly-salary-section">Open hourly to take-home calculator</a>
           </article>
           <article class="home-pain-card">
-            <h3>My card balance barely moves—how long am I stuck?</h3>
-            <p>Minimum payments stretch timelines for years. Model your APR, balance, and extra payment so you see a <strong>payoff date</strong> and total interest—not a vague “pay more when you can.”</p>
+            <h3>My card balance barely moves. How long am I stuck?</h3>
+            <p>$5,000 at 24% APR on minimum payments takes <strong>22 years</strong> to pay off. And costs <strong>$5,500 in interest</strong>. See your real payoff date and try "pay $50 more" scenarios.</p>
             <a href="/credit-card-payoff-calculator#payoff">Open credit card payoff calculator</a>
           </article>
           <article class="home-pain-card">
-            <h3>Should I rent or buy—on my income and stay length?</h3>
-            <p>Rent looks simple; owning has taxes, insurance, maintenance, and opportunity cost. Stack <strong>rent vs buy</strong> with cumulative cost and break-even so the trade-off is visible.</p>
+            <h3>Rent or buy — what wins on my timeline?</h3>
+            <p>In most US markets, buying beats renting after <strong>5 to 7 years</strong>. Below that, renting wins. Stack the real costs side by side and find your break-even year.</p>
             <a href="/rent-vs-buy-calculator#rent-vs-buy">Open rent vs buy calculator</a>
           </article>
           <article class="home-pain-card">
             <h3>Where does my paycheck go every month?</h3>
-            <p>Rent and groceries are obvious; subscriptions and “small” purchases are not. See a <strong>simple category map</strong>, two rounded example budgets, and <strong>50/30/20-style visuals</strong> so you can line up bills against take-home.</p>
-            <a href="average-monthly-expenses.html">Read average monthly expenses (US)</a>
+            <p>Rent and food are obvious. Subscriptions and small swipes are not. See a clean budget map, real US household examples, and a 50/30/20 view.</p>
+            <a href="average-monthly-expenses.html">Read average monthly expenses</a>
           </article>
           <article class="home-pain-card">
-            <h3>Contract rate looks higher than W-2—do I actually keep more?</h3>
-            <p>Self-employment tax and expenses change the story. Compare <strong>1099 vs W-2</strong> take-home side by side before you quit a job or sign a contract.</p>
+            <h3>1099 rate looks higher than W-2. Do I keep more?</h3>
+            <p>A $50/hr contract rate is not the same as a $50/hr salary. Self-employment tax adds 7.65%. Health insurance can eat $500 a month. See the real picture.</p>
             <a href="/1099-vs-w2-calculator#freelance-calculator">Open 1099 vs W-2 calculator</a>
           </article>
         </div>
@@ -224,37 +267,37 @@
 
     <section aria-labelledby="tool-categories" id="calculators">
       <div class="container">
-        <h2 id="tool-categories" class="home-section-heading">Choose your calculator—start where the stress is</h2>
-        <p class="home-tools-lead">Each tool answers a different <strong>real decision</strong>. Jump in, change inputs, and compare outcomes until the trade-offs make sense for your situation.</p>
+        <h2 id="tool-categories" class="home-section-heading">Pick your calculator — start where the stress is</h2>
+        <p class="home-tools-lead">Each tool answers one real money question. Jump in. Change the numbers. See your outcome in seconds.</p>
         <div class="grid home-tool-grid">
           <article class="card home-tool-card">
             <span class="home-tool-badge">Income</span>
             <h3><a href="/hourly-to-salary-after-tax#hourly-salary-section">Hourly → salary &amp; take-home pay</a></h3>
-            <p>Convert hourly wage to yearly gross, estimate federal/state/FICA withholding by state, and see monthly take-home plus rent affordability bands.</p>
+            <p>Turn any hourly wage into a yearly salary. Then see your take-home after federal, state, and FICA tax. Plus a rent budget band.</p>
             <a class="home-tool-link" href="/hourly-to-salary-after-tax#hourly-salary-section">Open income calculator</a>
           </article>
           <article class="card home-tool-card">
             <span class="home-tool-badge home-tool-badge-debt">Debt</span>
             <h3><a href="/credit-card-payoff-calculator#payoff">Credit card payoff &amp; interest</a></h3>
-            <p>See how long balances last with minimum or extra payments and how much interest you pay over time—before you decide on a payoff plan.</p>
+            <p>See exactly how long your balance will take to pay off. And how much $50 more a month would save you. The truth your statement hides.</p>
             <a class="home-tool-link" href="/credit-card-payoff-calculator#payoff">Open debt payoff tool</a>
           </article>
           <article class="card home-tool-card">
             <span class="home-tool-badge home-tool-badge-living">Living</span>
-            <h3><a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy (true cost over time)</a></h3>
-            <p>Stack cumulative rent against buying with mortgage, taxes, and equity—plus break-even year and interactive cost charts.</p>
+            <h3><a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy — true cost over time</a></h3>
+            <p>Compare rent against buying with mortgage, taxes, and upkeep. Find your break-even year. See cost charts year by year.</p>
             <a class="home-tool-link" href="/rent-vs-buy-calculator#rent-vs-buy">Open rent vs buy calculator</a>
           </article>
           <article class="card home-tool-card">
             <span class="home-tool-badge home-tool-badge-living">Living</span>
             <h3><a href="average-monthly-expenses.html">Average monthly expenses (US)</a></h3>
-            <p>Plain buckets—housing, food, car, insurance, debt minimums—plus one-person and family example tables and 50/30/20 visuals so you can match bills to take-home.</p>
+            <p>Real US buckets — rent, food, car, insurance, debt. With example budgets for a single renter and a family. Plus 50/30/20 visuals.</p>
             <a class="home-tool-link" href="average-monthly-expenses.html">Open monthly expenses guide</a>
           </article>
           <article class="card home-tool-card">
             <span class="home-tool-badge home-tool-badge-freelance">Freelance</span>
             <h3><a href="/1099-vs-w2-calculator#freelance-calculator">1099 vs W-2 take-home &amp; taxes</a></h3>
-            <p>Compare employee vs contractor net income with self-employment tax, expenses, and optimization scenarios for your situation.</p>
+            <p>Compare contractor pay to W-2 pay. After self-employment tax. After expenses. After insurance. See which wins for your numbers.</p>
             <a class="home-tool-link" href="/1099-vs-w2-calculator#freelance-calculator">Open 1099 vs W-2 calculator</a>
           </article>
         </div>
@@ -263,58 +306,118 @@
 
     <section class="home-guide" id="why-real-numbers" aria-labelledby="guide-title">
       <div class="container">
-        <h2 id="guide-title" class="home-guide-title">Why “gross pay” and sticker prices fool your budget (and what to use instead)</h2>
+        <h2 id="guide-title" class="home-guide-title">Why gross pay lies — and what to use instead</h2>
         <div class="home-guide-prose">
-          <p class="home-guide-lead">Most money stress does not come from a lack of calculators—it comes from <strong>comparing the wrong numbers</strong>. Job posts advertise hourly or salary <em>before</em> tax. Credit card statements highlight minimum payments. Housing discussions mix together rent, down payments, rates, and “monthly payment” without a full timeline. Income Clarity exists to put those threads in one US-focused place so you can budget from <strong>cash after taxes</strong>, <strong>debt endpoints</strong>, and <strong>housing truth</strong>, not from headline figures alone.</p>
+          <p class="home-guide-lead">Money stress comes from one thing: <strong>comparing the wrong numbers</strong>. Jobs post pay before tax. Cards highlight tiny minimum payments. Housing ads quote prices without taxes or upkeep. Income Clarity fixes that. Every tool shows the real number — after tax, after debt, after rent.</p>
 
-          <h3>After-tax income: why your hourly rate is not your spending power</h3>
-          <p>If you earn hourly wages or want to sanity-check a salary offer, the first instinct is to multiply pay by hours and weeks. That produces <strong>annual gross income</strong>—useful for comparing job postings, but not what lands in your checking account. Federal income tax withholding, Social Security and Medicare (FICA), and state income tax can shift take-home pay dramatically between otherwise identical wages, especially when you move between states or change filing assumptions. Our <a href="/hourly-to-salary-after-tax">hourly to salary after-tax calculator</a> is designed for that “what do I really make?” question: translate an hourly rate into estimated take-home pay with state context so you can pair income with rent rules of thumb, savings targets, or debt payments.</p>
+          <div class="scenario-table-wrap">
+            <table class="scenario-table">
+              <caption>The gross vs real gap on common US numbers</caption>
+              <thead>
+                <tr>
+                  <th>The headline number</th>
+                  <th class="num">What it looks like</th>
+                  <th class="num">What you actually get</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>$75,000 salary in California</td><td class="num">$75,000</td><td class="num pos">$54,000 take-home</td></tr>
+                <tr><td>$5,000 card debt at 24% APR</td><td class="num">$100/month minimum</td><td class="num neg">$10,500 over 22 years</td></tr>
+                <tr><td>$2,500 rent for 5 years</td><td class="num">$150,000 "wasted"</td><td class="num">Often cheaper than buying short-term</td></tr>
+                <tr><td>$60/hr contract rate</td><td class="num">Sounds like $125k</td><td class="num neg">$70k after SE tax and insurance</td></tr>
+              </tbody>
+            </table>
+          </div>
 
-          <h3>Debt: minimum payments hide the real cost of staying in debt</h3>
-          <p>Credit card minimums are legally required and financially dangerous for planning—they can keep balances alive for many years while interest compounds. The better planning question is not “can I afford the minimum?” but “<strong>when am I debt-free</strong> and how much interest do I pay along the way?” That requires modeling balance, APR, and monthly payment—even small extra amounts can shorten payoff dramatically. Use the <a href="/credit-card-payoff-calculator">credit card payoff calculator</a> when you want a payoff date and total interest story you can act on, not just a monthly minimum line item.</p>
+          <aside class="what-this-means" role="note">
+            <p class="what-this-means__title">What this means for you</p>
+            <p>Every big money decision has a headline number and a real number. The headline is what marketing shows you. The real number is what shows up in your bank account.</p>
+            <p>Each calculator on this site finds your real number. Use them before you sign anything.</p>
+          </aside>
 
-          <h3>Housing: rent vs buy is a timeline problem—not a slogan</h3>
-          <p>Renting is often framed as “throwing money away,” while buying is framed as “building equity.” In practice, buying includes closing costs, property taxes, insurance, maintenance, and opportunity cost of a down payment; renting includes flexibility and predictable maintenance exposure, but rent can rise. The better comparison is cumulative cost over <strong>your expected stay</strong>, with mortgage amortization and inflation or rent growth assumptions grounded in your inputs. Our <a href="/rent-vs-buy-calculator">rent vs buy calculator</a> helps you see when buying breaks even against renting for your numbers—not for an abstract national average.</p>
+          <h3>After-tax income: your hourly rate is not your spending power</h3>
+          <p>Multiply your hourly pay by 2,080 hours and you get your gross salary. That number is great for job ads. It is useless for budgeting. After federal tax, Social Security, Medicare, and state tax, your real take-home can drop by 20% to 30%. Move from Texas to California on the same salary and you lose another $5,000 a year. Run your real take-home in the <a href="/hourly-to-salary-after-tax">hourly to salary calculator</a>.</p>
 
-          <h3>Freelance vs employee: gross contract rates ignore self-employment tax mechanics</h3>
-          <p>A higher hourly contract rate can still net less than W-2 employment after self-employment tax, business expenses, and benefits you must buy yourself. People compare “headline contractor pay” to “employee salary” all the time—and then feel surprised at tax time. A serious comparison should estimate net income under each path with the same gross, then decide whether flexibility is worth the cash difference. The <a href="/1099-vs-w2-calculator">1099 vs W-2 calculator</a> is built for that apples-to-after-tax-apples framing.</p>
+          <h3>Debt: the minimum payment lies about how long it takes</h3>
+          <p>Your card statement shows the minimum due. It does not show your debt-free date. On a $5,000 balance at 24% APR, paying the minimum takes <strong>22 years</strong>. Paying $200 a month instead takes <strong>3 years</strong>. Same starting debt. Very different life. Find your real timeline in the <a href="/credit-card-payoff-calculator">credit card payoff calculator</a>.</p>
 
-          <h3>A practical flow: income first, then stress-test with debt and housing</h3>
-          <p>Everyone’s life is different, but a useful order is: estimate <strong>take-home</strong>, then see whether credit card payments fit your timeline goals, then evaluate housing costs against what you truly keep. If you freelance or consider contract work, run the freelance comparison before you treat a contract rate as “obviously better.” Income Clarity keeps these flows separate so you are not forced through unrelated questions just to get one number—but they are linked by a common idea: <strong>make decisions from what you keep and when obligations end</strong>, not from marketing-friendly top-line figures.</p>
+          <h3>Housing: rent vs buy is a timeline question</h3>
+          <p>People say rent is "throwing money away" and buying "builds equity." Reality is messier. Buying costs you closing fees, property taxes, insurance, and repairs. Renting costs you nothing extra — but rent can rise. In most US markets, buying beats renting after <strong>5 to 7 years</strong>. Below that, renting wins. See your break-even year in the <a href="/rent-vs-buy-calculator">rent vs buy calculator</a>.</p>
 
-          <h3>The real questions—and how this site maps to them</h3>
-          <p>Money questions are messy because money anxiety is messy. After a job offer, you might want an <strong>hourly to salary calculator</strong>, or to <strong>convert hourly wage to annual salary</strong> because a spreadsheet feels easier than mental math. When a minimum payment barely dents a balance, the question becomes <strong>how long to pay off a credit card</strong>. When friends argue about ownership but nobody puts numbers on their city and interest rate, you reach for a <strong>rent vs buy calculator</strong>. Freelancers comparing a contract rate that “sounds huge” to payroll want a clean <strong>1099 vs W-2 take-home</strong> view. Each calculator on this site is written for one of those story problems, with explicit assumptions and US-style inputs—so you are not left translating gross pay into reality alone.</p>
+          <h3>Freelance: a higher rate is not always more money</h3>
+          <p>A $60/hr contract can pay less than a $45/hr salary job. Self-employment tax adds 7.65%. You pay your own health insurance. You miss out on a 401(k) match. The headline number is louder. The real number is often quieter. Compare both in the <a href="/1099-vs-w2-calculator">1099 vs W-2 calculator</a>.</p>
 
-          <h3>Built for United States users—on purpose</h3>
-          <p>Tax rules, mortgage conventions, and credit card APR disclosures in the US shape what “normal” inputs mean. These tools use US-style assumptions so your results map to the questions American workers and households actually face—state taxes in income flows, US housing cost patterns in rent vs buy, and typical freelancer cost categories where relevant. If you want clearer answers for take-home pay, debt timelines, rent versus buy trade-offs, or freelance versus employee pay, start with the tool that matches your question above—then come back to this guide when you want the framing behind the numbers.</p>
+          <h3>A simple order to use these tools</h3>
+          <p>Start with your <strong>take-home pay</strong>. That is your real income. Then check your <strong>card debt timeline</strong> — that is your real obligation. Then look at <strong>housing</strong> against what is left. If you have a 1099 offer on the table, run that comparison too. The order matters. Income comes first because every other number depends on it.</p>
+
+          <h3>Made for the US — on purpose</h3>
+          <p>US tax brackets, mortgage rules, and card APR work differently from other countries. These tools use US-style assumptions and US tax law. State picks for income tax. US mortgage math for housing. Self-employment tax for freelancers. If you are a US worker, every number should map to a real choice you can make.</p>
         </div>
       </div>
     </section>
 
     <section class="trust-strip" aria-labelledby="trust">
       <div class="container">
-        <h2 id="trust" class="home-section-heading">Built for clarity—not hype</h2>
-        <p class="trust-intro">Every screen shows what went into the estimate and where uncertainty lives, so you can explain the numbers to yourself (or a partner) before you act.</p>
+        <h2 id="trust" class="home-section-heading">Built for clarity. Not hype.</h2>
+        <p class="trust-intro">Every screen shows what went into the math and where the gaps are. So you can explain the numbers to yourself — or to a partner — before you act.</p>
         <div class="trust-items" role="list">
           <article class="trust-item" role="listitem">
-            <h3>Plain-language outputs</h3>
-            <p>Labels match real decisions: take-home, payoff date, break-even year, net freelance pay—not jargon walls.</p>
+            <h3>Plain words</h3>
+            <p>Labels match real choices. Take-home pay. Debt-free date. Break-even year. Net freelance pay. No jargon walls.</p>
           </article>
           <article class="trust-item" role="listitem">
-            <h3>Scenario-friendly</h3>
-            <p>Change inputs anytime—rates, rent growth, hours, state, expenses—and compare outcomes without starting over.</p>
+            <h3>Easy to play with</h3>
+            <p>Change any input. Rates. Rent growth. Hours. State. Costs. See the new answer without starting over.</p>
           </article>
         </div>
       </div>
     </section>
 
+    <section aria-labelledby="home-eeat">
+      <div class="container">
+        <aside class="eeat-trust" aria-labelledby="home-eeat">
+          <header class="eeat-trust__header">
+            <span class="eeat-trust__kicker">🔒 How we built this site</span>
+            <h2 id="home-eeat" class="eeat-trust__title">Methodology, Data Sources & Editorial Standards</h2>
+            <p class="eeat-trust__meta"><time datetime="2026-05-26">Last reviewed: May 26, 2026</time> · Reviewed by the Income Clarity editorial team · <a href="/methodology">Read the full methodology</a></p>
+          </header>
+          <div class="eeat-trust__grid">
+            <article class="eeat-trust__card">
+              <h3>How We Calculate</h3>
+              <ul>
+                <li><strong>Take-home pay:</strong> IRS 2025 brackets + FICA (6.2% / 1.45%) + state tax.</li>
+                <li><strong>Payoff timelines:</strong> standard monthly amortization on user's APR and payment.</li>
+                <li><strong>Rent vs buy:</strong> 30-year fixed mortgage + state property tax + 1% maintenance + 3.5% rent inflation.</li>
+                <li><strong>Affordability:</strong> the 28% rent / 28-36 housing-DTI / 50-30-20 budget rules.</li>
+              </ul>
+            </article>
+            <article class="eeat-trust__card">
+              <h3>Data Sources</h3>
+              <ul>
+                <li><a href="https://www.irs.gov/forms-pubs/about-publication-15-t" rel="noopener">IRS Publication 15-T</a> — federal withholding.</li>
+                <li><a href="https://www.ssa.gov/oact/cola/cbb.html" rel="noopener">Social Security Administration</a> — FICA wage cap.</li>
+                <li><a href="https://www.federalreserve.gov/econres/scfindex.htm" rel="noopener">Fed Reserve SCF</a> — household balances.</li>
+                <li><a href="https://www.freddiemac.com/pmms" rel="noopener">Freddie Mac PMMS</a> — mortgage rates.</li>
+                <li><a href="https://www.bls.gov/cpi/" rel="noopener">BLS CPI</a> — rent inflation.</li>
+              </ul>
+            </article>
+            <article class="eeat-trust__card">
+              <h3>What This Isn't</h3>
+              <p>Tax filing software, mortgage pre-approval, or licensed financial advice. Income Clarity is educational. For big decisions, talk to a CPA, a fee-only planner, or a licensed loan officer.</p>
+            </article>
+          </div>
+          <p class="eeat-trust__footer">No paid data feeds. No affiliate kickbacks from lenders or card issuers. <a href="/about">More about who builds this →</a></p>
+        </aside>
+      </div>
+    </section>
+
     <section aria-labelledby="difference">
       <div class="container">
-        <h2 id="difference" class="home-section-heading">Not just calculators—answers you can act on</h2>
+        <h2 id="difference" class="home-section-heading">Not just calculators — answers you can act on</h2>
         <ul class="diff-list home-diff-list">
-          <li><strong>After-tax reality</strong>, not only gross pay or sticker housing costs.</li>
-          <li><strong>Side-by-side paths</strong> (rent vs buy, W-2 vs 1099) so the winner is visible for <em>your</em> inputs.</li>
-          <li><strong>Honest limits</strong>: estimates for planning; big moves still deserve a professional second opinion.</li>
+          <li><strong>The real number.</strong> Not gross pay. Not list prices. What lands in your bank.</li>
+          <li><strong>Side-by-side paths.</strong> Rent vs buy. W-2 vs 1099. See the winner for your numbers.</li>
+          <li><strong>Honest limits.</strong> These are planning numbers. For big moves, ask a CPA or advisor too.</li>
         </ul>
       </div>
     </section>
@@ -322,23 +425,23 @@
     <section aria-labelledby="seo-questions">
       <div class="container">
         <h2 id="seo-questions" class="home-section-heading">Explore by common question</h2>
-        <p class="home-explore-lead">Jump straight to the tool that matches what people ask search engines.</p>
+        <p class="home-explore-lead">Jump to the tool that matches what you searched for.</p>
         <div class="seo-grid home-explore-grid">
           <article class="card home-explore-card">
-            <h3><a href="/hourly-to-salary-after-tax#is-25-hour-good">Is $25/hour good in the US?</a></h3>
-            <p>See how hourly pay translates to yearly gross, take-home by state, and rent bands on the Income page.</p>
+            <h3><a href="/hourly-to-salary-after-tax#is-25-hour-good">Is $25 an hour good in the US?</a></h3>
+            <p>$25 an hour is about $52,000 a year — or $3,200 take-home per month. See if that fits your city.</p>
           </article>
           <article class="card home-explore-card">
-            <h3><a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy: what fits your budget?</a></h3>
-            <p>Compare long-run costs, break-even timing, and year-by-year cash flows when you buy vs rent.</p>
+            <h3><a href="/rent-vs-buy-calculator#rent-vs-buy">Rent or buy — which fits my budget?</a></h3>
+            <p>Compare both for your real numbers. See the break-even year and cash flow year by year.</p>
           </article>
           <article class="card home-explore-card">
             <h3><a href="/credit-card-payoff-calculator#how-long-payoff">How long to pay off credit card debt?</a></h3>
-            <p>Model balance, APR, and payments to see payoff timeline and total interest on the Debt page.</p>
+            <p>$5,000 at 24% APR. Minimum payment. 22 years. Run your real numbers and see your date.</p>
           </article>
           <article class="card home-explore-card">
-            <h3><a href="/1099-vs-w2-calculator#freelance-calculator">1099 vs W2 tax difference &amp; take-home pay?</a></h3>
-            <p>Estimate freelancer vs employee taxes, deductions, and net income on the Freelance page.</p>
+            <h3><a href="/1099-vs-w2-calculator#freelance-calculator">1099 vs W-2 take-home and taxes?</a></h3>
+            <p>See contractor net pay after self-employment tax and benefits — vs the same rate as a W-2.</p>
           </article>
         </div>
       </div>
@@ -350,23 +453,23 @@
         <div class="home-faq-list">
           <article class="home-faq-item">
             <h3>What is Income Clarity?</h3>
-            <p>Income Clarity is a set of free, US-focused calculators that translate wages, debt, housing, and freelance income into estimates—especially after taxes—so you can compare options before you commit.</p>
+            <p>A set of free, US-focused calculators. We turn your gross pay, debt, and housing costs into real numbers — after tax, after interest, after upkeep. Use them to compare your options before you sign anything.</p>
           </article>
           <article class="home-faq-item">
-            <h3>Is Income Clarity free?</h3>
-            <p>Yes. Every tool runs in your browser with no account or paywall.</p>
+            <h3>Is it really free?</h3>
+            <p>Yes. Every tool runs in your browser. No account. No paywall. No data sold.</p>
           </article>
           <article class="home-faq-item">
-            <h3>Which calculator should I use first?</h3>
-            <p>For hourly or salaried take-home by state, use <a href="/hourly-to-salary-after-tax">Income</a>. For card balances, use <a href="/credit-card-payoff-calculator">Debt</a>. For housing, use <a href="/rent-vs-buy-calculator">Living</a>. For contractor vs employee pay, use <a href="/1099-vs-w2-calculator">Freelance</a>.</p>
+            <h3>Which calculator should I open first?</h3>
+            <p>If you want your take-home pay by state, use <a href="/hourly-to-salary-after-tax">Income</a>. If you have card debt, use <a href="/credit-card-payoff-calculator">Debt</a>. If you are choosing rent vs buy, use <a href="/rent-vs-buy-calculator">Living</a>. If you are weighing a contract job, use <a href="/1099-vs-w2-calculator">Freelance</a>.</p>
           </article>
           <article class="home-faq-item">
-            <h3>How accurate are the estimates?</h3>
-            <p>They are planning estimates using simplified tax and loan models. Real life varies by employer withholding, lender fees, rent rules, and tax law—verify big decisions with a CPA or advisor.</p>
+            <h3>How accurate are the numbers?</h3>
+            <p>Close enough for planning. We use simple tax and loan models. Real life varies by employer, lender, and local rules. Always check with a CPA for big decisions like buying a house or starting a business.</p>
           </article>
           <article class="home-faq-item">
-            <h3>Do these calculators cover all US states?</h3>
-            <p>Income and freelance flows include state selection for tax estimates. Other tools rely on your inputs and US-style assumptions; always check local rules for your situation.</p>
+            <h3>Do these tools work for all 50 US states?</h3>
+            <p>Yes. The income and freelance tools let you pick your state for tax math. The other tools use US-style rules. State and city rules can still vary — always check your local fees.</p>
           </article>
         </div>
       </div>
@@ -401,6 +504,7 @@
         <section class="footer-column" aria-labelledby="footer-company">
           <h2 id="footer-company">Company</h2>
           <a href="about.html">About</a>
+          <a href="/methodology">Methodology</a>
           <a href="contact.html">Contact</a>
           <a href="privacy-policy.html">Privacy Policy</a>
           <a href="terms.html">Terms</a>

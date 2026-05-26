@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How We Calculate: Methodology, Data Sources & Editorial Standards | Income Clarity</title>
+  <meta name="description" content="Income Clarity's full methodology: how we calculate take-home pay, payoff timelines, rent-vs-buy, and 1099 vs W-2. Data sources, formulas, assumptions, and limits. Updated for 2026.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://incomeclarity.com/methodology">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path === "/index.html") {
+        cleanPath = "/";
+      } else if (path.endsWith("/index.html")) {
+        cleanPath = path.slice(0, -10);
+      } else if (path.endsWith(".html")) {
+        cleanPath = path.slice(0, -5);
+      }
+      if (cleanPath !== path) {
+        window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How We Calculate: Methodology, Data Sources & Editorial Standards",
+    "description": "Income Clarity's full methodology: how we calculate take-home pay, payoff timelines, rent-vs-buy, and 1099 vs W-2. Data sources, formulas, assumptions, and limits.",
+    "dateModified": "2026-05-26",
+    "author": { "@type": "Organization", "name": "Income Clarity Editorial Team", "url": "https://incomeclarity.com/about" },
+    "publisher": { "@type": "Organization", "name": "IncomeClarityLab" }
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">Income Clarity</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/hourly-to-salary-after-tax">Income</a>
+        <a href="/credit-card-payoff-calculator">Debt</a>
+        <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content-page methodology-page">
+    <section class="methodology-hero">
+      <span class="label">Editorial standards</span>
+      <h1>How We Calculate</h1>
+      <p class="lead">Every number on Income Clarity is built from public data and transparent formulas. This page shows the exact rules behind our four calculators and our writing. So you can check our work. And, if needed, push back.</p>
+      <p class="methodology-meta"><time datetime="2026-05-26">Last reviewed: May 26, 2026</time> · Reviewed by the Income Clarity editorial team · <a href="/contact">Spot an error?</a></p>
+    </section>
+
+    <nav class="methodology-toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ul>
+        <li><a href="#editorial">Editorial standards</a></li>
+        <li><a href="#take-home">How we calculate take-home pay</a></li>
+        <li><a href="#payoff">How we calculate credit card payoff</a></li>
+        <li><a href="#rent-buy">How we calculate rent vs buy</a></li>
+        <li><a href="#freelance">How we calculate 1099 vs W-2</a></li>
+        <li><a href="#affordability">How we calculate affordability</a></li>
+        <li><a href="#cost-of-living">How we estimate cost of living</a></li>
+        <li><a href="#sources">Data sources</a></li>
+        <li><a href="#limits">What this site is not</a></li>
+        <li><a href="#corrections">Corrections policy</a></li>
+      </ul>
+    </nav>
+
+    <section id="editorial" class="methodology-section">
+      <h2>Editorial standards</h2>
+      <p>Income Clarity is built and reviewed by a small editorial team focused on US personal finance. We follow four rules on every page:</p>
+      <ol class="methodology-list">
+        <li><strong>Public data only.</strong> Every number traces back to a primary source — the IRS, the Social Security Administration, the Federal Reserve, the Bureau of Labor Statistics, or a federal agency. No paid data feeds. No private "studies."</li>
+        <li><strong>Formulas in plain sight.</strong> The math behind every calculator is documented on this page. You can rebuild any result in a spreadsheet.</li>
+        <li><strong>Defaults that match the median.</strong> Where a tool needs a default, we pick the US median or a widely-cited rule of thumb (28% rent rule, 50/30/20, etc.). We name the rule next to the number.</li>
+        <li><strong>Review on a schedule.</strong> Tax tables, FICA caps, and mortgage rates change every year. We review and date-stamp every calculator at least once a year. Recently moved numbers are flagged on the relevant page.</li>
+      </ol>
+      <p>Every page is educational. Income Clarity does not give legal, tax, or investment advice. If a number on our site disagrees with your CPA, your CPA wins.</p>
+    </section>
+
+    <section id="take-home" class="methodology-section">
+      <h2>How we calculate take-home pay</h2>
+      <p>Our hourly-to-salary and salary calculators turn a wage into the dollar amount that actually hits your bank. The formula is:</p>
+      <p class="methodology-formula"><code>Take-home = Gross − Federal income tax − FICA − State income tax − State disability (where it applies)</code></p>
+      <h3>Federal income tax</h3>
+      <ul class="methodology-list">
+        <li>We use the <strong>IRS 2025 marginal tax brackets</strong> for the filing status the user picks. Single is the default.</li>
+        <li>We apply the <strong>standard deduction</strong> for that filing status ($15,000 single, $30,000 married filing jointly for tax year 2025).</li>
+        <li>We do not model itemized deductions, tax credits, or above-the-line adjustments. So our take-home is conservative for filers with mortgage interest, dependents, or HSA contributions.</li>
+      </ul>
+      <h3>FICA (Social Security + Medicare)</h3>
+      <ul class="methodology-list">
+        <li><strong>Social Security: 6.2%</strong> of wages, capped at the 2025 wage base of <strong>$168,600</strong>.</li>
+        <li><strong>Medicare: 1.45%</strong> of all wages.</li>
+        <li><strong>Additional Medicare: 0.9%</strong> on wages above $200,000 (single) or $250,000 (MFJ).</li>
+      </ul>
+      <h3>State income tax</h3>
+      <ul class="methodology-list">
+        <li>We use each state's published brackets and rates for 2025 (or the most recent year published).</li>
+        <li>Nine states have no wage income tax: AK, FL, NV, NH, SD, TN, TX, WA, WY. We model these as zero.</li>
+        <li>California adds <strong>SDI at 1.1%</strong> of wages, no wage cap as of 2024. We include it.</li>
+        <li>New York City adds local income tax on top of state. We note this in the New York state page rather than auto-applying it.</li>
+        <li>We do <strong>not</strong> model county or city taxes outside of NYC, school district tax, or per-capita local levies.</li>
+      </ul>
+      <h3>What we leave out</h3>
+      <p>Our take-home calculator does not subtract pretax 401(k) contributions, employer health insurance premiums, HSA contributions, or pretax transit benefits. These shift real take-home up (lower taxable income) or down (less of your check left after deductions). If you want a paycheck-exact number, run our result through your last pay stub for sanity.</p>
+    </section>
+
+    <section id="payoff" class="methodology-section">
+      <h2>How we calculate credit card payoff</h2>
+      <p>The payoff calculator answers two questions: <strong>how many months</strong> until your balance hits zero, and <strong>how much total interest</strong> you'll pay along the way. The model is a standard amortizing loop:</p>
+      <p class="methodology-formula"><code>For each month: interest = balance × (APR ÷ 12); principal = payment − interest; balance = balance − principal</code></p>
+      <ul class="methodology-list">
+        <li><strong>APR:</strong> we treat the user's APR as the nominal annual rate and divide by 12 for the monthly periodic rate. This matches how US card issuers compute interest charges.</li>
+        <li><strong>Minimum payment:</strong> when a tool offers a "minimum" simulation, we use <strong>max($25, 2% of balance)</strong>, which is the formula most large US issuers publish. Real card minimums shrink as the balance drops — our default is a fixed minimum for illustration.</li>
+        <li><strong>Compounding:</strong> we treat compounding as monthly. Most US card issuers compound daily, but for a 12-month picture the difference is small (less than 0.5% on total interest).</li>
+        <li><strong>Fees:</strong> we do not add annual fees, balance transfer fees, or late fees. If those apply to you, add them as principal in our calculator.</li>
+        <li>If the chosen payment is less than the first month's interest, we flag it. The balance would grow forever on those numbers.</li>
+      </ul>
+    </section>
+
+    <section id="rent-buy" class="methodology-section">
+      <h2>How we calculate rent vs buy</h2>
+      <p>Rent vs buy is a multi-year cash-flow comparison. We do not run a "net worth" model. We run a <strong>total cost</strong> model over a user-chosen time horizon.</p>
+      <h3>Renting side</h3>
+      <ul class="methodology-list">
+        <li>Annual rent grows at the user's chosen rate (default <strong>3.5% / year</strong>, which matches the long-run US national average tracked by the BLS rent index).</li>
+        <li>We add renters insurance at a flat <strong>$15 / month</strong> US median.</li>
+        <li>No tax effects on the renter side.</li>
+      </ul>
+      <h3>Buying side</h3>
+      <ul class="methodology-list">
+        <li><strong>Principal + interest</strong> from a 30-year fixed mortgage. We use the standard amortization formula: <code>M = P × [r(1+r)^n] / [(1+r)^n − 1]</code>.</li>
+        <li><strong>Property tax</strong>: state median effective rate × home value (e.g. CA 0.75%, TX 1.6%, NJ 2.2%). Source: Tax Foundation annual rankings.</li>
+        <li><strong>Homeowners insurance</strong>: <strong>0.35% of home value per year</strong> US median; we let users override (FL is higher).</li>
+        <li><strong>Maintenance</strong>: <strong>1% of home value per year</strong>, the long-used industry rule.</li>
+        <li><strong>Home appreciation</strong>: <strong>3% / year</strong> default, near the US long-run average (Case-Shiller, 1987–2024).</li>
+        <li><strong>Closing costs</strong>: <strong>3% of price</strong> on the buy side, <strong>6% of future sale price</strong> on the sell side (national agent + transfer + title averages).</li>
+        <li><strong>Opportunity cost of the down payment</strong>: we compare to a <strong>5% annual return</strong> if invested instead. Users can change this.</li>
+      </ul>
+      <h3>What we don't model</h3>
+      <p>We don't model tax deductions for mortgage interest (most filers take the standard deduction since 2018). We don't model HOA fees, special assessments, PMI on low-down-payment loans, or rent control. These can push the break-even year up or down.</p>
+    </section>
+
+    <section id="freelance" class="methodology-section">
+      <h2>How we calculate 1099 vs W-2</h2>
+      <p>The freelance calculator answers the most common contractor question: <em>"my contract pays X — is it more than my W-2 offer at Y?"</em></p>
+      <ul class="methodology-list">
+        <li><strong>Self-employment tax</strong>: <strong>15.3%</strong> on net earnings (12.4% Social Security up to the wage cap + 2.9% Medicare). We apply the 92.35% adjustment before calculating SE tax, per IRS Schedule SE.</li>
+        <li><strong>Deductible half of SE tax</strong>: 50% of SE tax is deducted before income tax, per the IRS.</li>
+        <li><strong>Health insurance</strong>: we add the user-entered premium. Default is <strong>$550 / month</strong>, the 2025 US median individual ACA marketplace premium before subsidies.</li>
+        <li><strong>Retirement comparison</strong>: when comparing to a W-2 with a 401(k) match, we add the match (often 3% to 6%) as compensation. Solo 401(k) headroom is mentioned but not auto-applied.</li>
+        <li><strong>Income tax</strong>: we use the same federal + state model as the take-home calculator, applied to net SE income (after the deductible half of SE tax).</li>
+      </ul>
+    </section>
+
+    <section id="affordability" class="methodology-section">
+      <h2>How we calculate affordability</h2>
+      <p>Our affordability tools (rent affordability, house affordability, "can I afford to live alone") use three widely-published rules of thumb. We name the rule next to the number every time.</p>
+      <ul class="methodology-list">
+        <li><strong>The 28% rule (rent or PITI ceiling):</strong> housing cost should stay at or below <strong>28% of gross income</strong>. We use this for "max rent" and "house price you can afford."</li>
+        <li><strong>The 28/36 rule (front-end / back-end DTI):</strong> housing ≤ 28% of gross, total debt service ≤ 36% of gross. Mortgage underwriting follows a similar split.</li>
+        <li><strong>The 50/30/20 budget rule:</strong> needs 50%, wants 30%, savings + debt payoff 20% of take-home pay. Popularized by Elizabeth Warren in <em>All Your Worth</em> (2005).</li>
+        <li><strong>Down payment</strong>: home affordability defaults to <strong>20% down</strong> (the threshold above which PMI is not required on a conforming loan). Users can change this.</li>
+        <li><strong>Mortgage rate</strong>: default <strong>6.5%</strong> for 2025, close to the Freddie Mac PMMS weekly average. We round to a clean number to keep results stable across the year.</li>
+      </ul>
+    </section>
+
+    <section id="cost-of-living" class="methodology-section">
+      <h2>How we estimate cost of living</h2>
+      <p>Our city comparison pages (Seattle vs Denver, NYC vs Austin, etc.) and metro tier estimators combine three public datasets:</p>
+      <ul class="methodology-list">
+        <li><strong>Rent by city</strong>: Zillow Observed Rent Index (ZORI) or the BLS metro CPI rent series, taking the most recent 12-month average.</li>
+        <li><strong>Groceries, transit, healthcare</strong>: BLS Consumer Expenditure Survey (CEX), the latest published year.</li>
+        <li><strong>Childcare</strong>: Child Care Aware annual "State Fact Sheets," with the figure for the state's largest metro when available.</li>
+      </ul>
+      <p>We then group metros into four cost tiers — <strong>low / mid / high / very high</strong> — for quick estimators. The grouping is reviewed when ZORI or BLS publish their annual rebases.</p>
+    </section>
+
+    <section id="sources" class="methodology-section">
+      <h2>Data sources</h2>
+      <p>Every figure on Income Clarity should trace to one of these primary sources. If you find a number on our site that you can't reconcile with one of these, <a href="/contact">tell us</a> — we'll fix it.</p>
+      <ul class="methodology-sources-list">
+        <li><a href="https://www.irs.gov/forms-pubs/about-publication-15-t" rel="noopener">IRS Publication 15-T</a> — federal income tax withholding tables.</li>
+        <li><a href="https://www.irs.gov/taxtopics/tc751" rel="noopener">IRS Tax Topic 751</a> — Social Security and Medicare withholding rates.</li>
+        <li><a href="https://www.ssa.gov/oact/cola/cbb.html" rel="noopener">Social Security Administration</a> — annual wage base and benefit limits.</li>
+        <li><a href="https://www.federalreserve.gov/econres/scfindex.htm" rel="noopener">Federal Reserve Board, Survey of Consumer Finances</a> — household debt and asset statistics.</li>
+        <li><a href="https://www.newyorkfed.org/microeconomics/hhdc.html" rel="noopener">Federal Reserve Bank of New York, Household Debt and Credit</a> — quarterly aggregate balances and delinquency.</li>
+        <li><a href="https://www.consumerfinance.gov/" rel="noopener">Consumer Financial Protection Bureau</a> — APR, credit card, and mortgage disclosure rules.</li>
+        <li><a href="https://www.bls.gov/cpi/" rel="noopener">Bureau of Labor Statistics, Consumer Price Index</a> — rent, food, and transit inflation.</li>
+        <li><a href="https://www.bls.gov/cex/" rel="noopener">BLS Consumer Expenditure Survey</a> — household spending baselines by category.</li>
+        <li><a href="https://www.freddiemac.com/pmms" rel="noopener">Freddie Mac Primary Mortgage Market Survey</a> — weekly 30-year fixed mortgage rate.</li>
+        <li><a href="https://taxfoundation.org/data/all/state/property-taxes-by-state-county/" rel="noopener">Tax Foundation property tax data</a> — effective property tax rates by state.</li>
+        <li><a href="https://www.zillow.com/research/data/" rel="noopener">Zillow Research</a> — Observed Rent Index and Home Value Index by metro.</li>
+        <li><a href="https://www.childcareaware.org/" rel="noopener">Child Care Aware of America</a> — annual state-level childcare cost data.</li>
+        <li><a href="https://www.census.gov/data/tables/time-series/demo/income-poverty/cps-hinc.html" rel="noopener">US Census Bureau, Historical Household Income Tables</a> — median household income by state.</li>
+      </ul>
+    </section>
+
+    <section id="limits" class="methodology-section">
+      <h2>What this site is not</h2>
+      <ul class="methodology-list">
+        <li><strong>Not tax filing software.</strong> Our take-home calculators do not file your return. Use TurboTax, H&amp;R Block, or a CPA for that.</li>
+        <li><strong>Not investment advice.</strong> When we mention "what your money could grow to," we use a flat assumed return for illustration only. Past returns don't predict future results.</li>
+        <li><strong>Not mortgage pre-approval.</strong> Our house affordability shows what the 28/36 rule supports. A lender uses your full credit profile, reserves, and DTI on actual debts.</li>
+        <li><strong>Not legal advice.</strong> We don't model employment classification disputes, divorce settlements, or estate planning.</li>
+        <li><strong>US only.</strong> Every formula and rate assumes a US worker filing a US return. Numbers will not match Canadian, UK, or Australian tax systems.</li>
+      </ul>
+    </section>
+
+    <section id="corrections" class="methodology-section">
+      <h2>Corrections policy</h2>
+      <p>If a number is wrong, we want to know. We will:</p>
+      <ol class="methodology-list">
+        <li>Fix the page within 7 days of confirming the error.</li>
+        <li>Update the "Last reviewed" date on every page touched.</li>
+        <li>Add a short note at the bottom of the page describing what changed, for one quarter after the fix.</li>
+      </ol>
+      <p>Reach us through the <a href="/contact">contact page</a> with the URL and a quick description of what looks off. A screenshot or a primary source helps.</p>
+    </section>
+
+    <footer class="take-home-guide-disclaimer">
+      <p class="note">All calculators on Income Clarity are educational tools for US residents. They are not legal, tax, or investment advice. We update this methodology page on a rolling schedule. For tax filing, consult a CPA or enrolled agent. For mortgage pre-approval, consult a licensed loan officer.</p>
+    </footer>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-description">US-only tools to calculate your real income after tax, understand debt, and make smarter financial decisions.</p>
+      <div class="footer-grid" role="navigation" aria-label="Footer">
+        <section class="footer-column" aria-labelledby="footer-popular-calculators">
+          <h2 id="footer-popular-calculators">Popular Calculators</h2>
+          <a href="/hourly-to-salary-after-tax">Hourly to Salary After Tax</a>
+          <a href="/credit-card-payoff-calculator">Credit Card Payoff Calculator</a>
+          <a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a>
+          <a href="/1099-vs-w2-calculator">1099 vs W2 Calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-tools-category">
+          <h2 id="footer-tools-category">Tools by Category</h2>
+          <a href="/hourly-to-salary-after-tax">Income</a>
+          <a href="/credit-card-payoff-calculator">Debt</a>
+          <a href="/rent-vs-buy-calculator">Living</a>
+          <a href="/1099-vs-w2-calculator">Freelance</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-explore-more">
+          <h2 id="footer-explore-more">Explore More</h2>
+          <a href="/hourly-to-salary-after-tax#is-25-hour-good">$25 an hour after tax</a>
+          <a href="/credit-card-payoff-calculator#how-long-payoff">How long to pay off credit card</a>
+          <a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy guide</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-company">
+          <h2 id="footer-company">Company</h2>
+          <a href="/about">About</a>
+          <a href="/methodology">Methodology</a>
+          <a href="/contact">Contact</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms">Terms</a>
+        </section>
+      </div>
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
+</body>
+</html>
