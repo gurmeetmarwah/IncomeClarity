@@ -46,10 +46,10 @@
     <loc>https://incomeclarity.com/debt/payoff-scenarios</loc>
   </url>
   <url>
-    <loc>https://incomeclarity.com/debt/payoff-scenarios/how-long-to-pay-off-5000-debt</loc>
+    <loc>https://incomeclarity.com/debt/payoff-scenarios/how-long-to-pay-off-5000-debt/</loc>
   </url>
   <url>
-    <loc>https://incomeclarity.com/debt/payoff-scenarios/how-long-to-pay-off-10000-debt</loc>
+    <loc>https://incomeclarity.com/debt/payoff-scenarios/how-long-to-pay-off-10000-debt/</loc>
   </url>
   <url>
     <loc>https://incomeclarity.com/debt/interest-apr</loc>
@@ -91,19 +91,19 @@
     <loc>https://incomeclarity.com/living/lifestyle-family</loc>
   </url>
   <url>
-    <loc>https://incomeclarity.com/living/lifestyle-family/family-of-4-income-guide</loc>
+    <loc>https://incomeclarity.com/living/lifestyle-family/family-of-4-income-guide/</loc>
   </url>
   <url>
-    <loc>https://incomeclarity.com/living/lifestyle-family/budgeting-for-roommates</loc>
+    <loc>https://incomeclarity.com/living/lifestyle-family/budgeting-for-roommates/</loc>
   </url>
   <url>
-    <loc>https://incomeclarity.com/living/lifestyle-family/childcare-affordability</loc>
+    <loc>https://incomeclarity.com/living/lifestyle-family/childcare-affordability/</loc>
   </url>
   <url>
-    <loc>https://incomeclarity.com/living/lifestyle-family/comfortable-salary-california</loc>
+    <loc>https://incomeclarity.com/living/lifestyle-family/comfortable-salary-california/</loc>
   </url>
   <url>
-    <loc>https://incomeclarity.com/living/lifestyle-family/comfortable-salary-texas</loc>
+    <loc>https://incomeclarity.com/living/lifestyle-family/comfortable-salary-texas/</loc>
   </url>
   <url>
     <loc>https://incomeclarity.com/living/budgeting</loc>
@@ -112,13 +112,193 @@
     <loc>https://incomeclarity.com/living/housing/how-much-rent-can-i-afford</loc>
   </url>
   <url>
-    <loc>https://incomeclarity.com/living/family-budgeting/can-i-afford-to-live-alone</loc>
+    <loc>https://incomeclarity.com/living/can-i-afford-to-live-alone</loc>
   </url>
   <url>
     <loc>https://incomeclarity.com/living/housing/how-much-house-can-i-afford</loc>
   </url>
   <url>
-    <loc>https://incomeclarity.com/living/housing/how-much-house-can-i-afford-in-california</loc>
+    <loc>https://incomeclarity.com/living/housing/how-much-house-can-i-afford/california</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/how-much-house-can-i-afford/texas</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/how-much-house-can-i-afford/florida</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/how-much-house-can-i-afford/new-york</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/how-much-house-can-i-afford/california/los-angeles</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/how-much-house-can-i-afford/california/san-francisco</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/how-much-house-can-i-afford/california/san-diego</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/how-much-house-can-i-afford/texas/houston</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/how-much-house-can-i-afford/texas/dallas</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/how-much-house-can-i-afford/texas/austin</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/how-much-house-can-i-afford/florida/miami</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/how-much-house-can-i-afford/florida/tampa</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/how-much-house-can-i-afford/florida/orlando</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/how-much-house-can-i-afford/new-york/new-york-city</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/how-much-house-can-i-afford/new-york/buffalo</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/how-much-house-can-i-afford/new-york/albany</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/california</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/california/los-angeles</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/california/san-diego</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/california/san-francisco</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/texas</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/texas/dallas</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/texas/houston</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/texas/austin</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/florida</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/florida/miami</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/florida/tampa</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/florida/orlando</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/new-york</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/new-york/new-york-city</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/chicago</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/seattle</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/denver</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/atlanta</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/moving-cost-calculator/phoenix</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/new-york</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/new-york/new-york-city</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/phoenix</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/compare/seattle-vs-phoenix</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/california</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/texas</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/florida</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/new-york</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/chicago</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/seattle</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/denver</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/atlanta</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/california/los-angeles</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/california/san-francisco</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/california/san-diego</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/texas/dallas</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/texas/houston</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/texas/austin</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/florida/miami</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/florida/tampa</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/florida/orlando</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/compare/nyc-vs-chicago</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/compare/austin-vs-denver</loc>
+  </url>
+  <url>
+    <loc>https://incomeclarity.com/living/housing/cost-of-living-by-city/compare/dallas-vs-atlanta</loc>
   </url>
   <url>
     <loc>https://incomeclarity.com/living/family-budgeting/salary-needed-to-live-comfortably</loc>

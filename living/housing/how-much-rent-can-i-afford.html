@@ -17,6 +17,7 @@
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://incomeclarity.com/living/housing/how-much-rent-can-i-afford">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-rent.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <script>
     (function () {
@@ -149,7 +150,7 @@
   }
   </script>
 </head>
-<body>
+<body class="ra-page">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="/index.html">Income Clarity</a>
@@ -162,278 +163,296 @@
     </div>
   </header>
 
-  <main class="container content-page rent-afford-guide debt-interest-works">
-    <nav class="take-home-return-nav" aria-label="Breadcrumb">
-      <ol class="take-home-return-breadcrumbs">
-        <li><a href="/rent-vs-buy-calculator">Rent vs buy calculator</a></li>
-        <li><a href="/living/housing">Housing affordability</a></li>
-        <li aria-current="page">How much rent can I afford</li>
-      </ol>
-    </nav>
-
-    <p class="debt-minimum-guide-back">
-      <a class="debt-minimum-guide-back-link" id="housing-guide-back-link" href="/living/housing" data-housing-back-default="/living/housing">← Housing affordability</a>
-    </p>
-
-    <article>
-      <header class="take-home-guide-header">
+  <main>
+    <section class="ra-hero" aria-labelledby="ra-hero-title">
+      <div class="container container--wide">
+        <nav class="take-home-return-nav" aria-label="Breadcrumb">
+          <ol class="take-home-return-breadcrumbs">
+            <li><a href="/living/housing">Housing</a></li>
+            <li aria-current="page">How much rent can I afford</li>
+          </ol>
+        </nav>
         <span class="label">Living · Renting</span>
-        <h1>How Much Rent Can You Really Afford in 2026?</h1>
-        <p class="lead take-home-guide-lead">Landlords use simple math. Your budget should use real money. This guide covers the <strong>30% rule</strong> and the <strong>40 times rent</strong> check. Plus utilities, insurance, and roommates. With real examples. Swap in your pay stubs.</p>
-      </header>
+        <h1 id="ra-hero-title">Find Out How Much Rent You Can Comfortably Afford</h1>
+        <p class="lead">Estimate a realistic rent budget based on your income, debt, city, and lifestyle goals — with comfortable, stretch, and high-risk ranges instead of one magic number.</p>
 
-      <p class="state-salary-insight take-home-guide-at-a-glance" role="note"><strong>Quick math:</strong> If you earn $6,000 a month before tax, your rent ceiling is about <strong>$1,800 a month</strong>. (That's 30% of gross.) Most landlords phrase it as the <strong>40 times rule</strong>: your yearly gross must be at least 40 times your monthly rent. Your take-home is closer to <strong>$4,400 a month</strong> after tax. So 30% of take-home is $1,320. That's the safer personal cap. Even if a landlord would approve more.</p>
+        <div class="ra-calc-shell" id="ra-calculator">
+          <div class="ra-calc-layout">
+            <form id="ra-calc-form" class="ra-calc-form" aria-label="Rent affordability calculator">
+              <label class="ra-field"><span>Annual income ($)</span><input type="number" id="ra-income" min="20000" step="1000" value="95000" required></label>
+              <label class="ra-field"><span>Monthly take-home pay ($)</span><input type="number" id="ra-net" min="1000" step="50" value="5800" required></label>
+              <label class="ra-field"><span>Debt payments ($/mo)</span><input type="number" id="ra-debt" min="0" step="25" value="450"></label>
+              <label class="ra-field"><span>City</span>
+                <select id="ra-city">
+                  <option value="austin">Austin, TX</option>
+                  <option value="dallas">Dallas, TX</option>
+                  <option value="new-york-city">New York City, NY</option>
+                  <option value="miami">Miami, FL</option>
+                  <option value="chicago">Chicago, IL</option>
+                </select>
+              </label>
+              <label class="ra-field"><span>Savings goal (% of take-home)</span><input type="number" id="ra-save" min="0" max="40" step="1" value="15"></label>
+              <label class="ra-field"><span>Roommate?</span><select id="ra-roommate"><option value="no">No</option><option value="yes">Yes</option></select></label>
+              <label class="ra-field"><span>Family size (optional)</span><input type="number" id="ra-family" min="1" max="8" step="1" value="1"></label>
+              <label class="ra-field"><span>Transportation ($/mo)</span><input type="number" id="ra-transport" min="0" step="25" value="300"></label>
+              <div class="ra-field ra-field--full">
+                <button type="submit" class="ra-btn" id="ra-calc-btn">Calculate Rent Budget</button>
+              </div>
+            </form>
 
-      <nav class="take-home-guide-toc" aria-label="On this page">
-        <h2 class="take-home-guide-toc-title">On this page</h2>
-        <ul>
-          <li><a href="#rules-plain-english">Two rules in plain English</a></li>
-          <li><a href="#example-table">Example rent budgets by income</a></li>
-          <li><a href="#cash-flow-picture">Where your money goes (visual)</a></li>
-          <li><a href="#beyond-ad-rent">Costs beyond the listing price</a></li>
-          <li><a href="#roommates-split">Roommates and splitting rent</a></li>
-          <li><a href="#live-alone-guide">Can I afford to live alone?</a></li>
-          <li><a href="#next-steps">Next steps: income &amp; rent vs buy</a></li>
-          <li><a href="#faq-rent-afford">FAQ</a></li>
-        </ul>
-      </nav>
-
-      <section id="rules-plain-english" aria-labelledby="rules-plain-english-title">
-        <h2 id="rules-plain-english-title">Two rules people actually use</h2>
-
-        <div class="debt-stats-callout" role="region" aria-labelledby="rule-30-title">
-          <h3 id="rule-30-title" class="debt-stats-callout-title">Rule 1: 30% of income on housing</h3>
-          <p><strong>Gross version (for landlord screening):</strong> Take your monthly pay before tax. Multiply by 0.30. That's your rent ceiling.</p>
-          <p><strong>Net version (for your bank):</strong> Take your actual take-home pay. Multiply by 0.30. If that's lower than the gross version, that's the one to trust. It's what keeps you from feeling house-poor.</p>
-        </div>
-
-        <div class="debt-stats-callout" role="region" aria-labelledby="rule-40x-title">
-          <h3 id="rule-40x-title" class="debt-stats-callout-title">Rule 2: 40 times rent on yearly salary</h3>
-          <p>Some leases ask: is your yearly gross income at least 40 times the monthly rent?</p>
-          <p><strong>Quick example:</strong> Rent is $2,000 a month. So 40 × $2,000 = $80,000 a year in gross income to pass.</p>
-          <p><strong>Why this matches the 30% rule:</strong> $80,000 a year is about $6,667 a month before tax. $2,000 rent is 30% of that. Same math. Different words.</p>
-        </div>
-      </section>
-
-      <section id="rent-mini-calc" aria-labelledby="rent-mini-calc-title">
-        <h2 id="rent-mini-calc-title">Quick rent affordability check</h2>
-        <p>Type your salary and pick a basis. We show your rent cap. And whether a target rent passes.</p>
-        <form id="rent-mini-form" class="apr-mini-calc" onsubmit="return false;">
-          <label class="apr-mini-calc__field">
-            <span>Annual gross salary ($)</span>
-            <input type="number" id="rent-salary" min="20000" step="1000" value="72000" required>
-          </label>
-          <label class="apr-mini-calc__field">
-            <span>Target rent ($/month)</span>
-            <input type="number" id="rent-target" min="500" step="50" value="1800" required>
-          </label>
-          <label class="apr-mini-calc__field">
-            <span>Comfort basis</span>
-            <select id="rent-basis">
-              <option value="gross">30% of gross (landlord)</option>
-              <option value="net" selected>30% of take-home (safer)</option>
-              <option value="40x">40 times rent (landlord)</option>
-            </select>
-          </label>
-          <button type="button" id="rent-mini-btn" class="apr-mini-calc__btn">Check</button>
-          <output id="rent-mini-out" class="apr-mini-calc__out" aria-live="polite">$72,000 a year is about $4,400 a month take-home. Your 30% rent cap is $1,320. A $1,800 target is over budget. By $480 a month.</output>
-        </form>
-        <script>
-          (function(){
-            const sal = document.getElementById('rent-salary');
-            const target = document.getElementById('rent-target');
-            const basis = document.getElementById('rent-basis');
-            const btn = document.getElementById('rent-mini-btn');
-            const out = document.getElementById('rent-mini-out');
-            function fmt(n){ return '$' + Math.round(n).toLocaleString(); }
-            function calc(){
-              const s = Math.max(0, parseFloat(sal.value)||0);
-              const r = Math.max(0, parseFloat(target.value)||0);
-              const mode = basis.value;
-              const grossMo = s/12;
-              const netMo = s/12 * 0.73; // rough 27% tax + FICA blended
-              let cap, label;
-              if (mode === 'gross') { cap = grossMo * 0.30; label = '30% of gross'; }
-              else if (mode === 'net') { cap = netMo * 0.30; label = '30% of take-home'; }
-              else { cap = s/40; label = '40 times rent rule'; }
-              const verdict = r <= cap
-                ? 'Your $' + r.toLocaleString() + ' target rent passes. You have $' + Math.max(0, Math.round(cap-r)).toLocaleString() + ' of slack per month.'
-                : 'Your $' + r.toLocaleString() + ' target is over budget. By ' + fmt(r-cap) + ' a month.';
-              out.textContent = fmt(s) + ' a year is about ' + fmt(grossMo) + ' a month gross. Or ' + fmt(netMo) + ' a month take-home. Your ' + label + ' rent cap is ' + fmt(cap) + '. ' + verdict;
-            }
-            btn.addEventListener('click', calc);
-            sal.addEventListener('change', calc);
-            target.addEventListener('change', calc);
-            basis.addEventListener('change', calc);
-          })();
-        </script>
-      </section>
-
-      <section id="example-table" aria-labelledby="example-table-title">
-        <h2 id="example-table-title">Real rent budgets by salary</h2>
-        <p>Tax varies by state, filing status, and deductions. The take-home column is a rough single-filer estimate. So you can see how the gross and net rules give different rent caps.</p>
-
-        <div class="debt-data-table-wrap">
-          <table class="debt-data-table">
-            <caption>Gross-income rent ceiling vs example take-home rent ceiling</caption>
-            <thead>
-              <tr>
-                <th scope="col">Annual gross (example)</th>
-                <th scope="col">Monthly gross</th>
-                <th scope="col">~30% gross (base rent)</th>
-                <th scope="col">Example take-home / month</th>
-                <th scope="col">~30% take-home (stricter)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">$48,000</th>
-                <td>$4,000</td>
-                <td><strong>$1,200</strong></td>
-                <td>~$3,100</td>
-                <td><strong>~$930</strong></td>
-              </tr>
-              <tr>
-                <th scope="row">$72,000</th>
-                <td>$6,000</td>
-                <td><strong>$1,800</strong></td>
-                <td>~$4,400</td>
-                <td><strong>~$1,320</strong></td>
-              </tr>
-              <tr>
-                <th scope="row">$96,000</th>
-                <td>$8,000</td>
-                <td><strong>$2,400</strong></td>
-                <td>~$5,700</td>
-                <td><strong>~$1,710</strong></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="interest-viz-note">Get your real take-home from the <a href="/hourly-to-salary-after-tax#hourly-salary-form">after-tax calculator</a>. Then multiply by 0.30. That's your personal rent line. Don't trust a national average.</p>
-
-        <aside class="what-this-means" role="note">
-          <p class="what-this-means__title">What this means for you</p>
-          <p>The gap between the gross rule and the net rule is <strong>$480 a month at a $72,000 salary</strong>. That's $5,800 a year. The landlord may say yes at the higher rent. But your bank account will say no.</p>
-          <p>Trust the take-home number. Not the gross one. Your rent should leave you room to save. To pay down debt. And to enjoy your life.</p>
-        </aside>
-      </section>
-
-      <section id="cash-flow-picture" aria-labelledby="cash-flow-picture-title">
-        <h2 id="cash-flow-picture-title">Where your money goes before rent</h2>
-        <p>Think of rent as the slice that comes after taxes. And after the non-negotiables. Debt minimums, medicine, childcare. The picture below is rough. Not strict accounting.</p>
-
-        <figure class="interest-viz-figure" aria-labelledby="rent-pipeline-caption">
-          <figcaption id="rent-pipeline-caption" class="interest-viz-caption">From paycheck to what you can safely promise a landlord</figcaption>
-          <div class="interest-viz-pipeline" role="presentation">
-            <div class="interest-viz-step">
-              <span class="interest-viz-step-label">Gross pay</span>
-              <span class="interest-viz-step-detail">Salary ÷ 12 or hourly × hours</span>
-            </div>
-            <span class="interest-viz-arrow" aria-hidden="true">→</span>
-            <div class="interest-viz-step interest-viz-step-mid">
-              <span class="interest-viz-step-label">Taxes &amp; deductions</span>
-              <span class="interest-viz-step-detail">Federal, state, 401(k), health</span>
-            </div>
-            <span class="interest-viz-arrow" aria-hidden="true">→</span>
-            <div class="interest-viz-step">
-              <span class="interest-viz-step-label">Take-home</span>
-              <span class="interest-viz-step-detail">What lands in your bank</span>
+            <div class="ra-results" aria-live="polite">
+              <h2 class="ra-band__head" style="margin-top:0">Your rent ranges</h2>
+              <p class="ra-summary" id="ra-summary">Enter your numbers and click Calculate to see comfortable, stretch, and high-risk rent bands.</p>
+              <div class="ra-range-grid" id="ra-ranges">
+                <article class="ra-range ra-range--good"><h3>Comfortable</h3><strong>—</strong><p>Updates when you calculate.</p></article>
+                <article class="ra-range ra-range--mid"><h3>Stretch budget</h3><strong>—</strong><p>Updates when you calculate.</p></article>
+                <article class="ra-range ra-range--risk"><h3>High risk</h3><strong>—</strong><p>Updates when you calculate.</p></article>
+              </div>
             </div>
           </div>
-        </figure>
-
-        <figure class="interest-viz-figure" aria-labelledby="rent-split-caption">
-          <figcaption id="rent-split-caption" class="interest-viz-caption">Simplified take-home split (illustrative—real budgets have more buckets)</figcaption>
-          <div class="interest-viz-splitbar" role="img" aria-label="About fifty five percent for needs and forty five percent for everything else including rent savings and discretionary">
-            <span class="interest-viz-split-interest" style="flex: 55;">~55% needs (food, transport, minimums)</span>
-            <span class="interest-viz-split-principal" style="flex: 45;">~45% everything else (rent, savings, fun)</span>
-          </div>
-          <p class="interest-viz-note">Some planners use 50/30/20 (needs, wants, savings). This bar is simpler. It shows the squeeze. Rent lives in the same slice as savings and fun. So a high rent eats both. The 30% take-home check is a red flag even when the landlord says yes.</p>
-        </figure>
-      </section>
-
-      <section id="beyond-ad-rent" aria-labelledby="beyond-ad-rent-title">
-        <h2 id="beyond-ad-rent-title">Costs beyond the listing price</h2>
-        <p>The rent on the listing is almost never your full housing cost.</p>
-
-        <div class="debt-stats-grid">
-          <div class="debt-stat-block">
-            <span class="debt-stat-value">+</span>
-            <span class="debt-stat-label"><strong>Utilities:</strong> Electric, gas, and water. Often $100 to $250 a month combined. Depending on climate and unit size.</span>
-          </div>
-          <div class="debt-stat-block">
-            <span class="debt-stat-value">+</span>
-            <span class="debt-stat-label"><strong>Renter's insurance:</strong> Usually $15 to $30 a month. Cheap. And worth it.</span>
-          </div>
-          <div class="debt-stat-block">
-            <span class="debt-stat-value">+</span>
-            <span class="debt-stat-label"><strong>Parking, pet, storage:</strong> Add-ons can be $50 to $300 a month. Read the lease.</span>
-          </div>
         </div>
+      </div>
+    </section>
 
-        <p><strong>Real example:</strong> Base rent is $1,800. Add $180 for utilities. $25 for insurance. $75 for parking. Your <strong>all-in housing</strong> is $2,080 a month. If your take-home is $4,400, that's <strong>47% of your take-home</strong>. That's too high for most people. Even though the base rent alone was only 41%.</p>
-      </section>
+    <section class="ra-band ra-band--alt">
+      <div class="container container--wide">
+        <div class="ra-grid-2">
+          <article class="ra-card">
+            <header class="ra-band__head"><h2>Rent vs income</h2><p>How your take-home splits across major buckets.</p></header>
+            <div class="ra-bar-row"><div class="ra-bar-meta"><p>Rent %</p><span class="ra-bar-value" id="bar-rent-value">30%</span></div><div class="ra-bar-track"><span class="ra-bar-fill" id="bar-rent" style="width:30%"></span></div></div>
+            <div class="ra-bar-row"><div class="ra-bar-meta"><p>Savings %</p><span class="ra-bar-value" id="bar-save-value">15%</span></div><div class="ra-bar-track"><span class="ra-bar-fill" id="bar-save" style="width:15%"></span></div></div>
+            <div class="ra-bar-row"><div class="ra-bar-meta"><p>Essentials %</p><span class="ra-bar-value" id="bar-ess-value">38%</span></div><div class="ra-bar-track"><span class="ra-bar-fill" id="bar-ess" style="width:38%"></span></div></div>
+            <div class="ra-bar-row"><div class="ra-bar-meta"><p>Discretionary %</p><span class="ra-bar-value" id="bar-disc-value">15%</span></div><div class="ra-bar-track"><span class="ra-bar-fill" id="bar-disc" style="width:15%"></span></div></div>
+          </article>
+          <article class="ra-card">
+            <header class="ra-band__head"><h2>Lifestyle impact</h2><p>What different rent levels can feel like month to month.</p></header>
+            <div class="ra-impact-grid">
+              <div class="ra-card ra-impact--good">
+                <h3>Renting at <span id="impact-good">$1,800/mo</span></h3>
+                <ul><li>Healthy savings potential</li><li>Lower stress</li><li>Better flexibility</li></ul>
+              </div>
+              <div class="ra-card ra-impact--risk">
+                <h3>Renting at <span id="impact-risk">$2,500/mo</span></h3>
+                <ul><li>Limited savings</li><li>Tighter emergency budget</li><li>Higher financial pressure</li></ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      <section id="roommates-split" aria-labelledby="roommates-split-title">
-        <h2 id="roommates-split-title">Roommates: your share vs the household's total</h2>
-        <p>If you split a lease, the landlord cares about <strong>combined</strong> income. You care about <strong>your share</strong>.</p>
-        <p><strong>Example:</strong> A $2,400 two-bedroom. Needs $96,000 combined gross to pass the 40 times rule. Two roommates earning $48,000 each pass that test. Each pays $1,200 a month. That's 30% of $4,000 monthly gross. But each person should still pass the take-home test on their own. Use our <a href="/living/lifestyle-family/budgeting-for-roommates">roommate budget planner</a> for fair splits. Or read <a href="/can-i-afford-to-live-alone.html">can I afford to live alone?</a> for the solo math.</p>
-      </section>
+    <section class="ra-band">
+      <div class="container container--wide">
+        <header class="ra-band__head">
+          <h2>Average rent affordability by city</h2>
+          <p>Median rent, pay targets, and affordability scores for popular metros.</p>
+        </header>
+        <div class="ra-city-grid">
+          <a class="ra-city-card" href="/living/housing/cost-of-living-by-city/texas/austin">
+            <div class="ra-city-card__top"><h3>Austin</h3><span class="ra-city-score ra-city-score--good">74/100</span></div>
+            <dl class="ra-city-stats">
+              <div class="ra-city-stat"><dt>Avg rent</dt><dd>$1,750/mo</dd></div>
+              <div class="ra-city-stat"><dt>Salary target</dt><dd>$82k</dd></div>
+            </dl>
+            <span class="ra-city-card__link">Open city guide →</span>
+          </a>
+          <a class="ra-city-card" href="/living/housing/cost-of-living-by-city/texas/dallas">
+            <div class="ra-city-card__top"><h3>Dallas</h3><span class="ra-city-score ra-city-score--good">75/100</span></div>
+            <dl class="ra-city-stats">
+              <div class="ra-city-stat"><dt>Avg rent</dt><dd>$1,550/mo</dd></div>
+              <div class="ra-city-stat"><dt>Salary target</dt><dd>$76k</dd></div>
+            </dl>
+            <span class="ra-city-card__link">Open city guide →</span>
+          </a>
+          <a class="ra-city-card" href="/living/housing/cost-of-living-by-city/new-york/new-york-city">
+            <div class="ra-city-card__top"><h3>NYC</h3><span class="ra-city-score ra-city-score--warn">52/100</span></div>
+            <dl class="ra-city-stats">
+              <div class="ra-city-stat"><dt>Avg rent</dt><dd>$3,400/mo</dd></div>
+              <div class="ra-city-stat"><dt>Salary target</dt><dd>$120k</dd></div>
+            </dl>
+            <span class="ra-city-card__link">Open city guide →</span>
+          </a>
+          <a class="ra-city-card" href="/living/housing/cost-of-living-by-city/florida/miami">
+            <div class="ra-city-card__top"><h3>Miami</h3><span class="ra-city-score ra-city-score--mid">61/100</span></div>
+            <dl class="ra-city-stats">
+              <div class="ra-city-stat"><dt>Avg rent</dt><dd>$2,300/mo</dd></div>
+              <div class="ra-city-stat"><dt>Salary target</dt><dd>$90k</dd></div>
+            </dl>
+            <span class="ra-city-card__link">Open city guide →</span>
+          </a>
+          <a class="ra-city-card" href="/living/housing/cost-of-living-by-city/chicago">
+            <div class="ra-city-card__top"><h3>Chicago</h3><span class="ra-city-score ra-city-score--good">70/100</span></div>
+            <dl class="ra-city-stats">
+              <div class="ra-city-stat"><dt>Avg rent</dt><dd>$1,850/mo</dd></div>
+              <div class="ra-city-stat"><dt>Salary target</dt><dd>$82k</dd></div>
+            </dl>
+            <span class="ra-city-card__link">Open city guide →</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-      <section class="rent-related-guide" id="live-alone-guide" aria-labelledby="live-alone-guide-title">
-        <h2 id="live-alone-guide-title">Can you afford to live alone?</h2>
-        <p class="rent-related-guide-lead">Living alone means nobody splits the rent. Or the internet. Or the cleaning supplies. Your take-home carries the whole lease. If you've passed the 30% and 40 times tests and still want a solo place, use the dedicated guide. It has solo vs split numbers. And a visual rent check.</p>
-        <p class="take-home-guide-cta-wrap">
-          <a class="take-home-guide-cta" href="/can-i-afford-to-live-alone.html">Open the solo rent guide</a>
-        </p>
-      </section>
+    <section class="ra-band ra-band--alt">
+      <div class="container container--wide">
+        <div class="ra-grid-2">
+          <article class="ra-card">
+            <header class="ra-band__head"><h2>What-if scenarios</h2><p>Adjust sliders — results update instantly.</p></header>
+            <div class="ra-scenario">
+              <div class="ra-scenario-control ra-scenario-control--reduce">
+                <div class="ra-slider-meta">
+                  <label for="w-debt">Reduce monthly debt</label>
+                  <span class="ra-scenario-delta ra-scenario-delta--down" id="w-debt-value">−$0/mo</span>
+                </div>
+                <div class="ra-debt-reduce-viz" aria-hidden="true">
+                  <div class="ra-debt-reduce-viz__track">
+                    <span class="ra-debt-reduce-viz__remain" id="w-debt-remain-bar" style="width:100%"></span>
+                    <span class="ra-debt-reduce-viz__cut" id="w-debt-cut-bar" style="width:0%"></span>
+                  </div>
+                  <div class="ra-debt-reduce-viz__labels">
+                    <span>Before <strong id="w-debt-before">$450/mo</strong></span>
+                    <span>After <strong id="w-debt-after">$450/mo</strong></span>
+                  </div>
+                </div>
+                <input id="w-debt" type="range" min="0" max="600" step="25" value="0" aria-describedby="w-debt-hint">
+                <p class="ra-scenario-hint" id="w-debt-hint">Slide right to shrink fixed debt payments.</p>
+              </div>
+              <div class="ra-scenario-control ra-scenario-control--increase">
+                <div class="ra-slider-meta">
+                  <label for="w-salary">Increase salary</label>
+                  <span class="ra-scenario-delta ra-scenario-delta--up" id="w-salary-value">+$0/yr</span>
+                </div>
+                <div class="ra-growth-viz ra-growth-viz--up" aria-hidden="true">
+                  <div class="ra-growth-viz__track"><span class="ra-growth-viz__fill" id="w-salary-fill" style="width:0%"></span></div>
+                </div>
+                <input id="w-salary" type="range" min="0" max="30000" step="1000" value="0">
+              </div>
+              <div class="ra-scenario-control ra-scenario-control--shift">
+                <div class="ra-slider-meta">
+                  <label for="w-city">City cost shift</label>
+                  <span class="ra-scenario-delta" id="w-city-value">0%</span>
+                </div>
+                <div class="ra-growth-viz ra-growth-viz--bidirectional" aria-hidden="true">
+                  <div class="ra-growth-viz__track ra-growth-viz__track--center">
+                    <div class="ra-growth-viz__half ra-growth-viz__half--left">
+                      <span class="ra-growth-viz__fill ra-growth-viz__fill--down" id="w-city-fill-down" style="width:0%"></span>
+                    </div>
+                    <span class="ra-growth-viz__mid"></span>
+                    <div class="ra-growth-viz__half ra-growth-viz__half--right">
+                      <span class="ra-growth-viz__fill ra-growth-viz__fill--up" id="w-city-fill-up" style="width:0%"></span>
+                    </div>
+                  </div>
+                  <div class="ra-growth-viz__axis"><span>Cheaper</span><span>Baseline</span><span>Costlier</span></div>
+                </div>
+                <input id="w-city" type="range" min="-20" max="25" step="1" value="0">
+              </div>
+            </div>
+          </article>
+          <article class="ra-card">
+            <header class="ra-band__head"><h2>Scenario impact snapshot</h2><p>How those changes affect your rent plan right now.</p></header>
+            <div class="ra-impact-kpis">
+              <article class="ra-kpi"><p>Comfortable range</p><strong id="scenario-comfort">$1,700 - $2,000</strong></article>
+              <article class="ra-kpi"><p>Stretch rent</p><strong id="scenario-stretch">$2,200/mo</strong></article>
+              <article class="ra-kpi"><p>High-risk threshold</p><strong id="scenario-risk">$2,600+/mo</strong></article>
+              <article class="ra-kpi"><p>Estimated rent share</p><strong id="scenario-rent-share">30%</strong></article>
+            </div>
+          </article>
+        </div>
+        <article class="ra-card ra-breakdown-card">
+          <header class="ra-band__head"><h2>Monthly budget breakdown</h2><p>Practical split of your take-home pay after scenario changes.</p></header>
+          <div class="ra-breakdown-grid">
+            <div class="ra-bar-row"><div class="ra-bar-meta"><p>Rent</p><span class="ra-bar-value" id="bb-rent-value">30%</span></div><div class="ra-bar-track"><span class="ra-bar-fill" id="bb-rent" style="width:30%"></span></div></div>
+            <div class="ra-bar-row"><div class="ra-bar-meta"><p>Groceries</p><span class="ra-bar-value" id="bb-gro-value">12%</span></div><div class="ra-bar-track"><span class="ra-bar-fill" id="bb-gro" style="width:12%"></span></div></div>
+            <div class="ra-bar-row"><div class="ra-bar-meta"><p>Transportation</p><span class="ra-bar-value" id="bb-trans-value">9%</span></div><div class="ra-bar-track"><span class="ra-bar-fill" id="bb-trans" style="width:9%"></span></div></div>
+            <div class="ra-bar-row"><div class="ra-bar-meta"><p>Savings</p><span class="ra-bar-value" id="bb-sav-value">15%</span></div><div class="ra-bar-track"><span class="ra-bar-fill" id="bb-sav" style="width:15%"></span></div></div>
+            <div class="ra-bar-row"><div class="ra-bar-meta"><p>Debt</p><span class="ra-bar-value" id="bb-debt-value">8%</span></div><div class="ra-bar-track"><span class="ra-bar-fill" id="bb-debt" style="width:8%"></span></div></div>
+            <div class="ra-bar-row"><div class="ra-bar-meta"><p>Entertainment</p><span class="ra-bar-value" id="bb-ent-value">7%</span></div><div class="ra-bar-track"><span class="ra-bar-fill" id="bb-ent" style="width:7%"></span></div></div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-      <section id="next-steps" aria-labelledby="next-steps-title">
-        <h2 id="next-steps-title">Your next 4 steps</h2>
-        <ol>
-          <li><strong>Pin down your take-home.</strong> Use the <a href="/hourly-to-salary-after-tax#hourly-salary-form">after-tax calculator</a>.</li>
-          <li><strong>Pick a rent you can hold.</strong> After utilities. At or below 30% of your take-home. So you have slack.</li>
-          <li><strong>Decide solo vs split.</strong> Use the <a href="#live-alone-guide">can I afford to live alone</a> guide for the math.</li>
-          <li><strong>Compare renting to buying.</strong> Use the <a href="/rent-vs-buy-calculator#rent-vs-buy">rent vs buy calculator</a>. With your real rent number.</li>
-        </ol>
-        <p class="take-home-guide-cta-wrap">
-          <a class="take-home-guide-cta" href="/rent-vs-buy-calculator#rent-vs-buy">Open rent vs buy calculator</a>
-        </p>
-      </section>
+    <section class="ra-band">
+      <div class="container container--wide">
+        <header class="ra-band__head"><h2>Real-life rent scenarios</h2><p>How different households might plan rent.</p><p>Use these as planning templates, not strict rules. Compare each profile's income, likely rent range, and financial cushion, then adjust for your own debt, childcare, transportation, and savings goals.</p></header>
+        <div class="ra-real-grid">
+          <article class="ra-card ra-scenario-card">
+            <div class="ra-scenario-card__top">
+              <h3>Young professional</h3>
+              <span class="ra-scenario-chip">Chicago</span>
+            </div>
+            <dl class="ra-scenario-stats">
+              <div class="ra-scenario-stat"><dt>Salary</dt><dd>$85k</dd></div>
+              <div class="ra-scenario-stat"><dt>Recommended rent</dt><dd>$1,850/mo</dd></div>
+            </dl>
+          </article>
+          <article class="ra-card ra-scenario-card">
+            <div class="ra-scenario-card__top">
+              <h3>Family of 3</h3>
+              <span class="ra-scenario-chip">Seattle</span>
+            </div>
+            <dl class="ra-scenario-stats">
+              <div class="ra-scenario-stat"><dt>Salary</dt><dd>$160k</dd></div>
+              <div class="ra-scenario-stat"><dt>Recommended rent</dt><dd>$2,900/mo</dd></div>
+            </dl>
+          </article>
+          <article class="ra-card ra-scenario-card">
+            <div class="ra-scenario-card__top">
+              <h3>Remote worker</h3>
+              <span class="ra-scenario-chip">Austin</span>
+            </div>
+            <dl class="ra-scenario-stats">
+              <div class="ra-scenario-stat"><dt>Salary</dt><dd>$95k</dd></div>
+              <div class="ra-scenario-stat"><dt>Comfortable range</dt><dd>$1,700-$2,000/mo</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      <section class="living-faq-section" id="faq-rent-afford" aria-labelledby="faq-rent-afford-title">
-        <h2 id="faq-rent-afford-title">Frequently asked questions</h2>
-        <p class="living-faq-lead">Short answers to common questions. Pair them with your real pay stubs.</p>
+    <section class="ra-band ra-band--alt">
+      <div class="container container--wide">
+        <header class="ra-band__head"><h2>How rent affordability works</h2><p>Affordability is a cash-flow decision, not just a rent listing number. These explainers show why two people with the same salary can safely afford very different rent levels.</p></header>
+        <div class="ra-edu-grid">
+          <article class="ra-card"><h3>Why the 30% rule does not always work</h3><p>The classic rule is based on gross income, but your bills are paid from take-home pay. Taxes, benefits, and retirement deductions can reduce spendable income by 20% to 35%, so a rent that looks fine on gross income can still feel tight in practice.</p><p>Use 30% as a starting point, then stress-test with your real monthly cash flow.</p></article>
+          <article class="ra-card"><h3>Hidden costs of renting</h3><p>Base rent is only one part of housing cost. Utilities, renter's insurance, parking, internet, pet fees, and move-in costs can easily add $150 to $500 per month depending on city and building type.</p><p>When comparing apartments, track total monthly housing cost rather than advertised rent.</p></article>
+          <article class="ra-card"><h3>How debt impacts rent</h3><p>Loan payments directly reduce housing flexibility because they are fixed obligations. Student loans, car payments, and credit card minimums all compete with rent and savings in the same monthly budget.</p><p>Even a $200 to $300 monthly debt reduction can materially raise your safe rent range.</p></article>
+          <article class="ra-card"><h3>Rent vs savings tradeoffs</h3><p>Higher rent often means slower emergency-fund growth and less room for investing. If rent rises by $200 monthly, that is $2,400 per year that no longer supports future goals or unexpected expenses.</p><p>Before signing, check whether your rent plan still supports 3 to 6 months of emergency savings over time.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ra-band">
+      <div class="container container--wide">
+        <header class="ra-band__head"><h2>Related housing decisions</h2><p>Rent affordability works best when paired with nearby decisions like city selection, moving costs, and buy-vs-rent timing. These tools help you pressure-test the full picture.</p></header>
+        <div class="ra-tool-grid">
+          <a class="ra-card ra-tool-card" href="/rent-vs-buy-calculator"><h3>Rent vs buy calculator</h3><p>Estimate break-even year, long-run net cost, and the savings opportunity cost of buying too early or renting too long.</p></a>
+          <a class="ra-card ra-tool-card" href="/living/housing/moving-cost-calculator"><h3>Moving cost calculator</h3><p>Estimate relocation cash, deposits, and monthly lifestyle changes before you move.</p></a>
+          <a class="ra-card ra-tool-card" href="/living/housing/cost-of-living-by-city"><h3>Cost of living by city</h3><p>Compare rent, salaries, and monthly pressure across cities so your target rent aligns with local pay realities.</p></a>
+          <a class="ra-card ra-tool-card" href="/living/budgeting/average-monthly-expenses.html"><h3>Monthly expenses guide</h3><p>Build a realistic monthly plan that includes groceries, utilities, transportation, and non-rent housing costs.</p></a>
+          <a class="ra-card ra-tool-card" href="/living/family-budgeting/salary-needed-to-live-comfortably"><h3>Comfortable salary</h3><p>Benchmark the income needed for a stable lifestyle by state and household size before picking a rent ceiling.</p></a>
+          <a class="ra-card ra-tool-card" href="/living/housing/how-much-house-can-i-afford"><h3>How much house can I afford</h3><p>Compare renting flexibility versus ownership costs including taxes, insurance, maintenance, and closing fees.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt living-faq-section" id="faq-rent-afford">
+      <div class="container container--wide">
+        <h2>Frequently asked questions</h2>
+        <p class="living-faq-lead">These answers focus on practical budgeting choices. Use them alongside your take-home income, debt obligations, and local rent data for a more reliable decision.</p>
         <div class="faq-stack">
-          <article class="faq-item">
-            <h3>How much rent can I afford on my salary?</h3>
-            <p>Start with 30% of your monthly gross. That's the landlord rule. Then check 30% of your take-home pay. Use the lower number. So you have room for savings, debt, and surprise bills.</p>
-          </article>
-          <article class="faq-item">
-            <h3>Is rent 30% of gross or net income?</h3>
-            <p>Gross is for landlord screening. Net (your take-home) is what feels affordable in real life. If the two numbers disagree, trust your take-home for your budget. And use gross only to check what a landlord will approve.</p>
-          </article>
-          <article class="faq-item">
-            <h3>What is the 40 times rent rule?</h3>
-            <p>Your yearly gross should be at least 40 times the monthly rent. Example: $1,500 rent needs $60,000 a year. It's the same idea as the 30% of gross rule. Just written differently.</p>
-          </article>
-          <article class="faq-item">
-            <h3>Should I include utilities in the 30% rule?</h3>
-            <p>It depends. To be safe, track rent + utilities + insurance as one number. Then see what percent of your take-home it is. If it's much more than 30%, you are carrying more house than your budget can hold.</p>
-          </article>
-          <article class="faq-item">
-            <h3>Can I afford to live alone?</h3>
-            <p>Yes. If your solo rent and utilities fit your take-home. With savings room. The landlord uses gross income. But your bank account runs on net. Run both tests. See <a href="/can-i-afford-to-live-alone.html">can I afford to live alone</a> for the solo math.</p>
-          </article>
+          <article class="faq-item"><h3>How much rent can I afford on $100k salary?</h3><p>For many households, gross-income rules suggest about $2,000 to $2,400 monthly rent. But once you account for taxes, debt, savings, and city costs, a safer working range is often lower.</p><p>Use your comfortable band first, then test stretch rent only if your emergency fund and debt profile are strong.</p></article>
+          <article class="faq-item"><h3>Is spending 40% on rent too much?</h3><p>In most cases, yes. At 40% of take-home pay, budget flexibility shrinks quickly and unexpected costs like car repairs or medical bills are harder to absorb.</p><p>Some high-income households can sustain it temporarily, but long-term financial resilience usually improves below that level.</p></article>
+          <article class="faq-item"><h3>How does debt affect rent affordability?</h3><p>Debt payments reduce your available cash before rent decisions begin, which can lower your safe rent range by hundreds per month. High-interest debt also slows savings progress, making high rent riskier.</p><p>Paying down even a small portion of monthly debt can noticeably improve affordability.</p></article>
+          <article class="faq-item"><h3>How much rent is safe in NYC?</h3><p>NYC renters should budget using take-home pay and total housing cost, not just listed rent. Transit, utilities, and mandatory fees can materially change affordability.</p><p>A safe budget in NYC is one that still allows regular saving and leaves room for annual rent increases.</p></article>
+          <article class="faq-item"><h3>Should roommates change my rent budget?</h3><p>Roommates can improve affordability by splitting fixed costs, but they also add reliability and lease-risk considerations. Your plan should still work if a roommate moves out or shared bills rise.</p><p>Build a buffer so your housing plan remains stable through roommate or lease changes.</p></article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <footer class="take-home-guide-disclaimer">
-        <p class="note">Educational content for US readers only, not financial or legal advice. Landlord requirements, utilities, and taxes vary by city and lease—verify with your actual offer letter, pay stubs, and local market.</p>
-      </footer>
-    </article>
-    <aside class="eeat-trust" aria-labelledby="eeat-guide-title">
+    <section class="ra-eeat">
+      <div class="container container--wide">
+        <p class="ra-disclaimer">Educational content for US readers only, not financial or legal advice. Verify with your pay stubs and local market.</p>
+        <aside class="eeat-trust" aria-labelledby="eeat-guide-title">
       <header class="eeat-trust__header">
         <span class="eeat-trust__kicker">🔒 How we built this</span>
         <h2 id="eeat-guide-title" class="eeat-trust__title">Rent Affordability Methodology, Data Sources & Editorial Standards</h2>
@@ -464,6 +483,8 @@
       </div>
       <p class="eeat-trust__footer">Spot something that doesn't match your reality? <a href="/contact">Tell us</a> — we fix confirmed errors within 7 days.</p>
     </aside>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -506,5 +527,6 @@
   </footer>
   <script src="/guide-back.js"></script>
   <script src="/housing-guide-back.js"></script>
+  <script src="/rent-afford.js"></script>
 </body>
 </html>

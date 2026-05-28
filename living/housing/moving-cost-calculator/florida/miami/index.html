@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moving Cost Calculator for Miami | Income Clarity</title>
+  <meta name="description" content="Plan moving costs for Miami: deposits, movers, utilities, transportation, and monthly rent changes before you relocate.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://incomeclarity.com/living/housing/moving-cost-calculator/florida/miami">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-moving.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path.endsWith("/index.html")) cleanPath = path.slice(0, -10);
+      else if (path.endsWith(".html")) cleanPath = path.slice(0, -5);
+      if (cleanPath !== path) window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+    })();
+  </script>
+
+</head><body class="mc-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="/index.html">Income Clarity</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/hourly-to-salary-after-tax">Income</a>
+        <a href="/credit-card-payoff-calculator">Debt</a>
+        <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="mc-hero">
+      <div class="container container--wide">
+        <nav class="take-home-return-nav" aria-label="Breadcrumb">
+          <ol class="take-home-return-breadcrumbs">
+            <li><a href="/living/housing/moving-cost-calculator">Moving cost calculator</a></li>
+            <li><a href="/living/housing/moving-cost-calculator/florida">Florida</a></li>
+            <li aria-current="page">Miami</li>
+          </ol>
+        </nav>
+        <span class="label">Living · Miami</span>
+        <h1>Moving Cost Calculator for Miami</h1>
+        <p class="lead">Estimate mover fees, deposits, utilities, and rent changes for Miami. Typical one-bedroom rent is about $2,200. Use the calculator to compare your current city against Miami.</p>
+
+        <div class="mc-calc-shell" id="mc-calculator">
+          <div class="mc-calc-layout">
+            <form id="mc-calc-form" class="mc-calc-form" aria-label="Moving cost calculator">
+              <label class="mc-field"><span>Current city</span><select id="mc-from" required></select></label>
+              <label class="mc-field"><span>Destination city</span><select id="mc-to" required></select></label>
+              <label class="mc-field"><span>Move distance (miles)</span><input type="number" id="mc-distance" min="25" step="25" placeholder="Auto-estimate"></label>
+              <label class="mc-field"><span>Home size</span>
+                <select id="mc-size">
+                  <option value="studio">Studio</option>
+                  <option value="1br" selected>1 bedroom</option>
+                  <option value="2br">2 bedroom</option>
+                  <option value="3br">3+ bedroom</option>
+                </select>
+              </label>
+              <label class="mc-field"><span>Moving type</span>
+                <select id="mc-move-type">
+                  <option value="diy">DIY</option>
+                  <option value="truck" selected>Rental truck</option>
+                  <option value="movers">Professional movers</option>
+                </select>
+              </label>
+              <label class="mc-field"><span>Family size</span><input type="number" id="mc-family" min="1" max="8" value="2"></label>
+              <div class="mc-checks">
+                <label><input type="checkbox" id="mc-pets"> Pets</label>
+                <label><input type="checkbox" id="mc-temp"> Temporary housing (about 1 week)</label>
+                <label><input type="checkbox" id="mc-flights"> Flights for household</label>
+                <label><input type="checkbox" id="mc-storage"> Storage unit</label>
+                <label><input type="checkbox" id="mc-vehicle"> Vehicle transport</label>
+              </div>
+              <div class="mc-field mc-field--full">
+                <button type="submit" class="mc-btn">Estimate Moving Costs</button>
+              </div>
+            </form>
+            <div class="mc-results" aria-live="polite">
+              <div class="mc-results-grid">
+                <article class="mc-result-card"><p>Estimated moving cost</p><strong id="mc-move-range">$4,200–$6,100</strong></article>
+                <article class="mc-result-card"><p>Immediate cash needed</p><strong id="mc-immediate">$8,900</strong></article>
+                <article class="mc-result-card"><p>Monthly cost difference</p><strong id="mc-monthly-diff" class="mc-result-delta mc-result-delta--up">+$650/month</strong></article>
+              </div>
+              <p style="font-size:0.86rem;color:var(--mc-muted);margin:0.75rem 0 0">Immediate cash includes:</p>
+              <ul class="mc-immediate-list" id="mc-immediate-list">
+                <li>Deposits and first month rent</li>
+                <li>Moving services</li>
+                <li>Utility setup and essentials</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <script type="application/json" id="mc-catalog">[{"id":"phoenix","name":"Phoenix","state":"phoenix","stateName":"Arizona","region":"west","rent":1650,"groceries":390,"utilities":210,"transport":340,"taxes":180,"colIndex":105,"salaryComfort":76000,"path":"/living/housing/moving-cost-calculator/phoenix","colPath":"/living/housing/cost-of-living-by-city/phoenix"},{"id":"california/los-angeles","name":"Los Angeles","state":"california","stateName":"California","region":"west","rent":2600,"groceries":520,"utilities":210,"transport":420,"taxes":180,"colIndex":152,"salaryComfort":105000,"path":"/living/housing/moving-cost-calculator/california/los-angeles","colPath":"/living/housing/cost-of-living-by-city/california/los-angeles"},{"id":"california/san-diego","name":"San Diego","state":"california","stateName":"California","region":"west","rent":2550,"groceries":500,"utilities":215,"transport":400,"taxes":180,"colIndex":148,"salaryComfort":102000,"path":"/living/housing/moving-cost-calculator/california/san-diego","colPath":"/living/housing/cost-of-living-by-city/california/san-diego"},{"id":"california/san-francisco","name":"San Francisco","state":"california","stateName":"California","region":"west","rent":3200,"groceries":540,"utilities":200,"transport":350,"taxes":180,"colIndex":168,"salaryComfort":125000,"path":"/living/housing/moving-cost-calculator/california/san-francisco","colPath":"/living/housing/cost-of-living-by-city/california/san-francisco"},{"id":"denver","name":"Denver","state":"denver","stateName":"Colorado","region":"west","rent":1950,"groceries":430,"utilities":185,"transport":340,"taxes":180,"colIndex":118,"salaryComfort":88000,"path":"/living/housing/moving-cost-calculator/denver","colPath":"/living/housing/cost-of-living-by-city/denver"},{"id":"florida/miami","name":"Miami","state":"florida","stateName":"Florida","region":"south","rent":2200,"groceries":430,"utilities":225,"transport":340,"taxes":180,"colIndex":118,"salaryComfort":88000,"path":"/living/housing/moving-cost-calculator/florida/miami","colPath":"/living/housing/cost-of-living-by-city/florida/miami"},{"id":"florida/orlando","name":"Orlando","state":"florida","stateName":"Florida","region":"south","rent":1600,"groceries":390,"utilities":200,"transport":300,"taxes":180,"colIndex":105,"salaryComfort":72000,"path":"/living/housing/moving-cost-calculator/florida/orlando","colPath":"/living/housing/cost-of-living-by-city/florida/orlando"},{"id":"florida/tampa","name":"Tampa","state":"florida","stateName":"Florida","region":"south","rent":1650,"groceries":395,"utilities":205,"transport":310,"taxes":180,"colIndex":106,"salaryComfort":74000,"path":"/living/housing/moving-cost-calculator/florida/tampa","colPath":"/living/housing/cost-of-living-by-city/florida/tampa"},{"id":"atlanta","name":"Atlanta","state":"atlanta","stateName":"Georgia","region":"south","rent":1650,"groceries":400,"utilities":195,"transport":350,"taxes":220,"colIndex":104,"salaryComfort":78000,"path":"/living/housing/moving-cost-calculator/atlanta","colPath":"/living/housing/cost-of-living-by-city/atlanta"},{"id":"chicago","name":"Chicago","state":"chicago","stateName":"Illinois","region":"midwest","rent":1850,"groceries":420,"utilities":195,"transport":310,"taxes":180,"colIndex":112,"salaryComfort":82000,"path":"/living/housing/moving-cost-calculator/chicago","colPath":"/living/housing/cost-of-living-by-city/chicago"},{"id":"new-york/new-york-city","name":"New York City","state":"new-york","stateName":"New York","region":"northeast","rent":3400,"groceries":550,"utilities":230,"transport":280,"taxes":650,"colIndex":158,"salaryComfort":120000,"path":"/living/housing/moving-cost-calculator/new-york/new-york-city","colPath":"/living/housing/cost-of-living-by-city/new-york/new-york-city"},{"id":"texas/austin","name":"Austin","state":"texas","stateName":"Texas","region":"south","rent":1750,"groceries":400,"utilities":195,"transport":370,"taxes":180,"colIndex":108,"salaryComfort":82000,"path":"/living/housing/moving-cost-calculator/texas/austin","colPath":"/living/housing/cost-of-living-by-city/texas/austin"},{"id":"texas/dallas","name":"Dallas","state":"texas","stateName":"Texas","region":"south","rent":1550,"groceries":390,"utilities":200,"transport":360,"taxes":180,"colIndex":102,"salaryComfort":76000,"path":"/living/housing/moving-cost-calculator/texas/dallas","colPath":"/living/housing/cost-of-living-by-city/texas/dallas"},{"id":"texas/houston","name":"Houston","state":"texas","stateName":"Texas","region":"south","rent":1400,"groceries":370,"utilities":210,"transport":350,"taxes":180,"colIndex":96,"salaryComfort":70000,"path":"/living/housing/moving-cost-calculator/texas/houston","colPath":"/living/housing/cost-of-living-by-city/texas/houston"},{"id":"seattle","name":"Seattle","state":"seattle","stateName":"Washington","region":"west","rent":2200,"groceries":480,"utilities":190,"transport":320,"taxes":180,"colIndex":135,"salaryComfort":95000,"path":"/living/housing/moving-cost-calculator/seattle","colPath":"/living/housing/cost-of-living-by-city/seattle"}]</script>
+      </div>
+    </section>
+    <section class="mc-band mc-band--alt">
+      <div class="container container--wide content-page">
+        <header class="mc-band__head"><h2>Miami relocation costs at a glance</h2><p>Typical monthly planning figures for singles and couples — adjust for family size and neighborhood.</p></header>
+        <div class="mc-state-stats" role="list">
+          <div class="mc-state-stat" role="listitem"><strong>$2,200</strong><span>Typical 1BR rent</span></div>
+          <div class="mc-state-stat" role="listitem"><strong>$3,375</strong><span>Monthly essentials</span></div>
+          <div class="mc-state-stat" role="listitem"><strong>118</strong><span>COL index (US = 100)</span></div>
+          <div class="mc-state-stat" role="listitem"><strong>$88,000</strong><span>Comfort salary (gross)</span></div>
+        </div>
+        <div class="mc-insights">
+          <h3 class="mc-insights__heading">Miami budget checkpoints</h3>
+          <div class="mc-insights-grid">
+            <article class="mc-insight-card">
+              <span class="mc-insight-card__num" aria-hidden="true">1</span>
+              <div class="mc-insight-card__body">
+                <h3>Transportation and parking first</h3>
+                <p>Include commute fuel, tolls, or transit in your monthly plan — not just rent. Include this in your monthly budget before locking your rent target.</p>
+              </div>
+            </article>
+            <article class="mc-insight-card">
+              <span class="mc-insight-card__num" aria-hidden="true">2</span>
+              <div class="mc-insight-card__body">
+                <h3>Anchor your core monthly baseline</h3>
+                <p>Groceries near $430/mo and utilities near $225/mo in this model. Add debt, childcare, and insurance to personalize your real monthly number.</p>
+              </div>
+            </article>
+            <article class="mc-insight-card">
+              <span class="mc-insight-card__num" aria-hidden="true">3</span>
+              <div class="mc-insight-card__body">
+                <h3>Family-income planning matters</h3>
+                <p>Family of four planning often needs near $82,000 gross depending on childcare and debt. Use take-home pay to pressure-test that target before moving.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <aside class="what-this-means" role="note">
+          <p class="what-this-means__title">What this means for you</p>
+          <p>Use the calculator above with your origin city selected. If immediate cash or monthly difference looks tight, compare a nearby suburb or another Florida city before signing.</p>
+        </aside>
+      </div>
+    </section>
+    <section class="mc-band mc-rec-band">
+      <div class="container container--wide">
+        <header class="mc-band__head"><h2>Tips for moving to Miami</h2><p>Checklist-style guidance to pair with your estimate above.</p></header>
+        <div class="mc-rec-grid">
+          <article class="mc-rec-card">
+            <h3>Before you sign in Miami</h3>
+            <ul class="mc-rec-list">            <li>Ask for total move-in cash: deposit, first month, fees, and broker charges.</li>
+            <li>Confirm commute cost and parking before you accept a lower rent farther out.</li>
+            <li>Compare Miami to other Florida cities on this site, not national averages.</li>
+            </ul>
+          </article>
+          <article class="mc-rec-card">
+            <h3>Move week</h3>
+            <ul class="mc-rec-list">            <li>Photograph unit condition on day one for your deposit record.</li>
+            <li>Set up utilities and internet two weeks ahead to avoid rush fees.</li>
+            <li>Keep essentials in one bag — not on the moving truck.</li>
+            </ul>
+          </article>
+          <article class="mc-rec-card">
+            <h3>First month budget</h3>
+            <ul class="mc-rec-list">            <li>Track actual spend against your calculator estimate after 30 days.</li>
+            <li>Delay furniture and decor until cash flow stabilizes.</li>
+            <li>Requote renter and auto insurance for your new ZIP code.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="mc-band">
+      <div class="container container--wide">
+        <header class="mc-band__head"><h2>Related tools for your Miami move</h2><p>Run take-home pay and housing calculators with the same cities you used above.</p></header>
+        <div class="mc-tool-grid">
+          <a class="mc-tool-card" href="/hourly-to-salary-after-tax/state/florida/"><h3>Florida take-home pay calculator</h3><p>Convert gross offers to net pay after state and local tax.</p></a>
+          <a class="mc-tool-card" href="/living/housing/how-much-rent-can-i-afford"><h3>Rent affordability calculator</h3><p>Cap rent using take-home pay after the move.</p></a>
+          <a class="mc-tool-card" href="/living/housing/cost-of-living-by-city/florida/miami"><h3>Cost of living in Miami</h3><p>Rent, groceries, utilities, and salary targets.</p></a>
+          <a class="mc-tool-card" href="/living/housing/how-much-house-can-i-afford/florida/miami"><h3>House affordability in Miami</h3><p>Test buying if you plan to purchase after relocating.</p></a>
+          <a class="mc-tool-card" href="/rent-vs-buy-calculator"><h3>Rent vs buy calculator</h3><p>Compare staying a renter vs buying in the new city.</p></a>
+          <a class="mc-tool-card" href="/living/housing/moving-cost-calculator"><h3>US moving cost calculator</h3><p>Change origin/destination cities and move type.</p></a>
+          <a class="mc-tool-card" href="/living/budgeting/average-monthly-expenses.html"><h3>Monthly expenses guide</h3><p>Budget buckets for the first year after moving.</p></a>
+        </div>
+      </div>
+    </section>
+    <section class="mc-band living-faq-section">
+      <div class="container container--wide">
+        <h2>FAQ — moving to Miami</h2>
+        <div class="faq-stack">          <article class="faq-item"><h3>What does it cost to move to Miami?</h3><p>Moving to Miami usually needs both a move budget and a higher monthly plan. Use this page to compare rent, tax, and setup costs against your current city.</p><p>Enter your origin city in the calculator above to see mover fees, immediate cash needs, and monthly cost difference side by side.</p></article>
+          <article class="faq-item"><h3>How much rent deposit is typical in Miami?</h3><p>Many renters budget first month rent plus a security deposit equal to one month. In competitive markets, landlords may also ask for the last month or a broker fee.</p><p>Plan immediate cash as deposit plus first month plus moving costs, not rent alone.</p></article>
+          <article class="faq-item"><h3>Is Miami cheaper than other Florida cities?</h3><p>Compare city pages inside Florida. Job-center and coastal metros often cost more than inland options even within the same state.</p><p>Salary offers should be compared after tax and rent, not on gross pay alone.</p></article>
+          <article class="faq-item"><h3>How much emergency cash should I keep after moving to Miami?</h3><p>A strong baseline is one month of local rent in cash after you pay move-in costs. If your income is commission-based or you are between jobs, target two to three months.</p><p>Keep this separate from your moving budget so small surprises do not go on high-interest debt.</p></article>
+          <article class="faq-item"><h3>What is the biggest budget mistake when relocating to Miami?</h3><p>Using national averages instead of neighborhood-level rent and commute costs. The second mistake is skipping tax and insurance changes when comparing job offers.</p><p>Run your numbers twice: once for move month cash, once for month-two recurring bills.</p></article>
+          <article class="faq-item"><h3>Can I afford Miami on my current salary?</h3><p>Use the affordability section in the US moving calculator hub with your salary, savings, and debt entered. Then set Miami as the destination to see whether move costs fit your cash on hand.</p><p>If monthly leftover is negative, either raise income, lower rent target, or delay the move until savings catch up.</p></article></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
+  <script src="/moving-cost.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',function(){MovingCost.bindForm({defaultTo:'florida/miami',runOnLoad:true});});</script>
+</body></html>

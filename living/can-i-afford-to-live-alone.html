@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Can You Afford To Live Alone? Solo Living Calculator | Income Clarity</title>
+  <meta name="description" content="Can I afford to live alone? Use our living alone calculator to see your solo living score, monthly budget, stress test, rent safety zone, and city comparisons.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://incomeclarity.com/living/can-i-afford-to-live-alone">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-live-alone.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path.endsWith("/index.html")) cleanPath = path.slice(0, -10);
+      else if (path.endsWith(".html")) cleanPath = path.slice(0, -5);
+      if (cleanPath !== path) window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+    })();
+  </script>
+</head>
+<body class="sla-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="/index.html">Income Clarity</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/hourly-to-salary-after-tax">Income</a>
+        <a href="/credit-card-payoff-calculator">Debt</a>
+        <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="sla-hero">
+      <div class="container--wide">
+        <nav class="take-home-return-nav" aria-label="Breadcrumb">
+          <ol class="take-home-return-breadcrumbs">
+            <li><a href="/living/budgeting">Budgeting</a></li>
+            <li aria-current="page">Can I afford to live alone</li>
+          </ol>
+        </nav>
+        <span class="label">Living · Solo budgeting</span>
+        <h1>Can You Afford To Live Alone?</h1>
+        <p class="sla-lead">See whether living solo fits your income, lifestyle, and financial goals without guessing. This calculator blends money math and real life tradeoffs.</p>
+        <p class="sla-lead sla-lead--small">Use this flow: estimate your score, review your monthly breathing room, test what-if changes, then follow the action plan that fits your risk level.</p>
+
+        <div class="sla-calc-shell">
+          <div class="sla-calc-grid">
+            <label class="sla-field"><span>Annual salary</span><input id="sla-salary" type="number" min="20000" step="1000" value="82000"></label>
+            <label class="sla-field"><span>City</span><select id="sla-city"><option value="nyc">NYC</option><option value="sf">San Francisco</option><option value="la" selected>Los Angeles</option><option value="austin">Austin</option><option value="chicago">Chicago</option><option value="atlanta">Atlanta</option></select></label>
+            <label class="sla-field"><span>Monthly debt payments</span><input id="sla-debt" type="number" min="0" step="25" value="450"></label>
+            <label class="sla-field"><span>Monthly savings goal</span><input id="sla-goal" type="number" min="0" step="25" value="700"></label>
+            <label class="sla-field"><span>Lifestyle preference</span><select id="sla-life"><option value="minimal">Minimal</option><option value="comfortable" selected>Comfortable</option><option value="flexible">Flexible</option><option value="premium">Premium</option></select></label>
+          </div>
+          <div class="sla-options">
+            <label><input id="sla-student" type="checkbox"> Student loans</label>
+            <label><input id="sla-car" type="checkbox" checked> Car payment</label>
+            <label><input id="sla-pet" type="checkbox"> Pet ownership</label>
+            <label><input id="sla-remote" type="checkbox"> Remote or hybrid work</label>
+          </div>
+          <button class="sla-btn" id="sla-run" type="button">See My Solo Living Score</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="sla-section">
+      <div class="container--wide sla-score-wrap">
+        <h2>Solo Living Score</h2>
+        <p class="sla-note">This score combines fixed costs, savings behavior, and emergency resilience. It is not a yes or no answer. It shows how much pressure your budget is likely to feel each month.</p>
+        <div class="sla-gauge" aria-hidden="true"><span class="sla-gauge-pin" id="sla-pin"></span></div>
+        <div class="sla-score-card">
+          <h3 id="sla-score-label">Comfortable</h3>
+          <p id="sla-score-text">You are likely able to live alone comfortably while still saving consistently.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sla-section sla-section--alt">
+      <div class="container--wide">
+        <h2>Monthly Money Breakdown</h2>
+        <p class="sla-note">This layout shows where your money goes first every month. Focus on rent, debt, and transport because those are hardest to change fast.</p>
+        <div class="sla-stack" id="sla-breakdown"></div>
+        <p class="sla-note" id="sla-breathing"></p>
+      </div>
+    </section>
+
+    <section class="sla-section">
+      <div class="container--wide">
+        <h2>What's Making It Hard?</h2>
+        <p class="sla-note">These are your current pressure points ranked by impact. Focus on the top one first. Then re-run your score before changing anything else.</p>
+        <div class="sla-grid-2" id="sla-hard-grid">
+          <article class="sla-card"><h3>Top stressor</h3><p id="sla-hard-top"></p></article>
+          <article class="sla-card"><h3>Second stressor</h3><p id="sla-hard-second"></p></article>
+          <article class="sla-card"><h3>Third stressor</h3><p id="sla-hard-third"></p></article>
+          <article class="sla-card"><h3>Quick fix to test first</h3><p id="sla-hard-fix"></p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sla-section sla-section--alt">
+      <div class="container--wide">
+        <h2>What If? Scenario Simulator</h2>
+        <p class="sla-note">Try realistic life changes, not perfect-world assumptions. Start with one preset below, then fine-tune sliders. This helps you see which change gives the biggest return.</p>
+        <div class="sla-scenario-presets" role="group" aria-label="Scenario presets">
+          <button type="button" class="sla-preset-btn" data-preset="rent">Cheaper apartment</button>
+          <button type="button" class="sla-preset-btn" data-preset="salary">Pay raise path</button>
+          <button type="button" class="sla-preset-btn" data-preset="debt">Debt cleanup</button>
+          <button type="button" class="sla-preset-btn" data-preset="hybrid">Hybrid work move</button>
+          <button type="button" class="sla-preset-btn" data-preset="reset">Reset scenario</button>
+        </div>
+        <div class="sla-grid-2">
+          <div class="sla-card sla-slider">
+            <label for="sla-rent-cut">Cheaper apartment (monthly rent drop)</label>
+            <p class="sla-helper">Example: switching neighborhoods or choosing a smaller unit.</p>
+            <input id="sla-rent-cut" type="range" min="0" max="700" step="25" value="150">
+            <p class="sla-range-value" id="sla-rent-cut-value">-$150/month rent</p>
+            <label for="sla-salary-up">Salary increase (gross per year)</label>
+            <p class="sla-helper">Example: promotion, job switch, or side income.</p>
+            <input id="sla-salary-up" type="range" min="0" max="30000" step="1000" value="5000">
+            <p class="sla-range-value" id="sla-salary-up-value">+$5,000/year gross</p>
+            <label for="sla-debt-drop">Debt payoff (monthly payment removed)</label>
+            <p class="sla-helper">Example: credit card paid off or refinanced loan.</p>
+            <input id="sla-debt-drop" type="range" min="0" max="900" step="25" value="100">
+            <p class="sla-range-value" id="sla-debt-drop-value">-$100/month debt</p>
+            <label><input id="sla-suburb" type="checkbox"> Moving to suburbs</label>
+            <label><input id="sla-roommate" type="checkbox"> Roommate option</label>
+          </div>
+          <div class="sla-card sla-sim-results">
+            <h3>Dynamic Scenario Insight</h3>
+            <div class="sla-sim-kpis">
+              <div class="sla-sim-kpi"><span>Current breathing room</span><strong id="sla-scenario-before"></strong></div>
+              <div class="sla-sim-kpi"><span>Scenario breathing room</span><strong id="sla-scenario-after">Try sliders to test</strong></div>
+              <div class="sla-sim-kpi"><span>Monthly change</span><strong id="sla-scenario-change">—</strong></div>
+            </div>
+            <p id="sla-scenario-text">Try sliders to see how your score changes.</p>
+            <p class="sla-note" id="sla-scenario-delta"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sla-section">
+      <div class="container--wide">
+        <h2>Solo Living Stress Test</h2>
+        <p class="sla-note">This section answers a practical question: can your budget survive surprises without forcing new debt?</p>
+        <div class="sla-grid-2">
+          <div class="sla-card">
+            <p class="sla-stress-title">Resilience check</p>
+            <ul id="sla-stress-test" class="sla-stress-list"></ul>
+          </div>
+          <div class="sla-card sla-stress-card">
+            <p class="sla-stress-title">Overall readiness</p>
+            <h3 id="sla-stress-headline">Build stability before moving</h3>
+            <p id="sla-flex-score">Financial flexibility score: 0/100</p>
+            <div class="sla-stress-meter"><span id="sla-flex-bar" style="width:50%"></span></div>
+            <p class="sla-trapped-pill" id="sla-trapped"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sla-section sla-section--alt">
+      <div class="container--wide">
+        <h2>Where Living Alone Gets Easier</h2>
+        <p class="sla-note">Use this as a fast city screen, then open the linked city guides for deeper planning.</p>
+        <table class="sla-city-table">
+          <thead><tr><th>City</th><th>Comfortable Salary</th><th>Avg Rent</th><th>Solo Score</th></tr></thead>
+          <tbody>
+            <tr><td><a href="/living/housing/moving-cost-calculator/texas/austin">Austin</a></td><td>$76,000</td><td>$1,650</td><td>Strong</td></tr>
+            <tr><td><a href="/living/housing/moving-cost-calculator/atlanta">Atlanta</a></td><td>$74,000</td><td>$1,600</td><td>Strong</td></tr>
+            <tr><td><a href="/living/housing/moving-cost-calculator/chicago">Chicago</a></td><td>$82,000</td><td>$1,800</td><td>Comfortable</td></tr>
+            <tr><td><a href="/living/housing/moving-cost-calculator/california/los-angeles">Los Angeles</a></td><td>$98,000</td><td>$2,450</td><td>Tight</td></tr>
+            <tr><td><a href="/living/housing/moving-cost-calculator/new-york/new-york-city">NYC</a></td><td>$112,000</td><td>$2,800</td><td>Tight</td></tr>
+            <tr><td><a href="/living/housing/moving-cost-calculator/california/san-francisco">San Francisco</a></td><td>$122,000</td><td>$3,000</td><td>Struggling</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="sla-section">
+      <div class="container--wide">
+        <h2>Reality Check Insights</h2>
+        <p class="sla-note">These are common misses from first-year solo budgets. Planning for them now keeps your score stable later.</p>
+        <div class="sla-grid-3">
+          <article class="sla-card sla-insight-card">
+            <h3>Utilities creep up fast</h3>
+            <p><strong>Reality:</strong> Most people underestimate utilities by 20% to 30% in the first solo lease.</p>
+            <p><strong>What to do:</strong> Budget from summer and winter bills, not the lowest month.</p>
+          </article>
+          <article class="sla-card sla-insight-card">
+            <h3>Solo living changes daily spending</h3>
+            <p><strong>Reality:</strong> Delivery, convenience, and one-off purchases usually rise when you live alone.</p>
+            <p><strong>What to do:</strong> Set a weekly personal-spend cap and track it for your first 8 weeks.</p>
+          </article>
+          <article class="sla-card sla-insight-card">
+            <h3>Commute time has money value</h3>
+            <p><strong>Reality:</strong> A shorter commute can offset higher rent when gas, parking, and time are high.</p>
+            <p><strong>What to do:</strong> Compare rent with total commute cost, not rent alone.</p>
+          </article>
+        </div>
+        <div class="sla-card sla-insight-note">
+          <p><strong>Simple rule:</strong> Add a 10% “new place adjustment buffer” to your first 3 months. It protects your score while your real spending pattern settles.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sla-section sla-section--alt">
+      <div class="container--wide">
+        <h2>Rent Safety Zone</h2>
+        <p class="sla-note">This is more useful than a single 30% rule. Use these three tiers to pick your comfort level before apartment hunting.</p>
+        <div class="sla-rent-zones">
+          <div class="sla-zone sla-zone--safe"><strong>Safe rent</strong><span id="sla-safe-rent">$1,400</span> keeps savings and stability healthy.</div>
+          <div class="sla-zone sla-zone--stretch"><strong>Stretch rent</strong><span id="sla-stretch-rent">$1,900</span> can work, but flexibility drops.</div>
+          <div class="sla-zone sla-zone--risky"><strong>Risky rent</strong><span id="sla-risky-rent">$2,300</span> raises paycheck-to-paycheck pressure.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sla-section">
+      <div class="container--wide">
+        <h2>Life Tradeoffs of Living Alone</h2>
+        <p class="sla-note">Money is only part of this decision. Use this section to weigh quality-of-life gains against financial pressure.</p>
+        <div class="sla-grid-2">
+          <article class="sla-card sla-tradeoff-card">
+            <h3>What you gain</h3>
+            <ul class="sla-tradeoff-list">
+              <li><strong>Peace and privacy:</strong> Your schedule, your space, your routines.</li>
+              <li><strong>Better focus:</strong> Many people report better sleep and less social friction.</li>
+              <li><strong>Home control:</strong> Cleaner routines, fewer conflicts, easier boundaries.</li>
+            </ul>
+          </article>
+          <article class="sla-card sla-tradeoff-card">
+            <h3>What it can cost</h3>
+            <ul class="sla-tradeoff-list">
+              <li><strong>Lower savings pace:</strong> Solo fixed costs can slow debt payoff and investing.</li>
+              <li><strong>Lifestyle compression:</strong> Less room for travel, dining, or big purchases.</li>
+              <li><strong>Location tradeoff:</strong> You may choose a longer commute to lower rent.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="sla-card sla-tradeoff-note">
+          <p><strong>Reality check:</strong> Living alone is often worth it when mental calm and personal control improve your daily life enough to justify slower savings for a season.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sla-section sla-section--alt">
+      <div class="container--wide">
+        <h2>Your Action Plan</h2>
+        <p class="sla-note">Follow the plan for your current score tier. Re-run the calculator after each change so your next move is data-backed.</p>
+        <div class="sla-grid-2">
+          <div class="sla-card sla-action-card sla-action-card--warn">
+            <h3>If your score is Struggling or Tight</h3>
+            <ol class="sla-action-steps">
+              <li><strong>Set a hard rent ceiling:</strong> Use the rent safety zone and do not exceed your stretch tier.</li>
+              <li><strong>Remove one fixed payment:</strong> Focus on debt payoff or lower car cost first.</li>
+              <li><strong>Build a starter buffer:</strong> Save at least one month of essential expenses before moving.</li>
+              <li><strong>Test one scenario weekly:</strong> Re-run this calculator after each improvement.</li>
+            </ol>
+          </div>
+          <div class="sla-card sla-action-card sla-action-card--good">
+            <h3>If your score is Comfortable, Strong, or Very Safe</h3>
+            <ol class="sla-action-steps">
+              <li><strong>Move with a written budget:</strong> Lock in rent, utilities, food, and savings targets.</li>
+              <li><strong>Protect your downside:</strong> Add renters insurance and automate bill payments.</li>
+              <li><strong>Automate long-term goals:</strong> Set savings and investing transfers on payday.</li>
+              <li><strong>Review after 60 days:</strong> Adjust spending so lifestyle creep stays controlled.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="sla-card sla-action-next">
+          <h3>Best next step right now</h3>
+          <p>Pick one change that improves breathing room by at least <strong>$200/month</strong>. That single move usually shifts your affordability tier faster than many small tweaks.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sla-section">
+      <div class="container--wide">
+        <h2>Related Tools and Next Steps</h2>
+        <p class="sla-note">Use these guides to improve score drivers: take-home pay, debt load, rent target, emergency buffer, and childcare pressure.</p>
+        <div class="sla-card sla-context-links">
+          <p>If your solo score looks tight, start with your real net income in the <a href="/hourly-to-salary-after-tax">take-home pay calculator</a>, then set your housing cap in <a href="/living/housing/how-much-rent-can-i-afford">how much rent you can afford</a>. This gives you a realistic rent target before tours.</p>
+          <p>Next, pressure-test your budget with the <a href="/living/budgeting/average-monthly-expenses">monthly expenses planner</a> and the <a href="/living/budgeting/50-30-20-budget-rule">50/30/20 guide</a>. If debt is the blocker, run the <a href="/credit-card-payoff-calculator">debt payoff calculator</a> to see how quickly you can free monthly cash flow.</p>
+          <p>If your plan is strong, compare long-term housing paths with the <a href="/rent-vs-buy-calculator">rent vs buy calculator</a> and the <a href="/living/housing/how-much-house-can-i-afford">house affordability calculator</a>. For relocation decisions, use <a href="/living/housing/cost-of-living-by-city">cost of living by city</a> and the <a href="/living/housing/moving-cost-calculator">moving cost calculator</a>.</p>
+          <p>For life-stage planning, read the <a href="/living/family-budgeting/salary-needed-to-live-comfortably">comfortable salary guide</a>, the <a href="/living/lifestyle-family/family-of-4-income-guide/">family of 4 income guide</a>, and the <a href="/living/lifestyle-family/budgeting-for-roommates/">roommate budgeting guide</a> to compare solo living against shared-housing tradeoffs.</p>
+        </div>
+        <div class="sla-links">
+          <a href="/hourly-to-salary-after-tax">Start with take-home pay</a>
+          <a href="/living/housing/how-much-rent-can-i-afford">Set your rent target</a>
+          <a href="/living/budgeting/average-monthly-expenses">Build your monthly plan</a>
+          <a href="/credit-card-payoff-calculator">Lower debt pressure</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
+  <script src="/live-alone.js"></script>
+</body>
+</html>

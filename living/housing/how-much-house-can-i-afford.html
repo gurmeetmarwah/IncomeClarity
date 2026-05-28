@@ -3,17 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>How Much House Can You Really Afford in 2026? Income vs Mortgage Reality | Income Clarity</title>
-  <meta name="description" content="Lenders will pre-approve you for more than you can actually afford. Real income, real mortgage math, and the 28/36 rule for 2026 US buyers.">
+  <title>How Much House Can I Afford? Free Calculator (2026) | Income Clarity</title>
+  <meta name="description" content="Find how much house you can afford from income, debt, down payment, and rate. See price, monthly payment, safe range, and stress level. By state and city.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://incomeclarity.com/living/housing/how-much-house-can-i-afford">
-  <meta property="og:title" content="How Much House Can You Really Afford in 2026? Income vs Mortgage Reality">
-  <meta property="og:description" content="Lenders will pre-approve you for more than you can actually afford. Real income, real mortgage math, and the 28/36 rule for 2026 US buyers.">
-  <meta property="og:site_name" content="Income Clarity">
-  <meta property="og:locale" content="en_US">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="How Much House Can You Really Afford in 2026? Income vs Mortgage Reality">
-  <meta name="twitter:description" content="Lenders will pre-approve you for more than you can actually afford. Real income, real mortgage math, and the 28/36 rule for 2026 US buyers.">
+  <meta property="og:title" content="How Much House Can I Afford? Free Calculator (2026)">
+  <meta property="og:description" content="Find how much house you can afford from income, debt, down payment, and rate. See price, monthly payment, safe range, and stress level.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://incomeclarity.com/living/housing/how-much-house-can-i-afford">
   <link rel="stylesheet" href="/styles.css">
@@ -22,113 +17,24 @@
     (function () {
       const path = window.location.pathname;
       let cleanPath = path;
-      if (path === "/index.html") {
-        cleanPath = "/";
-      } else if (path.endsWith("/index.html")) {
-        cleanPath = path.slice(0, -10);
-      } else if (path.endsWith(".html")) {
-        cleanPath = path.slice(0, -5);
-      }
-      if (cleanPath !== path) {
-        window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
-      }
+      if (path === "/index.html") cleanPath = "/";
+      else if (path.endsWith("/index.html")) cleanPath = path.slice(0, -10);
+      else if (path.endsWith(".html")) cleanPath = path.slice(0, -5);
+      if (cleanPath !== path) window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
     })();
   </script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "How Much House Can You Really Afford in 2026? Income vs Mortgage Reality",
-    "description": "Lenders will pre-approve you for more than you can actually afford. Real income, real mortgage math, and the 28/36 rule for 2026 US buyers.",
-    "author": { "@type": "Organization", "name": "IncomeClarityLab" },
-    "publisher": { "@type": "Organization", "name": "IncomeClarityLab" },
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://incomeclarity.com/living/housing/how-much-house-can-i-afford" }
-  }
+  {"@context":"https://schema.org","@type":"WebApplication","name":"House Affordability Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web","description":"Estimate affordable home price from income, debt, down payment, interest rate, and location using 28/36 rules."}
   </script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "How to estimate how much house you can afford",
-    "description": "Start from gross income, apply common housing-debt ratios, adjust for down payment and interest rate, then compare to a personal sleep-at-night payment below lender maximums.",
-    "totalTime": "PT30M",
-    "step": [
-      { "@type": "HowToStep", "position": 1, "name": "Confirm gross monthly income", "text": "Use stable pre-tax income lenders will document, not side income you cannot prove." },
-      { "@type": "HowToStep", "position": 2, "name": "Apply the 28 percent housing test", "text": "Estimate principal, interest, taxes, and insurance as a share of gross monthly income." },
-      { "@type": "HowToStep", "position": 3, "name": "Apply the 36 percent total debt test", "text": "Add minimum payments on cars, cards, and student loans to housing to see if you stay near typical back-end limits." },
-      { "@type": "HowToStep", "position": 4, "name": "Layer down payment and rate", "text": "A larger down payment or lower rate raises the price that fits a fixed payment; the opposite shrinks it." },
-      { "@type": "HowToStep", "position": 5, "name": "Stress-test with a rent vs buy model", "text": "Use a calculator with your horizon, taxes, and maintenance to see if ownership fits cash flow beyond the mortgage." }
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How much house can I afford based on my salary?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Start with your monthly gross pay. Use the 28% housing rule and the 36% total debt rule. Then adjust for down payment, rate, taxes, and insurance. Your lender will set the real cap."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the 28/36 rule for buying a house?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Keep housing near 28% of your gross pay. Keep all debt near 36% of your gross pay. These are common bank rules. Some lenders go higher or lower."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How many times my salary should my house be?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "About 2.5 to 3 times your gross pay is a quick rule. But at high rates or with other debt, use the 28/36 payment math instead."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Should I use gross or net income for how much house I can afford?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The bank uses gross pay for its rules. But you live on take-home pay. Check both before you buy."
-        }
-      }
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Rent vs buy calculator",
-        "item": "https://incomeclarity.com/rent-vs-buy-calculator"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Housing affordability",
-        "item": "https://incomeclarity.com/living/housing"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "How much house can I afford",
-        "item": "https://incomeclarity.com/living/housing/how-much-house-can-i-afford"
-      }
-    ]
-  }
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much house can I afford on my income?","acceptedAnswer":{"@type":"Answer","text":"Use 28% of gross pay for housing and 36% for all debt. Enter income, debts, down payment, and rate in our calculator for a recommended price and monthly payment."}},
+    {"@type":"Question","name":"What is a safe affordability range?","acceptedAnswer":{"@type":"Answer","text":"We show a range about 15% below to at the 28% cap. Many buyers aim 5–10% under the lender max for savings and life changes."}},
+    {"@type":"Question","name":"Does location change how much house I can afford?","acceptedAnswer":{"@type":"Answer","text":"Yes. Property tax and insurance change your monthly payment for the same home price. Pick your state or open a state page for local defaults."}}
+  ]}
   </script>
 </head>
-<body>
+<body class="ha-page">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="/index.html">Income Clarity</a>
@@ -141,331 +47,158 @@
     </div>
   </header>
 
-  <main class="container content-page debt-interest-works">
-    <nav class="take-home-return-nav" aria-label="Breadcrumb">
-      <ol class="take-home-return-breadcrumbs">
-        <li><a href="/rent-vs-buy-calculator">Rent vs buy calculator</a></li>
-        <li><a href="/living/housing">Housing affordability</a></li>
-        <li aria-current="page">How much house can I afford</li>
-      </ol>
-    </nav>
-
-    <p class="debt-minimum-guide-back">
-      <a class="debt-minimum-guide-back-link" id="housing-guide-back-link" href="/living/housing" data-housing-back-default="/living/housing">← Housing affordability</a>
-    </p>
-
-    <article>
-      <header class="take-home-guide-header">
+  <main>
+    <section class="ha-hero" aria-labelledby="ha-hero-title">
+      <div class="container">
+        <nav class="take-home-return-nav" aria-label="Breadcrumb">
+          <ol class="take-home-return-breadcrumbs">
+            <li><a href="/living/housing">Housing</a></li>
+            <li aria-current="page">How much house can I afford</li>
+          </ol>
+        </nav>
         <span class="label">Living · Home buying</span>
-        <h1>How Much House Can You Really Afford in 2026?</h1>
-        <p class="lead take-home-guide-lead">On a $90,000 salary, your safe house payment is about <strong>$2,100 a month</strong>. That fits a home around <strong>$280,000</strong> at today's rates. The bank may approve more. Your gut may want less. Here is the simple 28/36 rule. Plus real numbers for five common salaries.</p>
-      </header>
+        <h1 id="ha-hero-title">Find Out How Much House You Can Comfortably Afford</h1>
+        <p class="lead">What home price fits your real life? Enter your income, debts, down payment, rate, and location. We use the 28/36 rule lenders use — plus local tax and insurance — so you see price, monthly payment, a safe range, and how stressed the payment feels.</p>
 
-      <p class="state-salary-insight take-home-guide-at-a-glance" role="note"><strong>At a glance:</strong> Earn <strong>$90,000 a year</strong>? Your monthly gross is $7,500. The 28% rule sets your housing cap at <strong>$2,100 a month</strong>. That's your full payment — mortgage, tax, and insurance. It buys you a $280,000 home with 20% down at 6.5%. Push the down payment up or the rate down and the price goes up too. National median home prices sit near $420,000 — so this 28% rule may not stretch in every city.</p>
-
-      <nav class="take-home-guide-toc" aria-label="On this page">
-        <h2 class="take-home-guide-toc-title">On this page</h2>
-        <ul>
-          <li><a href="#rules-2836">The 28% and 36% rules (simple)</a></li>
-          <li><a href="#us-context">US median context (income &amp; prices)</a></li>
-          <li><a href="#visual-flow">From income to payment (visual)</a></li>
-          <li><a href="#examples-table">Comparative examples at different incomes</a></li>
-          <li><a href="#down-rate">Down payment &amp; interest rate levers</a></li>
-          <li><a href="#lender-vs-you">Lender max vs “sleep at night”</a></li>
-          <li><a href="#next-house-tools">Next steps &amp; tools</a></li>
-          <li><a href="#faq-house">FAQ</a></li>
-          <li><a href="#sources-house">Sources</a></li>
-        </ul>
-      </nav>
-
-      <section id="rules-2836" aria-labelledby="rules-2836-title">
-        <h2 id="rules-2836-title">The 28% and 36% rules in plain English</h2>
-        <p>These are the <strong>rules of thumb</strong> loan officers use. They are not laws. FHA, VA, and jumbo loans have other limits. But they help you understand "how did the bank get that number?"</p>
-        <div class="debt-stats-grid">
-          <div class="debt-stat-block">
-            <span class="debt-stat-value">~28%</span>
-            <span class="debt-stat-label"><strong>Housing rule:</strong> Your full payment (mortgage + tax + insurance) should be near <strong>28% of your gross pay</strong>.</span>
-          </div>
-          <div class="debt-stat-block">
-            <span class="debt-stat-value">~36%</span>
-            <span class="debt-stat-label"><strong>Total debt rule:</strong> Your housing plus car, card, and student loan payments should be near <strong>36% of your gross pay</strong>.</span>
-          </div>
-          <div class="debt-stat-block">
-            <span class="debt-stat-value">2.5–3×</span>
-            <span class="debt-stat-label"><strong>Quick check:</strong> Some buyers hear "<strong>2.5 to 3 times your salary</strong>" as a price cap. Useful when rates and debts are normal. Not when they're not.</span>
-          </div>
-        </div>
-      </section>
-
-      <section id="us-context" aria-labelledby="us-context-title">
-        <h2 id="us-context-title">US median context: how does your number compare?</h2>
-        <p>Your real number depends on your city. But US medians help you see if you are near the typical buyer.</p>
-        <div class="debt-data-table-wrap">
-          <table class="debt-data-table">
-            <caption>Rough US numbers for context (they shift each quarter)</caption>
-            <thead>
-              <tr>
-                <th scope="col">Measure</th>
-                <th scope="col">Typical US range</th>
-                <th scope="col">Why it matters</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Median household income</th>
-                <td>About <strong>$70,000 to $80,000</strong> a year in recent Census data.</td>
-                <td>This is your <strong>income anchor</strong> for the 28/36 rule. Many homes earn above or below it.</td>
-              </tr>
-              <tr>
-                <th scope="row">Median home sale price</th>
-                <td>About <strong>$400,000 to $420,000</strong> in recent years.</td>
-                <td>This is why <strong>payment-first</strong> math matters. The typical home is out of reach for the typical salary at today's rates.</td>
-              </tr>
-              <tr>
-                <th scope="row">Your city</th>
-                <td>Could be <strong>much higher or lower</strong> than the US median.</td>
-                <td>Two people with the same salary qualify for very different homes in Cleveland vs San Francisco. Taxes, insurance, and prices all differ.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="interest-viz-note">Pull the <strong>current</strong> numbers from the sources below. Do not trust an old blog table.</p>
-      </section>
-
-      <section id="visual-flow" aria-labelledby="visual-flow-title">
-        <h2 id="visual-flow-title">From your salary to your home price</h2>
-        <figure class="interest-viz-figure" aria-labelledby="house-flow-caption">
-          <figcaption id="house-flow-caption" class="interest-viz-caption">How banks start the math (the simple version)</figcaption>
-          <div class="interest-viz-pipeline" role="presentation">
-            <div class="interest-viz-step">
-              <span class="interest-viz-step-label">Gross pay</span>
-              <span class="interest-viz-step-detail">Your monthly income before tax</span>
+        <div class="ha-calc-shell" id="ha-calculator">
+          <form id="ha-calc-form" class="ha-calc-form" aria-label="House affordability calculator">
+            <label class="ha-calc__field"><span>Annual income (before tax)</span><input type="number" id="ha-income" min="20000" step="1000" value="100000" required></label>
+            <label class="ha-calc__field"><span>Other monthly debt ($) — car, cards, loans</span><input type="number" id="ha-debt" min="0" step="25" value="350" required></label>
+            <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" min="0" step="2500" value="40000" required></label>
+            <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" min="2" max="15" step="0.05" value="6.5" required></label>
+            <label class="ha-calc__field ha-calc__field--full"><span>Location (for tax &amp; insurance)</span>
+              <select id="ha-location">
+                <option value="national" selected>US average</option>
+                <option value="california">California</option>
+                <option value="texas">Texas</option>
+                <option value="florida">Florida</option>
+                <option value="new-york">New York</option>
+              </select>
+            </label>
+            <div class="ha-calc__actions">
+              <button type="submit" class="ha-calc__btn">Calculate</button>
             </div>
-            <span class="interest-viz-arrow" aria-hidden="true">→</span>
-            <div class="interest-viz-step interest-viz-step-mid">
-              <span class="interest-viz-step-label">× 28%</span>
-              <span class="interest-viz-step-detail">Your housing payment cap</span>
-            </div>
-            <span class="interest-viz-arrow" aria-hidden="true">→</span>
-            <div class="interest-viz-step">
-              <span class="interest-viz-step-label">Home price</span>
-              <span class="interest-viz-step-detail">Depends on rate, down, taxes</span>
-            </div>
-          </div>
-        </figure>
-
-        <figure class="interest-viz-figure" aria-labelledby="split-lender-caption">
-          <figcaption id="split-lender-caption" class="interest-viz-caption">Where your gross dollar goes (example)</figcaption>
-          <div class="interest-viz-splitbar" role="img" aria-label="Twenty eight percent housing and seventy two percent everything else">
-            <span class="interest-viz-split-interest" style="flex: 28;">~28% housing</span>
-            <span class="interest-viz-split-principal" style="flex: 72;">~72% taxes, life, savings, other debt</span>
-          </div>
-          <p class="interest-viz-note">Real life takes a bigger bite. <strong>Federal tax, FICA, and 401(k)</strong> all come out first. So your real cash feels tighter than 72%. Run your real numbers with <a href="/hourly-to-salary-after-tax#hourly-salary-form">take-home pay</a> and the <a href="/salary-needed-to-live-comfortably.html">comfort salary guide</a>.</p>
-        </figure>
-      </section>
-
-      <section id="examples-table" aria-labelledby="examples-table-title">
-        <h2 id="examples-table-title">Real examples: what 28% buys at four salaries</h2>
-        <p>Take your <strong>yearly gross</strong>. Divide by 12 for monthly. Then take <strong>28%</strong>. That's your housing cap. Not a pre-approval — just the start.</p>
-        <div class="debt-data-table-wrap">
-          <table class="debt-data-table">
-            <caption>Housing cap and home price at four common US salaries</caption>
-            <thead>
-              <tr>
-                <th scope="col">Gross income</th>
-                <th scope="col">Monthly gross</th>
-                <th scope="col">28% housing cap</th>
-                <th scope="col">Home price you can buy</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">$60,000 / yr</th>
-                <td>$5,000</td>
-                <td><strong>$1,400/mo</strong></td>
-                <td>~$180,000</td>
-              </tr>
-              <tr>
-                <th scope="row">$90,000 / yr</th>
-                <td>$7,500</td>
-                <td><strong>$2,100/mo</strong></td>
-                <td>~$280,000</td>
-              </tr>
-              <tr>
-                <th scope="row">$120,000 / yr</th>
-                <td>$10,000</td>
-                <td><strong>$2,800/mo</strong></td>
-                <td>~$380,000</td>
-              </tr>
-              <tr>
-                <th scope="row">$150,000 / yr</th>
-                <td>$12,500</td>
-                <td><strong>$3,500/mo</strong></td>
-                <td>~$475,000</td>
-              </tr>
-            </tbody>
-          </table>
+          </form>
+          <div id="ha-calc-results" class="ha-results" hidden aria-live="polite"></div>
         </div>
-        <p class="interest-viz-note">Home price assumes a 20% down payment, a 6.5% rate, and a 30-year loan. At today's high rates, the price you can buy is much smaller than during the 3% rate era. Even at the same salary.</p>
-      </section>
+      </div>
+    </section>
 
-      <aside class="what-this-means" role="note">
-        <p class="what-this-means__title">What this means for you</p>
-        <p>The 28% rule gives you a safe housing cap. But the bank may approve more. They look at <strong>your gross pay</strong>. You live on your <strong>take-home pay</strong>.</p>
-        <p>So always check two numbers. The bank's 28/36 cap. And your real after-tax budget. Pick the smaller one. Aim there. That's a payment you can sleep on.</p>
-      </aside>
-
-      <section id="down-rate" aria-labelledby="down-rate-title">
-        <h2 id="down-rate-title">Two levers that move your price: down payment and rate</h2>
-        <div class="interest-viz-fork" role="presentation">
-          <div class="interest-viz-fork-path interest-viz-fork-good">
-            <span class="interest-viz-fork-title">More down or lower rate</span>
-            <ul class="interest-viz-fork-list">
-              <li>Smaller loan. Lower mortgage payment.</li>
-              <li>20% down skips <strong>PMI</strong>. That saves $100 to $300 a month.</li>
-            </ul>
-          </div>
-          <div class="interest-viz-fork-path interest-viz-fork-caution">
-            <span class="interest-viz-fork-title">Less down or higher rate</span>
-            <ul class="interest-viz-fork-list">
-              <li>Bigger loan. Bigger payment. Same 28% buys less house.</li>
-              <li>Same salary now caps out at a <strong>lower</strong> home price.</li>
-            </ul>
-          </div>
+    <section class="ha-section" id="ha-by-state" aria-labelledby="ha-by-state-title">
+      <div class="container content-page">
+        <h2 id="ha-by-state-title">Home affordability by state</h2>
+        <p class="ha-section__lead">Tax, insurance, and median prices change what the same salary buys. Open your state for local numbers, city breakdowns, and a calculator with presets filled in.</p>
+        <div class="ha-state-grid">
+          <a class="ha-state-card" href="/living/housing/how-much-house-can-i-afford/california">
+            <h3>California</h3>
+            <p class="ha-state-card__meta">Median home ~$785k · High insurance · State income tax</p>
+            <span class="ha-state-card__cta">California affordability →</span>
+          </a>
+          <a class="ha-state-card" href="/living/housing/how-much-house-can-i-afford/texas">
+            <h3>Texas</h3>
+            <p class="ha-state-card__meta">Median home ~$345k · No state income tax · Higher property tax</p>
+            <span class="ha-state-card__cta">Texas affordability →</span>
+          </a>
+          <a class="ha-state-card" href="/living/housing/how-much-house-can-i-afford/florida">
+            <h3>Florida</h3>
+            <p class="ha-state-card__meta">Median home ~$395k · Insurance-heavy · No state income tax</p>
+            <span class="ha-state-card__cta">Florida affordability →</span>
+          </a>
+          <a class="ha-state-card" href="/living/housing/how-much-house-can-i-afford/new-york">
+            <h3>New York</h3>
+            <p class="ha-state-card__meta">Wide range: NYC vs upstate · Local tax in NYC</p>
+            <span class="ha-state-card__cta">New York affordability →</span>
+          </a>
         </div>
-        <p>Use the <a href="/rent-vs-buy-calculator#rent-vs-buy">rent vs buy calculator</a> to test <strong>price, rate, taxes, and insurance</strong> all at once.</p>
-      </section>
+      </div>
+    </section>
 
-      <section id="lender-vs-you" aria-labelledby="lender-vs-you-title">
-        <h2 id="lender-vs-you-title">Lender max vs the payment you can sleep on</h2>
-        <p>Banks will approve you <strong>at the edge</strong> of the rules. Smart buyers aim <strong>5% to 15% under</strong> that cap. That leaves room for daycare, travel, or a job change. If 28% feels tight on your real take-home pay, treat the bank's number as a <strong>ceiling</strong>. Not a target.</p>
-      </section>
+    <section class="ha-section" aria-labelledby="ha-results-explained">
+      <div class="container content-page">
+        <h2 id="ha-results-explained">What you see after you hit Calculate</h2>
+        <p class="ha-section__lead">You get four things at once: a home price, a monthly payment, a safe range, and a stress label. The range sits a bit below the max so you have room for repairs and life changes.</p>
+        <p>The breakdown cards split your payment into five parts. <strong>Mortgage</strong> is principal and interest. <strong>Taxes</strong> and <strong>insurance</strong> change by state. <strong>HOA</strong> applies to condos and some planned communities. <strong>Maintenance</strong> is a cash buffer we set at 1% of home value per year so you are not surprised by a new roof or HVAC.</p>
+        <aside class="what-this-means" role="note">
+          <p class="what-this-means__title">What this means for you</p>
+          <p>If tax and insurance eat half the payment, the same salary buys a smaller home. That is why we ask for location. Pick your state below for local defaults.</p>
+        </aside>
+      </div>
+    </section>
 
-      <section id="house-mini-calc" aria-labelledby="house-mini-calc-title">
-        <h2 id="house-mini-calc-title">Quick house affordability check</h2>
-        <p>Type your gross income. And your down payment. We'll show the home price the 28/36 rule supports.</p>
-        <form id="usahome-form" class="apr-mini-calc" onsubmit="return false;">
-          <label class="apr-mini-calc__field"><span>Gross income ($/year)</span><input type="number" id="usahome-gross" min="30000" step="2500" value="100000" required></label>
-          <label class="apr-mini-calc__field"><span>Down payment ($)</span><input type="number" id="usahome-down" min="0" step="2500" value="40000" required></label>
-          <label class="apr-mini-calc__field"><span>Other monthly debts ($)</span><input type="number" id="usahome-debts" min="0" step="25" value="350" required></label>
-          <label class="apr-mini-calc__field"><span>Mortgage rate (%)</span><input type="number" id="usahome-rate" min="2" max="15" step="0.05" value="6.5" required></label>
-          <button type="button" id="usahome-btn" class="apr-mini-calc__btn">See my number</button>
-          <output id="usahome-out" class="apr-mini-calc__out" aria-live="polite">Press <strong>See my number</strong> for your home price range.</output>
-        </form>
-        <script>
-          (function(){
-            var btn = document.getElementById('usahome-btn');
-            var out = document.getElementById('usahome-out');
-            if(!btn || !out) return;
-            function fmt(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
-            function run(){
-              var gross = parseFloat(document.getElementById('usahome-gross').value) || 0;
-              var down = parseFloat(document.getElementById('usahome-down').value) || 0;
-              var debts = parseFloat(document.getElementById('usahome-debts').value) || 0;
-              var ratePct = parseFloat(document.getElementById('usahome-rate').value) || 0;
-              var monthlyGross = gross/12;
-              var housingCap = monthlyGross * 0.28;
-              var totalCap = monthlyGross * 0.36 - debts;
-              var paymentCap = Math.min(housingCap, totalCap);
-              if(paymentCap <= 0){ out.innerHTML = '<strong>Your other debts already use the 36% cap.</strong> Pay debt down first, then come back.'; return; }
-              var rate = (ratePct/100)/12;
-              var n = 360;
-              var factor = rate * Math.pow(1+rate, n) / (Math.pow(1+rate, n) - 1);
-              // Reserve ~22% of the cap for tax+insurance (avg ~1.5% of home/yr)
-              var mortgageBudget = paymentCap * 0.78;
-              var loan = mortgageBudget / factor;
-              var price = loan + down;
-              var taxIns = price * 0.015 / 12;
-              var mortgage = loan * factor;
-              var piti = mortgage + taxIns;
-              var ratio = (piti / monthlyGross) * 100;
-              out.innerHTML = '<strong>Home price you can carry: ' + fmt(price) + '</strong><br>Mortgage: ' + fmt(mortgage) + '/mo &middot; Tax + insurance: ' + fmt(taxIns) + '/mo &middot; Total PITI: ' + fmt(piti) + '/mo<br>That is about <strong>' + ratio.toFixed(0) + '%</strong> of your gross pay. Keep it under 28% to sleep at night.';
-            }
-            btn.addEventListener('click', run);
-            run();
-          })();
-        </script>
-      </section>
+    <section class="ha-section" aria-labelledby="ha-rules-title">
+      <div class="container content-page">
+        <h2 id="ha-rules-title">How we calculate affordability</h2>
+        <p class="ha-section__lead">Lenders use gross pay, not take-home. We cap housing at <strong>28% of gross</strong>. All debt stays near <strong>36%</strong>. This is a plan, not a pre-approval.</p>
+        <p>Example: $100,000 a year is about $8,333 a month gross. Twenty-eight percent is $2,333 for housing. If you already pay $350 on a car loan, the 36% cap may lower your home price before the 28% cap does.</p>
+        <aside class="what-this-means" role="note">
+          <p class="what-this-means__title">What this means for you</p>
+          <p>The bank may approve more than you want to pay. If the stress meter says <strong>Stretched</strong>, try a lower price, a bigger down payment, or <a href="/living/housing/how-much-rent-can-i-afford">renting</a> while you save.</p>
+        </aside>
+        <p><a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy calculator</a> · <a href="/hourly-to-salary-after-tax#hourly-salary-form">Take-home pay</a> · <a href="/methodology#affordability">Full methodology</a></p>
+      </div>
+    </section>
 
-      <section id="next-house-tools" aria-labelledby="next-house-tools-title">
-        <h2 id="next-house-tools-title">Next steps</h2>
-        <ol>
-          <li><a href="/rent-vs-buy-calculator#rent-vs-buy"><strong>Rent vs buy calculator</strong></a> — try your price, rate, and stay.</li>
-          <li><a href="/hourly-to-salary-after-tax#hourly-salary-form"><strong>After-tax income</strong></a> — see your real take-home pay.</li>
-          <li><a href="/salary-needed-to-live-comfortably.html"><strong>Salary needed to live comfortably</strong></a> — plan beyond the mortgage.</li>
-          <li><a href="/living/housing/how-much-rent-can-i-afford"><strong>How much rent can I afford</strong></a> — if you are still looking at rentals.</li>
-        </ol>
-        <p class="take-home-guide-cta-wrap">
-          <a class="take-home-guide-cta" href="/rent-vs-buy-calculator#rent-vs-buy">Open rent vs buy calculator</a>
-        </p>
-      </section>
-
-      <section class="living-faq-section" id="faq-house" aria-labelledby="faq-house-title">
-        <h2 id="faq-house-title">Frequently asked questions</h2>
+    <section class="ha-faq-section" aria-labelledby="ha-faq-title">
+      <div class="container content-page">
+        <h2 id="ha-faq-title">FAQ</h2>
         <div class="faq-stack">
           <article class="faq-item">
-            <h3>How much house can I afford on my salary?</h3>
-            <p>Start with your <strong>monthly gross pay</strong>. Apply the <strong>28% housing rule</strong> and the <strong>36% total debt rule</strong>. Then adjust for your <strong>down payment, rate, tax, and insurance</strong>. Your lender will set the real cap.</p>
+            <h3>How much house can I afford on $100,000 a year?</h3>
+            <p>At $100k gross, the 28% rule allows about <strong>$2,333 a month</strong> for housing. At 6.5% with 20% down, that often maps to a home near <strong>$280,000–$320,000</strong> — less in high-tax states, more where prices are lower. Use the calculator above for your debts and location.</p>
           </article>
           <article class="faq-item">
-            <h3>What is the 28/36 rule?</h3>
-            <p><strong>28% of your gross pay</strong> for housing. <strong>36% of your gross pay</strong> for all debt. Simple numbers most buyers still hear today.</p>
+            <h3>What is affordability stress level?</h3>
+            <p><strong>Comfortable</strong> means the payment sits well under 28%. <strong>Moderate</strong> is near the rule. <strong>Stretched</strong> is close to or above it. <strong>Over limit</strong> means other debt blocked the 36% cap.</p>
           </article>
           <article class="faq-item">
-            <h3>How many times my salary should my home be?</h3>
-            <p>Most people say <strong>2.5 to 3 times your gross pay</strong>. Useful as a quick check. But at today's high rates, lean on the 28/36 payment math instead.</p>
+            <h3>Should I trust the bank’s pre-approval?</h3>
+            <p>Treat it as a <strong>ceiling</strong>. Many buyers pick a home 5–15% below the max so daycare, travel, and job changes do not break the budget.</p>
           </article>
           <article class="faq-item">
-            <h3>Should I use gross or net pay?</h3>
-            <p>The bank uses <strong>gross pay</strong> for its rules. Your real budget runs on <strong>take-home pay</strong>. Check both numbers before you sign.</p>
+            <h3>How much down payment do I need?</h3>
+            <p>Twenty percent avoids PMI and lowers the monthly bill. You can buy with less, but the same income supports a lower price. Enter your real down payment above — do not assume you will get to 20% later unless it is already saved.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Does a lower rate mean I can afford more house?</h3>
+            <p>Yes, but rates change. Run the math at today’s quote and again one point higher. If a higher rate breaks the budget, size the home for the worse case.</p>
           </article>
         </div>
-      </section>
-
-      <section id="sources-house" aria-labelledby="sources-house-title">
-        <h2 id="sources-house-title">Sources (refresh numbers here)</h2>
-        <ul class="debt-sources-list">
-          <li><a href="https://fred.stlouisfed.org/series/MSPUS">Federal Reserve Economic Data (FRED), Median Sales Price of Houses Sold for the United States</a> — quarterly median sale prices.</li>
-          <li><a href="https://www.census.gov/topics/income-poverty/income.html">U.S. Census Bureau, income topics</a> — median household income releases and methodology.</li>
-          <li>Consumer-facing overviews of housing affordability (e.g., CFPB / HUD materials) for vocabulary like PITI and DTI—search current pages from those agencies.</li>
-        </ul>
-      </section>
-
-      <footer class="take-home-guide-disclaimer">
-        <p class="note">Educational content for US readers only, not mortgage, tax, or legal advice. Ratios and medians change; lenders use full underwriting files. Verify every number with a licensed loan officer and your actual Loan Estimate.</p>
-      </footer>
-    </article>
-    <aside class="eeat-trust" aria-labelledby="eeat-guide-title">
-      <header class="eeat-trust__header">
-        <span class="eeat-trust__kicker">🔒 How we built this</span>
-        <h2 id="eeat-guide-title" class="eeat-trust__title">Home Affordability Methodology, Data Sources & Editorial Standards</h2>
-        <p class="eeat-trust__meta"><time datetime="2026-05-26">Last reviewed: May 26, 2026</time> · Reviewed by the Income Clarity editorial team · <a href="/methodology#affordability">Read the full methodology</a></p>
-      </header>
-      <div class="eeat-trust__grid">
-        <article class="eeat-trust__card">
-          <h3>How We Calculate Affordability</h3>
-          <ul>
-            <li><strong>The 28/36 rule:</strong> housing ≤ 28% gross; total debt service ≤ 36% gross.</li>
-            <li><strong>Mortgage:</strong> 30-year fixed amortization formula; default rate 6.5% (Freddie Mac PMMS).</li>
-            <li><strong>Down payment:</strong> 20% default (PMI threshold on conforming loans).</li>
-            <li><strong>Property tax + insurance:</strong> state median effective rate × home value, plus 0.35% home value/year insurance.</li>
-          </ul>
-        </article>
-        <article class="eeat-trust__card">
-          <h3>Data Sources</h3>
-          <ul>
-            <li><a href="https://www.freddiemac.com/pmms" rel="noopener">Freddie Mac PMMS</a> — weekly mortgage rate.</li>
-            <li><a href="https://taxfoundation.org/data/all/state/property-taxes-by-state-county/" rel="noopener">Tax Foundation</a> — state property tax rates.</li>
-            <li><a href="https://www.consumerfinance.gov/owning-a-home/" rel="noopener">Consumer Financial Protection Bureau</a> — mortgage disclosure rules.</li>
-          </ul>
-        </article>
-        <article class="eeat-trust__card">
-          <h3>What This Isn't</h3>
-          <p>A mortgage pre-approval. Lenders also weigh credit score, employment history, reserves, and any non-traditional income.</p>
-        </article>
       </div>
-      <p class="eeat-trust__footer">Spot something that doesn't match your reality? <a href="/contact">Tell us</a> — we fix confirmed errors within 7 days.</p>
-    </aside>
+    </section>
+
+    <div class="container content-page">
+      <aside class="eeat-trust" aria-labelledby="eeat-ha-title">
+        <header class="eeat-trust__header">
+          <span class="eeat-trust__kicker">🔒 How we built this</span>
+          <h2 id="eeat-ha-title" class="eeat-trust__title">Home Affordability Methodology &amp; Data Sources</h2>
+          <p class="eeat-trust__meta"><time datetime="2026-05-26">Last reviewed: May 26, 2026</time> · <a href="/methodology#affordability">Read the full methodology</a></p>
+        </header>
+        <div class="eeat-trust__grid">
+          <article class="eeat-trust__card">
+            <h3>How We Calculate</h3>
+            <ul>
+              <li>28/36 rules on gross income</li>
+              <li>30-year fixed mortgage math</li>
+              <li>Regional property tax and insurance defaults</li>
+            </ul>
+          </article>
+          <article class="eeat-trust__card">
+            <h3>Data Sources</h3>
+            <ul>
+              <li><a href="https://www.freddiemac.com/pmms" rel="noopener">Freddie Mac PMMS</a> — mortgage rates</li>
+              <li><a href="https://taxfoundation.org/data/all/state/property-taxes-by-state-county/" rel="noopener">Tax Foundation</a> — property tax</li>
+            </ul>
+          </article>
+          <article class="eeat-trust__card">
+            <h3>What This Isn't</h3>
+            <p>Not a mortgage pre-approval. Not tax or legal advice.</p>
+          </article>
+        </div>
+      </aside>
+      <footer class="take-home-guide-disclaimer">
+        <p class="note">Educational content for US readers only. Verify with a licensed loan officer and your Loan Estimate.</p>
+      </footer>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -488,11 +221,8 @@
         </section>
         <section class="footer-column" aria-labelledby="footer-explore-more">
           <h2 id="footer-explore-more">Explore More</h2>
-          <a href="/living/family-budgeting/salary-needed-to-live-comfortably.html">Salary needed to live comfortably</a>
           <a href="/living/housing/how-much-rent-can-i-afford">How much rent can I afford</a>
-          <a href="/living/cost-of-living/cost-of-living-california-vs-texas.html">Cost of living: California vs Texas</a>
-          <a href="/nyc-vs-austin-cost-of-living.html">NYC vs Austin cost of living</a>
-          <a href="/seattle-vs-denver-cost-of-living.html">Seattle vs Denver cost of living</a>
+          <a href="/living/housing/rent-vs-buy-california.html">Rent vs buy in California</a>
         </section>
         <section class="footer-column" aria-labelledby="footer-company">
           <h2 id="footer-company">Company</h2>
@@ -506,7 +236,10 @@
       <p class="footer-copy">© 2026 IncomeClarityLab</p>
     </div>
   </footer>
+  <script src="/house-afford.js"></script>
+  <script>
+    HouseAfford.bindForm({ formId: 'ha-calc-form', resultsId: 'ha-calc-results', runOnLoad: true });
+  </script>
   <script src="/guide-back.js"></script>
-  <script src="/housing-guide-back.js"></script>
 </body>
 </html>

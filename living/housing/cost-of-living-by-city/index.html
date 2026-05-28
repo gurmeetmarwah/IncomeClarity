@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cost of Living by City — Compare U.S. Cities (2026) | Income Clarity</title>
+  <meta name="description" content="Compare the real cost of living across U.S. cities. Housing, groceries, transportation, taxes, and salary needs before you move.">
+  <link rel="canonical" href="https://incomeclarity.com/living/housing/cost-of-living-by-city">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-col.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path.endsWith("/index.html")) cleanPath = path.slice(0, -10);
+      else if (path.endsWith(".html")) cleanPath = path.slice(0, -5);
+      if (cleanPath !== path) window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+    })();
+  </script>
+</head>
+<body class="col-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="/index.html">Income Clarity</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/hourly-to-salary-after-tax">Income</a>
+        <a href="/credit-card-payoff-calculator">Debt</a>
+        <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="col-hero-hub">
+      <div class="container">
+        <nav class="take-home-return-nav" aria-label="Breadcrumb">
+          <ol class="take-home-return-breadcrumbs">
+            <li><a href="/rent-vs-buy-calculator">Living</a></li>
+            <li aria-current="page">Cost of living by city</li>
+          </ol>
+        </nav>
+        <span class="label">Cost of living · U.S. cities</span>
+        <h1>Cost of Living by U.S. City</h1>
+        <p class="subhead">See rent, food, bills, and pay targets before you move.</p>
+        <div class="col-hero-search">
+          <label for="col-search-input">Search city or state</label>
+          <div class="col-hero-search__row col-hero-search__row--lookup">
+            <input type="search" id="col-search-input" list="col-search-list" placeholder="Try Austin, Texas, Miami…" autocomplete="off">
+            <button type="button" class="col-btn col-btn--primary" id="col-search-go">Go</button>
+          </div>
+          <datalist id="col-search-list"></datalist>
+          <p class="col-input-help" id="col-search-help">Type a city or state, then press Enter.</p>
+          <div class="col-search-hints">
+            <span>Try:</span>
+            <button type="button" data-hint="Austin, TX">Austin, TX</button>
+            <button type="button" data-hint="Seattle, WA">Seattle, WA</button>
+            <button type="button" data-hint="Miami, FL">Miami, FL</button>
+          </div>
+        </div>
+        <div class="col-hub-plain">
+          <p>Moving? Start with rent. It is often the biggest bill each month.</p>
+          <p>We also list food, power, and car costs. Tax is not in the core stack.</p>
+          <p>Comfort pay is gross pay before tax. Add debt and kids on top.</p>
+          <p>Index 100 is the US norm. A higher index means you need more pay or tighter spending.</p>
+          <p>Pick a state if you know the state but not the city. Pick a pair if you debate two places.</p>
+          <p>Your lease quote beats our defaults. Use tools after you pick a city.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-insight-bar" aria-label="Quick insights">
+      <div class="container col-insight-bar__grid">
+        <div class="col-insight-pill"><span class="col-insight-pill__kicker">Lowest rent hub</span><span class="col-insight-pill__val">Houston, TX</span></div>
+        <div class="col-insight-pill"><span class="col-insight-pill__kicker">Fast rent growth</span><span class="col-insight-pill__val">Miami &amp; NYC</span></div>
+        <div class="col-insight-pill"><span class="col-insight-pill__kicker">Low tax states</span><span class="col-insight-pill__val">TX &amp; FL</span></div>
+        <div class="col-insight-pill"><span class="col-insight-pill__kicker">Family picks</span><span class="col-insight-pill__val">Houston · Orlando</span></div>
+      </div>
+    </section>
+
+    <section class="col-band" id="col-featured-compare">
+      <div class="container">
+        <header class="col-band__head">
+          <h2>City pairs</h2>
+          <p>Rent gap and pay gap in one click.</p>
+        </header>
+        <div class="col-compare-scroll">
+
+          <a class="col-compare-card" href="/living/housing/cost-of-living-by-city/compare/nyc-vs-chicago">
+            <h3>NYC vs Chicago</h3>
+            <div class="col-compare-card__metrics">
+              <div class="col-compare-metric"><span>Rent gap</span><strong class="col-delta--bad">+$1,550/mo</strong></div>
+              <div class="col-compare-metric"><span>Pay gap</span><strong>+$38,000</strong></div>
+              <div class="col-compare-metric"><span>Lower rent</span><strong>Chicago</strong></div>
+            </div>
+            <span class="col-compare-card__cta">See pair →</span>
+          </a>
+
+          <a class="col-compare-card" href="/living/housing/cost-of-living-by-city/compare/austin-vs-denver">
+            <h3>Austin vs Denver</h3>
+            <div class="col-compare-card__metrics">
+              <div class="col-compare-metric"><span>Rent gap</span><strong class="col-delta--good">$-200/mo</strong></div>
+              <div class="col-compare-metric"><span>Pay gap</span><strong>-$6,000</strong></div>
+              <div class="col-compare-metric"><span>Lower rent</span><strong>Austin slightly</strong></div>
+            </div>
+            <span class="col-compare-card__cta">See pair →</span>
+          </a>
+
+          <a class="col-compare-card" href="/living/housing/cost-of-living-by-city/compare/dallas-vs-atlanta">
+            <h3>Dallas vs Atlanta</h3>
+            <div class="col-compare-card__metrics">
+              <div class="col-compare-metric"><span>Rent gap</span><strong class="col-delta--good">$-100/mo</strong></div>
+              <div class="col-compare-metric"><span>Pay gap</span><strong>-$2,000</strong></div>
+              <div class="col-compare-metric"><span>Lower rent</span><strong>Rough tie; Dallas slightly lower on many lists</strong></div>
+            </div>
+            <span class="col-compare-card__cta">See pair →</span>
+          </a>
+
+          <a class="col-compare-card" href="/living/housing/cost-of-living-by-city/compare/seattle-vs-phoenix">
+            <h3>Seattle vs Phoenix</h3>
+            <div class="col-compare-card__metrics">
+              <div class="col-compare-metric"><span>Rent gap</span><strong class="col-delta--bad">+$550/mo</strong></div>
+              <div class="col-compare-metric"><span>Pay gap</span><strong>+$19,000</strong></div>
+              <div class="col-compare-metric"><span>Lower rent</span><strong>Phoenix</strong></div>
+            </div>
+            <span class="col-compare-card__cta">See pair →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-band col-band--alt" id="col-states">
+      <div class="container">
+        <header class="col-band__head">
+          <h2>Browse by state</h2>
+          <p>State medians and links to each metro.</p>
+        </header>
+        <div class="col-state-grid">
+
+          <a class="col-state-tile" href="/living/housing/cost-of-living-by-city/california">
+            <h3>California</h3>
+            <p class="col-state-tile__meta">3 cities · High rent · State tax</p>
+            <div class="col-state-tile__stats">
+              <div><span>Avg rent</span><strong>$2,400/mo</strong></div>
+              <div><span>Comfort salary</span><strong>$98,000</strong></div>
+              <div><span>Cost index</span><strong>142</strong></div>
+            </div>
+          </a>
+
+          <a class="col-state-tile" href="/living/housing/cost-of-living-by-city/texas">
+            <h3>Texas</h3>
+            <p class="col-state-tile__meta">3 cities · No state tax · High property tax</p>
+            <div class="col-state-tile__stats">
+              <div><span>Avg rent</span><strong>$1,450/mo</strong></div>
+              <div><span>Comfort salary</span><strong>$72,000</strong></div>
+              <div><span>Cost index</span><strong>98</strong></div>
+            </div>
+          </a>
+
+          <a class="col-state-tile" href="/living/housing/cost-of-living-by-city/florida">
+            <h3>Florida</h3>
+            <p class="col-state-tile__meta">3 cities · No state tax · Insurance</p>
+            <div class="col-state-tile__stats">
+              <div><span>Avg rent</span><strong>$1,750/mo</strong></div>
+              <div><span>Comfort salary</span><strong>$75,000</strong></div>
+              <div><span>Cost index</span><strong>104</strong></div>
+            </div>
+          </a>
+
+          <a class="col-state-tile" href="/living/housing/cost-of-living-by-city/new-york">
+            <h3>New York</h3>
+            <p class="col-state-tile__meta">1 cities · NYC vs upstate · State tax</p>
+            <div class="col-state-tile__stats">
+              <div><span>Avg rent</span><strong>$2,400/mo</strong></div>
+              <div><span>Comfort salary</span><strong>$105,000</strong></div>
+              <div><span>Cost index</span><strong>135</strong></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-band" id="col-explore">
+      <div class="container">
+        <header class="col-band__head">
+          <h2>Popular cities</h2>
+          <p>Rent, pay target, and score. Use filters to narrow the list.</p>
+        </header>
+        <div class="col-toolbar">
+          <div class="col-chips" role="group" aria-label="Filter cities">
+            <button type="button" class="col-chip is-active" data-col-filter="all">All</button>
+            <button type="button" class="col-chip" data-col-filter="affordable">Lower rent</button>
+            <button type="button" class="col-chip" data-col-filter="family">Family</button>
+            <button type="button" class="col-chip" data-col-filter="remote">Remote</button>
+            <button type="button" class="col-chip" data-col-filter="low-tax">Low tax</button>
+          </div>
+          <div class="col-sort">
+            <label for="col-sort" class="sr-only">Sort cities</label>
+            <select id="col-sort">
+              <option value="score">Sort: best score</option>
+              <option value="rent">Sort: rent low to high</option>
+              <option value="index">Sort: cost index</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-explore-grid" id="col-city-grid">
+
+          <article class="col-explore-card" data-tags="all" data-rent="2600" data-score="62" data-index="152">
+            <span class="col-explore-card__loc">Los Angeles, CA</span>
+            <h3>Los Angeles</h3>
+            <div class="col-explore-card__row"><span>Rent</span><strong>$2,600/mo</strong></div>
+            <div class="col-explore-card__row"><span>Pay target</span><strong>$105,000</strong></div>
+            <span class="col-score">Score 62/100</span>
+            <div class="col-explore-card__actions">
+              <a class="col-btn col-btn--primary" href="/living/housing/cost-of-living-by-city/california/los-angeles">See costs</a>
+            </div>
+          </article>
+
+          <article class="col-explore-card" data-tags="all" data-rent="2550" data-score="64" data-index="148">
+            <span class="col-explore-card__loc">San Diego, CA</span>
+            <h3>San Diego</h3>
+            <div class="col-explore-card__row"><span>Rent</span><strong>$2,550/mo</strong></div>
+            <div class="col-explore-card__row"><span>Pay target</span><strong>$102,000</strong></div>
+            <span class="col-score">Score 64/100</span>
+            <div class="col-explore-card__actions">
+              <a class="col-btn col-btn--primary" href="/living/housing/cost-of-living-by-city/california/san-diego">See costs</a>
+            </div>
+          </article>
+
+          <article class="col-explore-card" data-tags="all" data-rent="3200" data-score="58" data-index="168">
+            <span class="col-explore-card__loc">San Francisco, CA</span>
+            <h3>San Francisco</h3>
+            <div class="col-explore-card__row"><span>Rent</span><strong>$3,200/mo</strong></div>
+            <div class="col-explore-card__row"><span>Pay target</span><strong>$125,000</strong></div>
+            <span class="col-score">Score 58/100</span>
+            <div class="col-explore-card__actions">
+              <a class="col-btn col-btn--primary" href="/living/housing/cost-of-living-by-city/california/san-francisco">See costs</a>
+            </div>
+          </article>
+
+          <article class="col-explore-card" data-tags="family,affordable,low-tax,remote" data-rent="1550" data-score="72" data-index="102">
+            <span class="col-explore-card__loc">Dallas, TX</span>
+            <h3>Dallas</h3>
+            <div class="col-explore-card__row"><span>Rent</span><strong>$1,550/mo</strong></div>
+            <div class="col-explore-card__row"><span>Pay target</span><strong>$76,000</strong></div>
+            <span class="col-score">Score 72/100</span>
+            <div class="col-explore-card__actions">
+              <a class="col-btn col-btn--primary" href="/living/housing/cost-of-living-by-city/texas/dallas">See costs</a>
+            </div>
+          </article>
+
+          <article class="col-explore-card" data-tags="family,affordable,low-tax" data-rent="1400" data-score="74" data-index="96">
+            <span class="col-explore-card__loc">Houston, TX</span>
+            <h3>Houston</h3>
+            <div class="col-explore-card__row"><span>Rent</span><strong>$1,400/mo</strong></div>
+            <div class="col-explore-card__row"><span>Pay target</span><strong>$70,000</strong></div>
+            <span class="col-score">Score 74/100</span>
+            <div class="col-explore-card__actions">
+              <a class="col-btn col-btn--primary" href="/living/housing/cost-of-living-by-city/texas/houston">See costs</a>
+            </div>
+          </article>
+
+          <article class="col-explore-card" data-tags="affordable,low-tax,remote" data-rent="1750" data-score="70" data-index="108">
+            <span class="col-explore-card__loc">Austin, TX</span>
+            <h3>Austin</h3>
+            <div class="col-explore-card__row"><span>Rent</span><strong>$1,750/mo</strong></div>
+            <div class="col-explore-card__row"><span>Pay target</span><strong>$82,000</strong></div>
+            <span class="col-score">Score 70/100</span>
+            <div class="col-explore-card__actions">
+              <a class="col-btn col-btn--primary" href="/living/housing/cost-of-living-by-city/texas/austin">See costs</a>
+            </div>
+          </article>
+
+          <article class="col-explore-card" data-tags="low-tax" data-rent="2200" data-score="65" data-index="118">
+            <span class="col-explore-card__loc">Miami, FL</span>
+            <h3>Miami</h3>
+            <div class="col-explore-card__row"><span>Rent</span><strong>$2,200/mo</strong></div>
+            <div class="col-explore-card__row"><span>Pay target</span><strong>$88,000</strong></div>
+            <span class="col-score">Score 65/100</span>
+            <div class="col-explore-card__actions">
+              <a class="col-btn col-btn--primary" href="/living/housing/cost-of-living-by-city/florida/miami">See costs</a>
+            </div>
+          </article>
+
+          <article class="col-explore-card" data-tags="family,affordable,low-tax" data-rent="1650" data-score="73" data-index="106">
+            <span class="col-explore-card__loc">Tampa, FL</span>
+            <h3>Tampa</h3>
+            <div class="col-explore-card__row"><span>Rent</span><strong>$1,650/mo</strong></div>
+            <div class="col-explore-card__row"><span>Pay target</span><strong>$74,000</strong></div>
+            <span class="col-score">Score 73/100</span>
+            <div class="col-explore-card__actions">
+              <a class="col-btn col-btn--primary" href="/living/housing/cost-of-living-by-city/florida/tampa">See costs</a>
+            </div>
+          </article>
+
+          <article class="col-explore-card" data-tags="family,affordable,low-tax" data-rent="1600" data-score="74" data-index="105">
+            <span class="col-explore-card__loc">Orlando, FL</span>
+            <h3>Orlando</h3>
+            <div class="col-explore-card__row"><span>Rent</span><strong>$1,600/mo</strong></div>
+            <div class="col-explore-card__row"><span>Pay target</span><strong>$72,000</strong></div>
+            <span class="col-score">Score 74/100</span>
+            <div class="col-explore-card__actions">
+              <a class="col-btn col-btn--primary" href="/living/housing/cost-of-living-by-city/florida/orlando">See costs</a>
+            </div>
+          </article>
+
+          <article class="col-explore-card" data-tags="all" data-rent="3400" data-score="55" data-index="158">
+            <span class="col-explore-card__loc">New York City, NY</span>
+            <h3>New York City</h3>
+            <div class="col-explore-card__row"><span>Rent</span><strong>$3,400/mo</strong></div>
+            <div class="col-explore-card__row"><span>Pay target</span><strong>$120,000</strong></div>
+            <span class="col-score">Score 55/100</span>
+            <div class="col-explore-card__actions">
+              <a class="col-btn col-btn--primary" href="/living/housing/cost-of-living-by-city/new-york/new-york-city">See costs</a>
+            </div>
+          </article>
+
+          <article class="col-explore-card" data-tags="all" data-rent="1850" data-score="68" data-index="112">
+            <span class="col-explore-card__loc">Chicago, IL</span>
+            <h3>Chicago</h3>
+            <div class="col-explore-card__row"><span>Rent</span><strong>$1,850/mo</strong></div>
+            <div class="col-explore-card__row"><span>Pay target</span><strong>$82,000</strong></div>
+            <span class="col-score">Score 68/100</span>
+            <div class="col-explore-card__actions">
+              <a class="col-btn col-btn--primary" href="/living/housing/cost-of-living-by-city/chicago">See costs</a>
+            </div>
+          </article>
+
+          <article class="col-explore-card" data-tags="all" data-rent="2200" data-score="66" data-index="135">
+            <span class="col-explore-card__loc">Seattle, WA</span>
+            <h3>Seattle</h3>
+            <div class="col-explore-card__row"><span>Rent</span><strong>$2,200/mo</strong></div>
+            <div class="col-explore-card__row"><span>Pay target</span><strong>$95,000</strong></div>
+            <span class="col-score">Score 66/100</span>
+            <div class="col-explore-card__actions">
+              <a class="col-btn col-btn--primary" href="/living/housing/cost-of-living-by-city/seattle">See costs</a>
+            </div>
+          </article>
+
+          <article class="col-explore-card" data-tags="remote" data-rent="1950" data-score="69" data-index="118">
+            <span class="col-explore-card__loc">Denver, CO</span>
+            <h3>Denver</h3>
+            <div class="col-explore-card__row"><span>Rent</span><strong>$1,950/mo</strong></div>
+            <div class="col-explore-card__row"><span>Pay target</span><strong>$88,000</strong></div>
+            <span class="col-score">Score 69/100</span>
+            <div class="col-explore-card__actions">
+              <a class="col-btn col-btn--primary" href="/living/housing/cost-of-living-by-city/denver">See costs</a>
+            </div>
+          </article>
+
+          <article class="col-explore-card" data-tags="affordable,remote" data-rent="1650" data-score="71" data-index="104">
+            <span class="col-explore-card__loc">Atlanta, GA</span>
+            <h3>Atlanta</h3>
+            <div class="col-explore-card__row"><span>Rent</span><strong>$1,650/mo</strong></div>
+            <div class="col-explore-card__row"><span>Pay target</span><strong>$78,000</strong></div>
+            <span class="col-score">Score 71/100</span>
+            <div class="col-explore-card__actions">
+              <a class="col-btn col-btn--primary" href="/living/housing/cost-of-living-by-city/atlanta">See costs</a>
+            </div>
+          </article>
+
+          <article class="col-explore-card" data-tags="family,affordable,low-tax,remote" data-rent="1650" data-score="73" data-index="105">
+            <span class="col-explore-card__loc">Phoenix, AZ</span>
+            <h3>Phoenix</h3>
+            <div class="col-explore-card__row"><span>Rent</span><strong>$1,650/mo</strong></div>
+            <div class="col-explore-card__row"><span>Pay target</span><strong>$76,000</strong></div>
+            <span class="col-score">Score 73/100</span>
+            <div class="col-explore-card__actions">
+              <a class="col-btn col-btn--primary" href="/living/housing/cost-of-living-by-city/phoenix">See costs</a>
+            </div>
+          </article>
+        </div>
+        <div class="col-explore-more">
+          <button type="button" class="col-btn col-btn--ghost" id="col-show-more" aria-expanded="false">Show more cities</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-band col-band--alt" id="col-breakdown">
+      <div class="container">
+        <header class="col-band__head">
+          <h2>Monthly breakdown</h2>
+          <p>See how one city stacks up to the US norm.</p>
+        </header>
+        <div class="col-breakdown-panel">
+          <div>
+            <label for="col-breakdown-city">Selected city</label>
+            <select id="col-breakdown-city"></select>
+            <div class="col-breakdown-legend">
+              <span class="leg-us">U.S. average</span>
+              <span class="leg-city">Selected city</span>
+            </div>
+          </div>
+          <div id="col-breakdown-bars"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-band" id="col-salary">
+      <div class="container">
+        <header class="col-band__head">
+          <h2>Pay you may need</h2>
+          <p>Start here, then open a city page for local numbers.</p>
+        </header>
+        <div class="col-salary-grid">
+          <article class="col-salary-card">
+            <h3>Single person</h3>
+            <p>Often $65k to $120k in gross pay. High-rent coasts sit at the top.</p>
+            <a href="/living/family-budgeting/salary-needed-to-live-comfortably">Salary guide →</a>
+          </article>
+          <article class="col-salary-card">
+            <h3>Couple</h3>
+            <p>Two incomes help. Shared rent cuts cost per person.</p>
+            <a href="/living/family-budgeting/can-i-afford-to-live-alone.html">Cost to live as a couple →</a>
+          </article>
+          <article class="col-salary-card">
+            <h3>Family of 4</h3>
+            <p>Add child care after rent. $90k to $220k gross is common on city pages.</p>
+            <a href="/living/lifestyle-family/family-of-4-income-guide/">Family of 4 budget →</a>
+          </article>
+          <article class="col-salary-card">
+            <h3>Remote work</h3>
+            <p>Compare net pay by state. No income tax can beat a higher gross in some moves.</p>
+            <a href="/hourly-to-salary-after-tax">Net pay by state →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-band col-band--alt" id="col-scenarios">
+      <div class="container">
+        <header class="col-band__head">
+          <h2>Sample budgets</h2>
+          <p>How costs feel for real homes.</p>
+        </header>
+        <div class="col-scenario-grid">
+          <article class="col-scenario-card">
+            <h3>Young professional in Austin</h3>
+            <p><strong>Salary:</strong> $95k gross</p>
+            <p><strong>Rent burden:</strong> Moderate — 1BR near $1,750/mo</p>
+            <p><strong>Edge:</strong> No state income tax</p>
+          </article>
+          <article class="col-scenario-card">
+            <h3>Family in San Diego</h3>
+            <p><strong>Salary needed:</strong> ~$220k gross (family line)</p>
+            <p><strong>Rent burden:</strong> High on coastal zips</p>
+            <p><a href="/living/housing/cost-of-living-by-city/california/san-diego">San Diego COL →</a></p>
+          </article>
+          <article class="col-scenario-card">
+            <h3>Remote worker in Dallas</h3>
+            <p><strong>Salary:</strong> $85k from coastal employer</p>
+            <p><strong>Affordability advantage:</strong> Strong vs NYC/SF</p>
+            <p><a href="/living/housing/cost-of-living-by-city/texas/dallas">Dallas COL →</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-band" id="col-explained">
+      <div class="container">
+        <header class="col-band__head">
+          <h2>Key ideas</h2>
+          <p>What to weigh when you compare cities or job offers.</p>
+        </header>
+        <div class="col-explained-grid">
+
+          <article class="col-explained-card"><h3>Housing drives the gap</h3><p>Rent is usually the biggest line. A small rent gap beats a small grocery gap.</p></article>
+          <article class="col-explained-card"><h3>Hidden city costs</h3><p>Parking, HOA, insurance, and move-in fees sit outside median rent.</p></article>
+          <article class="col-explained-card"><h3>Tax changes take-home</h3><p>Same gross pay can net very different amounts by state.</p></article>
+          <article class="col-explained-card"><h3>Remote work moves</h3><p>Check tax rules if you earn in one state and live in another.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-band col-band--alt" id="col-tools">
+      <div class="container">
+        <header class="col-band__head">
+          <h2>Related tools</h2>
+          <p>Go from comparison to a concrete housing or salary plan.</p>
+        </header>
+        <div class="col-tools-grid">
+          <a class="col-tool-link" href="/rent-vs-buy-calculator"><strong>Rent vs buy calculator</strong><span>Break-even year and net cost</span></a>
+          <a class="col-tool-link" href="/living/housing/how-much-house-can-i-afford"><strong>How much house can I afford</strong><span>28/36 rule by location</span></a>
+          <a class="col-tool-link" href="/living/housing/how-much-rent-can-i-afford"><strong>Rent affordability</strong><span>Cap rent on take-home pay</span></a>
+          <a class="col-tool-link" href="/living/budgeting/average-monthly-expenses.html"><strong>Monthly expenses guide</strong><span>Budget buckets and benchmarks</span></a>
+          <a class="col-tool-link" href="/living/lifestyle-family/comfortable-salary-california"><strong>Comfortable salary (California)</strong><span>State take-home and targets</span></a>
+          <a class="col-tool-link" href="/living/lifestyle-family/comfortable-salary-texas"><strong>Comfortable salary (Texas)</strong><span>No state income tax framing</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-band col-band--alt">
+      <div class="container">
+        <h2>How we score cities</h2>
+        <ul class="col-key-list">
+          <li>Rent, food, power, and commute in plain monthly dollars — index 100 = U.S. norm.</li>
+          <li>Comfort salary is gross pay before tax; add childcare and debt on top.</li>
+          <li>Compare net pay by state when you weigh job offers — tax can beat a small rent gap.</li>
+          <li>Your lease quote beats our defaults; use tools after you pick a city.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="col-faq-section">
+      <div class="container content-page">
+        <h2>Frequently asked questions</h2>
+        <div class="faq-stack">
+          <article class="faq-item"><h3>Which city is cheapest here?</h3><p>Houston and many inland metros rank low on rent. Your job and tax still matter.</p></article>
+          <article class="faq-item"><h3>How much salary for NYC?</h3><p>Many singles plan for $120k+ gross on a median 1BR stack.</p></article>
+          <article class="faq-item"><h3>Is Texas cheaper than California?</h3><p>Often lower rent and no state income tax. Run both city pages.</p></article>
+          <article class="faq-item"><h3>What matters most when moving?</h3><p>Housing, then tax, then childcare if you have kids.</p></article>
+          <article class="faq-item"><h3>How do I compare two cities?</h3><p>Use a pair card or open two city pages. Compare net pay.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-band">
+      <div class="container">
+        <div class="col-final-cta">
+          <h2>Next steps</h2>
+          <p>Pick a city, test housing, or map the pay you need.</p>
+          <div class="col-final-cta__actions">
+            <a class="col-btn col-btn--primary" href="#col-explore">Compare another city</a>
+            <a class="col-btn col-btn--ghost" href="/living/housing/how-much-house-can-i-afford">Housing affordability</a>
+            <a class="col-btn col-btn--ghost" href="/living/family-budgeting/salary-needed-to-live-comfortably">Salary calculators</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
+  <script type="application/json" id="col-catalog">[{"id": "los-angeles", "label": "Los Angeles, CA", "name": "Los Angeles", "path": "/living/housing/cost-of-living-by-city/california/los-angeles", "compareKey": "losangeles", "rent": 2600, "housing": 2600, "groceries": 520, "utilities": 210, "transport": 420, "healthcare": 420, "taxes": 200, "salary": 105000, "score": 62, "index": 152, "tags": ["all"]}, {"id": "san-diego", "label": "San Diego, CA", "name": "San Diego", "path": "/living/housing/cost-of-living-by-city/california/san-diego", "compareKey": "sandiego", "rent": 2550, "housing": 2550, "groceries": 500, "utilities": 215, "transport": 400, "healthcare": 420, "taxes": 200, "salary": 102000, "score": 64, "index": 148, "tags": ["all"]}, {"id": "san-francisco", "label": "San Francisco, CA", "name": "San Francisco", "path": "/living/housing/cost-of-living-by-city/california/san-francisco", "compareKey": "sanfrancisco", "rent": 3200, "housing": 3200, "groceries": 540, "utilities": 200, "transport": 350, "healthcare": 420, "taxes": 200, "salary": 125000, "score": 58, "index": 168, "tags": ["all"]}, {"id": "dallas", "label": "Dallas, TX", "name": "Dallas", "path": "/living/housing/cost-of-living-by-city/texas/dallas", "compareKey": "dallas", "rent": 1550, "housing": 1550, "groceries": 390, "utilities": 200, "transport": 360, "healthcare": 420, "taxes": 200, "salary": 76000, "score": 72, "index": 102, "tags": ["family", "affordable", "low-tax", "remote"]}, {"id": "houston", "label": "Houston, TX", "name": "Houston", "path": "/living/housing/cost-of-living-by-city/texas/houston", "compareKey": "houston", "rent": 1400, "housing": 1400, "groceries": 370, "utilities": 210, "transport": 350, "healthcare": 420, "taxes": 200, "salary": 70000, "score": 74, "index": 96, "tags": ["family", "affordable", "low-tax"]}, {"id": "austin", "label": "Austin, TX", "name": "Austin", "path": "/living/housing/cost-of-living-by-city/texas/austin", "compareKey": "austin", "rent": 1750, "housing": 1750, "groceries": 400, "utilities": 195, "transport": 370, "healthcare": 420, "taxes": 200, "salary": 82000, "score": 70, "index": 108, "tags": ["affordable", "low-tax", "remote"]}, {"id": "miami", "label": "Miami, FL", "name": "Miami", "path": "/living/housing/cost-of-living-by-city/florida/miami", "compareKey": "miami", "rent": 2200, "housing": 2200, "groceries": 430, "utilities": 225, "transport": 340, "healthcare": 420, "taxes": 200, "salary": 88000, "score": 65, "index": 118, "tags": ["low-tax"]}, {"id": "tampa", "label": "Tampa, FL", "name": "Tampa", "path": "/living/housing/cost-of-living-by-city/florida/tampa", "compareKey": "tampa", "rent": 1650, "housing": 1650, "groceries": 395, "utilities": 205, "transport": 310, "healthcare": 420, "taxes": 200, "salary": 74000, "score": 73, "index": 106, "tags": ["family", "affordable", "low-tax"]}, {"id": "orlando", "label": "Orlando, FL", "name": "Orlando", "path": "/living/housing/cost-of-living-by-city/florida/orlando", "compareKey": "orlando", "rent": 1600, "housing": 1600, "groceries": 390, "utilities": 200, "transport": 300, "healthcare": 420, "taxes": 200, "salary": 72000, "score": 74, "index": 105, "tags": ["family", "affordable", "low-tax"]}, {"id": "new-york-city", "label": "New York City, NY", "name": "New York City", "path": "/living/housing/cost-of-living-by-city/new-york/new-york-city", "compareKey": "newyork", "rent": 3400, "housing": 3400, "groceries": 550, "utilities": 230, "transport": 280, "healthcare": 450, "taxes": 650, "salary": 120000, "score": 55, "index": 158, "tags": ["all"]}, {"id": "chicago", "label": "Chicago, IL", "name": "Chicago", "path": "/living/housing/cost-of-living-by-city/chicago", "compareKey": "chicago", "rent": 1850, "housing": 1850, "groceries": 420, "utilities": 195, "transport": 310, "healthcare": 420, "taxes": 200, "salary": 82000, "score": 68, "index": 112, "tags": ["all"]}, {"id": "seattle", "label": "Seattle, WA", "name": "Seattle", "path": "/living/housing/cost-of-living-by-city/seattle", "compareKey": "seattle", "rent": 2200, "housing": 2200, "groceries": 480, "utilities": 190, "transport": 320, "healthcare": 420, "taxes": 200, "salary": 95000, "score": 66, "index": 135, "tags": ["all"]}, {"id": "denver", "label": "Denver, CO", "name": "Denver", "path": "/living/housing/cost-of-living-by-city/denver", "compareKey": "denver", "rent": 1950, "housing": 1950, "groceries": 430, "utilities": 185, "transport": 340, "healthcare": 420, "taxes": 200, "salary": 88000, "score": 69, "index": 118, "tags": ["remote"]}, {"id": "atlanta", "label": "Atlanta, GA", "name": "Atlanta", "path": "/living/housing/cost-of-living-by-city/atlanta", "compareKey": "atlanta", "rent": 1650, "housing": 1650, "groceries": 400, "utilities": 195, "transport": 350, "healthcare": 410, "taxes": 220, "salary": 78000, "score": 71, "index": 104, "tags": ["affordable", "remote"]}, {"id": "phoenix", "label": "Phoenix, AZ", "name": "Phoenix", "path": "/living/housing/cost-of-living-by-city/phoenix", "compareKey": "phoenix", "rent": 1650, "housing": 1650, "groceries": 390, "utilities": 210, "transport": 340, "healthcare": 400, "taxes": 180, "salary": 76000, "score": 73, "index": 105, "tags": ["family", "affordable", "low-tax", "remote"]}]</script>
+  <script src="/col-by-city.js"></script>
+  <script>
+    document.querySelectorAll('[data-hint]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var input = document.getElementById('col-search-input');
+        if (input) { input.value = btn.getAttribute('data-hint'); input.focus(); }
+      });
+    });
+  </script>
+  <script src="/guide-back.js"></script>
+</body>
+</html>
