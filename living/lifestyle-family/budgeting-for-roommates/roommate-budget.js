@@ -13,7 +13,7 @@
   const COMPARE_KEYS = ["austin", "dallas", "phoenix", "tampa"];
   const BEST_KEYS = ["austin", "chicago", "denver", "atlanta"];
   const PIE_COLORS = {
-    rent: "#0f7b6c",
+    rent: "#0f6e9c",
     utilities: "#2d6a9f",
     food: "#38a169",
     internet: "#3182ce",

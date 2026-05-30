@@ -136,11 +136,12 @@ def render_hub_page(
   <meta name="description" content="Compare the real cost of living across U.S. cities. Housing, groceries, transportation, taxes, and salary needs before you move.">
   <link rel="canonical" href="https://incomeclarity.com/living/housing/cost-of-living-by-city">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="stylesheet" href="/styles-col.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 {url_script}
 </head>
-<body class="col-page">
+<body class="col-page living-tool-page">
 {header}
   <main>
     <section class="col-hero-hub">
@@ -275,7 +276,7 @@ def render_hub_page(
           <article class="col-salary-card">
             <h3>Single person</h3>
             <p>Often $65k to $120k in gross pay. High-rent coasts sit at the top.</p>
-            <a href="/living/family-budgeting/salary-needed-to-live-comfortably">Salary guide →</a>
+            <a href="/living/lifestyle/comfortable-salary-us">Salary guide →</a>
           </article>
           <article class="col-salary-card">
             <h3>Couple</h3>
@@ -348,8 +349,8 @@ def render_hub_page(
           <a class="col-tool-link" href="/living/housing/how-much-house-can-i-afford"><strong>How much house can I afford</strong><span>28/36 rule by location</span></a>
           <a class="col-tool-link" href="/living/housing/how-much-rent-can-i-afford"><strong>Rent affordability</strong><span>Cap rent on take-home pay</span></a>
           <a class="col-tool-link" href="/living/budgeting/average-monthly-expenses.html"><strong>Monthly expenses guide</strong><span>Budget buckets and benchmarks</span></a>
-          <a class="col-tool-link" href="/living/lifestyle-family/comfortable-salary-california"><strong>Comfortable salary (California)</strong><span>State take-home and targets</span></a>
-          <a class="col-tool-link" href="/living/lifestyle-family/comfortable-salary-texas"><strong>Comfortable salary (Texas)</strong><span>No state income tax framing</span></a>
+          <a class="col-tool-link" href="/living/lifestyle/comfortable-salary/california"><strong>Comfortable salary (California)</strong><span>State take-home and targets</span></a>
+          <a class="col-tool-link" href="/living/lifestyle/comfortable-salary/texas"><strong>Comfortable salary (Texas)</strong><span>No state income tax framing</span></a>
         </div>
       </div>
     </section>
@@ -383,7 +384,7 @@ def render_hub_page(
           <div class="col-final-cta__actions">
             <a class="col-btn col-btn--primary" href="#col-explore">Compare another city</a>
             <a class="col-btn col-btn--ghost" href="/living/housing/how-much-house-can-i-afford">Housing affordability</a>
-            <a class="col-btn col-btn--ghost" href="/living/family-budgeting/salary-needed-to-live-comfortably">Salary calculators</a>
+            <a class="col-btn col-btn--ghost" href="/living/lifestyle/comfortable-salary-us">Salary calculators</a>
           </div>
         </div>
       </div>

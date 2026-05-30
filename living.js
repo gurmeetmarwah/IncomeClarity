@@ -388,7 +388,7 @@ function buildLineChart(rentSeries, buySeries, opts = {}) {
     dotsSvg += `<g class="rvb-chart-point-group">
       <title>${buyTip}</title>
       <circle cx="${xr}" cy="${yb}" r="14" fill="#001a33" fill-opacity="0" class="rvb-chart-point-hit" pointer-events="all"/>
-      <circle cx="${xr}" cy="${yb}" r="5" class="rvb-chart-dot rvb-chart-dot-buy" fill="#0f7b6c" stroke="#fff" stroke-width="1.5" pointer-events="none"/>
+      <circle cx="${xr}" cy="${yb}" r="5" class="rvb-chart-dot rvb-chart-dot-buy" fill="#0f6e9c" stroke="#fff" stroke-width="1.5" pointer-events="none"/>
     </g>`;
   }
 
@@ -401,7 +401,7 @@ function buildLineChart(rentSeries, buySeries, opts = {}) {
         ${yLabels}
         ${breakEvenSvg}
         <polyline fill="none" stroke="#2d6a9f" stroke-width="2.5" points="${rentPts}" class="rvb-chart-line-rent"/>
-        <polyline fill="none" stroke="#0f7b6c" stroke-width="2.5" points="${buyPts}" class="rvb-chart-line-buy"/>
+        <polyline fill="none" stroke="#0f6e9c" stroke-width="2.5" points="${buyPts}" class="rvb-chart-line-buy"/>
         ${dotsSvg}
         ${yearLabels}
       </svg>

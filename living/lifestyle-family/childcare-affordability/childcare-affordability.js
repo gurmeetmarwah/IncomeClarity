@@ -13,7 +13,7 @@
 
   const COMPARE_KEYS = ["dallas", "austin", "phoenix", "seattle"];
   const PIE_COLORS = {
-    tuition: "#0f7b6c",
+    tuition: "#0f6e9c",
     meals: "#38a169",
     transport: "#3182ce",
     supplies: "#2d6a9f",

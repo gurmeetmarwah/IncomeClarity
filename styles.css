@@ -3,22 +3,27 @@
   --surface: #ffffff;
   --text: #102a43;
   --muted: #486581;
-  --primary: #0f7b6c;
-  --primary-dark: #0a5f53;
+  --primary: #0f6e9c;
+  --primary-dark: #0a5578;
   --accent: #f0b429;
   --border: #d9e2ec;
   --shadow: 0 10px 30px rgba(16, 42, 67, 0.08);
   --max-width: 1080px;
   --content-gutter: 1.25rem;
   --content-gutter-lg: 1.5rem;
+  /* Living calculators — shared with styles-living-system.css */
+  --living-accent: #0f6e9c;
+  --living-accent-dark: #0a5578;
+  --living-accent-mid: #3a9bc4;
+  --living-accent-soft: #e6f4fb;
   /* Interactive lifestyle guides (calculators) */
-  --guide-teal-soft: #e8f8f4;
-  --guide-teal-muted: #d9f6ef;
-  --guide-teal-border: #9fd4c8;
-  --guide-teal-ring: rgba(15, 123, 108, 0.22);
-  --guide-hero-gradient: linear-gradient(135deg, #ffffff 0%, #e8f8f4 45%, #f7fafc 100%);
-  --guide-panel-accent: linear-gradient(180deg, #f3fbf9 0%, #ffffff 100%);
-  --guide-blue: #2d6a9f;
+  --guide-teal-soft: #e6f4fb;
+  --guide-teal-muted: #d5ecf7;
+  --guide-teal-border: #9ec9e0;
+  --guide-teal-ring: rgba(15, 110, 156, 0.22);
+  --guide-hero-gradient: linear-gradient(135deg, #ffffff 0%, #e6f4fb 45%, #f7fafc 100%);
+  --guide-panel-accent: linear-gradient(180deg, #f0f7fc 0%, #ffffff 100%);
+  --guide-blue: #0f6e9c;
   --guide-slate: #627d98;
 }
 
@@ -112,7 +117,7 @@ a:hover {
 
 .nav-links a[href="/hourly-to-salary-after-tax"]::before,
 .nav-links a[href="hourly-to-salary-after-tax.html"]::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%230f7b6c'%3E%3Cpath d='M3 14h3V7H3v7zm5 0h3V3H8v11zm5 0h3V9h-3v5z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%230f6e9c'%3E%3Cpath d='M3 14h3V7H3v7zm5 0h3V3H8v11zm5 0h3V9h-3v5z'/%3E%3C/svg%3E");
 }
 
 .nav-links a[href="/credit-card-payoff-calculator"]::before,
@@ -172,11 +177,11 @@ h2::before {
 }
 
 h1::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%230f7b6c'%3E%3Cpath d='M10 2l2.2 5.1L18 8l-4 3.5L15 17l-5-3-5 3 1-5.5L2 8l5.8-.9L10 2z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%230f6e9c'%3E%3Cpath d='M10 2l2.2 5.1L18 8l-4 3.5L15 17l-5-3-5 3 1-5.5L2 8l5.8-.9L10 2z'/%3E%3C/svg%3E");
 }
 
 h2::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%230a5f53'%3E%3Cpath d='M10 2l6 3.5v9L10 18l-6-3.5v-9L10 2zm0 2.2L6 6.3v6.4l4 2.3 4-2.3V6.3L10 4.2z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%230a5578'%3E%3Cpath d='M10 2l6 3.5v9L10 18l-6-3.5v-9L10 2zm0 2.2L6 6.3v6.4l4 2.3 4-2.3V6.3L10 4.2z'/%3E%3C/svg%3E");
 }
 
 h3 {
@@ -312,8 +317,8 @@ section {
 }
 
 .home-subnav-link:hover {
-  border-color: #0f7b6c;
-  color: #0a5f53;
+  border-color: #0f6e9c;
+  color: #0a5578;
   text-decoration: none;
   box-shadow: 0 2px 8px rgba(15, 123, 108, 0.12);
 }
@@ -356,8 +361,8 @@ section {
 }
 
 .home-text-cta:hover {
-  color: #0f7b6c;
-  border-bottom-color: #0f7b6c;
+  color: #0f6e9c;
+  border-bottom-color: #0f6e9c;
 }
 
 .home-pain {
@@ -456,7 +461,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
-  border-left: 4px solid #0f7b6c;
+  border-left: 4px solid #0f6e9c;
   min-height: 100%;
 }
 
@@ -495,7 +500,7 @@ section {
   margin-top: 0.35rem;
   font-weight: 800;
   font-size: 0.88rem;
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 .home-pain-card a:hover {
@@ -531,7 +536,7 @@ section {
 .home-guide-prose h3 {
   margin: 1.6rem 0 0.55rem;
   font-size: 1.12rem;
-  color: #0a5f53;
+  color: #0a5578;
   line-height: 1.3;
 }
 
@@ -548,7 +553,7 @@ section {
 
 .home-guide-prose a {
   font-weight: 700;
-  color: #0f7b6c;
+  color: #0f6e9c;
 }
 
 .home-intro {
@@ -587,7 +592,7 @@ section {
   gap: 0.35rem;
   min-height: 100%;
   padding: 1.05rem 1.1rem;
-  border-top: 4px solid #0f7b6c;
+  border-top: 4px solid #0f6e9c;
 }
 
 .home-tool-card:nth-child(2) {
@@ -611,7 +616,7 @@ section {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 .home-tool-badge-debt {
@@ -684,7 +689,7 @@ section {
 .home-faq-item h3 {
   margin: 0 0 0.45rem;
   font-size: 1rem;
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 .home-faq-item p {
@@ -886,7 +891,7 @@ section {
 .kpi-card strong {
   display: block;
   font-size: 1.15rem;
-  color: #0f7b6c;
+  color: #0f6e9c;
 }
 
 .kpi-label {
@@ -994,7 +999,7 @@ section {
 }
 
 .income-context-nudge-text a:hover {
-  color: #0f7b6c;
+  color: #0f6e9c;
 }
 
 .affordability-section--preview {
@@ -1020,7 +1025,7 @@ section {
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #0a5f53;
+  color: #0a5578;
   background: #d8f3ea;
   vertical-align: middle;
 }
@@ -1062,7 +1067,7 @@ section {
   margin: 0 0 0.5rem;
   font-size: 1.12rem;
   font-weight: 800;
-  color: #0f7b6c;
+  color: #0f6e9c;
   font-variant-numeric: tabular-nums;
   line-height: 1.25;
 }
@@ -1070,7 +1075,7 @@ section {
 .affordability-unit {
   font-weight: 700;
   font-size: 0.92rem;
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 .affordability-pillar-lifestyle {
@@ -1148,7 +1153,7 @@ section {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 .salary-best-states-banner-heading {
@@ -1292,8 +1297,8 @@ section {
 }
 
 .salary-state-card:hover .salary-state-card-link {
-  color: #0f7b6c;
-  border-bottom-color: #0f7b6c;
+  color: #0f6e9c;
+  border-bottom-color: #0f6e9c;
 }
 
 .salary-state-card:hover .salary-state-card-link::after {
@@ -1347,7 +1352,7 @@ section {
 .seo-pay-block {
   background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   border: 1px solid #cfe0f1;
-  border-left: 5px solid #0f7b6c;
+  border-left: 5px solid #0f6e9c;
   border-radius: 14px;
   padding: 1rem 1rem 0.9rem;
   box-shadow: 0 10px 22px rgba(16, 42, 67, 0.08);
@@ -1401,14 +1406,14 @@ section {
 .seo-pay-year-amount {
   font-size: clamp(1.35rem, 3vw, 1.65rem);
   font-weight: 800;
-  color: #0f7b6c;
+  color: #0f6e9c;
   letter-spacing: -0.02em;
 }
 
 .seo-pay-year-unit {
   font-size: 1.05rem;
   font-weight: 700;
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 .seo-pay-tax-note {
@@ -1634,7 +1639,7 @@ section {
 .hourly-benchmark-section .seo-pay-deep h4 {
   margin: 1rem 0 0.4rem;
   padding: 0.35rem 0 0.35rem 0.6rem;
-  border-left: 3px solid #0f7b6c;
+  border-left: 3px solid #0f6e9c;
   font-size: 0.88rem;
   font-weight: 700;
   letter-spacing: 0;
@@ -1678,7 +1683,7 @@ section {
   border-radius: 999px;
   font-size: 0.78rem;
   font-weight: 700;
-  color: #0a5f53;
+  color: #0a5578;
   background: #d8f3ea;
 }
 
@@ -1748,7 +1753,7 @@ section {
 }
 
 .seo-pay-bar-net {
-  background: #0f7b6c;
+  background: #0f6e9c;
 }
 
 .seo-pay-bar-tax {
@@ -1823,7 +1828,7 @@ section {
 }
 
 .viz-takehome {
-  background: #0f7b6c;
+  background: #0f6e9c;
 }
 
 .faq-stack {
@@ -1909,7 +1914,7 @@ section {
 
 .debt-topic-card:nth-child(1),
 .living-topic-card:nth-child(1) {
-  --topic-accent: #0a5f53;
+  --topic-accent: #0a5578;
 }
 
 .debt-topic-card:nth-child(2),
@@ -2161,7 +2166,7 @@ section {
   margin-top: 0.12rem;
   font-weight: 700;
   font-size: 0.9rem;
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 /* Living hub: one block for multiple COL guides (compact vs N full interlink-cards) */
@@ -2535,14 +2540,14 @@ section {
   padding: 1rem 1.05rem 1.1rem;
   border-radius: 12px;
   border: 1px solid #dfe7f4;
-  border-left: 4px solid var(--explore-accent, #0a5f53);
+  border-left: 4px solid var(--explore-accent, #0a5578);
   background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   box-shadow: 0 4px 14px rgba(16, 42, 67, 0.05);
 }
 
-.rvb-explore-column:nth-child(1) { --explore-accent: #0a5f53; }
-.rvb-explore-column:nth-child(2) { --explore-accent: #1d6fa5; }
-.rvb-explore-column:nth-child(3) { --explore-accent: #2e6b5c; }
+.rvb-explore-column:nth-child(1) { --explore-accent: #0a5578; }
+.rvb-explore-column:nth-child(2) { --explore-accent: #0f6e9c; }
+.rvb-explore-column:nth-child(3) { --explore-accent: #3a9bc4; }
 
 .rvb-explore-column__title {
   margin: 0 0 0.35rem;
@@ -2584,11 +2589,11 @@ section {
 .rvb-explore-column__links a:hover {
   background: #ffffff;
   border-color: #cfe0f1;
-  color: #0f7b6c;
+  color: #0f6e9c;
 }
 
 .rvb-explore-column__links a:focus-visible {
-  outline: 2px solid #0f7b6c;
+  outline: 2px solid #0f6e9c;
   outline-offset: 2px;
 }
 
@@ -2868,7 +2873,7 @@ section {
 }
 
 .debt-context-nudge-text a:hover {
-  color: #0f7b6c;
+  color: #0f6e9c;
 }
 
 .debt-page section[aria-labelledby="seo-debt-question"],
@@ -3096,7 +3101,7 @@ section {
   height: 1.75rem;
   margin-bottom: 0.45rem;
   border-radius: 999px;
-  background: #0f7b6c;
+  background: #0f6e9c;
   color: #fff;
   font-weight: 800;
   font-size: 0.95rem;
@@ -3155,7 +3160,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, #37b24d 0%, #0f7b6c 100%);
+  background: linear-gradient(180deg, #37b24d 0%, #0f6e9c 100%);
   min-width: 2.75rem;
 }
 
@@ -3460,7 +3465,7 @@ section {
 
 .debt-principal-fill {
   height: 100%;
-  background: #0f7b6c;
+  background: #0f6e9c;
 }
 
 .debt-interest-fill {
@@ -3769,7 +3774,7 @@ section {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #0f7b6c;
+  color: #0f6e9c;
 }
 
 .col-tx-tax-gap-line {
@@ -3986,7 +3991,7 @@ section {
   margin: 0 0 0.4rem;
   font-size: 0.88rem;
   font-weight: 700;
-  color: #0a5f53;
+  color: #0a5578;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -4095,7 +4100,7 @@ section {
 
 .rvb-guide-highlight {
   background: linear-gradient(90deg, #ecfbf6 0%, #f8fffd 100%);
-  box-shadow: inset 3px 0 0 0 #0f7b6c;
+  box-shadow: inset 3px 0 0 0 #0f6e9c;
 }
 
 .rvb-guide-note {
@@ -4147,7 +4152,7 @@ section {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 .living-seo-deep-intro {
@@ -4733,7 +4738,7 @@ section {
 }
 
 .rvb-scenario-note a:hover {
-  color: #0f7b6c;
+  color: #0f6e9c;
 }
 
 .rvb-income-affordability {
@@ -4781,7 +4786,7 @@ section {
 }
 
 .rvb-income-affordability-nudge a:hover {
-  color: #0f7b6c;
+  color: #0f6e9c;
 }
 
 .rvb-result:not(:empty) {
@@ -4963,7 +4968,7 @@ section {
 }
 
 .rvb-legend-buy .swatch {
-  background: #0f7b6c;
+  background: #0f6e9c;
 }
 
 .rvb-legend-be .swatch-be {
@@ -5074,7 +5079,7 @@ section {
 .rvb-breakdown-h3 {
   margin: 0 0 0.6rem;
   font-size: 1rem;
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 .rvb-breakdown-dl {
@@ -5651,7 +5656,7 @@ section {
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: #0f7b6c;
+  background: #0f6e9c;
   color: #fff;
   font-weight: 800;
   font-size: 0.9rem;
@@ -5735,7 +5740,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, #37b24d 0%, #0f7b6c 100%);
+  background: linear-gradient(180deg, #37b24d 0%, #0f6e9c 100%);
   min-width: 3rem;
 }
 
@@ -5870,7 +5875,7 @@ section {
   margin: 0 0 0.3rem;
   font-size: 0.92rem;
   font-weight: 800;
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 .apr-plain-callout-body {
@@ -6139,7 +6144,7 @@ section {
 }
 
 .fl-panel-income {
-  border-top: 3px solid #0f7b6c;
+  border-top: 3px solid #0f6e9c;
 }
 
 .fl-panel-freelance {
@@ -6163,7 +6168,7 @@ section {
 }
 
 .fl-marker-income {
-  background: linear-gradient(180deg, #0f7b6c, #2ea893);
+  background: linear-gradient(180deg, #0f6e9c, #2ea893);
 }
 
 .fl-marker-freelance {
@@ -6275,7 +6280,7 @@ section {
 .fl-compare-btn {
   appearance: none;
   border: none;
-  background: linear-gradient(135deg, #0f7b6c 0%, #0a5f53 100%);
+  background: linear-gradient(135deg, #0f6e9c 0%, #0a5578 100%);
   color: #fff;
   font-weight: 700;
   font-size: 1.02rem;
@@ -6329,7 +6334,7 @@ section {
 
 .fl-diff-banner--w2 {
   background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
-  border: 2px solid #0f7b6c;
+  border: 2px solid #0f6e9c;
 }
 
 .fl-diff-banner--neutral {
@@ -6350,7 +6355,7 @@ section {
 }
 
 .fl-diff-banner--w2 .fl-diff-lead {
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 .fl-diff-sub {
@@ -6381,7 +6386,7 @@ section {
 }
 
 .fl-result-w2 {
-  border-top: 4px solid #0f7b6c;
+  border-top: 4px solid #0f6e9c;
 }
 
 .fl-result-1099 {
@@ -6465,7 +6470,7 @@ section {
 
 .fl-result-row--highlight dd {
   font-size: 1.15rem;
-  color: #0f7b6c;
+  color: #0f6e9c;
 }
 
 .fl-result-1099 .fl-result-row--highlight dd {
@@ -6518,7 +6523,7 @@ section {
 }
 
 .fl-where-w2 {
-  border-top: 3px solid #0f7b6c;
+  border-top: 3px solid #0f6e9c;
 }
 
 .fl-where-1099 {
@@ -6639,7 +6644,7 @@ section {
 }
 
 .fl-education-card:nth-child(1) {
-  border-left: 4px solid #0f7b6c;
+  border-left: 4px solid #0f6e9c;
 }
 
 .fl-education-card:nth-child(2) {
@@ -6920,7 +6925,7 @@ section {
 
 .fl-choice-tag-w2 {
   background: #e6fffa;
-  color: #0a5f53;
+  color: #0a5578;
   border: 1px solid #8eedd8;
 }
 
@@ -7013,7 +7018,7 @@ section {
 .fl-faq-q {
   margin: 0 0 0.5rem;
   font-size: 1rem;
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 .fl-faq-a {
@@ -7140,7 +7145,7 @@ main.fl-page h2 {
 }
 
 .state-page-fact-value--good {
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 .state-page-fact-value--warn {
@@ -7174,7 +7179,7 @@ main.fl-page h2 {
 
 .state-page-form button {
   flex: 1 1 14rem;
-  background: #0f7b6c;
+  background: #0f6e9c;
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -7238,7 +7243,7 @@ main.fl-page h2 {
 }
 
 .state-salary-kpi--primary strong {
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 .state-salary-insight {
@@ -7329,7 +7334,7 @@ main.fl-page h2 {
 
 .state-page-wage-stats dd {
   margin: 0;
-  color: #0a5f53;
+  color: #0a5578;
   font-weight: 700;
   text-align: right;
   overflow-wrap: anywhere;
@@ -7424,8 +7429,8 @@ main.fl-page h2 {
 }
 
 .state-page-compare-table a:hover {
-  color: #0f7b6c;
-  border-bottom-color: #0f7b6c;
+  color: #0f6e9c;
+  border-bottom-color: #0f6e9c;
 }
 
 /* Affordability section */
@@ -7448,10 +7453,10 @@ main.fl-page h2 {
 }
 
 .state-page-affordability-nudge a {
-  color: #0a5f53;
+  color: #0a5578;
   font-weight: 700;
   text-decoration: none;
-  border-bottom: 1px dashed #0a5f53;
+  border-bottom: 1px dashed #0a5578;
 }
 
 .state-page-affordability-nudge a:hover {
@@ -7474,7 +7479,7 @@ main.fl-page h2 {
 .state-page-faq .faq-item h3 {
   margin: 0 0 0.45rem;
   font-size: 1rem;
-  color: #0a5f53;
+  color: #0a5578;
   line-height: 1.3;
 }
 
@@ -7593,7 +7598,7 @@ main.fl-page h2 {
   border-radius: 999px;
   font-size: 0.88rem;
   font-weight: 700;
-  color: #0a5f53;
+  color: #0a5578;
   background: #e6f4f1;
   border: 1px solid #9fd4c8;
   text-decoration: none;
@@ -7638,7 +7643,7 @@ main.fl-page h2 {
 .housing-hub-hero {
   padding: 1rem 1rem 1.1rem;
   border-radius: 14px;
-  background: linear-gradient(128deg, #ffffff 0%, #edf6ff 42%, #e8f6f2 100%);
+  background: linear-gradient(128deg, #ffffff 0%, #edf6ff 42%, #e6f4fb 100%);
   border: 1px solid #c5d9ec;
   box-shadow: 0 8px 24px rgba(16, 42, 67, 0.08);
 }
@@ -7706,9 +7711,9 @@ main.fl-page h2 {
 }
 
 .housing-hub-pill--rent {
-  color: #0a5f53;
-  background: #e3f5f1;
-  border: 1px solid #8fd4c6;
+  color: #0a5578;
+  background: #e6f4fb;
+  border: 1px solid #9ec9e0;
 }
 
 .housing-hub-pill--house {
@@ -7753,7 +7758,7 @@ main.fl-page h2 {
 }
 
 .housing-hub-jump-pill:hover {
-  color: #0a5f53;
+  color: #0a5578;
   border-color: #8fd4c6;
   background: #eefaf7;
   text-decoration: none;
@@ -7832,8 +7837,8 @@ main.fl-page h2 {
   text-transform: uppercase;
 }
 
-.housing-hub-kicker--teal { color: #0a7a6a; }
-.housing-hub-kicker--blue { color: #1a5fad; }
+.housing-hub-kicker--teal { color: #0a5578; }
+.housing-hub-kicker--blue { color: #0f6e9c; }
 .housing-hub-kicker--violet { color: #5b4bb4; }
 .housing-hub-kicker--gold { color: #9a6b1a; }
 .housing-hub-kicker--amber { color: #a65c1e; }
@@ -7928,7 +7933,7 @@ main.fl-page h2 {
   margin-top: 0.1rem;
   font-size: 0.82rem;
   font-weight: 700;
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 .housing-hub-tool-card--house .housing-hub-card-cta { color: #1a5fad; }
@@ -8985,7 +8990,7 @@ a.lifestyle-hub-salary-card:hover {
 }
 
 .debt-payoff-hub-pill--5k {
-  color: #0a5f53;
+  color: #0a5578;
   background: #e8f6f2;
   border: 1px solid #8fd4c6;
 }
@@ -10017,7 +10022,7 @@ a.lifestyle-hub-salary-card:hover {
 }
 
 .sc5-jump a:hover {
-  color: #0a5f53;
+  color: #0a5578;
   border-color: #8fd4c6;
   background: #eefaf7;
 }
@@ -10069,7 +10074,7 @@ a.lifestyle-hub-salary-card:hover {
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 .sc5-preview-stats {
@@ -10153,12 +10158,12 @@ a.lifestyle-hub-salary-card:hover {
 
 .sc5-btn--primary {
   color: #fff;
-  background: linear-gradient(135deg, #0a5f53 0%, #0d7a6a 100%);
+  background: linear-gradient(135deg, #0a5578 0%, #0d7a6a 100%);
   box-shadow: 0 4px 14px rgba(10, 95, 83, 0.25);
 }
 
 .sc5-btn--secondary {
-  color: #0a5f53;
+  color: #0a5578;
   background: #e8f6f2;
   border: 1px solid #8fd4c6;
 }
@@ -10288,9 +10293,9 @@ a.lifestyle-hub-salary-card:hover {
 }
 
 .sc5-debt-type-card.is-selected {
-  color: #0a5f53;
+  color: #0a5578;
   background: #e8f6f2;
-  border-color: #0a5f53;
+  border-color: #0a5578;
 }
 
 .sc5-hint {
@@ -10380,7 +10385,7 @@ a.lifestyle-hub-salary-card:hover {
   display: block;
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, #0a5f53, #3ebd9a);
+  background: linear-gradient(90deg, #0a5578, #3ebd9a);
 }
 
 .sc5-timeline-start,
@@ -10503,7 +10508,7 @@ a.lifestyle-hub-salary-card:hover {
 }
 
 .sc5-chart-sub-principal {
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 .sc5-chart-sub-interest {
@@ -10608,7 +10613,7 @@ a.lifestyle-hub-salary-card:hover {
 }
 
 .sc5-bar-segment--principal {
-  background: linear-gradient(180deg, #9ae6b4 0%, #38a169 45%, #0a5f53 100%);
+  background: linear-gradient(180deg, #9ae6b4 0%, #38a169 45%, #0a5578 100%);
 }
 
 .sc5-segment-label {
@@ -10681,7 +10686,7 @@ a.lifestyle-hub-salary-card:hover {
 }
 
 .sc5-legend-item--principal i {
-  background: linear-gradient(180deg, #6fc4b4, #0a5f53);
+  background: linear-gradient(180deg, #6fc4b4, #0a5578);
 }
 
 .sc5-legend-item--interest i {
@@ -10707,7 +10712,7 @@ a.lifestyle-hub-salary-card:hover {
 
 .sc5-balance-line {
   fill: none;
-  stroke: #0a5f53;
+  stroke: #0a5578;
   stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -10715,7 +10720,7 @@ a.lifestyle-hub-salary-card:hover {
 
 .sc5-balance-dot {
   fill: #fff;
-  stroke: #0a5f53;
+  stroke: #0a5578;
   stroke-width: 2;
 }
 
@@ -10742,7 +10747,7 @@ a.lifestyle-hub-salary-card:hover {
   border-radius: 8px;
   background: #e8f6f2;
   border: 1px solid #8fd4c6;
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 .sc5-timeline-caption--warn {
@@ -10870,7 +10875,7 @@ a.lifestyle-hub-salary-card:hover {
   margin-top: 0.5rem;
   font-size: 0.8rem;
   font-weight: 700;
-  color: #0a5f53;
+  color: #0a5578;
 }
 
 .sc5-interest-card a {
@@ -10932,7 +10937,7 @@ a.lifestyle-hub-salary-card:hover {
   text-align: center;
   padding: 1.5rem 1rem;
   border-radius: 14px;
-  background: linear-gradient(135deg, #0a5f53 0%, #0d7a6a 100%);
+  background: linear-gradient(135deg, #0a5578 0%, #0d7a6a 100%);
   color: #fff;
   box-shadow: 0 10px 28px rgba(10, 95, 83, 0.25);
 }
@@ -10951,7 +10956,7 @@ a.lifestyle-hub-salary-card:hover {
 
 .sc5-cta-panel .sc5-btn--primary {
   background: #fff;
-  color: #0a5f53;
+  color: #0a5578;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 }
 
@@ -14511,7 +14516,7 @@ a.lifestyle-hub-salary-card:hover {
   margin: 2.25rem 0 1.5rem;
   background: #f8fafc;
   border: 1px solid #d9e2ec;
-  border-left: 4px solid #0f7b6c;
+  border-left: 4px solid #0f6e9c;
   border-radius: 12px;
   padding: 1.4rem 1.4rem 1.5rem;
 }
@@ -14526,7 +14531,7 @@ a.lifestyle-hub-salary-card:hover {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #0a5f53;
+  color: #0a5578;
   background: #e3f6f1;
   border: 1px solid #b8e4d8;
   border-radius: 999px;
@@ -14548,7 +14553,7 @@ a.lifestyle-hub-salary-card:hover {
 }
 
 .eeat-trust__meta a {
-  color: #0f7b6c;
+  color: #0f6e9c;
   font-weight: 600;
 }
 
@@ -14569,7 +14574,7 @@ a.lifestyle-hub-salary-card:hover {
 .eeat-trust__card h3 {
   margin: 0 0 0.45rem;
   font-size: 0.95rem;
-  color: #0f7b6c;
+  color: #0f6e9c;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 700;
@@ -14609,7 +14614,7 @@ a.lifestyle-hub-salary-card:hover {
 }
 
 .eeat-trust__footer a {
-  color: #0f7b6c;
+  color: #0f6e9c;
   font-weight: 600;
 }
 
@@ -14633,7 +14638,7 @@ a.lifestyle-hub-salary-card:hover {
 }
 
 .methodology-meta a {
-  color: #0f7b6c;
+  color: #0f6e9c;
   font-weight: 600;
 }
 
@@ -14680,7 +14685,7 @@ a.lifestyle-hub-salary-card:hover {
 
 .methodology-section h3 {
   font-size: 1.08rem;
-  color: #0f7b6c;
+  color: #0f6e9c;
   margin: 0.9rem 0 0.4rem;
 }
 
@@ -14775,7 +14780,7 @@ a.lifestyle-hub-salary-card:hover {
 
 /* House affordability hub, state, and city pages */
 .ha-page {
-  --ha-accent: #0a5f53;
+  --ha-accent: #0a5578;
   --ha-accent-soft: #e3f6f1;
 }
 
@@ -14951,7 +14956,7 @@ a.lifestyle-hub-salary-card:hover {
   font-weight: 800;
 }
 
-.ha-stress--comfortable { color: #0a5f53; }
+.ha-stress--comfortable { color: #0a5578; }
 .ha-stress--moderate { color: #1d6fa5; }
 .ha-stress--high { color: #b45309; }
 .ha-stress--over { color: #b91c1c; }
@@ -14981,7 +14986,7 @@ a.lifestyle-hub-salary-card:hover {
   font-size: 0.82rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #0f7b6c;
+  color: #0f6e9c;
 }
 
 .ha-breakdown__amt {
@@ -15081,7 +15086,7 @@ a.lifestyle-hub-salary-card:hover {
   font-weight: 600;
   background: var(--ha-accent-soft);
   border: 1px solid #b8e4d8;
-  color: #0a5f53;
+  color: #0a5578;
   text-decoration: none;
 }
 

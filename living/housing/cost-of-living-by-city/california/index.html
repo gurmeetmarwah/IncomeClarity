@@ -7,6 +7,7 @@
   <meta name="description" content="Compare cost of living in California: average rent, groceries, taxes, utilities, and top cities ranked.">
   <link rel="canonical" href="https://incomeclarity.com/living/housing/cost-of-living-by-city/california">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="stylesheet" href="/styles-col.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <script>
@@ -19,7 +20,7 @@
     })();
   </script>
 </head>
-<body class="col-page">
+<body class="col-page living-tool-page">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="/index.html">Income Clarity</a>
@@ -59,17 +60,33 @@
           <div class="col-cost-card" role="listitem"><span class="col-cost-card__label">Car &amp; transit</span><span class="col-cost-card__value">$380/mo</span></div>
         </div>
         <p class="col-cost-total"><strong>Core bills (no tax):</strong> about $3,480 a month. Tax note: State income tax up to 13.3% on high earners.</p>
-        <p class="col-lead">Cost index is <strong>142</strong> (US norm is 100). Many singles plan for <strong>$98,000</strong> in gross pay.</p>
+        <p class="col-lead">Cost index is <strong>142</strong> (US norm is 100). Use these quick facts as planning anchors before you compare individual cities.</p>
 
-        <ul class="col-key-list">
-          <li>Typical rent is near $2,400 a month.</li>
-          <li>Many singles plan for $98,000 in gross pay.</li>
-          <li>State income tax up to 13.3% on high earners.</li>
-          <li>Tap a city below for local rent and pay targets.</li>
-        </ul>
+        <div class="col-facts-grid">
+          <article class="col-fact-card">
+            <span class="col-fact-card__kicker">Typical 1BR rent</span>
+            <strong class="col-fact-card__value">$2,400/mo</strong>
+            <p>Baseline for a median one-bedroom in this state.</p>
+          </article>
+          <article class="col-fact-card">
+            <span class="col-fact-card__kicker">Comfort salary target</span>
+            <strong class="col-fact-card__value">$98,000</strong>
+            <p>Common planning point for singles before debt and childcare.</p>
+          </article>
+          <article class="col-fact-card">
+            <span class="col-fact-card__kicker">Tax context</span>
+            <strong class="col-fact-card__value">State income tax up to 13.3% on high earners</strong>
+            <p>Tax treatment can materially change take-home pay.</p>
+          </article>
+          <article class="col-fact-card">
+            <span class="col-fact-card__kicker">Next step</span>
+            <strong class="col-fact-card__value">Compare cities below</strong>
+            <p>Open a city to see local rent, pay targets, and household notes.</p>
+          </article>
+        </div>
       </div>
     </section>
-    <section class="col-band col-band--alt">
+    <section class="col-band col-band--alt col-band--tone-cool">
       <div class="container">
         <h2>Top cities in California</h2>
         <p class="col-lead">Coast cities cost more on rent. Inland cities often cost less.</p>
@@ -107,34 +124,193 @@
     <section class="col-band">
       <div class="container">
         <h2>City snapshots</h2>
-        <p class="col-city-snap"><a href="/living/housing/cost-of-living-by-city/california/los-angeles"><strong>Los Angeles</strong></a> — index 152, rent $2,600/mo, pay $105,000</p>
-        <p class="col-city-snap"><a href="/living/housing/cost-of-living-by-city/california/san-diego"><strong>San Diego</strong></a> — index 148, rent $2,550/mo, pay $102,000</p>
-        <p class="col-city-snap"><a href="/living/housing/cost-of-living-by-city/california/san-francisco"><strong>San Francisco</strong></a> — index 168, rent $3,200/mo, pay $125,000</p>
-        <p class="col-lead">Tools: <a href="/living/housing/how-much-house-can-i-afford/california">House affordability</a> · <a href="/living/lifestyle-family/comfortable-salary-california">Comfortable salary</a> · <a href="/living/housing/how-much-rent-can-i-afford">Rent cap</a></p>
+        <p class="col-lead">Quick city cards for rent, cost index, and income targets. Open a city to view deeper local detail.</p>
+        <div class="col-city-snap-grid">
+        <article class="col-city-snap-card">
+          <h3><a href="/living/housing/cost-of-living-by-city/california/los-angeles">Los Angeles</a></h3>
+          <p class="col-city-snap-kpi"><span>COL index</span><strong>152</strong></p>
+          <p class="col-city-snap-kpi"><span>1BR rent</span><strong>$2,600/mo</strong></p>
+          <p class="col-city-snap-kpi"><span>Comfort salary</span><strong>$105,000</strong></p>
+          <p class="col-city-snap-meta">Lifestyle score: 62/100</p>
+        </article>
+        <article class="col-city-snap-card">
+          <h3><a href="/living/housing/cost-of-living-by-city/california/san-diego">San Diego</a></h3>
+          <p class="col-city-snap-kpi"><span>COL index</span><strong>148</strong></p>
+          <p class="col-city-snap-kpi"><span>1BR rent</span><strong>$2,550/mo</strong></p>
+          <p class="col-city-snap-kpi"><span>Comfort salary</span><strong>$102,000</strong></p>
+          <p class="col-city-snap-meta">Lifestyle score: 64/100</p>
+        </article>
+        <article class="col-city-snap-card">
+          <h3><a href="/living/housing/cost-of-living-by-city/california/san-francisco">San Francisco</a></h3>
+          <p class="col-city-snap-kpi"><span>COL index</span><strong>168</strong></p>
+          <p class="col-city-snap-kpi"><span>1BR rent</span><strong>$3,200/mo</strong></p>
+          <p class="col-city-snap-kpi"><span>Comfort salary</span><strong>$125,000</strong></p>
+          <p class="col-city-snap-meta">Lifestyle score: 58/100</p>
+        </article>
+        </div>
+        <p class="col-lead">Tools: <a href="/living/housing/how-much-house-can-i-afford/california">House affordability</a> · <a href="/living/lifestyle/comfortable-salary/california">Comfortable salary</a> · <a href="/living/housing/how-much-rent-can-i-afford">Rent cap</a></p>
+      </div>
+    </section>
+
+    <section class="col-band col-band--tone-cool col-know-section" aria-labelledby="col-know-california-title">
+      <div class="container">
+        <header class="col-band__head col-know-head">
+          <h2 id="col-know-california-title">What to know about California</h2>
+        <p class="col-know-lead">Coast cities cost more on rent. Inland cities often cost less.</p>
+        </header>
+        <ul class="col-know-points">
+          <li>California costs more than most of the US. Rent and insurance drive the gap. Wages are higher too, but not always enough on the coast.</li>
+          <li>Use this page as a map. Compare cities below. Then open a city page for rent, food, tax, and salary targets in one place.</li>
+          <li>California has state income tax up to 13.3% on high earners. Budget for it when you compare offers from Texas or Florida.</li>
+          <li>Inland metros often run 20% to 40% below coastal rent. Many movers pick Sacramento or Riverside to keep a CA job market with lower rent.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="col-band">
+      <div class="container">
+        <h2>Plan your California budget in order</h2>
+        <div class="col-context-links">
+          <p>Start with your real take-home pay in the <a href="/hourly-to-salary-after-tax/state/california/">state take-home calculator</a>. In California, core bills run about <strong>$3,480/mo</strong> before debt, childcare, or savings.</p>
+          <p>Next, set a rent ceiling in the <a href="/living/housing/how-much-rent-can-i-afford">rent affordability calculator</a>. At a 30% gross-income cap, rent near $2,400/mo implies planning income around <strong>$96,000</strong> gross — then stress-test with your actual deductions.</p>
+          <p>If you might buy, compare with <a href="/living/housing/how-much-house-can-i-afford/california">house affordability in California</a> and the <a href="/rent-vs-buy-calculator">rent vs buy calculator</a>. If you are relocating, estimate move cash in the <a href="/living/housing/moving-cost-calculator/california">moving cost calculator</a>.</p>
+          <p>For household targets, use the <a href="/living/lifestyle/comfortable-salary/california">comfortable salary guide</a> and <a href="/living/lifestyle-family/family-of-4-income-guide/">family of 4 income guide</a> to layer childcare and debt on top of these medians.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-band col-band--alt col-method-section" aria-labelledby="col-method-california-title">
+      <div class="container">
+        <header class="col-band__head">
+          <h2 id="col-method-california-title">How we calculate California numbers</h2>
+          <p class="col-lead">Transparent planning math you can audit before a move or offer decision.</p>
+        </header>
+        <div class="col-method-summary" role="note">
+          <div class="col-method-summary__item">
+            <span class="col-method-summary__label">Core monthly stack</span>
+            <strong class="col-method-summary__value">$3,480/mo</strong>
+          </div>
+          <div class="col-method-summary__item">
+            <span class="col-method-summary__label">Comfort salary (model)</span>
+            <strong class="col-method-summary__value">$95,000</strong>
+          </div>
+          <div class="col-method-summary__item">
+            <span class="col-method-summary__label">Published target</span>
+            <strong class="col-method-summary__value">$98,000</strong>
+          </div>
+        </div>
+        <div class="col-method-grid">
+          <article class="col-method-card">
+            <span class="col-method-card__step" aria-hidden="true">1</span>
+            <div class="col-method-card__body">
+              <h3>Core monthly stack</h3>
+              <p>Rent $2,400 + groceries $480 + utilities $220 + transport $380.</p>
+            </div>
+          </article>
+          <article class="col-method-card">
+            <span class="col-method-card__step" aria-hidden="true">2</span>
+            <div class="col-method-card__body">
+              <h3>Comfort salary target</h3>
+              <p>Annual core ($41,760) ÷ 43% gross share ≈ $95,000. We publish $98,000 as a market-adjusted planning line.</p>
+            </div>
+          </article>
+          <article class="col-method-card">
+            <span class="col-method-card__step" aria-hidden="true">3</span>
+            <div class="col-method-card__body">
+              <h3>Affordability signal</h3>
+              <p>Index 142 (US = 100) with housing share 69% yields model score <strong>61/100</strong>.</p>
+            </div>
+          </article>
+          <article class="col-method-card">
+            <span class="col-method-card__step" aria-hidden="true">4</span>
+            <div class="col-method-card__body">
+              <h3>Tax context</h3>
+              <p>State income tax up to 13.3% on high earners. Use take-home pay — not gross alone — when setting rent caps and savings goals.</p>
+            </div>
+          </article>
+        </div>
+        <p class="col-method-footer"><a href="/methodology#affordability">Read the full affordability methodology →</a></p>
+      </div>
+    </section>
+
+    <section class="col-band col-band--tone-warm">
+      <div class="container">
+        <header class="col-band__head">
+          <h2>Recommendations for California</h2>
+          <p>Practical guidance based on local cost structure, tax profile, and common move patterns.</p>
+        </header>
+        <div class="col-rec-grid">
+          <article class="col-rec-card"><h3>Recommendation 1</h3><p>If you want California job access with lower pressure, compare inland metros before signing a coastal lease.</p></article>
+          <article class="col-rec-card"><h3>Recommendation 2</h3><p>Budget state income tax and insurance changes before you set rent in high-cost counties.</p></article>
+          <article class="col-rec-card"><h3>Recommendation 3</h3><p>For wildfire or coastal risk zones, recheck insurance costs before final move decisions.</p></article>
+        </div>
       </div>
     </section>
     <section class="col-faq-section">
       <div class="container content-page">
         <h2>FAQ — California</h2>
         <div class="faq-stack">
-          <article class="faq-item"><h3>What is rent like in California?</h3><p>Typical rent is near $2,400 a month. Coast and inland areas differ.</p></article>
-          <article class="faq-item"><h3>How much pay do I need in California?</h3><p>Many singles plan for $98,000 or more in gross pay.</p></article>
-          <article class="faq-item"><h3>How does California compare to Texas?</h3><p>Texas often has lower rent and no state income tax. Compare your net pay.</p></article>
-          <article class="faq-item"><h3>What is the cost index?</h3><p>It blends rent, food, power, and car costs. US norm is 100.</p></article>
-          <article class="faq-item"><h3>Should I rent or buy?</h3><p>Run our rent vs buy tool with local tax and insurance.</p></article>
+          <article class="faq-item"><h3>What is rent like in California?</h3><p>Typical rent is near $2,400 a month, but city and neighborhood spreads can be large.</p><p>Use state averages for quick orientation, then validate with local listings before deciding where to live.</p></article>
+          <article class="faq-item"><h3>How much pay do I need in California?</h3><p>Many singles plan for $98,000 or more in gross pay to stay comfortable after core bills.</p><p>If you carry debt or support family costs, target higher income or lower housing to protect monthly breathing room.</p></article>
+          <article class="faq-item"><h3>How does California compare to Texas?</h3><p>Texas often has lower rent and no state income tax, which can improve take-home flexibility.</p><p>Still compare exact city pairs and job offers, not only state averages.</p></article>
+          <article class="faq-item"><h3>What is the cost index?</h3><p>The index combines major monthly lines like rent, food, utilities, and transport, with US = 100 as baseline.</p><p>It helps compare relative pressure across places, but your actual budget depends on personal spending patterns.</p></article>
+          <article class="faq-item"><h3>Should I rent or buy?</h3><p>Rent and buy decisions depend on local prices, taxes, rates, and how long you plan to stay.</p><p>Run rent vs buy with your likely move timeline so you compare total cost, not only monthly payment.</p></article>
         </div>
       </div>
     </section>
 
     <section class="col-section col-related" aria-labelledby="col-related-title">
       <div class="container content-page">
-        <h2 id="col-related-title">Related guides</h2>
-        <ul class="col-related__list">
-          <li><a href="/living/housing/how-much-house-can-i-afford/california">How much house can I afford</a></li>
-          <li><a href="/living/housing/cost-of-living-by-city">Cost of living hub</a></li>
-          <li><a href="/living/housing/how-much-rent-can-i-afford">Rent affordability</a></li>
-          <li><a href="/living/lifestyle-family/comfortable-salary-california">Comfortable salary</a></li>
-        </ul>
+        <h2 id="col-related-title">Related tools for California</h2>
+        <p class="col-lead">Use these calculators after this page to pressure-test rent, tax, and relocation decisions with your own numbers.</p>
+
+        <p class="col-lead">Head-to-head comparisons: <a href="/living/cost-of-living/cost-of-living-california-vs-texas.html">California vs Texas</a></p>
+        <div class="col-related__grid">
+          <a class="col-related-card" href="/hourly-to-salary-after-tax/state/california/"><strong>Take-home pay</strong><span>Convert gross offers to net before comparing cities.</span></a>
+          <a class="col-related-card" href="/living/housing/how-much-rent-can-i-afford"><strong>Rent affordability</strong><span>Set a rent cap from your real paycheck.</span></a>
+          <a class="col-related-card" href="/rent-vs-buy-calculator"><strong>Rent vs buy</strong><span>Compare long-run housing cost if you might buy.</span></a>
+          <a class="col-related-card" href="/living/lifestyle/comfortable-salary/california"><strong>Comfortable salary</strong><span>Benchmark income needed for your household.</span></a>
+          <a class="col-related-card" href="/living/housing/moving-cost-calculator/california"><strong>Moving cost — California</strong><span>Estimate relocation cash by state.</span></a>
+          <a class="col-related-card" href="/living/housing/cost-of-living-by-city"><strong>Cost of living hub</strong><span>Browse all states and cities.</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-eeat">
+      <div class="container content-page">
+        <p class="col-disclaimer">Educational content for US readers only, not financial or legal advice. Verify with pay stubs, listings, and local tax guidance.</p>
+        <aside class="eeat-trust" aria-labelledby="eeat-col-california-title">
+          <header class="eeat-trust__header">
+            <span class="eeat-trust__kicker">How we built this</span>
+            <h2 id="eeat-col-california-title" class="eeat-trust__title">California Cost of Living Methodology &amp; Data Sources</h2>
+            <p class="eeat-trust__meta"><time datetime="2026-05-30">Last reviewed: May 30, 2026</time> · Reviewed by the Income Clarity editorial team · <a href="/methodology#affordability">Read the full methodology</a></p>
+          </header>
+          <div class="eeat-trust__grid">
+            <article class="eeat-trust__card">
+              <h3>How we calculate affordability</h3>
+              <ul>
+                <li><strong>Core stack:</strong> 1BR rent + groceries + utilities + transport ($3,480/mo here).</li>
+                <li><strong>Comfort salary:</strong> annual core ÷ 43% gross share, rounded to nearest $5k.</li>
+                <li><strong>Family target:</strong> core stack × 1.35 with a 48% gross share assumption.</li>
+                <li><strong>Affordability signal:</strong> cost index + housing share pressure (not a quality-of-life score).</li>
+              </ul>
+            </article>
+            <article class="eeat-trust__card">
+              <h3>Primary data sources</h3>
+              <ul>
+                <li><a href="https://www.zillow.com/research/data/" rel="noopener noreferrer">Zillow Research (ZORI)</a> — metro rent medians.</li>
+                <li><a href="https://www.huduser.gov/portal/datasets/fmr.html" rel="noopener noreferrer">HUD Fair Market Rents</a> — regional rent benchmarks.</li>
+                <li><a href="https://www.bls.gov/cpi/" rel="noopener noreferrer">BLS CPI</a> — food, utilities, and transport inflation context.</li>
+                <li><a href="https://www.census.gov/data/developers/data-sets/acs-5year.html" rel="noopener noreferrer">Census ACS</a> — income and household spending context.</li>
+              </ul>
+            </article>
+            <article class="eeat-trust__card">
+              <h3>What this is not</h3>
+              <p>These are planning medians, not lease approvals or loan underwriting. Neighborhood rent spreads, insurance, childcare, and debt can shift your real budget by hundreds per month.</p>
+            </article>
+          </div>
+          <p class="eeat-trust__footer">See a mismatch with your market? <a href="/contact">Tell us</a> — we fix confirmed errors within 7 days.</p>
+        </aside>
       </div>
     </section>
   </main>

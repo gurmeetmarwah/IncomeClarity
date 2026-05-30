@@ -12,8 +12,8 @@
   const AFFORDABLE_KEYS = ["san_antonio", "el_paso", "fort_worth"];
   const TX_EFFECTIVE_TAX = 0.22;
   const PIE_COLORS = {
-    housing: "#0f7b6c",
-    property_tax: "#0a5f53",
+    housing: "#0f6e9c",
+    property_tax: "#0a5578",
     transportation: "#3182ce",
     food: "#38a169",
     healthcare: "#627d98",

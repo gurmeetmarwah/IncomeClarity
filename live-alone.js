@@ -64,7 +64,24 @@
     var breathing = netMonthly - essentials;
     var fixedLoad = (rent + debtTotal + utilities + transport) / Math.max(netMonthly, 1);
     var saveRate = savings / Math.max(netMonthly, 1);
-    var resilience = Math.max(0, Math.min(100, 100 - (fixedLoad * 62) + (saveRate * 80) + (breathing > 0 ? 10 : -18)));
+    var lifePenalty = 0;
+    if (life === "minimal") lifePenalty = -2;
+    else if (life === "comfortable") lifePenalty = 0;
+    else if (life === "flexible") lifePenalty = 5;
+    else if (life === "premium") lifePenalty = 10;
+    var breathingRatio = breathing / Math.max(netMonthly, 1);
+    var resilience = Math.max(
+      0,
+      Math.min(
+        100,
+        100 -
+          (fixedLoad * 62) +
+          (saveRate * 80) +
+          (breathingRatio * 55) -
+          lifePenalty +
+          (breathing > 0 ? 6 : -14)
+      )
+    );
     var label = scoreLabel(resilience);
 
     var pin = Math.max(4, Math.min(96, resilience));

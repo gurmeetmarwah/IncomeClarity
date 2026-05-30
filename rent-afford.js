@@ -124,13 +124,16 @@
       readBaselineFromForm();
       var inp = effectiveInputs();
       var net = inp.net || inp.income / 12 * 0.73;
+      var grossMonthly = inp.income / 12;
       var baseEss = 0.3 + Math.min(0.07, inp.family * 0.01) + Math.min(0.07, inp.transport / Math.max(1, net));
       var debtPct = inp.debt / Math.max(1, net);
       var comfortPct = Math.max(0.2, 1 - baseEss - inp.savePct - debtPct - 0.08);
       if (inp.roommate) comfortPct += 0.05;
       comfortPct = Math.min(0.4, comfortPct);
       var mult = CITY_MULT[inp.city] || 1;
-      var comfort = (net * comfortPct) / mult;
+      var comfortFromNet = net * comfortPct;
+      var comfortFromGross = grossMonthly * 0.3;
+      var comfort = Math.min(comfortFromNet, comfortFromGross) / mult;
       var low = comfort * 0.88;
       var high = comfort * 1.03;
       var stretch = comfort * 1.15;
@@ -188,7 +191,7 @@
 
       var summary = el('ra-summary');
       if (summary) {
-        summary.textContent = 'Based on ' + fmt(net) + '/mo take-home, a comfortable rent target is about ' +
+        summary.textContent = 'Based on ' + fmt(grossMonthly) + '/mo gross and ' + fmt(net) + '/mo take-home, a comfortable rent target is about ' +
           fmt(low) + ' to ' + fmt(high) + ' in your selected city.';
       }
 
@@ -252,10 +255,12 @@
 
     if (incomeInput) {
       incomeInput.addEventListener('input', function () {
+        netManuallyEdited = false;
         syncNetFromIncome();
         calc();
       });
       incomeInput.addEventListener('change', function () {
+        netManuallyEdited = false;
         syncNetFromIncome();
         calc();
       });

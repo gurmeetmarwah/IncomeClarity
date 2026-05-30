@@ -8,11 +8,19 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
-from generate_col_by_city_pages import STANDALONE, STATES  # noqa: E402
+from generate_col_by_city_pages import (  # noqa: E402
+    CORE_GROSS_SHARE,
+    STANDALONE,
+    STATES,
+    compare_links_for_path,
+    prepare_city_metrics,
+    validate_city_metrics,
+)
 from moving_cost_data import (  # noqa: E402
     BASE,
     COL_BY_STATE,
     COMFORT_SALARY_BY_STATE,
+    COMFORT_SALARY_HUB,
     HOUSE_AFFORD_BY_STATE,
     TAKE_HOME_BY_STATE,
     build_catalog,
@@ -68,6 +76,7 @@ def head(title: str, desc: str, canonical: str, extra_script: str = "") -> str:
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://incomeclarity.com{canonical}">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="stylesheet" href="/styles-moving.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 {URL_SCRIPT}
@@ -342,7 +351,7 @@ def hub_sections() -> str:
         <div class="mc-tool-grid">
           <a class="mc-tool-card" href="/living/housing/cost-of-living-by-city"><h3>Cost of living by city</h3><p>Compare rent, groceries, tax, and salary targets.</p></a>
           <a class="mc-tool-card" href="/living/housing/how-much-rent-can-i-afford"><h3>Rent affordability</h3><p>Size rent after the move using take-home pay.</p></a>
-          <a class="mc-tool-card" href="/living/family-budgeting/salary-needed-to-live-comfortably"><h3>Comfortable salary by state</h3><p>Check income needed for your target lifestyle.</p></a>
+          <a class="mc-tool-card" href="{COMFORT_SALARY_HUB}"><h3>Comfortable salary by state</h3><p>Check income needed for your target lifestyle.</p></a>
           <a class="mc-tool-card" href="/rent-vs-buy-calculator"><h3>Rent vs buy calculator</h3><p>Compare staying renter vs buying in the new city.</p></a>
           <a class="mc-tool-card" href="/living/budgeting/average-monthly-expenses.html"><h3>Budgeting for relocation</h3><p>Plan monthly and one-time moving expenses.</p></a>
           <a class="mc-tool-card" href="/living/housing/how-much-house-can-i-afford"><h3>How much house can I afford</h3><p>Test buying if you plan to purchase after moving.</p></a>
@@ -403,7 +412,7 @@ def render_hub() -> str:
   <script type="application/ld+json">
   {faq_ld}
   </script>"""
-    body = f"""<body class="mc-page">
+    body = f"""<body class="mc-page living-tool-page">
 {HEADER}
   <main>
     <section class="mc-hero">
@@ -499,6 +508,181 @@ def state_city_compare_section(state_slug: str, st: dict) -> str:
         </div>"""
 
 
+def mc_methodology_block(
+    place_name: str,
+    data: dict,
+    metrics: dict,
+    tax_note: str,
+    *,
+    include_move_math: bool = True,
+) -> str:
+    move_math = ""
+    if include_move_math:
+        move_math = """
+          <article class="mc-method-card">
+            <h3>Move-day cost model</h3>
+            <p>Moving services use base fee + per-mile rate by type (DIY, rental truck, professional movers), scaled by home size. Immediate cash adds deposits (about 1.5× destination rent), first month rent, utility setup, travel, and optional storage or vehicle shipping.</p>
+          </article>"""
+    lifestyle = data.get("lifestyle_score")
+    score_line = (
+        f"Model affordability signal: <strong>{metrics['derived_score']}/100</strong> (page score {lifestyle}/100)."
+        if lifestyle is not None
+        else f"Model affordability signal: <strong>{metrics['derived_score']}/100</strong>."
+    )
+    return f"""
+    <section class="mc-band mc-band--alt">
+      <div class="container container--wide content-page">
+        <header class="mc-band__head"><h2>How we calculate {place_name} moving numbers</h2><p>Auditable planning math for move-day cash and monthly budget changes.</p></header>
+        <div class="mc-method-grid">
+{move_math}
+          <article class="mc-method-card">
+            <h3>Monthly essentials at destination</h3>
+            <p>Rent {fmt(data['rent_1br'])} + groceries {fmt(data.get('groceries', 400))} + utilities {fmt(data.get('utilities', 200))} + transport {fmt(data.get('transport', 350))} + local tax estimate {fmt(data.get('taxes_month', 180))} = <strong>{fmt(monthly_total(data))}/mo</strong>.</p>
+          </article>
+          <article class="mc-method-card">
+            <h3>Comfort salary cross-check</h3>
+            <p>Annual core ({fmt(metrics['core'] * 12)}) ÷ {int(CORE_GROSS_SHARE * 100)}% gross share ≈ <strong>{fmt(metrics['min_salary'])}</strong>. Published target: {fmt(data.get('salary_comfort', metrics['min_salary']))}.</p>
+          </article>
+          <article class="mc-method-card">
+            <h3>Affordability signal</h3>
+            <p>{score_line} Tax note: {tax_note}</p>
+          </article>
+        </div>
+      </div>
+    </section>"""
+
+
+def mc_planning_block(
+    place_name: str,
+    take_home: str,
+    col_path: str,
+    rent_link: str,
+    house_href: str | None,
+    moving_hub: str,
+    salary_link: str | None,
+    compare_links: list[tuple[str, str]],
+) -> str:
+    compare_html = ""
+    if compare_links:
+        items = " · ".join(f'<a href="{href}">{label}</a>' for label, href in compare_links[:3])
+        compare_html = f"""
+          <p>Compare destination economics head-to-head: {items}.</p>"""
+    house_line = (
+        f'<p>Before signing, pressure-test buying with <a href="{house_href}">house affordability in {place_name}</a> and the <a href="/rent-vs-buy-calculator">rent vs buy calculator</a>.</p>'
+        if house_href
+        else '<p>Before signing, compare renting vs buying with the <a href="/rent-vs-buy-calculator">rent vs buy calculator</a>.</p>'
+    )
+    salary_line = (
+        f'<p>Layer income targets using the <a href="{salary_link}">comfortable salary guide</a> and <a href="/living/lifestyle-family/family-of-4-income-guide/">family of 4 income guide</a>.</p>'
+        if salary_link
+        else f'<p>Layer income targets using the <a href="{COMFORT_SALARY_HUB}">comfortable salary guide</a> and <a href="/living/lifestyle-family/family-of-4-income-guide/">family of 4 income guide</a>.</p>'
+    )
+    return f"""
+    <section class="mc-band">
+      <div class="container container--wide content-page">
+        <header class="mc-band__head"><h2>Plan your move to {place_name} in order</h2><p>Use this sequence so move-day cash and month-two bills stay aligned.</p></header>
+        <div class="mc-context-links">
+          <p>Step 1: Run the calculator above with your current city as origin and {place_name} as destination. Save both <strong>estimated moving cost</strong> and <strong>immediate cash needed</strong>.</p>
+          <p>Step 2: Convert your offer to net pay in the <a href="{take_home}">take-home calculator</a>, then set a rent cap in the <a href="{rent_link}">rent affordability calculator</a>.</p>
+          <p>Step 3: Open the <a href="{col_path}">cost of living guide for {place_name}</a> to validate groceries, utilities, and salary targets against this move estimate.</p>
+{compare_html}
+{house_line}
+{salary_line}
+          <p>Return to the <a href="{moving_hub}">US moving cost calculator</a> any time you change origin city, home size, or move type.</p>
+        </div>
+      </div>
+    </section>"""
+
+
+def mc_eeat_block(place_name: str) -> str:
+    slug = place_name.lower().replace(" ", "-")
+    return f"""
+    <section class="mc-eeat">
+      <div class="container container--wide content-page">
+        <p class="mc-disclaimer">Educational content for US readers only, not financial or legal advice. Verify quotes with movers, landlords, and your pay stubs.</p>
+        <aside class="eeat-trust" aria-labelledby="eeat-mc-{slug}-title">
+          <header class="eeat-trust__header">
+            <span class="eeat-trust__kicker">How we built this</span>
+            <h2 id="eeat-mc-{slug}-title" class="eeat-trust__title">{place_name} Moving Cost Methodology &amp; Data Sources</h2>
+            <p class="eeat-trust__meta"><time datetime="2026-05-30">Last reviewed: May 30, 2026</time> · Reviewed by the Income Clarity editorial team · <a href="/methodology#affordability">Read the full methodology</a></p>
+          </header>
+          <div class="eeat-trust__grid">
+            <article class="eeat-trust__card">
+              <h3>How we estimate moving costs</h3>
+              <ul>
+                <li><strong>Move services:</strong> base + per-mile rate by move type, adjusted for home size.</li>
+                <li><strong>Immediate cash:</strong> deposits, first month rent, move services, setup, travel, and optional add-ons.</li>
+                <li><strong>Monthly change:</strong> destination monthly bundle minus origin monthly bundle.</li>
+                <li><strong>Monthly bundle:</strong> rent, groceries, utilities, transport, and a tax estimate line.</li>
+              </ul>
+            </article>
+            <article class="eeat-trust__card">
+              <h3>Primary data sources</h3>
+              <ul>
+                <li><a href="https://www.zillow.com/research/data/" rel="noopener noreferrer">Zillow Research (ZORI)</a> — metro rent medians.</li>
+                <li><a href="https://www.huduser.gov/portal/datasets/fmr.html" rel="noopener noreferrer">HUD Fair Market Rents</a> — regional rent benchmarks.</li>
+                <li><a href="https://www.bls.gov/cpi/" rel="noopener noreferrer">BLS CPI</a> — food, utilities, and transport inflation context.</li>
+                <li><a href="https://www.census.gov/data/developers/data-sets/acs-5year.html" rel="noopener noreferrer">Census ACS</a> — household income and spending patterns.</li>
+              </ul>
+            </article>
+            <article class="eeat-trust__card">
+              <h3>What this is not</h3>
+              <p>These are planning ranges, not mover contracts or landlord approvals. Final quotes can differ by season, stairs, insurance, and local fees.</p>
+            </article>
+          </div>
+          <p class="eeat-trust__footer">See a mismatch with your move quote? <a href="/contact">Tell us</a> — we fix confirmed errors within 7 days.</p>
+        </aside>
+      </div>
+    </section>"""
+
+
+def mc_city_interlink_block(current_path: str, place_name: str) -> str:
+    links: list[tuple[str, str]] = []
+    for state_slug, st in STATES.items():
+        for c_slug, c in st["cities"].items():
+            path = f"{BASE}/{state_slug}/{c_slug}"
+            if path != current_path:
+                links.append((c["name"], path))
+    for c_slug, c in STANDALONE.items():
+        path = f"{BASE}/{c_slug}"
+        if path != current_path:
+            links.append((c["name"], path))
+    links.sort(key=lambda x: x[0])
+    chips = "\n          ".join(
+        f'<a class="mc-city-chip" href="{href}">{label}</a>' for label, href in links
+    )
+    return f"""
+    <section class="mc-band">
+      <div class="container container--wide">
+        <header class="mc-band__head"><h2>Compare moving costs in other cities</h2><p>Open another destination guide to compare deposits, mover fees, and monthly budget shifts.</p></header>
+        <div class="mc-city-chips mc-city-chips--light">
+          {chips}
+        </div>
+      </div>
+    </section>"""
+
+
+def mc_state_interlink_block(current_slug: str) -> str:
+    links: list[tuple[str, str]] = []
+    for slug, st in STATES.items():
+        if slug != current_slug:
+            links.append((st["name"], f"{BASE}/{slug}"))
+    for slug, c in STANDALONE.items():
+        links.append((c["name"], f"{BASE}/{slug}"))
+    chips = "\n          ".join(
+        f'<a class="mc-city-chip" href="{href}">{label}</a>' for label, href in links
+    )
+    return f"""
+    <section class="mc-band">
+      <div class="container container--wide">
+        <header class="mc-band__head"><h2>Explore moving costs in other states and metros</h2><p>Switch destination context without losing your planning workflow.</p></header>
+        <div class="mc-city-chips mc-city-chips--light">
+          {chips}
+        </div>
+      </div>
+    </section>"""
+
+
 def page_tool_interlinks(
     state_slug: str,
     state_name: str,
@@ -507,6 +691,7 @@ def page_tool_interlinks(
     city: dict | None = None,
     col_path: str | None = None,
     standalone: bool = False,
+    compare_links: list[tuple[str, str]] | None = None,
 ) -> str:
     take_home = take_home_href(state_slug)
     if state_slug in TAKE_HOME_BY_STATE:
@@ -591,9 +776,15 @@ def page_tool_interlinks(
         if city_name
         else f"Related tools for your {state_name} move"
     )
+    compare_html = ""
+    if compare_links:
+        items = " · ".join(f'<a href="{href}">{label}</a>' for label, href in compare_links[:3])
+        compare_html = f"""
+        <p class="mc-related-links">City comparison guides: {items}</p>"""
     return f"""    <section class="mc-band">
       <div class="container container--wide">
         <header class="mc-band__head"><h2>{heading}</h2><p>Run take-home pay and housing calculators with the same cities you used above.</p></header>
+{compare_html}
         <div class="mc-tool-grid">
 {chr(10).join(cards)}
         </div>
@@ -753,12 +944,25 @@ def render_state(state_slug: str, st: dict) -> str:
     canonical = f"{BASE}/{state_slug}"
     avg_rent = st["rent_1br"]
     monthly = monthly_total(st)
+    metrics = prepare_city_metrics(st)
     faqs = state_moving_faqs(name)
     city_nav = mc_city_nav(state_slug, st["cities"], name)
+    take_home = take_home_href(state_slug)
+    col_path = COL_BY_STATE.get(state_slug, "/living/housing/cost-of-living-by-city")
+    house_href = HOUSE_AFFORD_BY_STATE.get(state_slug)
+    salary_link = COMFORT_SALARY_BY_STATE.get(state_slug, COMFORT_SALARY_HUB)
+    compare_links: list[tuple[str, str]] = [
+        ("California vs Texas", "/living/cost-of-living/cost-of-living-california-vs-texas.html")
+    ]
+    for cs, _c in st["cities"].items():
+        col_path_city = f"{state_slug}/{cs}"
+        for link in compare_links_for_path(f"/living/housing/cost-of-living-by-city/{col_path_city}"):
+            if link not in compare_links:
+                compare_links.append(link)
     extra = f"""  <script src="/moving-cost.js"></script>
   <script>document.addEventListener('DOMContentLoaded',function(){{MovingCost.bindForm({{defaultTo:'{state_slug}/{next(iter(st["cities"]))}',runOnLoad:true}});}});</script>"""
 
-    body = f"""<body class="mc-page">
+    body = f"""<body class="mc-page living-tool-page">
 {HEADER}
   <main>
     <section class="mc-hero">
@@ -778,13 +982,17 @@ def render_state(state_slug: str, st: dict) -> str:
     </section>
 {state_changes_section(state_slug, st)}
 {state_recommendations_section(name, state_slug)}
-{page_tool_interlinks(state_slug, name)}
+{mc_state_interlink_block(state_slug)}
+{mc_planning_block(name, take_home, col_path, "/living/housing/how-much-rent-can-i-afford", house_href, BASE, salary_link, compare_links[:4])}
+{mc_methodology_block(name, st, metrics, st.get("tax_note", "Tax varies by location."))}
+{page_tool_interlinks(state_slug, name, compare_links=compare_links[:4])}
     <section class="mc-band living-faq-section">
       <div class="container container--wide">
         <h2>FAQ — moving to {name}</h2>
         <div class="faq-stack">{faq_html(faqs)}</div>
       </div>
     </section>
+{mc_eeat_block(name)}
   </main>
 {FOOTER}
 {extra}
@@ -806,8 +1014,16 @@ def render_city(state_slug: str, city_slug: str, st: dict, c: dict, *, standalon
     )
     faqs = city_moving_faqs(name, state_name)
     col_path = col_path_for_interlinks(state_slug, city_slug, standalone)
+    metrics = prepare_city_metrics(c)
+    take_home = take_home_href(state_slug if not standalone else city_slug)
+    tax_note = st.get("tax_note", c.get("tax_note", "Tax varies by location.")) if not standalone else c.get("tax_note", "Tax varies by location.")
+    house_href = c.get("house_link") or HOUSE_AFFORD_BY_STATE.get(state_slug if not standalone else "")
+    salary_link = c.get("salary_link") or COMFORT_SALARY_BY_STATE.get(state_slug if not standalone else "", COMFORT_SALARY_HUB)
+    col_page_path = f"{state_slug}/{city_slug}" if not standalone else city_slug
+    compare_links = compare_links_for_path(f"/living/housing/cost-of-living-by-city/{col_page_path}")
+    current_mc_path = canonical
 
-    body = f"""<body class="mc-page">
+    body = f"""<body class="mc-page living-tool-page">
 {HEADER}
   <main>
     <section class="mc-hero">
@@ -827,13 +1043,17 @@ def render_city(state_slug: str, city_slug: str, st: dict, c: dict, *, standalon
     </section>
 {city_snapshot_section(state_slug, city_slug, st, c, standalone=standalone)}
 {city_recommendations_section(name, state_name)}
-{page_tool_interlinks(state_slug, state_name, city_name=name, city=c, col_path=col_path, standalone=standalone)}
+{mc_city_interlink_block(current_mc_path, name)}
+{mc_planning_block(name, take_home, col_path, c.get("rent_link", "/living/housing/how-much-rent-can-i-afford"), house_href, BASE, salary_link, compare_links)}
+{mc_methodology_block(name, c, metrics, tax_note)}
+{page_tool_interlinks(state_slug if not standalone else city_slug, state_name, city_name=name, city=c, col_path=col_path, standalone=standalone, compare_links=compare_links)}
     <section class="mc-band living-faq-section">
       <div class="container container--wide">
         <h2>FAQ — moving to {name}</h2>
         <div class="faq-stack">{faq_html(faqs)}</div>
       </div>
     </section>
+{mc_eeat_block(name)}
   </main>
 {FOOTER}
   <script src="/moving-cost.js"></script>
@@ -876,6 +1096,32 @@ def main() -> None:
             render_city(slug, slug, pseudo, c, standalone=True), encoding="utf-8"
         )
         print("Wrote metro", city_dir / "index.html")
+
+    metric_warnings: list[str] = []
+    catalog = build_catalog()
+    for state_slug, st in STATES.items():
+        metric_warnings.extend(validate_city_metrics(st, f"mc/state/{state_slug}"))
+        for cs, c in st["cities"].items():
+            metric_warnings.extend(validate_city_metrics(c, f"mc/{state_slug}/{cs}"))
+            entry = next((x for x in catalog if x["id"] == f"{state_slug}/{cs}"), None)
+            if entry and entry["rent"] != c["rent_1br"]:
+                metric_warnings.append(
+                    f"mc/{state_slug}/{cs}: catalog rent {entry['rent']} != data rent {c['rent_1br']}"
+                )
+    for slug, c in STANDALONE.items():
+        city = {k: v for k, v in c.items() if k not in ("state_name", "tax_note")}
+        metric_warnings.extend(validate_city_metrics(city, f"mc/{slug}"))
+        entry = next((x for x in catalog if x["id"] == slug), None)
+        if entry and entry["rent"] != c["rent_1br"]:
+            metric_warnings.append(
+                f"mc/{slug}: catalog rent {entry['rent']} != data rent {c['rent_1br']}"
+            )
+    if metric_warnings:
+        print("METRIC WARNINGS:")
+        for w in metric_warnings:
+            print(" ", w)
+    else:
+        print("All moving pages pass metric validation checks")
 
 
 if __name__ == "__main__":

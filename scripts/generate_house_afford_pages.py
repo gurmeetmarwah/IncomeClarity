@@ -19,7 +19,7 @@ STATES = {
         "compare_note": "No state income tax but lower coastal prices are rare.",
         "rent_link": "/living/housing/rent-vs-buy-california.html",
         "col_link": "/living/housing/cost-of-living-by-city/california",
-        "salary_link": "/living/lifestyle-family/comfortable-salary-california",
+        "salary_link": "/living/lifestyle/comfortable-salary/california",
         "tax_link": "/hourly-to-salary-after-tax/state/california/",
         "salary_blurb": "At the state median home price, many buyers need gross pay near $245k to hit the 28% line with 20% down at 6.5%. Inland metros fit closer to $120k–$160k.",
         "narrative": [
@@ -95,7 +95,7 @@ STATES = {
         "compare_note": "Higher prices on the coast but income tax shrinks net pay.",
         "rent_link": "/rent-vs-buy-calculator#rent-vs-buy",
         "col_link": "/living/housing/cost-of-living-by-city/texas",
-        "salary_link": "/living/lifestyle-family/comfortable-salary-texas",
+        "salary_link": "/living/lifestyle/comfortable-salary/texas",
         "tax_link": "/hourly-to-salary-after-tax/state/texas/",
         "faqs": [
             ("How much house can I afford in Texas on $90k?", "About $2,100 a month at 28% gross. That often supports a home near $280k–$320k with 20% down at 6.5% — more in cheaper metros."),
@@ -363,10 +363,11 @@ def state_page(slug, data):
   <meta name="description" content="How much house can you afford in {data['name']}? Median price {fmt(data['median_price'])}, local tax and insurance, salary needed, and city breakdowns with calculator.">
   <link rel="canonical" href="https://incomeclarity.com/living/housing/how-much-house-can-i-afford/{slug}">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 {URL_SCRIPT}
 </head>
-<body class="ha-page">
+<body class="ha-page living-tool-page">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="/index.html">Income Clarity</a>
@@ -431,7 +432,7 @@ def state_page(slug, data):
         <ul class="col-related__list">
           <li><a href="{data.get('col_link', '/living/housing/cost-of-living-by-city')}">Cost of living in {data['name']}</a></li>
           <li><a href="/living/housing/how-much-rent-can-i-afford">Rent affordability in {data['name']}</a></li>
-          <li><a href="{data.get('salary_link', '/living/family-budgeting/salary-needed-to-live-comfortably')}">Comfortable salary in {data['name']}</a></li>
+          <li><a href="{data.get('salary_link', '/living/lifestyle/comfortable-salary-us')}">Comfortable salary in {data['name']}</a></li>
         </ul>
       </div>
     </section>
@@ -513,10 +514,11 @@ def city_page(state_slug, state_data, city_slug, city):
   <meta name="description" content="Afford a home in {city['name']}? Median price {fmt(city['median_price'])}, income near {fmt(city['median_income'])}, local tax, insurance, and payment calculator.">
   <link rel="canonical" href="https://incomeclarity.com/living/housing/how-much-house-can-i-afford/{state_slug}/{city_slug}">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 {URL_SCRIPT}
 </head>
-<body class="ha-page">
+<body class="ha-page living-tool-page">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="/index.html">Income Clarity</a>

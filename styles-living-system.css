@@ -1,0 +1,453 @@
+/**
+ * Income Clarity — Living & calculator design system
+ * Shared tokens for COL, moving cost, comfortable salary, rent, and live-alone tools.
+ * Load after styles.css on tool pages: /styles-living-system.css
+ */
+:root {
+  --living-accent: #0f6e9c;
+  --living-accent-dark: #0a5578;
+  --living-accent-mid: #3a9bc4;
+  --living-accent-soft: #e6f4fb;
+  --living-accent-soft-2: #f0f7fc;
+  --living-text: #102a43;
+  --living-muted: #5a7184;
+  --living-border: #d5e5f1;
+  --living-surface: #ffffff;
+  --living-bg: #f7fafc;
+  --living-bg-alt: #f7fafc;
+  --living-radius: 14px;
+  --living-radius-sm: 10px;
+  --living-wide: min(72rem, 100%);
+  --living-hero-gradient: linear-gradient(145deg, #0a5578 0%, #0f6e9c 50%, #3a9bc4 100%);
+  --living-cta-gradient: linear-gradient(145deg, #0a5578 0%, #0f6e9c 100%);
+  --living-shadow: 0 8px 28px rgba(16, 42, 67, 0.08);
+  --living-shadow-lg: 0 12px 40px rgba(16, 42, 67, 0.12);
+  --living-focus-ring: 0 0 0 3px rgba(15, 110, 156, 0.18);
+}
+
+/* Tool page scopes — alias legacy prefixes to one palette */
+.col-page,
+.mc-page,
+.cs-page,
+.ra-page,
+.sla-page,
+.living-tool-page {
+  --col-accent: var(--living-accent);
+  --col-accent-dark: var(--living-accent-dark);
+  --col-accent-soft: var(--living-accent-soft);
+  --col-accent-mid: var(--living-accent-mid);
+  --col-text: var(--living-text);
+  --col-muted: var(--living-muted);
+  --col-border: var(--living-border);
+  --col-surface: var(--living-surface);
+  --col-radius: var(--living-radius);
+  --col-shadow: var(--living-shadow);
+  --mc-accent: var(--living-accent);
+  --mc-accent-dark: var(--living-accent-dark);
+  --mc-border: var(--living-border);
+  --mc-text: var(--living-text);
+  --mc-muted: var(--living-muted);
+  --mc-radius: var(--living-radius);
+  --mc-wide: var(--living-wide);
+  --cs-accent: var(--living-accent);
+  --cs-accent-dark: var(--living-accent-dark);
+  --cs-accent-soft: var(--living-accent-soft);
+  --cs-accent-mid: var(--living-accent-mid);
+  --cs-text: var(--living-text);
+  --cs-muted: var(--living-muted);
+  --cs-border: var(--living-border);
+  --cs-surface: var(--living-surface);
+  --cs-radius: var(--living-radius);
+  --cs-shadow: var(--living-shadow);
+  --cs-shadow-lg: var(--living-shadow-lg);
+  --cs-wide: var(--living-wide);
+  --ra-accent: var(--living-accent);
+  --ra-accent-dark: var(--living-accent-dark);
+  --ra-text: var(--living-text);
+  --ra-muted: var(--living-muted);
+  --ra-border: var(--living-border);
+  --sla-accent: var(--living-accent);
+  --sla-accent-soft: var(--living-accent-soft);
+  --sla-text: var(--living-text);
+  --sla-muted: var(--living-muted);
+  --sla-border: var(--living-border);
+}
+
+/* Shared wide container */
+.col-page .container--wide,
+.mc-page .container--wide,
+.cs-page .container--wide,
+.ra-page .container--wide,
+.sla-page .container--wide {
+  max-width: var(--living-wide);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Shared hero on blue gradient (mc, cs) */
+.mc-hero,
+.cs-hero {
+  background: var(--living-hero-gradient);
+  color: #fff;
+  border-bottom: 1px solid var(--living-border);
+}
+
+.mc-hero .label,
+.cs-hero .label {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mc-hero .lead,
+.cs-hero .lead {
+  color: rgba(255, 255, 255, 0.94);
+}
+
+/* —— Hero breadcrumbs —— */
+.col-hero-hub .take-home-return-nav,
+.col-hero-inner .take-home-return-nav,
+.mc-hero .take-home-return-nav,
+.cs-hero .take-home-return-nav,
+.ra-hero .take-home-return-nav,
+.sla-hero .take-home-return-nav {
+  margin: 0 0 1rem;
+  max-width: none;
+  padding: 0.45rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.ha-hero .take-home-return-nav {
+  margin: 0 0 1rem;
+  max-width: none;
+  padding: 0.45rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--living-border);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 2px 10px rgba(16, 42, 67, 0.06);
+}
+
+.col-hero-hub .take-home-return-breadcrumbs,
+.col-hero-hub .take-home-return-breadcrumbs ol,
+.col-hero-inner .take-home-return-breadcrumbs,
+.col-hero-inner .take-home-return-breadcrumbs ol,
+.ha-hero .take-home-return-breadcrumbs,
+.ha-hero .take-home-return-breadcrumbs ol,
+.mc-hero .take-home-return-breadcrumbs,
+.mc-hero .take-home-return-breadcrumbs ol,
+.cs-hero .take-home-return-breadcrumbs,
+.cs-hero .take-home-return-breadcrumbs ol,
+.cs-hero nav.take-home-return-breadcrumbs,
+.ra-hero .take-home-return-breadcrumbs,
+.ra-hero .take-home-return-breadcrumbs ol,
+.sla-hero .take-home-return-breadcrumbs,
+.sla-hero .take-home-return-breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.88rem;
+}
+
+/* Gradient heroes — white breadcrumb text */
+.col-hero-hub .take-home-return-nav a,
+.col-hero-hub ol.take-home-return-breadcrumbs a,
+.col-hero-inner .take-home-return-nav a,
+.col-hero-inner ol.take-home-return-breadcrumbs a,
+.mc-hero .take-home-return-nav a,
+.mc-hero ol.take-home-return-breadcrumbs a,
+.cs-hero .take-home-return-nav a,
+.cs-hero ol.take-home-return-breadcrumbs a,
+.cs-hero nav.take-home-return-breadcrumbs a,
+.ra-hero .take-home-return-nav a,
+.ra-hero ol.take-home-return-breadcrumbs a,
+.sla-hero .take-home-return-nav a,
+.sla-hero ol.take-home-return-breadcrumbs a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.col-hero-hub .take-home-return-nav a:hover,
+.col-hero-hub ol.take-home-return-breadcrumbs a:hover,
+.col-hero-inner .take-home-return-nav a:hover,
+.col-hero-inner ol.take-home-return-breadcrumbs a:hover,
+.mc-hero .take-home-return-nav a:hover,
+.mc-hero ol.take-home-return-breadcrumbs a:hover,
+.cs-hero .take-home-return-nav a:hover,
+.cs-hero ol.take-home-return-breadcrumbs a:hover,
+.cs-hero nav.take-home-return-breadcrumbs a:hover,
+.ra-hero .take-home-return-nav a:hover,
+.ra-hero ol.take-home-return-breadcrumbs a:hover,
+.sla-hero .take-home-return-nav a:hover,
+.sla-hero ol.take-home-return-breadcrumbs a:hover {
+  color: #e8f4fa;
+}
+
+.col-hero-hub .take-home-return-breadcrumbs li,
+.col-hero-hub .take-home-return-breadcrumbs ol li,
+.col-hero-inner .take-home-return-breadcrumbs li,
+.col-hero-inner .take-home-return-breadcrumbs ol li,
+.mc-hero .take-home-return-breadcrumbs li,
+.mc-hero .take-home-return-breadcrumbs ol li,
+.cs-hero .take-home-return-breadcrumbs li,
+.cs-hero .take-home-return-breadcrumbs ol li,
+.cs-hero nav.take-home-return-breadcrumbs li,
+.ra-hero .take-home-return-breadcrumbs li,
+.ra-hero .take-home-return-breadcrumbs ol li,
+.sla-hero .take-home-return-breadcrumbs li,
+.sla-hero .take-home-return-breadcrumbs ol li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.col-hero-hub .take-home-return-breadcrumbs [aria-current="page"],
+.col-hero-hub .take-home-return-breadcrumbs ol [aria-current="page"],
+.col-hero-inner .take-home-return-breadcrumbs [aria-current="page"],
+.col-hero-inner .take-home-return-breadcrumbs ol [aria-current="page"],
+.mc-hero .take-home-return-breadcrumbs [aria-current="page"],
+.mc-hero .take-home-return-breadcrumbs ol [aria-current="page"],
+.cs-hero .take-home-return-breadcrumbs [aria-current="page"],
+.cs-hero .take-home-return-breadcrumbs ol [aria-current="page"],
+.cs-hero nav.take-home-return-breadcrumbs [aria-current="page"],
+.ra-hero .take-home-return-breadcrumbs [aria-current="page"],
+.ra-hero .take-home-return-breadcrumbs ol [aria-current="page"],
+.sla-hero .take-home-return-breadcrumbs [aria-current="page"],
+.sla-hero .take-home-return-breadcrumbs ol [aria-current="page"] {
+  color: #fff;
+  font-weight: 700;
+}
+
+.col-hero-hub .take-home-return-breadcrumbs li:not([aria-current])::after,
+.col-hero-hub .take-home-return-breadcrumbs ol li:not([aria-current])::after,
+.col-hero-inner .take-home-return-breadcrumbs li:not([aria-current])::after,
+.col-hero-inner .take-home-return-breadcrumbs ol li:not([aria-current])::after,
+.mc-hero .take-home-return-breadcrumbs li:not([aria-current])::after,
+.mc-hero .take-home-return-breadcrumbs ol li:not([aria-current])::after,
+.cs-hero .take-home-return-breadcrumbs li:not([aria-current])::after,
+.cs-hero .take-home-return-breadcrumbs ol li:not([aria-current])::after,
+.cs-hero nav.take-home-return-breadcrumbs li:not([aria-current])::after,
+.ra-hero .take-home-return-breadcrumbs li:not([aria-current])::after,
+.ra-hero .take-home-return-breadcrumbs ol li:not([aria-current])::after,
+.sla-hero .take-home-return-breadcrumbs li:not([aria-current])::after,
+.sla-hero .take-home-return-breadcrumbs ol li:not([aria-current])::after {
+  content: "›";
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 400;
+  padding-left: 0.15rem;
+}
+
+/* Light heroes (house afford) */
+.ha-hero .take-home-return-nav a,
+.ha-hero ol.take-home-return-breadcrumbs a {
+  color: var(--living-accent-dark);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.ha-hero .take-home-return-nav a:hover,
+.ha-hero ol.take-home-return-breadcrumbs a:hover {
+  color: var(--living-accent);
+}
+
+.ha-hero .take-home-return-breadcrumbs li,
+.ha-hero .take-home-return-breadcrumbs ol li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--living-muted);
+}
+
+.ha-hero .take-home-return-breadcrumbs [aria-current="page"],
+.ha-hero .take-home-return-breadcrumbs ol [aria-current="page"] {
+  color: var(--living-text);
+  font-weight: 700;
+}
+
+.ha-hero .take-home-return-breadcrumbs li:not([aria-current])::after,
+.ha-hero .take-home-return-breadcrumbs ol li:not([aria-current])::after {
+  content: "›";
+  color: #9fb3c8;
+  font-weight: 400;
+  padding-left: 0.15rem;
+}
+
+/* Shared calc shell */
+.mc-calc-shell,
+.cs-calc-shell {
+  background: var(--living-surface);
+  border-radius: var(--living-radius);
+  box-shadow: var(--living-shadow-lg);
+  color: var(--living-text);
+}
+
+/* Shared form fields */
+.mc-field > span,
+.cs-field > span,
+.ra-field > span,
+.col-hero-search label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--living-text);
+}
+
+.mc-field input,
+.mc-field select,
+.cs-field input,
+.cs-field select,
+.ra-field input,
+.ra-field select {
+  color: var(--living-text);
+  border: 1px solid var(--living-border);
+  border-radius: var(--living-radius-sm);
+}
+
+.mc-field input:focus,
+.mc-field select:focus,
+.cs-field input:focus,
+.cs-field select:focus,
+.ra-field input:focus,
+.ra-field select:focus {
+  outline: none;
+  border-color: var(--living-accent);
+  box-shadow: var(--living-focus-ring);
+}
+
+/* Shared primary button */
+.mc-btn,
+.cs-btn,
+.ra-btn-primary {
+  background: var(--living-accent);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--living-radius-sm);
+}
+
+.mc-btn:hover,
+.cs-btn:hover,
+.ra-btn-primary:hover {
+  background: var(--living-accent-dark);
+}
+
+/* Shared bands */
+.mc-band--alt,
+.cs-band--alt,
+.col-band--alt {
+  background: var(--living-bg-alt);
+}
+
+.col-band__head h2,
+.mc-band__head h2,
+.cs-band__head h2 {
+  color: var(--living-text);
+  font-weight: 800;
+}
+
+.col-band__head p,
+.mc-band__head p,
+.cs-band__head p {
+  color: var(--living-muted);
+}
+
+/* City chips on hero */
+.mc-city-chip,
+.cs-city-chips a {
+  background: #fff;
+  color: var(--living-accent-dark);
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 8px rgba(10, 40, 60, 0.12);
+}
+
+.mc-city-chip:hover,
+.cs-city-chips a:hover {
+  background: #e8f4fa;
+  color: #083d56;
+  text-decoration: none;
+}
+
+/* Know + methodology (col + cs pages) */
+.col-know-section,
+.col-method-section {
+  --section-accent: var(--living-accent);
+}
+
+.col-know-points li::before,
+.cs-driver-points li::before {
+  background: var(--living-accent);
+}
+
+.col-method-card__step,
+.cs-driver-metric strong {
+  color: var(--living-accent-dark);
+}
+
+.col-method-summary,
+.cs-tax-callout,
+.mc-tax-callout {
+  background: linear-gradient(135deg, var(--living-accent-soft) 0%, #f8fbfd 100%);
+  border-color: var(--living-border);
+  border-left-color: var(--living-accent);
+}
+
+/* Links inside tool pages (hero breadcrumbs styled above) */
+.col-page a:not(.col-btn):not(.mc-btn):not(.cs-btn):not(.col-related-card):not(.mc-tool-card):not(.cs-card):not(.col-state-tile):not(.col-city-chip):not(.mc-city-chip),
+.mc-page a:not(.mc-btn):not(.mc-tool-card):not(.mc-city-card),
+.cs-page a:not(.cs-btn):not(.cs-card),
+.ra-page a:not(.ra-btn-primary) {
+  color: var(--living-accent-dark);
+}
+
+.col-page a:hover,
+.mc-page a:hover,
+.cs-page a:hover,
+.ra-page a:hover {
+  color: var(--living-accent);
+}
+
+/* White breadcrumbs on gradient heroes — must follow .col-page a rules above */
+:is(.col-hero-hub, .col-hero-inner, .mc-hero, .cs-hero, .ra-hero, .sla-hero) .take-home-return-nav,
+:is(.col-hero-hub, .col-hero-inner, .mc-hero, .cs-hero, .ra-hero, .sla-hero) ol.take-home-return-breadcrumbs,
+:is(.col-hero-hub, .col-hero-inner, .mc-hero, .cs-hero, .ra-hero, .sla-hero) nav.take-home-return-breadcrumbs {
+  color: #fff;
+}
+
+:is(.col-hero-hub, .col-hero-inner, .mc-hero, .cs-hero, .ra-hero, .sla-hero) .take-home-return-nav a,
+:is(.col-hero-hub, .col-hero-inner, .mc-hero, .cs-hero, .ra-hero, .sla-hero) ol.take-home-return-breadcrumbs a,
+:is(.col-hero-hub, .col-hero-inner, .mc-hero, .cs-hero, .ra-hero, .sla-hero) nav.take-home-return-breadcrumbs a,
+:is(.col-hero-hub, .col-hero-inner, .mc-hero, .cs-hero, .ra-hero, .sla-hero) .take-home-return-breadcrumbs li,
+:is(.col-hero-hub, .col-hero-inner, .mc-hero, .cs-hero, .ra-hero, .sla-hero) .take-home-return-breadcrumbs ol li,
+:is(.col-hero-hub, .col-hero-inner, .mc-hero, .cs-hero, .ra-hero, .sla-hero) nav.take-home-return-breadcrumbs li,
+:is(.col-hero-hub, .col-hero-inner, .mc-hero, .cs-hero, .ra-hero, .sla-hero) [aria-current="page"] {
+  color: #fff !important;
+}
+
+:is(.col-hero-hub, .col-hero-inner, .mc-hero, .cs-hero, .ra-hero, .sla-hero) .take-home-return-nav a:hover,
+:is(.col-hero-hub, .col-hero-inner, .mc-hero, .cs-hero, .ra-hero, .sla-hero) ol.take-home-return-breadcrumbs a:hover,
+:is(.col-hero-hub, .col-hero-inner, .mc-hero, .cs-hero, .ra-hero, .sla-hero) nav.take-home-return-breadcrumbs a:hover {
+  color: #e8f4fa !important;
+}
+
+:is(.col-hero-hub, .col-hero-inner, .mc-hero, .cs-hero, .ra-hero, .sla-hero) .take-home-return-breadcrumbs li:not([aria-current])::after,
+:is(.col-hero-hub, .col-hero-inner, .mc-hero, .cs-hero, .ra-hero, .sla-hero) .take-home-return-breadcrumbs ol li:not([aria-current])::after,
+:is(.col-hero-hub, .col-hero-inner, .mc-hero, .cs-hero, .ra-hero, .sla-hero) nav.take-home-return-breadcrumbs li:not([aria-current])::after {
+  color: rgba(255, 255, 255, 0.7) !important;
+}

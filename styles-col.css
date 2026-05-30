@@ -1,15 +1,15 @@
 /* Cost of living by city — hub, state, city, compare */
 .col-page {
-  --col-accent: #0f6e9c;
-  --col-accent-dark: #0a5578;
-  --col-accent-soft: #e6f4fb;
+  --col-accent: var(--living-accent);
+  --col-accent-dark: var(--living-accent-dark);
+  --col-accent-soft: var(--living-accent-soft);
   --col-warm: #c45c26;
-  --col-surface: #ffffff;
-  --col-muted: #5a7184;
-  --col-text: #102a43;
-  --col-border: #d4e4f0;
-  --col-radius: 14px;
-  --col-shadow: 0 8px 28px rgba(16, 42, 67, 0.08);
+  --col-surface: var(--living-surface);
+  --col-muted: var(--living-muted);
+  --col-text: var(--living-text);
+  --col-border: var(--living-border);
+  --col-radius: var(--living-radius);
+  --col-shadow: var(--living-shadow);
 }
 
 .col-page .sr-only {
@@ -45,19 +45,6 @@
   display: flex;
   align-items: center;
   gap: 0.35rem 0.5rem;
-}
-
-.col-hero-hub .take-home-return-breadcrumbs a {
-  color: #0a5578;
-}
-
-.col-hero-hub .take-home-return-breadcrumbs li {
-  color: #5a7184;
-}
-
-.col-hero-hub .take-home-return-breadcrumbs li[aria-current="page"] {
-  color: #102a43;
-  font-weight: 600;
 }
 
 .col-hero-hub .label {
@@ -252,6 +239,14 @@
 
 .col-band--alt {
   background: #f7fafc;
+}
+
+.col-band--tone-cool {
+  background: linear-gradient(180deg, #f4f9ff 0%, #ffffff 100%);
+}
+
+.col-band--tone-warm {
+  background: linear-gradient(180deg, #fff8f1 0%, #ffffff 100%);
 }
 
 .col-band__head {
@@ -810,14 +805,23 @@
 /* —— State / city inner pages —— */
 .col-hero-inner {
   padding: 2rem 0 1.5rem;
-  background: linear-gradient(135deg, #e8f4fc 0%, #f7fafc 70%);
+  background: linear-gradient(145deg, #0a5578 0%, #0f6e9c 42%, #3a9bc4 100%);
+  color: #fff;
   border-bottom: 1px solid var(--col-border);
+}
+
+.col-hero-inner .label {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.col-hero-inner .lead {
+  color: rgba(255, 255, 255, 0.94);
 }
 
 .col-hero-inner h1 {
   margin: 0.35rem 0 0.5rem;
   font-size: clamp(1.5rem, 3vw, 2.1rem);
-  color: var(--col-text);
+  color: #fff;
 }
 
 .col-stat-row {
@@ -936,16 +940,45 @@
   background: #f7fafc;
 }
 
-.col-related__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.col-related__grid {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.65rem;
 }
 
-.col-related__list a {
-  font-weight: 600;
+@media (min-width: 700px) {
+  .col-related__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.col-related-card {
+  display: block;
+  padding: 0.8rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid var(--col-border);
+  background: #fff;
+  text-decoration: none;
+}
+
+.col-related-card strong {
+  display: block;
+  color: var(--col-text);
+  margin-bottom: 0.2rem;
+}
+
+.col-related-card span {
+  font-size: 0.82rem;
+  color: var(--col-muted);
+}
+
+.col-related-card:hover {
+  border-color: var(--col-accent);
+  text-decoration: none;
+}
+
+.col-cost-card__value {
+  color: var(--col-accent-dark);
+  font-weight: 800;
 }
 
 /* —— Scannable copy (FRE-friendly, less wall-of-text) —— */
@@ -979,6 +1012,49 @@
   background: var(--col-accent);
 }
 
+.col-facts-grid {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 0.75rem;
+}
+
+@media (min-width: 760px) {
+  .col-facts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.col-fact-card {
+  border: 1px solid var(--col-border);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fcff 100%);
+  padding: 0.8rem 0.9rem;
+}
+
+.col-fact-card__kicker {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--col-muted);
+  margin-bottom: 0.2rem;
+}
+
+.col-fact-card__value {
+  display: block;
+  font-size: 1.08rem;
+  color: var(--col-accent-dark);
+  margin-bottom: 0.25rem;
+}
+
+.col-fact-card p {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--col-muted);
+  line-height: 1.5;
+}
+
 .col-callout {
   margin-top: 1rem;
   padding: 0.85rem 1rem;
@@ -1003,6 +1079,422 @@
   font-size: 0.92rem;
   line-height: 1.45;
   color: var(--col-text);
+}
+
+/* State pages: tighter section rhythm */
+.col-page:not(.col-city-page):not(.col-compare-page) .col-section,
+.col-page:not(.col-city-page):not(.col-compare-page) .col-band {
+  padding: 1.8rem 0;
+}
+
+.col-page:not(.col-city-page):not(.col-compare-page) .col-faq-section {
+  padding: 1.7rem 0;
+}
+
+/* State pages: upgraded city snapshots UX */
+.col-city-snap-grid {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 0.7rem;
+}
+
+@media (min-width: 760px) {
+  .col-city-snap-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.col-city-snap-card {
+  border: 1px solid var(--col-border);
+  border-radius: 12px;
+  padding: 0.85rem 0.9rem;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(16, 42, 67, 0.04);
+}
+
+.col-city-snap-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: var(--col-accent-dark);
+}
+
+.col-city-snap-card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.col-city-snap-card h3 a:hover {
+  text-decoration: underline;
+}
+
+.col-city-snap-kpi {
+  margin: 0 0 0.3rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  font-size: 0.86rem;
+  color: var(--col-muted);
+}
+
+.col-city-snap-kpi strong {
+  color: var(--col-text);
+  font-weight: 800;
+}
+
+.col-city-snap-meta {
+  margin: 0.4rem 0 0;
+  font-size: 0.82rem;
+  color: var(--col-muted);
+}
+
+/* Recommendations cards for state + city pages */
+.col-rec-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 760px) {
+  .col-rec-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.col-rec-card {
+  border: 1px solid var(--col-border);
+  border-radius: 12px;
+  padding: 0.85rem 0.95rem;
+  background: #fff;
+}
+
+.col-rec-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--col-muted);
+}
+
+.col-rec-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--col-text);
+}
+
+/* City pages: stronger "At a glance" UX */
+.col-glance-grid {
+  display: grid;
+  gap: 0.7rem;
+  margin-bottom: 0.8rem;
+}
+
+@media (min-width: 760px) {
+  .col-glance-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.col-glance-card {
+  border: 1px solid var(--col-border);
+  border-radius: 12px;
+  padding: 0.75rem 0.85rem;
+  background: #fff;
+}
+
+.col-glance-card__kicker {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--col-muted);
+  margin-bottom: 0.2rem;
+}
+
+.col-glance-card__value {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--col-accent-dark);
+  margin-bottom: 0.2rem;
+}
+
+.col-glance-card p {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--col-muted);
+}
+
+.col-pill {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.14rem 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.col-pill--good {
+  background: #e7f7ee;
+  color: #17653a;
+}
+
+.col-pill--warn {
+  background: #fff3dc;
+  color: #9a6700;
+}
+
+.col-pill--bad {
+  background: #fde8e8;
+  color: #a12d2d;
+}
+
+.col-pressure-wrap {
+  border: 1px solid var(--col-border);
+  border-radius: 12px;
+  padding: 0.75rem 0.85rem;
+  background: #fff;
+  margin-bottom: 0.9rem;
+}
+
+.col-pressure-head {
+  margin: 0 0 0.45rem;
+  color: var(--col-muted);
+  font-size: 0.86rem;
+}
+
+.col-pressure-row {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 0.35rem;
+  font-size: 0.82rem;
+  color: var(--col-text);
+}
+
+.col-pressure-track {
+  height: 8px;
+  border-radius: 999px;
+  background: #ecf3f8;
+  overflow: hidden;
+}
+
+.col-pressure-track span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #8bbad2 0%, #0f6e9c 100%);
+}
+
+.col-glance-notes {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+@media (min-width: 760px) {
+  .col-glance-notes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.col-glance-note {
+  border: 1px dashed #bfd4e1;
+  border-radius: 12px;
+  padding: 0.62rem 0.72rem;
+  background: #f9fcff;
+}
+
+.col-glance-note p {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--col-text);
+}
+
+/* —— What to know (state / city) —— */
+.col-know-section .col-know-head {
+  margin-bottom: 0.5rem;
+}
+
+.col-know-lead {
+  margin: 0;
+  max-width: 48rem;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--col-muted);
+}
+
+.col-know-points {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+@media (min-width: 768px) {
+  .col-know-points {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.col-know-points li {
+  margin: 0;
+  padding: 0.8rem 0.95rem 0.8rem 2.1rem;
+  position: relative;
+  background: var(--col-surface);
+  border: 1px solid var(--col-border);
+  border-radius: 10px;
+  font-size: 0.94rem;
+  line-height: 1.5;
+  color: var(--col-text);
+  box-shadow: 0 2px 8px rgba(16, 42, 67, 0.03);
+}
+
+.col-know-points li::before {
+  content: "";
+  position: absolute;
+  left: 0.85rem;
+  top: 1.05rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--col-accent);
+}
+
+/* —— How we calculate —— */
+.col-method-section .col-band__head {
+  margin-bottom: 1rem;
+}
+
+.col-method-summary {
+  display: grid;
+  gap: 0.65rem;
+  margin-bottom: 1.15rem;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #eef6fb 0%, #f8fbfd 100%);
+  border: 1px solid var(--col-border);
+}
+
+@media (min-width: 640px) {
+  .col-method-summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.col-method-summary__item {
+  text-align: center;
+}
+
+.col-method-summary__label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--col-muted);
+  margin-bottom: 0.25rem;
+}
+
+.col-method-summary__value {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--col-accent-dark);
+  line-height: 1.2;
+}
+
+.col-method-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+@media (min-width: 760px) {
+  .col-method-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.col-method-card {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  border: 1px solid var(--col-border);
+  border-radius: 12px;
+  padding: 1rem 1.05rem;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(16, 42, 67, 0.04);
+}
+
+.col-method-card__step {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--col-accent-soft);
+  color: var(--col-accent-dark);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.col-method-card__body {
+  min-width: 0;
+}
+
+.col-method-card__body h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--col-accent-dark);
+}
+
+.col-method-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--col-text);
+}
+
+.col-method-footer {
+  margin: 1.15rem 0 0;
+  font-size: 0.92rem;
+}
+
+.col-method-footer a {
+  font-weight: 700;
+  color: var(--col-accent-dark);
+}
+
+.col-context-links {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.col-context-links p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--col-text);
+}
+
+.col-context-links a {
+  font-weight: 600;
+}
+
+.col-eeat {
+  padding: 1.5rem 0 2rem;
+  border-top: 1px solid var(--col-border);
+}
+
+.col-disclaimer {
+  margin: 0 0 0.85rem;
+  font-size: 0.84rem;
+  color: var(--col-muted);
 }
 
 .col-band h2 {
@@ -1216,21 +1708,6 @@
   font-size: 0.92rem;
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.88);
-}
-
-.col-hero-inner .take-home-return-breadcrumbs a {
-  color: #0b5f86;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.col-hero-inner .take-home-return-breadcrumbs li {
-  color: #1e3a4c;
-}
-
-.col-hero-inner .take-home-return-breadcrumbs li[aria-current="page"] {
-  color: #102a43;
-  font-weight: 700;
 }
 
 @media (min-width: 900px) {

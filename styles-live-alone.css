@@ -1,9 +1,9 @@
 .sla-page {
-  --sla-accent: #176b87;
-  --sla-accent-soft: #e9f5fa;
-  --sla-text: #102a43;
-  --sla-muted: #486581;
-  --sla-border: #d8e6ef;
+  --sla-accent: var(--living-accent);
+  --sla-accent-soft: var(--living-accent-soft);
+  --sla-text: var(--living-text);
+  --sla-muted: var(--living-muted);
+  --sla-border: var(--living-border);
   --sla-good: #1d7a46;
   --sla-warn: #b7791f;
   --sla-bad: #c53030;
@@ -17,15 +17,24 @@
 
 .sla-hero {
   padding: 2rem 0 2.2rem;
-  background: linear-gradient(150deg, #f3fbff 0%, #ffffff 70%);
+  background: var(--living-hero-gradient);
+  color: #fff;
   border-bottom: 1px solid var(--sla-border);
 }
 
 .sla-hero h1 {
   margin: 0.35rem 0 0.55rem;
-  color: var(--sla-text);
+  color: #fff;
   font-size: clamp(1.8rem, 3.5vw, 2.7rem);
   line-height: 1.15;
+}
+
+.sla-hero .label {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.sla-hero .sla-lead {
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .sla-lead {

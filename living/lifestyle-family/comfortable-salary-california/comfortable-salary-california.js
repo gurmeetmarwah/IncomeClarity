@@ -14,7 +14,7 @@
   const AFFORDABLE_KEYS = ["sacramento", "fresno", "bakersfield", "riverside"];
   const CA_TAX = 0.28;
   const PIE_COLORS = {
-    housing: "#0f7b6c",
+    housing: "#0f6e9c",
     transportation: "#3182ce",
     food: "#38a169",
     healthcare: "#627d98",

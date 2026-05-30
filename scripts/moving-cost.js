@@ -195,6 +195,16 @@
     var map = catalogMap(catalog);
     var scenario = { family: 0, moveType: null, size: null, milesBoost: 0 };
     var latestResult = null;
+    var distanceManual = false;
+
+    function syncDistanceFromRoute() {
+      if (distanceManual) return;
+      var fromId = el('mc-from') ? el('mc-from').value : '';
+      var toId = el('mc-to') ? el('mc-to').value : '';
+      var distNode = el('mc-distance');
+      if (!distNode || !fromId || !toId) return;
+      distNode.value = Math.round(estMiles(fromId, toId, map) + scenario.milesBoost);
+    }
 
     function fillCitySelects() {
       var fromSel = el('mc-from');
@@ -217,12 +227,11 @@
     }
 
     function readInputs() {
-      var milesInput = num('mc-distance', 0);
       var fromId = el('mc-from') ? el('mc-from').value : '';
       var toId = el('mc-to') ? el('mc-to').value : '';
+      var milesInput = num('mc-distance', 0);
       if (!milesInput && fromId && toId) {
         milesInput = estMiles(fromId, toId, map) + scenario.milesBoost;
-        if (el('mc-distance')) el('mc-distance').value = Math.round(milesInput);
       }
       var moveType = scenario.moveType || (el('mc-move-type') ? el('mc-move-type').value : 'truck');
       var size = scenario.size || (el('mc-size') ? el('mc-size').value : '1br');
@@ -230,7 +239,7 @@
       return {
         from: fromId,
         to: toId,
-        miles: milesInput + scenario.milesBoost,
+        miles: milesInput,
         moveType: moveType,
         size: size,
         family: family,
@@ -417,13 +426,39 @@
       updateAfford(latestResult);
     }
 
+    function onRouteChange() {
+      distanceManual = false;
+      syncDistanceFromRoute();
+      run();
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       scenario = { family: 0, moveType: null, size: null, milesBoost: 0 };
+      distanceManual = false;
+      syncDistanceFromRoute();
       run();
     });
 
-    ['mc-from', 'mc-to', 'mc-distance', 'mc-move-type', 'mc-size', 'mc-family', 'mc-pets', 'mc-temp', 'mc-flights', 'mc-storage', 'mc-vehicle'].forEach(function (id) {
+    ['mc-from', 'mc-to'].forEach(function (id) {
+      var node = el(id);
+      if (!node) return;
+      node.addEventListener('change', onRouteChange);
+    });
+
+    var distanceNode = el('mc-distance');
+    if (distanceNode) {
+      distanceNode.addEventListener('input', function () {
+        distanceManual = true;
+        run();
+      });
+      distanceNode.addEventListener('change', function () {
+        distanceManual = true;
+        run();
+      });
+    }
+
+    ['mc-move-type', 'mc-size', 'mc-family', 'mc-pets', 'mc-temp', 'mc-flights', 'mc-storage', 'mc-vehicle'].forEach(function (id) {
       var node = el(id);
       if (!node) return;
       node.addEventListener('change', run);
@@ -435,13 +470,13 @@
     if (syncFrom) {
       syncFrom.addEventListener('change', function () {
         if (el('mc-from')) el('mc-from').value = syncFrom.value;
-        run();
+        onRouteChange();
       });
     }
     if (syncTo) {
       syncTo.addEventListener('change', function () {
         if (el('mc-to')) el('mc-to').value = syncTo.value;
-        run();
+        onRouteChange();
       });
     }
 
@@ -453,6 +488,7 @@
     });
 
     fillCitySelects();
+    syncDistanceFromRoute();
     var fromMain = el('mc-from');
     var toMain = el('mc-to');
     if (fromMain && syncFrom) {

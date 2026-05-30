@@ -1,13 +1,13 @@
 /* Rent affordability hub — full-width calculator UX */
 .ra-page {
-  --ra-accent: #0f6e9c;
-  --ra-accent-dark: #0a5578;
-  --ra-accent-soft: #e9f5fb;
-  --ra-border: #d5e5f1;
-  --ra-text: #102a43;
-  --ra-muted: #5a7184;
-  --ra-radius: 14px;
-  --ra-wide: min(72rem, 100%);
+  --ra-accent: var(--living-accent);
+  --ra-accent-dark: var(--living-accent-dark);
+  --ra-accent-soft: var(--living-accent-soft);
+  --ra-border: var(--living-border);
+  --ra-text: var(--living-text);
+  --ra-muted: var(--living-muted);
+  --ra-radius: var(--living-radius);
+  --ra-wide: var(--living-wide);
 }
 
 .ra-page .container--wide {
@@ -23,20 +23,6 @@
   background: linear-gradient(145deg, #0a5578 0%, #0f6e9c 50%, #3a9bc4 100%);
   color: #fff;
   border-bottom: 1px solid var(--ra-border);
-}
-
-.ra-hero .take-home-return-nav {
-  margin: 0 0 1rem;
-  max-width: none;
-}
-
-.ra-hero .take-home-return-breadcrumbs a {
-  color: #0a5578;
-  font-weight: 600;
-}
-
-.ra-hero .take-home-return-breadcrumbs li {
-  color: #1e3a4c;
 }
 
 .ra-hero .label {

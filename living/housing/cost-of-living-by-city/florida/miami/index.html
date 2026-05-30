@@ -7,6 +7,7 @@
   <meta name="description" content="Cost of living in Miami: rent near $2,200/mo, groceries, transport, salary near $88,000, and lifestyle score.">
   <link rel="canonical" href="https://incomeclarity.com/living/housing/cost-of-living-by-city/florida/miami">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="stylesheet" href="/styles-col.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <script>
@@ -19,7 +20,7 @@
     })();
   </script>
 </head>
-<body class="col-page col-city-page">
+<body class="col-page living-tool-page col-city-page">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="/index.html">Income Clarity</a>
@@ -66,7 +67,7 @@
         </div>
       </div>
     </section>
-    <section class="col-band">
+    <section class="col-band col-band--tone-cool">
       <div class="container">
         <h2>Monthly cost breakdown</h2>
 
@@ -79,17 +80,52 @@
         <p class="col-cost-total"><strong>Core bills (no tax):</strong> about $3,195 a month. Tax note: No state income tax; insurance can be high on the coast.</p>
       </div>
     </section>
-    <section class="col-band col-band--alt">
+    <section class="col-band col-band--alt col-band--tone-cool">
       <div class="container">
         <h2>At a glance</h2>
 
-        <ul class="col-key-list">
-          <li>1BR rent near $2,200/mo (varies by neighborhood).</li>
-          <li>Core monthly stack about $3,195/mo before tax or childcare.</li>
-          <li>Comfort salary near $88,000 gross · family of 4 near $82,000.</li>
-          <li>Cost index 118 (US = 100) · lifestyle score 65/100.</li>
-          <li>Use take-home pay for rent caps. Add childcare and debt on top of these medians.</li>
-        </ul>
+        <div class="col-glance-grid">
+          <article class="col-glance-card">
+            <span class="col-glance-card__kicker">Monthly essentials</span>
+            <strong class="col-glance-card__value">$3,195/mo</strong>
+            <p>Baseline includes rent, groceries, utilities, and transport.</p>
+          </article>
+          <article class="col-glance-card">
+            <span class="col-glance-card__kicker">Housing share</span>
+            <strong class="col-glance-card__value">69%</strong>
+            <p>Rent is the largest line in the core monthly stack for most households.</p>
+          </article>
+          <article class="col-glance-card">
+            <span class="col-glance-card__kicker">Affordability signal</span>
+            <strong class="col-glance-card__value">65/100</strong>
+            <p><span class="col-pill col-pill--warn">Moderate pressure</span></p>
+          </article>
+        </div>
+        <div class="col-pressure-wrap">
+          <p class="col-pressure-head"><strong>Budget pressure meter</strong> · where households usually feel cost strain first</p>
+          <div class="col-pressure-row"><span>Housing</span><div class="col-pressure-track"><span style="width:69%"></span></div></div>
+          <div class="col-pressure-row"><span>Transport</span><div class="col-pressure-track"><span style="width:26%"></span></div></div>
+          <div class="col-pressure-row"><span>Groceries + utilities</span><div class="col-pressure-track"><span style="width:30%"></span></div></div>
+        </div>
+
+        <div class="col-glance-notes">
+
+          <article class="col-glance-note">
+            <p>1BR rent near $2,200/mo (varies by neighborhood).</p>
+          </article>
+          <article class="col-glance-note">
+            <p>Core monthly stack about $3,195/mo before tax or childcare.</p>
+          </article>
+          <article class="col-glance-note">
+            <p>Comfort salary near $88,000 gross · family of 4 near $82,000.</p>
+          </article>
+          <article class="col-glance-note">
+            <p>Cost index 118 (US = 100) · lifestyle score 65/100.</p>
+          </article>
+          <article class="col-glance-note">
+            <p>Use take-home pay for rent caps. Add childcare and debt on top of these medians.</p>
+          </article>
+        </div>
         <aside class="col-callout" role="note">
           <strong>Your move:</strong> Get a real rent quote, then check it against <a href="/living/housing/how-much-rent-can-i-afford">rent affordability</a> and <a href="/living/housing/how-much-house-can-i-afford/florida/miami">home buying</a> for Miami.
         </aside>
@@ -118,34 +154,194 @@
           <li>Add one-time move costs (deposits, setup fees, furniture) outside monthly totals.</li>
           <li>Stress-test with debt and savings goals before signing a lease or mortgage.</li>
         </ul>
-        <p><a href="/living/lifestyle-family/family-of-4-income-guide/">Family budget guide</a> · <a href="/living/family-budgeting/salary-needed-to-live-comfortably">Comfortable salary</a> · <a href="/living/housing/how-much-house-can-i-afford/florida/miami">House affordability</a></p>
+        <p><a href="/living/lifestyle-family/family-of-4-income-guide/">Family budget guide</a> · <a href="/living/lifestyle/comfortable-salary/florida/miami">Comfortable salary</a> · <a href="/living/housing/how-much-house-can-i-afford/florida/miami">House affordability</a></p>
+      </div>
+    </section>
+
+    <section class="col-band col-band--tone-cool">
+      <div class="container">
+        <header class="col-band__head">
+          <h2>Recommendations for Miami</h2>
+          <p>Area-aware suggestions to reduce budget stress and improve move decisions.</p>
+        </header>
+        <div class="col-rec-grid">
+          <article class="col-rec-card"><h3>Recommendation 1</h3><p>Keep total housing near your safe zone and test commute cost in Miami before signing.</p></article>
+          <article class="col-rec-card"><h3>Recommendation 2</h3><p>Use Miami neighborhood-level listings to validate rent assumptions from city averages.</p></article>
+          <article class="col-rec-card"><h3>Recommendation 3</h3><p>For families in Florida, add childcare and school-zone transport to baseline monthly costs.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-band">
+      <div class="container">
+        <h2>Compare Miami with other cities</h2>
+        <p class="col-lead">Open another city guide to compare rent, salary targets, and budget pressure side by side.</p>
+        <div class="col-city-chips">
+        <a class="col-city-chip" href="/living/housing/cost-of-living-by-city/atlanta">Atlanta</a>
+        <a class="col-city-chip" href="/living/housing/cost-of-living-by-city/texas/austin">Austin</a>
+        <a class="col-city-chip" href="/living/housing/cost-of-living-by-city/chicago">Chicago</a>
+        <a class="col-city-chip" href="/living/housing/cost-of-living-by-city/texas/dallas">Dallas</a>
+        <a class="col-city-chip" href="/living/housing/cost-of-living-by-city/denver">Denver</a>
+        <a class="col-city-chip" href="/living/housing/cost-of-living-by-city/texas/houston">Houston</a>
+        <a class="col-city-chip" href="/living/housing/cost-of-living-by-city/california/los-angeles">Los Angeles</a>
+        <a class="col-city-chip" href="/living/housing/cost-of-living-by-city/new-york/new-york-city">New York City</a>
+        <a class="col-city-chip" href="/living/housing/cost-of-living-by-city/florida/orlando">Orlando</a>
+        <a class="col-city-chip" href="/living/housing/cost-of-living-by-city/phoenix">Phoenix</a>
+        <a class="col-city-chip" href="/living/housing/cost-of-living-by-city/california/san-diego">San Diego</a>
+        <a class="col-city-chip" href="/living/housing/cost-of-living-by-city/california/san-francisco">San Francisco</a>
+        <a class="col-city-chip" href="/living/housing/cost-of-living-by-city/seattle">Seattle</a>
+        <a class="col-city-chip" href="/living/housing/cost-of-living-by-city/florida/tampa">Tampa</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-band col-band--tone-cool col-know-section" aria-labelledby="col-know-miami-title">
+      <div class="container">
+        <header class="col-band__head col-know-head">
+          <h2 id="col-know-miami-title">What to know about Miami</h2>
+
+        </header>
+        <ul class="col-know-points">
+          <li>Median 1BR rent near $2,200/mo is usually the largest line in a comfort budget.</li>
+          <li>Cost-of-living index 118 (US average = 100) captures rent, food, utilities, and transport pressure.</li>
+          <li>Many singles plan around $88,000 gross here before childcare, debt, and extra savings goals.</li>
+          <li>Tax context: No state income tax; insurance can be high on the coast</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="col-band">
+      <div class="container">
+        <h2>Plan your Miami budget in order</h2>
+        <div class="col-context-links">
+          <p>Start with your real take-home pay in the <a href="/hourly-to-salary-after-tax/state/florida/">state take-home calculator</a>. In Miami, core bills run about <strong>$3,195/mo</strong> before debt, childcare, or savings.</p>
+          <p>Next, set a rent ceiling in the <a href="/living/housing/how-much-rent-can-i-afford">rent affordability calculator</a>. At a 30% gross-income cap, rent near $2,200/mo implies planning income around <strong>$88,000</strong> gross — then stress-test with your actual deductions.</p>
+          <p>If you might buy, compare with <a href="/living/housing/how-much-house-can-i-afford/florida/miami">house affordability in Miami</a> and the <a href="/rent-vs-buy-calculator">rent vs buy calculator</a>. If you are relocating, estimate move cash in the <a href="/living/housing/moving-cost-calculator/florida/miami">moving cost calculator</a>.</p>
+          <p>For household targets, use the <a href="/living/lifestyle/comfortable-salary/florida/miami">comfortable salary guide</a> and <a href="/living/lifestyle-family/family-of-4-income-guide/">family of 4 income guide</a> to layer childcare and debt on top of these medians.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-band col-band--alt col-method-section" aria-labelledby="col-method-miami-title">
+      <div class="container">
+        <header class="col-band__head">
+          <h2 id="col-method-miami-title">How we calculate Miami numbers</h2>
+          <p class="col-lead">Transparent planning math you can audit before a move or offer decision.</p>
+        </header>
+        <div class="col-method-summary" role="note">
+          <div class="col-method-summary__item">
+            <span class="col-method-summary__label">Core monthly stack</span>
+            <strong class="col-method-summary__value">$3,195/mo</strong>
+          </div>
+          <div class="col-method-summary__item">
+            <span class="col-method-summary__label">Comfort salary (model)</span>
+            <strong class="col-method-summary__value">$90,000</strong>
+          </div>
+          <div class="col-method-summary__item">
+            <span class="col-method-summary__label">Published target</span>
+            <strong class="col-method-summary__value">$88,000</strong>
+          </div>
+        </div>
+        <div class="col-method-grid">
+          <article class="col-method-card">
+            <span class="col-method-card__step" aria-hidden="true">1</span>
+            <div class="col-method-card__body">
+              <h3>Core monthly stack</h3>
+              <p>Rent $2,200 + groceries $430 + utilities $225 + transport $340.</p>
+            </div>
+          </article>
+          <article class="col-method-card">
+            <span class="col-method-card__step" aria-hidden="true">2</span>
+            <div class="col-method-card__body">
+              <h3>Comfort salary target</h3>
+              <p>Annual core ($38,340) ÷ 43% gross share ≈ $90,000. We publish $88,000 as a market-adjusted planning line.</p>
+            </div>
+          </article>
+          <article class="col-method-card">
+            <span class="col-method-card__step" aria-hidden="true">3</span>
+            <div class="col-method-card__body">
+              <h3>Affordability signal</h3>
+              <p>Index 118 (US = 100) with housing share 69% yields model score <strong>68/100</strong>. Page score: 65/100.</p>
+            </div>
+          </article>
+          <article class="col-method-card">
+            <span class="col-method-card__step" aria-hidden="true">4</span>
+            <div class="col-method-card__body">
+              <h3>Tax context</h3>
+              <p>No state income tax; insurance can be high on the coast. Use take-home pay — not gross alone — when setting rent caps and savings goals.</p>
+            </div>
+          </article>
+        </div>
+        <p class="col-method-footer"><a href="/methodology#affordability">Read the full affordability methodology →</a></p>
       </div>
     </section>
     <section class="col-faq-section">
       <div class="container content-page">
         <h2>FAQ — Miami</h2>
         <div class="faq-stack">
-          <article class="faq-item"><h3>How much do I need to earn in Miami?</h3><p>Many singles plan around $88,000 gross to cover core bills with some saving room. Families often plan closer to $82,000 gross before childcare, debt, and medical costs.</p></article>
-          <article class="faq-item"><h3>Is Miami expensive?</h3><p>The city index is 118 with US = 100. That means Miami can feel above average or near average based on your rent tier and commute style. Compare this page with one peer city to judge the real gap.</p></article>
-          <article class="faq-item"><h3>What counts in cost of living on this page?</h3><p>Core lines are rent, groceries, utilities, and transport. We show them in monthly dollars for quick planning. Add debt payments, childcare, healthcare premiums, and savings goals to get your real budget.</p></article>
-          <article class="faq-item"><h3>Should I use gross or net pay?</h3><p>Use take-home pay when you set a rent cap. Gross pay is useful for broad planning, but net pay decides monthly comfort. Run your local take-home calculator after this page.</p></article>
-          <article class="faq-item"><h3>What is the lifestyle score in Miami?</h3><p>It is 65/100 in our model. Higher means your income usually stretches further after core bills. It is a cost-pressure signal, not a quality-of-life score.</p></article>
-          <article class="faq-item"><h3>Can roommates lower my number?</h3><p>Yes. Shared rent can drop your housing burden fast. Still include utilities, parking, fees, and move-in costs when you compare listings.</p></article>
-          <article class="faq-item"><h3>How should I use this page before moving?</h3><p>Use this sequence: estimate take-home pay, set a rent cap, compare two neighborhoods, then pressure-test your budget with debt and savings. Do not rely on one listing price alone.</p></article>
+          <article class="faq-item"><h3>How much do I need to earn in Miami?</h3><p>Many singles plan around $88,000 gross to cover core bills with some saving room. Families often plan closer to $82,000 gross before childcare, debt, and medical costs.</p><p>Use this as a planning line, then adjust with your own debt payments, savings target, and local neighborhood rent.</p></article>
+          <article class="faq-item"><h3>Is Miami expensive?</h3><p>The city index is 118 with US = 100. That means Miami can feel above average or near average based on your rent tier and commute style. Compare this page with one peer city to judge the real gap.</p><p>The same city can feel affordable or tight depending on commute distance, parking costs, and housing choice.</p></article>
+          <article class="faq-item"><h3>What counts in cost of living on this page?</h3><p>Core lines are rent, groceries, utilities, and transport. We show them in monthly dollars for quick planning. Add debt payments, childcare, healthcare premiums, and savings goals to get your real budget.</p><p>Treat this page as your baseline, then layer personal costs on top before you sign a lease.</p></article>
+          <article class="faq-item"><h3>Should I use gross or net pay?</h3><p>Use take-home pay when you set a rent cap. Gross pay is useful for broad planning, but net pay decides monthly comfort. Run your local take-home calculator after this page.</p><p>This prevents overestimating affordability when taxes or deductions are high.</p></article>
+          <article class="faq-item"><h3>What is the lifestyle score in Miami?</h3><p>It is 65/100 in our model. Higher means your income usually stretches further after core bills. It is a cost-pressure signal, not a quality-of-life score.</p><p>Use it to compare budget strain between cities, then use your own priorities for final decisions.</p></article>
+          <article class="faq-item"><h3>Can roommates lower my number?</h3><p>Yes. Shared rent can drop your housing burden fast. Still include utilities, parking, fees, and move-in costs when you compare listings.</p><p>Many renters use roommates for 12 to 24 months to build savings before moving solo.</p></article>
+          <article class="faq-item"><h3>How should I use this page before moving?</h3><p>Use this sequence: estimate take-home pay, set a rent cap, compare two neighborhoods, then pressure-test your budget with debt and savings. Do not rely on one listing price alone.</p><p>Shortlist 2 to 3 neighborhoods and run the same budget in each to avoid surprise costs.</p></article>
         </div>
       </div>
     </section>
 
     <section class="col-section col-related" aria-labelledby="col-related-title">
       <div class="container content-page">
-        <h2 id="col-related-title">Related guides</h2>
-        <ul class="col-related__list">
-          <li><a href="/living/housing/cost-of-living-by-city">Cost of living hub</a></li>
-          <li><a href="/living/housing/cost-of-living-by-city/florida">Cost of living — Florida</a></li>
-          <li><a href="/living/housing/how-much-house-can-i-afford/florida/miami">How much house can I afford — Miami</a></li>
-          <li><a href="/living/housing/how-much-rent-can-i-afford">Rent affordability calculator</a></li>
-          <li><a href="/living/family-budgeting/salary-needed-to-live-comfortably">Comfortable salary guide</a></li>
-        </ul>
+        <h2 id="col-related-title">Related tools for Miami</h2>
+        <p class="col-lead">Use these calculators after this page to pressure-test rent, tax, and relocation decisions with your own numbers.</p>
+
+        <div class="col-related__grid">
+          <a class="col-related-card" href="/hourly-to-salary-after-tax/state/florida/"><strong>Take-home pay</strong><span>Convert gross offers to net before comparing cities.</span></a>
+          <a class="col-related-card" href="/living/housing/how-much-rent-can-i-afford"><strong>Rent affordability</strong><span>Set a rent cap from your real paycheck.</span></a>
+          <a class="col-related-card" href="/rent-vs-buy-calculator"><strong>Rent vs buy</strong><span>Compare long-run housing cost if you might buy.</span></a>
+          <a class="col-related-card" href="/living/lifestyle/comfortable-salary/florida/miami"><strong>Comfortable salary</strong><span>Benchmark income needed for your household.</span></a>
+          <a class="col-related-card" href="/living/housing/cost-of-living-by-city/florida"><strong>Cost of living — Florida</strong><span>Compare all Florida cities.</span></a>
+          <a class="col-related-card" href="/living/housing/moving-cost-calculator/florida/miami"><strong>Moving cost calculator</strong><span>Estimate deposits, move fees, and first-month cash.</span></a>
+          <a class="col-related-card" href="/living/can-i-afford-to-live-alone"><strong>Cost to live alone</strong><span>Test solo living pressure by city and income.</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-eeat">
+      <div class="container content-page">
+        <p class="col-disclaimer">Educational content for US readers only, not financial or legal advice. Verify with pay stubs, listings, and local tax guidance.</p>
+        <aside class="eeat-trust" aria-labelledby="eeat-col-miami-title">
+          <header class="eeat-trust__header">
+            <span class="eeat-trust__kicker">How we built this</span>
+            <h2 id="eeat-col-miami-title" class="eeat-trust__title">Miami Cost of Living Methodology &amp; Data Sources</h2>
+            <p class="eeat-trust__meta"><time datetime="2026-05-30">Last reviewed: May 30, 2026</time> · Reviewed by the Income Clarity editorial team · <a href="/methodology#affordability">Read the full methodology</a></p>
+          </header>
+          <div class="eeat-trust__grid">
+            <article class="eeat-trust__card">
+              <h3>How we calculate affordability</h3>
+              <ul>
+                <li><strong>Core stack:</strong> 1BR rent + groceries + utilities + transport ($3,195/mo here).</li>
+                <li><strong>Comfort salary:</strong> annual core ÷ 43% gross share, rounded to nearest $5k.</li>
+                <li><strong>Family target:</strong> core stack × 1.35 with a 48% gross share assumption.</li>
+                <li><strong>Affordability signal:</strong> cost index + housing share pressure (not a quality-of-life score).</li>
+              </ul>
+            </article>
+            <article class="eeat-trust__card">
+              <h3>Primary data sources</h3>
+              <ul>
+                <li><a href="https://www.zillow.com/research/data/" rel="noopener noreferrer">Zillow Research (ZORI)</a> — metro rent medians.</li>
+                <li><a href="https://www.huduser.gov/portal/datasets/fmr.html" rel="noopener noreferrer">HUD Fair Market Rents</a> — regional rent benchmarks.</li>
+                <li><a href="https://www.bls.gov/cpi/" rel="noopener noreferrer">BLS CPI</a> — food, utilities, and transport inflation context.</li>
+                <li><a href="https://www.census.gov/data/developers/data-sets/acs-5year.html" rel="noopener noreferrer">Census ACS</a> — income and household spending context.</li>
+              </ul>
+            </article>
+            <article class="eeat-trust__card">
+              <h3>What this is not</h3>
+              <p>These are planning medians, not lease approvals or loan underwriting. Neighborhood rent spreads, insurance, childcare, and debt can shift your real budget by hundreds per month.</p>
+            </article>
+          </div>
+          <p class="eeat-trust__footer">See a mismatch with your market? <a href="/contact">Tell us</a> — we fix confirmed errors within 7 days.</p>
+        </aside>
       </div>
     </section>
   </main>

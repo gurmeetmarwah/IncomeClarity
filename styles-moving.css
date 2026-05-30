@@ -1,12 +1,12 @@
 /* Moving cost calculator — full-width UX */
 .mc-page {
-  --mc-accent: #0f6e9c;
-  --mc-accent-dark: #0a5578;
-  --mc-border: #d5e5f1;
-  --mc-text: #102a43;
-  --mc-muted: #5a7184;
-  --mc-radius: 14px;
-  --mc-wide: min(72rem, 100%);
+  --mc-accent: var(--living-accent);
+  --mc-accent-dark: var(--living-accent-dark);
+  --mc-border: var(--living-border);
+  --mc-text: var(--living-text);
+  --mc-muted: var(--living-muted);
+  --mc-radius: var(--living-radius);
+  --mc-wide: var(--living-wide);
 }
 
 .mc-page .container--wide {
@@ -48,20 +48,6 @@
 
 .mc-hero .label {
   color: rgba(255, 255, 255, 0.88);
-}
-
-.mc-hero .take-home-return-breadcrumbs a {
-  color: #fff;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.mc-hero .take-home-return-breadcrumbs a:hover {
-  color: #e8f4fa;
-}
-
-.mc-hero .take-home-return-breadcrumbs [aria-current="page"] {
-  color: rgba(255, 255, 255, 0.92);
 }
 
 .mc-city-nav {
@@ -988,7 +974,7 @@
 
 .mc-city-compare-badge--low {
   background: #e6f6ef;
-  color: #0a5f53;
+  color: var(--living-accent-dark);
 }
 
 .mc-city-compare-badge--high {
@@ -1134,4 +1120,74 @@
 
 .mc-page .faq-item p + p {
   margin-top: 0.65rem;
+}
+
+.mc-method-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 760px) {
+  .mc-method-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.mc-method-card {
+  border: 1px solid var(--mc-border);
+  border-radius: 12px;
+  padding: 0.85rem 0.95rem;
+  background: #fff;
+}
+
+.mc-method-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  color: var(--mc-text);
+}
+
+.mc-method-card p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--mc-muted);
+}
+
+.mc-context-links {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.mc-context-links p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--mc-text);
+}
+
+.mc-context-links a {
+  font-weight: 600;
+  color: var(--mc-accent-dark);
+}
+
+.mc-eeat {
+  padding: 1.5rem 0 2rem;
+  border-top: 1px solid var(--mc-border);
+}
+
+.mc-disclaimer {
+  margin: 0 0 0.85rem;
+  font-size: 0.84rem;
+  color: var(--mc-muted);
+}
+
+.mc-city-chips--light .mc-city-chip {
+  background: #fff;
+  color: var(--mc-text);
+  border: 1px solid var(--mc-border);
+}
+
+.mc-city-chips--light .mc-city-chip:hover {
+  border-color: var(--mc-accent);
+  color: var(--mc-accent-dark);
 }

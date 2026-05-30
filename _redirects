@@ -75,12 +75,12 @@
 /living/lifestyle-family/childcare-affordability.html  /living/lifestyle-family/childcare-affordability  301!
 /living/lifestyle-family/childcare-affordability  /living/lifestyle-family/childcare-affordability/  301!
 /living/lifestyle-family/childcare-affordability/  /living/lifestyle-family/childcare-affordability/index.html  200
-/living/lifestyle-family/comfortable-salary-california.html  /living/lifestyle-family/comfortable-salary-california  301!
-/living/lifestyle-family/comfortable-salary-california  /living/lifestyle-family/comfortable-salary-california/  301!
-/living/lifestyle-family/comfortable-salary-california/  /living/lifestyle-family/comfortable-salary-california/index.html  200
-/living/lifestyle-family/comfortable-salary-texas.html  /living/lifestyle-family/comfortable-salary-texas  301!
-/living/lifestyle-family/comfortable-salary-texas  /living/lifestyle-family/comfortable-salary-texas/  301!
-/living/lifestyle-family/comfortable-salary-texas/  /living/lifestyle-family/comfortable-salary-texas/index.html  200
+/living/lifestyle-family/comfortable-salary-california.html  /living/lifestyle/comfortable-salary/california  301!
+/living/lifestyle-family/comfortable-salary-california  /living/lifestyle/comfortable-salary/california  301!
+/living/lifestyle-family/comfortable-salary-california/  /living/lifestyle/comfortable-salary/california/index.html  200
+/living/lifestyle-family/comfortable-salary-texas.html  /living/lifestyle/comfortable-salary/texas  301!
+/living/lifestyle-family/comfortable-salary-texas  /living/lifestyle/comfortable-salary/texas  301!
+/living/lifestyle-family/comfortable-salary-texas/  /living/lifestyle/comfortable-salary/texas/index.html  200
 /living/budgeting/                 /living/budgeting                       301!
 /living/budgeting                  /living/budgeting/index.html            200
 /debt/payoff-scenarios/            /debt/payoff-scenarios                  301!
@@ -109,6 +109,19 @@
 /living/housing/cost-of-living-by-city           /living/housing/cost-of-living-by-city/index.html 200
 /living/housing/moving-cost-calculator/          /living/housing/moving-cost-calculator           301!
 /living/housing/moving-cost-calculator           /living/housing/moving-cost-calculator/index.html 200
+/living/lifestyle/comfortable-salary-us/       /living/lifestyle/comfortable-salary-us          301!
+/living/lifestyle/comfortable-salary-us        /living/lifestyle/comfortable-salary-us/index.html 200
+/living/lifestyle/comfortable-salary/          /living/lifestyle/comfortable-salary             301!
+/living/lifestyle/comfortable-salary           /living/lifestyle/comfortable-salary-us          301!
+/living/family-budgeting/salary-needed-to-live-comfortably  /living/lifestyle/comfortable-salary-us  301!
+/living/family-budgeting/salary-needed-to-live-comfortably.html  /living/lifestyle/comfortable-salary-us  301!
+/living/family-budgeting/salary-needed-to-live-comfortably/  /living/lifestyle/comfortable-salary-us  301!
+/living/lifestyle-family/comfortable-salary-california  /living/lifestyle/comfortable-salary/california  301!
+/living/lifestyle-family/comfortable-salary-california/  /living/lifestyle/comfortable-salary/california  301!
+/living/lifestyle-family/comfortable-salary-texas  /living/lifestyle/comfortable-salary/texas  301!
+/living/lifestyle-family/comfortable-salary-texas/  /living/lifestyle/comfortable-salary/texas  301!
+/salary-needed-to-live-comfortably.html  /living/lifestyle/comfortable-salary-us  301!
+/salary-needed-to-live-comfortably  /living/lifestyle/comfortable-salary-us  301!
 /living/housing/cost-of-living-by-city/new-york  /living/housing/cost-of-living-by-city/new-york/index.html 200
 /living/housing/cost-of-living-by-city/new-york/  /living/housing/cost-of-living-by-city/new-york 301!
 /living/housing/how-much-house-can-i-afford-in-california/  /living/housing/how-much-house-can-i-afford/california  301!
@@ -133,10 +146,10 @@
 /how-much-house-can-i-afford-in-california.html  /living/housing/how-much-house-can-i-afford/california  301!
 /how-much-house-can-i-afford-in-california/      /living/housing/how-much-house-can-i-afford/california  301!
 /how-much-house-can-i-afford-in-california       /living/housing/how-much-house-can-i-afford/california  301!
-# Living — family budgeting
-/living/family-budgeting/salary-needed-to-live-comfortably.html  /living/family-budgeting/salary-needed-to-live-comfortably  301!
-/living/family-budgeting/salary-needed-to-live-comfortably/  /living/family-budgeting/salary-needed-to-live-comfortably  301!
-/living/family-budgeting/salary-needed-to-live-comfortably  /living/family-budgeting/salary-needed-to-live-comfortably.html  200
+# Living — family budgeting (legacy salary page redirects to new hub)
+/living/family-budgeting/salary-needed-to-live-comfortably.html  /living/lifestyle/comfortable-salary-us  301!
+/living/family-budgeting/salary-needed-to-live-comfortably/  /living/lifestyle/comfortable-salary-us  301!
+/living/family-budgeting/salary-needed-to-live-comfortably  /living/lifestyle/comfortable-salary-us  301!
 /living/family-budgeting/can-i-afford-to-live-alone.html  /living/can-i-afford-to-live-alone  301!
 /living/family-budgeting/can-i-afford-to-live-alone/  /living/can-i-afford-to-live-alone  301!
 /living/family-budgeting/can-i-afford-to-live-alone  /living/can-i-afford-to-live-alone  301!

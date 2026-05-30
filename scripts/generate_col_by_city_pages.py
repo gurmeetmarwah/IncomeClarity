@@ -10,7 +10,8 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 from col_hub_content import build_catalog, render_hub_page  # noqa: E402
 
-STYLES_COL = '  <link rel="stylesheet" href="/styles-col.css">'
+STYLES_LIVING = '  <link rel="stylesheet" href="/styles-living-system.css">'
+STYLES_COL = STYLES_LIVING + '\n  <link rel="stylesheet" href="/styles-col.css">'
 BASE = ROOT / "living" / "housing" / "cost-of-living-by-city"
 
 URL_SCRIPT = """  <script>
@@ -46,6 +47,101 @@ def fmt(n: int) -> str:
     return f"${n:,}"
 
 
+# Planning constants — documented in EEAT blocks and /methodology#affordability
+TAKE_HOME_RATIO = 0.72
+CORE_GROSS_SHARE = 0.43
+FAMILY_GROSS_SHARE = 0.48
+FAMILY_STACK_MULT = 1.35
+
+STATE_TAKE_HOME = {
+    "california": "/hourly-to-salary-after-tax/state/california/",
+    "texas": "/hourly-to-salary-after-tax/state/texas/",
+    "florida": "/hourly-to-salary-after-tax/state/florida/",
+    "new-york": "/hourly-to-salary-after-tax/state/new-york/",
+}
+STANDALONE_TAKE_HOME = {
+    "chicago": "/hourly-to-salary-after-tax/state/illinois/",
+    "seattle": "/hourly-to-salary-after-tax/state/washington/",
+}
+
+
+def core_monthly(rent: int, groceries: int, utilities: int, transport: int) -> int:
+    return rent + groceries + utilities + transport
+
+
+def housing_share_pct(rent: int, core: int) -> int:
+    return round((rent / max(core, 1)) * 100)
+
+
+def minimum_comfort_salary(core: int) -> int:
+    return round((core * 12) / CORE_GROSS_SHARE / 5000) * 5000
+
+
+def minimum_family_salary(core: int) -> int:
+    return round((core * 12 * FAMILY_STACK_MULT) / FAMILY_GROSS_SHARE / 5000) * 5000
+
+
+def derived_lifestyle_score(col_index: int, housing_share: int) -> int:
+    score = 74 - (col_index - 100) * 0.28 - max(0, housing_share - 65) * 0.2
+    return max(45, min(78, round(score)))
+
+
+def prepare_city_metrics(city: dict) -> dict:
+    core = core_monthly(city["rent_1br"], city["groceries"], city["utilities"], city["transport"])
+    hs = housing_share_pct(city["rent_1br"], core)
+    return {
+        "core": core,
+        "housing_share": hs,
+        "min_salary": minimum_comfort_salary(core),
+        "min_family": minimum_family_salary(core),
+        "derived_score": derived_lifestyle_score(city["col_index"], hs),
+        "rent_cap_gross": round(city["rent_1br"] * 12 / 0.30 / 1000) * 1000,
+    }
+
+
+def take_home_link(state_slug: str | None, city_slug: str | None) -> str:
+    if state_slug and state_slug in STATE_TAKE_HOME:
+        return STATE_TAKE_HOME[state_slug]
+    if city_slug and city_slug in STANDALONE_TAKE_HOME:
+        return STANDALONE_TAKE_HOME[city_slug]
+    return "/hourly-to-salary-after-tax"
+
+
+def moving_cost_link(state_slug: str | None, city_slug: str) -> str:
+    if state_slug:
+        return f"/living/housing/moving-cost-calculator/{state_slug}/{city_slug}"
+    return f"/living/housing/moving-cost-calculator/{city_slug}"
+
+
+def compare_links_for_path(page_path: str) -> list[tuple[str, str]]:
+    normalized = page_path
+    prefix = "/living/housing/cost-of-living-by-city/"
+    if normalized.startswith(prefix):
+        normalized = normalized[len(prefix):]
+    if normalized.endswith("/"):
+        normalized = normalized[:-1]
+    out: list[tuple[str, str]] = []
+    for slug, c in COMPARISONS.items():
+        if c["slug_a"] == normalized or c["slug_b"] == normalized:
+            out.append((c["title_short"], f"/living/housing/cost-of-living-by-city/compare/{slug}"))
+    return out
+
+
+def validate_city_metrics(city: dict, label: str) -> list[str]:
+    m = prepare_city_metrics(city)
+    warnings: list[str] = []
+    if city["salary_comfort"] < m["min_salary"] * 0.85:
+        warnings.append(
+            f"{label}: comfort salary {fmt(city['salary_comfort'])} below model floor {fmt(m['min_salary'])}"
+        )
+    lifestyle = city.get("lifestyle_score")
+    if lifestyle is not None and abs(lifestyle - m["derived_score"]) > 10:
+        warnings.append(
+            f"{label}: lifestyle score {lifestyle} differs from model {m['derived_score']}"
+        )
+    return warnings
+
+
 def paras_html(paragraphs: list[str]) -> str:
     return "\n".join(f"        <p>{p}</p>" for p in paragraphs)
 
@@ -61,10 +157,11 @@ def key_points_html(points: list[str]) -> str:
 
 
 def faq_html(faqs: list[tuple[str, str]]) -> str:
-    return "\n".join(
-        f'          <article class="faq-item"><h3>{q}</h3><p>{a}</p></article>'
-        for q, a in faqs
-    )
+    blocks = []
+    for q, a in faqs:
+        paragraphs = "".join(f"<p>{part.strip()}</p>" for part in a.split("\n\n") if part.strip())
+        blocks.append(f'          <article class="faq-item"><h3>{q}</h3>{paragraphs}</article>')
+    return "\n".join(blocks)
 
 
 # Monthly singles for a typical adult / small household planning figures
@@ -81,7 +178,7 @@ STATES = {
         "narrative": [
             "California costs more than most of the US. Rent and insurance drive the gap. Wages are higher too, but not always enough on the coast.",
             "Use this page as a map. Compare cities below. Then open a city page for rent, food, tax, and salary targets in one place.",
-            "No state income tax does not apply here. Budget for state tax when you compare offers from Texas or Florida.",
+            "California has state income tax up to 13.3% on high earners. Budget for it when you compare offers from Texas or Florida.",
             "Inland metros often run 20% to 40% below coastal rent. Many movers pick Sacramento or Riverside to keep a CA job market with lower rent.",
         ],
         "rank_intro": "Coast cities cost more on rent. Inland cities often cost less.",
@@ -376,10 +473,29 @@ STANDALONE = {
         "taxes_month": 180,
         "house_link": "/living/housing/how-much-house-can-i-afford",
         "rent_link": "/living/housing/how-much-rent-can-i-afford",
-        "salary_link": "/living/family-budgeting/salary-needed-to-live-comfortably",
+        "salary_link": "/living/lifestyle/comfortable-salary/arizona/phoenix",
         "tax_note": "Moderate state income tax; summer cooling bills run high",
     },
 }
+
+
+def _patch_salary_links() -> None:
+    _standalone_state = {
+        "chicago": "illinois",
+        "seattle": "washington",
+        "denver": "colorado",
+        "atlanta": "georgia",
+        "phoenix": "arizona",
+    }
+    for slug, st in STATES.items():
+        for cs, city in st["cities"].items():
+            city["salary_link"] = f"/living/lifestyle/comfortable-salary/{slug}/{cs}"
+    for cs, city in STANDALONE.items():
+        state_slug = _standalone_state[cs]
+        city["salary_link"] = f"/living/lifestyle/comfortable-salary/{state_slug}/{cs}"
+
+
+_patch_salary_links()
 
 COMPARISONS = {
     "nyc-vs-chicago": {
@@ -519,6 +635,27 @@ def state_key_points(data: dict) -> list[str]:
     ]
 
 
+def state_quick_facts_html(data: dict) -> str:
+    facts = [
+        ("Typical 1BR rent", f"{fmt(data['rent_1br'])}/mo", "Baseline for a median one-bedroom in this state."),
+        ("Comfort salary target", f"{fmt(data['salary_comfort'])}", "Common planning point for singles before debt and childcare."),
+        ("Tax context", data["tax_note"], "Tax treatment can materially change take-home pay."),
+        ("Next step", "Compare cities below", "Open a city to see local rent, pay targets, and household notes."),
+    ]
+    cards = "\n".join(
+        f"""          <article class="col-fact-card">
+            <span class="col-fact-card__kicker">{label}</span>
+            <strong class="col-fact-card__value">{value}</strong>
+            <p>{note}</p>
+          </article>"""
+        for label, value, note in facts
+    )
+    return f"""
+        <div class="col-facts-grid">
+{cards}
+        </div>"""
+
+
 def compare_takeaways(c: dict) -> list[str]:
     return [
         f"{c['city_a']} rent is {fmt(c['rent_a'])} a month. {c['city_b']} rent is {fmt(c['rent_b'])} a month.",
@@ -529,14 +666,389 @@ def compare_takeaways(c: dict) -> list[str]:
 
 
 def related_links_block(links: list[tuple[str, str]]) -> str:
-    items = "\n".join(f'          <li><a href="{href}">{label}</a></li>' for label, href in links)
+    items = "\n".join(
+        f'          <a class="col-related-card" href="{href}"><strong>{label}</strong><span>Open guide</span></a>'
+        for label, href in links
+    )
     return f"""
     <section class="col-section col-related" aria-labelledby="col-related-title">
       <div class="container content-page">
         <h2 id="col-related-title">Related guides</h2>
-        <ul class="col-related__list">
+        <p class="col-lead">Use these tools to validate rent targets, salary fit, and buy-versus-rent tradeoffs before you make a move.</p>
+        <div class="col-related__grid">
+{items}
+        </div>
+      </div>
+    </section>"""
+
+
+def city_at_a_glance_block(city: dict, core: int) -> str:
+    score = city.get("lifestyle_score", 60)
+    if score >= 72:
+        tier = "Low pressure"
+        tone = "good"
+    elif score >= 62:
+        tier = "Moderate pressure"
+        tone = "warn"
+    else:
+        tier = "High pressure"
+        tone = "bad"
+    housing_share = round((city["rent_1br"] / max(core, 1)) * 100)
+    return f"""
+        <div class="col-glance-grid">
+          <article class="col-glance-card">
+            <span class="col-glance-card__kicker">Monthly essentials</span>
+            <strong class="col-glance-card__value">{fmt(core)}/mo</strong>
+            <p>Baseline includes rent, groceries, utilities, and transport.</p>
+          </article>
+          <article class="col-glance-card">
+            <span class="col-glance-card__kicker">Housing share</span>
+            <strong class="col-glance-card__value">{housing_share}%</strong>
+            <p>Rent is the largest line in the core monthly stack for most households.</p>
+          </article>
+          <article class="col-glance-card">
+            <span class="col-glance-card__kicker">Affordability signal</span>
+            <strong class="col-glance-card__value">{city["lifestyle_score"]}/100</strong>
+            <p><span class="col-pill col-pill--{tone}">{tier}</span></p>
+          </article>
+        </div>
+        <div class="col-pressure-wrap">
+          <p class="col-pressure-head"><strong>Budget pressure meter</strong> · where households usually feel cost strain first</p>
+          <div class="col-pressure-row"><span>Housing</span><div class="col-pressure-track"><span style="width:{min(95, max(45, housing_share))}%"></span></div></div>
+          <div class="col-pressure-row"><span>Transport</span><div class="col-pressure-track"><span style="width:{min(92, max(26, round(city['transport']/max(city['rent_1br'],1)*100)))}%"></span></div></div>
+          <div class="col-pressure-row"><span>Groceries + utilities</span><div class="col-pressure-track"><span style="width:{min(88, max(20, round((city['groceries']+city['utilities'])/max(city['rent_1br'],1)*100)))}%"></span></div></div>
+        </div>"""
+
+
+def city_glance_insights(points: list[str]) -> str:
+    cards = "".join(
+        f"""
+          <article class="col-glance-note">
+            <p>{point}</p>
+          </article>"""
+        for point in points
+    )
+    return f"""
+        <div class="col-glance-notes">
+{cards}
+        </div>"""
+
+
+def state_recommendations_block(slug: str, data: dict) -> str:
+    defaults = [
+        "Keep housing near your safe rent tier before adding lifestyle upgrades.",
+        "Use take-home pay, not gross pay, when comparing city offers.",
+        "Build a move-in buffer for deposits, setup fees, and first-month surprises.",
+    ]
+    by_state = {
+        "california": [
+            "If you want California job access with lower pressure, compare inland metros before signing a coastal lease.",
+            "Budget state income tax and insurance changes before you set rent in high-cost counties.",
+            "For wildfire or coastal risk zones, recheck insurance costs before final move decisions.",
+        ],
+        "texas": [
+            "No state income tax helps take-home pay, but property tax and insurance can still be heavy for buyers.",
+            "Houston often gives lower rent than Austin or Dallas; compare commute cost before choosing.",
+            "Heat-related utility spikes are real. Use summer bills in your baseline, not spring averages.",
+        ],
+        "florida": [
+            "Coastal insurance and HOA differences can change affordability more than expected.",
+            "Compare Miami against Tampa/Orlando before assuming state averages fit your budget.",
+            "Storm season risk planning matters. Keep a stronger emergency buffer in coastal zones.",
+        ],
+        "new-york": [
+            "Downstate and upstate budgets differ sharply. Do not use one state average for both.",
+            "Include city + state tax effect before committing to a higher headline salary.",
+            "If you target NYC, include transit, broker, and move-in fees in month-one planning.",
+        ],
+    }
+    tips = by_state.get(slug, defaults)
+    cards = "\n".join(
+        f"""          <article class="col-rec-card"><h3>Recommendation {i+1}</h3><p>{tip}</p></article>"""
+        for i, tip in enumerate(tips)
+    )
+    return f"""
+    <section class="col-band col-band--tone-warm">
+      <div class="container">
+        <header class="col-band__head">
+          <h2>Recommendations for {data['name']}</h2>
+          <p>Practical guidance based on local cost structure, tax profile, and common move patterns.</p>
+        </header>
+        <div class="col-rec-grid">
+{cards}
+        </div>
+      </div>
+    </section>"""
+
+
+def city_recommendations_block(city: dict, state_name: str | None) -> str:
+    name = city["name"]
+    state_label = state_name or city.get("state_name", "")
+    dense = {"Los Angeles", "San Francisco", "New York City", "Chicago", "Seattle"}
+    coastal = {"Miami", "Tampa", "Orlando", "San Diego", "San Francisco", "Los Angeles", "New York City"}
+    tips = [
+        f"Keep total housing near your safe zone and test commute cost in {name} before signing.",
+        f"Use {name} neighborhood-level listings to validate rent assumptions from city averages.",
+        f"For families in {state_label}, add childcare and school-zone transport to baseline monthly costs.",
+    ]
+    if name in dense:
+        tips[1] = f"In {name}, parking, transit, and time cost can be as important as rent. Compare full commute burden."
+    if name in coastal:
+        tips.append(f"In {name}, insurance and weather risk can change monthly cost. Recheck policies before move-in.")
+    cards = "\n".join(
+        f"""          <article class="col-rec-card"><h3>Recommendation {i+1}</h3><p>{tip}</p></article>"""
+        for i, tip in enumerate(tips[:3])
+    )
+    return f"""
+    <section class="col-band col-band--tone-cool">
+      <div class="container">
+        <header class="col-band__head">
+          <h2>Recommendations for {name}</h2>
+          <p>Area-aware suggestions to reduce budget stress and improve move decisions.</p>
+        </header>
+        <div class="col-rec-grid">
+{cards}
+        </div>
+      </div>
+    </section>"""
+
+
+def city_interlink_block(current_path: str, city_name: str) -> str:
+    links: list[tuple[str, str]] = []
+    for state_slug, state in STATES.items():
+        for c_slug, c in state["cities"].items():
+            path = f"/living/housing/cost-of-living-by-city/{state_slug}/{c_slug}"
+            if path != current_path:
+                links.append((c["name"], path))
+    for c_slug, c in STANDALONE.items():
+        path = f"/living/housing/cost-of-living-by-city/{c_slug}"
+        if path != current_path:
+            links.append((c["name"], path))
+    links.sort(key=lambda x: x[0])
+    chips = "\n".join(
+        f'        <a class="col-city-chip" href="{href}">{label}</a>' for label, href in links
+    )
+    return f"""
+    <section class="col-band">
+      <div class="container">
+        <h2>Compare {city_name} with other cities</h2>
+        <p class="col-lead">Open another city guide to compare rent, salary targets, and budget pressure side by side.</p>
+        <div class="col-city-chips">
+{chips}
+        </div>
+      </div>
+    </section>"""
+
+
+def _place_slug(place_name: str) -> str:
+    return place_name.lower().replace(" ", "-")
+
+
+def city_know_points(city: dict, tax: str) -> list[str]:
+    return [
+        f"Median 1BR rent near {fmt(city['rent_1br'])}/mo is usually the largest line in a comfort budget.",
+        f"Cost-of-living index {city['col_index']} (US average = 100) captures rent, food, utilities, and transport pressure.",
+        f"Many singles plan around {fmt(city['salary_comfort'])} gross here before childcare, debt, and extra savings goals.",
+        f"Tax context: {tax}",
+    ]
+
+
+def col_know_block(place_name: str, points: list[str], lead: str = "") -> str:
+    if not points:
+        return ""
+    slug = _place_slug(place_name)
+    lead_html = f'        <p class="col-know-lead">{lead}</p>' if lead else ""
+    items = "\n".join(f"          <li>{p}</li>" for p in points)
+    return f"""
+    <section class="col-band col-band--tone-cool col-know-section" aria-labelledby="col-know-{slug}-title">
+      <div class="container">
+        <header class="col-band__head col-know-head">
+          <h2 id="col-know-{slug}-title">What to know about {place_name}</h2>
+{lead_html}
+        </header>
+        <ul class="col-know-points">
 {items}
         </ul>
+      </div>
+    </section>"""
+
+
+def col_methodology_block(city: dict, metrics: dict, tax: str, place_name: str) -> str:
+    slug = _place_slug(place_name)
+    lifestyle = city.get("lifestyle_score")
+    lifestyle_line = (
+        f"Index {city['col_index']} (US = 100) with housing share {metrics['housing_share']}% yields model score "
+        f"<strong>{metrics['derived_score']}/100</strong>. Page score: {lifestyle}/100."
+        if lifestyle is not None
+        else f"Index {city['col_index']} (US = 100) with housing share {metrics['housing_share']}% yields model score "
+        f"<strong>{metrics['derived_score']}/100</strong>."
+    )
+    return f"""
+    <section class="col-band col-band--alt col-method-section" aria-labelledby="col-method-{slug}-title">
+      <div class="container">
+        <header class="col-band__head">
+          <h2 id="col-method-{slug}-title">How we calculate {place_name} numbers</h2>
+          <p class="col-lead">Transparent planning math you can audit before a move or offer decision.</p>
+        </header>
+        <div class="col-method-summary" role="note">
+          <div class="col-method-summary__item">
+            <span class="col-method-summary__label">Core monthly stack</span>
+            <strong class="col-method-summary__value">{fmt(metrics['core'])}/mo</strong>
+          </div>
+          <div class="col-method-summary__item">
+            <span class="col-method-summary__label">Comfort salary (model)</span>
+            <strong class="col-method-summary__value">{fmt(metrics['min_salary'])}</strong>
+          </div>
+          <div class="col-method-summary__item">
+            <span class="col-method-summary__label">Published target</span>
+            <strong class="col-method-summary__value">{fmt(city['salary_comfort'])}</strong>
+          </div>
+        </div>
+        <div class="col-method-grid">
+          <article class="col-method-card">
+            <span class="col-method-card__step" aria-hidden="true">1</span>
+            <div class="col-method-card__body">
+              <h3>Core monthly stack</h3>
+              <p>Rent {fmt(city['rent_1br'])} + groceries {fmt(city['groceries'])} + utilities {fmt(city['utilities'])} + transport {fmt(city['transport'])}.</p>
+            </div>
+          </article>
+          <article class="col-method-card">
+            <span class="col-method-card__step" aria-hidden="true">2</span>
+            <div class="col-method-card__body">
+              <h3>Comfort salary target</h3>
+              <p>Annual core ({fmt(metrics['core'] * 12)}) ÷ {int(CORE_GROSS_SHARE * 100)}% gross share ≈ {fmt(metrics['min_salary'])}. We publish {fmt(city['salary_comfort'])} as a market-adjusted planning line.</p>
+            </div>
+          </article>
+          <article class="col-method-card">
+            <span class="col-method-card__step" aria-hidden="true">3</span>
+            <div class="col-method-card__body">
+              <h3>Affordability signal</h3>
+              <p>{lifestyle_line}</p>
+            </div>
+          </article>
+          <article class="col-method-card">
+            <span class="col-method-card__step" aria-hidden="true">4</span>
+            <div class="col-method-card__body">
+              <h3>Tax context</h3>
+              <p>{tax.rstrip('.')}. Use take-home pay — not gross alone — when setting rent caps and savings goals.</p>
+            </div>
+          </article>
+        </div>
+        <p class="col-method-footer"><a href="/methodology#affordability">Read the full affordability methodology →</a></p>
+      </div>
+    </section>"""
+
+
+def col_planning_block(
+    place_name: str,
+    metrics: dict,
+    city: dict,
+    take_home: str,
+    rent_link: str,
+    house_link: str,
+    salary_link: str,
+    moving_link: str,
+) -> str:
+    return f"""
+    <section class="col-band">
+      <div class="container">
+        <h2>Plan your {place_name} budget in order</h2>
+        <div class="col-context-links">
+          <p>Start with your real take-home pay in the <a href="{take_home}">state take-home calculator</a>. In {place_name}, core bills run about <strong>{fmt(metrics['core'])}/mo</strong> before debt, childcare, or savings.</p>
+          <p>Next, set a rent ceiling in the <a href="{rent_link}">rent affordability calculator</a>. At a 30% gross-income cap, rent near {fmt(city['rent_1br'])}/mo implies planning income around <strong>{fmt(metrics['rent_cap_gross'])}</strong> gross — then stress-test with your actual deductions.</p>
+          <p>If you might buy, compare with <a href="{house_link}">house affordability in {place_name}</a> and the <a href="/rent-vs-buy-calculator">rent vs buy calculator</a>. If you are relocating, estimate move cash in the <a href="{moving_link}">moving cost calculator</a>.</p>
+          <p>For household targets, use the <a href="{salary_link}">comfortable salary guide</a> and <a href="/living/lifestyle-family/family-of-4-income-guide/">family of 4 income guide</a> to layer childcare and debt on top of these medians.</p>
+        </div>
+      </div>
+    </section>"""
+
+
+def col_eeat_block(place_name: str, metrics: dict) -> str:
+    slug = place_name.lower().replace(" ", "-")
+    return f"""
+    <section class="col-eeat">
+      <div class="container content-page">
+        <p class="col-disclaimer">Educational content for US readers only, not financial or legal advice. Verify with pay stubs, listings, and local tax guidance.</p>
+        <aside class="eeat-trust" aria-labelledby="eeat-col-{slug}-title">
+          <header class="eeat-trust__header">
+            <span class="eeat-trust__kicker">How we built this</span>
+            <h2 id="eeat-col-{slug}-title" class="eeat-trust__title">{place_name} Cost of Living Methodology &amp; Data Sources</h2>
+            <p class="eeat-trust__meta"><time datetime="2026-05-30">Last reviewed: May 30, 2026</time> · Reviewed by the Income Clarity editorial team · <a href="/methodology#affordability">Read the full methodology</a></p>
+          </header>
+          <div class="eeat-trust__grid">
+            <article class="eeat-trust__card">
+              <h3>How we calculate affordability</h3>
+              <ul>
+                <li><strong>Core stack:</strong> 1BR rent + groceries + utilities + transport ({fmt(metrics['core'])}/mo here).</li>
+                <li><strong>Comfort salary:</strong> annual core ÷ {int(CORE_GROSS_SHARE * 100)}% gross share, rounded to nearest $5k.</li>
+                <li><strong>Family target:</strong> core stack × {FAMILY_STACK_MULT} with a {int(FAMILY_GROSS_SHARE * 100)}% gross share assumption.</li>
+                <li><strong>Affordability signal:</strong> cost index + housing share pressure (not a quality-of-life score).</li>
+              </ul>
+            </article>
+            <article class="eeat-trust__card">
+              <h3>Primary data sources</h3>
+              <ul>
+                <li><a href="https://www.zillow.com/research/data/" rel="noopener noreferrer">Zillow Research (ZORI)</a> — metro rent medians.</li>
+                <li><a href="https://www.huduser.gov/portal/datasets/fmr.html" rel="noopener noreferrer">HUD Fair Market Rents</a> — regional rent benchmarks.</li>
+                <li><a href="https://www.bls.gov/cpi/" rel="noopener noreferrer">BLS CPI</a> — food, utilities, and transport inflation context.</li>
+                <li><a href="https://www.census.gov/data/developers/data-sets/acs-5year.html" rel="noopener noreferrer">Census ACS</a> — income and household spending context.</li>
+              </ul>
+            </article>
+            <article class="eeat-trust__card">
+              <h3>What this is not</h3>
+              <p>These are planning medians, not lease approvals or loan underwriting. Neighborhood rent spreads, insurance, childcare, and debt can shift your real budget by hundreds per month.</p>
+            </article>
+          </div>
+          <p class="eeat-trust__footer">See a mismatch with your market? <a href="/contact">Tell us</a> — we fix confirmed errors within 7 days.</p>
+        </aside>
+      </div>
+    </section>"""
+
+
+def state_narrative_block(data: dict) -> str:
+    return col_know_block(
+        data["name"],
+        data.get("narrative", []),
+        data.get("rank_intro", ""),
+    )
+
+
+def contextual_interlinks_block(
+    *,
+    place_name: str,
+    take_home: str,
+    rent_link: str,
+    house_link: str,
+    salary_link: str,
+    compare_links: list[tuple[str, str]],
+    extra_cards: list[tuple[str, str]] | None = None,
+) -> str:
+    compare_html = ""
+    if compare_links:
+        items = " · ".join(f'<a href="{href}">{label}</a>' for label, href in compare_links[:3])
+        compare_html = f"""
+        <p class="col-lead">Head-to-head comparisons: {items}</p>"""
+    cards = [
+        ("Take-home pay", take_home, "Convert gross offers to net before comparing cities."),
+        ("Rent affordability", rent_link, "Set a rent cap from your real paycheck."),
+        ("Rent vs buy", "/rent-vs-buy-calculator", "Compare long-run housing cost if you might buy."),
+        ("Comfortable salary", salary_link, "Benchmark income needed for your household."),
+    ]
+    if extra_cards:
+        cards.extend(extra_cards)
+    card_html = "\n".join(
+        f'          <a class="col-related-card" href="{href}"><strong>{label}</strong><span>{note}</span></a>'
+        for label, href, note in cards
+    )
+    return f"""
+    <section class="col-section col-related" aria-labelledby="col-related-title">
+      <div class="container content-page">
+        <h2 id="col-related-title">Related tools for {place_name}</h2>
+        <p class="col-lead">Use these calculators after this page to pressure-test rent, tax, and relocation decisions with your own numbers.</p>
+{compare_html}
+        <div class="col-related__grid">
+{card_html}
+        </div>
       </div>
     </section>"""
 
@@ -554,7 +1066,8 @@ def city_page(
         breadcrumbs += f'\n            <li><a href="/living/housing/cost-of-living-by-city/{state_slug}">{state_name}</a></li>'
     breadcrumbs += f'\n            <li aria-current="page">{city["name"]}</li>'
     tax = state_data["tax_note"] if state_data else STANDALONE.get(city_slug, {}).get("tax_note", "Varies by state")
-    core = city["rent_1br"] + city["groceries"] + city["utilities"] + city["transport"]
+    metrics = prepare_city_metrics(city)
+    core = metrics["core"]
     key_points = city.get("key_points") or city_key_points(city, state_name)
     faqs = city.get(
         "faqs",
@@ -562,36 +1075,43 @@ def city_page(
             (
                 f"How much do I need to earn in {city['name']}?",
                 f"Many singles plan around {fmt(city['salary_comfort'])} gross to cover core bills with some saving room. "
-                f"Families often plan closer to {fmt(city['family_4'])} gross before childcare, debt, and medical costs."
+                f"Families often plan closer to {fmt(city['family_4'])} gross before childcare, debt, and medical costs.\n\n"
+                "Use this as a planning line, then adjust with your own debt payments, savings target, and local neighborhood rent."
             ),
             (
                 f"Is {city['name']} expensive?",
                 f"The city index is {city['col_index']} with US = 100. That means {city['name']} can feel above average or near average based on your rent tier and commute style. "
-                "Compare this page with one peer city to judge the real gap."
+                "Compare this page with one peer city to judge the real gap.\n\n"
+                "The same city can feel affordable or tight depending on commute distance, parking costs, and housing choice."
             ),
             (
                 "What counts in cost of living on this page?",
                 "Core lines are rent, groceries, utilities, and transport. We show them in monthly dollars for quick planning. "
-                "Add debt payments, childcare, healthcare premiums, and savings goals to get your real budget."
+                "Add debt payments, childcare, healthcare premiums, and savings goals to get your real budget.\n\n"
+                "Treat this page as your baseline, then layer personal costs on top before you sign a lease."
             ),
             (
                 "Should I use gross or net pay?",
                 "Use take-home pay when you set a rent cap. Gross pay is useful for broad planning, but net pay decides monthly comfort. "
-                "Run your local take-home calculator after this page."
+                "Run your local take-home calculator after this page.\n\n"
+                "This prevents overestimating affordability when taxes or deductions are high."
             ),
             (
                 f"What is the lifestyle score in {city['name']}?",
                 f"It is {city['lifestyle_score']}/100 in our model. Higher means your income usually stretches further after core bills. "
-                "It is a cost-pressure signal, not a quality-of-life score."
+                "It is a cost-pressure signal, not a quality-of-life score.\n\n"
+                "Use it to compare budget strain between cities, then use your own priorities for final decisions."
             ),
             (
                 "Can roommates lower my number?",
-                "Yes. Shared rent can drop your housing burden fast. Still include utilities, parking, fees, and move-in costs when you compare listings."
+                "Yes. Shared rent can drop your housing burden fast. Still include utilities, parking, fees, and move-in costs when you compare listings.\n\n"
+                "Many renters use roommates for 12 to 24 months to build savings before moving solo."
             ),
             (
                 "How should I use this page before moving?",
                 "Use this sequence: estimate take-home pay, set a rent cap, compare two neighborhoods, then pressure-test your budget with debt and savings. "
-                "Do not rely on one listing price alone."
+                "Do not rely on one listing price alone.\n\n"
+                "Shortlist 2 to 3 neighborhoods and run the same budget in each to avoid surprise costs."
             ),
         ],
     )
@@ -607,6 +1127,16 @@ def city_page(
     ]
     if state_slug:
         related.insert(1, (f"Cost of living — {state_name}", house_col))
+    current_path = f"/living/housing/cost-of-living-by-city/{page_path}"
+    take_home = take_home_link(state_slug, city_slug if not state_slug else None)
+    moving = moving_cost_link(state_slug, city_slug)
+    compare_links = compare_links_for_path(page_path)
+    extra_cards = [
+        ("Moving cost calculator", moving, "Estimate deposits, move fees, and first-month cash."),
+        ("Cost to live alone", "/living/can-i-afford-to-live-alone", "Test solo living pressure by city and income."),
+    ]
+    if state_slug:
+        extra_cards.insert(0, (f"Cost of living — {state_name}", f"/living/housing/cost-of-living-by-city/{state_slug}", f"Compare all {state_name} cities."))
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -620,7 +1150,7 @@ def city_page(
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 {URL_SCRIPT}
 </head>
-<body class="col-page col-city-page">
+<body class="col-page living-tool-page col-city-page">
 {HEADER}
   <main>
     <section class="col-hero-inner">
@@ -655,16 +1185,17 @@ def city_page(
         </div>
       </div>
     </section>
-    <section class="col-band">
+    <section class="col-band col-band--tone-cool">
       <div class="container">
         <h2>Monthly cost breakdown</h2>
 {cost_cards(city['rent_1br'], city['groceries'], city['utilities'], city['transport'], tax)}
       </div>
     </section>
-    <section class="col-band col-band--alt">
+    <section class="col-band col-band--alt col-band--tone-cool">
       <div class="container">
         <h2>At a glance</h2>
-{key_points_html(key_points)}
+{city_at_a_glance_block(city, core)}
+{city_glance_insights(key_points)}
         <aside class="col-callout" role="note">
           <strong>Your move:</strong> Get a real rent quote, then check it against <a href="{city['rent_link']}">rent affordability</a> and <a href="{city['house_link']}">home buying</a> for {city['name']}.
         </aside>
@@ -696,6 +1227,11 @@ def city_page(
         <p><a href="/living/lifestyle-family/family-of-4-income-guide/">Family budget guide</a> · <a href="{city['salary_link']}">Comfortable salary</a> · <a href="{city['house_link']}">House affordability</a></p>
       </div>
     </section>
+{city_recommendations_block(city, state_name)}
+{city_interlink_block(current_path, city['name'])}
+{col_know_block(city['name'], city_know_points(city, tax))}
+{col_planning_block(city['name'], metrics, city, take_home, city['rent_link'], city['house_link'], city['salary_link'], moving)}
+{col_methodology_block(city, metrics, tax, city['name'])}
     <section class="col-faq-section">
       <div class="container content-page">
         <h2>FAQ — {city['name']}</h2>
@@ -704,7 +1240,16 @@ def city_page(
         </div>
       </div>
     </section>
-{related_links_block(related)}
+{contextual_interlinks_block(
+    place_name=city['name'],
+    take_home=take_home,
+    rent_link=city['rent_link'],
+    house_link=city['house_link'],
+    salary_link=city['salary_link'],
+    compare_links=compare_links,
+    extra_cards=extra_cards,
+)}
+{col_eeat_block(city['name'], metrics)}
   </main>
 {FOOTER}
   <script src="/guide-back.js"></script>
@@ -729,11 +1274,7 @@ def state_page(slug: str, data: dict) -> str:
         for cs, c in data["cities"].items()
     )
     house = f"/living/housing/how-much-house-can-i-afford/{slug}"
-    salary = {
-        "california": "/living/lifestyle-family/comfortable-salary-california",
-        "texas": "/living/lifestyle-family/comfortable-salary-texas",
-        "florida": "/living/family-budgeting/salary-needed-to-live-comfortably",
-    }.get(slug, "/living/family-budgeting/salary-needed-to-live-comfortably")
+    salary = f"/living/lifestyle/comfortable-salary/{slug}" if slug in STATES or slug == "illinois" else "/living/lifestyle/comfortable-salary-us"
     related = [
         ("How much house can I afford", house),
         ("Cost of living hub", "/living/housing/cost-of-living-by-city"),
@@ -741,18 +1282,63 @@ def state_page(slug: str, data: dict) -> str:
         ("Comfortable salary", salary),
     ]
     city_blurbs = "\n".join(
-        f'        <p class="col-city-snap"><a href="/living/housing/cost-of-living-by-city/{slug}/{cs}"><strong>{c["name"]}</strong></a> — index {c["col_index"]}, rent {fmt(c["rent_1br"])}/mo, pay {fmt(c["salary_comfort"])}</p>'
+        f"""        <article class="col-city-snap-card">
+          <h3><a href="/living/housing/cost-of-living-by-city/{slug}/{cs}">{c["name"]}</a></h3>
+          <p class="col-city-snap-kpi"><span>COL index</span><strong>{c["col_index"]}</strong></p>
+          <p class="col-city-snap-kpi"><span>1BR rent</span><strong>{fmt(c["rent_1br"])}/mo</strong></p>
+          <p class="col-city-snap-kpi"><span>Comfort salary</span><strong>{fmt(c["salary_comfort"])}</strong></p>
+          <p class="col-city-snap-meta">Lifestyle score: {c.get("lifestyle_score", "—")}/100</p>
+        </article>"""
         for cs, c in data["cities"].items()
     )
     faqs = [
-        (f"What is rent like in {data['name']}?", f"Typical rent is near {fmt(data['rent_1br'])} a month. Coast and inland areas differ."),
-        (f"How much pay do I need in {data['name']}?", f"Many singles plan for {fmt(data['salary_comfort'])} or more in gross pay."),
-        (f"How does {data['name']} compare to Texas?", "Texas often has lower rent and no state income tax. Compare your net pay."),
-        ("What is the cost index?", "It blends rent, food, power, and car costs. US norm is 100."),
-        ("Should I rent or buy?", "Run our rent vs buy tool with local tax and insurance."),
+        (
+            f"What is rent like in {data['name']}?",
+            f"Typical rent is near {fmt(data['rent_1br'])} a month, but city and neighborhood spreads can be large.\n\n"
+            "Use state averages for quick orientation, then validate with local listings before deciding where to live."
+        ),
+        (
+            f"How much pay do I need in {data['name']}?",
+            f"Many singles plan for {fmt(data['salary_comfort'])} or more in gross pay to stay comfortable after core bills.\n\n"
+            "If you carry debt or support family costs, target higher income or lower housing to protect monthly breathing room."
+        ),
+        (
+            f"How does {data['name']} compare to Texas?",
+            "Texas often has lower rent and no state income tax, which can improve take-home flexibility.\n\n"
+            "Still compare exact city pairs and job offers, not only state averages."
+        ),
+        (
+            "What is the cost index?",
+            "The index combines major monthly lines like rent, food, utilities, and transport, with US = 100 as baseline.\n\n"
+            "It helps compare relative pressure across places, but your actual budget depends on personal spending patterns."
+        ),
+        (
+            "Should I rent or buy?",
+            "Rent and buy decisions depend on local prices, taxes, rates, and how long you plan to stay.\n\n"
+            "Run rent vs buy with your likely move timeline so you compare total cost, not only monthly payment."
+        ),
     ]
     if slug != "california":
-        faqs[2] = (f"Is {data['name']} cheaper than California?", "Often yes on rent. Compare your job pay and tax on net pay.")
+        faqs[2] = (
+            f"Is {data['name']} cheaper than California?",
+            "Often yes on rent and some daily costs, but salary levels and taxes can change the net outcome.\n\n"
+            "Compare your expected take-home pay and rent in both places before assuming one is always cheaper."
+        )
+    state_metrics = prepare_city_metrics(data)
+    take_home = take_home_link(slug, None)
+    state_compare = [("California vs Texas", "/living/cost-of-living/cost-of-living-california-vs-texas.html")]
+    if slug == "texas":
+        state_compare = [("California vs Texas", "/living/cost-of-living/cost-of-living-california-vs-texas.html")]
+    elif slug == "california":
+        state_compare = [("California vs Texas", "/living/cost-of-living/cost-of-living-california-vs-texas.html")]
+    else:
+        state_compare = []
+    for cs, _c in data["cities"].items():
+        for cmp_slug, cmp in COMPARISONS.items():
+            if cmp["slug_a"].endswith(f"/{cs}") or cmp["slug_b"].endswith(f"/{cs}"):
+                link = (cmp["title_short"], f"/living/housing/cost-of-living-by-city/compare/{cmp_slug}")
+                if link not in state_compare:
+                    state_compare.append(link)
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -766,7 +1352,7 @@ def state_page(slug: str, data: dict) -> str:
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 {URL_SCRIPT}
 </head>
-<body class="col-page">
+<body class="col-page living-tool-page">
 {HEADER}
   <main>
     <section class="col-hero-inner">
@@ -787,11 +1373,11 @@ def state_page(slug: str, data: dict) -> str:
       <div class="container content-page">
         <h2>{data['name']} at a glance</h2>
 {cost_cards(data['rent_1br'], data['groceries'], data['utilities'], data['transport'], data['tax_note'])}
-        <p class="col-lead">Cost index is <strong>{data['col_index']}</strong> (US norm is 100). Many singles plan for <strong>{fmt(data['salary_comfort'])}</strong> in gross pay.</p>
-{key_points_html(state_key_points(data))}
+        <p class="col-lead">Cost index is <strong>{data['col_index']}</strong> (US norm is 100). Use these quick facts as planning anchors before you compare individual cities.</p>
+{state_quick_facts_html(data)}
       </div>
     </section>
-    <section class="col-band col-band--alt">
+    <section class="col-band col-band--alt col-band--tone-cool">
       <div class="container">
         <h2>Top cities in {data['name']}</h2>
         <p class="col-lead">{data['rank_intro']}</p>
@@ -809,10 +1395,26 @@ def state_page(slug: str, data: dict) -> str:
     <section class="col-band">
       <div class="container">
         <h2>City snapshots</h2>
+        <p class="col-lead">Quick city cards for rent, cost index, and income targets. Open a city to view deeper local detail.</p>
+        <div class="col-city-snap-grid">
 {city_blurbs}
+        </div>
         <p class="col-lead">Tools: <a href="{house}">House affordability</a> · <a href="{salary}">Comfortable salary</a> · <a href="/living/housing/how-much-rent-can-i-afford">Rent cap</a></p>
       </div>
     </section>
+{state_narrative_block(data)}
+{col_planning_block(
+    data['name'],
+    state_metrics,
+    data,
+    take_home,
+    "/living/housing/how-much-rent-can-i-afford",
+    house,
+    salary,
+    f"/living/housing/moving-cost-calculator/{slug}",
+)}
+{col_methodology_block(data, state_metrics, data['tax_note'], data['name'])}
+{state_recommendations_block(slug, data)}
     <section class="col-faq-section">
       <div class="container content-page">
         <h2>FAQ — {data['name']}</h2>
@@ -821,7 +1423,19 @@ def state_page(slug: str, data: dict) -> str:
         </div>
       </div>
     </section>
-{related_links_block(related)}
+{contextual_interlinks_block(
+    place_name=data['name'],
+    take_home=take_home,
+    rent_link="/living/housing/how-much-rent-can-i-afford",
+    house_link=house,
+    salary_link=salary,
+    compare_links=state_compare[:4],
+    extra_cards=[
+        (f"Moving cost — {data['name']}", f"/living/housing/moving-cost-calculator/{slug}", "Estimate relocation cash by state."),
+        ("Cost of living hub", "/living/housing/cost-of-living-by-city", "Browse all states and cities."),
+    ],
+)}
+{col_eeat_block(data['name'], state_metrics)}
   </main>
 {FOOTER}
 </body>
@@ -935,7 +1549,7 @@ def compare_page(slug: str, c: dict) -> str:
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 {URL_SCRIPT}
 </head>
-<body class="col-page col-compare-page">
+<body class="col-page living-tool-page col-compare-page">
 {HEADER}
   <main>
     <section class="col-hero-inner">
@@ -1090,6 +1704,21 @@ def main() -> None:
             print(" ", f)
     else:
         print("All pages pass FRE >= 60 and minimum copy")
+
+    metric_warnings: list[str] = []
+    for slug, data in STATES.items():
+        metric_warnings.extend(validate_city_metrics(data, f"state/{slug}"))
+        for cs, city in data["cities"].items():
+            metric_warnings.extend(validate_city_metrics(city, f"{slug}/{cs}"))
+    for slug, data in STANDALONE.items():
+        city = {k: v for k, v in data.items() if k not in ("state_name", "tax_note")}
+        metric_warnings.extend(validate_city_metrics(city, slug))
+    if metric_warnings:
+        print("METRIC WARNINGS:")
+        for w in metric_warnings:
+            print(" ", w)
+    else:
+        print("All city metrics pass validation checks")
 
 
 if __name__ == "__main__":

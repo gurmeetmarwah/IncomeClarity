@@ -28,7 +28,7 @@
   const TAX_RATE = { Texas: 0.22, Florida: 0.22, Arizona: 0.23, Georgia: 0.23, Colorado: 0.24, Washington: 0.25, California: 0.28, Illinois: 0.25, "New York": 0.29 };
   const COMPARE_KEYS = ["dallas", "austin", "phoenix", "tampa"];
   const PIE_COLORS = {
-    housing: "#0f7b6c",
+    housing: "#0f6e9c",
     childcare: "#2d6a9f",
     food: "#38a169",
     transportation: "#3182ce",

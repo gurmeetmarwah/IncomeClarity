@@ -1,0 +1,854 @@
+/* Comfortable salary — aligned with COL / moving cost blue design system */
+.cs-page {
+  --cs-accent: var(--living-accent);
+  --cs-accent-dark: var(--living-accent-dark);
+  --cs-accent-soft: var(--living-accent-soft);
+  --cs-accent-mid: var(--living-accent-mid);
+  --cs-border: var(--living-border);
+  --cs-text: var(--living-text);
+  --cs-muted: var(--living-muted);
+  --cs-surface: var(--living-surface);
+  --cs-radius: var(--living-radius);
+  --cs-shadow: var(--living-shadow);
+  --cs-shadow-lg: var(--living-shadow-lg);
+  --cs-wide: var(--living-wide);
+}
+
+.cs-page .container--wide {
+  max-width: var(--cs-wide);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* —— Hero —— */
+.cs-hero {
+  padding: 2rem 0 2.5rem;
+  background: linear-gradient(145deg, #0a5578 0%, #0f6e9c 50%, #3a9bc4 100%);
+  color: #fff;
+  border-bottom: 1px solid var(--cs-border);
+}
+
+.cs-hero h1 {
+  margin: 0.35rem 0 0.65rem;
+  font-size: clamp(1.75rem, 3.5vw, 2.45rem);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  max-width: 24ch;
+  color: #fff;
+}
+
+.cs-hero .lead {
+  margin: 0 0 1.25rem;
+  font-size: 1.08rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.94);
+  max-width: 44rem;
+}
+
+.cs-hero .label {
+  display: inline-block;
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* —— Calculator —— */
+.cs-calc-shell {
+  margin-top: 1.25rem;
+  background: var(--cs-surface);
+  border-radius: var(--cs-radius);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: var(--cs-shadow-lg);
+  padding: 1.35rem 1.4rem 1.5rem;
+  color: var(--cs-text);
+}
+
+.cs-calc-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+@media (min-width: 900px) {
+  .cs-calc-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.cs-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cs-field > span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--cs-text);
+}
+
+.cs-field select,
+.cs-field input {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  font-size: 1rem;
+  color: var(--cs-text);
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+  border-radius: 10px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.cs-field select:focus,
+.cs-field input:focus {
+  outline: none;
+  border-color: var(--cs-accent);
+  box-shadow: 0 0 0 3px rgba(15, 110, 156, 0.15);
+}
+
+.cs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.8rem 1.25rem;
+  margin-top: 0.65rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--cs-accent);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+@media (min-width: 480px) {
+  .cs-btn {
+    width: auto;
+  }
+}
+
+.cs-btn:hover {
+  background: var(--cs-accent-dark);
+}
+
+.cs-btn:focus-visible {
+  outline: 2px solid var(--cs-accent-dark);
+  outline-offset: 2px;
+}
+
+/* —— Content bands —— */
+.cs-band {
+  padding: 2.25rem 0;
+}
+
+.cs-band--alt {
+  background: #f7fafc;
+}
+
+.cs-band__head h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 800;
+  color: var(--cs-text);
+  letter-spacing: -0.01em;
+}
+
+.cs-band__head p {
+  margin: 0 0 1.25rem;
+  color: var(--cs-muted);
+  max-width: 52ch;
+  line-height: 1.55;
+  font-size: 0.98rem;
+}
+
+.cs-band__head p span#cs-result-location {
+  color: var(--cs-accent-dark);
+  font-weight: 700;
+}
+
+/* —— Lifestyle tier results —— */
+.cs-tier-grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+}
+
+.cs-tier-card {
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(16, 42, 67, 0.04);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.cs-tier-card strong {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cs-muted);
+  margin-bottom: 0.45rem;
+}
+
+.cs-tier-card span {
+  display: block;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 800;
+  color: var(--cs-accent-dark);
+  line-height: 1.2;
+}
+
+.cs-tier-context {
+  margin: 0 0 1rem;
+  max-width: 46rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--cs-muted);
+}
+
+/* Highlight the primary "Comfortable" tier */
+.cs-tier-card--featured,
+.cs-tier-card:nth-child(2) {
+  border-color: var(--cs-accent);
+  background: linear-gradient(180deg, #f8fbfe 0%, #fff 100%);
+  box-shadow: 0 6px 20px rgba(15, 110, 156, 0.12);
+}
+
+.cs-tier-card--featured strong,
+.cs-tier-card:nth-child(2) strong {
+  color: var(--cs-accent-dark);
+}
+
+/* —— Salary breakdown bars —— */
+.cs-mix-grid {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1rem 1.1rem;
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius);
+  box-shadow: var(--cs-shadow);
+}
+
+.cs-mix-row {
+  display: grid;
+  grid-template-columns: minmax(5.5rem, 7rem) 1fr 3rem;
+  gap: 0.75rem;
+  align-items: center;
+  font-size: 0.92rem;
+}
+
+.cs-mix-row > span:first-child {
+  font-weight: 600;
+  color: var(--cs-text);
+}
+
+.cs-mix-row > span:last-child {
+  font-weight: 700;
+  color: var(--cs-accent-dark);
+  text-align: right;
+  font-size: 0.85rem;
+}
+
+.cs-mix-bar {
+  height: 0.6rem;
+  background: var(--cs-accent-soft);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.cs-mix-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--cs-accent-dark), var(--cs-accent));
+  border-radius: 999px;
+}
+
+/* —— Cards (state, city, profile, compare) —— */
+.cs-profile-grid,
+.cs-state-grid,
+.cs-city-grid,
+.cs-compare-grid,
+.cs-tool-grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.cs-card {
+  display: block;
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius);
+  padding: 1.15rem 1.2rem;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 16px rgba(16, 42, 67, 0.04);
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+article.cs-card {
+  cursor: default;
+}
+
+a.cs-card:hover {
+  border-color: var(--cs-accent);
+  box-shadow: 0 8px 24px rgba(15, 110, 156, 0.1);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.cs-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--cs-text);
+  line-height: 1.3;
+}
+
+a.cs-card:hover h3 {
+  color: var(--cs-accent-dark);
+}
+
+.cs-card p,
+.cs-card .cs-card-meta {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--cs-muted);
+  line-height: 1.5;
+}
+
+.cs-card .cs-card-salary {
+  display: block;
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--cs-border);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--cs-accent-dark);
+}
+
+/* —— What-if buttons —— */
+.cs-whatif-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.cs-whatif-btn {
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--cs-border);
+  border-radius: 999px;
+  background: var(--cs-surface);
+  color: var(--cs-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(16, 42, 67, 0.04);
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.cs-whatif-btn:hover {
+  border-color: var(--cs-accent);
+  background: var(--cs-accent-soft);
+  color: var(--cs-accent-dark);
+}
+
+.cs-whatif-btn:focus-visible {
+  outline: 2px solid var(--cs-accent);
+  outline-offset: 2px;
+}
+
+.cs-whatif-result {
+  padding: 0.75rem 1rem;
+  background: var(--cs-accent-soft);
+  border: 1px solid var(--cs-border);
+  border-radius: 10px;
+  font-weight: 600;
+  color: var(--cs-accent-dark);
+  line-height: 1.45;
+}
+
+/* —— Cost drivers —— */
+.cs-driver-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+@media (min-width: 768px) {
+  .cs-driver-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.cs-driver {
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+  border-radius: 12px;
+  padding: 1rem 1.15rem;
+  box-shadow: 0 2px 10px rgba(16, 42, 67, 0.04);
+}
+
+.cs-driver h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--cs-text);
+}
+
+.cs-driver p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--cs-muted);
+  line-height: 1.55;
+}
+
+/* —— Family comparison table —— */
+.cs-family-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius);
+  overflow: hidden;
+  box-shadow: var(--cs-shadow);
+}
+
+.cs-family-table th,
+.cs-family-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--cs-border);
+  text-align: left;
+}
+
+.cs-family-table th {
+  background: #f8fbfd;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--cs-text);
+}
+
+.cs-family-table td {
+  color: var(--cs-text);
+}
+
+.cs-family-table td:not(:first-child) {
+  font-weight: 700;
+  color: var(--cs-accent-dark);
+}
+
+.cs-family-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.cs-family-table tbody tr:hover td {
+  background: #f8fbfe;
+}
+
+/* —— CTA band —— */
+.cs-cta-band {
+  padding: 2.75rem 0;
+  background: linear-gradient(145deg, #0a5578 0%, #0f6e9c 100%);
+  color: #fff;
+  text-align: center;
+}
+
+.cs-cta-band h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 800;
+  color: #fff;
+}
+
+.cs-cta-band p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+}
+
+.cs-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1.35rem;
+}
+
+.cs-cta-actions a {
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--cs-accent-dark);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(10, 40, 60, 0.15);
+  transition: background 0.15s, transform 0.15s;
+}
+
+.cs-cta-actions a:hover {
+  background: #e8f4fa;
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+/* —— City chips (hero) —— */
+.cs-city-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 0.25rem;
+}
+
+.cs-city-chips a {
+  display: inline-block;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  background: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: var(--cs-accent-dark);
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(10, 40, 60, 0.12);
+  transition: background 0.15s, color 0.15s;
+}
+
+.cs-city-chips a:hover {
+  background: #e8f4fa;
+  color: #083d56;
+  text-decoration: none;
+}
+
+.cs-city-nav {
+  margin-top: 1rem;
+}
+
+.cs-city-nav__label {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* —— Stat row (state / city hero) —— */
+.cs-stat-row {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  margin: 1.15rem 0 0.5rem;
+}
+
+.cs-stat {
+  padding: 0.9rem 1rem;
+  background: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(10, 40, 60, 0.1);
+}
+
+.cs-stat strong {
+  display: block;
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-weight: 800;
+  color: var(--cs-accent-dark);
+  line-height: 1.2;
+}
+
+.cs-stat span {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--cs-muted);
+}
+
+/* Stats inside white content sections (not hero) */
+.cs-band .cs-stat-row .cs-stat {
+  border-color: var(--cs-border);
+  box-shadow: 0 2px 10px rgba(16, 42, 67, 0.04);
+}
+
+/* —— Related tools columns —— */
+.cs-tool-col {
+  padding: 1rem 1.1rem;
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(16, 42, 67, 0.04);
+}
+
+.cs-tool-col h3 {
+  margin: 0 0 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cs-text);
+}
+
+.cs-tool-col ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cs-tool-col li {
+  margin-bottom: 0.5rem;
+}
+
+.cs-tool-col li:last-child {
+  margin-bottom: 0;
+}
+
+.cs-tool-col a {
+  color: var(--cs-accent-dark);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+}
+
+.cs-tool-col a:hover {
+  color: var(--cs-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* —— FAQ —— */
+.cs-page .faq-item {
+  padding: 1rem 1.1rem;
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+  border-radius: 12px;
+  margin-bottom: 0.65rem;
+}
+
+.cs-page .faq-item h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--cs-text);
+}
+
+.cs-page .faq-item p {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--cs-muted);
+}
+
+.cs-page .faq-item p:last-child {
+  margin-bottom: 0;
+}
+
+/* —— State drivers section —— */
+.cs-drivers-head {
+  margin-bottom: 0.25rem;
+}
+
+.cs-drivers-lead {
+  margin: 0;
+  max-width: 48rem;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--cs-muted);
+}
+
+.cs-drivers-layout {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .cs-drivers-layout {
+    grid-template-columns: 1fr minmax(17rem, 22rem);
+    gap: 2rem;
+  }
+}
+
+.cs-drivers-copy {
+  min-width: 0;
+}
+
+.cs-driver-points {
+  margin: 0 0 1.15rem;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.cs-driver-points li {
+  position: relative;
+  margin: 0;
+  padding: 0.75rem 0.9rem 0.75rem 2.15rem;
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--cs-text);
+  box-shadow: 0 2px 8px rgba(16, 42, 67, 0.03);
+}
+
+.cs-driver-points li::before {
+  content: "";
+  position: absolute;
+  left: 0.85rem;
+  top: 1.05rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cs-accent);
+}
+
+.cs-tax-callout {
+  margin: 0 0 1rem;
+  padding: 1rem 1.15rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #eef6fb 0%, #f8fbfd 100%);
+  border: 1px solid var(--cs-border);
+  border-left: 4px solid var(--cs-accent);
+}
+
+.cs-tax-callout__label {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--cs-accent);
+}
+
+.cs-tax-callout p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--cs-text);
+}
+
+.cs-drivers-footer {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.cs-drivers-footer a {
+  font-weight: 700;
+  color: var(--cs-accent-dark);
+  text-decoration: none;
+}
+
+.cs-drivers-footer a:hover {
+  color: var(--cs-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cs-drivers-metrics {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 900px) {
+  .cs-drivers-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cs-driver-metric {
+  padding: 0.9rem 1rem;
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(16, 42, 67, 0.05);
+}
+
+.cs-driver-metric--score {
+  border-color: var(--cs-accent);
+  background: linear-gradient(180deg, #f8fbfe 0%, #fff 100%);
+}
+
+@media (min-width: 900px) {
+  .cs-driver-metric--score {
+    grid-column: 1;
+  }
+}
+
+.cs-driver-metric__label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--cs-muted);
+  margin-bottom: 0.3rem;
+}
+
+.cs-driver-metric__value {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--cs-accent-dark);
+  line-height: 1.15;
+}
+
+.cs-driver-metric__of {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--cs-muted);
+}
+
+.cs-driver-metric__hint {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--cs-muted);
+}
+
+/* —— Prose in state/city content sections —— */
+.cs-band.content-page h2,
+.cs-band .content-page h2 {
+  color: var(--cs-text);
+  font-weight: 800;
+}
+
+.cs-band.content-page p,
+.cs-band .content-page p {
+  color: var(--cs-text);
+  line-height: 1.58;
+  max-width: 42rem;
+}
+
+.cs-band.content-page a,
+.cs-band .content-page a {
+  color: var(--cs-accent-dark);
+  font-weight: 600;
+}
+
+.cs-band.content-page strong,
+.cs-band .content-page strong {
+  color: var(--cs-text);
+}

@@ -29,9 +29,17 @@ HOUSE_AFFORD_BY_STATE = {
 }
 
 COMFORT_SALARY_BY_STATE = {
-    "california": "/living/lifestyle-family/comfortable-salary-california",
-    "texas": "/living/lifestyle-family/comfortable-salary-texas",
+    "california": "/living/lifestyle/comfortable-salary/california",
+    "texas": "/living/lifestyle/comfortable-salary/texas",
+    "florida": "/living/lifestyle/comfortable-salary/florida",
+    "new-york": "/living/lifestyle/comfortable-salary/new-york",
+    "illinois": "/living/lifestyle/comfortable-salary/illinois",
+    "washington": "/living/lifestyle/comfortable-salary/washington",
+    "colorado": "/living/lifestyle/comfortable-salary/colorado",
+    "georgia": "/living/lifestyle/comfortable-salary/georgia",
+    "arizona": "/living/lifestyle/comfortable-salary/arizona",
 }
+COMFORT_SALARY_HUB = "/living/lifestyle/comfortable-salary-us"
 
 COL_BY_STATE = {
     "california": "/living/housing/cost-of-living-by-city/california",
