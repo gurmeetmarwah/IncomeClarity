@@ -110,6 +110,7 @@ def render_hub_page(
     url_script: str,
     faq_html: str,
     explained_html: str,
+    lifestyle_section: str = "",
 ) -> str:
     catalog_json = json.dumps(catalog)
     compare_cards = "\n".join(compare_card(c) for c in comparisons)
@@ -266,6 +267,7 @@ def render_hub_page(
       </div>
     </section>
 
+{lifestyle_section}
     <section class="col-band" id="col-salary">
       <div class="container">
         <header class="col-band__head">

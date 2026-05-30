@@ -665,6 +665,128 @@ def compare_takeaways(c: dict) -> list[str]:
     ]
 
 
+def _compare_winner_cell(a_val: int, b_val: int, favor_lower: bool = True) -> tuple[str, str]:
+    if a_val == b_val:
+        return "", ""
+    if favor_lower:
+        a_wins = a_val < b_val
+    else:
+        a_wins = a_val > b_val
+    a_attr = ' class="col-compare-winner"' if a_wins else ""
+    b_attr = ' class="col-compare-winner"' if not a_wins and a_val != b_val else ""
+    return a_attr, b_attr
+
+
+def compare_col_link(city_name: str, href: str) -> str:
+    return f'<a href="{href}">{city_name} cost of living</a>'
+
+
+def compare_summary_strip(c: dict, link_a: str, link_b: str) -> str:
+    rent_gap = abs(c["rent_a"] - c["rent_b"])
+    sal_gap = abs(c["salary_a"] - c["salary_b"])
+    cheaper_pay = c["city_a"] if c["salary_a"] < c["salary_b"] else c["city_b"]
+    return f"""    <section class="col-compare-summary" aria-label="Comparison highlights">
+      <div class="container">
+        <div class="col-compare-summary__grid">
+          <article class="col-compare-summary__card">
+            <span class="col-compare-summary__label">Rent winner</span>
+            <strong class="col-compare-summary__value">{c['winner_rent']}</strong>
+            <p>{fmt(rent_gap)}/mo gap on median 1BR</p>
+          </article>
+          <article class="col-compare-summary__card">
+            <span class="col-compare-summary__label">Salary gap</span>
+            <strong class="col-compare-summary__value">{fmt(sal_gap)}</strong>
+            <p>Comfort pay targets (gross, before tax)</p>
+          </article>
+          <article class="col-compare-summary__card">
+            <span class="col-compare-summary__label">Lower pay target</span>
+            <strong class="col-compare-summary__value">{cheaper_pay}</strong>
+            <p>Usually signals lower overall cost pressure</p>
+          </article>
+          <article class="col-compare-summary__card col-compare-summary__card--note">
+            <span class="col-compare-summary__label">Lifestyle note</span>
+            <strong class="col-compare-summary__value col-compare-summary__value--text">{c.get('winner_lifestyle', 'Compare net pay and commute fit.')}</strong>
+          </article>
+        </div>
+        <p class="col-compare-summary__sources">Figures from {compare_col_link(c['city_a'], link_a)} and {compare_col_link(c['city_b'], link_b)}.</p>
+      </div>
+    </section>"""
+
+
+def compare_gap_section(c: dict, takeaways: list[str], link_a: str, link_b: str) -> str:
+    rent_gap = abs(c["rent_a"] - c["rent_b"])
+    sal_gap = abs(c["salary_a"] - c["salary_b"])
+    cheaper_pay = c["city_a"] if c["salary_a"] < c["salary_b"] else c["city_b"]
+    narrative = c.get("narrative", [])[:3]
+
+    insight_defs = [
+        ("Housing", "Rent gap", takeaways[0] if takeaways else "", "home"),
+        ("Income", "Salary fit", takeaways[2] if len(takeaways) > 2 else "", "income"),
+        ("Decision", "Before you move", takeaways[3] if len(takeaways) > 3 else "", "plan"),
+    ]
+    insight_cards = []
+    for label, title, body, kind in insight_defs:
+        if not body:
+            continue
+        insight_cards.append(
+            f"""          <article class="col-compare-insight col-compare-insight--{kind}">
+            <span class="col-compare-insight__tag">{label}</span>
+            <h3>{title}</h3>
+            <p>{body}</p>
+          </article>"""
+        )
+    for i, line in enumerate(narrative):
+        insight_cards.append(
+            f"""          <article class="col-compare-insight col-compare-insight--context">
+            <span class="col-compare-insight__tag">Context {i + 1}</span>
+            <p>{line}</p>
+          </article>"""
+        )
+    insights_html = "\n".join(insight_cards)
+
+    return f"""    <section class="col-band col-compare-gap" aria-labelledby="col-compare-gap-title">
+      <div class="container">
+        <header class="col-band__head">
+          <h2 id="col-compare-gap-title">What the gap means</h2>
+          <p class="col-lead">How to read the numbers above when you are choosing between {c['city_a']} and {c['city_b']} — not just which city is cheaper on paper.</p>
+        </header>
+        <div class="col-compare-verdict" role="list">
+          <article class="col-compare-verdict__card" role="listitem">
+            <span class="col-compare-verdict__badge col-compare-verdict__badge--rent" aria-hidden="true">R</span>
+            <div>
+              <span class="col-compare-verdict__label">Rent</span>
+              <strong>{c['winner_rent']}</strong>
+              <p>{fmt(rent_gap)}/mo separates median 1BR rents.</p>
+            </div>
+          </article>
+          <article class="col-compare-verdict__card" role="listitem">
+            <span class="col-compare-verdict__badge col-compare-verdict__badge--pay" aria-hidden="true">$</span>
+            <div>
+              <span class="col-compare-verdict__label">Comfort salary</span>
+              <strong>{cheaper_pay} needs less</strong>
+              <p>{fmt(sal_gap)} gap in gross pay targets — verify with take-home tax.</p>
+            </div>
+          </article>
+          <article class="col-compare-verdict__card" role="listitem">
+            <span class="col-compare-verdict__badge col-compare-verdict__badge--trade" aria-hidden="true">±</span>
+            <div>
+              <span class="col-compare-verdict__label">Tradeoff</span>
+              <strong>Cheaper ≠ always better</strong>
+              <p>{c.get('winner_lifestyle', 'Job mix, commute, and lifestyle still matter.')}</p>
+            </div>
+          </article>
+        </div>
+        <div class="col-compare-insights">
+{insights_html}
+        </div>
+        <aside class="col-compare-gap-cta" role="note">
+          <p><strong>Next step:</strong> Run take-home pay for both states, then drill into {compare_col_link(c['city_a'], link_a)} and {compare_col_link(c['city_b'], link_b)} for rent tiers, lifestyle bands, and neighborhood notes.</p>
+          <p><a href="/hourly-to-salary-after-tax">Compare take-home pay →</a> · <a href="/living/housing/how-much-rent-can-i-afford">Rent affordability →</a></p>
+        </aside>
+      </div>
+    </section>"""
+
+
 def related_links_block(links: list[tuple[str, str]]) -> str:
     items = "\n".join(
         f'          <a class="col-related-card" href="{href}"><strong>{label}</strong><span>Open guide</span></a>'
@@ -873,6 +995,75 @@ def col_know_block(place_name: str, points: list[str], lead: str = "") -> str:
     </section>"""
 
 
+def col_lifestyle_tiers_section(
+    city: dict,
+    place_name: str,
+    state_slug: str | None = None,
+    salary_link: str = "",
+) -> str:
+    """Monthly cost + gross pay by lifestyle tier (matches comfortable salary model)."""
+    from comfortable_salary_data import LIFESTYLE_TIERS, compute_salary
+
+    slug = _place_slug(place_name)
+    tier_cards: list[str] = []
+    monthly_by_tier: dict[str, int] = {}
+
+    for key in LIFESTYLE_TIERS:
+        result = compute_salary(city, "single", "rent", key, state_slug)
+        monthly_by_tier[key] = result["monthly"]
+        featured = " col-tier-card--featured" if key == "comfortable" else ""
+        tier_cards.append(
+            f"""            <article class="col-tier-card{featured}">
+              <strong>{LIFESTYLE_TIERS[key]["label"]}</strong>
+              <span class="col-tier-card__monthly">{fmt(result["monthly"])}/mo</span>
+              <span class="col-tier-card__salary">{fmt(result["annual"])} gross</span>
+            </article>"""
+        )
+
+    comfort = compute_salary(city, "single", "rent", "comfortable", state_slug)
+    breakdown = comfort["breakdown"]
+    mix_rows = ""
+    for key, label in [
+        ("housing", "Housing"),
+        ("transportation", "Transportation"),
+        ("food", "Food"),
+        ("savings", "Savings"),
+        ("lifestyle", "Lifestyle spending"),
+    ]:
+        b = breakdown.get(key, {"amount": 0, "pct": 0})
+        mix_rows += f"""            <div class="col-mix-row">
+              <span>{label}</span>
+              <div class="col-mix-bar"><span style="width:{b['pct']}%"></span></div>
+              <span>{b['pct']}%</span>
+            </div>
+"""
+
+    salary_note = (
+        f' <a href="{salary_link}">Open the comfortable salary guide</a> for household and rent vs own options.'
+        if salary_link
+        else ""
+    )
+
+    return f"""    <section class="col-band col-band--alt col-lifestyle-section" aria-labelledby="col-lifestyle-{slug}-title">
+      <div class="container">
+        <header class="col-band__head">
+          <h2 id="col-lifestyle-{slug}-title">Cost of living by lifestyle</h2>
+          <p class="col-lead">Monthly spending and gross pay targets for <strong>{place_name}</strong>. Assumes a single renter; add childcare, debt, and extra savings on top.</p>
+        </header>
+        <p class="col-tier-context">Lifestyle tiers span {fmt(monthly_by_tier["basic"])}/mo (basic) to {fmt(monthly_by_tier["high_comfort"])}/mo (affluent). The highlighted tier is our default comfortable plan with room to save.</p>
+        <div class="col-tier-grid">
+{chr(10).join(tier_cards)}
+        </div>
+        <div class="col-lifestyle-breakdown">
+          <h3>Monthly mix at the comfortable tier</h3>
+          <p class="col-lead">How a {fmt(comfort["monthly"])}/mo budget splits before tax ({fmt(comfort["annual"])} gross target).{salary_note}</p>
+          <div class="col-mix-grid">{mix_rows}
+          </div>
+        </div>
+      </div>
+    </section>"""
+
+
 def col_methodology_block(city: dict, metrics: dict, tax: str, place_name: str) -> str:
     slug = _place_slug(place_name)
     lifestyle = city.get("lifestyle_score")
@@ -1068,6 +1259,14 @@ def city_page(
     tax = state_data["tax_note"] if state_data else STANDALONE.get(city_slug, {}).get("tax_note", "Varies by state")
     metrics = prepare_city_metrics(city)
     core = metrics["core"]
+    effective_state = state_slug
+    if not effective_state:
+        from comfortable_salary_data import STANDALONE_STATE
+
+        effective_state = STANDALONE_STATE.get(city_slug)
+    lifestyle_section = col_lifestyle_tiers_section(
+        city, city["name"], effective_state, city.get("salary_link", "")
+    )
     key_points = city.get("key_points") or city_key_points(city, state_name)
     faqs = city.get(
         "faqs",
@@ -1191,6 +1390,7 @@ def city_page(
 {cost_cards(city['rent_1br'], city['groceries'], city['utilities'], city['transport'], tax)}
       </div>
     </section>
+{lifestyle_section}
     <section class="col-band col-band--alt col-band--tone-cool">
       <div class="container">
         <h2>At a glance</h2>
@@ -1377,6 +1577,7 @@ def state_page(slug: str, data: dict) -> str:
 {state_quick_facts_html(data)}
       </div>
     </section>
+{col_lifestyle_tiers_section(data, data["name"], slug, f"/living/lifestyle/comfortable-salary/{slug}")}
     <section class="col-band col-band--alt col-band--tone-cool">
       <div class="container">
         <h2>Top cities in {data['name']}</h2>
@@ -1447,6 +1648,10 @@ def compare_page(slug: str, c: dict) -> str:
     link_a = f"/living/housing/cost-of-living-by-city/{c['slug_a']}".replace("//", "/")
     link_b = f"/living/housing/cost-of-living-by-city/{c['slug_b']}".replace("//", "/")
     takeaways = compare_takeaways(c)
+    rent_a_cls, rent_b_cls = _compare_winner_cell(c["rent_a"], c["rent_b"])
+    gro_a_cls, gro_b_cls = _compare_winner_cell(c["groceries_a"], c["groceries_b"])
+    tr_a_cls, tr_b_cls = _compare_winner_cell(c["transport_a"], c["transport_b"])
+    sal_a_cls, sal_b_cls = _compare_winner_cell(c["salary_a"], c["salary_b"], favor_lower=True)
     city_context = c.get("narrative", [])
     faqs = [
         (
@@ -1493,6 +1698,8 @@ def compare_page(slug: str, c: dict) -> str:
             winner = c["city_a"] if a_val > b_val else c["city_b"]
         delta_label = f"Gap {fmt(delta)}{suffix}" if delta else "No gap"
         winner_label = "Lead: Tie" if winner == "Tie" else f"Lead: {winner}"
+        city_a_label = f'<a href="{link_a}">{c["city_a"]}</a>'
+        city_b_label = f'<a href="{link_b}">{c["city_b"]}</a>'
         return f"""
           <article class="col-compare-visual-card">
             <header class="col-compare-visual-head">
@@ -1500,12 +1707,12 @@ def compare_page(slug: str, c: dict) -> str:
               <p><span>{delta_label}</span><strong>{winner_label}</strong></p>
             </header>
             <div class="col-compare-visual-row">
-              <span class="col-compare-visual-city">{c['city_a']}</span>
+              <span class="col-compare-visual-city">{city_a_label}</span>
               <div class="col-compare-visual-track"><span class="col-compare-visual-fill col-compare-visual-fill--a" style="width:{a_w}%"></span></div>
               <strong>{fmt(a_val)}{suffix}</strong>
             </div>
             <div class="col-compare-visual-row">
-              <span class="col-compare-visual-city">{c['city_b']}</span>
+              <span class="col-compare-visual-city">{city_b_label}</span>
               <div class="col-compare-visual-track"><span class="col-compare-visual-fill col-compare-visual-fill--b" style="width:{b_w}%"></span></div>
               <strong>{fmt(b_val)}{suffix}</strong>
             </div>
@@ -1522,16 +1729,16 @@ def compare_page(slug: str, c: dict) -> str:
     context_cards = f"""
         <div class="col-compare-context-grid">
           <article class="col-compare-context-card">
-            <h3>{c['city_a']} profile</h3>
+            <h3>{c['city_a']}</h3>
             <p>{c['city_a']} shows rent near {fmt(c['rent_a'])}/mo and a comfort pay target near {fmt(c['salary_a'])} gross.</p>
             <p>{city_context[0] if len(city_context) > 0 else f'{c["city_a"]} is a strong fit for people who value its job mix and daily lifestyle.'}</p>
-            <p><a href="{link_a}">Open {c['city_a']} city guide →</a></p>
+            <footer class="col-compare-context-card__foot">{compare_col_link(c['city_a'], link_a)} →</footer>
           </article>
           <article class="col-compare-context-card">
-            <h3>{c['city_b']} profile</h3>
+            <h3>{c['city_b']}</h3>
             <p>{c['city_b']} shows rent near {fmt(c['rent_b'])}/mo and a comfort pay target near {fmt(c['salary_b'])} gross.</p>
             <p>{city_context[1] if len(city_context) > 1 else f'{c["city_b"]} can be a better fit if you want a different rent-to-pay balance.'}</p>
-            <p><a href="{link_b}">Open {c['city_b']} city guide →</a></p>
+            <footer class="col-compare-context-card__foot">{compare_col_link(c['city_b'], link_b)} →</footer>
           </article>
         </div>
         <p class="col-lead">Context note: {c.get("winner_lifestyle", "Lifestyle and job fit can matter as much as rent.")}.</p>
@@ -1562,45 +1769,53 @@ def compare_page(slug: str, c: dict) -> str:
         </nav>
         <h1>{c['title']}</h1>
         <p class="lead">Rent, food, commute, and pay targets side by side.</p>
-        <p class="col-lead">This page helps you compare {c['city_a']} and {c['city_b']} for a real move decision. Use it to check monthly cost gaps, salary fit, and lifestyle tradeoffs before you choose a city.</p>
       </div>
     </section>
-    <section class="col-section">
+    <section class="col-compare-intro">
+      <div class="container">
+        <p class="col-compare-intro__text">This page compares {compare_col_link(c['city_a'], link_a)} and {compare_col_link(c['city_b'], link_b)} side by side. Use it to check monthly cost gaps, salary fit, and lifestyle tradeoffs before you choose a city.</p>
+      </div>
+    </section>
+{compare_summary_strip(c, link_a, link_b)}
+    <section class="col-section col-compare-quick">
       <div class="container content-page">
-        <h2>Quick comparison</h2>
+        <header class="col-section__head">
+          <h2>Quick comparison</h2>
+          <p class="col-section__lead">Median planning figures from each city guide. Green cells highlight the better value for that row (lower cost or lower salary need).</p>
+        </header>
         <div class="col-compare-table-wrap">
-          <table class="debt-data-table">
-            <caption>{c['city_a']} vs {c['city_b']} monthly planning figures</caption>
-            <thead><tr><th scope="col">Category</th><th scope="col">{c['city_a']}</th><th scope="col">{c['city_b']}</th></tr></thead>
+          <table class="debt-data-table col-compare-table">
+            <caption>{compare_col_link(c['city_a'], link_a)} vs {compare_col_link(c['city_b'], link_b)} — monthly planning figures</caption>
+            <thead><tr><th scope="col">Category</th><th scope="col">{compare_col_link(c['city_a'], link_a)}</th><th scope="col">{compare_col_link(c['city_b'], link_b)}</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Rent (1BR)</th><td>{fmt(c['rent_a'])}</td><td>{fmt(c['rent_b'])}</td></tr>
-              <tr><th scope="row">Groceries</th><td>{fmt(c['groceries_a'])}</td><td>{fmt(c['groceries_b'])}</td></tr>
-              <tr><th scope="row">Transport</th><td>{fmt(c['transport_a'])}</td><td>{fmt(c['transport_b'])}</td></tr>
-              <tr><th scope="row">Comfort salary</th><td>{fmt(c['salary_a'])}</td><td>{fmt(c['salary_b'])}</td></tr>
+              <tr><th scope="row">Rent (1BR)</th><td{rent_a_cls}>{fmt(c['rent_a'])}</td><td{rent_b_cls}>{fmt(c['rent_b'])}</td></tr>
+              <tr><th scope="row">Groceries</th><td{gro_a_cls}>{fmt(c['groceries_a'])}</td><td{gro_b_cls}>{fmt(c['groceries_b'])}</td></tr>
+              <tr><th scope="row">Transport</th><td{tr_a_cls}>{fmt(c['transport_a'])}</td><td{tr_b_cls}>{fmt(c['transport_b'])}</td></tr>
+              <tr><th scope="row">Comfort salary</th><td{sal_a_cls}>{fmt(c['salary_a'])}</td><td{sal_b_cls}>{fmt(c['salary_b'])}</td></tr>
             </tbody>
           </table>
         </div>
-        <p><a href="{link_a}">{c['city_a']} cost of living</a> · <a href="{link_b}">{c['city_b']} cost of living</a></p>
       </div>
     </section>
-    <section class="col-section">
+    <section class="col-section col-compare-categories">
       <div class="container content-page">
-        <h2>Category breakdown</h2>
+        <header class="col-section__head">
+          <h2>Category breakdown</h2>
+          <p class="col-section__lead">Line-by-line view of how {compare_col_link(c['city_a'], link_a)} and {compare_col_link(c['city_b'], link_b)} differ — bars scale to the higher city in each pair.</p>
+        </header>
 {category_notes}
       </div>
     </section>
-    <section class="col-band col-band--alt">
+    <section class="col-band col-band--alt col-compare-context">
       <div class="container content-page">
-        <h2>City context: when each one fits</h2>
+        <header class="col-band__head">
+          <h2>City context: when each one fits</h2>
+          <p class="col-lead">Go deeper on {compare_col_link(c['city_a'], link_a)} or {compare_col_link(c['city_b'], link_b)} when the table alone does not capture job market, commute, or lifestyle fit.</p>
+        </header>
 {context_cards}
       </div>
     </section>
-    <section class="col-band col-band--alt">
-      <div class="container">
-        <h2>What the gap means</h2>
-{key_points_html(takeaways + c.get("narrative", [])[:2])}
-      </div>
-    </section>
+{compare_gap_section(c, takeaways, link_a, link_b)}
     <section class="col-faq-section">
       <div class="container content-page">
         <h2>FAQ</h2>
@@ -1653,7 +1868,16 @@ def hub_page() -> str:
         ("What matters most when moving?", "Housing, then tax, then childcare if you have kids."),
         ("How do I compare two cities?", "Use a pair card or open two city pages. Compare net pay."),
     ])
-    return render_hub_page(catalog, comparisons, states_meta, HEADER, FOOTER, URL_SCRIPT, faqs, explained)
+    example_city = STATES["texas"]["cities"]["austin"]
+    lifestyle_section = col_lifestyle_tiers_section(
+        example_city,
+        "Austin, TX (example)",
+        "texas",
+        "/living/lifestyle/comfortable-salary/texas/austin",
+    )
+    return render_hub_page(
+        catalog, comparisons, states_meta, HEADER, FOOTER, URL_SCRIPT, faqs, explained, lifestyle_section
+    )
 
 
 def standalone_page(slug: str, data: dict) -> str:
