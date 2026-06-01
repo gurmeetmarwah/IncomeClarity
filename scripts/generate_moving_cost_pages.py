@@ -74,7 +74,7 @@ def head(title: str, desc: str, canonical: str, extra_script: str = "") -> str:
   <title>{title}</title>
   <meta name="description" content="{desc}">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://incomeclarity.com{canonical}">
+  <link rel="canonical" href="https://www.incomeclaritylab.com{canonical}">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="stylesheet" href="/styles-moving.css">
@@ -407,7 +407,7 @@ def render_hub() -> str:
         separators=(",", ":"),
     )
     schema = f"""  <script type="application/ld+json">
-  {{"@context":"https://schema.org","@type":"WebApplication","name":"Moving Cost Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web","url":"https://incomeclarity.com/living/housing/moving-cost-calculator"}}
+  {{"@context":"https://schema.org","@type":"WebApplication","name":"Moving Cost Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web","url":"https://www.incomeclaritylab.com/living/housing/moving-cost-calculator"}}
   </script>
   <script type="application/ld+json">
   {faq_ld}

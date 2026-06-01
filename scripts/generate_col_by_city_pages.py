@@ -1343,7 +1343,7 @@ def city_page(
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{city['name']} Cost of Living: Rent, Salary &amp; Budget (2026) | Income Clarity</title>
   <meta name="description" content="Cost of living in {city['name']}: rent near {fmt(city['rent_1br'])}/mo, groceries, transport, salary near {fmt(city['salary_comfort'])}, and lifestyle score.">
-  <link rel="canonical" href="https://incomeclarity.com/living/housing/cost-of-living-by-city/{page_path}">
+  <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/cost-of-living-by-city/{page_path}">
   <link rel="stylesheet" href="/styles.css">
 {STYLES_COL}
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -1546,7 +1546,7 @@ def state_page(slug: str, data: dict) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{data['name']} Cost of Living by City | Income Clarity</title>
   <meta name="description" content="Compare cost of living in {data['name']}: average rent, groceries, taxes, utilities, and top cities ranked.">
-  <link rel="canonical" href="https://incomeclarity.com/living/housing/cost-of-living-by-city/{slug}">
+  <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/cost-of-living-by-city/{slug}">
   <link rel="stylesheet" href="/styles.css">
 {STYLES_COL}
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -1750,7 +1750,7 @@ def compare_page(slug: str, c: dict) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{c['title']} (2026) | Income Clarity</title>
   <meta name="description" content="Compare {c['city_a']} vs {c['city_b']}: rent, groceries, transport, and salary needed to live comfortably.">
-  <link rel="canonical" href="https://incomeclarity.com/living/housing/cost-of-living-by-city/compare/{slug}">
+  <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/cost-of-living-by-city/compare/{slug}">
   <link rel="stylesheet" href="/styles.css">
 {STYLES_COL}
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">

@@ -95,7 +95,7 @@ def head(title: str, desc: str, canonical: str, body_attrs: str = "") -> str:
   <title>{title}</title>
   <meta name="description" content="{desc}">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://incomeclarity.com{canonical}">
+  <link rel="canonical" href="https://www.incomeclaritylab.com{canonical}">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="stylesheet" href="/styles-col.css">

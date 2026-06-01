@@ -135,7 +135,7 @@ def render_hub_page(
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cost of Living by City — Compare U.S. Cities (2026) | Income Clarity</title>
   <meta name="description" content="Compare the real cost of living across U.S. cities. Housing, groceries, transportation, taxes, and salary needs before you move.">
-  <link rel="canonical" href="https://incomeclarity.com/living/housing/cost-of-living-by-city">
+  <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/cost-of-living-by-city">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="stylesheet" href="/styles-col.css">
