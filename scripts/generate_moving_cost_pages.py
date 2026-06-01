@@ -351,7 +351,7 @@ def hub_sections() -> str:
         <div class="mc-tool-grid">
           <a class="mc-tool-card" href="/living/housing/cost-of-living-by-city"><h3>Cost of living by city</h3><p>Compare rent, groceries, tax, and salary targets.</p></a>
           <a class="mc-tool-card" href="/living/housing/how-much-rent-can-i-afford"><h3>Rent affordability</h3><p>Size rent after the move using take-home pay.</p></a>
-          <a class="mc-tool-card" href="{COMFORT_SALARY_HUB}"><h3>Comfortable salary by state</h3><p>Check income needed for your target lifestyle.</p></a>
+          <a class="mc-tool-card" href="/living/lifestyle/comfortable-salary-us/"><h3>Comfortable salary by state</h3><p>Check income needed for your target lifestyle.</p></a>
           <a class="mc-tool-card" href="/rent-vs-buy-calculator"><h3>Rent vs buy calculator</h3><p>Compare staying renter vs buying in the new city.</p></a>
           <a class="mc-tool-card" href="/living/budgeting/average-monthly-expenses.html"><h3>Budgeting for relocation</h3><p>Plan monthly and one-time moving expenses.</p></a>
           <a class="mc-tool-card" href="/living/housing/how-much-house-can-i-afford"><h3>How much house can I afford</h3><p>Test buying if you plan to purchase after moving.</p></a>
@@ -575,7 +575,7 @@ def mc_planning_block(
     salary_line = (
         f'<p>Layer income targets using the <a href="{salary_link}">comfortable salary guide</a> and <a href="/living/lifestyle-family/family-of-4-income-guide/">family of 4 income guide</a>.</p>'
         if salary_link
-        else f'<p>Layer income targets using the <a href="{COMFORT_SALARY_HUB}">comfortable salary guide</a> and <a href="/living/lifestyle-family/family-of-4-income-guide/">family of 4 income guide</a>.</p>'
+        else f'<p>Layer income targets using the <a href="/living/lifestyle/comfortable-salary-us/">comfortable salary guide</a> and <a href="/living/lifestyle-family/family-of-4-income-guide/">family of 4 income guide</a>.</p>'
     )
     return f"""
     <section class="mc-band">
