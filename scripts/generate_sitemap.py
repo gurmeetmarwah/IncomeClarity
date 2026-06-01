@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-BASE_URL = "https://incomeclarity.com"
+BASE_URL = "https://www.incomeclaritylab.com"
 
 # Root HTML files that 301 to another canonical path (duplicate content)
 ROOT_LEGACY = {
