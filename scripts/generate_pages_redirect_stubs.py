@@ -26,7 +26,8 @@ STUB = '''<!doctype html>
 </html>
 '''
 
-# Trailing-slash URLs for root *.html calculators (GitHub Pages serves /page from page.html, not /page/).
+# Trailing-slash URLs for root *.html calculators.
+# Must redirect to *.html (not extensionless) or local servers loop: /slug/ → /slug → /slug/.
 TRAILING_SLASH_CALCULATORS = (
     "rent-vs-buy-calculator",
     "credit-card-payoff-calculator",
@@ -75,6 +76,35 @@ def load_redirect_rules() -> list[tuple[str, str]]:
     return rules
 
 
+def is_redirect_stub(path: Path) -> bool:
+    if not path.is_file():
+        return False
+    try:
+        text = path.read_text(encoding="utf-8")
+    except OSError:
+        return False
+    return "location.replace" in text and 'meta http-equiv="refresh"' in text
+
+
+def prefer_html_if_flat_file(path: str) -> str:
+    """Prefer real content paths; use .html only for flat files (not redirect stubs)."""
+    base, _, frag = path.partition("#")
+    clean = base.rstrip("/")
+    if not clean or clean.endswith(".html"):
+        return path
+    rel = clean.lstrip("/")
+    dir_index = ROOT / rel / "index.html"
+    html_file = ROOT / f"{rel}.html"
+
+    if dir_index.is_file() and not is_redirect_stub(dir_index):
+        out = f"/{rel}/"
+        return f"{out}#{frag}" if frag else out
+    if html_file.is_file() and not is_redirect_stub(html_file):
+        out = f"/{rel}.html"
+        return f"{out}#{frag}" if frag else out
+    return path
+
+
 def target_url(dst: str) -> tuple[str, str]:
     """Return (browser_url, canonical_url) without hash; hash appended by stub JS."""
     base, _, frag = dst.partition("#")
@@ -85,13 +115,14 @@ def target_url(dst: str) -> tuple[str, str]:
         if not base.endswith("/"):
             base += "/"
     elif base.endswith(".html"):
-        base = base[: -len(".html")]
+        pass
     elif not base.endswith("/") and path_exists(f"{base}/index.html"):
         base += "/"
     url = base
     if frag:
         url = f"{url}#{frag}"
-    canonical = url.split("#")[0]
+    url = prefer_html_if_flat_file(url)
+    canonical = prefer_html_if_flat_file(url.split("#")[0])
     return url, canonical
 
 
@@ -102,9 +133,9 @@ def stub_path_for_src(src: str) -> Path:
     return ROOT / rel / "index.html"
 
 
-def write_stub(src: str, dst: str) -> bool:
+def write_stub(src: str, dst: str, *, force: bool = False) -> bool:
     out = stub_path_for_src(src)
-    if out.is_file():
+    if out.is_file() and not force:
         return False
     browser_url, canonical = target_url(dst)
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -115,14 +146,32 @@ def write_stub(src: str, dst: str) -> bool:
     return True
 
 
-def main() -> None:
-    created = 0
+def refresh_trailing_slash_calculator_stubs() -> int:
+    updated = 0
     for slug in TRAILING_SLASH_CALCULATORS:
         src = f"/{slug}/"
-        dst = f"/{slug}"
-        if not path_exists(src) and write_stub(src, dst):
-            created += 1
-            print(f"  + {stub_path_for_src(src).relative_to(ROOT)}")
+        dst = f"/{slug}.html"
+        if write_stub(src, dst, force=True):
+            updated += 1
+            print(f"  ~ {stub_path_for_src(src).relative_to(ROOT)} → {dst}")
+    return updated
+
+
+def regenerate_existing_stubs() -> int:
+    updated = 0
+    for src, dst in load_redirect_rules():
+        out = stub_path_for_src(src)
+        if out.is_file() and is_redirect_stub(out):
+            write_stub(src, dst, force=True)
+            updated += 1
+    return updated
+
+
+def main() -> None:
+    created = 0
+    created += refresh_trailing_slash_calculator_stubs()
+    updated = regenerate_existing_stubs()
+    print(f"Refreshed {updated} existing stub(s).")
 
     for src, dst in load_redirect_rules():
         if path_exists(src):
@@ -131,7 +180,7 @@ def main() -> None:
             created += 1
             print(f"  + {stub_path_for_src(src).relative_to(ROOT)}")
 
-    print(f"Created {created} redirect stub(s).")
+    print(f"Created {created} new redirect stub(s).")
 
 
 if __name__ == "__main__":
