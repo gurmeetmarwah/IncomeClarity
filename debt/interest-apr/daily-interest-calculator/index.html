@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Interest Calculator — APR Per Day (2026) | Income Clarity</title>
+  <meta name="description" content="Free daily interest calculator. See how much interest you pay or earn per day on loans, credit cards, savings, or CDs from principal, APR, and days.">
+  <meta name="keywords" content="daily interest calculator, daily periodic rate, APR per day, credit card daily interest, savings daily interest">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.incomeclaritylab.com/debt/interest-apr/daily-interest-calculator">
+  <meta property="og:title" content="Daily Interest Calculator — APR Per Day (2026)">
+  <meta property="og:description" content="Calculate how much interest accrues daily on debt or savings. Simple interest and daily compounding.">
+  <meta property="og:site_name" content="Income Clarity">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Daily Interest Calculator">
+  <meta name="twitter:description" content="How much interest per day? Free calculator for cards, loans, and savings.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://www.incomeclaritylab.com/debt/interest-apr/daily-interest-calculator">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="apple-touch-icon" href="/images/logo.png">
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path === "/index.html") cleanPath = "/";
+      else if (path.endsWith("/index.html")) cleanPath = path.slice(0, -10);
+      else if (path.endsWith(".html")) cleanPath = path.slice(0, -5);
+      if (cleanPath !== path) window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Daily Interest Calculator",
+    "description": "Calculate daily interest on loans, credit cards, savings, or CDs from principal, APR, and number of days.",
+    "url": "https://www.incomeclaritylab.com/debt/interest-apr/daily-interest-calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Credit card payoff calculator", "item": "https://www.incomeclaritylab.com/credit-card-payoff-calculator" },
+      { "@type": "ListItem", "position": 2, "name": "Interest & APR", "item": "https://www.incomeclaritylab.com/debt/interest-apr" },
+      { "@type": "ListItem", "position": 3, "name": "Daily interest calculator", "item": "https://www.incomeclaritylab.com/debt/interest-apr/daily-interest-calculator" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is daily interest?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Daily interest is the amount of interest that builds on a balance in one day. Banks often use APR divided by 365 to get a daily periodic rate." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do banks calculate daily interest?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Most US cards and loans apply a daily periodic rate (APR ÷ 365) to your balance each day. Savings may compound daily using APY." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a daily periodic rate?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It is your APR split into a daily slice. On an 18% APR loan, the daily rate is about 0.0493% per day." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much is 18% APR per day?",
+        "acceptedAnswer": { "@type": "Answer", "text": "On $10,000 at 18% APR, simple daily interest is about $4.93 per day before compounding." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do credit cards charge interest daily?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Most US credit cards compound interest daily on balances you carry past the grace period." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="dic-page sc5-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/hourly-to-salary-after-tax">Income</a>
+        <a href="/credit-card-payoff-calculator" aria-current="page">Debt</a>
+        <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container sc5-page dic-page-inner">
+    <nav class="take-home-return-nav sc5-crumb" aria-label="Breadcrumb">
+      <ol class="take-home-return-breadcrumbs">
+        <li><a href="/credit-card-payoff-calculator#payoff">Credit card payoff calculator</a></li>
+        <li><a href="/debt/interest-apr">Interest &amp; APR</a></li>
+        <li aria-current="page">Daily interest calculator</li>
+      </ol>
+    </nav>
+
+    <p class="sc5-back">
+      <a class="debt-minimum-guide-back-link" href="/debt/interest-apr" data-debt-back-default="/debt/interest-apr">← Back to interest &amp; APR</a>
+    </p>
+
+    <nav class="sc5-jump" aria-label="On this page">
+      <a href="#dic-calc">Calculator</a>
+      <a href="#dic-formula">How it works</a>
+      <a href="#dic-examples">Examples</a>
+      <a href="#dic-apr-table">By APR</a>
+      <a href="#dic-cards">Credit cards</a>
+      <a href="#dic-related">Related tools</a>
+      <a href="#dic-faq">FAQ</a>
+    </nav>
+
+    <section class="sc5-hero dic-hero" aria-labelledby="dic-title">
+      <div class="sc5-hero-copy">
+        <span class="label">Debt · Interest &amp; APR</span>
+        <h1 id="dic-title">Daily Interest Calculator</h1>
+        <p class="sc5-hero-lead">Calculate how much interest accrues <strong>every day</strong> on loans, credit cards, savings accounts, CDs, or investments.</p>
+        <ul class="dic-trust" aria-label="Calculator features">
+          <li>✓ Instant results</li>
+          <li>✓ Supports APR math</li>
+          <li>✓ Card &amp; savings examples</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sc5-panel dic-calc-panel" id="dic-calc" aria-labelledby="dic-calc-title">
+      <div class="dic-calc-grid">
+        <div class="dic-calc-form-wrap">
+          <header class="sc5-section-head">
+            <h2 id="dic-calc-title">Calculate daily interest</h2>
+          </header>
+          <form id="dic-form" class="dic-form">
+            <label class="sc5-field">
+              <span>Principal amount</span>
+              <input type="number" id="dic-principal" value="10000" min="0" step="100" required>
+              <span class="sc5-hint">Original balance, loan amount, or savings amount.</span>
+            </label>
+            <label class="sc5-field">
+              <span>Annual interest rate (APR %)</span>
+              <input type="number" id="dic-apr" value="18" min="0" max="50" step="0.1" required>
+            </label>
+            <label class="sc5-field">
+              <span>Number of days</span>
+              <input type="number" id="dic-days" value="30" min="1" max="3650" step="1" required>
+            </label>
+            <fieldset class="dic-mode-fieldset">
+              <legend class="dic-mode-legend">Interest method</legend>
+              <label class="dic-mode-option">
+                <input type="radio" name="dic-mode" value="simple" checked>
+                <span>Simple interest</span>
+              </label>
+              <label class="dic-mode-option">
+                <input type="radio" name="dic-mode" value="compound">
+                <span>Daily compounding</span>
+              </label>
+            </fieldset>
+            <button type="submit" class="sc5-btn sc5-btn--primary sc5-btn--lg">Calculate interest</button>
+          </form>
+        </div>
+
+        <div id="dic-results" class="dic-results-wrap">
+          <aside class="sc5-results-sticky dic-results-card" aria-live="polite">
+            <h3 class="sc5-results-title">Your daily interest</h3>
+            <dl class="sc5-results-dl">
+              <div class="sc5-result-row sc5-result-row--primary">
+                <dt>Daily interest</dt>
+                <dd id="dic-daily">$4.93/day</dd>
+              </div>
+              <div class="sc5-result-row">
+                <dt>Interest over selected period</dt>
+                <dd id="dic-period">$147.95</dd>
+              </div>
+              <div class="sc5-result-row">
+                <dt>Effective annual rate</dt>
+                <dd id="dic-effective">18.00%</dd>
+              </div>
+              <div class="sc5-result-row sc5-result-row--highlight">
+                <dt>Total balance after period</dt>
+                <dd id="dic-ending">$10,147.95</dd>
+              </div>
+            </dl>
+          </aside>
+
+          <div class="dic-progression-panel">
+            <h3 class="dic-progression-title">Balance over time</h3>
+            <div class="dic-progress-bar" id="dic-progress-bar" aria-hidden="true"></div>
+            <div class="dic-progression" id="dic-progression"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sc5-panel" id="dic-formula" aria-labelledby="dic-formula-title">
+      <header class="sc5-section-head">
+        <h2 id="dic-formula-title">How daily interest is calculated</h2>
+        <p>APR is a yearly rate. Split it by 365 to get one day’s share. That is your daily periodic rate.</p>
+      </header>
+      <p class="housing-hub-intro-text">On debt, daily interest is a cost. On savings, it is money you earn. The same math works both ways. Change the principal, rate, or days above and the chart shows how the balance moves.</p>
+      <div class="dic-formula-box">
+        <p class="dic-formula-label">Daily interest rate</p>
+        <p class="dic-formula-eq">APR ÷ 365</p>
+        <p class="dic-formula-example">Example: $10,000 at 18% APR → 18% ÷ 365 = <strong id="dic-formula-daily">0.0493% per day</strong></p>
+        <p class="dic-formula-example">Daily interest: <strong id="dic-formula-example">$4.93/day</strong> (simple, before compounding)</p>
+      </div>
+    </section>
+
+    <section class="sc5-panel" id="dic-examples" aria-labelledby="dic-examples-title">
+      <header class="sc5-section-head">
+        <h2 id="dic-examples-title">Daily interest examples</h2>
+        <p>Tap a card to load the calculator.</p>
+      </header>
+      <div class="dic-example-grid">
+        <button type="button" class="dic-example-card" data-dic-example data-principal="5000" data-apr="24" data-days="30">
+          <h3>Credit card balance</h3>
+          <dl>
+            <div><dt>Balance</dt><dd>$5,000</dd></div>
+            <div><dt>APR</dt><dd>24%</dd></div>
+            <div><dt>Daily interest</dt><dd class="pos">≈ $3.29/day</dd></div>
+          </dl>
+        </button>
+        <button type="button" class="dic-example-card" data-dic-example data-principal="25000" data-apr="7" data-days="30">
+          <h3>Auto loan</h3>
+          <dl>
+            <div><dt>Loan amount</dt><dd>$25,000</dd></div>
+            <div><dt>APR</dt><dd>7%</dd></div>
+            <div><dt>Daily interest</dt><dd class="pos">≈ $4.79/day</dd></div>
+          </dl>
+        </button>
+        <button type="button" class="dic-example-card" data-dic-example data-principal="10000" data-apr="4.5" data-days="30" data-compound="true">
+          <h3>Savings account</h3>
+          <dl>
+            <div><dt>Balance</dt><dd>$10,000</dd></div>
+            <div><dt>APY</dt><dd>4.5%</dd></div>
+            <div><dt>Daily interest earned</dt><dd class="pos">≈ $1.23/day</dd></div>
+          </dl>
+        </button>
+      </div>
+    </section>
+
+    <section class="sc5-panel" id="dic-apr-table" aria-labelledby="dic-apr-title">
+      <header class="sc5-section-head">
+        <h2 id="dic-apr-title">Daily interest by APR</h2>
+        <p>On a $10,000 balance (simple daily interest).</p>
+      </header>
+      <div class="scenario-table-wrap">
+        <table class="scenario-table">
+          <caption>Daily interest at common APR levels — $10,000 principal</caption>
+          <thead>
+            <tr>
+              <th scope="col">APR</th>
+              <th scope="col">Daily interest</th>
+              <th scope="col">30-day interest</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">5%</th><td>$1.37/day</td><td>$41.10</td></tr>
+            <tr><th scope="row">10%</th><td>$2.74/day</td><td>$82.19</td></tr>
+            <tr><th scope="row">18%</th><td>$4.93/day</td><td>$147.95</td></tr>
+            <tr><th scope="row">20%</th><td>$5.48/day</td><td>$164.38</td></tr>
+            <tr><th scope="row">30%</th><td>$8.22/day</td><td>$246.58</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="sc5-panel dic-split-panel" id="dic-cards" aria-labelledby="dic-cards-title">
+      <div class="dic-split-copy">
+        <h2 id="dic-cards-title">Daily interest on credit cards</h2>
+        <p>Cards use a <strong>daily periodic rate</strong>. That is APR ÷ 365. Interest hits your balance every day you carry debt.</p>
+        <p>A $5,000 balance at 24% can cost about <strong>$100 a month</strong> in interest alone. If you pay only the minimum, most of that payment may go to interest. The balance shrinks slowly.</p>
+        <p>Seeing the daily number—about <strong>$3.29 a day</strong> on $5,000 at 24%—makes the leak feel real. That is why paying more than the minimum matters.</p>
+        <a class="sc5-btn sc5-btn--primary" href="/credit-card-payoff-calculator#payoff">Try credit card payoff calculator</a>
+      </div>
+      <aside class="dic-split-aside">
+        <h3>Minimum payment trap</h3>
+        <p>Paying only the minimum leaves most of each dollar for interest. The balance barely moves.</p>
+        <a href="/debt/debt-reality/why-paying-minimum-is-bad">Why minimums hurt →</a>
+      </aside>
+    </section>
+
+    <section class="sc5-panel dic-split-panel" aria-labelledby="dic-savings-title">
+      <div class="dic-split-copy">
+        <h2 id="dic-savings-title">Daily interest on savings accounts</h2>
+        <p><strong>APY vs APR:</strong> Savings ads often show APY. It includes compounding. APR is the plain yearly rate.</p>
+        <p>Many high-yield accounts compound daily. Your balance grows a little each day. Pick <strong>daily compounding</strong> in the calculator for savings.</p>
+        <p>On $10,000 at 4.5% APY, you might earn about <strong>$1.23 a day</strong>. It is small per day but adds up over a year.</p>
+        <a class="sc5-btn sc5-btn--secondary" href="/debt/interest/how-credit-card-interest-works">How interest compounds →</a>
+      </div>
+    </section>
+
+    <section class="sc5-panel" aria-labelledby="dic-compare-title">
+      <header class="sc5-section-head">
+        <h2 id="dic-compare-title">Daily interest vs monthly interest</h2>
+      </header>
+      <div class="dic-compare-grid">
+        <article class="dic-compare-card">
+          <h3>Daily interest</h3>
+          <p>Interest is added <strong>each day</strong> on your balance. Most US cards work this way.</p>
+        </article>
+        <article class="dic-compare-card">
+          <h3>Monthly interest</h3>
+          <p>Some loans add interest once a month. You can still estimate a daily cost with APR ÷ 365.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="sc5-panel" aria-labelledby="dic-scenarios-title">
+      <header class="sc5-section-head">
+        <h2 id="dic-scenarios-title">What if I owe… (at 20% APR)</h2>
+        <p>Simple daily interest — tap to calculate your period.</p>
+      </header>
+      <div class="dic-scenario-grid">
+        <button type="button" class="dic-scenario-card" data-dic-example data-principal="1000" data-apr="20" data-days="30">
+          <strong>$1,000</strong>
+          <span>≈ $0.55/day</span>
+        </button>
+        <button type="button" class="dic-scenario-card" data-dic-example data-principal="10000" data-apr="20" data-days="30">
+          <strong>$10,000</strong>
+          <span>≈ $5.48/day</span>
+        </button>
+        <button type="button" class="dic-scenario-card" data-dic-example data-principal="25000" data-apr="20" data-days="30">
+          <strong>$25,000</strong>
+          <span>≈ $13.70/day</span>
+        </button>
+        <button type="button" class="dic-scenario-card" data-dic-example data-principal="50000" data-apr="20" data-days="30">
+          <strong>$50,000</strong>
+          <span>≈ $27.40/day</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="sc5-panel" id="dic-related" aria-labelledby="dic-related-title">
+      <header class="sc5-section-head">
+        <h2 id="dic-related-title">Related calculators</h2>
+      </header>
+      <div class="housing-hub-tool-grid">
+        <a class="housing-hub-tool-card" href="/debt/interest/what-is-credit-card-apr">
+          <h3>APR calculator &amp; guide</h3>
+          <p>What APR means on cards and loans.</p>
+        </a>
+        <a class="housing-hub-tool-card" href="/debt/interest/how-credit-card-interest-works">
+          <h3>Compound interest guide</h3>
+          <p>How daily compounding stacks up.</p>
+        </a>
+        <a class="housing-hub-tool-card" href="/credit-card-payoff-calculator#payoff">
+          <h3>Credit card payoff calculator</h3>
+          <p>Full payoff timeline and interest.</p>
+        </a>
+        <a class="housing-hub-tool-card" href="/debt/debt-strategies/pay-off-debt-faster">
+          <h3>Debt payoff calculator</h3>
+          <p>Debt-free date and interest saved.</p>
+        </a>
+        <a class="housing-hub-tool-card" href="/debt/payoff-scenarios">
+          <h3>Loan interest timelines</h3>
+          <p>$5k and $10k payoff scenarios.</p>
+        </a>
+        <a class="housing-hub-tool-card" href="/hourly-to-salary-after-tax">
+          <h3>Savings &amp; income tools</h3>
+          <p>Take-home pay for your budget.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="sc5-panel sc5-panel--faq" id="dic-faq" aria-labelledby="dic-faq-title">
+      <header class="sc5-section-head">
+        <h2 id="dic-faq-title">Frequently asked questions</h2>
+      </header>
+      <div class="housing-hub-accordion faq-stack">
+        <details class="faq-item" open>
+          <summary>What is daily interest?</summary>
+          <p>It is the interest that builds in one day. Banks use APR ÷ 365 for the daily rate.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do banks calculate daily interest?</summary>
+          <p>They multiply your balance by the daily rate. Cards often compound each day. Some loans wait until month-end.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What is a daily periodic rate?</summary>
+          <p>APR divided by 365. At 18% APR, that is about 0.0493% per day.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is daily interest better than monthly interest?</summary>
+          <p>For debt, daily math usually costs more. For savings, daily compounding can earn more.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How much is 18% APR per day?</summary>
+          <p>On $10,000, about <strong>$4.93 per day</strong> with simple interest.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do credit cards charge interest daily?</summary>
+          <p>Yes. If you carry a balance past the grace period, most US cards charge every day.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do savings accounts earn daily interest?</summary>
+          <p>Banks post interest based on APY. Use daily compounding in the tool for savings estimates.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="sc5-panel dic-final-cta" aria-labelledby="dic-final-title">
+      <h2 id="dic-final-title">See what interest is costing you</h2>
+      <p>Whether you pay interest on debt or earn it on savings, the daily number helps you decide faster.</p>
+      <button type="button" class="sc5-btn sc5-btn--primary sc5-btn--lg" id="dic-recalc">Recalculate daily interest</button>
+    </section>
+
+    <aside class="eeat-trust" aria-labelledby="dic-eeat-title">
+      <header class="eeat-trust__header">
+        <span class="eeat-trust__kicker">🔒 How we built this</span>
+        <h2 id="dic-eeat-title" class="eeat-trust__title">Interest methodology</h2>
+        <p class="eeat-trust__meta"><time datetime="2026-06-01">Last reviewed: June 1, 2026</time> · <a href="/methodology#payoff">Full methodology</a></p>
+      </header>
+      <p class="eeat-trust__footer">Educational US content only — not tax or legal advice. Issuer rules may use 360-day years or fees not modeled here.</p>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-description">US-only tools to calculate your real income after tax, understand debt, and make smarter financial decisions.</p>
+      <div class="footer-grid" role="navigation" aria-label="Footer">
+        <section class="footer-column" aria-labelledby="footer-popular-calculators">
+          <h2 id="footer-popular-calculators">Popular Calculators</h2>
+          <a href="/hourly-to-salary-after-tax">Hourly to Salary After Tax</a>
+          <a href="/credit-card-payoff-calculator">Credit Card Payoff Calculator</a>
+          <a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a>
+          <a href="/1099-vs-w2-calculator">1099 vs W2 Calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-tools-category">
+          <h2 id="footer-tools-category">Tools by Category</h2>
+          <a href="/hourly-to-salary-after-tax">Income</a>
+          <a href="/credit-card-payoff-calculator">Debt</a>
+          <a href="/rent-vs-buy-calculator">Living</a>
+          <a href="/1099-vs-w2-calculator">Freelance</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-explore-more">
+          <h2 id="footer-explore-more">Explore More</h2>
+          <a href="/debt/interest-apr">Interest &amp; APR</a>
+          <a href="/debt/interest/what-is-credit-card-apr">What is APR?</a>
+          <a href="/credit-card-payoff-calculator#payoff">Payoff calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-company">
+          <h2 id="footer-company">Company</h2>
+          <a href="/about.html">About</a>
+          <a href="/methodology">Methodology</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms</a>
+        </section>
+      </div>
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
+  <script src="/guide-back.js"></script>
+  <script src="/debt-guide-back.js"></script>
+  <script src="/debt/interest-apr/daily-interest-calculator.js"></script>
+</body>
+</html>

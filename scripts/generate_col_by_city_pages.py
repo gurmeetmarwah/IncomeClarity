@@ -26,7 +26,7 @@ URL_SCRIPT = """  <script>
 
 HEADER = """  <header class="site-header">
     <div class="container nav-wrap">
-      <a class="logo" href="/index.html">Income Clarity</a>
+      <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
       <nav class="nav-links" aria-label="Primary">
         <a href="/hourly-to-salary-after-tax">Income</a>
         <a href="/credit-card-payoff-calculator">Debt</a>
@@ -1346,7 +1346,8 @@ def city_page(
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/cost-of-living-by-city/{page_path}">
   <link rel="stylesheet" href="/styles.css">
 {STYLES_COL}
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="apple-touch-icon" href="/images/logo.png">
 {URL_SCRIPT}
 </head>
 <body class="col-page living-tool-page col-city-page">
@@ -1549,7 +1550,8 @@ def state_page(slug: str, data: dict) -> str:
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/cost-of-living-by-city/{slug}">
   <link rel="stylesheet" href="/styles.css">
 {STYLES_COL}
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="apple-touch-icon" href="/images/logo.png">
 {URL_SCRIPT}
 </head>
 <body class="col-page living-tool-page">
@@ -1753,7 +1755,8 @@ def compare_page(slug: str, c: dict) -> str:
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/cost-of-living-by-city/compare/{slug}">
   <link rel="stylesheet" href="/styles.css">
 {STYLES_COL}
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="apple-touch-icon" href="/images/logo.png">
 {URL_SCRIPT}
 </head>
 <body class="col-page living-tool-page col-compare-page">

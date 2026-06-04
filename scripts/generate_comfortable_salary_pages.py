@@ -53,7 +53,7 @@ URL_SCRIPT = """  <script>
 
 HEADER = """  <header class="site-header">
     <div class="container nav-wrap">
-      <a class="logo" href="/index.html">Income Clarity</a>
+      <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
       <nav class="nav-links" aria-label="Primary">
         <a href="/hourly-to-salary-after-tax">Income</a>
         <a href="/credit-card-payoff-calculator">Debt</a>
@@ -100,7 +100,8 @@ def head(title: str, desc: str, canonical: str, body_attrs: str = "") -> str:
   <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="stylesheet" href="/styles-col.css">
   <link rel="stylesheet" href="/styles-comfortable-salary.css">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="apple-touch-icon" href="/images/logo.png">
 {URL_SCRIPT}
 </head>
 <body class="cs-page living-tool-page"{body_attrs}>"""

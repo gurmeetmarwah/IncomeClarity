@@ -17,7 +17,8 @@
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://www.incomeclaritylab.com/debt/financial-health">
   <link rel="stylesheet" href="/styles.css">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="apple-touch-icon" href="/images/logo.png">
   <script>
     (function () {
       const path = window.location.pathname;
@@ -61,9 +62,10 @@
     "@type": "ItemList",
     "name": "Debt and financial health guides",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "How much credit card debt is normal?", "url": "https://www.incomeclaritylab.com/debt/financial-health/how-much-credit-card-debt-is-normal" },
-      { "@type": "ListItem", "position": 2, "name": "Average credit card debt by income", "url": "https://www.incomeclaritylab.com/debt/strategies/average-credit-card-debt-by-income" },
-      { "@type": "ListItem", "position": 3, "name": "How much house can I afford", "url": "https://www.incomeclaritylab.com/living/housing/how-much-house-can-i-afford" }
+      { "@type": "ListItem", "position": 1, "name": "Can I afford my debt?", "url": "https://www.incomeclaritylab.com/debt/financial-health/can-i-afford-my-debt" },
+      { "@type": "ListItem", "position": 2, "name": "How much credit card debt is normal?", "url": "https://www.incomeclaritylab.com/debt/financial-health/how-much-credit-card-debt-is-normal" },
+      { "@type": "ListItem", "position": 3, "name": "Average credit card debt by income", "url": "https://www.incomeclaritylab.com/debt/strategies/average-credit-card-debt-by-income" },
+      { "@type": "ListItem", "position": 4, "name": "How much house can I afford", "url": "https://www.incomeclaritylab.com/living/housing/how-much-house-can-i-afford" }
     ]
   }
   </script>
@@ -101,7 +103,7 @@
         "name": "How do I know if my debt is unhealthy?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Warning signs: rising balances. Paying only the minimum. Missing payments. Charging basics. And no emergency savings. Test your numbers in the payoff calculator and the DTI table."
+          "text": "Warning signs: rising balances, paying only the minimum, missed payments, charging basics, and no emergency savings. Run the debt affordability calculator or payoff calculator to test your numbers."
         }
       }
     ]
@@ -111,7 +113,7 @@
 <body class="debt-financial-health-hub-page debt-payoff-hub-page housing-hub-page">
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="logo" href="/index.html">Income Clarity</a>
+      <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
       <nav class="nav-links" aria-label="Primary">
         <a href="/hourly-to-salary-after-tax">Income</a>
         <a href="/credit-card-payoff-calculator" aria-current="page">Debt</a>
@@ -139,9 +141,7 @@
       <p class="housing-hub-hero-lead">If your debt payments eat <strong>over 35% of your gross pay</strong>, lenders mark you as risky. Over <strong>50%</strong> means stress. Here's how to check where you stand. And what to do about it.</p>
       <p class="state-salary-insight housing-hub-glance debt-financial-health-hub-glance" role="note"><strong>Healthy debt:</strong> You can pay on time. You cover the essentials. And you can bounce back from a setback. Not "you match the news number."</p>
       <div class="housing-hub-pills debt-financial-health-hub-pills" role="navigation" aria-label="Quick financial health topics">
-        <span class="housing-hub-pill debt-financial-health-hub-pill--dti debt-payoff-hub-pill--soon" aria-disabled="true">Debt-to-income ratio <em class="debt-payoff-hub-soon-label">(coming soon)</em></span>
-        <span class="housing-hub-pill debt-financial-health-hub-pill--afford debt-payoff-hub-pill--soon" aria-disabled="true">Can I afford my debt? <em class="debt-payoff-hub-soon-label">(coming soon)</em></span>
-        <span class="housing-hub-pill debt-financial-health-hub-pill--check debt-payoff-hub-pill--soon" aria-disabled="true">Debt health check <em class="debt-payoff-hub-soon-label">(coming soon)</em></span>
+        <a class="housing-hub-pill debt-financial-health-hub-pill--afford" href="/debt/financial-health/can-i-afford-my-debt">Can I afford my debt?</a>
       </div>
     </section>
 
@@ -157,15 +157,15 @@
 
     <section class="housing-hub-panel housing-hub-intro" aria-labelledby="debt-financial-health-intro-title">
       <h2 id="debt-financial-health-intro-title" class="housing-hub-sr-only">About this page</h2>
-      <p class="housing-hub-intro-text">This page is about <strong>stability</strong>. Does your debt fit your income, your rent, and your savings? Not whether you match some viral number. We pair the basic DTI math with normal benchmarks. Then add clear warning signs. And tools to run your own numbers.</p>
-      <p class="housing-hub-intro-text">Start with <a href="/debt/financial-health/how-much-credit-card-debt-is-normal?from=financial-health">how much credit card debt is normal</a>. Pair it with <a href="/debt/strategies/average-credit-card-debt-by-income?from=financial-health">average debt by income</a> for context. Use the <a href="/credit-card-payoff-calculator#payoff">payoff calculator</a> to test payment pressure. New guides we are writing show as <em>in progress</em>.</p>
+      <p class="housing-hub-intro-text">This page is about <strong>stability</strong>. Does your debt fit your income, your rent, and your savings? Not whether you match a viral headline. We pair basic DTI math with normal benchmarks, clear warning signs, and tools to run your own numbers.</p>
+      <p class="housing-hub-intro-text">Start with the <a href="/debt/financial-health/can-i-afford-my-debt">debt affordability calculator</a> for your DTI, debt health score, and monthly breathing room. Then read <a href="/debt/financial-health/how-much-credit-card-debt-is-normal?from=financial-health">how much credit card debt is normal</a> and <a href="/debt/strategies/average-credit-card-debt-by-income?from=financial-health">average debt by income</a> for context. Use the <a href="/credit-card-payoff-calculator#payoff">payoff calculator</a> to test payment pressure.</p>
     </section>
 
     <section id="dti-mini-calc" aria-labelledby="dti-mini-calc-title" class="housing-hub-panel">
       <header class="housing-hub-section-head">
         <p class="housing-hub-kicker">⚡ Quick check</p>
         <h2 id="dti-mini-calc-title">Test your debt-to-income in 10 seconds</h2>
-        <p class="housing-hub-section-lead">Type your monthly gross and your monthly debt. We'll show your DTI and the risk band.</p>
+        <p class="housing-hub-section-lead">Type your monthly gross pay and total debt payments. We show your DTI band in seconds. For a full debt health score and breathing room, use the <a href="/debt/financial-health/can-i-afford-my-debt">affordability calculator</a>.</p>
       </header>
       <form id="dti-mini-form" class="apr-mini-calc" onsubmit="return false;">
         <label class="apr-mini-calc__field">
@@ -213,29 +213,17 @@
         <p class="housing-hub-section-lead">Run your numbers, then read the context.</p>
       </header>
       <div class="housing-hub-tool-grid debt-payoff-hub-tool-grid">
-        <div class="housing-hub-tool-card debt-financial-health-hub-tool-card--dti debt-payoff-hub-tool-card--soon" aria-disabled="true">
-          <span class="housing-hub-card-badge" aria-hidden="true">📐</span>
-          <h3>Debt-to-income ratio calculator</h3>
-          <p>How lenders weigh your debt against your pay. In one number.</p>
-          <span class="debt-payoff-hub-soon-tag">In progress</span>
-        </div>
-        <div class="housing-hub-tool-card debt-financial-health-hub-tool-card--afford debt-payoff-hub-tool-card--soon" aria-disabled="true">
+        <a class="housing-hub-tool-card debt-financial-health-hub-tool-card--afford" href="/debt/financial-health/can-i-afford-my-debt">
           <span class="housing-hub-card-badge" aria-hidden="true">💳</span>
-          <h3>Can I afford my debt payments?</h3>
-          <p>Test payoff timing and the squeeze on your budget.</p>
-          <span class="debt-payoff-hub-soon-tag">Building it</span>
-        </div>
+          <h3>Can I afford my debt?</h3>
+          <p>Debt health score, DTI, monthly breathing room, and warning signs in one pass.</p>
+          <span class="housing-hub-card-cta">Run the calculator →</span>
+        </a>
         <div class="housing-hub-tool-card debt-payoff-hub-tool-card--soon" aria-disabled="true">
           <span class="housing-hub-card-badge" aria-hidden="true">📋</span>
           <h3>Monthly cash flow checker</h3>
           <p>Compare take-home pay against your bills.</p>
           <span class="debt-payoff-hub-soon-tag">Building it</span>
-        </div>
-        <div class="housing-hub-tool-card debt-payoff-hub-tool-card--soon" aria-disabled="true">
-          <span class="housing-hub-card-badge" aria-hidden="true">🩺</span>
-          <h3>Debt stress check</h3>
-          <p>Spot risky warning signs in one quick pass.</p>
-          <span class="debt-payoff-hub-soon-tag">In progress</span>
         </div>
       </div>
     </section>
@@ -526,7 +514,7 @@
         </details>
         <details class="housing-hub-accordion-item faq-item">
           <summary>How do I know if my debt is unhealthy?</summary>
-          <p>Read the <a href="#debt-health-warnings">warning signs above</a>. Drop your numbers into the <a href="/credit-card-payoff-calculator#payoff">payoff calculator</a>. Then compare your timeline against <a href="/debt/payoff-scenarios">payoff scenarios</a>.</p>
+          <p>Read the <a href="#debt-health-warnings">warning signs above</a>. Run the <a href="/debt/financial-health/can-i-afford-my-debt">debt affordability calculator</a> for a health score and breathing room. Then use the <a href="/credit-card-payoff-calculator#payoff">payoff calculator</a> and <a href="/debt/payoff-scenarios">payoff scenarios</a> to plan your timeline.</p>
         </details>
       </div>
     </section>

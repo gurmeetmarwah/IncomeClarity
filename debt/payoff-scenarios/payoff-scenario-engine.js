@@ -623,5 +623,12 @@
     renderResults();
   }
 
-  global.IncomeClarityPayoffScenario = { init: initPayoffScenario };
+  global.IncomeClarityPayoffScenario = {
+    init: initPayoffScenario,
+    payoffPlan,
+    formatDuration,
+    fmtUSD,
+    debtFreeDate,
+    DEBT_TYPES,
+  };
 })(typeof window !== "undefined" ? window : globalThis);
