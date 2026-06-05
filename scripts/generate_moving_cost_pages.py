@@ -436,8 +436,8 @@ def render_hub() -> str:
 </body>
 </html>"""
     return head(
-        "Moving Cost Calculator — Estimate Relocation Expenses | Income Clarity",
-        "Estimate moving costs, upfront cash, and monthly lifestyle changes before you relocate. Compare cities, stress-test affordability, and plan hidden fees.",
+        "How Much Does Moving Really Cost? Free Relocation Calculator (2026) | Income Clarity",
+        "Surprised by a move's price tag? Estimate movers, deposits, utilities, and how your monthly budget changes before you pack a box.",
         BASE,
         schema,
     ) + body
@@ -999,8 +999,8 @@ def render_state(state_slug: str, st: dict) -> str:
 {extra}
 </body></html>"""
     return head(
-        f"Moving Cost Calculator for {name} | Income Clarity",
-        f"Estimate moving costs, deposits, and monthly budget changes when relocating to {name}. Compare top cities and plan upfront cash.",
+        f"How Much Does It Cost to Move to {name}? Real Numbers (2026) | Income Clarity",
+        f"Planning a move to {name}? Estimate movers, deposits, utilities, and how your monthly budget changes — before you commit.",
         canonical,
     ) + body
 
@@ -1037,7 +1037,7 @@ def render_city(state_slug: str, city_slug: str, st: dict, c: dict, *, standalon
           </ol>
         </nav>
         <span class="label">Living · {name}</span>
-        <h1>Moving Cost Calculator for {name}</h1>
+        <h1>How much does it really cost to move to {name}?</h1>
         <p class="lead">Estimate mover fees, deposits, utilities, and rent changes for {name}. Typical one-bedroom rent is about {fmt(c["rent_1br"])}. Use the calculator to compare your current city against {name}.</p>
 {calc_block(default_from="texas/dallas", default_to=cid)}
       </div>

@@ -65,6 +65,7 @@ HEADER = """  <header class="site-header">
 
 FOOTER = """  <footer class="site-footer">
     <div class="container footer-layout">
+      <p class="footer-review" role="note"><time datetime="2026-06-01">Last reviewed: June 2026</time> · Reviewed by the <a href="/about">Income Clarity editorial team</a> · <a href="/editorial-policy">Editorial policy</a></p>
       <p class="footer-copy">© 2026 IncomeClarityLab</p>
     </div>
   </footer>"""
@@ -104,7 +105,7 @@ def head(title: str, desc: str, canonical: str, body_attrs: str = "") -> str:
   <link rel="apple-touch-icon" href="/images/logo.png">
 {URL_SCRIPT}
 </head>
-<body class="cs-page living-tool-page"{body_attrs}>"""
+<body class="cs-page living-tool-page"{body_attrs}{' data-cs-page="hub"' if canonical == HUB_PATH else ''}>"""
 
 
 def faq_html(faqs: list[tuple[str, str]]) -> str:
@@ -115,7 +116,9 @@ def faq_html(faqs: list[tuple[str, str]]) -> str:
     return "\n".join(blocks)
 
 
-def calc_form() -> str:
+def calc_form(
+    hint: str = "Pick a state, then tap calculate to see your number.",
+) -> str:
     return f"""
         <form class="cs-calc-shell" id="cs-calc-form">
           <div class="cs-calc-grid">
@@ -135,7 +138,21 @@ def calc_form() -> str:
               </select>
             </label>
           </div>
-          <button type="submit" class="cs-btn">Calculate My Comfortable Salary</button>
+          <button type="submit" class="cs-btn" id="cs-calc-btn">Calculate My Comfortable Salary</button>
+          <p class="cs-calc-hint" id="cs-calc-hint">{hint}</p>
+          <div id="cs-inline-results" class="cs-inline-results" hidden aria-live="polite" aria-atomic="true">
+            <p class="cs-inline-results__badge">Your estimate</p>
+            <h3 class="cs-inline-results__title">Comfortable salary in <span id="cs-inline-location">—</span></h3>
+            <p class="cs-inline-results__hero" id="cs-inline-hero" aria-label="Comfortable lifestyle salary">—</p>
+            <p class="cs-inline-results__context" id="cs-inline-context">Gross annual pay before tax</p>
+            <div class="cs-inline-tier-strip" aria-label="Salary by lifestyle tier">
+              <div class="cs-inline-tier"><span>Basic</span><strong id="cs-inline-tier-basic">—</strong></div>
+              <div class="cs-inline-tier cs-inline-tier--featured"><span>Comfortable</span><strong id="cs-inline-tier-comfortable">—</strong></div>
+              <div class="cs-inline-tier"><span>Comfortable+</span><strong id="cs-inline-tier-plus">—</strong></div>
+              <div class="cs-inline-tier"><span>Affluent</span><strong id="cs-inline-tier-affluent">—</strong></div>
+            </div>
+            <a class="cs-inline-results__link" href="#cs-breakdown">See monthly budget breakdown ↓</a>
+          </div>
         </form>
         <script type="application/json" id="cs-catalog">{catalog_json()}</script>"""
 
@@ -146,6 +163,8 @@ def lifestyle_estimate_section(
     location_name: str,
     household: str = "single",
     housing: str = "rent",
+    *,
+    pending: bool = False,
 ) -> str:
     """Server-rendered lifestyle tiers (matches hub calculator output)."""
     tiers = lifestyle_range(city, household, housing, state_slug)
@@ -184,7 +203,9 @@ def lifestyle_estimate_section(
     tier_min = fmt(tiers["basic"])
     tier_max = fmt(tiers["high_comfort"])
 
-    return f"""    <section class="cs-band cs-band--alt" id="cs-results" aria-labelledby="cs-results-title">
+    pending_cls = " cs-detailed-results" if pending else ""
+    pending_hidden = " hidden" if pending else ""
+    return f"""    <section class="cs-band cs-band--alt{pending_cls}" id="cs-results"{pending_hidden} aria-labelledby="cs-results-title">
       <div class="container container--wide">
         <header class="cs-band__head">
           <h2 id="cs-results-title">Comfortable salary estimate</h2>
@@ -196,7 +217,7 @@ def lifestyle_estimate_section(
         </div>
       </div>
     </section>
-    <section class="cs-band" id="cs-breakdown" aria-labelledby="cs-breakdown-title">
+    <section class="cs-band{' cs-detailed-results' if pending else ''}" id="cs-breakdown"{' hidden' if pending else ''} aria-labelledby="cs-breakdown-title">
       <div class="container container--wide">
         <header class="cs-band__head"><h2 id="cs-breakdown-title">Salary breakdown</h2><p>Where your monthly budget goes at the <strong>comfortable</strong> lifestyle tier ({fmt(comfort['annual'])} gross).</p></header>
         <div class="cs-mix-grid">{mix_rows}
@@ -206,8 +227,8 @@ def lifestyle_estimate_section(
 
 
 def results_sections() -> str:
-    """Hub default — pre-filled with Texas state median; JS updates on calculator change."""
-    return lifestyle_estimate_section(STATES["texas"], "texas", "Texas (example)")
+    """Hub default — hidden until user runs calculator; JS fills on submit."""
+    return lifestyle_estimate_section(STATES["texas"], "texas", "Texas (example)", pending=True)
 
 
 def calc_block() -> str:
@@ -412,8 +433,8 @@ def render_hub() -> str:
         ]
     )
     return f"""{head(
-        "What Salary Do You Need to Live Comfortably in the US? | Income Clarity",
-        "Estimate a comfortable income by location, family size, housing, and lifestyle. Browse salary targets by state and city.",
+        "Here's the Salary You Need to Feel Comfortable in Every State (2026) | Income Clarity",
+        "Curious what comfortable actually means where you live? See salary targets by state and city — rent, taxes, and lifestyle built in.",
         HUB_PATH,
     )}
 {HEADER}
@@ -422,8 +443,8 @@ def render_hub() -> str:
       <div class="container container--wide">
         <p class="label">Comfortable salary calculator</p>
 {breadcrumbs}
-        <h1>What salary do you need to live comfortably in the US?</h1>
-        <p class="lead">Estimate a comfortable income based on your location, family size, housing costs, and lifestyle goals.</p>
+        <h1>Here's the salary you need to feel comfortable in every state</h1>
+        <p class="lead">Curious what comfortable actually means where you live? Estimate income by location, family size, housing, and lifestyle goals.</p>
 {calc_form()}
       </div>
     </section>
@@ -641,8 +662,8 @@ def render_state(state_slug: str) -> str:
     drivers_block = state_drivers_section(state_slug, st, st_name, comfort, core, score)
 
     return f"""{head(
-        f"Comfortable Salary in {st_name} (2026) | Income Clarity",
-        f"Comfortable salary estimates for {st_name}. Housing costs, taxes, city breakdowns, and family income targets.",
+        f"Here's What a Comfortable Salary Looks Like in {st_name} (2026) | Income Clarity",
+        f"Curious what you'd need to earn in {st_name}? Browse city-by-city salary targets, median rent, taxes, and family income ranges.",
         canonical,
         body_attrs,
     )}
@@ -656,8 +677,8 @@ def render_state(state_slug: str) -> str:
             ("Comfortable salary (US)", HUB_PATH),
             (st_name, None),
         ])}
-        <h1>Comfortable salary in {st_name}</h1>
-        <p class="lead">State income targets based on local rent, taxes, and typical monthly costs.</p>
+        <h1>What salary do you need to feel comfortable in {st_name}?</h1>
+        <p class="lead">See state income targets based on local rent, taxes, and typical monthly costs.</p>
         <div class="cs-stat-row">
           <div class="cs-stat"><strong>{fmt(comfort)}</strong><span>Comfortable lifestyle · single renter</span></div>
           <div class="cs-stat"><strong>{fmt(tiers['basic'])}–{fmt(tiers['high_comfort'])}</strong><span>Basic to affluent range</span></div>
@@ -669,11 +690,11 @@ def render_state(state_slug: str) -> str:
           <div class="cs-city-chips">{state_city_chips(state_slug, st)}
           </div>
         </div>
-{calc_form()}
+{calc_form(hint="Adjust household or housing, then tap calculate to update your estimate.")}
       </div>
     </section>
 
-{lifestyle_estimate_section(st, state_slug, st_name)}
+{lifestyle_estimate_section(st, state_slug, st_name, pending=True)}
 
 {drivers_block}
 
@@ -772,8 +793,8 @@ def render_city(state_slug: str, city_slug: str) -> str:
     method_block = col_methodology_block(city, metrics, tax, city["name"])
 
     return f"""{head(
-        f"Comfortable Salary in {city['name']} (2026) | Income Clarity",
-        f"Comfortable salary for singles, couples, and families in {city['name']}. Housing, rent vs buy, and cost breakdown.",
+        f"What Salary Do You Need to Feel Comfortable in {city['name']}? (2026) | Income Clarity",
+        f"Wondering if your paycheck stretches in {city['name']}? See comfortable income targets for singles, couples, and families — with real rent, tax, and lifestyle math.",
         canonical,
         body_attrs,
     )}
@@ -788,7 +809,7 @@ def render_city(state_slug: str, city_slug: str) -> str:
             (st_name, salary_link(state_slug)),
             (city["name"], None),
         ])}
-        <h1>Comfortable salary in {city['name']}</h1>
+        <h1>What salary do you need to feel comfortable in {city['name']}?</h1>
         <p class="lead">Local income targets by household type, housing choice, and lifestyle tier.</p>
         <div class="cs-stat-row">
           <div class="cs-stat"><strong>{fmt(single)}</strong><span>Single · comfortable lifestyle</span></div>
@@ -796,11 +817,11 @@ def render_city(state_slug: str, city_slug: str) -> str:
           <div class="cs-stat"><strong>{fmt(couple)}</strong><span>Couple · comfortable</span></div>
           <div class="cs-stat"><strong>{fmt(family)}</strong><span>Family of 4 · comfortable</span></div>
         </div>
-{calc_form()}
+{calc_form(hint="Adjust household or housing, then tap calculate to update your estimate.")}
       </div>
     </section>
 
-{lifestyle_estimate_section(city, state_slug, city["name"])}
+{lifestyle_estimate_section(city, state_slug, city["name"], pending=True)}
 
     <section class="cs-band">
       <div class="container container--wide">

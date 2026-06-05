@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculator Methodology — Formulas &amp; Assumptions | Income Clarity</title>
+  <meta name="description" content="How Income Clarity calculators work: take-home pay, debt payoff, daily interest, rent vs buy, and 1099 vs W-2 formulas, defaults, and limits.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://www.incomeclaritylab.com/calculator-methodology">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="apple-touch-icon" href="/images/logo.png">
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path === "/index.html") cleanPath = "/";
+      else if (path.endsWith("/index.html")) cleanPath = path.slice(0, -10);
+      else if (path.endsWith(".html")) cleanPath = path.slice(0, -5);
+      if (cleanPath !== path) window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Calculator Methodology — Formulas & Assumptions",
+    "description": "Formulas and defaults behind Income Clarity US financial calculators.",
+    "url": "https://www.incomeclaritylab.com/calculator-methodology",
+    "dateModified": "2026-06-01",
+    "author": { "@type": "Organization", "name": "Income Clarity Editorial Team", "url": "https://www.incomeclaritylab.com/about" }
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/hourly-to-salary-after-tax">Income</a>
+        <a href="/credit-card-payoff-calculator">Debt</a>
+        <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content-page trust-page methodology-page">
+    <section class="methodology-hero">
+      <span class="label">Calculator standards</span>
+      <h1>Calculator Methodology</h1>
+      <p class="lead">The exact formulas, defaults, and limits behind every Income Clarity calculator. Rebuild any result in a spreadsheet.</p>
+      <p class="methodology-meta"><time datetime="2026-06-01">Last reviewed: June 2026</time> · <a href="/editorial-policy">Editorial policy</a> · <a href="/methodology">Full methodology &amp; sources</a></p>
+    </section>
+
+    <nav class="methodology-toc" aria-label="On this page">
+      <h2>Calculators</h2>
+      <ul>
+        <li><a href="#take-home">Take-home pay</a></li>
+        <li><a href="#payoff">Credit card &amp; debt payoff</a></li>
+        <li><a href="#daily-interest">Daily interest</a></li>
+        <li><a href="#debt-afford">Debt affordability</a></li>
+        <li><a href="#rent-buy">Rent vs buy</a></li>
+        <li><a href="#freelance">1099 vs W-2</a></li>
+        <li><a href="#affordability">Rent &amp; house affordability</a></li>
+        <li><a href="#limits">Limits</a></li>
+      </ul>
+    </nav>
+
+    <section id="take-home" class="methodology-section">
+      <h2>Take-home pay calculator</h2>
+      <p class="methodology-formula"><code>Take-home = Gross − Federal tax − FICA − State tax − SDI (where applicable)</code></p>
+      <ul class="methodology-list">
+        <li>Federal: IRS marginal brackets + standard deduction for filing status.</li>
+        <li>FICA: 6.2% Social Security to wage base, 1.45% Medicare, +0.9% additional Medicare above thresholds.</li>
+        <li>State: published brackets; zero for no-income-tax states.</li>
+        <li>Excludes: 401(k), health premiums, HSA — use your pay stub to compare.</li>
+      </ul>
+      <p><a href="/hourly-to-salary-after-tax">Open take-home calculator →</a></p>
+    </section>
+
+    <section id="payoff" class="methodology-section">
+      <h2>Credit card &amp; debt payoff calculators</h2>
+      <p class="methodology-formula"><code>Each month: interest = balance × (APR ÷ 12); principal = payment − interest</code></p>
+      <ul class="methodology-list">
+        <li>Monthly periodic rate from nominal APR.</li>
+        <li>Minimum payment illustrations often use max($25, 2% of balance).</li>
+        <li>Extra payments reduce months and total interest linearly in the model.</li>
+        <li>Snowball vs avalanche: multi-card simulations pay minimums first, then target order.</li>
+      </ul>
+      <p><a href="/credit-card-payoff-calculator#payoff">Payoff calculator</a> · <a href="/debt/debt-strategies/pay-off-debt-faster">Pay off debt faster</a></p>
+    </section>
+
+    <section id="daily-interest" class="methodology-section">
+      <h2>Daily interest calculator</h2>
+      <p class="methodology-formula"><code>Daily rate = APR ÷ 365 · Simple: interest = principal × daily rate × days</code></p>
+      <p class="methodology-formula"><code>Compound: ending = principal × (1 + APR÷365÷100)^days</code></p>
+      <ul class="methodology-list">
+        <li>Simple mode: interest does not reinvest.</li>
+        <li>Daily compounding: matches many US card and savings accrual patterns.</li>
+        <li>Does not model fees, grace periods, or issuer-specific day-count conventions.</li>
+      </ul>
+      <p><a href="/debt/interest-apr/daily-interest-calculator">Daily interest calculator →</a></p>
+    </section>
+
+    <section id="debt-afford" class="methodology-section">
+      <h2>Debt affordability &amp; DTI tools</h2>
+      <ul class="methodology-list">
+        <li><strong>DTI:</strong> total monthly debt payments ÷ gross monthly income.</li>
+        <li><strong>Take-home debt ratio:</strong> debt payments ÷ monthly take-home pay.</li>
+        <li><strong>Debt health score:</strong> weighted blend of DTI, housing+debt share, emergency months, and cash-flow flexibility.</li>
+        <li><strong>Breathing room:</strong> take-home minus housing, debt, and estimated necessities by household size.</li>
+      </ul>
+      <p><a href="/debt/financial-health/can-i-afford-my-debt">Can I afford my debt? →</a></p>
+    </section>
+
+    <section id="rent-buy" class="methodology-section">
+      <h2>Rent vs buy calculator</h2>
+      <p>Multi-year total cost comparison — not a net-worth projection.</p>
+      <ul class="methodology-list">
+        <li>Rent grows at user rate (default ~3.5%/yr).</li>
+        <li>Buy side: 30-year amortization, property tax, insurance, maintenance, appreciation, closing costs.</li>
+        <li>Opportunity cost on down payment at user-assumed return (default 5%).</li>
+      </ul>
+      <p><a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy calculator →</a></p>
+    </section>
+
+    <section id="freelance" class="methodology-section">
+      <h2>1099 vs W-2 calculator</h2>
+      <ul class="methodology-list">
+        <li>Self-employment tax 15.3% on 92.35% of net earnings (Schedule SE).</li>
+        <li>50% of SE tax deducted before income tax.</li>
+        <li>Health premium added to contractor costs; 401(k) match optional on W-2 side.</li>
+      </ul>
+      <p><a href="/1099-vs-w2-calculator#freelance-calculator">1099 vs W-2 calculator →</a></p>
+    </section>
+
+    <section id="affordability" class="methodology-section">
+      <h2>Rent &amp; house affordability</h2>
+      <ul class="methodology-list">
+        <li><strong>28% rule:</strong> housing ≤ 28% of gross income.</li>
+        <li><strong>28/36 rule:</strong> housing ≤ 28%, total debt ≤ 36% of gross.</li>
+        <li>Default mortgage rate near Freddie Mac PMMS; 20% down unless changed.</li>
+      </ul>
+      <p><a href="/living/housing/how-much-rent-can-i-afford">Rent affordability</a> · <a href="/living/housing/how-much-house-can-i-afford">House affordability</a></p>
+    </section>
+
+    <section id="limits" class="methodology-section">
+      <h2>What calculators do not replace</h2>
+      <ul class="methodology-list">
+        <li>Tax filing software or a CPA</li>
+        <li>Mortgage pre-approval from a licensed lender</li>
+        <li>Investment or legal advice</li>
+      </ul>
+      <p>Full data sources, editorial rules, and correction policy: <a href="/methodology">full methodology</a> and <a href="/editorial-policy">editorial policy</a>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-description">US-only tools to calculate your real income after tax, understand debt, and make smarter financial decisions.</p>
+      <div class="footer-grid" role="navigation" aria-label="Footer">
+        <section class="footer-column" aria-labelledby="footer-popular-calculators">
+          <h2 id="footer-popular-calculators">Popular Calculators</h2>
+          <a href="/hourly-to-salary-after-tax">Hourly to Salary After Tax</a>
+          <a href="/credit-card-payoff-calculator">Credit Card Payoff Calculator</a>
+          <a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a>
+          <a href="/1099-vs-w2-calculator">1099 vs W2 Calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-tools-category">
+          <h2 id="footer-tools-category">Tools by Category</h2>
+          <a href="/hourly-to-salary-after-tax">Income</a>
+          <a href="/credit-card-payoff-calculator">Debt</a>
+          <a href="/rent-vs-buy-calculator">Living</a>
+          <a href="/1099-vs-w2-calculator">Freelance</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-explore-more">
+          <h2 id="footer-explore-more">Explore More</h2>
+          <a href="/about">About</a>
+          <a href="/editorial-policy">Editorial policy</a>
+          <a href="/methodology">Methodology</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-company">
+          <h2 id="footer-company">Company</h2>
+          <a href="/about">About</a>
+          <a href="/editorial-policy">Editorial policy</a>
+          <a href="/calculator-methodology">Calculator methodology</a>
+          <a href="/methodology">Full methodology</a>
+          <a href="/contact">Contact</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms">Terms</a>
+        </section>
+      </div>
+      <p class="footer-review" role="note"><time datetime="2026-06-01">Last reviewed: June 2026</time> · Reviewed by the <a href="/about">Income Clarity editorial team</a> · <a href="/editorial-policy">Editorial policy</a></p>
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
+</body>
+</html>

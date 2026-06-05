@@ -16443,3 +16443,21 @@ a.lifestyle-hub-salary-card:hover {
   border-color: #0f6e9c;
   box-shadow: 0 4px 14px rgba(15, 110, 156, 0.12);
 }
+
+/* E-E-A-T footer review line */
+.footer-review {
+  margin: 0.75rem 0 0.35rem;
+  font-size: 0.82rem;
+  color: #627d98;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.footer-review a {
+  font-weight: 600;
+  color: #0a5578;
+}
+
+.trust-page .methodology-meta {
+  margin-bottom: 1.25rem;
+}

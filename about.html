@@ -7,7 +7,24 @@
   <meta name="description" content="Learn what IncomeClarityLab builds and how we design simple, practical calculators for everyday money decisions in the US.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://www.incomeclaritylab.com/about">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Income Clarity",
+    "description": "Who builds Income Clarity, our expertise in US personal finance calculators, and our editorial standards.",
+    "url": "https://www.incomeclaritylab.com/about",
+    "dateModified": "2026-06-01",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "IncomeClarityLab",
+      "url": "https://www.incomeclaritylab.com/",
+      "description": "US-only financial calculators for take-home pay, debt, housing, and freelance income.",
+      "knowsAbout": ["US personal income tax", "credit card debt payoff", "rent vs buy analysis", "1099 vs W-2 compensation"]
+    }
+  }
+  </script>
   <link rel="icon" type="image/png" href="/images/logo.png">
   <link rel="apple-touch-icon" href="/images/logo.png">
   <script>
@@ -43,8 +60,9 @@
   <main class="container content-page about-page">
     <section>
       <span class="label">Company</span>
-      <h1>About IncomeClarityLab</h1>
-      <p class="lead">IncomeClarityLab builds practical US-only financial calculators. We help you see real numbers before a big money choice. Built on public data. Reviewed on a schedule. Free. No account.</p>
+      <h1>About Income Clarity</h1>
+      <p class="methodology-meta"><time datetime="2026-06-01">Last reviewed: June 2026</time> · Reviewed by the Income Clarity editorial team · <a href="/editorial-policy">Editorial policy</a></p>
+      <p class="lead">Income Clarity builds practical US-only financial calculators. We help you see real numbers before a big money choice. Built on public data. Reviewed on a schedule. Free. No account.</p>
       <p>We do three things well. Simple screens. Honest math. Tools that load fast on a phone or laptop. Every calculator answers one of the four money questions most US homes face. What is my real take-home pay? How long will my debt take to clear? Should I rent or buy? Am I better off as a 1099 contractor or a W-2 employee?</p>
     </section>
 
@@ -60,9 +78,33 @@
     </section>
 
     <section aria-labelledby="who-builds">
-      <h2 id="who-builds">Who builds this</h2>
-      <p>IncomeClarityLab is a small team. We work on US personal finance tools full time. We read IRS publications. We read federal agency data. We write the words on each page ourselves. AI tools help with first drafts and code. But every public number is checked by a human against a primary source before it goes live.</p>
-      <p>We do not sell leads. We do not take affiliate fees from lenders or credit card issuers. The site runs on display ads only. Our <a href="/privacy-policy">privacy policy</a> spells that out.</p>
+      <h2 id="who-builds">Who built Income Clarity</h2>
+      <p>Income Clarity is run by a small US editorial team focused on personal finance tools — not generic content farms. We read IRS publications, Federal Reserve releases, and state revenue guidance. We write and review the words on each page ourselves.</p>
+      <p>AI may help with first drafts or code scaffolding. A human always checks facts, sources, and calculator output before publish. We do not sell leads or take affiliate fees from lenders or card issuers. See our <a href="/privacy-policy">privacy policy</a>.</p>
+    </section>
+
+    <section aria-labelledby="expertise">
+      <h2 id="expertise">Our expertise</h2>
+      <p>We specialize in four areas US households ask about most:</p>
+      <ul>
+        <li><strong>Take-home pay</strong> — federal brackets, FICA, state withholding, and hourly-to-salary conversion (<a href="/hourly-to-salary-after-tax">income tools</a>)</li>
+        <li><strong>Debt &amp; APR</strong> — payoff timelines, daily interest, DTI, and affordability (<a href="/credit-card-payoff-calculator">debt tools</a>)</li>
+        <li><strong>Housing &amp; living costs</strong> — rent vs buy, affordability rules, and metro benchmarks (<a href="/rent-vs-buy-calculator">living tools</a>)</li>
+        <li><strong>Freelance pay</strong> — 1099 vs W-2, self-employment tax, and benefits trade-offs (<a href="/1099-vs-w2-calculator">freelance tools</a>)</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="editorial-standards">
+      <h2 id="editorial-standards">Editorial standards</h2>
+      <p>Every page follows the same trust rules:</p>
+      <ol>
+        <li><strong>Primary sources only</strong> for core numbers — IRS, SSA, Fed, BLS, CFPB, Freddie Mac.</li>
+        <li><strong>Formulas documented</strong> in our <a href="/calculator-methodology">calculator methodology</a> and <a href="/methodology">full methodology</a>.</li>
+        <li><strong>Plain language</strong> — one user question per page, short sentences.</li>
+        <li><strong>Dated reviews</strong> — every page shows <time datetime="2026-06-01">Last reviewed: June 2026</time> in the footer.</li>
+        <li><strong>Corrections within 7 days</strong> when a reader flags a confirmed error.</li>
+      </ol>
+      <p>Full policy: <a href="/editorial-policy">editorial policy</a>.</p>
     </section>
 
     <section aria-labelledby="not-advice">
@@ -100,7 +142,9 @@
     <section aria-labelledby="learn-more">
       <h2 id="learn-more">Read more</h2>
       <ul>
-        <li><a href="/methodology">Methodology: how we calculate take-home, payoff, rent vs buy, and 1099 vs W-2</a></li>
+        <li><a href="/editorial-policy">Editorial policy</a></li>
+        <li><a href="/calculator-methodology">Calculator methodology</a></li>
+        <li><a href="/methodology">Full methodology &amp; data sources</a></li>
         <li><a href="/privacy-policy">Privacy policy</a></li>
         <li><a href="/terms">Terms</a></li>
         <li><a href="/contact">Contact</a></li>
@@ -134,13 +178,16 @@
         </section>
         <section class="footer-column" aria-labelledby="footer-company">
           <h2 id="footer-company">Company</h2>
-          <a href="about.html">About</a>
-          <a href="/methodology">Methodology</a>
-          <a href="contact.html">Contact</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms.html">Terms</a>
+          <a href="/about">About</a>
+          <a href="/editorial-policy">Editorial policy</a>
+          <a href="/calculator-methodology">Calculator methodology</a>
+          <a href="/methodology">Full methodology</a>
+          <a href="/contact">Contact</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms">Terms</a>
         </section>
       </div>
+      <p class="footer-review" role="note"><time datetime="2026-06-01">Last reviewed: June 2026</time> · Reviewed by the <a href="/about">Income Clarity editorial team</a> · <a href="/editorial-policy">Editorial policy</a></p>
       <p class="footer-copy">© 2026 IncomeClarityLab</p>
     </div>
   </footer>

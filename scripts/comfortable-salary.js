@@ -12,12 +12,12 @@
   };
 
   var HOUSEHOLD = {
-    single: { coreMult: 1, grossShare: 0.43, childcare: 0 },
-    couple: { coreMult: 1.38, grossShare: 0.45, childcare: 0 },
-    family4: { coreMult: 1.35, grossShare: 0.48, childcare: 1400 }
+    single: { coreMult: 1, grossShare: 0.43, childcare: 0, label: 'single' },
+    couple: { coreMult: 1.38, grossShare: 0.45, childcare: 0, label: 'couple' },
+    family4: { coreMult: 1.35, grossShare: 0.48, childcare: 1400, label: 'family of 4' }
   };
 
-  var HOUSING = { rent: 1, own: 1.16 };
+  var HOUSING = { rent: { mult: 1, label: 'rents' }, own: { mult: 1.16, label: 'owns' } };
 
   function fmt(n) {
     if (n >= 1000000) return '$' + (n / 1000000).toFixed(1).replace('.0', '') + 'M+';
@@ -61,7 +61,7 @@
     var col = (city.colIndex || 100) / 100;
     var core = coreMonthly(city);
 
-    var monthlyCore = core * hh.coreMult * ho * life.mult;
+    var monthlyCore = core * hh.coreMult * ho.mult * life.mult;
     var childcare = hh.childcare * col * (household === 'family4' ? 1 : 0);
     if (household === 'family4' && (lifestyleKey === 'comfortable_plus' || lifestyleKey === 'high_comfort')) {
       childcare *= 1.15;
@@ -71,7 +71,7 @@
     var monthly = essentials + savings;
     var annual = roundSalary((monthly * 12) / hh.grossShare);
 
-    var housingAmt = city.rent * hh.coreMult * ho * life.mult + city.utilities * 0.85;
+    var housingAmt = city.rent * hh.coreMult * ho.mult * life.mult + city.utilities * 0.85;
     var foodAmt = city.groceries * hh.coreMult * life.mult * 1.1;
     var transportAmt = city.transport * hh.coreMult * life.mult;
     var lifestyleAmt = Math.max(280, 420 * col * life.mult * (0.6 + hh.coreMult * 0.15));
@@ -109,6 +109,11 @@
 
     var catalog = readCatalog();
     var map = catalogMap(catalog);
+    var page = document.body && document.body.getAttribute('data-cs-page');
+    var isHub = page === 'hub';
+    var hasCalculated = false;
+    var inlineResults = el('cs-inline-results');
+    var calcHint = el('cs-calc-hint');
 
     function fillSelects() {
       var stateSel = el('cs-state');
@@ -127,7 +132,7 @@
       stateSel.innerHTML = stateHtml;
 
       function fillCities(stateSlug) {
-        var html = '<option value="">Select city (optional)</option>';
+        var html = '<option value="">State average</option>';
         catalog.forEach(function (c) {
           if (c.id.indexOf('/') === -1 || c.state !== stateSlug) return;
           html += '<option value="' + c.id + '">' + c.name + '</option>';
@@ -137,7 +142,12 @@
 
       stateSel.addEventListener('change', function () {
         fillCities(stateSel.value);
-        run();
+        if (calcHint && isHub && !hasCalculated) {
+          calcHint.textContent = stateSel.value
+            ? 'Tap calculate to see salary targets for ' + states[stateSel.value] + '.'
+            : 'Pick a state, then tap calculate to see your number.';
+        }
+        if (!isHub || hasCalculated) run({ scroll: false });
       });
 
       if (options.defaultState && states[options.defaultState]) {
@@ -153,22 +163,32 @@
       }
     }
 
-    function getCity() {
+    function getCity(requireState) {
       var cityId = el('cs-city') && el('cs-city').value;
       var stateId = el('cs-state') && el('cs-state').value;
+      if (requireState && !stateId) return null;
       if (cityId && map[cityId]) return map[cityId];
       if (stateId && map[stateId]) return map[stateId];
+      if (requireState) return null;
       return catalog[0] || null;
     }
 
-    function readInputs() {
-      var city = getCity();
+    function readInputs(requireState) {
+      var city = getCity(requireState);
       if (!city) return null;
       return {
         city: city,
         household: el('cs-household') ? el('cs-household').value : 'single',
         housing: el('cs-housing') ? el('cs-housing').value : 'rent'
       };
+    }
+
+    function householdLabel(key) {
+      return (HOUSEHOLD[key] || HOUSEHOLD.single).label;
+    }
+
+    function housingLabel(key) {
+      return (HOUSING[key] || HOUSING.rent).label;
     }
 
     function renderBreakdown(breakdown) {
@@ -192,7 +212,59 @@
       });
     }
 
-    function renderResults(inp) {
+    function revealDetailedResults() {
+      ['cs-results', 'cs-breakdown'].forEach(function (id) {
+        var node = el(id);
+        if (node) node.hidden = false;
+      });
+    }
+
+    function renderInlineResults(inp, range) {
+      if (!inlineResults) return;
+      var loc = inp.city.name + (inp.city.stateName ? ', ' + inp.city.stateName : '');
+      var hero = el('cs-inline-hero');
+      var locNode = el('cs-inline-location');
+      var ctx = el('cs-inline-context');
+      if (hero) hero.textContent = fmt(range.comfortable);
+      if (locNode) locNode.textContent = loc;
+      if (ctx) {
+        ctx.textContent =
+          'Gross annual pay for a ' + householdLabel(inp.household) + ' who ' + housingLabel(inp.housing);
+      }
+      var inlineMap = {
+        basic: 'cs-inline-tier-basic',
+        comfortable: 'cs-inline-tier-comfortable',
+        comfortable_plus: 'cs-inline-tier-plus',
+        high_comfort: 'cs-inline-tier-affluent'
+      };
+      Object.keys(inlineMap).forEach(function (k) {
+        var node = el(inlineMap[k]);
+        if (node) node.textContent = fmt(range[k]);
+      });
+    }
+
+    function pulseInlineResults() {
+      if (!inlineResults) return;
+      inlineResults.classList.remove('cs-inline-results--pulse');
+      void inlineResults.offsetWidth;
+      inlineResults.classList.add('cs-inline-results--pulse');
+    }
+
+    function showInlineResults(opts) {
+      opts = opts || {};
+      if (!inlineResults) return;
+      inlineResults.hidden = false;
+      inlineResults.classList.add('cs-inline-results--visible');
+      if (calcHint) calcHint.hidden = true;
+      revealDetailedResults();
+      if (opts.scroll !== false) {
+        inlineResults.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      if (opts.pulse) pulseInlineResults();
+    }
+
+    function renderResults(inp, opts) {
+      opts = opts || {};
       var range = lifestyleRange(inp.city, inp.household, inp.housing);
       var tiers = ['basic', 'comfortable', 'comfortable_plus', 'high_comfort'];
       tiers.forEach(function (k) {
@@ -203,30 +275,65 @@
       renderBreakdown(active.breakdown);
       var loc = el('cs-result-location');
       if (loc) loc.textContent = inp.city.name + (inp.city.stateName ? ', ' + inp.city.stateName : '');
+
+      var resultsHead = document.querySelector('#cs-results .cs-band__head p');
+      if (resultsHead) {
+        resultsHead.innerHTML =
+          'Targets for <span id="cs-result-location">' + loc.textContent + '</span>. Each figure is gross annual pay before tax for a <strong>' +
+          householdLabel(inp.household) + '</strong> who <strong>' + housingLabel(inp.housing) + '</strong>.';
+      }
+
+      var tierCtx = document.querySelector('.cs-tier-context');
+      if (tierCtx) {
+        tierCtx.textContent =
+          'Lifestyle tiers span ' + fmt(range.basic) + ' (basic) to ' + fmt(range.high_comfort) +
+          ' (affluent). The highlighted tier is our default comfortable lifestyle with room to save.';
+      }
+
+      renderInlineResults(inp, range);
+      showInlineResults(opts);
     }
 
-    function run() {
-      var inp = readInputs();
-      if (!inp) return;
-      renderResults(inp);
+    function run(opts) {
+      opts = opts || {};
+      var inp = readInputs(isHub && !hasCalculated ? false : !isHub);
+      if (!inp) return false;
+      renderResults(inp, opts);
+      return true;
     }
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      run();
+      var inp = readInputs(true);
+      if (!inp) {
+        if (calcHint) {
+          calcHint.textContent = 'Please select a state first.';
+          calcHint.classList.add('cs-calc-hint--error');
+        }
+        el('cs-state') && el('cs-state').focus();
+        return;
+      }
+      if (calcHint) calcHint.classList.remove('cs-calc-hint--error');
+      hasCalculated = true;
+      renderResults(inp, { scroll: true, pulse: true });
     });
 
     ['cs-city', 'cs-household', 'cs-housing'].forEach(function (id) {
       var node = el(id);
       if (!node) return;
-      node.addEventListener('change', run);
-      node.addEventListener('input', run);
+      node.addEventListener('change', function () {
+        if (isHub && !hasCalculated) return;
+        run({ scroll: false, pulse: true });
+      });
     });
 
     fillSelects();
-    if (options.runOnLoad !== false) run();
 
-    // What-if buttons
+    if (!isHub && (options.runOnLoad !== false || options.defaultState || options.defaultCity)) {
+      hasCalculated = true;
+      run({ scroll: false, pulse: false });
+    }
+
     document.querySelectorAll('[data-cs-whatif]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var action = btn.getAttribute('data-cs-whatif');
@@ -239,10 +346,11 @@
         } else if (action === 'own' && el('cs-housing')) {
           el('cs-housing').value = 'own';
         }
-        run();
+        hasCalculated = true;
+        run({ scroll: true, pulse: true });
         var out = el('cs-whatif-result');
         if (out) {
-          var inp = readInputs();
+          var inp = readInputs(false);
           if (inp) {
             var r = lifestyleRange(inp.city, inp.household, inp.housing);
             if (action === 'debt') {
@@ -265,6 +373,8 @@
     } else if (page === 'city') {
       opts.defaultState = document.body.getAttribute('data-cs-state') || '';
       opts.defaultCity = document.body.getAttribute('data-cs-city') || '';
+    } else if (page === 'hub') {
+      opts.runOnLoad = false;
     }
     bindForm(opts);
   }

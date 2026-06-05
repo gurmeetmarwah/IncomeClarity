@@ -133,8 +133,8 @@ def render_hub_page(
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cost of Living by City — Compare U.S. Cities (2026) | Income Clarity</title>
-  <meta name="description" content="Compare the real cost of living across U.S. cities. Housing, groceries, transportation, taxes, and salary needs before you move.">
+  <title>Which US City Is Cheapest to Live In? Compare Rent, Taxes &amp; Salary (2026) | Income Clarity</title>
+  <meta name="description" content="Thinking about a move? Compare rent, groceries, taxes, and the salary you'd need in 40+ US cities — before you sign a lease or accept an offer.">
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/cost-of-living-by-city">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/styles-living-system.css">
@@ -155,8 +155,8 @@ def render_hub_page(
           </ol>
         </nav>
         <span class="label">Cost of living · U.S. cities</span>
-        <h1>Cost of Living by U.S. City</h1>
-        <p class="subhead">See rent, food, bills, and pay targets before you move.</p>
+        <h1>Which US city is cheapest to live in?</h1>
+        <p class="subhead">Compare rent, food, bills, and pay targets before you move.</p>
         <div class="col-hero-search">
           <label for="col-search-input">Search city or state</label>
           <div class="col-hero-search__row col-hero-search__row--lookup">

@@ -249,6 +249,12 @@
 /hourly-to-salary-after-tax/       /hourly-to-salary-after-tax.html        301!
 /1099-vs-w2-calculator             /1099-vs-w2-calculator.html             200
 /about                             /about.html                             200
+/editorial-policy.html             /editorial-policy                       301!
+/editorial-policy/                 /editorial-policy                       301!
+/editorial-policy                  /editorial-policy/index.html            200
+/calculator-methodology.html       /calculator-methodology                 301!
+/calculator-methodology/           /calculator-methodology                 301!
+/calculator-methodology            /calculator-methodology/index.html      200
 /contact                           /contact.html                           200
 /privacy-policy                    /privacy-policy.html                    200
 /terms                             /terms.html                             200

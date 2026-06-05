@@ -359,7 +359,7 @@ def state_page(slug, data):
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>How Much House Can I Afford in {data['name']}? Calculator &amp; City Guide | Income Clarity</title>
+  <title>Can You Afford a Home in {data['name']}? Here's What Your Income Buys (2026) | Income Clarity</title>
   <meta name="description" content="How much house can you afford in {data['name']}? Median price {fmt(data['median_price'])}, local tax and insurance, salary needed, and city breakdowns with calculator.">
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/how-much-house-can-i-afford/{slug}">
   <link rel="stylesheet" href="/styles.css">
@@ -511,7 +511,7 @@ def city_page(state_slug, state_data, city_slug, city):
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>How Much House Can I Afford in {city['name']}, {state_data['name']}? | Income Clarity</title>
+  <title>Can You Afford a Home in {city['name']}? What {state_data['name']} Buyers Actually Need (2026) | Income Clarity</title>
   <meta name="description" content="Afford a home in {city['name']}? Median price {fmt(city['median_price'])}, income near {fmt(city['median_income'])}, local tax, insurance, and payment calculator.">
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/how-much-house-can-i-afford/{state_slug}/{city_slug}">
   <link rel="stylesheet" href="/styles.css">

@@ -499,7 +499,7 @@ _patch_salary_links()
 
 COMPARISONS = {
     "nyc-vs-chicago": {
-        "title": "NYC vs Chicago Cost of Living",
+        "title": "NYC vs Chicago: Which City Costs Less to Live In?",
         "title_short": "NYC vs Chicago",
         "city_a": "New York City",
         "city_b": "Chicago",
@@ -524,7 +524,7 @@ COMPARISONS = {
         ],
     },
     "austin-vs-denver": {
-        "title": "Austin vs Denver Cost of Living",
+        "title": "Austin vs Denver: Which City Costs Less to Live In?",
         "title_short": "Austin vs Denver",
         "city_a": "Austin",
         "city_b": "Denver",
@@ -549,7 +549,7 @@ COMPARISONS = {
         ],
     },
     "dallas-vs-atlanta": {
-        "title": "Dallas vs Atlanta Cost of Living",
+        "title": "Dallas vs Atlanta: Which City Costs Less to Live In?",
         "title_short": "Dallas vs Atlanta",
         "city_a": "Dallas",
         "city_b": "Atlanta",
@@ -574,7 +574,7 @@ COMPARISONS = {
         ],
     },
     "seattle-vs-phoenix": {
-        "title": "Seattle vs Phoenix Cost of Living",
+        "title": "Seattle vs Phoenix: Which City Costs Less to Live In?",
         "title_short": "Seattle vs Phoenix",
         "city_a": "Seattle",
         "city_b": "Phoenix",
@@ -1341,8 +1341,8 @@ def city_page(
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{city['name']} Cost of Living: Rent, Salary &amp; Budget (2026) | Income Clarity</title>
-  <meta name="description" content="Cost of living in {city['name']}: rent near {fmt(city['rent_1br'])}/mo, groceries, transport, salary near {fmt(city['salary_comfort'])}, and lifestyle score.">
+  <title>{city['name']} Cost of Living: Can You Afford to Live There? (2026) | Income Clarity</title>
+  <meta name="description" content="Thinking about {city['name']}? See typical rent near {fmt(city['rent_1br'])}/mo, daily expenses, taxes, and the salary you'd need to live comfortably.">
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/cost-of-living-by-city/{page_path}">
   <link rel="stylesheet" href="/styles.css">
 {STYLES_COL}
@@ -1545,8 +1545,8 @@ def state_page(slug: str, data: dict) -> str:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{data['name']} Cost of Living by City | Income Clarity</title>
-  <meta name="description" content="Compare cost of living in {data['name']}: average rent, groceries, taxes, utilities, and top cities ranked.">
+  <title>{data['name']} Cost of Living: Which Cities Stretch Your Pay the Furthest? (2026) | Income Clarity</title>
+  <meta name="description" content="Not every {data['name']} city costs the same. Compare rent, groceries, taxes, and salary needs across metros before you move or negotiate an offer.">
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/cost-of-living-by-city/{slug}">
   <link rel="stylesheet" href="/styles.css">
 {STYLES_COL}
