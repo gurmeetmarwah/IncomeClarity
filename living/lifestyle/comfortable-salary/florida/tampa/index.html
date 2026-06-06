@@ -55,95 +55,8 @@
           <div class="cs-stat"><strong>$105,000</strong><span>Couple · comfortable</span></div>
           <div class="cs-stat"><strong>$140,000</strong><span>Family of 4 · comfortable</span></div>
         </div>
-
-        <form class="cs-calc-shell" id="cs-calc-form">
-          <div class="cs-calc-grid">
-            <label class="cs-field"><span>State</span><select id="cs-state" required></select></label>
-            <label class="cs-field"><span>City</span><select id="cs-city"></select></label>
-            <label class="cs-field"><span>Household</span>
-              <select id="cs-household">
-                <option value="single">Single</option>
-                <option value="couple">Couple</option>
-                <option value="family4">Family of 4</option>
-              </select>
-            </label>
-            <label class="cs-field"><span>Housing</span>
-              <select id="cs-housing">
-                <option value="rent">Rent</option>
-                <option value="own">Own</option>
-              </select>
-            </label>
-          </div>
-          <button type="submit" class="cs-btn" id="cs-calc-btn">Calculate My Comfortable Salary</button>
-          <p class="cs-calc-hint" id="cs-calc-hint">Adjust household or housing, then tap calculate to update your estimate.</p>
-          <div id="cs-inline-results" class="cs-inline-results" hidden aria-live="polite" aria-atomic="true">
-            <p class="cs-inline-results__badge">Your estimate</p>
-            <h3 class="cs-inline-results__title">Comfortable salary in <span id="cs-inline-location">—</span></h3>
-            <p class="cs-inline-results__hero" id="cs-inline-hero" aria-label="Comfortable lifestyle salary">—</p>
-            <p class="cs-inline-results__context" id="cs-inline-context">Gross annual pay before tax</p>
-            <div class="cs-inline-tier-strip" aria-label="Salary by lifestyle tier">
-              <div class="cs-inline-tier"><span>Basic</span><strong id="cs-inline-tier-basic">—</strong></div>
-              <div class="cs-inline-tier cs-inline-tier--featured"><span>Comfortable</span><strong id="cs-inline-tier-comfortable">—</strong></div>
-              <div class="cs-inline-tier"><span>Comfortable+</span><strong id="cs-inline-tier-plus">—</strong></div>
-              <div class="cs-inline-tier"><span>Affluent</span><strong id="cs-inline-tier-affluent">—</strong></div>
-            </div>
-            <a class="cs-inline-results__link" href="#cs-breakdown">See monthly budget breakdown ↓</a>
-          </div>
-        </form>
-        <script type="application/json" id="cs-catalog">[{"id":"arizona","name":"Arizona","state":"arizona","stateName":"Arizona","colIndex":105,"rent":1650,"groceries":390,"utilities":210,"transport":340,"salaryComfort":80000,"familySalary":140000,"affordScore":74,"takeHome":0.72,"path":"/living/lifestyle/comfortable-salary/arizona"},{"id":"arizona/phoenix","name":"Phoenix","state":"arizona","stateName":"Arizona","colIndex":105,"rent":1650,"groceries":390,"utilities":210,"transport":340,"salaryComfort":80000,"familySalary":140000,"affordScore":74,"takeHome":0.72,"path":"/living/lifestyle/comfortable-salary/arizona/phoenix"},{"id":"california","name":"California","state":"california","stateName":"California","colIndex":142,"rent":2400,"groceries":480,"utilities":220,"transport":380,"salaryComfort":110000,"familySalary":185000,"affordScore":67,"takeHome":0.68,"path":"/living/lifestyle/comfortable-salary/california"},{"id":"california/los-angeles","name":"Los Angeles","state":"california","stateName":"California","colIndex":152,"rent":2600,"groceries":520,"utilities":210,"transport":420,"salaryComfort":115000,"familySalary":200000,"affordScore":67,"takeHome":0.68,"path":"/living/lifestyle/comfortable-salary/california/los-angeles"},{"id":"california/san-diego","name":"San Diego","state":"california","stateName":"California","colIndex":148,"rent":2550,"groceries":500,"utilities":215,"transport":400,"salaryComfort":115000,"familySalary":195000,"affordScore":66,"takeHome":0.68,"path":"/living/lifestyle/comfortable-salary/california/san-diego"},{"id":"california/san-francisco","name":"San Francisco","state":"california","stateName":"California","colIndex":168,"rent":3200,"groceries":540,"utilities":200,"transport":350,"salaryComfort":135000,"familySalary":230000,"affordScore":61,"takeHome":0.68,"path":"/living/lifestyle/comfortable-salary/california/san-francisco"},{"id":"colorado","name":"Colorado","state":"colorado","stateName":"Colorado","colIndex":118,"rent":1950,"groceries":430,"utilities":185,"transport":340,"salaryComfort":90000,"familySalary":155000,"affordScore":70,"takeHome":0.71,"path":"/living/lifestyle/comfortable-salary/colorado"},{"id":"colorado/denver","name":"Denver","state":"colorado","stateName":"Colorado","colIndex":118,"rent":1950,"groceries":430,"utilities":185,"transport":340,"salaryComfort":90000,"familySalary":155000,"affordScore":70,"takeHome":0.71,"path":"/living/lifestyle/comfortable-salary/colorado/denver"},{"id":"florida","name":"Florida","state":"florida","stateName":"Florida","colIndex":104,"rent":1750,"groceries":400,"utilities":210,"transport":320,"salaryComfort":85000,"familySalary":140000,"affordScore":77,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/florida"},{"id":"florida/miami","name":"Miami","state":"florida","stateName":"Florida","colIndex":118,"rent":2200,"groceries":430,"utilities":225,"transport":340,"salaryComfort":100000,"familySalary":165000,"affordScore":74,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/florida/miami"},{"id":"florida/orlando","name":"Orlando","state":"florida","stateName":"Florida","colIndex":105,"rent":1600,"groceries":390,"utilities":200,"transport":300,"salaryComfort":80000,"familySalary":135000,"affordScore":76,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/florida/orlando"},{"id":"florida/tampa","name":"Tampa","state":"florida","stateName":"Florida","colIndex":106,"rent":1650,"groceries":395,"utilities":205,"transport":310,"salaryComfort":80000,"familySalary":140000,"affordScore":75,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/florida/tampa"},{"id":"georgia/atlanta","name":"Atlanta","state":"georgia","stateName":"Georgia","colIndex":104,"rent":1650,"groceries":400,"utilities":195,"transport":350,"salaryComfort":80000,"familySalary":140000,"affordScore":73,"takeHome":0.72,"path":"/living/lifestyle/comfortable-salary/georgia/atlanta"},{"id":"georgia","name":"Georgia","state":"georgia","stateName":"Georgia","colIndex":104,"rent":1650,"groceries":400,"utilities":195,"transport":350,"salaryComfort":80000,"familySalary":140000,"affordScore":73,"takeHome":0.72,"path":"/living/lifestyle/comfortable-salary/georgia"},{"id":"illinois/chicago","name":"Chicago","state":"illinois","stateName":"Illinois","colIndex":112,"rent":1850,"groceries":420,"utilities":195,"transport":310,"salaryComfort":85000,"familySalary":150000,"affordScore":72,"takeHome":0.71,"path":"/living/lifestyle/comfortable-salary/illinois/chicago"},{"id":"illinois","name":"Illinois","state":"illinois","stateName":"Illinois","colIndex":112,"rent":1850,"groceries":420,"utilities":195,"transport":310,"salaryComfort":85000,"familySalary":150000,"affordScore":72,"takeHome":0.71,"path":"/living/lifestyle/comfortable-salary/illinois"},{"id":"new-york","name":"New York","state":"new-york","stateName":"New York","colIndex":135,"rent":2400,"groceries":500,"utilities":225,"transport":290,"salaryComfort":105000,"familySalary":180000,"affordScore":65,"takeHome":0.67,"path":"/living/lifestyle/comfortable-salary/new-york"},{"id":"new-york/new-york-city","name":"New York City","state":"new-york","stateName":"New York","colIndex":158,"rent":3400,"groceries":550,"utilities":230,"transport":280,"salaryComfort":140000,"familySalary":230000,"affordScore":65,"takeHome":0.67,"path":"/living/lifestyle/comfortable-salary/new-york/new-york-city"},{"id":"texas/austin","name":"Austin","state":"texas","stateName":"Texas","colIndex":108,"rent":1750,"groceries":400,"utilities":195,"transport":370,"salaryComfort":85000,"familySalary":145000,"affordScore":73,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/texas/austin"},{"id":"texas/dallas","name":"Dallas","state":"texas","stateName":"Texas","colIndex":102,"rent":1550,"groceries":390,"utilities":200,"transport":360,"salaryComfort":80000,"familySalary":135000,"affordScore":75,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/texas/dallas"},{"id":"texas/houston","name":"Houston","state":"texas","stateName":"Texas","colIndex":96,"rent":1400,"groceries":370,"utilities":210,"transport":350,"salaryComfort":75000,"familySalary":125000,"affordScore":76,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/texas/houston"},{"id":"texas","name":"Texas","state":"texas","stateName":"Texas","colIndex":98,"rent":1450,"groceries":380,"utilities":195,"transport":340,"salaryComfort":75000,"familySalary":130000,"affordScore":75,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/texas"},{"id":"washington/seattle","name":"Seattle","state":"washington","stateName":"Washington","colIndex":135,"rent":2200,"groceries":480,"utilities":190,"transport":320,"salaryComfort":100000,"familySalary":175000,"affordScore":68,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/washington/seattle"},{"id":"washington","name":"Washington","state":"washington","stateName":"Washington","colIndex":135,"rent":2200,"groceries":480,"utilities":190,"transport":320,"salaryComfort":100000,"familySalary":175000,"affordScore":68,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/washington"}]</script>
-      </div>
-    </section>
-
-    <section class="cs-band cs-band--alt cs-detailed-results" id="cs-results" hidden aria-labelledby="cs-results-title">
-      <div class="container container--wide">
-        <header class="cs-band__head">
-          <h2 id="cs-results-title">Comfortable salary estimate</h2>
-          <p>Targets for <span id="cs-result-location">Tampa</span>. Each figure is gross annual pay before tax for a <strong>single</strong> who <strong>rents</strong>.</p>
-        </header>
-        <p class="cs-tier-context">Lifestyle tiers span $55,000 (basic) to $150,000 (affluent). The highlighted tier is our default comfortable lifestyle with room to save.</p>
-        <div class="cs-tier-grid">
-            <article class="cs-tier-card"><strong>Basic Lifestyle</strong><span id="cs-tier-basic">$55,000</span></article>
-            <article class="cs-tier-card cs-tier-card--featured"><strong>Comfortable Lifestyle</strong><span id="cs-tier-comfortable">$80,000</span></article>
-            <article class="cs-tier-card"><strong>Comfortable Plus</strong><span id="cs-tier-comfortable_plus">$110,000</span></article>
-            <article class="cs-tier-card"><strong>Affluent Lifestyle</strong><span id="cs-tier-high_comfort">$150,000</span></article>
-        </div>
-      </div>
-    </section>
-    <section class="cs-band cs-detailed-results" id="cs-breakdown" hidden aria-labelledby="cs-breakdown-title">
-      <div class="container container--wide">
-        <header class="cs-band__head"><h2 id="cs-breakdown-title">Salary breakdown</h2><p>Where your monthly budget goes at the <strong>comfortable</strong> lifestyle tier ($80,000 gross).</p></header>
-        <div class="cs-mix-grid">            <div class="cs-mix-row">
-              <span>Housing</span>
-              <div class="cs-mix-bar"><span id="cs-mix-housing-bar" style="width:57%"></span></div>
-              <span id="cs-mix-housing-pct">57%</span>
-            </div>
-            <div class="cs-mix-row">
-              <span>Transportation</span>
-              <div class="cs-mix-bar"><span id="cs-mix-transportation-bar" style="width:10%"></span></div>
-              <span id="cs-mix-transportation-pct">10%</span>
-            </div>
-            <div class="cs-mix-row">
-              <span>Food</span>
-              <div class="cs-mix-bar"><span id="cs-mix-food-bar" style="width:14%"></span></div>
-              <span id="cs-mix-food-pct">14%</span>
-            </div>
-            <div class="cs-mix-row">
-              <span>Childcare</span>
-              <div class="cs-mix-bar"><span id="cs-mix-childcare-bar" style="width:0%"></span></div>
-              <span id="cs-mix-childcare-pct">0%</span>
-            </div>
-            <div class="cs-mix-row">
-              <span>Savings</span>
-              <div class="cs-mix-bar"><span id="cs-mix-savings-bar" style="width:10%"></span></div>
-              <span id="cs-mix-savings-pct">10%</span>
-            </div>
-            <div class="cs-mix-row">
-              <span>Lifestyle Spending</span>
-              <div class="cs-mix-bar"><span id="cs-mix-lifestyle-bar" style="width:10%"></span></div>
-              <span id="cs-mix-lifestyle-pct">10%</span>
-            </div>
-
-        </div>
+        <p class="cs-discovery-intro cs-discovery-intro--compact">Review local costs and comparisons below, then personalize your target in the calculator.</p>
+        <p class="cs-hero-jump-wrap"><a class="cs-hero-jump" href="#cs-calc">Jump to calculator ↓</a></p>
       </div>
     </section>
 
@@ -260,6 +173,103 @@
           </article>
         </div>
         <p class="col-method-footer"><a href="/methodology#affordability">Read the full affordability methodology →</a></p>
+      </div>
+    </section>
+
+    <section class="cs-band cs-calc-band" id="cs-calc" aria-labelledby="cs-calc-title">
+      <div class="container container--wide">
+        <header class="cs-band__head">
+          <h2 id="cs-calc-title">Calculate your comfortable salary</h2>
+          <p>Set household and housing for Tampa, then see lifestyle tiers and a monthly breakdown.</p>
+        </header>
+
+          <form class="cs-calc-shell" id="cs-calc-form">
+            <div class="cs-calc-grid">
+              <label class="cs-field"><span>State</span><select id="cs-state" required></select></label>
+              <label class="cs-field"><span>City</span><select id="cs-city"></select></label>
+              <label class="cs-field"><span>Household</span>
+                <select id="cs-household">
+                  <option value="single">Single</option>
+                  <option value="couple">Couple</option>
+                  <option value="family4">Family of 4</option>
+                </select>
+              </label>
+              <label class="cs-field"><span>Housing</span>
+                <select id="cs-housing">
+                  <option value="rent">Rent</option>
+                  <option value="own">Own</option>
+                </select>
+              </label>
+            </div>
+            <button type="submit" class="cs-btn" id="cs-calc-btn">Calculate My Comfortable Salary</button>
+            <p class="cs-calc-hint" id="cs-calc-hint">Adjust household or housing, then tap calculate to update your estimate.</p>
+            <div id="cs-inline-results" class="cs-inline-results" hidden aria-live="polite" aria-atomic="true">
+              <p class="cs-inline-results__badge">Your estimate</p>
+              <h3 class="cs-inline-results__title">Comfortable salary in <span id="cs-inline-location">—</span></h3>
+              <p class="cs-inline-results__hero" id="cs-inline-hero" aria-label="Comfortable lifestyle salary">—</p>
+              <p class="cs-inline-results__context" id="cs-inline-context">Gross annual pay before tax</p>
+              <div class="cs-inline-tier-strip" aria-label="Salary by lifestyle tier">
+                <div class="cs-inline-tier"><span>Basic</span><strong id="cs-inline-tier-basic">—</strong></div>
+                <div class="cs-inline-tier cs-inline-tier--featured"><span>Comfortable</span><strong id="cs-inline-tier-comfortable">—</strong></div>
+                <div class="cs-inline-tier"><span>Comfortable+</span><strong id="cs-inline-tier-plus">—</strong></div>
+                <div class="cs-inline-tier"><span>Affluent</span><strong id="cs-inline-tier-affluent">—</strong></div>
+              </div>
+              <a class="cs-inline-results__link" href="#cs-breakdown">See monthly budget breakdown ↓</a>
+            </div>
+          </form>
+          <script type="application/json" id="cs-catalog">[{"id":"arizona","name":"Arizona","state":"arizona","stateName":"Arizona","colIndex":105,"rent":1650,"groceries":390,"utilities":210,"transport":340,"salaryComfort":80000,"familySalary":140000,"affordScore":74,"takeHome":0.72,"path":"/living/lifestyle/comfortable-salary/arizona"},{"id":"arizona/phoenix","name":"Phoenix","state":"arizona","stateName":"Arizona","colIndex":105,"rent":1650,"groceries":390,"utilities":210,"transport":340,"salaryComfort":80000,"familySalary":140000,"affordScore":74,"takeHome":0.72,"path":"/living/lifestyle/comfortable-salary/arizona/phoenix"},{"id":"california","name":"California","state":"california","stateName":"California","colIndex":142,"rent":2400,"groceries":480,"utilities":220,"transport":380,"salaryComfort":110000,"familySalary":185000,"affordScore":67,"takeHome":0.68,"path":"/living/lifestyle/comfortable-salary/california"},{"id":"california/los-angeles","name":"Los Angeles","state":"california","stateName":"California","colIndex":152,"rent":2600,"groceries":520,"utilities":210,"transport":420,"salaryComfort":115000,"familySalary":200000,"affordScore":67,"takeHome":0.68,"path":"/living/lifestyle/comfortable-salary/california/los-angeles"},{"id":"california/san-diego","name":"San Diego","state":"california","stateName":"California","colIndex":148,"rent":2550,"groceries":500,"utilities":215,"transport":400,"salaryComfort":115000,"familySalary":195000,"affordScore":66,"takeHome":0.68,"path":"/living/lifestyle/comfortable-salary/california/san-diego"},{"id":"california/san-francisco","name":"San Francisco","state":"california","stateName":"California","colIndex":168,"rent":3200,"groceries":540,"utilities":200,"transport":350,"salaryComfort":135000,"familySalary":230000,"affordScore":61,"takeHome":0.68,"path":"/living/lifestyle/comfortable-salary/california/san-francisco"},{"id":"colorado","name":"Colorado","state":"colorado","stateName":"Colorado","colIndex":118,"rent":1950,"groceries":430,"utilities":185,"transport":340,"salaryComfort":90000,"familySalary":155000,"affordScore":70,"takeHome":0.71,"path":"/living/lifestyle/comfortable-salary/colorado"},{"id":"colorado/denver","name":"Denver","state":"colorado","stateName":"Colorado","colIndex":118,"rent":1950,"groceries":430,"utilities":185,"transport":340,"salaryComfort":90000,"familySalary":155000,"affordScore":70,"takeHome":0.71,"path":"/living/lifestyle/comfortable-salary/colorado/denver"},{"id":"florida","name":"Florida","state":"florida","stateName":"Florida","colIndex":104,"rent":1750,"groceries":400,"utilities":210,"transport":320,"salaryComfort":85000,"familySalary":140000,"affordScore":77,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/florida"},{"id":"florida/miami","name":"Miami","state":"florida","stateName":"Florida","colIndex":118,"rent":2200,"groceries":430,"utilities":225,"transport":340,"salaryComfort":100000,"familySalary":165000,"affordScore":74,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/florida/miami"},{"id":"florida/orlando","name":"Orlando","state":"florida","stateName":"Florida","colIndex":105,"rent":1600,"groceries":390,"utilities":200,"transport":300,"salaryComfort":80000,"familySalary":135000,"affordScore":76,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/florida/orlando"},{"id":"florida/tampa","name":"Tampa","state":"florida","stateName":"Florida","colIndex":106,"rent":1650,"groceries":395,"utilities":205,"transport":310,"salaryComfort":80000,"familySalary":140000,"affordScore":75,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/florida/tampa"},{"id":"georgia/atlanta","name":"Atlanta","state":"georgia","stateName":"Georgia","colIndex":104,"rent":1650,"groceries":400,"utilities":195,"transport":350,"salaryComfort":80000,"familySalary":140000,"affordScore":73,"takeHome":0.72,"path":"/living/lifestyle/comfortable-salary/georgia/atlanta"},{"id":"georgia","name":"Georgia","state":"georgia","stateName":"Georgia","colIndex":104,"rent":1650,"groceries":400,"utilities":195,"transport":350,"salaryComfort":80000,"familySalary":140000,"affordScore":73,"takeHome":0.72,"path":"/living/lifestyle/comfortable-salary/georgia"},{"id":"illinois/chicago","name":"Chicago","state":"illinois","stateName":"Illinois","colIndex":112,"rent":1850,"groceries":420,"utilities":195,"transport":310,"salaryComfort":85000,"familySalary":150000,"affordScore":72,"takeHome":0.71,"path":"/living/lifestyle/comfortable-salary/illinois/chicago"},{"id":"illinois","name":"Illinois","state":"illinois","stateName":"Illinois","colIndex":112,"rent":1850,"groceries":420,"utilities":195,"transport":310,"salaryComfort":85000,"familySalary":150000,"affordScore":72,"takeHome":0.71,"path":"/living/lifestyle/comfortable-salary/illinois"},{"id":"new-york","name":"New York","state":"new-york","stateName":"New York","colIndex":135,"rent":2400,"groceries":500,"utilities":225,"transport":290,"salaryComfort":105000,"familySalary":180000,"affordScore":65,"takeHome":0.67,"path":"/living/lifestyle/comfortable-salary/new-york"},{"id":"new-york/new-york-city","name":"New York City","state":"new-york","stateName":"New York","colIndex":158,"rent":3400,"groceries":550,"utilities":230,"transport":280,"salaryComfort":140000,"familySalary":230000,"affordScore":65,"takeHome":0.67,"path":"/living/lifestyle/comfortable-salary/new-york/new-york-city"},{"id":"texas/austin","name":"Austin","state":"texas","stateName":"Texas","colIndex":108,"rent":1750,"groceries":400,"utilities":195,"transport":370,"salaryComfort":85000,"familySalary":145000,"affordScore":73,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/texas/austin"},{"id":"texas/dallas","name":"Dallas","state":"texas","stateName":"Texas","colIndex":102,"rent":1550,"groceries":390,"utilities":200,"transport":360,"salaryComfort":80000,"familySalary":135000,"affordScore":75,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/texas/dallas"},{"id":"texas/houston","name":"Houston","state":"texas","stateName":"Texas","colIndex":96,"rent":1400,"groceries":370,"utilities":210,"transport":350,"salaryComfort":75000,"familySalary":125000,"affordScore":76,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/texas/houston"},{"id":"texas","name":"Texas","state":"texas","stateName":"Texas","colIndex":98,"rent":1450,"groceries":380,"utilities":195,"transport":340,"salaryComfort":75000,"familySalary":130000,"affordScore":75,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/texas"},{"id":"washington/seattle","name":"Seattle","state":"washington","stateName":"Washington","colIndex":135,"rent":2200,"groceries":480,"utilities":190,"transport":320,"salaryComfort":100000,"familySalary":175000,"affordScore":68,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/washington/seattle"},{"id":"washington","name":"Washington","state":"washington","stateName":"Washington","colIndex":135,"rent":2200,"groceries":480,"utilities":190,"transport":320,"salaryComfort":100000,"familySalary":175000,"affordScore":68,"takeHome":0.74,"path":"/living/lifestyle/comfortable-salary/washington"}]</script>
+    <section class="cs-band cs-band--alt cs-detailed-results" id="cs-results" hidden aria-labelledby="cs-results-title">
+      <div class="container container--wide">
+        <header class="cs-band__head">
+          <h2 id="cs-results-title">Comfortable salary estimate</h2>
+          <p>Targets for <span id="cs-result-location">Tampa</span>. Each figure is gross annual pay before tax for a <strong>single</strong> who <strong>rents</strong>.</p>
+        </header>
+        <p class="cs-tier-context">Lifestyle tiers span $55,000 (basic) to $150,000 (affluent). The highlighted tier is our default comfortable lifestyle with room to save.</p>
+        <div class="cs-tier-grid">
+            <article class="cs-tier-card"><strong>Basic Lifestyle</strong><span id="cs-tier-basic">$55,000</span></article>
+            <article class="cs-tier-card cs-tier-card--featured"><strong>Comfortable Lifestyle</strong><span id="cs-tier-comfortable">$80,000</span></article>
+            <article class="cs-tier-card"><strong>Comfortable Plus</strong><span id="cs-tier-comfortable_plus">$110,000</span></article>
+            <article class="cs-tier-card"><strong>Affluent Lifestyle</strong><span id="cs-tier-high_comfort">$150,000</span></article>
+        </div>
+      </div>
+    </section>
+    <section class="cs-band cs-detailed-results" id="cs-breakdown" hidden aria-labelledby="cs-breakdown-title">
+      <div class="container container--wide">
+        <header class="cs-band__head"><h2 id="cs-breakdown-title">Salary breakdown</h2><p>Where your monthly budget goes at the <strong>comfortable</strong> lifestyle tier ($80,000 gross).</p></header>
+        <div class="cs-mix-grid">            <div class="cs-mix-row">
+              <span>Housing</span>
+              <div class="cs-mix-bar"><span id="cs-mix-housing-bar" style="width:57%"></span></div>
+              <span id="cs-mix-housing-pct">57%</span>
+            </div>
+            <div class="cs-mix-row">
+              <span>Transportation</span>
+              <div class="cs-mix-bar"><span id="cs-mix-transportation-bar" style="width:10%"></span></div>
+              <span id="cs-mix-transportation-pct">10%</span>
+            </div>
+            <div class="cs-mix-row">
+              <span>Food</span>
+              <div class="cs-mix-bar"><span id="cs-mix-food-bar" style="width:14%"></span></div>
+              <span id="cs-mix-food-pct">14%</span>
+            </div>
+            <div class="cs-mix-row">
+              <span>Childcare</span>
+              <div class="cs-mix-bar"><span id="cs-mix-childcare-bar" style="width:0%"></span></div>
+              <span id="cs-mix-childcare-pct">0%</span>
+            </div>
+            <div class="cs-mix-row">
+              <span>Savings</span>
+              <div class="cs-mix-bar"><span id="cs-mix-savings-bar" style="width:10%"></span></div>
+              <span id="cs-mix-savings-pct">10%</span>
+            </div>
+            <div class="cs-mix-row">
+              <span>Lifestyle Spending</span>
+              <div class="cs-mix-bar"><span id="cs-mix-lifestyle-bar" style="width:10%"></span></div>
+              <span id="cs-mix-lifestyle-pct">10%</span>
+            </div>
+
+        </div>
+      </div>
+    </section>
       </div>
     </section>
 

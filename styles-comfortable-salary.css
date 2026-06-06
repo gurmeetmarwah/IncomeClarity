@@ -65,7 +65,81 @@
   color: rgba(255, 255, 255, 0.88);
 }
 
+.cs-discovery-intro {
+  margin: 0.5rem 0 0;
+  max-width: 44rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.cs-discovery-intro p {
+  margin: 0 0 0.65rem;
+}
+
+.cs-discovery-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.cs-discovery-intro--compact {
+  margin-top: 0.85rem;
+  font-size: 0.98rem;
+}
+
+.cs-hero-jump-wrap {
+  margin: 0.85rem 0 0;
+}
+
+.cs-hero a.cs-hero-jump,
+a.cs-hero-jump {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: #ffffff;
+  color: var(--cs-accent-dark, #0a5578);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(10, 40, 60, 0.2);
+  transition: background 0.15s, color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+
+.cs-hero a.cs-hero-jump:hover,
+a.cs-hero-jump:hover {
+  background: #e8f4fa;
+  color: #083d56;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(10, 40, 60, 0.24);
+}
+
+.cs-hero a.cs-hero-jump:focus-visible,
+a.cs-hero-jump:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
 /* —— Calculator —— */
+.cs-calc-band {
+  scroll-margin-top: 1rem;
+}
+
+.cs-calc-band .cs-calc-shell {
+  margin-top: 0;
+  border: 1px solid var(--cs-border);
+  box-shadow: var(--cs-shadow-lg);
+  color: var(--cs-text);
+}
+
+.cs-calc-band .cs-detailed-results {
+  margin-top: 1.25rem;
+  padding-top: 0;
+  background: transparent;
+}
+
 .cs-calc-shell {
   margin-top: 1.25rem;
   background: var(--cs-surface);

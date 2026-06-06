@@ -120,41 +120,69 @@ def calc_form(
     hint: str = "Pick a state, then tap calculate to see your number.",
 ) -> str:
     return f"""
-        <form class="cs-calc-shell" id="cs-calc-form">
-          <div class="cs-calc-grid">
-            <label class="cs-field"><span>State</span><select id="cs-state" required></select></label>
-            <label class="cs-field"><span>City</span><select id="cs-city"></select></label>
-            <label class="cs-field"><span>Household</span>
-              <select id="cs-household">
-                <option value="single">Single</option>
-                <option value="couple">Couple</option>
-                <option value="family4">Family of 4</option>
-              </select>
-            </label>
-            <label class="cs-field"><span>Housing</span>
-              <select id="cs-housing">
-                <option value="rent">Rent</option>
-                <option value="own">Own</option>
-              </select>
-            </label>
-          </div>
-          <button type="submit" class="cs-btn" id="cs-calc-btn">Calculate My Comfortable Salary</button>
-          <p class="cs-calc-hint" id="cs-calc-hint">{hint}</p>
-          <div id="cs-inline-results" class="cs-inline-results" hidden aria-live="polite" aria-atomic="true">
-            <p class="cs-inline-results__badge">Your estimate</p>
-            <h3 class="cs-inline-results__title">Comfortable salary in <span id="cs-inline-location">—</span></h3>
-            <p class="cs-inline-results__hero" id="cs-inline-hero" aria-label="Comfortable lifestyle salary">—</p>
-            <p class="cs-inline-results__context" id="cs-inline-context">Gross annual pay before tax</p>
-            <div class="cs-inline-tier-strip" aria-label="Salary by lifestyle tier">
-              <div class="cs-inline-tier"><span>Basic</span><strong id="cs-inline-tier-basic">—</strong></div>
-              <div class="cs-inline-tier cs-inline-tier--featured"><span>Comfortable</span><strong id="cs-inline-tier-comfortable">—</strong></div>
-              <div class="cs-inline-tier"><span>Comfortable+</span><strong id="cs-inline-tier-plus">—</strong></div>
-              <div class="cs-inline-tier"><span>Affluent</span><strong id="cs-inline-tier-affluent">—</strong></div>
+          <form class="cs-calc-shell" id="cs-calc-form">
+            <div class="cs-calc-grid">
+              <label class="cs-field"><span>State</span><select id="cs-state" required></select></label>
+              <label class="cs-field"><span>City</span><select id="cs-city"></select></label>
+              <label class="cs-field"><span>Household</span>
+                <select id="cs-household">
+                  <option value="single">Single</option>
+                  <option value="couple">Couple</option>
+                  <option value="family4">Family of 4</option>
+                </select>
+              </label>
+              <label class="cs-field"><span>Housing</span>
+                <select id="cs-housing">
+                  <option value="rent">Rent</option>
+                  <option value="own">Own</option>
+                </select>
+              </label>
             </div>
-            <a class="cs-inline-results__link" href="#cs-breakdown">See monthly budget breakdown ↓</a>
-          </div>
-        </form>
-        <script type="application/json" id="cs-catalog">{catalog_json()}</script>"""
+            <button type="submit" class="cs-btn" id="cs-calc-btn">Calculate My Comfortable Salary</button>
+            <p class="cs-calc-hint" id="cs-calc-hint">{hint}</p>
+            <div id="cs-inline-results" class="cs-inline-results" hidden aria-live="polite" aria-atomic="true">
+              <p class="cs-inline-results__badge">Your estimate</p>
+              <h3 class="cs-inline-results__title">Comfortable salary in <span id="cs-inline-location">—</span></h3>
+              <p class="cs-inline-results__hero" id="cs-inline-hero" aria-label="Comfortable lifestyle salary">—</p>
+              <p class="cs-inline-results__context" id="cs-inline-context">Gross annual pay before tax</p>
+              <div class="cs-inline-tier-strip" aria-label="Salary by lifestyle tier">
+                <div class="cs-inline-tier"><span>Basic</span><strong id="cs-inline-tier-basic">—</strong></div>
+                <div class="cs-inline-tier cs-inline-tier--featured"><span>Comfortable</span><strong id="cs-inline-tier-comfortable">—</strong></div>
+                <div class="cs-inline-tier"><span>Comfortable+</span><strong id="cs-inline-tier-plus">—</strong></div>
+                <div class="cs-inline-tier"><span>Affluent</span><strong id="cs-inline-tier-affluent">—</strong></div>
+              </div>
+              <a class="cs-inline-results__link" href="#cs-breakdown">See monthly budget breakdown ↓</a>
+            </div>
+          </form>
+          <script type="application/json" id="cs-catalog">{catalog_json()}</script>"""
+
+
+def hub_discovery_intro() -> str:
+    return """        <div class="cs-discovery-intro">
+          <p>“Comfortable” isn’t one national number. It depends on rent, taxes, household size, and how much you want to save each month.</p>
+          <p>Browse states and lifestyle profiles below first. When you know where you’re planning, use the calculator to personalize your target.</p>
+          <p class="cs-hero-jump-wrap"><a class="cs-hero-jump" href="#cs-calc">Jump to calculator ↓</a></p>
+        </div>"""
+
+
+def calc_section(
+    hint: str = "Pick a state, then tap calculate to see your number.",
+    *,
+    results_html: str | None = None,
+    title: str = "Calculate your comfortable salary",
+    description: str = "Choose state, city, household, and housing — then see lifestyle tiers and a monthly breakdown.",
+) -> str:
+    results = results_html if results_html is not None else results_sections()
+    return f"""    <section class="cs-band cs-calc-band" id="cs-calc" aria-labelledby="cs-calc-title">
+      <div class="container container--wide">
+        <header class="cs-band__head">
+          <h2 id="cs-calc-title">{title}</h2>
+          <p>{description}</p>
+        </header>
+{calc_form(hint)}
+{results}
+      </div>
+    </section>"""
 
 
 def lifestyle_estimate_section(
@@ -232,7 +260,12 @@ def results_sections() -> str:
 
 
 def calc_block() -> str:
-    return calc_form() + results_sections()
+    return calc_section()
+
+
+def state_discovery_intro(st_name: str) -> str:
+    return f"""        <p class="cs-discovery-intro cs-discovery-intro--compact">Browse city breakdowns and cost drivers below, then personalize your target in the calculator.</p>
+        <p class="cs-hero-jump-wrap"><a class="cs-hero-jump" href="#cs-calc">Jump to calculator ↓</a></p>"""
 
 
 def profile_cards(city: dict, state_slug: str) -> str:
@@ -305,7 +338,7 @@ def family_table(city: dict, state_slug: str) -> str:
 def whatif_section() -> str:
     return """    <section class="cs-band cs-band--alt" id="cs-whatif" aria-labelledby="cs-whatif-title">
       <div class="container container--wide">
-        <header class="cs-band__head"><h2 id="cs-whatif-title">What if scenarios</h2><p>Tap a scenario to update the calculator above.</p></header>
+        <header class="cs-band__head"><h2 id="cs-whatif-title">What if scenarios</h2><p>Tap a scenario to pre-fill the calculator above.</p></header>
         <div class="cs-whatif-grid">
           <button type="button" class="cs-whatif-btn" data-cs-whatif="texas">What if I move to Texas?</button>
           <button type="button" class="cs-whatif-btn" data-cs-whatif="child">What if I have a child?</button>
@@ -341,7 +374,7 @@ def drivers_section() -> str:
 def compare_section() -> str:
     cards = []
     for title, a, b in COMPARE_PAIRS:
-        cards.append(f'          <a class="cs-card" href="{HUB_PATH}#cs-compare"><h3>{title}</h3><p>Compare comfortable salary targets side by side in the calculator.</p></a>')
+        cards.append(f'          <a class="cs-card" href="{HUB_PATH}#cs-calc"><h3>{title}</h3><p>Compare comfortable salary targets side by side in the calculator.</p></a>')
     return f"""    <section class="cs-band cs-band--alt" id="cs-compare" aria-labelledby="cs-compare-title">
       <div class="container container--wide">
         <header class="cs-band__head"><h2 id="cs-compare-title">Compare comfortable salaries</h2><p>Pick two locations in the calculator to see how lifestyle tiers shift.</p></header>
@@ -441,15 +474,13 @@ def render_hub() -> str:
   <main>
     <section class="cs-hero">
       <div class="container container--wide">
-        <p class="label">Comfortable salary calculator</p>
+        <p class="label">Living · Lifestyle</p>
 {breadcrumbs}
         <h1>Here's the salary you need to feel comfortable in every state</h1>
         <p class="lead">Curious what comfortable actually means where you live? Estimate income by location, family size, housing, and lifestyle goals.</p>
-{calc_form()}
+{hub_discovery_intro()}
       </div>
     </section>
-
-{results_sections()}
 
     <section class="cs-band" id="cs-profiles" aria-labelledby="cs-profiles-title">
       <div class="container container--wide">
@@ -459,6 +490,8 @@ def render_hub() -> str:
         </div>
       </div>
     </section>
+
+{drivers_section()}
 
     <section class="cs-band cs-band--alt" id="cs-states" aria-labelledby="cs-states-title">
       <div class="container container--wide">
@@ -490,8 +523,9 @@ def render_hub() -> str:
       </div>
     </section>
 
+{calc_section()}
+
 {whatif_section()}
-{drivers_section()}
 {compare_section()}
 {related_tools_section()}
 
@@ -690,11 +724,9 @@ def render_state(state_slug: str) -> str:
           <div class="cs-city-chips">{state_city_chips(state_slug, st)}
           </div>
         </div>
-{calc_form(hint="Adjust household or housing, then tap calculate to update your estimate.")}
+{state_discovery_intro(st_name)}
       </div>
     </section>
-
-{lifestyle_estimate_section(st, state_slug, st_name, pending=True)}
 
 {drivers_block}
 
@@ -718,6 +750,12 @@ def render_state(state_slug: str) -> str:
         </table>
       </div>
     </section>
+
+{calc_section(
+        hint="Adjust household or housing, then tap calculate to update your estimate.",
+        results_html=lifestyle_estimate_section(st, state_slug, st_name, pending=True),
+        description=f"Set household and housing for {st_name}, then see lifestyle tiers and a monthly breakdown.",
+    )}
 
 {related_tools_section()}
 
@@ -817,11 +855,10 @@ def render_city(state_slug: str, city_slug: str) -> str:
           <div class="cs-stat"><strong>{fmt(couple)}</strong><span>Couple · comfortable</span></div>
           <div class="cs-stat"><strong>{fmt(family)}</strong><span>Family of 4 · comfortable</span></div>
         </div>
-{calc_form(hint="Adjust household or housing, then tap calculate to update your estimate.")}
+        <p class="cs-discovery-intro cs-discovery-intro--compact">Review local costs and comparisons below, then personalize your target in the calculator.</p>
+        <p class="cs-hero-jump-wrap"><a class="cs-hero-jump" href="#cs-calc">Jump to calculator ↓</a></p>
       </div>
     </section>
-
-{lifestyle_estimate_section(city, state_slug, city["name"], pending=True)}
 
     <section class="cs-band">
       <div class="container container--wide">
@@ -869,6 +906,12 @@ def render_city(state_slug: str, city_slug: str) -> str:
 
 {know_block}
 {method_block}
+
+{calc_section(
+        hint="Adjust household or housing, then tap calculate to update your estimate.",
+        results_html=lifestyle_estimate_section(city, state_slug, city["name"], pending=True),
+        description=f"Set household and housing for {city['name']}, then see lifestyle tiers and a monthly breakdown.",
+    )}
 
 {related_tools_section()}
 

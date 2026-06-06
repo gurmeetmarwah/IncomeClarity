@@ -384,6 +384,23 @@
   text-decoration: none;
 }
 
+/* High-contrast jump CTA on blue gradient heroes */
+.cs-hero a.cs-hero-jump,
+.mc-hero a.cs-hero-jump {
+  background: #fff;
+  color: var(--living-accent-dark);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 4px 14px rgba(10, 40, 60, 0.2);
+  text-decoration: none;
+}
+
+.cs-hero a.cs-hero-jump:hover,
+.mc-hero a.cs-hero-jump:hover {
+  background: #e8f4fa;
+  color: #083d56;
+  text-decoration: none;
+}
+
 /* Know + methodology (col + cs pages) */
 .col-know-section,
 .col-method-section {
