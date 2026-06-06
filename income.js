@@ -611,6 +611,7 @@ hourlySalaryForm?.addEventListener("submit", (event) => {
     <p class="note">Biweekly and weekly figures shown above are take-home estimates.</p>
   `;
   renderStateTaxTable(annualGross, stateCode);
+  hourlySalaryResult?.scrollIntoView({ behavior: "smooth", block: "nearest" });
 });
 
 document.addEventListener("DOMContentLoaded", () => {

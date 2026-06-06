@@ -50,22 +50,30 @@
   </header>
 
   <main class="container income-page">
-    <section class="intro-section">
+    <section class="state-page-hero" aria-label="Hourly salary calculator" id="hourly-salary-section">
       <span class="label">Income Tools</span>
       <h1>$X/hour → See Your Real Take-Home Pay After Taxes</h1>
       <p class="lead">Built for US users only, instantly convert your hourly wage into yearly, monthly, and take-home pay by state.</p>
-    </section>
-
-    <section aria-label="Hourly salary calculator" id="hourly-salary-section">
-      <form class="inline-form" aria-label="Hourly to salary form" id="hourly-salary-form">
-        <input type="number" id="hourly-rate" placeholder="Hourly wage (for example, 25)" min="1" step="0.01" value="25" required>
-        <input type="number" id="hours-per-week" placeholder="Hours per week (for example, 40)" min="1" max="100" step="0.5" value="40" required>
-        <input id="state" list="state-list" placeholder="Type to search state (for example, Texas)" autocomplete="off" required>
-        <datalist id="state-list"></datalist>
-        <button type="submit">See my real income</button>
-      </form>
-      <p class="income-preview-hint">Before you submit, the calculator shows an example at <strong>$25/hour</strong>, <strong>40 hours/week</strong>, and <strong>U.S. average take-home</strong> (all states + D.C.). Add your wage and state for personalized numbers.</p>
-      <div class="result-panel" id="hourly-salary-result" aria-live="polite"></div>
+      <div class="income-calc-shell">
+        <form class="inline-form inline-form--labeled" aria-label="Hourly to salary form" id="hourly-salary-form">
+          <label class="form-field" for="hourly-rate">
+            <span>Hourly wage</span>
+            <input type="number" id="hourly-rate" placeholder="e.g. 25" min="1" step="0.01" value="25" required>
+          </label>
+          <label class="form-field" for="hours-per-week">
+            <span>Hours per week</span>
+            <input type="number" id="hours-per-week" placeholder="e.g. 40" min="1" max="100" step="0.5" value="40" required>
+          </label>
+          <label class="form-field" for="state">
+            <span>State</span>
+            <input id="state" list="state-list" placeholder="e.g. Texas" autocomplete="off" required>
+          </label>
+          <datalist id="state-list"></datalist>
+          <button type="submit">See my real income</button>
+        </form>
+        <p class="income-preview-hint">Example preview uses <strong>$25/hour</strong>, <strong>40 hours/week</strong>, and <strong>U.S. average take-home</strong> until you submit your state.</p>
+        <div class="result-panel income-calc-results" id="hourly-salary-result" aria-live="polite"></div>
+      </div>
     </section>
 
     <aside class="income-context-nudge" aria-label="Housing cost planning">

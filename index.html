@@ -206,28 +206,85 @@
             </select>
           </label>
           <button type="button" id="home-btn" class="apr-mini-calc__btn">Show my numbers</button>
-          <output id="home-out" class="apr-mini-calc__out" aria-live="polite">Press <strong>Show my numbers</strong> for your snapshot.</output>
+          <output id="home-out" class="apr-mini-calc__out home-snap-out" aria-live="polite">
+            <div class="home-snap-out__empty">
+              <p>Tap <strong>Show my numbers</strong> to see your estimated take-home, rent cap, and debt cap.</p>
+            </div>
+          </output>
         </form>
       </div>
       <script>
         (function(){
           var btn = document.getElementById('home-btn');
           var out = document.getElementById('home-out');
+          var grossEl = document.getElementById('home-gross');
+          var stateEl = document.getElementById('home-state');
           if(!btn || !out) return;
+          var hasRun = false;
+          var stateLabels = {
+            notax: 'No state tax states',
+            low: 'Low tax states',
+            mid: 'Mid tax states',
+            high: 'High tax states',
+            ca: 'California'
+          };
           function fmt(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
-          // Combined effective rates (fed + FICA + state), rough single filer
           var rates = { notax: 0.205, low: 0.235, mid: 0.260, high: 0.290, ca: 0.305 };
-          function run(){
-            var gross = parseFloat(document.getElementById('home-gross').value) || 0;
-            var st = document.getElementById('home-state').value;
+          function renderEmpty(){
+            out.classList.remove('home-snap-out--ready', 'home-snap-out--pulse');
+            out.innerHTML = '<div class="home-snap-out__empty"><p>Tap <strong>Show my numbers</strong> to see your estimated take-home, rent cap, and debt cap.</p></div>';
+          }
+          function run(opts){
+            opts = opts || {};
+            var gross = parseFloat(grossEl.value) || 0;
+            if (gross < 1) {
+              renderEmpty();
+              return;
+            }
+            var st = stateEl.value;
             var net = gross * (1 - rates[st]);
             var monthly = net / 12;
             var rentCap = monthly * 0.30;
             var debtCap = monthly * 0.10;
-            out.innerHTML = '<strong>Take-home:</strong> ' + fmt(net) + '/yr (' + fmt(monthly) + '/mo).<br><strong>Max rent</strong> at 30% of take-home: ' + fmt(rentCap) + '/mo.<br><strong>Smart debt-payment cap</strong> at 10% of take-home: ' + fmt(debtCap) + '/mo.<br><a href="/hourly-to-salary-after-tax#hourly-salary-section">Open the full take-home calculator</a> for state-by-state precision.';
+            hasRun = true;
+            out.classList.add('home-snap-out--ready');
+            if (opts.pulse) {
+              out.classList.remove('home-snap-out--pulse');
+              void out.offsetWidth;
+              out.classList.add('home-snap-out--pulse');
+            }
+            out.innerHTML =
+              '<div class="home-snap-results">' +
+                '<p class="home-snap-results__badge">Your snapshot · ' + (stateLabels[st] || 'Your state group') + '</p>' +
+                '<div class="home-snap-results__hero">' +
+                  '<span class="home-snap-results__hero-label">Estimated take-home pay</span>' +
+                  '<strong class="home-snap-results__hero-value">' + fmt(net) + '<span>/yr</span></strong>' +
+                  '<span class="home-snap-results__hero-sub">' + fmt(monthly) + '/mo after federal tax, FICA &amp; state tax</span>' +
+                '</div>' +
+                '<div class="home-snap-results__grid">' +
+                  '<article class="home-snap-results__card">' +
+                    '<span class="home-snap-results__card-label">Max rent</span>' +
+                    '<strong class="home-snap-results__card-value">' + fmt(rentCap) + '<span>/mo</span></strong>' +
+                    '<span class="home-snap-results__card-hint">30% of take-home · common affordability rule</span>' +
+                  '</article>' +
+                  '<article class="home-snap-results__card">' +
+                    '<span class="home-snap-results__card-label">Debt payment cap</span>' +
+                    '<strong class="home-snap-results__card-value">' + fmt(debtCap) + '<span>/mo</span></strong>' +
+                    '<span class="home-snap-results__card-hint">10% of take-home · healthy monthly ceiling</span>' +
+                  '</article>' +
+                '</div>' +
+                '<a class="home-snap-results__link" href="/hourly-to-salary-after-tax#hourly-salary-section">Get precise numbers by state →</a>' +
+              '</div>';
+            if (opts.scroll) {
+              out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
           }
-          btn.addEventListener('click', run);
-          run();
+          btn.addEventListener('click', function(){ run({ pulse: true, scroll: true }); });
+          [grossEl, stateEl].forEach(function(el){
+            if (!el) return;
+            el.addEventListener('change', function(){ if (hasRun) run({ pulse: true }); });
+            el.addEventListener('input', function(){ if (hasRun) run({ pulse: false }); });
+          });
         })();
       </script>
     </section>

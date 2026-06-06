@@ -172,6 +172,7 @@ spForm?.addEventListener("submit", (event) => {
   }
   const annualGross = hourly * hours * 52;
   spRenderResult(annualGross);
+  spResult?.scrollIntoView({ behavior: "smooth", block: "nearest" });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
