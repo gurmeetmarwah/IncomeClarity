@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Credit Card Interest Calculator: Total Interest &amp; Daily Cost (2026) | Income Clarity</title>
+  <meta name="description" content="Enter balance, APR, and monthly payment—see month-one interest, daily cost, total lifetime interest, and how much you save by paying more. Free US calculator.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.incomeclaritylab.com/debt/credit-cards/credit-card-interest-calculator">
+  <meta property="og:title" content="Credit Card Interest Calculator: Total Interest &amp; Daily Cost">
+  <meta property="og:description" content="See how much interest your credit card costs per day, per month, and over the full payoff. Compare paying more to cut total interest.">
+  <meta property="og:site_name" content="Income Clarity">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Credit Card Interest Calculator: Total Interest &amp; Daily Cost">
+  <meta name="twitter:description" content="See how much interest your credit card costs per day, per month, and over the full payoff. Compare paying more to cut total interest.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://www.incomeclaritylab.com/debt/credit-cards/credit-card-interest-calculator">
+  <link rel="stylesheet" href="/styles.css?v=cc-int-calc">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="apple-touch-icon" href="/images/logo.png">
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path === "/index.html") cleanPath = "/";
+      else if (path.endsWith("/index.html")) cleanPath = path.slice(0, -10);
+      else if (path.endsWith(".html")) cleanPath = path.slice(0, -5);
+      if (cleanPath !== path) window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Credit Card Interest Calculator",
+    "description": "Estimate credit card interest costs—daily, monthly, and total over the life of your debt. Compare how higher payments cut interest.",
+    "url": "https://www.incomeclaritylab.com/debt/credit-cards/credit-card-interest-calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@type": "WebSite", "name": "Income Clarity", "url": "https://www.incomeclaritylab.com/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is credit card interest calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most US cards use a daily periodic rate: APR ÷ 365 applied to your balance each day. Monthly finance charges sum those daily amounts. Our calculator uses standard monthly amortization—enter balance, APR, and payment to see month-one interest, daily cost, and total interest over payoff."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much interest does a credit card charge per month?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Month-one interest ≈ balance × (APR ÷ 12). $5,000 at 24% APR is about $100 the first month. If your payment is $100 or less, nothing reduces principal and interest can compound. Enter your numbers above for your exact estimate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much total interest will I pay on my credit card?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Total interest depends on balance, APR, payment size, and how long you carry the debt. This calculator projects lifetime interest for a fixed monthly payment. Paying only near the interest charge can cost more in interest than your original balance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if I only pay the interest on my credit card?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If your payment equals or is less than monthly interest, your balance does not shrink—it may grow as unpaid interest is added. You stay in debt indefinitely and total interest keeps climbing. You need to pay more than month-one interest to make progress."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I pay less credit card interest?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pay more than the minimum, avoid new charges while paying down, and consider a balance transfer or lower-APR card if you qualify. Even $50 extra per month often saves thousands in total interest. Use the what-if scenarios in this calculator to see the impact."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the daily interest cost on a credit card?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Daily interest ≈ balance × (APR ÷ 365). On $5,000 at 24% APR, that is about $3.29 per day. Every day you carry a balance, interest accrues on what you owe—including on interest that was added previously if you are not paying it down."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Debt", "item": "https://www.incomeclaritylab.com/debt" },
+      { "@type": "ListItem", "position": 2, "name": "Credit cards", "item": "https://www.incomeclaritylab.com/debt/credit-cards" },
+      { "@type": "ListItem", "position": 3, "name": "Interest calculator", "item": "https://www.incomeclaritylab.com/debt/credit-cards/credit-card-interest-calculator" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/hourly-to-salary-after-tax">Income</a>
+        <a href="/debt" aria-current="page">Debt</a>
+        <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container debt-page cc-int-calc-page">
+    <nav class="take-home-return-nav housing-hub-crumb" aria-label="Breadcrumb">
+      <ol class="take-home-return-breadcrumbs">
+        <li><a href="/debt">Debt</a></li>
+        <li><a href="/debt/credit-cards">Credit cards</a></li>
+        <li aria-current="page">Interest calculator</li>
+      </ol>
+    </nav>
+
+    <p class="debt-minimum-guide-back housing-hub-back">
+      <a class="debt-minimum-guide-back-link" id="debt-guide-back-link" href="/debt/credit-cards" data-debt-back-default="/debt/credit-cards">← Back to credit cards</a>
+    </p>
+
+    <section class="debt-hero cc-int-hero">
+      <span class="label">Credit card tools</span>
+      <h1>Credit Card Interest Calculator: See What Interest Really Costs</h1>
+      <p class="lead">Interest is the price of carrying a balance. Enter your <strong>balance</strong>, <strong>APR</strong>, and <strong>monthly payment</strong>—we show your <strong>daily interest cost</strong>, <strong>month-one finance charge</strong>, <strong>total interest over payoff</strong>, and how much you save by paying more.</p>
+      <nav class="housing-hub-jump cc-int-jump" aria-label="On this page">
+        <a class="housing-hub-jump-pill" href="#how-interest-works">How interest works</a>
+        <a class="housing-hub-jump-pill" href="#cc-int-calc">Calculator</a>
+        <a class="housing-hub-jump-pill" href="#interest-trap">The interest trap</a>
+        <a class="housing-hub-jump-pill" href="#cc-int-faq">FAQ</a>
+      </nav>
+    </section>
+
+    <section class="housing-hub-panel cc-int-intro" id="how-interest-works" aria-labelledby="how-interest-works-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker debt-credit-cards-hub-kicker--alert">📖 Before you calculate</p>
+        <h2 id="how-interest-works-title">How credit card interest is calculated</h2>
+      </header>
+      <div class="debt-page-prose">
+        <p>When you carry a balance past your due date, your card issuer charges <strong>interest</strong>—a percentage of what you owe, expressed as <a href="/debt/credit-cards/what-is-credit-card-apr">APR</a> (annual percentage rate). Most US cards use a <strong>daily periodic rate</strong>: APR ÷ 365, applied to your balance each day. Those daily amounts add up to your monthly finance charge on your statement.</p>
+        <p>Three numbers drive your interest cost:</p>
+        <ul class="apr-plain-list">
+          <li><strong>Balance</strong> — the higher it is, the more interest accrues each day.</li>
+          <li><strong>APR</strong> — a 24% card costs roughly twice the daily interest of a 12% card on the same balance.</li>
+          <li><strong>Payment size</strong> — if your payment only covers interest, your balance never shrinks and total interest can exceed what you originally borrowed.</li>
+        </ul>
+        <p>Example: <strong>$5,000 at 24% APR</strong> earns about <strong>$3.29/day</strong> (~$100/month) in interest. Pay <strong>$100/month</strong> and every dollar goes to interest—<em>zero</em> principal reduction. Pay <strong>$150/month</strong> and ~$50 hits principal; total interest over payoff drops from thousands of dollars to a much shorter timeline. That is why this calculator leads with your <strong>interest charge</strong>, not just payoff time.</p>
+        <p>For issuer-specific minimum rules, use our <a href="/debt/credit-cards/minimum-payment-calculator">minimum payment calculator</a>. For a fixed payment plan and debt-free date, try the <a href="/debt/credit-cards/credit-card-payoff-calculator#payoff">credit card payoff calculator</a>. For the full formula breakdown, read <a href="/debt/credit-cards/how-credit-card-interest-works">how credit card interest works</a>.</p>
+      </div>
+      <aside class="what-this-means cc-int-glance" role="note">
+        <p class="what-this-means__title">At a glance</p>
+        <p>Interest accrues daily on your balance. The first dollars above your interest charge are the most powerful—every extra payment cuts total interest and shortens payoff.</p>
+      </aside>
+    </section>
+
+    <section aria-labelledby="cc-int-calc-title" class="debt-tool-shell min-pay-calc-shell" id="cc-int-calc">
+      <h2 id="cc-int-calc-title">Calculate your interest cost</h2>
+      <p class="tool-subtitle">Enter balance, APR, and monthly payment—we show daily interest, total interest over payoff, and pay-more comparisons in one place.</p>
+
+      <div class="min-pay-calc-inner">
+        <div class="min-pay-calc-inputs">
+          <form class="inline-form debt-input-grid cc-int-form" aria-label="Credit card interest calculator" id="cc-int-form">
+            <label class="form-field" for="cc-int-balance">
+              <span>Current balance ($)</span>
+              <input type="number" id="cc-int-balance" placeholder="For example, 5200" min="1" step="1" value="5000" required>
+            </label>
+            <label class="form-field" for="cc-int-apr">
+              <span>APR (%)</span>
+              <input type="number" id="cc-int-apr" placeholder="For example, 24.9" min="0" max="99" step="0.1" value="24" required>
+            </label>
+            <label class="form-field" for="cc-int-payment">
+              <span>Monthly payment ($)</span>
+              <input type="number" id="cc-int-payment" placeholder="For example, 150" min="1" step="1" value="150" required aria-describedby="cc-int-payment-hint">
+              <span class="field-hint" id="cc-int-payment-hint">Fixed amount each month—must exceed month-one interest to shrink your balance.</span>
+            </label>
+            <button type="submit">Calculate interest cost</button>
+          </form>
+        </div>
+
+        <div class="min-pay-calc-output" id="cc-int-calc-output" aria-live="polite">
+          <div class="min-pay-output-summary" id="cc-int-summary">
+            <p class="min-pay-output-placeholder">Your interest breakdown and payoff results appear here after you calculate.</p>
+          </div>
+
+          <section class="debt-minimum-scenarios min-pay-output-scenarios" aria-labelledby="cc-int-scenarios-title">
+            <h3 id="cc-int-scenarios-title">Your payment vs paying more</h3>
+            <p class="debt-minimum-lead">Card 1 shows <strong>total interest</strong> at your payment; card 2 shows how much interest you save by paying a bit more.</p>
+            <p class="debt-minimum-edu-link"><a href="/debt/credit-cards/how-credit-card-interest-works">How credit card interest works</a><span class="debt-minimum-edu-hint"> — daily rates, finance charges, and why minimums barely dent principal.</span></p>
+            <div class="debt-minimum-grid" id="cc-int-cards-root">
+              <article class="debt-minimum-card debt-minimum-card--interest">
+                <h3 class="debt-minimum-card-heading">
+                  <span class="debt-minimum-label">Example</span>
+                  <span class="debt-minimum-context">$5,000 · 24% APR · $150/month</span>
+                  <span class="debt-minimum-sum">Run the calculator for your numbers</span>
+                </h3>
+                <dl class="debt-minimum-stats">
+                  <div><dt>Month-one interest</dt><dd><strong>~$100</strong></dd></div>
+                  <div><dt>Total interest</dt><dd><strong>~$3,300</strong></dd></div>
+                  <div><dt>Time to pay off</dt><dd><strong>~5 years</strong></dd></div>
+                </dl>
+                <p class="debt-minimum-eq"><span class="debt-minimum-eq-quote">Tap calculate to replace this with your balance, APR, and payment.</span></p>
+              </article>
+              <article class="debt-minimum-card debt-minimum-card--lift">
+                <h3 class="debt-minimum-card-heading">
+                  <span class="debt-minimum-label">Example</span>
+                  <span class="debt-minimum-context">Same debt · +$50/month</span>
+                  <span class="debt-minimum-sum">Pay $200 instead of $150</span>
+                </h3>
+                <dl class="debt-minimum-stats">
+                  <div><dt>Total interest</dt><dd><strong>~$1,700</strong></dd></div>
+                  <div><dt>Interest saved</dt><dd><strong>~$1,600 vs $150/mo</strong></dd></div>
+                  <div><dt>Time to pay off</dt><dd><strong>~2.7 years</strong></dd></div>
+                </dl>
+                <p class="debt-minimum-eq"><span class="debt-minimum-eq-quote">Small payment bumps cut total interest dramatically.</span></p>
+              </article>
+            </div>
+            <p class="debt-minimum-footnote"><strong>Model note:</strong> we hold your payment steady for comparison. Real minimums shrink as your balance falls. See <a href="/debt/credit-cards/minimum-vs-fixed-payment">minimum vs fixed payment</a>.</p>
+          </section>
+
+          <div class="min-pay-output-details" id="cc-int-result" tabindex="-1"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel cc-int-trap" id="interest-trap" aria-labelledby="interest-trap-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker debt-credit-cards-hub-kicker--violet">🚨 The interest trap</p>
+        <h2 id="interest-trap-title">Why interest can cost more than your original debt</h2>
+      </header>
+      <div class="debt-page-prose">
+        <p>Credit card interest compounds against you when payments barely cover finance charges. At <a href="/debt/credit-cards/what-is-credit-card-apr">high APR</a>, month-one interest on a $5,000 balance can be ~$100. Pay only $100/month and you are running in place—sometimes backward if new charges appear.</p>
+        <p>The painful part is <strong>total interest</strong>: paying near the interest-only level for years can cost more than the original purchase. Bump to $200/month on the same $5,000 balance at 24% APR and total interest can drop from ~$5,500 to under $2,000.</p>
+      </div>
+      <div class="scenario-table-wrap">
+        <table class="scenario-table">
+          <caption>$5,000 at 24% APR — how payment size changes total interest</caption>
+          <thead>
+            <tr>
+              <th class="num">Monthly payment</th>
+              <th class="num">Month-one interest</th>
+              <th class="num">Approx. total interest</th>
+              <th class="num">Payoff time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="num">$100 (interest-only)</td><td class="num">~$100</td><td class="num neg">Keeps growing</td><td class="num">Never</td></tr>
+            <tr><td class="num">$150</td><td class="num">~$100</td><td class="num">~$3,300</td><td class="num">~5 years</td></tr>
+            <tr><td class="num">$200</td><td class="num">~$100</td><td class="num">~$1,700</td><td class="num">~2.7 years</td></tr>
+            <tr><td class="num">$300</td><td class="num">~$100</td><td class="num pos">~$1,000</td><td class="num">~1.6 years</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <aside class="what-this-means" role="note">
+        <p class="what-this-means__title">What this means for you</p>
+        <p>Focus on <strong>total interest</strong>, not just the monthly bill. Even <strong>$50 above</strong> what you pay now can save thousands over the life of the debt. Run your numbers above, then lock a target payment in our <a href="/debt/credit-cards/credit-card-payoff-calculator#payoff">payoff calculator</a>.</p>
+      </aside>
+      <p class="debt-page-prose">Wondering what your issuer minimum would cost in interest? Compare with the <a href="/debt/credit-cards/minimum-payment-calculator">minimum payment calculator</a>. For balance-specific guides, see <a href="/debt/credit-cards/payoff-5000-credit-card-debt">how to pay off $5,000</a> or <a href="/debt/payoff-scenarios">debt payoff scenarios</a>.</p>
+    </section>
+
+    <section class="housing-hub-panel housing-hub-panel--faq" id="cc-int-faq" aria-labelledby="cc-int-faq-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker">❓ FAQ</p>
+        <h2 id="cc-int-faq-title">Credit card interest questions answered</h2>
+      </header>
+      <div class="faq-stack">
+        <article class="faq-item">
+          <h3>How is credit card interest calculated?</h3>
+          <p>Most issuers use a daily periodic rate (APR ÷ 365) on your balance each day. Monthly finance charges sum those daily amounts. This calculator uses monthly amortization—enter balance, APR, and payment for your estimate. Read <a href="/debt/credit-cards/how-credit-card-interest-works">how interest works</a> for the full breakdown.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How much interest does my card charge per month?</h3>
+          <p>Month-one interest ≈ balance × (APR ÷ 12). $5,000 at 24% APR is about $100 the first month. Enter your balance and APR above—the calculator shows your exact month-one charge and daily cost.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How much total interest will I pay?</h3>
+          <p>It depends on balance, APR, payment size, and how long you carry the debt. This tool projects total interest for a fixed monthly payment. At high APR with low payments, total interest can exceed your original balance.</p>
+        </article>
+        <article class="faq-item">
+          <h3>What happens if I only pay the interest?</h3>
+          <p>Your balance does not shrink. Unpaid interest can be added to your balance, so next month's charge grows. You need to pay more than month-one interest to make progress. See <a href="/debt/credit-cards/what-happens-if-you-only-pay-minimum">what happens if you only pay the minimum</a>.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How can I pay less interest?</h3>
+          <p>Pay more than the minimum, stop adding new charges while paying down, and explore lower-APR options if you qualify. Use the what-if scenarios in this calculator—$50 extra often saves thousands in total interest.</p>
+        </article>
+        <article class="faq-item">
+          <h3>What is the daily interest cost?</h3>
+          <p>Daily interest ≈ balance × (APR ÷ 365). On $5,000 at 24% APR, that is about $3.29/day. The calculator shows your daily cost based on your current balance.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-label="Related credit card tools" class="interlink-section cc-int-related">
+      <h2>Related credit card tools</h2>
+      <div class="interlink-grid">
+        <a class="interlink-card" href="/debt/credit-cards/minimum-payment-calculator">
+          <h3>Minimum payment calculator</h3>
+          <p>Estimate your issuer minimum and see how long minimum-only payments keep you in debt.</p>
+          <span class="interlink-cta">Estimate minimum</span>
+        </a>
+        <a class="interlink-card" href="/debt/credit-cards/credit-card-payoff-calculator#payoff">
+          <h3>Credit card payoff calculator</h3>
+          <p>Pick a fixed monthly payment and see your debt-free date.</p>
+          <span class="interlink-cta">Open payoff calculator</span>
+        </a>
+        <a class="interlink-card" href="/debt/credit-cards">
+          <h3>Credit cards hub</h3>
+          <p>Calculators, payoff guides, APR explainers, and strategies.</p>
+          <span class="interlink-cta">Browse credit cards</span>
+        </a>
+      </div>
+    </section>
+
+    <aside class="eeat-trust cc-int-trust" aria-labelledby="cc-int-trust-title">
+      <header class="eeat-trust__header">
+        <span class="eeat-trust__kicker">🔒 Methodology</span>
+        <h2 id="cc-int-trust-title" class="eeat-trust__title">How we calculate interest</h2>
+        <p class="eeat-trust__meta"><time datetime="2026-06-01">Last reviewed: June 2026</time> · <a href="/calculator-methodology">Calculator methodology</a> · <a href="/editorial-policy">Editorial policy</a></p>
+      </header>
+      <p class="debt-page-prose">Month-one interest = balance × (APR ÷ 12). Daily interest = balance × (APR ÷ 365). Total interest uses monthly amortization at your fixed payment until the balance reaches zero. This is an educational model—real issuers may use average daily balance methods and vary rates by transaction type. Sources: <a href="https://www.consumerfinance.gov/" rel="noopener">CFPB</a> credit card disclosures, <a href="https://www.federalreserve.gov/releases/g19/current/" rel="noopener">Federal Reserve G.19</a> average APR.</p>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-description">US-only tools to calculate your real income after tax, understand debt, and make smarter financial decisions.</p>
+      <div class="footer-grid" role="navigation" aria-label="Footer">
+        <section class="footer-column" aria-labelledby="footer-popular-calculators">
+          <h2 id="footer-popular-calculators">Popular Calculators</h2>
+          <a href="/hourly-to-salary-after-tax">Hourly to Salary After Tax</a>
+          <a href="/debt/credit-cards/credit-card-payoff-calculator">Credit Card Payoff Calculator</a>
+          <a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a>
+          <a href="/1099-vs-w2-calculator">1099 vs W2 Calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-tools-category">
+          <h2 id="footer-tools-category">Tools by Category</h2>
+          <a href="/hourly-to-salary-after-tax">Income</a>
+          <a href="/debt">Debt</a>
+          <a href="/rent-vs-buy-calculator">Living</a>
+          <a href="/1099-vs-w2-calculator">Freelance</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-explore-more">
+          <h2 id="footer-explore-more">Explore More</h2>
+          <a href="/debt/credit-cards">Credit cards</a>
+          <a href="/debt/credit-cards/how-credit-card-interest-works">How interest works</a>
+          <a href="/debt/credit-cards/credit-card-payoff-calculator#payoff">Payoff calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-company">
+          <h2 id="footer-company">Company</h2>
+          <a href="/about">About</a>
+          <a href="/editorial-policy">Editorial policy</a>
+          <a href="/calculator-methodology">Calculator methodology</a>
+          <a href="/methodology">Full methodology</a>
+          <a href="/contact">Contact</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms">Terms</a>
+        </section>
+      </div>
+      <p class="footer-review" role="note"><time datetime="2026-06-01">Last reviewed: June 2026</time> · Reviewed by the <a href="/about">Income Clarity editorial team</a> · <a href="/editorial-policy">Editorial policy</a></p>
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
+  <script src="/guide-back.js"></script>
+  <script src="/debt-guide-back.js"></script>
+  <script src="/debt-credit-card-interest-calculator.js"></script>
+</body>
+</html>

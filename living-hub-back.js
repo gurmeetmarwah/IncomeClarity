@@ -1,6 +1,6 @@
 (function () {
   var LINK_ID = "living-hub-back-link";
-  var CALCULATOR_PATH = "/credit-card-payoff-calculator";
+  var CALCULATOR_PATH = "/debt/credit-cards/credit-card-payoff-calculator";
   var CALCULATOR_LABEL = "Credit card payoff calculator";
   var RENT_VS_BUY_PATH = "/rent-vs-buy-calculator";
   var RENT_VS_BUY_LABEL = "Living (rent vs buy)";
@@ -22,9 +22,9 @@
       path: "/debt/financial-health",
       label: "Debt & financial health",
     },
-    "hidden-costs": {
-      path: "/debt/hidden-costs",
-      label: "Hidden costs of debt",
+    "credit-cards": {
+      path: "/debt/credit-cards",
+      label: "Credit cards",
     },
     "life-decisions": {
       path: "/debt/life-decisions",
@@ -65,7 +65,7 @@
     "#debt-hub-apr": "interest-apr",
     "#debt-hub-strategies": "payoff-strategies",
     "#debt-hub-health": "financial-health",
-    "#debt-hub-hidden-costs": "hidden-costs",
+    "#debt-hub-credit-cards": "credit-cards",
     "#debt-hub-life": "life-decisions",
   };
 

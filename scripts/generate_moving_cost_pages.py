@@ -51,7 +51,7 @@ HEADER = """  <header class="site-header">
       <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
       <nav class="nav-links" aria-label="Primary">
         <a href="/hourly-to-salary-after-tax">Income</a>
-        <a href="/credit-card-payoff-calculator">Debt</a>
+        <a href="/debt">Debt</a>
         <a href="/rent-vs-buy-calculator">Living</a>
         <a href="/1099-vs-w2-calculator">Freelance</a>
       </nav>

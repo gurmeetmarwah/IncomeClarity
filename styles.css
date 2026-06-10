@@ -136,19 +136,25 @@ a:hover {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%230f6e9c'%3E%3Cpath d='M3 14h3V7H3v7zm5 0h3V3H8v11zm5 0h3V9h-3v5z'/%3E%3C/svg%3E");
 }
 
-.nav-links a[href="/credit-card-payoff-calculator"]::before,
-.nav-links a[href="credit-card-payoff-calculator.html"]::before {
-  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23c05621"%3E%3Cpath d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 4v5H7v-2h2V6h2zm-4 7h6v2H7v-2z"/%3E%3C/svg%3E');
+.nav-links a[href="/debt"]::before,
+.nav-links a[href="/debt/"]::before,
+.nav-links a[href="debt.html"]::before,
+.nav-links a[aria-current="page"][href="/debt"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23c05621'%3E%3Cpath d='M10 2a8 8 0 1 0 0 16 8 8 0 0 1 0-16zm1 4v5H7v-2h2V6h2zm-4 7h6v2H7v-2z'/%3E%3C/svg%3E");
 }
 
 .nav-links a[href="/rent-vs-buy-calculator"]::before,
 .nav-links a[href="rent-vs-buy-calculator.html"]::before {
-  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%232d6a9f"%3E%3Cpath d="M10 3l7 6v8h-5v-5H8v5H3V9l7-6z"/%3E%3C/svg%3E');
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%232d6a9f'%3E%3Cpath d='M10 3l7 6v8h-5v-5H8v5H3V9l7-6z'/%3E%3C/svg%3E");
 }
 
 .nav-links a[href="/1099-vs-w2-calculator"]::before,
 .nav-links a[href="1099-vs-w2-calculator.html"]::before {
-  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%236b46c1"%3E%3Cpath d="M4 4h12v2H4V4zm0 5h8v2H4V9zm0 5h12v2H4v-2zm10-5l2 2-2 2v-4z"/%3E%3C/svg%3E');
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b46c1'%3E%3Cpath d='M4 4h12v2H4V4zm0 5h8v2H4V9zm0 5h12v2H4v-2zm10-5l2 2-2 2v-4z'/%3E%3C/svg%3E");
+}
+
+.nav-links a[aria-current="page"] {
+  color: var(--text);
 }
 
 .hero {
@@ -9190,17 +9196,352 @@ a.lifestyle-hub-salary-card:hover {
   box-shadow: 0 4px 12px rgba(82, 96, 109, 0.12);
 }
 
-.debt-topic-card#debt-hub-hidden-costs.debt-topic-card--explore {
+.debt-hub-hero .debt-hub-calc-cta {
+  margin-top: 1.25rem;
+}
+
+/* Minimum payment calculator (/debt/credit-cards/minimum-payment-calculator) */
+.min-pay-calc-page .min-pay-jump {
+  margin-top: 1.25rem;
+}
+
+.min-pay-intro {
+  background: linear-gradient(180deg, #fff8f8 0%, #ffffff 100%);
+  border-color: #e8c4c4;
+}
+
+.min-pay-glance {
+  margin-top: 1rem;
+}
+
+.min-pay-calc-shell {
+  padding: 1.15rem 1.2rem 1.25rem;
+}
+
+.min-pay-calc-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.min-pay-calc-inputs {
+  padding-bottom: 0.15rem;
+}
+
+.min-pay-calc-output {
+  margin-top: 1rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid #d6e6f5;
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+  border-radius: 0 0 10px 10px;
+  margin-left: -0.35rem;
+  margin-right: -0.35rem;
+  margin-bottom: -0.35rem;
+  padding-left: 0.35rem;
+  padding-right: 0.35rem;
+  padding-bottom: 0.5rem;
+}
+
+.min-pay-calc-output--active .min-pay-output-placeholder {
+  display: none;
+}
+
+.min-pay-output-summary {
+  text-align: center;
+}
+
+.min-pay-output-placeholder {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.min-pay-calc-output .min-pay-result-head {
+  margin: 0 0 1rem;
+  background: transparent;
+  border: none;
+  padding: 0 0 1rem;
+  border-bottom: 1px solid #d6e6f5;
+}
+
+.min-pay-result-detail {
+  margin: 0.5rem 0 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.min-pay-calc-output .debt-minimum-scenarios {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.min-pay-output-scenarios {
+  margin-top: 0.25rem;
+}
+
+.min-pay-output-details {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e3edf7;
+}
+
+.min-pay-output-details:empty {
+  display: none;
+  margin: 0;
+  padding: 0;
+  border-top: none;
+}
+
+.min-pay-output-details .debt-result-warning {
+  margin-bottom: 0.75rem;
+}
+
+.min-pay-split-explainer {
+  margin: 1rem 0 0;
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
+  text-align: left;
+  border: 1px solid #d6e6f5;
+  background: #f8fbff;
+}
+
+.min-pay-split-explainer--no-payoff {
+  border-color: #e8b8b8;
+  background: #fff8f8;
+}
+
+.min-pay-split-explainer--barely {
+  border-color: #e8c99a;
+  background: #fdf6eb;
+}
+
+.min-pay-split-explainer__title {
+  margin: 0 0 0.45rem;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #102a43;
+}
+
+.min-pay-split-explainer__formula {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: #486581;
+}
+
+.min-pay-split-visual {
+  margin: 0 0 0.75rem;
+}
+
+.min-pay-split-bar {
+  display: flex;
+  height: 1.65rem;
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.65rem;
+  color: #fff;
+}
+
+.min-pay-split-bar__interest {
+  background: #c05621;
+  text-align: center;
+  min-width: 2.5rem;
+}
+
+.min-pay-split-bar__principal {
+  background: #0a7a6a;
+  text-align: center;
+  min-width: 2.5rem;
+}
+
+.min-pay-split-visual__caption {
+  margin: 0.35rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.min-pay-split-explainer__detail,
+.min-pay-split-explainer__action {
+  margin: 0.45rem 0 0;
+  font-size: 0.94rem;
+  line-height: 1.5;
+  color: #334e68;
+}
+
+.min-pay-no-payoff-label {
+  color: #b44d4d;
+}
+
+.min-pay-tool-shell .field-hint {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.min-pay-form.debt-input-grid {
+  align-items: start;
+}
+
+.min-pay-form .form-field--method {
+  grid-column: 1 / -1;
+}
+
+.min-pay-form .form-field--method > span:first-child {
+  display: block;
+  max-width: 36rem;
+}
+
+.min-pay-form button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  width: auto;
+  min-width: min(100%, 18rem);
+}
+
+.min-pay-form select {
+  width: 100%;
+  max-width: 36rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  font: inherit;
+  background: #fff;
+}
+
+.min-pay-form .form-field--method .field-hint {
+  max-width: 42rem;
+}
+
+.min-pay-result-head {
+  background: #f0fbf8;
+  border: 1px solid #b8e8dc;
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.min-pay-result-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0a7a6a;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.min-pay-result-amount {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+  color: #065f46;
+  line-height: 1.1;
+}
+
+.min-pay-result-amount span {
+  font-size: 0.45em;
+  font-weight: 700;
+  color: #0a7a6a;
+}
+
+.min-pay-result-sub {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+}
+
+.min-pay-trap {
+  background: linear-gradient(180deg, #f4f0fc 0%, #ffffff 100%);
+  border-color: #c8b8e8;
+}
+
+.min-pay-trust {
+  margin-bottom: 2rem;
+}
+
+/* Credit card interest calculator (/debt/credit-cards/credit-card-interest-calculator) */
+.cc-int-calc-page .cc-int-jump {
+  margin-top: 1.25rem;
+}
+
+.cc-int-intro {
+  background: linear-gradient(180deg, #fdf6eb 0%, #ffffff 100%);
+  border-color: #e8c99a;
+}
+
+.cc-int-glance {
+  margin-top: 1rem;
+}
+
+.cc-int-form.debt-input-grid {
+  align-items: start;
+}
+
+.cc-int-form button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  width: auto;
+  min-width: min(100%, 18rem);
+}
+
+.cc-int-form .form-field .field-hint {
+  max-width: 42rem;
+}
+
+.cc-int-result-head {
+  background: #fff8f0;
+  border: 1px solid #e8c99a;
+}
+
+.cc-int-result-kicker {
+  color: #9a5b14;
+}
+
+.cc-int-result-amount {
+  color: #9a3412;
+}
+
+.cc-int-result-amount span {
+  color: #c05621;
+}
+
+.cc-int-trap {
+  background: linear-gradient(180deg, #fdf6eb 0%, #ffffff 100%);
+  border-color: #e8c99a;
+}
+
+.cc-int-trust {
+  margin-bottom: 2rem;
+}
+
+.debt-minimum-card--interest {
+  border-color: #e8c99a;
+  background: linear-gradient(165deg, #ffffff 0%, #fdf6eb 100%);
+}
+
+.debt-minimum-card--min {
+  border-color: #e8b8b8;
+  background: linear-gradient(165deg, #ffffff 0%, #fff8f8 100%);
+}
+
+.debt-minimum-card--lift {
+  border-color: #b8e8dc;
+  background: linear-gradient(165deg, #ffffff 0%, #f0fbf8 100%);
+}
+
+.debt-topic-card#debt-hub-credit-cards.debt-topic-card--explore {
   --topic-accent: #9a5b14;
 }
 
-.debt-topic-explore-btn--hidden {
+.debt-topic-explore-btn--credit-cards {
   color: #9a5b14;
   background: #fdf6eb;
   border-color: #e8c99a;
 }
 
-.debt-topic-explore-btn--hidden:hover {
+.debt-topic-explore-btn--credit-cards:hover {
   background: #f8ecd4;
   border-color: #d4a85c;
   box-shadow: 0 4px 12px rgba(154, 91, 20, 0.12);
@@ -9973,7 +10314,405 @@ a.lifestyle-hub-salary-card:hover {
   background: #f0fbf8;
 }
 
-/* Hidden costs of debt hub (/debt/hidden-costs) */
+/* Credit cards hub (/debt/credit-cards) */
+.debt-credit-cards-hub-page {
+  background: linear-gradient(180deg, #f0f6fc 0%, #f7fafc 12rem, #f7fafc 100%);
+}
+
+.debt-credit-cards-hub-hero {
+  background: linear-gradient(128deg, #ffffff 0%, #eef6fc 45%, #f8fbff 100%);
+  border-color: #9ec8e8;
+}
+
+.debt-credit-cards-hub-kicker--indigo { color: #3d4f9f; }
+.debt-credit-cards-hub-kicker--violet { color: #5b4bb4; }
+.debt-credit-cards-hub-kicker--gold { color: #8a7340; }
+.debt-credit-cards-hub-kicker--alert { color: #b44d4d; }
+.debt-credit-cards-hub-kicker--teal { color: #0a7a6a; }
+.debt-credit-cards-hub-kicker--slate { color: #52606d; }
+
+.debt-credit-cards-hub-panel--calculators {
+  background: linear-gradient(180deg, #eef6fc 0%, #ffffff 100%);
+  border-color: #9ec8e8;
+}
+
+.debt-credit-cards-hub-tool-card--payoff {
+  background: linear-gradient(165deg, #ffffff 0%, #eef6fc 100%);
+  border-color: #9ec8e8;
+}
+
+.debt-credit-cards-hub-tool-card--min {
+  background: linear-gradient(165deg, #ffffff 0%, #fff5f5 100%);
+  border-color: #e8b8b8;
+}
+
+.debt-credit-cards-hub-tool-card--payment {
+  background: linear-gradient(165deg, #ffffff 0%, #f0fbf8 100%);
+  border-color: #b8e8dc;
+}
+
+.debt-credit-cards-hub-tool-card--interest {
+  background: linear-gradient(165deg, #ffffff 0%, #fdf6eb 100%);
+  border-color: #e8c99a;
+}
+
+.debt-credit-cards-hub-panel--scenarios {
+  background: linear-gradient(180deg, #f4f0fc 0%, #ffffff 100%);
+  border-color: #c8b8e8;
+}
+
+.debt-credit-cards-chip-card--1500,
+.debt-credit-cards-chip-card--3000,
+.debt-credit-cards-chip-card--5000,
+.debt-credit-cards-chip-card--12000,
+.debt-credit-cards-chip-card--80000 {
+  background: linear-gradient(145deg, #ffffff, #eef0fc);
+  border-color: #a8b0dc;
+}
+
+/* Payoff balance tiers — hub + landing pages */
+.cc-payoff-tier-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.cc-payoff-tier {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  border: 1px solid #d6e6f5;
+  background: #fff;
+  overflow: hidden;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.cc-payoff-tier:hover {
+  box-shadow: 0 10px 24px rgba(16, 42, 67, 0.08);
+  transform: translateY(-2px);
+}
+
+.cc-payoff-tier-head {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem 1.05rem 0.85rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cc-payoff-tier-head:hover {
+  text-decoration: none;
+}
+
+.cc-payoff-tier-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #486581;
+}
+
+.cc-payoff-tier-head h3 {
+  margin: 0;
+  font-size: 1.08rem;
+  color: #102a43;
+}
+
+.cc-payoff-tier-range {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #334e68;
+}
+
+.cc-payoff-tier-hook {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: #627d98;
+}
+
+.cc-payoff-tier-cta {
+  margin-top: 0.25rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0f6e9c;
+}
+
+.cc-payoff-tier-scenarios {
+  margin-top: auto;
+  padding: 0.75rem 1.05rem 1rem;
+  border-top: 1px solid #e3edf7;
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+.cc-payoff-tier-scenarios-label {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #829ab1;
+}
+
+.cc-payoff-tier-chip {
+  display: inline-block;
+  margin: 0 0.4rem 0.4rem 0;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #102a43;
+  background: #fff;
+  border: 1px solid #c5d9ea;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.cc-payoff-tier-chip:hover {
+  background: #eef6fc;
+  border-color: #9ec8e8;
+  text-decoration: none;
+}
+
+.cc-payoff-tier--small .cc-payoff-tier-head {
+  background: linear-gradient(165deg, #ffffff 0%, #f0fbf8 100%);
+}
+
+.cc-payoff-tier--medium .cc-payoff-tier-head {
+  background: linear-gradient(165deg, #ffffff 0%, #eef0fc 100%);
+}
+
+.cc-payoff-tier--large .cc-payoff-tier-head {
+  background: linear-gradient(165deg, #ffffff 0%, #fdf6eb 100%);
+}
+
+.cc-payoff-tier--severe .cc-payoff-tier-head {
+  background: linear-gradient(165deg, #ffffff 0%, #fff8f8 100%);
+}
+
+.cc-payoff-tier-page .cc-payoff-tier-jump {
+  margin-top: 1.25rem;
+}
+
+.cc-payoff-tier-intro {
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+  border-color: #d6e6f5;
+}
+
+.cc-payoff-tier-glance {
+  margin-top: 1rem;
+}
+
+.cc-payoff-tier-math {
+  border-color: #c5d9ea;
+}
+
+.cc-payoff-tier-plan {
+  background: linear-gradient(180deg, #f0fbf8 0%, #ffffff 100%);
+  border-color: #b8e8dc;
+}
+
+.cc-payoff-tier-steps {
+  margin: 0 0 1rem;
+}
+
+.cc-payoff-tier-subhead {
+  margin: 1.25rem 0 0.65rem;
+  font-size: 1.05rem;
+  color: #102a43;
+}
+
+.cc-payoff-tier-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.debt-topic-explore-btn--secondary {
+  color: #334e68;
+  background: #f0f4f8;
+  border-color: #bcccdc;
+}
+
+.debt-topic-explore-btn--secondary:hover {
+  background: #e3ebf3;
+  border-color: #9fb3c8;
+}
+
+.cc-payoff-tier-scenarios-panel {
+  background: linear-gradient(180deg, #eef0fc 0%, #ffffff 100%);
+  border-color: #a8b0dc;
+}
+
+.cc-payoff-tier-scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.cc-payoff-tier-scenario-card {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem 1.05rem;
+  border-radius: 11px;
+  text-decoration: none;
+  border: 1px solid #c5d9ea;
+  background: #fff;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cc-payoff-tier-scenario-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(16, 42, 67, 0.09);
+  text-decoration: none;
+}
+
+.cc-payoff-tier-scenario-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #486581;
+}
+
+.cc-payoff-tier-scenario-card h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #102a43;
+}
+
+.cc-payoff-tier-scenario-card p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: #627d98;
+}
+
+.cc-payoff-tier-scenario-cta {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #0f6e9c;
+}
+
+.cc-payoff-tier-trust {
+  margin-bottom: 2rem;
+}
+
+/* Cash advance APR guide (/debt/credit-cards/cash-advance-apr) */
+.cash-advance-guide .cash-advance-hero {
+  border-bottom-color: #e8c99a;
+}
+
+.cash-advance-callout {
+  border-color: #e8c99a;
+  background: linear-gradient(180deg, #fff8f0 0%, #ffffff 100%);
+}
+
+.cash-advance-card--purchase {
+  border-color: #b8e8dc;
+  background: linear-gradient(165deg, #ffffff 0%, #f0fbf8 100%);
+}
+
+.cash-advance-card--cash {
+  border-color: #e8b8b8;
+  background: linear-gradient(165deg, #ffffff 0%, #fff8f8 100%);
+}
+
+.cash-advance-timeline {
+  margin: 1rem 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.cash-advance-timeline-label {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #334e68;
+}
+
+.cash-advance-timeline-track {
+  display: flex;
+  height: 2rem;
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 2rem;
+  color: #fff;
+}
+
+.cash-advance-timeline-seg {
+  text-align: center;
+  padding: 0 0.35rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cash-advance-timeline-seg--free {
+  background: #0a7a6a;
+}
+
+.cash-advance-timeline-seg--interest {
+  background: #c05621;
+}
+
+.cash-advance-related {
+  margin-top: 1.5rem;
+}
+
+.cash-advance-trust {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .cash-advance-timeline-seg {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .cc-payoff-tier-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.debt-credit-cards-hub-panel--interest {
+  background: linear-gradient(180deg, #fffbf5 0%, #ffffff 100%);
+  border-color: #ead9b8;
+}
+
+.debt-credit-cards-hub-panel--minimum {
+  background: linear-gradient(180deg, #fff8f8 0%, #ffffff 100%);
+  border-color: #e8c4c4;
+}
+
+.debt-credit-cards-hub-panel--strategies {
+  background: linear-gradient(180deg, #f0fbf8 0%, #ffffff 100%);
+  border-color: #b8e8dc;
+}
+
+.debt-credit-cards-hub-panel--related {
+  background: linear-gradient(180deg, #eef2f6 0%, #ffffff 100%);
+  border-color: #b8c5d3;
+}
+
+.debt-credit-cards-guide-card {
+  background: #ffffff;
+  border-color: #d4dce6;
+}
+
+.debt-credit-cards-child-article {
+  max-width: 42rem;
+}
+
+.debt-credit-cards-child-cta {
+  margin-top: 1.5rem;
+}
+
 .debt-hidden-costs-hub-page {
   background: linear-gradient(180deg, #fdf8f0 0%, #f7fafc 12rem, #f7fafc 100%);
 }

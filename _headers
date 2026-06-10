@@ -1,8 +1,8 @@
 # Avoid stale calculator HTML when navigating between Living and Debt (bfcache / disk cache).
-/credit-card-payoff-calculator
+/debt
   Cache-Control: no-cache, no-store, must-revalidate
 
-/credit-card-payoff-calculator.html
+/debt.html
   Cache-Control: no-cache, no-store, must-revalidate
 
 /rent-vs-buy-calculator

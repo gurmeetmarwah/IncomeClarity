@@ -263,7 +263,7 @@
     } else if (score >= 60) {
       el.innerHTML = `<h3>If debt is moderate</h3><ul><li>Focus on highest-interest balances first (<a href="/debt/payoff/best-way-to-pay-off-credit-card-debt">avalanche vs snowball</a>)</li><li>Avoid new debt until ratios improve</li><li>Increase emergency fund toward 3 months</li><li>Review housing share with our <a href="/living/housing/how-much-rent-can-i-afford">rent affordability guide</a></li></ul>`;
     } else {
-      el.innerHTML = `<h3>If debt is high risk</h3><ul><li>Run a <a href="/credit-card-payoff-calculator#payoff">payoff timeline</a> with extra payments</li><li>Consider <a href="/debt/payoff/best-way-to-pay-off-credit-card-debt">debt avalanche or snowball</a> strategy</li><li>Look at refinancing only if APR drops materially</li><li>Do a full <a href="/living/budgeting/average-monthly-expenses">budget review</a> — cut subscriptions and pause new BNPL</li></ul>`;
+      el.innerHTML = `<h3>If debt is high risk</h3><ul><li>Run a <a href="/debt/credit-cards/credit-card-payoff-calculator#payoff">payoff timeline</a> with extra payments</li><li>Consider <a href="/debt/payoff/best-way-to-pay-off-credit-card-debt">debt avalanche or snowball</a> strategy</li><li>Look at refinancing only if APR drops materially</li><li>Do a full <a href="/living/budgeting/average-monthly-expenses">budget review</a> — cut subscriptions and pause new BNPL</li></ul>`;
     }
   }
 

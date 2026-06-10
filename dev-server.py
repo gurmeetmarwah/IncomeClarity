@@ -152,11 +152,11 @@ if __name__ == "__main__":
     os.chdir(ROOT)
     server = HTTPServer(("", PORT), NoCacheHandler)
     print(f"Serving {ROOT} at http://localhost:{PORT}/ (no-cache + _redirects)")
-    print(f"Debt page: http://localhost:{PORT}/credit-card-payoff-calculator#debt-hub-title")
+    print(f"Debt page: http://localhost:{PORT}/debt#debt-hub-title")
     print(f"Interest hub: http://localhost:{PORT}/debt/interest-apr")
     print(f"Strategies hub: http://localhost:{PORT}/debt/payoff-strategies")
     print(f"Financial health hub: http://localhost:{PORT}/debt/financial-health")
-    print(f"Hidden costs hub: http://localhost:{PORT}/debt/hidden-costs")
+    print(f"Credit cards hub: http://localhost:{PORT}/debt/credit-cards")
     print(f"Life decisions hub: http://localhost:{PORT}/debt/life-decisions")
     try:
         server.serve_forever()

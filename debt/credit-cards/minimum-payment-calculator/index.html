@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Minimum Payment Calculator: How Long Minimums Keep You in Debt (2026) | Income Clarity</title>
+  <meta name="description" content="Enter your balance and APR—we estimate your credit card minimum payment and show years to payoff, total interest, and how much you save by paying $50–$200 more. Free US calculator.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.incomeclaritylab.com/debt/credit-cards/minimum-payment-calculator">
+  <meta property="og:title" content="Minimum Payment Calculator: How Long Minimums Keep You in Debt">
+  <meta property="og:description" content="Estimate your card minimum from balance and APR. See payoff time, interest cost, and what happens when you pay more than the minimum.">
+  <meta property="og:site_name" content="Income Clarity">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Minimum Payment Calculator: How Long Minimums Keep You in Debt">
+  <meta name="twitter:description" content="Estimate your card minimum from balance and APR. See payoff time, interest cost, and what happens when you pay more than the minimum.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://www.incomeclaritylab.com/debt/credit-cards/minimum-payment-calculator">
+  <link rel="stylesheet" href="/styles.css?v=debt-min-pay-calc">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="apple-touch-icon" href="/images/logo.png">
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path === "/index.html") cleanPath = "/";
+      else if (path.endsWith("/index.html")) cleanPath = path.slice(0, -10);
+      else if (path.endsWith(".html")) cleanPath = path.slice(0, -5);
+      if (cleanPath !== path) window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Credit Card Minimum Payment Calculator",
+    "description": "Estimate your credit card minimum payment from balance and APR. See how long minimum-only payments keep you in debt and compare paying more.",
+    "url": "https://www.incomeclaritylab.com/debt/credit-cards/minimum-payment-calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@type": "WebSite", "name": "Income Clarity", "url": "https://www.incomeclaritylab.com/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is the credit card minimum payment calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most US issuers use the greater of a flat floor (often $25–$40) or a percentage of your balance—commonly 1% to 3%—sometimes plus that month's interest charge. Our calculator lets you pick a typical formula so you can estimate your minimum before your statement arrives."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if I only pay the minimum on my credit card?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your account stays current, but most of each minimum often goes to interest, not principal. A $5,000 balance at 24% APR on a ~$100 minimum can take 20+ years to clear and cost more in interest than the original debt."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to pay off a credit card with minimum payments?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on balance, APR, and how your issuer calculates the minimum. Enter your numbers in this calculator for an estimated minimum and payoff timeline. Adding even $50 above the minimum usually cuts years off the schedule."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is paying the minimum payment bad for my credit score?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "On-time minimums help payment history. But high utilization (balance vs credit limit) can hurt your score. Paying more than the minimum lowers utilization faster and saves interest."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much more than the minimum should I pay?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pay at least enough to cover monthly interest plus something toward principal—often $50 to $100 above your minimum is a strong start. Use our payoff calculator with a fixed payment you can sustain each month."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does my minimum payment go down when my balance drops?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because minimums are usually tied to balance size. As you owe less, the percentage-based portion shrinks. That slows payoff unless you lock in a fixed payment above the minimum."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Debt", "item": "https://www.incomeclaritylab.com/debt" },
+      { "@type": "ListItem", "position": 2, "name": "Credit cards", "item": "https://www.incomeclaritylab.com/debt/credit-cards" },
+      { "@type": "ListItem", "position": 3, "name": "Minimum payment calculator", "item": "https://www.incomeclaritylab.com/debt/credit-cards/minimum-payment-calculator" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/hourly-to-salary-after-tax">Income</a>
+        <a href="/debt" aria-current="page">Debt</a>
+        <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container debt-page min-pay-calc-page">
+    <nav class="take-home-return-nav housing-hub-crumb" aria-label="Breadcrumb">
+      <ol class="take-home-return-breadcrumbs">
+        <li><a href="/debt">Debt</a></li>
+        <li><a href="/debt/credit-cards">Credit cards</a></li>
+        <li aria-current="page">Minimum payment calculator</li>
+      </ol>
+    </nav>
+
+    <p class="debt-minimum-guide-back housing-hub-back">
+      <a class="debt-minimum-guide-back-link" id="debt-guide-back-link" href="/debt/credit-cards" data-debt-back-default="/debt/credit-cards">← Back to credit cards</a>
+    </p>
+
+    <section class="debt-hero min-pay-hero">
+      <span class="label">Credit card tools</span>
+      <h1>Minimum Payment Calculator: See What Your Minimum Really Costs</h1>
+      <p class="lead">You do not need to guess your minimum from your statement. Enter your <strong>balance</strong> and <strong>APR</strong>—we estimate your minimum payment and show how many years minimum-only payments can keep you in debt. Then compare what happens when you pay <strong>$50, $100, or $200 more</strong>.</p>
+      <nav class="housing-hub-jump min-pay-jump" aria-label="On this page">
+        <a class="housing-hub-jump-pill" href="#what-is-minimum">What is a minimum?</a>
+        <a class="housing-hub-jump-pill" href="#min-pay-calc">Calculator</a>
+        <a class="housing-hub-jump-pill" href="#minimum-trap">The minimum trap</a>
+        <a class="housing-hub-jump-pill" href="#min-pay-faq">FAQ</a>
+      </nav>
+    </section>
+
+    <section class="housing-hub-panel min-pay-intro" id="what-is-minimum" aria-labelledby="what-is-minimum-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker debt-credit-cards-hub-kicker--alert">📖 Before you calculate</p>
+        <h2 id="what-is-minimum-title">What is a credit card minimum payment?</h2>
+      </header>
+      <div class="debt-page-prose">
+        <p>A <strong>minimum payment</strong> is the smallest amount your card issuer will accept each billing cycle to keep your account in good standing. It is not a recommended payoff plan—it is the floor. Pay it on time and you avoid late fees and penalty APR in most cases. Pay <em>only</em> the minimum for months or years and most of your money goes to <a href="/debt/credit-cards/what-is-credit-card-apr">interest</a>, not your balance.</p>
+        <p>Issuers publish how they calculate minimums in your card agreement (sometimes called the Schumer box). Common US formulas include:</p>
+        <ul class="apr-plain-list">
+          <li><strong>Percentage of balance</strong> — often 1% to 3% of what you owe.</li>
+          <li><strong>Plus interest</strong> — some cards add that month's finance charge to the percentage.</li>
+          <li><strong>A flat floor</strong> — typically $25 to $40 when the percentage would be lower.</li>
+        </ul>
+        <p>Example: $5,000 at 24% APR earns about <strong>$100 in interest</strong> the first month. A <strong>2% of balance</strong> minimum is also ~$100—so <em>zero dollars</em> go to principal and the balance never shrinks in that simplified model. A <strong>1% + interest</strong> minimum is ~$150 ($50 principal + $100 interest), which is why many real cards eventually pay down, but painfully slowly. That gap is the <a href="/debt/credit-cards/what-happens-if-you-only-pay-minimum">minimum payment trap</a>—and why this calculator shows how your payment splits between interest and principal.</p>
+        <p>Our tool <strong>estimates</strong> your minimum from balance and APR using rules you can match to your issuer. For the full formula breakdown, read <a href="/debt/credit-cards/how-minimum-payments-are-calculated">how minimum payments are calculated</a>. When you are ready to pick a fixed payment above the minimum, use the <a href="/debt/credit-cards/credit-card-payoff-calculator#payoff">credit card payoff calculator</a>.</p>
+      </div>
+      <aside class="what-this-means min-pay-glance" role="note">
+        <p class="what-this-means__title">At a glance</p>
+        <p>The minimum keeps you current. It rarely gets you out of debt fast. Knowing your estimated minimum is step one—choosing a higher fixed payment is step two.</p>
+      </aside>
+    </section>
+
+    <section aria-labelledby="min-pay-calc-title" class="debt-tool-shell min-pay-calc-shell" id="min-pay-calc">
+      <h2 id="min-pay-calc-title">Estimate your minimum &amp; payoff timeline</h2>
+      <p class="tool-subtitle">Enter balance and APR—we estimate your minimum and show payoff time, interest cost, and pay-more comparisons in one place.</p>
+
+      <div class="min-pay-calc-inner">
+        <div class="min-pay-calc-inputs">
+          <form class="inline-form debt-input-grid min-pay-form" aria-label="Minimum payment calculator" id="min-pay-form">
+            <label class="form-field" for="min-balance">
+              <span>Current balance ($)</span>
+              <input type="number" id="min-balance" placeholder="For example, 5200" min="1" step="1" value="5000" required>
+            </label>
+            <label class="form-field" for="min-apr">
+              <span>APR (%)</span>
+              <input type="number" id="min-apr" placeholder="For example, 24.9" min="0" max="99" step="0.1" value="24" required>
+            </label>
+            <label class="form-field" for="min-floor">
+              <span>Issuer floor ($)</span>
+              <input type="number" id="min-floor" min="15" max="100" step="1" value="25" aria-describedby="min-floor-hint">
+              <span class="field-hint" id="min-floor-hint">Most cards use $25–$40</span>
+            </label>
+            <label class="form-field form-field--method" for="min-method">
+              <span>How your issuer may calculate the minimum</span>
+              <select id="min-method">
+                <option value="1pct-plus-interest" selected>1% of balance + interest (most issuer-like)</option>
+                <option value="2pct">2% of balance only (simplified estimate)</option>
+                <option value="3pct">3% of balance only</option>
+              </select>
+              <span class="field-hint" id="min-method-hint">1% + interest usually clears some principal. Pure 2% can equal your monthly interest charge at high APR—so the balance may not shrink.</span>
+            </label>
+            <button type="submit">Calculate minimum payment impact</button>
+          </form>
+        </div>
+
+        <div class="min-pay-calc-output" id="min-pay-calc-output" aria-live="polite">
+          <div class="min-pay-output-summary" id="min-pay-summary">
+            <p class="min-pay-output-placeholder">Your estimated minimum and payoff results appear here after you calculate.</p>
+          </div>
+
+          <section class="debt-minimum-scenarios min-pay-output-scenarios" aria-labelledby="min-pay-scenarios-title">
+            <h3 id="min-pay-scenarios-title">Minimum vs pay-more snapshot</h3>
+            <p class="debt-minimum-lead">Card 1 uses your <strong>estimated minimum</strong>; card 2 shows paying a bit more.</p>
+            <p class="debt-minimum-edu-link"><a href="/debt/debt-reality/why-paying-minimum-is-bad.html">Why paying the minimum is costly</a><span class="debt-minimum-edu-hint"> — years lost, interest piled up, and what to do instead.</span></p>
+            <div class="debt-minimum-grid" id="min-pay-cards-root">
+              <article class="debt-minimum-card">
+                <h3 class="debt-minimum-card-heading">
+                  <span class="debt-minimum-label">Example</span>
+                  <span class="debt-minimum-context">$5,000 · 24% APR · ~2% minimum</span>
+                  <span class="debt-minimum-sum">Run the calculator for your numbers</span>
+                </h3>
+                <dl class="debt-minimum-stats">
+                  <div><dt>Est. minimum</dt><dd><strong>~$100/month</strong></dd></div>
+                  <div><dt>Time to pay off</dt><dd><strong>~22 years</strong></dd></div>
+                  <div><dt>Total interest</dt><dd><strong>~$5,500+</strong></dd></div>
+                </dl>
+                <p class="debt-minimum-eq"><span class="debt-minimum-eq-quote">Tap calculate to replace this with your balance and APR.</span></p>
+              </article>
+              <article class="debt-minimum-card debt-minimum-card--lift">
+                <h3 class="debt-minimum-card-heading">
+                  <span class="debt-minimum-label">Example</span>
+                  <span class="debt-minimum-context">Same debt · +$50/month</span>
+                  <span class="debt-minimum-sum">Pay $150 instead of $100</span>
+                </h3>
+                <dl class="debt-minimum-stats">
+                  <div><dt>Monthly payment</dt><dd><strong>$150/month</strong></dd></div>
+                  <div><dt>Time to pay off</dt><dd><strong>~5 years</strong></dd></div>
+                  <div><dt>Interest saved</dt><dd><strong>Thousands vs minimum</strong></dd></div>
+                </dl>
+                <p class="debt-minimum-eq"><span class="debt-minimum-eq-quote">Small bumps above the minimum change everything.</span></p>
+              </article>
+            </div>
+            <p class="debt-minimum-footnote"><strong>Model note:</strong> we hold the payment steady at your estimated minimum for comparison. Real minimums shrink as your balance falls. See <a href="/debt/credit-cards/minimum-vs-fixed-payment">minimum vs fixed payment</a>.</p>
+          </section>
+
+          <div class="min-pay-output-details" id="min-pay-result" tabindex="-1"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="housing-hub-panel min-pay-trap" id="minimum-trap" aria-labelledby="minimum-trap-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker debt-credit-cards-hub-kicker--violet">🚨 The minimum trap</p>
+        <h2 id="minimum-trap-title">Why minimum payments keep you in debt for years</h2>
+      </header>
+      <div class="debt-page-prose">
+        <p>Credit card companies are not hiding the math—they are showing you a number designed to keep payments manageable <em>this month</em>. The minimum is often close to your monthly interest charge, especially at <a href="/debt/credit-cards/what-is-credit-card-apr">high APR</a>. When interest and minimum are nearly equal, your balance barely moves.</p>
+        <p>Consider $3,000 at 22% APR. Estimated minimum ~$75. Interest alone ~$55. Only ~$20 hits principal. At that pace you are in debt for years and pay far more than $3,000 total. Bump to $125/month and the same balance can clear in under 3 years.</p>
+      </div>
+      <div class="scenario-table-wrap">
+        <table class="scenario-table">
+          <caption>$5,000 at 24% APR — minimum (~$100) vs paying more</caption>
+          <thead>
+            <tr>
+              <th class="num">Monthly payment</th>
+              <th class="num">Approx. payoff time</th>
+              <th class="num">Total interest</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="num">~$100 (est. minimum)</td><td class="num">22 years</td><td class="num neg">$5,500</td></tr>
+            <tr><td class="num">$150</td><td class="num">5 years</td><td class="num">$3,300</td></tr>
+            <tr><td class="num">$200</td><td class="num">2.7 years</td><td class="num">$1,700</td></tr>
+            <tr><td class="num">$300</td><td class="num">1.6 years</td><td class="num pos">$1,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <aside class="what-this-means" role="note">
+        <p class="what-this-means__title">What this means for you</p>
+        <p>The first dollars above your minimum are the most powerful. Even <strong>$50 extra</strong> can cut a 20-year minimum path to under a decade. Run your numbers above, then model a fixed payment in our <a href="/debt/credit-cards/credit-card-payoff-calculator#payoff">payoff calculator</a>.</p>
+      </aside>
+      <p class="debt-page-prose">Planning around take-home pay? Check what you can actually afford with the <a href="/hourly-to-salary-after-tax#hourly-salary-form">hourly-to-salary after-tax calculator</a> before you commit to a higher card payment. For balance-specific guides, see <a href="/debt/credit-cards/payoff-5000-credit-card-debt">how to pay off $5,000</a> or <a href="/debt/payoff-scenarios">debt payoff scenarios</a>.</p>
+    </section>
+
+    <section class="housing-hub-panel housing-hub-panel--faq" id="min-pay-faq" aria-labelledby="min-pay-faq-title">
+      <header class="housing-hub-section-head">
+        <p class="housing-hub-kicker">❓ FAQ</p>
+        <h2 id="min-pay-faq-title">Minimum payment questions answered</h2>
+      </header>
+      <div class="faq-stack">
+        <article class="faq-item">
+          <h3>How is the credit card minimum payment calculated?</h3>
+          <p>Most issuers use the greater of a flat floor ($25–$40) or a percentage of balance (1%–3%), sometimes plus that month's interest. Pick the formula closest to your card in the calculator above, or read <a href="/debt/credit-cards/how-minimum-payments-are-calculated">how minimums are calculated</a> for issuer examples.</p>
+        </article>
+        <article class="faq-item">
+          <h3>What happens if I only pay the minimum?</h3>
+          <p>You stay current on the account, but payoff can take decades at high APR. Most of each payment covers interest. Read <a href="/debt/credit-cards/what-happens-if-you-only-pay-minimum">what happens if you only pay the minimum</a> for a full walkthrough.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How long does it take to pay off a card with minimum payments?</h3>
+          <p>It varies by balance and APR. $5,000 at 24% on an estimated ~$100 minimum can take 20+ years in a fixed-payment model. Enter your balance and APR in this calculator for your timeline.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Is paying the minimum bad for my credit score?</h3>
+          <p>On-time minimums help payment history. High utilization hurts. Paying more than the minimum lowers your balance faster and can improve utilization over time.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How much more than the minimum should I pay?</h3>
+          <p>Start with whatever covers interest plus meaningful principal—often $50 to $100 above the minimum. Lock a fixed amount in the <a href="/debt/credit-cards/credit-card-payoff-calculator#payoff">payoff calculator</a> and treat it like a bill.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Why does my minimum go down when my balance drops?</h3>
+          <p>Minimums are tied to balance size. As you owe less, the percentage portion shrinks. That slows progress unless you pay a fixed amount each month. Compare strategies in <a href="/debt/credit-cards/minimum-vs-fixed-payment">minimum vs fixed payment</a>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-label="Related credit card tools" class="interlink-section min-pay-related">
+      <h2>Related credit card tools</h2>
+      <div class="interlink-grid">
+        <a class="interlink-card" href="/debt/credit-cards/credit-card-payoff-calculator#payoff">
+          <h3>Credit card payoff calculator</h3>
+          <p>Pick a fixed monthly payment and see your debt-free date.</p>
+          <span class="interlink-cta">Open payoff calculator</span>
+        </a>
+        <a class="interlink-card" href="/debt/credit-cards/credit-card-interest-calculator">
+          <h3>Interest calculator</h3>
+          <p>Estimate total interest over the life of your debt.</p>
+          <span class="interlink-cta">Estimate interest</span>
+        </a>
+        <a class="interlink-card" href="/debt/credit-cards">
+          <h3>Credit cards hub</h3>
+          <p>Calculators, payoff guides, APR explainers, and strategies.</p>
+          <span class="interlink-cta">Browse credit cards</span>
+        </a>
+      </div>
+    </section>
+
+    <aside class="eeat-trust min-pay-trust" aria-labelledby="min-pay-trust-title">
+      <header class="eeat-trust__header">
+        <span class="eeat-trust__kicker">🔒 Methodology</span>
+        <h2 id="min-pay-trust-title" class="eeat-trust__title">How we estimate minimum payments</h2>
+        <p class="eeat-trust__meta"><time datetime="2026-06-01">Last reviewed: June 2026</time> · <a href="/calculator-methodology">Calculator methodology</a> · <a href="/editorial-policy">Editorial policy</a></p>
+      </header>
+      <p class="debt-page-prose">Minimum estimate = max(floor, formula you select). Payoff uses monthly amortization at that steady payment. Real issuer minimums vary and shrink over time; this model is for comparison and education—not a quote from your bank. Sources: <a href="https://www.consumerfinance.gov/" rel="noopener">CFPB</a> minimum payment disclosures, <a href="https://www.federalreserve.gov/releases/g19/current/" rel="noopener">Federal Reserve G.19</a> average APR.</p>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-description">US-only tools to calculate your real income after tax, understand debt, and make smarter financial decisions.</p>
+      <div class="footer-grid" role="navigation" aria-label="Footer">
+        <section class="footer-column" aria-labelledby="footer-popular-calculators">
+          <h2 id="footer-popular-calculators">Popular Calculators</h2>
+          <a href="/hourly-to-salary-after-tax">Hourly to Salary After Tax</a>
+          <a href="/debt/credit-cards/credit-card-payoff-calculator">Credit Card Payoff Calculator</a>
+          <a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a>
+          <a href="/1099-vs-w2-calculator">1099 vs W2 Calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-tools-category">
+          <h2 id="footer-tools-category">Tools by Category</h2>
+          <a href="/hourly-to-salary-after-tax">Income</a>
+          <a href="/debt">Debt</a>
+          <a href="/rent-vs-buy-calculator">Living</a>
+          <a href="/1099-vs-w2-calculator">Freelance</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-explore-more">
+          <h2 id="footer-explore-more">Explore More</h2>
+          <a href="/debt/credit-cards">Credit cards</a>
+          <a href="/debt/credit-cards/how-minimum-payments-are-calculated">How minimums are calculated</a>
+          <a href="/debt/credit-cards/credit-card-payoff-calculator#payoff">Payoff calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-company">
+          <h2 id="footer-company">Company</h2>
+          <a href="/about">About</a>
+          <a href="/editorial-policy">Editorial policy</a>
+          <a href="/calculator-methodology">Calculator methodology</a>
+          <a href="/methodology">Full methodology</a>
+          <a href="/contact">Contact</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms">Terms</a>
+        </section>
+      </div>
+      <p class="footer-review" role="note"><time datetime="2026-06-01">Last reviewed: June 2026</time> · Reviewed by the <a href="/about">Income Clarity editorial team</a> · <a href="/editorial-policy">Editorial policy</a></p>
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
+  <script src="/guide-back.js"></script>
+  <script src="/debt-guide-back.js"></script>
+  <script src="/debt-minimum-payment-calculator.js"></script>
+</body>
+</html>

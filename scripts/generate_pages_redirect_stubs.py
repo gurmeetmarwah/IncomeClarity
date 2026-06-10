@@ -30,7 +30,7 @@ STUB = '''<!doctype html>
 # Must redirect to *.html (not extensionless) or local servers loop: /slug/ → /slug → /slug/.
 TRAILING_SLASH_CALCULATORS = (
     "rent-vs-buy-calculator",
-    "credit-card-payoff-calculator",
+    "debt",
     "1099-vs-w2-calculator",
     "hourly-to-salary-after-tax",
 )

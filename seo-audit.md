@@ -67,7 +67,7 @@ Sort order: highest **severity score** first (thinner + harder-to-read + fewer v
 |   0 |  1320 |  69.2 |  5.8 | 7/16 |  2 |   8 |  3 |  20 |  14 |   6 |  0 | `1099-vs-w2-calculator.html` | REPETITIVE (TTR 0.315) |
 |   0 |  1340 |  70.5 |  5.9 | 10/6 |  2 |   3 |  6 |  30 |  14 |  11 |  0 | `living/family-budgeting/salary-needed-to-live-comfortably.html` | REPETITIVE (TTR 0.337) |
 |   0 |  1358 |  70.5 |  5.4 | 2/28 |  1 |   3 |  4 |  63 |  18 |   9 |  0 | `living/lifestyle-family/index.html` | REPETITIVE (TTR 0.275) |
-|   0 |  1583 |  72.8 |  5.5 | 6/23 |  1 |   4 |  5 |  67 |  25 |  10 |  0 | `credit-card-payoff-calculator.html` | REPETITIVE (TTR 0.272) |
+|   0 |  1583 |  72.8 |  5.5 | 6/23 |  1 |   4 |  5 |  67 |  25 |  10 |  0 | `debt.html` | REPETITIVE (TTR 0.272) |
 |   0 |  1598 |  74.8 |  4.9 | 8/30 |  1 |   3 |  5 |  34 |  13 |  14 |  0 | `index.html` | REPETITIVE (TTR 0.304) |
 |   0 |  1615 |  76.1 |  4.4 | 9/12 |  1 |   4 |  5 |  57 |  19 |   6 |  0 | `debt/payoff/best-way-to-pay-off-credit-card-debt.html` | REPETITIVE (TTR 0.307) |
 |   0 |  1656 |  75.9 |  5.0 | 5/24 |  1 |   3 |  8 |  72 |  13 |  19 |  0 | `hourly-to-salary-after-tax.html` | REPETITIVE (TTR 0.252) |
