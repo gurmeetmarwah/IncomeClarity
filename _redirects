@@ -15,7 +15,7 @@
 # Direct .html requests → canonical paths (avoid duplicate URLs)
 /hourly-to-salary-after-tax.html        /hourly-to-salary-after-tax       301!
 /credit-card-payoff-calculator.html     /debt    301!
-/credit-cards.html     /debt    301!
+/credit-cards.html     /debt/credit-cards    301!
 /why-paying-minimum-is-bad.html         /debt/debt-reality/why-paying-minimum-is-bad       301!
 /debt/financial-health/why-paying-minimum-is-bad.html  /debt/debt-reality/why-paying-minimum-is-bad  301!
 /debt/financial-health/why-paying-minimum-is-bad/  /debt/debt-reality/why-paying-minimum-is-bad  301!
@@ -330,8 +330,8 @@
 /rent-vs-buy-calculator            /rent-vs-buy-calculator.html            200
 /credit-card-payoff-calculator     /debt    301!
 /credit-card-payoff-calculator/    /debt    301!
-/credit-cards     /debt    301!
-/credit-cards/    /debt    301!
+/credit-cards     /debt/credit-cards    301!
+/credit-cards/    /debt/credit-cards    301!
 /debt/    /debt.html    301!
 /1099-vs-w2-calculator/            /1099-vs-w2-calculator.html             301!
 /hourly-to-salary-after-tax/       /hourly-to-salary-after-tax.html        301!

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting…</title>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var search = location.search;
+      var hash = location.hash;
+
+      // Known pretty URLs → static files (GitHub Pages has no _redirects)
+      var redirects = {
+        "/debt": "/debt.html",
+        "/credit-cards": "/debt/credit-cards/index.html",
+        "/credit-cards/": "/debt/credit-cards/index.html"
+      };
+
+      var key = path.endsWith("/") && path !== "/" ? path.slice(0, -1) : path;
+      if (redirects[path]) {
+        location.replace(redirects[path] + search + hash);
+        return;
+      }
+      if (redirects[key]) {
+        location.replace(redirects[key] + search + hash);
+        return;
+      }
+
+      // Directory index: /foo/bar → /foo/bar/index.html
+      if (!/\.[a-z0-9]+$/i.test(path)) {
+        var indexPath = path.endsWith("/") ? path + "index.html" : path + "/index.html";
+        location.replace(indexPath + search + hash);
+        return;
+      }
+
+      location.replace("/" + search + hash);
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecting… <a href="/">Go home</a></p>
+</body>
+</html>
