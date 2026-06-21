@@ -37,12 +37,10 @@
   font-weight: 800;
   letter-spacing: -0.02em;
   color: #fff;
-  max-width: 22ch;
 }
 
 @media (min-width: 768px) {
   .cs-hero h1 {
-    max-width: none;
     font-size: clamp(1.85rem, 2.8vw, 2.35rem);
   }
 }
@@ -568,6 +566,42 @@ a.cs-card:hover h3 {
   font-size: 1.1rem;
   font-weight: 800;
   color: var(--cs-accent-dark);
+}
+
+.cs-card .cs-card-cta {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--cs-accent-dark);
+}
+
+a.cs-card:hover .cs-card-cta {
+  text-decoration: underline;
+}
+
+.cs-scenario-verdict {
+  margin: 1rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: var(--cs-radius);
+  border: 1px solid var(--cs-border);
+  background: var(--cs-surface);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.cs-scenario-verdict--yes {
+  border-color: rgba(22, 120, 80, 0.35);
+  background: rgba(22, 120, 80, 0.06);
+}
+
+.cs-scenario-verdict--mixed {
+  border-color: rgba(180, 120, 20, 0.35);
+  background: rgba(180, 120, 20, 0.06);
+}
+
+.cs-card--scenario {
+  border-left: 3px solid var(--cs-accent);
 }
 
 /* —— What-if buttons —— */

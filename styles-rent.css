@@ -33,7 +33,6 @@
   margin: 0.35rem 0 0.65rem;
   font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   line-height: 1.15;
-  max-width: 22ch;
 }
 
 .ra-hero .lead {

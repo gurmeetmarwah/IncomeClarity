@@ -41,6 +41,20 @@ from generate_col_by_city_pages import (  # noqa: E402
 HUB_OUT = ROOT / "living" / "lifestyle" / "comfortable-salary-us"
 STATE_OUT = ROOT / "living" / "lifestyle" / "comfortable-salary"
 
+HAND_MAINTAINED_CITIES = {
+    ("texas", "austin"),
+    ("texas", "dallas"),
+    ("texas", "houston"),
+    ("california", "los-angeles"),
+    ("california", "san-diego"),
+    ("california", "san-francisco"),
+    ("florida", "miami"),
+    ("florida", "tampa"),
+    ("florida", "orlando"),
+    ("new-york", "new-york-city"),
+    ("illinois", "chicago"),
+}
+
 URL_SCRIPT = """  <script>
     (function () {
       const path = window.location.pathname;
@@ -952,9 +966,13 @@ def main() -> None:
 
     for state_slug, st in STATES.items():
         for city_slug in st["cities"]:
+            if (state_slug, city_slug) in HAND_MAINTAINED_CITIES:
+                continue
             write(STATE_OUT / state_slug / city_slug / "index.html", render_city(state_slug, city_slug))
 
     for city_slug, state_slug in STANDALONE_STATE.items():
+        if (state_slug, city_slug) in HAND_MAINTAINED_CITIES:
+            continue
         write(STATE_OUT / state_slug / city_slug / "index.html", render_city(state_slug, city_slug))
 
     warnings = validate_catalog()
