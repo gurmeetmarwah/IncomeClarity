@@ -57,9 +57,17 @@ def html_to_canonical(rel: str) -> str:
     return norm("/" + rel)
 
 
-def load_redirects() -> tuple[dict[str, str], set[str]]:
+def strip_fragment(path: str) -> str:
+    """Sitemap loc values must not include URL fragments."""
+    if "#" not in path:
+        return path
+    base = path.split("#", 1)[0]
+    return base if base else "/"
+
+
+def load_redirects() -> tuple[dict[str, str], dict[str, str]]:
     r301: dict[str, str] = {}
-    r200: set[str] = set()
+    r200: dict[str, str] = {}
     for line in (ROOT / "_redirects").read_text(encoding="utf-8").splitlines():
         line = line.strip()
         if not line or line.startswith("#"):
@@ -68,10 +76,10 @@ def load_redirects() -> tuple[dict[str, str], set[str]]:
         if len(parts) < 3:
             continue
         raw_src, raw_dst, code = parts[0], parts[1], parts[2].rstrip("!")
-        src = norm(raw_src, keep_slash=raw_src.endswith("/"))
-        dst = norm(raw_dst, keep_slash=raw_dst.endswith("/"))
+        src = strip_fragment(norm(raw_src, keep_slash=raw_src.endswith("/")))
+        dst = strip_fragment(norm(raw_dst, keep_slash=raw_dst.endswith("/")))
         if code == "200":
-            r200.add(src)
+            r200[src] = dst
         elif code.startswith("301"):
             r301[src] = dst
             # Alias without trailing slash → same destination
@@ -80,17 +88,44 @@ def load_redirects() -> tuple[dict[str, str], set[str]]:
     return r301, r200
 
 
-def terminal(path: str, r301: dict[str, str], r200: set[str]) -> str:
+def terminal(path: str, r301: dict[str, str]) -> str:
+    """Follow 301 chains; never emit fragment URLs."""
+    path = strip_fragment(path)
     seen: set[str] = set()
     while path in r301 and path not in seen:
         seen.add(path)
-        path = r301[path]
-    # Prefer explicit 200 rule path (e.g. state pages with trailing slash)
+        path = strip_fragment(r301[path])
+    return path
+
+
+def canonical_sitemap_url(path: str, r301: dict[str, str], r200: dict[str, str]) -> str:
+    """One canonical path per page for sitemap.xml."""
+    path = terminal(path, r301)
+
+    # Pretty URL (200 source) wins over the static file it rewrites to.
+    dest_to_src = {strip_fragment(dst): src for src, dst in r200.items()}
+    if path in dest_to_src:
+        return dest_to_src[path]
+
     if path in r200:
         return path
-    if path != "/" and not path.endswith("/") and path + "/" in r200:
-        return path + "/"
+
+    # Trailing-slash variant of a known 200 source (e.g. state hub pages).
+    if path != "/" and path.endswith("/") and path[:-1] in r200:
+        return path[:-1]
+
     return path
+
+
+def dedupe_urls(urls: set[str]) -> set[str]:
+    """Drop .html duplicates when the extensionless URL is already listed."""
+    result = set(urls)
+    for path in list(result):
+        if path.endswith(".html"):
+            bare = path[: -len(".html")]
+            if bare in result:
+                result.discard(path)
+    return result
 
 
 def collect_urls() -> list[str]:
@@ -103,8 +138,9 @@ def collect_urls() -> list[str]:
         rel = p.relative_to(ROOT).as_posix()
         if rel in ROOT_LEGACY or rel in SKIP_FILES:
             continue
-        urls.add(terminal(html_to_canonical(rel), r301, r200))
+        urls.add(canonical_sitemap_url(html_to_canonical(rel), r301, r200))
 
+    urls = dedupe_urls(urls)
     return sorted(urls, key=sort_key)
 
 
