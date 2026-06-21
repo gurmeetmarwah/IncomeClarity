@@ -3,15 +3,20 @@
 from __future__ import annotations
 
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "scripts"))
+
+from salary_scenario_unique_sections import estimate_taxes, inject_unique_sections, patch_take_home_snippets  # noqa: E402
 AUSTIN_DIR = ROOT / "living" / "lifestyle" / "comfortable-salary" / "texas" / "austin"
 OUT_BASE = ROOT / "living" / "lifestyle" / "comfortable-salary" / "california"
 CA_STATE_HUB = "/living/lifestyle/comfortable-salary/california"
 AUSTIN_HUB = "/living/lifestyle/comfortable-salary/texas/austin"
 
 TIERS = ("100k", "150k", "200k")
+TIER_SALARY = {"100k": 100_000, "150k": 150_000, "200k": 200_000}
 TEMPLATE_TIER = {"100k": "100k", "150k": "150k", "200k": "150k"}
 
 CITY_CONFIG: dict[str, dict] = {
@@ -716,6 +721,12 @@ def generate_page(city_slug: str, tier: str) -> str:
     html = load_template(tier)
     html = apply_path_replacements(html, cfg, tier)
     html = ADAPTERS[tier](html, cfg)
+    salary = TIER_SALARY[tier]
+    html = inject_unique_sections(
+        html, state="california", city_slug=city_slug, salary=salary, hub=cfg["hub"]
+    )
+    tax = estimate_taxes(salary, "california", city_slug)
+    html = patch_take_home_snippets(html, tax, salary)
     return html
 
 

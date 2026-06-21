@@ -820,3 +820,64 @@
 .ss-links-band .ss-context-links a:hover {
   color: #fff;
 }
+
+.ss-tax-table th:nth-child(2),
+.ss-tax-table th:nth-child(3),
+.ss-tax-table td:nth-child(2),
+.ss-tax-table td:nth-child(3) {
+  text-align: right;
+}
+
+.ss-rent-table th:nth-child(2),
+.ss-rent-table td:nth-child(2) {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.ss-tier-table td:nth-child(2),
+.ss-tier-table td:nth-child(3),
+.ss-tier-table td:nth-child(4) {
+  white-space: nowrap;
+}
+
+.ss-tier-row--here {
+  background: var(--ss-ok-bg);
+}
+
+.ss-tier-row--here th,
+.ss-tier-row--here td {
+  font-weight: 600;
+}
+
+.ss-callout {
+  margin-top: 1.25rem;
+  padding: 1rem 1.15rem;
+  background: var(--ss-surface);
+  border: 1px solid var(--ss-border);
+  border-left: 3px solid var(--ss-accent);
+  border-radius: 10px;
+  font-size: 0.92rem;
+  color: var(--ss-muted);
+  line-height: 1.6;
+}
+
+.ss-callout p {
+  margin: 0;
+}
+
+.ss-band__foot {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  color: var(--ss-muted);
+}
+
+.ss-worked-list {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+  line-height: 1.65;
+  color: var(--ss-muted);
+}
+
+.ss-worked-list li {
+  margin-bottom: 0.45rem;
+}
