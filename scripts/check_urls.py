@@ -174,6 +174,36 @@ def normalize_href(href: str) -> str | None:
     return base or "/"
 
 
+def load_sitemap_paths() -> set[str]:
+    """Load all page paths from sitemap.xml (index or flat urlset)."""
+    paths: set[str] = set()
+    sitemap = ROOT / "sitemap.xml"
+    if not sitemap.is_file():
+        return paths
+
+    root = ET.fromstring(sitemap.read_text(encoding="utf-8"))
+    ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    tag = root.tag.rsplit("}", 1)[-1]
+
+    if tag == "sitemapindex":
+        for loc in root.findall(".//sm:loc", ns):
+            if not loc.text:
+                continue
+            child_name = urlparse(loc.text).path.lstrip("/")
+            child_path = ROOT / child_name
+            if not child_path.is_file():
+                continue
+            child_root = ET.fromstring(child_path.read_text(encoding="utf-8"))
+            for child_loc in child_root.findall(".//sm:loc", ns):
+                if child_loc.text:
+                    paths.add(urlparse(child_loc.text).path or "/")
+    else:
+        for loc in root.findall(".//sm:loc", ns):
+            if loc.text:
+                paths.add(urlparse(loc.text).path or "/")
+    return paths
+
+
 def collect_paths() -> dict[str, list[str]]:
     refs: dict[str, list[str]] = {}
 
@@ -195,13 +225,8 @@ def collect_paths() -> dict[str, list[str]]:
         for href in parser.links:
             add(href, rel)
 
-    sitemap = ROOT / "sitemap.xml"
-    if sitemap.is_file():
-        root = ET.fromstring(sitemap.read_text(encoding="utf-8"))
-        ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
-        for loc in root.findall(".//sm:loc", ns):
-            if loc.text:
-                add(urlparse(loc.text).path or "/", "sitemap.xml")
+    for path in load_sitemap_paths():
+        add(path, "sitemap.xml")
 
     redirects = ROOT / "_redirects"
     if redirects.is_file():

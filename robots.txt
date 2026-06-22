@@ -8,5 +8,5 @@ Allow: /
 # Optional: uncomment if you later add a non-public area (e.g. /drafts/ or /api/private/).
 # Disallow: /private/
 
-# Primary sitemap (list of indexable URLs). Keep in sync when adding major new pages.
+# Primary sitemap index (section sitemaps: core, debt, housing, programmatic).
 Sitemap: https://www.incomeclaritylab.com/sitemap.xml
