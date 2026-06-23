@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How Much Rent Can I Afford in Dallas, TX? (2026 Guide) | Income Clarity</title>
+  <meta name="description" content="How much rent can you afford in Dallas? Median rent $1,550/mo, salary tiers, neighborhood comparison, budget breakdown, and free calculator.">
+  <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/how-much-rent-can-i-afford/texas/dallas">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
+  <link rel="stylesheet" href="/styles-rent.css">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="apple-touch-icon" href="/images/logo.png">
+  <script type="application/json" id="ra-city-data">{"medianRent": 1550, "defaultIncome": 76000, "defaultDebt": 400, "defaultFamily": 1, "defaultSave": 15, "taxTakehome": 0.78, "transport": 360}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is $1,800 rent affordable on $75k in Dallas?", "acceptedAnswer": {"@type": "Answer", "text": "Generally yes — near the comfortable ceiling before utilities."}}, {"@type": "Question", "name": "What salary for a 2-bedroom in Dallas?", "acceptedAnswer": {"@type": "Answer", "text": "Near $79k gross at 30% rule for a $1,980 median 2BR — higher with savings goals."}}, {"@type": "Question", "name": "How much should I spend on rent in Dallas?", "acceptedAnswer": {"@type": "Answer", "text": "Use 30% of take-home after debt and savings — often $1,400–$1,700 on median incomes."}}, {"@type": "Question", "name": "Is Dallas rent higher than Austin?", "acceptedAnswer": {"@type": "Answer", "text": "Usually no on median 1BR. Austin runs hotter in urban core listings."}}, {"@type": "Question", "name": "What is a good rent for $80,000 salary in Dallas?", "acceptedAnswer": {"@type": "Answer", "text": "About $2,000 gross cap — comfortable 1BR in many areas if debt is under $400 a month."}}, {"@type": "Question", "name": "Is Dallas cheaper than Austin for renters?", "acceptedAnswer": {"@type": "Answer", "text": "Usually yes on median 1BR. Austin's urban core runs hotter; Dallas suburbs offer more sub-$1,600 stock."}}]}</script>
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path.endsWith("/index.html")) cleanPath = path.slice(0, -10);
+      else if (path.endsWith(".html")) cleanPath = path.slice(0, -5);
+      if (cleanPath !== path) window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+    })();
+  </script>
+</head>
+<body class="ra-page ra-city-page living-tool-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/hourly-to-salary-after-tax">Income</a>
+        <a href="/debt">Debt</a>
+        <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="ra-hero ra-city-hero" id="ra-calculator">
+      <div class="container container--wide">
+        <nav class="take-home-return-nav" aria-label="Breadcrumb">
+          <ol class="take-home-return-breadcrumbs">
+            <li><a href="/living/housing/how-much-rent-can-i-afford">Rent affordability</a></li>
+            <li aria-current="page">Dallas</li>
+          </ol>
+        </nav>
+        <span class="label">Dallas · TX</span>
+        <h1>How Much Rent Can I Afford in Dallas?</h1>
+        <p class="lead">Find the maximum monthly rent you can comfortably afford based on your income, debts, and Dallas housing costs. Median rent is about <strong>$1,550/month</strong> — use the calculator for your personal comfortable, stretch, and verdict.</p>
+        <div class="ha-hero-grid ra-city-hero-grid">
+          <div class="ra-city-calc-col">
+            <div class="ra-calc-shell ra-city-calc-shell">
+              <form id="ra-city-form" class="ra-calc-form ra-city-form" aria-label="Dallas rent affordability calculator">
+                <label class="ra-field"><span>Annual income ($)</span><input type="number" id="ra-city-income" min="20000" step="1000" value="76000" required></label>
+                <label class="ra-field"><span>Monthly debt payments ($)</span><input type="number" id="ra-city-debt" min="0" step="25" value="400"></label>
+                <label class="ra-field"><span>Household size</span><input type="number" id="ra-city-family" min="1" max="8" step="1" value="1"></label>
+                <label class="ra-field"><span>Savings goal (% of take-home)</span><input type="number" id="ra-city-save" min="0" max="40" step="1" value="15"></label>
+                <div class="ra-field ra-field--full">
+                  <button type="submit" class="ra-btn" id="ra-city-calc-btn">Calculate Rent Affordability</button>
+                </div>
+              </form>
+            </div>
+            <div class="ra-city-instant" id="ra-city-instant" aria-live="polite">
+              <h2 class="ra-city-instant__title">Your Dallas rent estimate</h2>
+              <dl class="ra-city-instant__grid">
+                <div><dt>Income</dt><dd id="ra-ci-income">$76,000</dd></div>
+                <div><dt>Recommended rent</dt><dd id="ra-ci-comfort">$1,672 – $1,957/month</dd></div>
+                <div><dt>Maximum stretch budget</dt><dd id="ra-ci-stretch">$2,185/month</dd></div>
+                <div><dt>Dallas median rent</dt><dd id="ra-ci-median">$1,550/month</dd></div>
+                <div class="ra-city-instant__verdict"><dt>Verdict</dt><dd id="ra-ci-verdict" class="ra-verdict ra-verdict--good">Comfortable</dd></div>
+              </dl>
+              <p class="ra-city-instant__note" id="ra-ci-summary">Based on $76,000 gross and typical Dallas take-home. Adjust debt and savings to see your range update instantly.</p>
+            </div>
+          </div>
+          <aside class="ha-city-toc ha-city-toc--hero" id="ra-toc">
+            <div class="ha-city-toc__card">
+              <button type="button" class="ha-city-toc__toggle" aria-expanded="true" aria-controls="ra-toc-panel">
+                <span class="ha-city-toc__toggle-text">
+                  <span class="ha-city-toc__title">On this page</span>
+                  <span class="ha-city-toc__kicker">Snapshot, neighborhoods, tiers &amp; more</span>
+                </span>
+                <svg class="ha-city-toc__toggle-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+              </button>
+              <nav class="ha-city-toc__panel" id="ra-toc-panel" aria-label="On this page">
+                <ul class="ha-city-toc__list">
+          <li><a href="#ra-calculator" class="ha-city-toc__link" data-ha-toc-link>Rent calculator</a></li>
+          <li><a href="#ra-rent-snapshot" class="ha-city-toc__link" data-ha-toc-link>Dallas rent snapshot</a></li>
+          <li><a href="#ra-rent-rules" class="ha-city-toc__link" data-ha-toc-link>Gross vs net rent rules</a></li>
+          <li><a href="#ra-rent-by-income" class="ha-city-toc__link" data-ha-toc-link>Rent by income</a></li>
+          <li><a href="#ra-hidden-costs" class="ha-city-toc__link" data-ha-toc-link>Hidden rental costs</a></li>
+          <li><a href="#ra-neighborhoods" class="ha-city-toc__link" data-ha-toc-link>Neighborhood comparison</a></li>
+          <li><a href="#ra-budget-breakdown" class="ha-city-toc__link" data-ha-toc-link>Budget breakdown</a></li>
+          <li><a href="#ra-affordability-tiers" class="ha-city-toc__link" data-ha-toc-link>Affordability tiers</a></li>
+          <li><a href="#ra-lt-gross-net-dallas" class="ha-city-toc__link" data-ha-toc-link>Gross vs net rent rules in Dallas</a></li>
+          <li><a href="#ra-lt-2br-dallas" class="ha-city-toc__link" data-ha-toc-link>2-bedroom rent and salary in Dallas</a></li>
+          <li><a href="#ra-lt-rent-buy-dallas" class="ha-city-toc__link" data-ha-toc-link>Rent vs buy in Dallas-Fort Worth</a></li>
+          <li><a href="#ra-lt-tips-dallas" class="ha-city-toc__link" data-ha-toc-link>Dallas renter checklist</a></li>
+          <li><a href="#ra-related-income" class="ha-city-toc__link" data-ha-toc-link>Related income pages</a></li>
+          <li><a href="#ra-faq" class="ha-city-toc__link" data-ha-toc-link>FAQ</a></li>
+                </ul>
+              </nav>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt" id="ra-rent-snapshot">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Dallas rent snapshot</h2>
+          <p class="ra-section-head__intro">Local benchmarks for Dallas. Compare your calculator result to these medians before you tour apartments.</p>
+        </header>
+        <div class="ra-glance-row" aria-label="Dallas rent at a glance">
+          <div class="ra-glance-pill"><span class="ra-glance-pill__n">$1,550</span><span class="ra-glance-pill__l">Median rent</span></div>
+          <div class="ra-glance-pill"><span class="ra-glance-pill__n">102</span><span class="ra-glance-pill__l">Cost of living index</span></div>
+          <div class="ra-glance-pill"><span class="ra-glance-pill__n">75/100</span><span class="ra-glance-pill__l">Affordability score</span></div>
+          <div class="ra-glance-pill"><span class="ra-glance-pill__n">30%</span><span class="ra-glance-pill__l">Rent-to-income rule</span></div>
+        </div>
+        <div class="ra-table-card">
+          <div class="ra-snapshot-table-wrap">
+            <table class="debt-data-table ra-city-table ra-snapshot-table">
+              <caption>Dallas rent and cost benchmarks</caption>
+              <tbody>
+                <tr><th scope="row">Median rent</th><td>$1,550</td></tr>
+                <tr><th scope="row">Studio</th><td>$1,240</td></tr>
+                <tr><th scope="row">1 bedroom</th><td>$1,550</td></tr>
+                <tr><th scope="row">2 bedroom</th><td>$1,980</td></tr>
+                <tr><th scope="row">Rent-to-income benchmark</th><td>30%</td></tr>
+                <tr><th scope="row">Cost of living index</th><td>102 <span class="ra-table-muted">(US avg = 100)</span></td></tr>
+                <tr><th scope="row">Affordability score</th><td>75/100</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="ra-reading-block">
+          <p>Dallas–Fort Worth spreads across many tax districts and commute patterns. Median rent stays below Austin in most surveys.</p>
+          <p>No state income tax helps take-home pay. Sales tax and toll roads still add to monthly cost.</p>
+          <p>Job growth pulled some suburbs above the regional median — check Frisco and Plano quotes against your office location.</p>
+          <p>Dallas sits at COL index 102 — slightly above US average but well below coastal metros. Median 1BR near $1,550 is a planning anchor, not a guarantee in Uptown.</p>
+          <p>Affordability score 75/100 reflects relatively strong wages against rent compared with Austin. Suburban stock keeps options open below median.</p>
+          <p>2-bedroom median near $1,980 suits small families when combined income clears $80,000 gross with moderate debt.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ra-band" id="ra-rent-rules">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Gross vs net: how rent rules work in Dallas</h2>
+          <p class="ra-section-head__intro">Landlords screen on gross income. Your budget runs on take-home pay. Both numbers matter — here is how to use them.</p>
+        </header>
+        <ul class="ra-insight-list">
+          <li class="ra-insight-item"><p>DFW landlords typically screen at 3× monthly rent in gross income. Dallas median near $1,550 implies about $62,000 yearly gross minimum — lower than Austin for the same bedroom count.</p></li>
+          <li class="ra-insight-item"><p>Take-home pay still drives your lifestyle. Texas has no state income tax, so a $76,000 salary often nets near $4,950 a month. Your comfortable rent should fit inside that cash flow after debt and savings.</p></li>
+          <li class="ra-insight-item"><p>The 28% rule used for mortgages is stricter than the 30% rent rule. If you are saving for a down payment, aim closer to 28% of take-home for total housing.</p></li>
+          <li class="ra-insight-item"><p>Roommates change approval math — combined income on the lease can qualify for a larger unit while each person pays less than solo median rent.</p></li>
+        </ul>
+        <p class="ra-cta-line">Run your exact take-home in our <a class="ra-text-link" href="/hourly-to-salary-after-tax/state/texas/">Texas paycheck calculator</a>, then compare the result to the comfortable band from the calculator above.</p>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt" id="ra-rent-by-income">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>How much rent can you afford in Dallas?</h2>
+          <p class="ra-section-head__intro">Affordable monthly rent at the classic 30% of gross income rule. Your real ceiling may be lower once debt, savings, and utilities are in the picture.</p>
+        </header>
+        <div class="ra-table-card">
+          <div class="ra-snapshot-table-wrap">
+            <table class="debt-data-table ra-city-table ra-income-table">
+              <caption>Affordable rent by salary in Dallas</caption>
+              <thead><tr><th scope="col">Salary</th><th scope="col">Affordable rent (30% gross)</th></tr></thead>
+              <tbody>
+              <tr><td>$50,000</td><td>$1,250</td></tr>
+              <tr><td>$75,000</td><td>$1,875</td></tr>
+              <tr><td>$100,000</td><td>$2,500</td></tr>
+              <tr><td>$150,000</td><td>$3,750</td></tr>
+              <tr><td>$200,000</td><td>$5,000</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <h3 class="ra-subhead">Common salary scenarios</h3>
+        <div class="ra-expand-stack">
+          <details class="ra-expand">
+            <summary class="ra-expand__summary">Can you afford $1,650 rent on $76k in Dallas?</summary>
+            <div class="ra-expand__body">
+              <p>Yes — that sits near the comfortable band for many DFW renters with moderate debt.</p>
+            </div>
+          </details>
+          <details class="ra-expand">
+            <summary class="ra-expand__summary">Is $2,100 rent affordable on $100k in Dallas?</summary>
+            <div class="ra-expand__body">
+              <p>Often yes as a stretch in Uptown or Plano. Comfortable target is closer to $2,000–$2,300 gross-rule max.</p>
+            </div>
+          </details>
+          <details class="ra-expand">
+            <summary class="ra-expand__summary">How much rent on $50k in Dallas?</summary>
+            <div class="ra-expand__body">
+              <p>Near $1,250/month at 30% gross — roommate or outer-ring suburb is common.</p>
+            </div>
+          </details>
+          <details class="ra-expand">
+            <summary class="ra-expand__summary">Rent on $55k in Dallas?</summary>
+            <div class="ra-expand__body">
+              <p>Near $1,375 gross cap — roommate or suburban studio is typical.</p>
+              <p>Low debt is essential at this income. Add utilities and you may target $1,100 to $1,200 base rent.</p>
+            </div>
+          </details>
+        </div>
+        <aside class="ra-callout" role="note">
+          <p class="ra-callout__title">How to use this table</p>
+          <p>These figures use the 30% gross rule. Debt, savings, and utilities can lower your real ceiling — that is why we show comfortable and stretch bands in the hero calculator, not just one max.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ra-band" id="ra-hidden-costs">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Hidden costs of renting in Dallas</h2>
+          <p class="ra-section-head__intro">The listing price is not your total housing bill. Budget these lines before you compare apartments.</p>
+        </header>
+        <ul class="ra-insight-list">
+          <li class="ra-insight-item"><p>Summer electric bills in older Dallas apartments can spike above $200. Ask for average usage, not just the landlord's estimate.</p></li>
+          <li class="ra-insight-item"><p>Parking in Uptown and Downtown is often paid separately. Budget $75 to $175 monthly if your building does not include a spot.</p></li>
+          <li class="ra-insight-item"><p>Renter's insurance and mandatory trash valet fees appear on many newer Frisco and Plano leases — read the fee schedule before you sign.</p></li>
+          <li class="ra-insight-item"><p>Application fees and background checks run $50 to $100 per adult. That is not monthly, but it is part of move-in cash due.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt" id="ra-neighborhoods">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Dallas neighborhood comparison</h2>
+          <p class="ra-section-head__intro">Typical asking rent and rough income needed for a comfortable 30% gross cap. Your block may differ — use these to narrow your search.</p>
+        </header>
+        <div class="ra-table-card">
+          <div class="ra-snapshot-table-wrap">
+            <table class="debt-data-table ra-city-table ra-nh-table">
+              <caption>Dallas neighborhoods — rent and income benchmarks</caption>
+              <thead><tr><th scope="col">Neighborhood</th><th scope="col">Typical rent</th><th scope="col">Comfortable on</th></tr></thead>
+              <tbody>
+              <tr>
+                <th scope="row">Uptown</th>
+                <td>$2,200</td>
+                <td>$90,000+</td>
+              </tr>
+              <tr>
+                <th scope="row">Deep Ellum</th>
+                <td>$1,850</td>
+                <td>$75,000+</td>
+              </tr>
+              <tr>
+                <th scope="row">Frisco</th>
+                <td>$1,700</td>
+                <td>$70,000+</td>
+              </tr>
+              <tr>
+                <th scope="row">Oak Cliff</th>
+                <td>$1,400</td>
+                <td>$58,000+</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <aside class="ra-callout" role="note">
+          <p class="ra-callout__title">Neighborhood notes</p>
+          <p>Uptown and Deep Ellum attract young professionals but charge parking and amenity fees. Oak Cliff and southern suburbs offer lower bases with longer commutes. Frisco and Plano fit families who prioritize schools over nightlife — toll roads are part of that trade.</p>
+        </aside>
+        <p class="ra-cta-line">Compare with <a class="ra-text-link" href="/living/housing/how-much-rent-can-i-afford/texas/austin">Austin</a> or open our <a class="ra-text-link" href="/living/housing/cost-of-living-by-city/texas/dallas">Dallas cost of living guide</a> for groceries, transit, and tax context.</p>
+      </div>
+    </section>
+
+    <section class="ra-band" id="ra-budget-breakdown">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Monthly budget breakdown example ($76,000 income)</h2>
+          <p class="ra-section-head__intro">Illustrative split using Dallas defaults — not your exact paycheck. Swap in your take-home from our after-tax calculator.</p>
+        </header>
+        <div class="ra-budget-visual">
+          <p class="ra-budget-visual__net">Monthly take-home pay: <strong>$4,940</strong></p>
+          <ul class="ra-budget-list">
+            <li class="ra-budget-row ra-budget-row--rent" style="--pct:32%">
+              <div class="ra-budget-row__meta"><span>Rent</span><strong>$1,596</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--util" style="--pct:4%">
+              <div class="ra-budget-row__meta"><span>Utilities</span><strong>$200</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--trans" style="--pct:7%">
+              <div class="ra-budget-row__meta"><span>Transportation</span><strong>$360</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--food" style="--pct:11%">
+              <div class="ra-budget-row__meta"><span>Food</span><strong>$543</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--save" style="--pct:15%">
+              <div class="ra-budget-row__meta"><span>Savings</span><strong>$741</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--other" style="--pct:30%">
+              <div class="ra-budget-row__meta"><span>Other</span><strong>$1,500</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="ra-reading-block">
+          <p>If rent plus utilities push past one-third of take-home, the other lines get squeezed fast — especially when debt payments are not shown in this simplified example.</p>
+          <p>DFW is car-heavy unless you live on DART rail corridors. If you run two car payments, subtract that from rent headroom before you tour.</p>
+          <p>Sales tax near 8.25% in Dallas County affects disposable income slightly — not huge, but it adds up on big purchases after rent is paid.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt" id="ra-affordability-tiers">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Affordability tiers in Dallas</h2>
+          <p class="ra-section-head__intro">Planning bands tied to gross income — pair with our <a class="ra-text-link" href="/living/lifestyle/comfortable-salary/texas/dallas">comfortable salary guide</a> for household-specific targets.</p>
+        </header>
+        <div class="ra-tier-grid">
+          <article class="ra-tier-card">
+            <h3>Survival budget</h3>
+            <p class="ra-tier-card__income">$52,000+</p>
+            <p>Roommate or far suburbs; thin savings.</p>
+          </article>
+          <article class="ra-tier-card">
+            <h3>Comfortable budget</h3>
+            <p class="ra-tier-card__income">$76,000+</p>
+            <p>1BR in many DFW neighborhoods.</p>
+          </article>
+          <article class="ra-tier-card">
+            <h3>Very comfortable</h3>
+            <p class="ra-tier-card__income">$100,000+</p>
+            <p>Uptown 1BR or suburban 2BR.</p>
+          </article>
+          <article class="ra-tier-card">
+            <h3>Premium lifestyle</h3>
+            <p class="ra-tier-card__income">$140,000+</p>
+            <p>Large 2BR in prime zip codes.</p>
+          </article>
+        </div>
+        <aside class="ra-callout" role="note">
+          <p class="ra-callout__title">How to read these tiers</p>
+          <p>Survival tier in Dallas often means roommate in Irving or Garland. Comfortable tier matches many 1BRs at $1,400 to $1,700. Premium tier is Uptown high-rise or large suburban 2BR with dual income.</p>
+        </aside>
+      </div>
+    </section>
+    <section class="ra-band ra-article-band" id="ra-lt-gross-net-dallas">
+      <div class="container container--wide">
+        <article class="ra-article-card">
+          <h2 class="ra-article-card__title">Gross vs net rent rules in Dallas</h2>
+        <div class="ra-prose">
+          <p>Apply with gross; live on net. A $76,000 offer supports about $1,900 monthly rent on paper — but take-home near $4,950 means a safer cap near $1,500 to $1,650 after utilities.</p>
+          <p>Employer health premiums and HSA contributions reduce spendable income. Pull a recent pay stub into the calculator's take-home estimate if you have one.</p>
+          <p>Dual-income leases are common in DFW. Make sure each earner can still afford the unit if one income disappears — do not combine incomes to max out rent.</p>
+        </div>
+        </article>
+      </div>
+    </section>
+    <section class="ra-band ra-article-band ra-band--alt" id="ra-lt-2br-dallas">
+      <div class="container container--wide">
+        <article class="ra-article-card">
+          <h2 class="ra-article-card__title">2-bedroom rent and salary in Dallas</h2>
+        <div class="ra-prose">
+          <p>At $1,980 median 2BR, plan near $79,200 gross at 30% — higher if you want savings and low debt. Frisco and McKinney listings can run above median; southern Dallas below.</p>
+          <p>School district choices push suburban rent. A cheaper apartment with a long commute may cost more in gas and time than a higher rent near work.</p>
+          <p>Check our Dallas house affordability guide if you are comparing a $2,000 rent to a $2,200 mortgage — the crossover depends on stay length and tax.</p>
+        </div>
+        </article>
+      </div>
+    </section>
+    <section class="ra-band ra-article-band" id="ra-lt-rent-buy-dallas">
+      <div class="container container--wide">
+        <article class="ra-article-card">
+          <h2 class="ra-article-card__title">Rent vs buy in Dallas-Fort Worth</h2>
+        <div class="ra-prose">
+          <p>DFW buyers face property tax near 1.7% — renters avoid that line but miss equity. Break-even often lands at five to seven years in stable suburbs.</p>
+          <p>If you might transfer within three years, renting below your max preserves cash for the move. Stretch rent makes job changes expensive.</p>
+          <p>Run rent vs buy with your actual down payment savings — Dallas median home prices sit below Austin in many corridors.</p>
+        </div>
+        </article>
+      </div>
+    </section>
+    <section class="ra-band ra-article-band ra-band--alt" id="ra-lt-tips-dallas">
+      <div class="container container--wide">
+        <article class="ra-article-card">
+          <h2 class="ra-article-card__title">Dallas renter checklist</h2>
+        <div class="ra-prose">
+          <p>Hail and wind storms matter for parking — covered parking costs more but saves claims. Ask about garage flood history in low-lying complexes.</p>
+          <p>Verify commute at rush hour on 75, 635, or your toll road. A cheap rent with a 90-minute drive rarely feels like a win.</p>
+          <p>Negotiate lease length — some landlords offer one-month free on 14-month leases. Compare effective rent, not headline rent.</p>
+        </div>
+        </article>
+      </div>
+    </section>
+    <section class="ra-band" id="ra-related-income">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Related income &amp; housing pages</h2>
+          <p class="ra-section-head__intro">Connect your rent cap to salary scenarios, cost of living, and buy-vs-rent decisions in Dallas.</p>
+        </header>
+        <div class="ra-related-grid">
+          <a class="ra-related-card" href="/living/lifestyle/comfortable-salary/texas/dallas/is-75k-enough-to-live-in-dallas"><span>Is $75k enough to live in Dallas?</span><strong>Open guide →</strong></a>
+          <a class="ra-related-card" href="/living/lifestyle/comfortable-salary/texas/dallas/is-100k-enough-to-live-in-dallas"><span>Is $100k enough to live in Dallas?</span><strong>Open guide →</strong></a>
+          <a class="ra-related-card" href="/living/lifestyle/comfortable-salary/texas/dallas"><span>Comfortable salary in Dallas</span><strong>Open guide →</strong></a>
+          <a class="ra-related-card" href="/living/housing/cost-of-living-by-city/texas/dallas"><span>Cost of living in Dallas</span><strong>Open guide →</strong></a>
+          <a class="ra-related-card" href="/living/housing/how-much-house-can-i-afford/texas/dallas"><span>How much house can I afford in Dallas?</span><strong>Open guide →</strong></a>
+          <a class="ra-related-card" href="/living/housing/moving-cost-calculator/texas/dallas"><span>Moving cost calculator — Dallas</span><strong>Open guide →</strong></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt living-faq-section ra-city-faq" id="ra-faq">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Dallas rent affordability FAQ</h2>
+          <p class="ra-section-head__intro">Short answers to common search questions. Run the calculator above for numbers tied to your income and debt.</p>
+        </header>
+        <div class="faq-stack ra-faq-stack">
+          <article class="faq-item">
+            <h3>Is $1,800 rent affordable on $75k in Dallas?</h3>
+            <p>Generally yes — near the comfortable ceiling before utilities.</p>
+          </article>
+          <article class="faq-item">
+            <h3>What salary for a 2-bedroom in Dallas?</h3>
+            <p>Near $79k gross at 30% rule for a $1,980 median 2BR — higher with savings goals.</p>
+          </article>
+          <article class="faq-item">
+            <h3>How much should I spend on rent in Dallas?</h3>
+            <p>Use 30% of take-home after debt and savings — often $1,400–$1,700 on median incomes.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Is Dallas rent higher than Austin?</h3>
+            <p>Usually no on median 1BR. Austin runs hotter in urban core listings.</p>
+          </article>
+          <article class="faq-item">
+            <h3>What is a good rent for $80,000 salary in Dallas?</h3>
+            <p>About $2,000 gross cap — comfortable 1BR in many areas if debt is under $400 a month.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Is Dallas cheaper than Austin for renters?</h3>
+            <p>Usually yes on median 1BR. Austin's urban core runs hotter; Dallas suburbs offer more sub-$1,600 stock.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-description">US-only tools to calculate your real income after tax, understand debt, and make smarter financial decisions.</p>
+      <div class="footer-grid" role="navigation" aria-label="Footer">
+        <section class="footer-column" aria-labelledby="footer-popular-calculators">
+          <h2 id="footer-popular-calculators">Popular Calculators</h2>
+          <a href="/hourly-to-salary-after-tax">Hourly to Salary After Tax</a>
+          <a href="/debt/credit-cards/credit-card-payoff-calculator">Credit Card Payoff Calculator</a>
+          <a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a>
+          <a href="/1099-vs-w2-calculator">1099 vs W2 Calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-tools-category">
+          <h2 id="footer-tools-category">Tools by Category</h2>
+          <a href="/hourly-to-salary-after-tax">Income</a>
+          <a href="/debt">Debt</a>
+          <a href="/rent-vs-buy-calculator">Living</a>
+          <a href="/1099-vs-w2-calculator">Freelance</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-explore-more">
+          <h2 id="footer-explore-more">Explore More</h2>
+          <a href="/living/housing/how-much-rent-can-i-afford">Rent affordability hub</a>
+          <a href="/living/housing/cost-of-living-by-city/texas/dallas">Cost of living in Dallas</a>
+          <a href="/rent-vs-buy-calculator">Rent vs buy calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-company">
+          <h2 id="footer-company">Company</h2>
+          <a href="/about">About</a>
+          <a href="/editorial-policy">Editorial policy</a>
+          <a href="/contact">Contact</a>
+        </section>
+      </div>
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
+  <script src="/rent-afford-city.js"></script>
+  <script src="/page-toc.js" defer></script>
+</body>
+</html>

@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Can You Afford a Home in Florida? Here's What Your Income Buys (2026) | Income Clarity</title>
-  <meta name="description" content="Before you tour listings in Florida, see what home price fits the 28% rule on your real income — with local tax, insurance, and city breakdowns.">
+  <title>How Much House Can You Afford in Florida? Income, Tax &amp; City Guide (2026) | Income Clarity</title>
+  <meta name="description" content="How much house can you afford in Florida? Median price $395,000, salary tiers, property tax, insurance, city breakdowns, and free PITI calculator.">
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/how-much-house-can-i-afford/florida">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="icon" type="image/png" href="/images/logo.png">
   <link rel="apple-touch-icon" href="/images/logo.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much house can I afford in Florida?", "acceptedAnswer": {"@type": "Answer", "text": "Start with 28% of gross for your full housing payment plus HOA. Get an insurance quote early — coast and roof type change the bill a lot."}}, {"@type": "Question", "name": "Why is Florida insurance so high?", "acceptedAnswer": {"@type": "Answer", "text": "Storm risk and higher repair costs pushed premiums up in many zip codes. Quotes vary block by block."}}, {"@type": "Question", "name": "Do I need flood insurance?", "acceptedAnswer": {"@type": "Answer", "text": "In many zones, yes. It is a separate policy from your home policy and can add $100 to $300 a month."}}, {"@type": "Question", "name": "Do I need flood insurance in Florida?", "acceptedAnswer": {"@type": "Answer", "text": "Many lenders require it in Zone A or V. Even optional coverage is worth quoting near water."}}, {"@type": "Question", "name": "Is Florida cheaper than New York to buy?", "acceptedAnswer": {"@type": "Answer", "text": "List can be lower and there is no state income tax. Insurance and HOA on coastal condos can narrow the gap."}}, {"@type": "Question", "name": "Can I afford Florida on $70k?", "acceptedAnswer": {"@type": "Answer", "text": "You may target $220k–$260k with 20% down and low debt. Median $395k needs higher income or a larger down payment."}}, {"@type": "Question", "name": "Which Florida city is most affordable?", "acceptedAnswer": {"@type": "Answer", "text": "Orlando and Tampa are more reachable than Miami for many incomes. Open each city page for local defaults."}}]}</script>
   <script>
     (function () {
       const path = window.location.pathname;
@@ -19,7 +21,7 @@
     })();
   </script>
 </head>
-<body class="ha-page">
+<body class="ha-page living-tool-page ha-city-page">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
@@ -32,7 +34,7 @@
     </div>
   </header>
   <main>
-    <section class="ha-hero" aria-labelledby="ha-title">
+    <section class="ha-hero" id="ha-calculator" aria-labelledby="ha-title">
       <div class="container">
         <nav class="take-home-return-nav" aria-label="Breadcrumb">
           <ol class="take-home-return-breadcrumbs">
@@ -42,17 +44,50 @@
         </nav>
         <span class="label">Living · Florida</span>
         <h1 id="ha-title">How Much House Can You Afford in Florida?</h1>
-        <p class="lead">Storm insurance and HOA fees often drive the monthly bill in Florida. No state income tax helps your take-home. Use the calculator with Florida tax and insurance defaults. Then open a city page for local median prices.</p>
+        <p class="lead">Storm insurance and HOA fees often drive the monthly bill in Florida. No state income tax helps your take-home. Run the calculator — this page also has salary tiers, city comparisons, and Florida buyer guides.</p>
+        <div class="ha-hero-grid">
         <div class="ha-calc-shell">
-          <form id="ha-calc-form" class="ha-calc-form" aria-label="Florida house affordability">
-            <label class="ha-calc__field"><span>Annual income</span><input type="number" id="ha-income" min="20000" step="1000" value="68000" required></label>
+          <form id="ha-calc-form" class="ha-calc-form" aria-label="Florida house affordability calculator">
+            <label class="ha-calc__field"><span>Annual income ($)</span><input type="number" id="ha-income" min="20000" step="1000" value="68000" required></label>
             <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" min="0" step="25" value="300" required></label>
             <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" min="0" step="5000" value="79000" required></label>
             <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" min="2" max="15" step="0.05" value="6.5" required></label>
             <input type="hidden" id="ha-location" value="florida">
-            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate</button></div>
+            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate max home price</button></div>
           </form>
           <div id="ha-calc-results" class="ha-results" hidden aria-live="polite"></div>
+        </div>
+      <aside class="ha-city-toc ha-city-toc--hero" id="ha-toc">
+        <div class="ha-city-toc__card">
+          <button type="button" class="ha-city-toc__toggle" aria-expanded="true" aria-controls="ha-toc-panel">
+            <span class="ha-city-toc__toggle-text">
+              <span class="ha-city-toc__title">On this page</span>
+              <span class="ha-city-toc__kicker">City guides, salary tiers, tax breakdown &amp; more</span>
+            </span>
+            <svg class="ha-city-toc__toggle-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <nav class="ha-city-toc__panel" id="ha-toc-panel" aria-label="On this page">
+            <ul class="ha-city-toc__list">
+          <li><a href="#ha-calculator" class="ha-city-toc__link" data-ha-toc-link>Affordability calculator</a></li>
+          <li><a href="#ha-local-stats" class="ha-city-toc__link" data-ha-toc-link>At a glance</a></li>
+          <li><a href="#ha-piti-breakdown" class="ha-city-toc__link" data-ha-toc-link>Payment breakdown</a></li>
+          <li><a href="#ha-income-tiers" class="ha-city-toc__link" data-ha-toc-link>Salary tiers</a></li>
+          <li><a href="#ha-cities" class="ha-city-toc__link" data-ha-toc-link>City comparison</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">State guides</li>
+          <li><a href="#ha-rules" class="ha-city-toc__link" data-ha-toc-link>28/36 rule</a></li>
+          <li><a href="#ha-narrative-florida" class="ha-city-toc__link" data-ha-toc-link>Buying context</a></li>
+          <li><a href="#ha-lt-florida-0" class="ha-city-toc__link" data-ha-toc-link>How much house can I afford in Florida on $80,000?</a></li>
+          <li><a href="#ha-lt-florida-1" class="ha-city-toc__link" data-ha-toc-link>Florida homeowners insurance and HOA costs</a></li>
+          <li><a href="#ha-lt-florida-2" class="ha-city-toc__link" data-ha-toc-link>What salary do you need to buy a house in Florida?</a></li>
+          <li><a href="#ha-rent-buy" class="ha-city-toc__link" data-ha-toc-link>Rent vs buy</a></li>
+          <li><a href="#ha-tips" class="ha-city-toc__link" data-ha-toc-link>First-time buyer tips</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">More</li>
+          <li><a href="#ha-related" class="ha-city-toc__link" data-ha-toc-link>Related tools</a></li>
+          <li><a href="#ha-faq" class="ha-city-toc__link" data-ha-toc-link>FAQ</a></li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
         </div>
         <div class="ha-city-chips" aria-label="Cities in Florida">
                     <a class="ha-city-chip" href="/living/housing/how-much-house-can-i-afford/florida/miami">Miami</a>
@@ -61,42 +96,116 @@
         </div>
       </div>
     </section>
-    <section class="ha-section">
+
+    <section class="ha-section" id="ha-local-stats" aria-labelledby="ha-glance-title">
       <div class="container content-page">
-        <h2>Florida at a glance</h2>
-        <div class="debt-stats-grid">
-          <div class="debt-stat-block"><span class="debt-stat-value">$395,000</span><span class="debt-stat-label">Median home price (approx.)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">$68,000</span><span class="debt-stat-label">Median household income</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">0.9%</span><span class="debt-stat-label">Typical property tax rate</span></div>
+        <h2 id="ha-glance-title">Florida home affordability at a glance</h2>
+        <p class="ha-section__lead">Planning figures for Florida. Your lender quote and tax bill may differ — use these as a starting point, then open a city page for local medians.</p>
+        <div class="ha-glance-grid">
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$395,000</span><span class="ha-glance-card__l">Median home price</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$68,000</span><span class="ha-glance-card__l">Median household income</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$123,437+</span><span class="ha-glance-card__l">Rough gross for median (3× rule)</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$2,624/mo</span><span class="ha-glance-card__l">Est. PITI on median (20% down)</span></div>
         </div>
-        <p>On a $395,000 home, tax near 0.9% is about <strong>$296/month</strong>. Insurance near 0.55% of value is about <strong>$181/month</strong>. HOA is about <strong>$150/month</strong> where it applies.</p>
+        <p>On a median $395,000 home, property tax near 0.9% is about <strong>$296/month</strong>. Insurance near 0.55% of value is about <strong>$181/month</strong>. HOA is about <strong>$150/month</strong> where it applies.</p>
         <p>Florida has no state income tax. Still plan an extra $200 to $400 a month for insurance vs the US norm on many homes.</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Use the calculator with your real income and debts. If the stress label is <strong>Stretched</strong>, open a city page — inland or smaller metros may fit where the state median does not.</p>
+          <p>Use the calculator with your real income and debts. If the stress label is <strong>Stretched</strong>, open a city page — smaller metros may fit where the state median does not.</p>
         </aside>
         <p>Compare with <a href="/living/housing/how-much-house-can-i-afford/new-york">New York</a>: NY has income tax; Florida trades that for higher storm insurance in many zip codes.</p>
-        <p><a href="/hourly-to-salary-after-tax/state/florida/">Florida take-home pay</a> · <a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
       </div>
     </section>
-    <section class="ha-section" aria-labelledby="ha-col-links-florida">
+
+    <section class="ha-section ha-section--tone" id="ha-piti-breakdown" aria-labelledby="ha-piti-title">
       <div class="container content-page">
-        <h2 id="ha-col-links-florida">Living costs in Florida</h2>
-        <p class="ha-section__lead">Home price is one line. Rent, groceries, tax, and salary needs shape whether a payment feels comfortable.</p>
-        <ul class="col-related__list">
-          <li><a href="/living/housing/cost-of-living-by-city/florida">Cost of living in Florida</a></li>
-          <li><a href="/living/housing/how-much-rent-can-i-afford">Rent affordability in Florida</a></li>
-          <li><a href="/living/lifestyle/comfortable-salary-us/">Comfortable salary in Florida</a></li>
-        </ul>
+        <h2 id="ha-piti-title">Monthly payment breakdown on a median Florida home</h2>
+        <p class="ha-section__lead">Estimated PITI at $395,000 list, 20% down, 6.5% rate, and Florida tax and insurance defaults.</p>
+        <div class="ha-piti-visual">
+          <div class="ha-piti-visual__total">
+            <span class="ha-results__label">Estimated monthly PITI</span>
+            <p class="ha-results__price">$2,624<span>/mo</span></p>
+          </div>
+          <div class="ha-piti-bars">
+            <div class="ha-piti-bar-row"><span>Principal &amp; interest</span><div class="ha-piti-bar"><span style="width:76%"></span></div><span>$1,997</span></div>
+            <div class="ha-piti-bar-row"><span>Property tax</span><div class="ha-piti-bar"><span style="width:11%"></span></div><span>$296</span></div>
+            <div class="ha-piti-bar-row"><span>Insurance</span><div class="ha-piti-bar"><span style="width:7%"></span></div><span>$181</span></div>
+            <div class="ha-piti-bar-row"><span>HOA</span><div class="ha-piti-bar"><span style="width:6%"></span></div><span>$150</span></div>
+          </div>
+        </div>
+        <p>In Florida, buyers who only compare list price to income miss tax and insurance. Run the calculator with your real debts — the 36% back-end rule includes car loans and cards.</p>
       </div>
     </section>
-    <section class="ha-section">
+
+    <section class="ha-section" id="ha-income-tiers" aria-labelledby="ha-tiers-title">
       <div class="container content-page">
-        <h2>Top cities in Florida</h2>
+        <h2 id="ha-tiers-title">How much house can you afford in Florida by salary?</h2>
+        <p class="ha-section__lead">Max home price at common gross salaries, 6.5% rate, $300/month other debt, and Florida tax and insurance defaults.</p>
+        <div class="ha-compare-table-wrap">
+          <table class="debt-data-table ha-tier-table">
+            <caption>Affordable home price by gross annual income in Florida</caption>
+            <thead><tr><th scope="col">Gross salary</th><th scope="col">Max home (est.)</th><th scope="col">Stress</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>$75,000</td>
+                <td>$212,511</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$100,000</td>
+                <td>$289,989</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$125,000</td>
+                <td>$367,467</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$150,000</td>
+                <td>$444,945</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$200,000</td>
+                <td>$599,901</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>These rows assume no down payment in the solver — your down payment raises what you can buy. City medians vary — open Houston, Dallas, or your target city for local numbers.</p>
+        <p><a href="/hourly-to-salary-after-tax/state/florida/">Florida take-home pay calculator</a> · <a href="/living/family-budgeting/salary-needed-to-live-comfortably">Comfortable salary in Florida</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-cities" aria-labelledby="ha-cities-title">
+      <div class="container content-page">
+        <h2 id="ha-cities-title">Top cities in Florida for home buyers</h2>
         <p class="ha-section__lead">Median price and income vary a lot inside one state. Pick your city for local tax, insurance, and a prefilled calculator.</p>
+        <div class="ha-state-grid">
+          <a class="ha-state-card" href="/living/housing/how-much-house-can-i-afford/florida/miami">
+            <h3>Miami</h3>
+            <p class="ha-state-card__meta">Median $580,000 · Income $62,000</p>
+            <p class="ha-state-card__meta">Very high — insurance and condo HOA often exceed the mortgage.</p>
+            <span class="ha-state-card__cta">Open Miami calculator →</span>
+          </a>
+          <a class="ha-state-card" href="/living/housing/how-much-house-can-i-afford/florida/tampa">
+            <h3>Tampa</h3>
+            <p class="ha-state-card__meta">Median $385,000 · Income $65,000</p>
+            <p class="ha-state-card__meta">Moderate to high — insurance still matters more than inland states.</p>
+            <span class="ha-state-card__cta">Open Tampa calculator →</span>
+          </a>
+          <a class="ha-state-card" href="/living/housing/how-much-house-can-i-afford/florida/orlando">
+            <h3>Orlando</h3>
+            <p class="ha-state-card__meta">Median $410,000 · Income $64,000</p>
+            <p class="ha-state-card__meta">Moderate — tourism wages can lag list prices.</p>
+            <span class="ha-state-card__cta">Open Orlando calculator →</span>
+          </a>
+        </div>
         <div class="ha-compare-table-wrap">
           <table class="debt-data-table">
-            <caption>Median price, income, and affordability pressure by city</caption>
+            <caption>Median price, income, and affordability pressure by city in Florida</caption>
             <thead><tr><th scope="col">City</th><th scope="col">Median price</th><th scope="col">Median income</th><th scope="col">Pressure</th></tr></thead>
             <tbody>
               <tr>
@@ -122,34 +231,141 @@
         </div>
       </div>
     </section>
-    <section class="ha-faq-section">
+
+    <section class="ha-section" id="ha-rules" aria-labelledby="ha-rules-title">
       <div class="container content-page">
-        <h2>FAQ — Florida</h2>
+        <h2 id="ha-rules-title">The 28/36 rule in Florida</h2>
+        <p class="ha-section__lead">Lenders often use two caps. Our calculator applies both so you see a realistic max — not just what a bank might pre-approve.</p>
+        <div class="ha-rules-grid">
+          <article class="ha-rules-card">
+            <h3>28% front-end</h3>
+            <p>Your full housing payment — mortgage, tax, insurance, and HOA — should stay near or below 28% of gross monthly income. In Florida, tax and insurance often move the stress meter before list price does.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>36% back-end</h3>
+            <p>All monthly debt plus housing should stay near or below 36% of gross income. Car loans and student debt shrink your max home price even when income is strong.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>Stress meter</h3>
+            <p>We label results Comfortable, Moderate, Stretched, or Over limit. Shop below your max if you want room for repairs, childcare, or savings.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-narrative-florida" aria-labelledby="ha-narrative-title-florida">
+      <div class="container content-page">
+        <h2 id="ha-narrative-title-florida">Buying a home in Florida: what to know</h2>
+        <p>Florida has no state income tax. You keep more of each paycheck. Storm insurance and HOA fees often take that back on the monthly bill.</p>
+        <p>Coastal condos can cost more to insure than inland homes. Get a quote with the full address before you set a max price.</p>
+        <p>The state median near $395k is only a midpoint. Miami runs high. Tampa and Orlando sit in the middle for many buyers.</p>
+        <p>Flood coverage is extra in many zones. Plan $100 to $300 a month if your lender asks for it.</p>
+        <p>More buyers moved here after 2020. Hot zip codes still see bids over list. Use the stress label — do not shop at your lender max alone.</p>
+        <p>Florida's state median near $395k blends Miami condo prices with more reachable Tampa and Orlando suburbs. Insurance drives more of the payment than in many states.</p>
+        <p>No state income tax attracts relocators from NY and NJ. Hot zip codes still see competition — use the stress label, not your lender max alone.</p>
+        <p>Flood maps changed after recent storms. A block that looked safe on a map may rate differently today.</p>
+        <p>Short-term rental rules vary by HOA and county. Verify before you buy an investment unit.</p>
+        <aside class="what-this-means" role="note">
+          <p class="what-this-means__title">What this means for you</p>
+          <p>The state median is a blend — your target city may sit far above or below. Open a city page before you set a max offer price.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-lt-florida-0" aria-labelledby="ha-lt-florida-0-title">
+      <div class="container content-page">
+        <h2 id="ha-lt-florida-0-title">How much house can I afford in Florida on $80,000?</h2>
+        <p>At $80,000 gross, the 28% cap is about $1,867 a month. That often maps to $260,000–$300,000 with 20% down at 6.5% — below the state median near $395,000.</p>
+        <p>Florida has no state income tax, which helps take-home pay. Storm insurance and HOA often take that back on the monthly bill, especially on the coast.</p>
+        <p>Flood insurance is separate in many zones and can add $100–$300 a month. Budget it before you fall in love with a waterfront listing.</p>
+      </div>
+    </section>
+    <section class="ha-section ha-section--alt" id="ha-lt-florida-1" aria-labelledby="ha-lt-florida-1-title">
+      <div class="container content-page">
+        <h2 id="ha-lt-florida-1-title">Florida homeowners insurance and HOA costs</h2>
+        <p>Hurricane risk pushed premiums up statewide. Roof age, construction type, and distance to the coast change quotes block by block.</p>
+        <p>Condos carry HOA and reserve requirements that lenders now scrutinize. A low list price with high HOA can fail the 28% rule.</p>
+        <p>Our state default insurance near 0.55% of value is a planning figure — coastal Miami runs higher than inland Orlando.</p>
+      </div>
+    </section>
+    <section class="ha-section ha-section--alt" id="ha-lt-florida-2" aria-labelledby="ha-lt-florida-2-title">
+      <div class="container content-page">
+        <h2 id="ha-lt-florida-2-title">What salary do you need to buy a house in Florida?</h2>
+        <p>For a median home near $395,000 with 20% down, plan on $100,000–$115,000 gross at 6.5% with modest debt. Miami needs more; Tampa and Orlando vary by zip.</p>
+        <p>Tourism and service wages lag list prices in Miami. Dual income is common for median-priced homes in Orlando and Tampa.</p>
+        <p>Compare Miami, Tampa, and Orlando city pages — the statewide median hides a wide gap between coastal condos and inland suburbs.</p>
+      </div>
+    </section>
+    <section class="ha-section" id="ha-rent-buy" aria-labelledby="ha-rent-buy-title">
+      <div class="container content-page">
+        <h2 id="ha-rent-buy-title">Rent vs buy in Florida</h2>
+        <p>Florida rent rose with migration after 2020. Buying works when insurance, HOA, and your stay timeline align. Coastal condos need stable reserves — run five- and seven-year cases in rent vs buy.</p>
+        <p><a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy calculator</a> · <a href="/living/housing/how-much-rent-can-i-afford">How much rent can I afford?</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-tips" aria-labelledby="ha-tips-title">
+      <div class="container content-page">
+        <h2 id="ha-tips-title">First-time buyer tips in Florida</h2>
+        <ul class="ha-tips-list">
+          <li>Get wind and flood quotes during inspection period, not at closing.</li>
+          <li>Read condo milestone inspection and reserve study on older buildings.</li>
+          <li>Ask about CDD fees on new master-planned communities.</li>
+          <li>Compare Miami vs Tampa city pages if job location is flexible.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-related" aria-labelledby="ha-related-title">
+      <div class="container content-page">
+        <h2 id="ha-related-title">Related tools for Florida buyers</h2>
+        <div class="ha-related-grid">
+          <a class="ha-related-card" href="/living/housing/cost-of-living-by-city/florida"><span>Cost of living</span><strong>Florida COL guide →</strong></a>
+          <a class="ha-related-card" href="/living/family-budgeting/salary-needed-to-live-comfortably"><span>Comfortable salary</span><strong>Florida salary target →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford"><span>US calculator</span><strong>National affordability →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford/new-york"><span>Compare states</span><strong>New York affordability →</strong></a>
+        </div>
+        <ul class="col-related__list">
+          <li><a href="/living/housing/cost-of-living-by-city/florida">Cost of living in Florida</a></li>
+          <li><a href="/living/housing/how-much-rent-can-i-afford">Rent affordability in Florida</a></li>
+          <li><a href="/hourly-to-salary-after-tax/state/florida/">Florida take-home pay</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ha-faq-section" id="ha-faq">
+      <div class="container content-page">
+        <h2>FAQ — how much house can I afford in Florida?</h2>
         <div class="faq-stack">
           <article class="faq-item"><h3>How much house can I afford in Florida?</h3><p>Start with 28% of gross for your full housing payment plus HOA. Get an insurance quote early — coast and roof type change the bill a lot.</p></article>
           <article class="faq-item"><h3>Why is Florida insurance so high?</h3><p>Storm risk and higher repair costs pushed premiums up in many zip codes. Quotes vary block by block.</p></article>
           <article class="faq-item"><h3>Do I need flood insurance?</h3><p>In many zones, yes. It is a separate policy from your home policy and can add $100 to $300 a month.</p></article>
+          <article class="faq-item"><h3>Do I need flood insurance in Florida?</h3><p>Many lenders require it in Zone A or V. Even optional coverage is worth quoting near water.</p></article>
+          <article class="faq-item"><h3>Is Florida cheaper than New York to buy?</h3><p>List can be lower and there is no state income tax. Insurance and HOA on coastal condos can narrow the gap.</p></article>
+          <article class="faq-item"><h3>Can I afford Florida on $70k?</h3><p>You may target $220k–$260k with 20% down and low debt. Median $395k needs higher income or a larger down payment.</p></article>
+          <article class="faq-item"><h3>Which Florida city is most affordable?</h3><p>Orlando and Tampa are more reachable than Miami for many incomes. Open each city page for local defaults.</p></article>
         </div>
       </div>
     </section>
+
     <div class="container content-page">
       <aside class="eeat-trust" aria-labelledby="eeat-florida-title">
         <header class="eeat-trust__header">
           <span class="eeat-trust__kicker">How we built this</span>
           <h2 id="eeat-florida-title" class="eeat-trust__title">Florida affordability data</h2>
-          <p class="eeat-trust__meta"><time datetime="2026-06-01">Last reviewed: June 2026</time> · <a href="/methodology#affordability">Methodology</a> · <a href="/editorial-policy">Editorial policy</a> · <a href="/calculator-methodology">Calculator methodology</a></p>
+          <p class="eeat-trust__meta"><time datetime="2026-06-01">Last reviewed: June 1, 2026</time> · <a href="/methodology#affordability">Methodology</a></p>
         </header>
-        <p>Medians are rounded planning figures from public listing and census sources. Tax and insurance use state defaults — your quote may differ. This is not a loan offer.</p>
+        <p>Median prices, tax, and insurance are rounded planning figures from public listing and census sources. Your quote and lender rules may differ. This is not a loan offer or tax advice.</p>
       </aside>
     </div>
   </main>
   <footer class="site-footer">
     <div class="container footer-layout">
-      <p class="footer-review" role="note"><time datetime="2026-06-01">Last reviewed: June 2026</time> · Reviewed by the <a href="/about">Income Clarity editorial team</a> · <a href="/editorial-policy">Editorial policy</a></p>
       <p class="footer-copy">© 2026 IncomeClarityLab</p>
     </div>
   </footer>
   <script src="/house-afford.js"></script>
+  <script src="/page-toc.js" defer></script>
   <script>
     HouseAfford.bindForm({ stateSlug: 'florida', defaultRegion: 'florida', runOnLoad: true });
   </script>

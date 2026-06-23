@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How Much Rent Can I Afford in Chicago, IL? (2026 Guide) | Income Clarity</title>
+  <meta name="description" content="How much rent can you afford in Chicago? Median rent $1,850/mo, salary tiers, neighborhood comparison, budget breakdown, and free calculator.">
+  <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/how-much-rent-can-i-afford/illinois/chicago">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
+  <link rel="stylesheet" href="/styles-rent.css">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="apple-touch-icon" href="/images/logo.png">
+  <script type="application/json" id="ra-city-data">{"medianRent": 1850, "defaultIncome": 82000, "defaultDebt": 400, "defaultFamily": 1, "defaultSave": 15, "taxTakehome": 0.74, "transport": 310}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is $2,000 rent affordable on $75k in Chicago?", "acceptedAnswer": {"@type": "Answer", "text": "Stretch for many — comfortable closer to $1,650–$1,875 on that income."}}, {"@type": "Question", "name": "What salary for a 2-bedroom in Chicago?", "acceptedAnswer": {"@type": "Answer", "text": "Median 2BR near $2,400 implies $96k gross at 30%."}}, {"@type": "Question", "name": "How much should I spend on rent in Chicago?", "acceptedAnswer": {"@type": "Answer", "text": "30% of take-home after debt — often $1,500–$1,900 on median salaries."}}, {"@type": "Question", "name": "Is Chicago rent higher than Dallas?", "acceptedAnswer": {"@type": "Answer", "text": "Slightly higher on median 1BR; much lower than NYC."}}, {"@type": "Question", "name": "Is $1,900 rent affordable on $70k in Chicago?", "acceptedAnswer": {"@type": "Answer", "text": "Stretch for many — comfortable closer to $1,600 to $1,750 on that income after tax."}}, {"@type": "Question", "name": "How does Chicago rent compare to NYC?", "acceptedAnswer": {"@type": "Answer", "text": "Roughly half median 1BR — why many Midwest transplants choose Chicago first."}}]}</script>
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path.endsWith("/index.html")) cleanPath = path.slice(0, -10);
+      else if (path.endsWith(".html")) cleanPath = path.slice(0, -5);
+      if (cleanPath !== path) window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+    })();
+  </script>
+</head>
+<body class="ra-page ra-city-page living-tool-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/hourly-to-salary-after-tax">Income</a>
+        <a href="/debt">Debt</a>
+        <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="ra-hero ra-city-hero" id="ra-calculator">
+      <div class="container container--wide">
+        <nav class="take-home-return-nav" aria-label="Breadcrumb">
+          <ol class="take-home-return-breadcrumbs">
+            <li><a href="/living/housing/how-much-rent-can-i-afford">Rent affordability</a></li>
+            <li aria-current="page">Chicago</li>
+          </ol>
+        </nav>
+        <span class="label">Chicago · IL</span>
+        <h1>How Much Rent Can I Afford in Chicago?</h1>
+        <p class="lead">Find the maximum monthly rent you can comfortably afford based on your income, debts, and Chicago housing costs. Median rent is about <strong>$1,850/month</strong> — use the calculator for your personal comfortable, stretch, and verdict.</p>
+        <div class="ha-hero-grid ra-city-hero-grid">
+          <div class="ra-city-calc-col">
+            <div class="ra-calc-shell ra-city-calc-shell">
+              <form id="ra-city-form" class="ra-calc-form ra-city-form" aria-label="Chicago rent affordability calculator">
+                <label class="ra-field"><span>Annual income ($)</span><input type="number" id="ra-city-income" min="20000" step="1000" value="82000" required></label>
+                <label class="ra-field"><span>Monthly debt payments ($)</span><input type="number" id="ra-city-debt" min="0" step="25" value="400"></label>
+                <label class="ra-field"><span>Household size</span><input type="number" id="ra-city-family" min="1" max="8" step="1" value="1"></label>
+                <label class="ra-field"><span>Savings goal (% of take-home)</span><input type="number" id="ra-city-save" min="0" max="40" step="1" value="15"></label>
+                <div class="ra-field ra-field--full">
+                  <button type="submit" class="ra-btn" id="ra-city-calc-btn">Calculate Rent Affordability</button>
+                </div>
+              </form>
+            </div>
+            <div class="ra-city-instant" id="ra-city-instant" aria-live="polite">
+              <h2 class="ra-city-instant__title">Your Chicago rent estimate</h2>
+              <dl class="ra-city-instant__grid">
+                <div><dt>Income</dt><dd id="ra-ci-income">$82,000</dd></div>
+                <div><dt>Recommended rent</dt><dd id="ra-ci-comfort">$1,804 – $2,112/month</dd></div>
+                <div><dt>Maximum stretch budget</dt><dd id="ra-ci-stretch">$2,358/month</dd></div>
+                <div><dt>Chicago median rent</dt><dd id="ra-ci-median">$1,850/month</dd></div>
+                <div class="ra-city-instant__verdict"><dt>Verdict</dt><dd id="ra-ci-verdict" class="ra-verdict ra-verdict--good">Comfortable</dd></div>
+              </dl>
+              <p class="ra-city-instant__note" id="ra-ci-summary">Based on $82,000 gross and typical Chicago take-home. Adjust debt and savings to see your range update instantly.</p>
+            </div>
+          </div>
+          <aside class="ha-city-toc ha-city-toc--hero" id="ra-toc">
+            <div class="ha-city-toc__card">
+              <button type="button" class="ha-city-toc__toggle" aria-expanded="true" aria-controls="ra-toc-panel">
+                <span class="ha-city-toc__toggle-text">
+                  <span class="ha-city-toc__title">On this page</span>
+                  <span class="ha-city-toc__kicker">Snapshot, neighborhoods, tiers &amp; more</span>
+                </span>
+                <svg class="ha-city-toc__toggle-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+              </button>
+              <nav class="ha-city-toc__panel" id="ra-toc-panel" aria-label="On this page">
+                <ul class="ha-city-toc__list">
+          <li><a href="#ra-calculator" class="ha-city-toc__link" data-ha-toc-link>Rent calculator</a></li>
+          <li><a href="#ra-rent-snapshot" class="ha-city-toc__link" data-ha-toc-link>Chicago rent snapshot</a></li>
+          <li><a href="#ra-rent-rules" class="ha-city-toc__link" data-ha-toc-link>Gross vs net rent rules</a></li>
+          <li><a href="#ra-rent-by-income" class="ha-city-toc__link" data-ha-toc-link>Rent by income</a></li>
+          <li><a href="#ra-hidden-costs" class="ha-city-toc__link" data-ha-toc-link>Hidden rental costs</a></li>
+          <li><a href="#ra-neighborhoods" class="ha-city-toc__link" data-ha-toc-link>Neighborhood comparison</a></li>
+          <li><a href="#ra-budget-breakdown" class="ha-city-toc__link" data-ha-toc-link>Budget breakdown</a></li>
+          <li><a href="#ra-affordability-tiers" class="ha-city-toc__link" data-ha-toc-link>Affordability tiers</a></li>
+          <li><a href="#ra-lt-gross-net-chicago" class="ha-city-toc__link" data-ha-toc-link>Gross vs net rent in Chicago</a></li>
+          <li><a href="#ra-lt-2br-chicago" class="ha-city-toc__link" data-ha-toc-link>2-bedroom salary needs in Chicago</a></li>
+          <li><a href="#ra-lt-rent-buy-chicago" class="ha-city-toc__link" data-ha-toc-link>Rent vs buy in Chicago</a></li>
+          <li><a href="#ra-lt-tips-chicago" class="ha-city-toc__link" data-ha-toc-link>Chicago renter tips</a></li>
+          <li><a href="#ra-related-income" class="ha-city-toc__link" data-ha-toc-link>Related income pages</a></li>
+          <li><a href="#ra-faq" class="ha-city-toc__link" data-ha-toc-link>FAQ</a></li>
+                </ul>
+              </nav>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt" id="ra-rent-snapshot">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Chicago rent snapshot</h2>
+          <p class="ra-section-head__intro">Local benchmarks for Chicago. Compare your calculator result to these medians before you tour apartments.</p>
+        </header>
+        <div class="ra-glance-row" aria-label="Chicago rent at a glance">
+          <div class="ra-glance-pill"><span class="ra-glance-pill__n">$1,850</span><span class="ra-glance-pill__l">Median rent</span></div>
+          <div class="ra-glance-pill"><span class="ra-glance-pill__n">112</span><span class="ra-glance-pill__l">Cost of living index</span></div>
+          <div class="ra-glance-pill"><span class="ra-glance-pill__n">70/100</span><span class="ra-glance-pill__l">Affordability score</span></div>
+          <div class="ra-glance-pill"><span class="ra-glance-pill__n">30%</span><span class="ra-glance-pill__l">Rent-to-income rule</span></div>
+        </div>
+        <div class="ra-table-card">
+          <div class="ra-snapshot-table-wrap">
+            <table class="debt-data-table ra-city-table ra-snapshot-table">
+              <caption>Chicago rent and cost benchmarks</caption>
+              <tbody>
+                <tr><th scope="row">Median rent</th><td>$1,850</td></tr>
+                <tr><th scope="row">Studio</th><td>$1,480</td></tr>
+                <tr><th scope="row">1 bedroom</th><td>$1,850</td></tr>
+                <tr><th scope="row">2 bedroom</th><td>$2,400</td></tr>
+                <tr><th scope="row">Rent-to-income benchmark</th><td>30%</td></tr>
+                <tr><th scope="row">Cost of living index</th><td>112 <span class="ra-table-muted">(US avg = 100)</span></td></tr>
+                <tr><th scope="row">Affordability score</th><td>70/100</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="ra-reading-block">
+          <p>Chicago offers big-city amenities below coastal rent. Flat state income tax still reduces take-home versus Texas.</p>
+          <p>Winter heating can spike utility bills — ask for average monthly utility from the landlord.</p>
+          <p>Neighborhood safety and commute vary block by block — visit at rush hour before you sign.</p>
+          <p>COL index 112 — big-city amenities without NYC rent. Median 1BR near $1,850 is the planning anchor.</p>
+          <p>Affordability score 70/100 — wages and rent are more balanced than coastal peers.</p>
+          <p>2BR near $2,400 suits roommates or small families on $95k+ combined gross.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ra-band" id="ra-rent-rules">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Gross vs net: how rent rules work in Chicago</h2>
+          <p class="ra-section-head__intro">Landlords screen on gross income. Your budget runs on take-home pay. Both numbers matter — here is how to use them.</p>
+        </header>
+        <ul class="ra-insight-list">
+          <li class="ra-insight-item"><p>Chicago landlords typically want 3× gross monthly rent. Flat Illinois state income tax reduces take-home versus Texas but less than NYC.</p></li>
+          <li class="ra-insight-item"><p>Cook County sales tax is high — it nibbles disposable income after rent is paid.</p></li>
+          <li class="ra-insight-item"><p>Heat included vs tenant-paid gas changes winter utility swings — clarify before you sign.</p></li>
+          <li class="ra-insight-item"><p>Student-heavy neighborhoods may offer September lease timing — off-cycle moves can find discounts in winter.</p></li>
+        </ul>
+        <p class="ra-cta-line">Run your exact take-home in our <a class="ra-text-link" href="/hourly-to-salary-after-tax/state/illinois/">Illinois paycheck calculator</a>, then compare the result to the comfortable band from the calculator above.</p>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt" id="ra-rent-by-income">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>How much rent can you afford in Chicago?</h2>
+          <p class="ra-section-head__intro">Affordable monthly rent at the classic 30% of gross income rule. Your real ceiling may be lower once debt, savings, and utilities are in the picture.</p>
+        </header>
+        <div class="ra-table-card">
+          <div class="ra-snapshot-table-wrap">
+            <table class="debt-data-table ra-city-table ra-income-table">
+              <caption>Affordable rent by salary in Chicago</caption>
+              <thead><tr><th scope="col">Salary</th><th scope="col">Affordable rent (30% gross)</th></tr></thead>
+              <tbody>
+              <tr><td>$50,000</td><td>$1,250</td></tr>
+              <tr><td>$75,000</td><td>$1,875</td></tr>
+              <tr><td>$100,000</td><td>$2,500</td></tr>
+              <tr><td>$150,000</td><td>$3,750</td></tr>
+              <tr><td>$200,000</td><td>$5,000</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <h3 class="ra-subhead">Common salary scenarios</h3>
+        <div class="ra-expand-stack">
+          <details class="ra-expand">
+            <summary class="ra-expand__summary">Can you afford $1,850 rent on $82k in Chicago?</summary>
+            <div class="ra-expand__body">
+              <p>Yes — near median and comfortable for many with moderate debt.</p>
+            </div>
+          </details>
+          <details class="ra-expand">
+            <summary class="ra-expand__summary">Is $2,200 rent affordable on $100k?</summary>
+            <div class="ra-expand__body">
+              <p>Often a stretch in Lincoln Park; comfortable in Logan Square or Hyde Park.</p>
+            </div>
+          </details>
+          <details class="ra-expand">
+            <summary class="ra-expand__summary">How much rent on $60k in Chicago?</summary>
+            <div class="ra-expand__body">
+              <p>Near $1,500 gross cap — roommate or south/west side common.</p>
+            </div>
+          </details>
+          <details class="ra-expand">
+            <summary class="ra-expand__summary">Rent on $70k in Chicago?</summary>
+            <div class="ra-expand__body">
+              <p>Gross cap $1,750 — workable in many neighborhoods with moderate debt.</p>
+              <p>Take-home near $4,300 means all-in housing should stay under $1,500 if you save 15%.</p>
+            </div>
+          </details>
+        </div>
+        <aside class="ra-callout" role="note">
+          <p class="ra-callout__title">How to use this table</p>
+          <p>These figures use the 30% gross rule. Debt, savings, and utilities can lower your real ceiling — that is why we show comfortable and stretch bands in the hero calculator, not just one max.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ra-band" id="ra-hidden-costs">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Hidden costs of renting in Chicago</h2>
+          <p class="ra-section-head__intro">The listing price is not your total housing bill. Budget these lines before you compare apartments.</p>
+        </header>
+        <ul class="ra-insight-list">
+          <li class="ra-insight-item"><p>Winter gas heat in older walk-ups can push utilities above $200 in January.</p></li>
+          <li class="ra-insight-item"><p>Lakefront buildings may charge for storage lockers and bike rooms separately.</p></li>
+          <li class="ra-insight-item"><p>Move-in fees and credit check charges vary — some Chicago landlords charge admin fees over $200.</p></li>
+          <li class="ra-insight-item"><p>Street parking permits and garage rentals add $100 to $250 in dense neighborhoods.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt" id="ra-neighborhoods">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Chicago neighborhood comparison</h2>
+          <p class="ra-section-head__intro">Typical asking rent and rough income needed for a comfortable 30% gross cap. Your block may differ — use these to narrow your search.</p>
+        </header>
+        <div class="ra-table-card">
+          <div class="ra-snapshot-table-wrap">
+            <table class="debt-data-table ra-city-table ra-nh-table">
+              <caption>Chicago neighborhoods — rent and income benchmarks</caption>
+              <thead><tr><th scope="col">Neighborhood</th><th scope="col">Typical rent</th><th scope="col">Comfortable on</th></tr></thead>
+              <tbody>
+              <tr>
+                <th scope="row">Loop</th>
+                <td>$2,400</td>
+                <td>$95,000+</td>
+              </tr>
+              <tr>
+                <th scope="row">Lincoln Park</th>
+                <td>$2,200</td>
+                <td>$88,000+</td>
+              </tr>
+              <tr>
+                <th scope="row">Logan Square</th>
+                <td>$1,900</td>
+                <td>$76,000+</td>
+              </tr>
+              <tr>
+                <th scope="row">Hyde Park</th>
+                <td>$1,600</td>
+                <td>$65,000+</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <aside class="ra-callout" role="note">
+          <p class="ra-callout__title">Neighborhood notes</p>
+          <p>Loop and Lincoln Park charge for location and transit. Logan Square and Hyde Park offer different vibes at lower bases. Visit the block at rush hour — Red Line access can save a car payment worth of rent equivalent.</p>
+        </aside>
+        <p class="ra-cta-line">Compare with <a class="ra-text-link" href="/living/housing/how-much-rent-can-i-afford/new-york/new-york-city">NYC</a> or open our <a class="ra-text-link" href="/living/housing/cost-of-living-by-city/chicago">Chicago cost of living guide</a> for groceries, transit, and tax context.</p>
+      </div>
+    </section>
+
+    <section class="ra-band" id="ra-budget-breakdown">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Monthly budget breakdown example ($82,000 income)</h2>
+          <p class="ra-section-head__intro">Illustrative split using Chicago defaults — not your exact paycheck. Swap in your take-home from our after-tax calculator.</p>
+        </header>
+        <div class="ra-budget-visual">
+          <p class="ra-budget-visual__net">Monthly take-home pay: <strong>$5,057</strong></p>
+          <ul class="ra-budget-list">
+            <li class="ra-budget-row ra-budget-row--rent" style="--pct:38%">
+              <div class="ra-budget-row__meta"><span>Rent</span><strong>$1,906</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--util" style="--pct:4%">
+              <div class="ra-budget-row__meta"><span>Utilities</span><strong>$195</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--trans" style="--pct:6%">
+              <div class="ra-budget-row__meta"><span>Transportation</span><strong>$310</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--food" style="--pct:11%">
+              <div class="ra-budget-row__meta"><span>Food</span><strong>$556</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--save" style="--pct:15%">
+              <div class="ra-budget-row__meta"><span>Savings</span><strong>$759</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--other" style="--pct:26%">
+              <div class="ra-budget-row__meta"><span>Other</span><strong>$1,331</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="ra-reading-block">
+          <p>If rent plus utilities push past one-third of take-home, the other lines get squeezed fast — especially when debt payments are not shown in this simplified example.</p>
+          <p>CTA unlimited pass is cheaper than NYC Metro but still a fixed line — include it in transport.</p>
+          <p>City sticker and parking tickets are real risks if you street-park — budget conservatively.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt" id="ra-affordability-tiers">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Affordability tiers in Chicago</h2>
+          <p class="ra-section-head__intro">Planning bands tied to gross income — pair with our <a class="ra-text-link" href="/living/lifestyle/comfortable-salary/illinois/chicago">comfortable salary guide</a> for household-specific targets.</p>
+        </header>
+        <div class="ra-tier-grid">
+          <article class="ra-tier-card">
+            <h3>Survival budget</h3>
+            <p class="ra-tier-card__income">$55,000+</p>
+            <p>Roommate; outer neighborhoods.</p>
+          </article>
+          <article class="ra-tier-card">
+            <h3>Comfortable budget</h3>
+            <p class="ra-tier-card__income">$82,000+</p>
+            <p>1BR in many city neighborhoods.</p>
+          </article>
+          <article class="ra-tier-card">
+            <h3>Very comfortable</h3>
+            <p class="ra-tier-card__income">$100,000+</p>
+            <p>Lincoln Park 1BR or 2BR in suburbs.</p>
+          </article>
+          <article class="ra-tier-card">
+            <h3>Premium lifestyle</h3>
+            <p class="ra-tier-card__income">$140,000+</p>
+            <p>Loop luxury or large 2BR.</p>
+          </article>
+        </div>
+        <aside class="ra-callout" role="note">
+          <p class="ra-callout__title">How to read these tiers</p>
+          <p>Survival: roommates in outer neighborhoods. Comfortable: $82k on $1,700 to $1,950 rent. Premium: Lincoln Park or Loop on $120k+ with savings.</p>
+        </aside>
+      </div>
+    </section>
+    <section class="ra-band ra-article-band" id="ra-lt-gross-net-chicago">
+      <div class="container container--wide">
+        <article class="ra-article-card">
+          <h2 class="ra-article-card__title">Gross vs net rent in Chicago</h2>
+        <div class="ra-prose">
+          <p>Illinois flat tax means predictable withholding — still use net for budgeting. $82,000 gross often nets near $5,050 a month.</p>
+          <p>Landlord approval at $1,850 rent needs about $66,000 gross — easier than living comfortably on that rent with student loans.</p>
+          <p>Union Station or Loop workers may skip a car — reallocate that payment to slightly higher rent near transit.</p>
+        </div>
+        </article>
+      </div>
+    </section>
+    <section class="ra-band ra-article-band ra-band--alt" id="ra-lt-2br-chicago">
+      <div class="container container--wide">
+        <article class="ra-article-card">
+          <h2 class="ra-article-card__title">2-bedroom salary needs in Chicago</h2>
+        <div class="ra-prose">
+          <p>Median 2BR $2,400 needs about $96,000 gross at 30%. Suburban Evanston or Oak Park may differ — check Metra commute cost.</p>
+          <p>Three-flat buildings may have owner-occupied units with stricter rules — read lease noise policies.</p>
+          <p>Compare our Chicago cost of living page for child care if you need bedroom count for kids, not guests.</p>
+        </div>
+        </article>
+      </div>
+    </section>
+    <section class="ra-band ra-article-band" id="ra-lt-rent-buy-chicago">
+      <div class="container container--wide">
+        <article class="ra-article-card">
+          <h2 class="ra-article-card__title">Rent vs buy in Chicago</h2>
+        <div class="ra-prose">
+          <p>Property tax and winter maintenance hit owners — renters stay flexible during job changes.</p>
+          <p>Buying can work after five to seven years in stable neighborhoods — run break-even with your down payment.</p>
+          <p>If you love Lincoln Park rent but cannot buy there, saving the difference in a high-yield account is a valid plan.</p>
+        </div>
+        </article>
+      </div>
+    </section>
+    <section class="ra-band ra-article-band ra-band--alt" id="ra-lt-tips-chicago">
+      <div class="container container--wide">
+        <article class="ra-article-card">
+          <h2 class="ra-article-card__title">Chicago renter tips</h2>
+        <div class="ra-prose">
+          <p>Ask who pays heat and whether radiators are controlled — winter bills surprise newcomers.</p>
+          <p>Check el stop distance in February, not July — walk matters in snow.</p>
+          <p>Renter's insurance covers theft and liability — inexpensive and often required.</p>
+        </div>
+        </article>
+      </div>
+    </section>
+    <section class="ra-band" id="ra-related-income">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Related income &amp; housing pages</h2>
+          <p class="ra-section-head__intro">Connect your rent cap to salary scenarios, cost of living, and buy-vs-rent decisions in Chicago.</p>
+        </header>
+        <div class="ra-related-grid">
+          <a class="ra-related-card" href="/living/lifestyle/comfortable-salary/illinois/chicago"><span>Comfortable salary in Chicago</span><strong>Open guide →</strong></a>
+          <a class="ra-related-card" href="/living/housing/cost-of-living-by-city/chicago"><span>Cost of living in Chicago</span><strong>Open guide →</strong></a>
+          <a class="ra-related-card" href="/living/housing/how-much-house-can-i-afford"><span>How much house can I afford</span><strong>Open guide →</strong></a>
+          <a class="ra-related-card" href="/living/housing/moving-cost-calculator/illinois/chicago"><span>Moving cost calculator — Chicago</span><strong>Open guide →</strong></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt living-faq-section ra-city-faq" id="ra-faq">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Chicago rent affordability FAQ</h2>
+          <p class="ra-section-head__intro">Short answers to common search questions. Run the calculator above for numbers tied to your income and debt.</p>
+        </header>
+        <div class="faq-stack ra-faq-stack">
+          <article class="faq-item">
+            <h3>Is $2,000 rent affordable on $75k in Chicago?</h3>
+            <p>Stretch for many — comfortable closer to $1,650–$1,875 on that income.</p>
+          </article>
+          <article class="faq-item">
+            <h3>What salary for a 2-bedroom in Chicago?</h3>
+            <p>Median 2BR near $2,400 implies $96k gross at 30%.</p>
+          </article>
+          <article class="faq-item">
+            <h3>How much should I spend on rent in Chicago?</h3>
+            <p>30% of take-home after debt — often $1,500–$1,900 on median salaries.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Is Chicago rent higher than Dallas?</h3>
+            <p>Slightly higher on median 1BR; much lower than NYC.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Is $1,900 rent affordable on $70k in Chicago?</h3>
+            <p>Stretch for many — comfortable closer to $1,600 to $1,750 on that income after tax.</p>
+          </article>
+          <article class="faq-item">
+            <h3>How does Chicago rent compare to NYC?</h3>
+            <p>Roughly half median 1BR — why many Midwest transplants choose Chicago first.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-description">US-only tools to calculate your real income after tax, understand debt, and make smarter financial decisions.</p>
+      <div class="footer-grid" role="navigation" aria-label="Footer">
+        <section class="footer-column" aria-labelledby="footer-popular-calculators">
+          <h2 id="footer-popular-calculators">Popular Calculators</h2>
+          <a href="/hourly-to-salary-after-tax">Hourly to Salary After Tax</a>
+          <a href="/debt/credit-cards/credit-card-payoff-calculator">Credit Card Payoff Calculator</a>
+          <a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a>
+          <a href="/1099-vs-w2-calculator">1099 vs W2 Calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-tools-category">
+          <h2 id="footer-tools-category">Tools by Category</h2>
+          <a href="/hourly-to-salary-after-tax">Income</a>
+          <a href="/debt">Debt</a>
+          <a href="/rent-vs-buy-calculator">Living</a>
+          <a href="/1099-vs-w2-calculator">Freelance</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-explore-more">
+          <h2 id="footer-explore-more">Explore More</h2>
+          <a href="/living/housing/how-much-rent-can-i-afford">Rent affordability hub</a>
+          <a href="/living/housing/cost-of-living-by-city/chicago">Cost of living in Chicago</a>
+          <a href="/rent-vs-buy-calculator">Rent vs buy calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-company">
+          <h2 id="footer-company">Company</h2>
+          <a href="/about">About</a>
+          <a href="/editorial-policy">Editorial policy</a>
+          <a href="/contact">Contact</a>
+        </section>
+      </div>
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
+  <script src="/rent-afford-city.js"></script>
+  <script src="/page-toc.js" defer></script>
+</body>
+</html>

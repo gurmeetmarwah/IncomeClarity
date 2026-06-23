@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Can You Afford a Home in California? Here's What Your Income Buys (2026) | Income Clarity</title>
-  <meta name="description" content="Before you tour listings in California, see what home price fits the 28% rule on your real income — with local tax, insurance, and city breakdowns.">
+  <title>How Much House Can You Afford in California? Income, Tax &amp; City Guide (2026) | Income Clarity</title>
+  <meta name="description" content="How much house can you afford in California? Median price $785,000, salary tiers, property tax, insurance, city breakdowns, and free PITI calculator.">
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/how-much-house-can-i-afford/california">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="icon" type="image/png" href="/images/logo.png">
   <link rel="apple-touch-icon" href="/images/logo.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much house can I afford in California on $150k?", "acceptedAnswer": {"@type": "Answer", "text": "At $150k gross, the 28% cap is about $3,500 a month. That often fits an inland home near $550k — not a coastal $850k+ listing at today's rates."}}, {"@type": "Question", "name": "Does Prop 13 change my payment?", "acceptedAnswer": {"@type": "Answer", "text": "Prop 13 limits how fast your assessed tax can rise. Your first-year bill still depends on purchase price and local rates."}}, {"@type": "Question", "name": "Should I use the US calculator or this page?", "acceptedAnswer": {"@type": "Answer", "text": "Use the US page for the rules. Use this page for California tax, insurance, and city medians."}}, {"@type": "Question", "name": "Is California worth buying vs renting?", "acceptedAnswer": {"@type": "Answer", "text": "Depends on stay length, rate, and insurance. Use rent vs buy with your real timeline and city tax defaults."}}, {"@type": "Question", "name": "Can I afford California on $120k?", "acceptedAnswer": {"@type": "Answer", "text": "You may target $450k–$550k inland with 20% down. Coastal medians need far more gross pay."}}, {"@type": "Question", "name": "Does Prop 13 help new buyers?", "acceptedAnswer": {"@type": "Answer", "text": "It limits future increases — your first bill still tracks what you pay for the home."}}, {"@type": "Question", "name": "Which CA city is cheapest in this guide?", "acceptedAnswer": {"@type": "Answer", "text": "None are cheap by US standards. San Diego and LA medians differ — open each city calculator."}}]}</script>
   <script>
     (function () {
       const path = window.location.pathname;
@@ -19,7 +21,7 @@
     })();
   </script>
 </head>
-<body class="ha-page">
+<body class="ha-page living-tool-page ha-city-page">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
@@ -32,7 +34,7 @@
     </div>
   </header>
   <main>
-    <section class="ha-hero" aria-labelledby="ha-title">
+    <section class="ha-hero" id="ha-calculator" aria-labelledby="ha-title">
       <div class="container">
         <nav class="take-home-return-nav" aria-label="Breadcrumb">
           <ol class="take-home-return-breadcrumbs">
@@ -42,17 +44,50 @@
         </nav>
         <span class="label">Living · California</span>
         <h1 id="ha-title">How Much House Can You Afford in California?</h1>
-        <p class="lead">California buyers face high list prices, state income tax on take-home pay, and insurance that can rival the mortgage in fire-prone areas. Use the calculator with California tax and insurance defaults. Then open a city page for local median prices.</p>
+        <p class="lead">California buyers face high list prices, state income tax on take-home pay, and insurance that can rival the mortgage in fire-prone areas. Run the calculator — this page also has salary tiers, city comparisons, and California buyer guides.</p>
+        <div class="ha-hero-grid">
         <div class="ha-calc-shell">
-          <form id="ha-calc-form" class="ha-calc-form" aria-label="California house affordability">
-            <label class="ha-calc__field"><span>Annual income</span><input type="number" id="ha-income" min="20000" step="1000" value="96000" required></label>
+          <form id="ha-calc-form" class="ha-calc-form" aria-label="California house affordability calculator">
+            <label class="ha-calc__field"><span>Annual income ($)</span><input type="number" id="ha-income" min="20000" step="1000" value="96000" required></label>
             <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" min="0" step="25" value="300" required></label>
             <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" min="0" step="5000" value="157000" required></label>
             <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" min="2" max="15" step="0.05" value="6.5" required></label>
             <input type="hidden" id="ha-location" value="california">
-            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate</button></div>
+            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate max home price</button></div>
           </form>
           <div id="ha-calc-results" class="ha-results" hidden aria-live="polite"></div>
+        </div>
+      <aside class="ha-city-toc ha-city-toc--hero" id="ha-toc">
+        <div class="ha-city-toc__card">
+          <button type="button" class="ha-city-toc__toggle" aria-expanded="true" aria-controls="ha-toc-panel">
+            <span class="ha-city-toc__toggle-text">
+              <span class="ha-city-toc__title">On this page</span>
+              <span class="ha-city-toc__kicker">City guides, salary tiers, tax breakdown &amp; more</span>
+            </span>
+            <svg class="ha-city-toc__toggle-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <nav class="ha-city-toc__panel" id="ha-toc-panel" aria-label="On this page">
+            <ul class="ha-city-toc__list">
+          <li><a href="#ha-calculator" class="ha-city-toc__link" data-ha-toc-link>Affordability calculator</a></li>
+          <li><a href="#ha-local-stats" class="ha-city-toc__link" data-ha-toc-link>At a glance</a></li>
+          <li><a href="#ha-piti-breakdown" class="ha-city-toc__link" data-ha-toc-link>Payment breakdown</a></li>
+          <li><a href="#ha-income-tiers" class="ha-city-toc__link" data-ha-toc-link>Salary tiers</a></li>
+          <li><a href="#ha-cities" class="ha-city-toc__link" data-ha-toc-link>City comparison</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">State guides</li>
+          <li><a href="#ha-rules" class="ha-city-toc__link" data-ha-toc-link>28/36 rule</a></li>
+          <li><a href="#ha-narrative-california" class="ha-city-toc__link" data-ha-toc-link>Buying context</a></li>
+          <li><a href="#ha-lt-california-0" class="ha-city-toc__link" data-ha-toc-link>How much house can I afford in California on $150,0…</a></li>
+          <li><a href="#ha-lt-california-1" class="ha-city-toc__link" data-ha-toc-link>California property tax, Prop 13, and Mello-Roos</a></li>
+          <li><a href="#ha-lt-california-2" class="ha-city-toc__link" data-ha-toc-link>What salary do you need to buy a house in Californi…</a></li>
+          <li><a href="#ha-rent-buy" class="ha-city-toc__link" data-ha-toc-link>Rent vs buy</a></li>
+          <li><a href="#ha-tips" class="ha-city-toc__link" data-ha-toc-link>First-time buyer tips</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">More</li>
+          <li><a href="#ha-related" class="ha-city-toc__link" data-ha-toc-link>Related tools</a></li>
+          <li><a href="#ha-faq" class="ha-city-toc__link" data-ha-toc-link>FAQ</a></li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
         </div>
         <div class="ha-city-chips" aria-label="Cities in California">
                     <a class="ha-city-chip" href="/living/housing/how-much-house-can-i-afford/california/los-angeles">Los Angeles</a>
@@ -61,42 +96,116 @@
         </div>
       </div>
     </section>
-    <section class="ha-section">
+
+    <section class="ha-section" id="ha-local-stats" aria-labelledby="ha-glance-title">
       <div class="container content-page">
-        <h2>California at a glance</h2>
-        <div class="debt-stats-grid">
-          <div class="debt-stat-block"><span class="debt-stat-value">$785,000</span><span class="debt-stat-label">Median home price (approx.)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">$96,000</span><span class="debt-stat-label">Median household income</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">0.75%</span><span class="debt-stat-label">Typical property tax rate</span></div>
+        <h2 id="ha-glance-title">California home affordability at a glance</h2>
+        <p class="ha-section__lead">Planning figures for California. Your lender quote and tax bill may differ — use these as a starting point, then open a city page for local medians.</p>
+        <div class="ha-glance-grid">
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$785,000</span><span class="ha-glance-card__l">Median home price</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$96,000</span><span class="ha-glance-card__l">Median household income</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$245,312+</span><span class="ha-glance-card__l">Rough gross for median (3× rule)</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$4,954/mo</span><span class="ha-glance-card__l">Est. PITI on median (20% down)</span></div>
         </div>
-        <p>On a $785,000 home, tax near 0.75% is about <strong>$490/month</strong>. Insurance near 0.45% of value is about <strong>$294/month</strong>. HOA is about <strong>$200/month</strong> where it applies.</p>
+        <p>On a median $785,000 home, property tax near 0.75% is about <strong>$490/month</strong>. Insurance near 0.45% of value is about <strong>$294/month</strong>. HOA is about <strong>$200/month</strong> where it applies.</p>
         <p>At the state median home price, many buyers need gross pay near $245k to hit the 28% line with 20% down at 6.5%. Inland metros fit closer to $120k–$160k.</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Use the calculator with your real income and debts. If the stress label is <strong>Stretched</strong>, open a city page — inland or smaller metros may fit where the state median does not.</p>
+          <p>Use the calculator with your real income and debts. If the stress label is <strong>Stretched</strong>, open a city page — smaller metros may fit where the state median does not.</p>
         </aside>
         <p>Compare with <a href="/living/housing/how-much-house-can-i-afford/texas">Texas</a>: No state income tax but lower coastal prices are rare.</p>
-        <p><a href="/hourly-to-salary-after-tax/state/california/">California take-home pay</a> · <a href="/living/housing/rent-vs-buy-california.html">Rent vs buy</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
       </div>
     </section>
-    <section class="ha-section" aria-labelledby="ha-col-links-california">
+
+    <section class="ha-section ha-section--tone" id="ha-piti-breakdown" aria-labelledby="ha-piti-title">
       <div class="container content-page">
-        <h2 id="ha-col-links-california">Living costs in California</h2>
-        <p class="ha-section__lead">Home price is one line. Rent, groceries, tax, and salary needs shape whether a payment feels comfortable.</p>
-        <ul class="col-related__list">
-          <li><a href="/living/housing/cost-of-living-by-city/california">Cost of living in California</a></li>
-          <li><a href="/living/housing/how-much-rent-can-i-afford">Rent affordability in California</a></li>
-          <li><a href="/living/lifestyle-family/comfortable-salary-california">Comfortable salary in California</a></li>
-        </ul>
+        <h2 id="ha-piti-title">Monthly payment breakdown on a median California home</h2>
+        <p class="ha-section__lead">Estimated PITI at $785,000 list, 20% down, 6.5% rate, and California tax and insurance defaults.</p>
+        <div class="ha-piti-visual">
+          <div class="ha-piti-visual__total">
+            <span class="ha-results__label">Estimated monthly PITI</span>
+            <p class="ha-results__price">$4,954<span>/mo</span></p>
+          </div>
+          <div class="ha-piti-bars">
+            <div class="ha-piti-bar-row"><span>Principal &amp; interest</span><div class="ha-piti-bar"><span style="width:80%"></span></div><span>$3,969</span></div>
+            <div class="ha-piti-bar-row"><span>Property tax</span><div class="ha-piti-bar"><span style="width:10%"></span></div><span>$490</span></div>
+            <div class="ha-piti-bar-row"><span>Insurance</span><div class="ha-piti-bar"><span style="width:6%"></span></div><span>$294</span></div>
+            <div class="ha-piti-bar-row"><span>HOA</span><div class="ha-piti-bar"><span style="width:4%"></span></div><span>$200</span></div>
+          </div>
+        </div>
+        <p>In California, buyers who only compare list price to income miss tax and insurance. Run the calculator with your real debts — the 36% back-end rule includes car loans and cards.</p>
       </div>
     </section>
-    <section class="ha-section">
+
+    <section class="ha-section" id="ha-income-tiers" aria-labelledby="ha-tiers-title">
       <div class="container content-page">
-        <h2>Top cities in California</h2>
+        <h2 id="ha-tiers-title">How much house can you afford in California by salary?</h2>
+        <p class="ha-section__lead">Max home price at common gross salaries, 6.5% rate, $300/month other debt, and California tax and insurance defaults.</p>
+        <div class="ha-compare-table-wrap">
+          <table class="debt-data-table ha-tier-table">
+            <caption>Affordable home price by gross annual income in California</caption>
+            <thead><tr><th scope="col">Gross salary</th><th scope="col">Max home (est.)</th><th scope="col">Stress</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>$75,000</td>
+                <td>$211,728</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$100,000</td>
+                <td>$291,411</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$125,000</td>
+                <td>$371,094</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$150,000</td>
+                <td>$450,777</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$200,000</td>
+                <td>$610,143</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>These rows assume no down payment in the solver — your down payment raises what you can buy. City medians vary — open Houston, Dallas, or your target city for local numbers.</p>
+        <p><a href="/hourly-to-salary-after-tax/state/california/">California take-home pay calculator</a> · <a href="/living/lifestyle/comfortable-salary/california">Comfortable salary in California</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-cities" aria-labelledby="ha-cities-title">
+      <div class="container content-page">
+        <h2 id="ha-cities-title">Top cities in California for home buyers</h2>
         <p class="ha-section__lead">Median price and income vary a lot inside one state. Pick your city for local tax, insurance, and a prefilled calculator.</p>
+        <div class="ha-state-grid">
+          <a class="ha-state-card" href="/living/housing/how-much-house-can-i-afford/california/los-angeles">
+            <h3>Los Angeles</h3>
+            <p class="ha-state-card__meta">Median $875,000 · Income $82,000</p>
+            <p class="ha-state-card__meta">Very high — median list prices sit above the 28% line for typical salaries.</p>
+            <span class="ha-state-card__cta">Open Los Angeles calculator →</span>
+          </a>
+          <a class="ha-state-card" href="/living/housing/how-much-house-can-i-afford/california/san-francisco">
+            <h3>San Francisco</h3>
+            <p class="ha-state-card__meta">Median $1,250,000 · Income $140,000</p>
+            <p class="ha-state-card__meta">Extreme — even strong earners often rent or buy with a large down payment.</p>
+            <span class="ha-state-card__cta">Open San Francisco calculator →</span>
+          </a>
+          <a class="ha-state-card" href="/living/housing/how-much-house-can-i-afford/california/san-diego">
+            <h3>San Diego</h3>
+            <p class="ha-state-card__meta">Median $920,000 · Income $95,000</p>
+            <p class="ha-state-card__meta">High — military and tech wages help, but insurance and HOA add up fast.</p>
+            <span class="ha-state-card__cta">Open San Diego calculator →</span>
+          </a>
+        </div>
         <div class="ha-compare-table-wrap">
           <table class="debt-data-table">
-            <caption>Median price, income, and affordability pressure by city</caption>
+            <caption>Median price, income, and affordability pressure by city in California</caption>
             <thead><tr><th scope="col">City</th><th scope="col">Median price</th><th scope="col">Median income</th><th scope="col">Pressure</th></tr></thead>
             <tbody>
               <tr>
@@ -122,34 +231,141 @@
         </div>
       </div>
     </section>
-    <section class="ha-faq-section">
+
+    <section class="ha-section" id="ha-rules" aria-labelledby="ha-rules-title">
       <div class="container content-page">
-        <h2>FAQ — California</h2>
+        <h2 id="ha-rules-title">The 28/36 rule in California</h2>
+        <p class="ha-section__lead">Lenders often use two caps. Our calculator applies both so you see a realistic max — not just what a bank might pre-approve.</p>
+        <div class="ha-rules-grid">
+          <article class="ha-rules-card">
+            <h3>28% front-end</h3>
+            <p>Your full housing payment — mortgage, tax, insurance, and HOA — should stay near or below 28% of gross monthly income. In California, tax and insurance often move the stress meter before list price does.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>36% back-end</h3>
+            <p>All monthly debt plus housing should stay near or below 36% of gross income. Car loans and student debt shrink your max home price even when income is strong.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>Stress meter</h3>
+            <p>We label results Comfortable, Moderate, Stretched, or Over limit. Shop below your max if you want room for repairs, childcare, or savings.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-narrative-california" aria-labelledby="ha-narrative-title-california">
+      <div class="container content-page">
+        <h2 id="ha-narrative-title-california">Buying a home in California: what to know</h2>
+        <p>California is not one market. The coast costs far more than the state median. Inland cities often fit middle incomes better. Start with your city page, not the state median alone.</p>
+        <p>State income tax lowers take-home pay. A $120k salary in CA does not feel like $120k in Texas. Use our take-home tool, then run this calculator on gross pay with the 28% rule.</p>
+        <p>Insurance can add $200 to $500 a month in fire-prone zip codes. We bake a default into the breakdown. Get a real quote before you set your max price.</p>
+        <p>Prop 13 caps how fast tax can rise after you buy. Your first bill still tracks purchase price. Budget for Mello-Roos in some new tracts.</p>
+        <p>Many CA buyers put 10% down and pay PMI. That works, but the same income buys less house. If you can wait for 20% down, the monthly payment drops a lot.</p>
+        <p>California is not one housing market. The state median blends $1M+ coastal stock with more reachable inland cities. Your target county may sit far from the number on this page.</p>
+        <p>Wildfire insurance reforms changed premiums in many zip codes. A home that looked affordable on list price may fail the full PITI test once insurance is real.</p>
+        <p>Tech, entertainment, and government jobs mix with tourism wages. Lenders use W-2 or two-year averages for variable income — plan on stable pay.</p>
+        <p>Many buyers use gift funds or co-buyers. Still run the stress meter on income you control long term.</p>
+        <aside class="what-this-means" role="note">
+          <p class="what-this-means__title">What this means for you</p>
+          <p>The state median is a blend — your target city may sit far above or below. Open a city page before you set a max offer price.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-lt-california-0" aria-labelledby="ha-lt-california-0-title">
+      <div class="container content-page">
+        <h2 id="ha-lt-california-0-title">How much house can I afford in California on $150,000?</h2>
+        <p>At $150,000 gross, the 28% cap is about $3,500 a month for housing. That often fits an inland home near $550,000–$650,000 — not a coastal listing above $850,000 at today's rates.</p>
+        <p>State income tax lowers take-home pay. Run our California take-home tool before you shop. A $150k salary in CA does not spend like $150k in Texas after tax.</p>
+        <p>Insurance in fire-prone zip codes can add $200–$400 a month above our default. Get a quote with the address before you set your max price.</p>
+      </div>
+    </section>
+    <section class="ha-section ha-section--alt" id="ha-lt-california-1" aria-labelledby="ha-lt-california-1-title">
+      <div class="container content-page">
+        <h2 id="ha-lt-california-1-title">California property tax, Prop 13, and Mello-Roos</h2>
+        <p>Prop 13 limits how fast your assessed tax can rise after you buy. Your first-year bill still depends on purchase price — typically near 0.75% effective in our state model.</p>
+        <p>Mello-Roos and special tax districts on newer tracts can add hundreds a month. Ask the seller for the full annual tax bill, not just the current owner's assessed value.</p>
+        <p>Coastal counties often assess higher insurance risk. Tax may look modest next to insurance and HOA on condos.</p>
+      </div>
+    </section>
+    <section class="ha-section ha-section--alt" id="ha-lt-california-2" aria-labelledby="ha-lt-california-2-title">
+      <div class="container content-page">
+        <h2 id="ha-lt-california-2-title">What salary do you need to buy a house in California?</h2>
+        <p>For the state median near $785,000 with 20% down, many buyers need $220,000+ gross to hug the 28% line at 6.5%. Coastal metros need more; inland cities may fit $120k–$160k.</p>
+        <p>Dual income is standard in LA and the Bay Area. Two earners at $100k each still may not clear a median coastal list price once tax, HOA, and insurance stack up.</p>
+        <p>Start with your city page — Los Angeles, San Francisco, and San Diego each have different medians and insurance defaults.</p>
+      </div>
+    </section>
+    <section class="ha-section" id="ha-rent-buy" aria-labelledby="ha-rent-buy-title">
+      <div class="container content-page">
+        <h2 id="ha-rent-buy-title">Rent vs buy in California</h2>
+        <p>California rent is high, and so is the buy-in. Buying often pays off only on longer timelines in stable zip codes. If you might move in three years, renting while saving a larger down payment may be smarter — especially with high insurance in fire zones.</p>
+        <p><a href="/living/housing/rent-vs-buy-california.html">Rent vs buy calculator</a> · <a href="/living/housing/how-much-rent-can-i-afford">How much rent can I afford?</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-tips" aria-labelledby="ha-tips-title">
+      <div class="container content-page">
+        <h2 id="ha-tips-title">First-time buyer tips in California</h2>
+        <ul class="ha-tips-list">
+          <li>Get an insurance quote with the full address — not a state average.</li>
+          <li>Read HOA and reserve studies on condos before you waive inspection.</li>
+          <li>Compare inland vs coastal city pages if commute is flexible.</li>
+          <li>Run the calculator at 10% and 20% down to see PMI impact.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-related" aria-labelledby="ha-related-title">
+      <div class="container content-page">
+        <h2 id="ha-related-title">Related tools for California buyers</h2>
+        <div class="ha-related-grid">
+          <a class="ha-related-card" href="/living/housing/cost-of-living-by-city/california"><span>Cost of living</span><strong>California COL guide →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/california"><span>Comfortable salary</span><strong>California salary target →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford"><span>US calculator</span><strong>National affordability →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford/texas"><span>Compare states</span><strong>Texas affordability →</strong></a>
+        </div>
+        <ul class="col-related__list">
+          <li><a href="/living/housing/cost-of-living-by-city/california">Cost of living in California</a></li>
+          <li><a href="/living/housing/how-much-rent-can-i-afford">Rent affordability in California</a></li>
+          <li><a href="/hourly-to-salary-after-tax/state/california/">California take-home pay</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ha-faq-section" id="ha-faq">
+      <div class="container content-page">
+        <h2>FAQ — how much house can I afford in California?</h2>
         <div class="faq-stack">
           <article class="faq-item"><h3>How much house can I afford in California on $150k?</h3><p>At $150k gross, the 28% cap is about $3,500 a month. That often fits an inland home near $550k — not a coastal $850k+ listing at today's rates.</p></article>
           <article class="faq-item"><h3>Does Prop 13 change my payment?</h3><p>Prop 13 limits how fast your assessed tax can rise. Your first-year bill still depends on purchase price and local rates.</p></article>
           <article class="faq-item"><h3>Should I use the US calculator or this page?</h3><p>Use the US page for the rules. Use this page for California tax, insurance, and city medians.</p></article>
+          <article class="faq-item"><h3>Is California worth buying vs renting?</h3><p>Depends on stay length, rate, and insurance. Use rent vs buy with your real timeline and city tax defaults.</p></article>
+          <article class="faq-item"><h3>Can I afford California on $120k?</h3><p>You may target $450k–$550k inland with 20% down. Coastal medians need far more gross pay.</p></article>
+          <article class="faq-item"><h3>Does Prop 13 help new buyers?</h3><p>It limits future increases — your first bill still tracks what you pay for the home.</p></article>
+          <article class="faq-item"><h3>Which CA city is cheapest in this guide?</h3><p>None are cheap by US standards. San Diego and LA medians differ — open each city calculator.</p></article>
         </div>
       </div>
     </section>
+
     <div class="container content-page">
       <aside class="eeat-trust" aria-labelledby="eeat-california-title">
         <header class="eeat-trust__header">
           <span class="eeat-trust__kicker">How we built this</span>
           <h2 id="eeat-california-title" class="eeat-trust__title">California affordability data</h2>
-          <p class="eeat-trust__meta"><time datetime="2026-06-01">Last reviewed: June 2026</time> · <a href="/methodology#affordability">Methodology</a> · <a href="/editorial-policy">Editorial policy</a> · <a href="/calculator-methodology">Calculator methodology</a></p>
+          <p class="eeat-trust__meta"><time datetime="2026-06-01">Last reviewed: June 1, 2026</time> · <a href="/methodology#affordability">Methodology</a></p>
         </header>
-        <p>Medians are rounded planning figures from public listing and census sources. Tax and insurance use state defaults — your quote may differ. This is not a loan offer.</p>
+        <p>Median prices, tax, and insurance are rounded planning figures from public listing and census sources. Your quote and lender rules may differ. This is not a loan offer or tax advice.</p>
       </aside>
     </div>
   </main>
   <footer class="site-footer">
     <div class="container footer-layout">
-      <p class="footer-review" role="note"><time datetime="2026-06-01">Last reviewed: June 2026</time> · Reviewed by the <a href="/about">Income Clarity editorial team</a> · <a href="/editorial-policy">Editorial policy</a></p>
       <p class="footer-copy">© 2026 IncomeClarityLab</p>
     </div>
   </footer>
   <script src="/house-afford.js"></script>
+  <script src="/page-toc.js" defer></script>
   <script>
     HouseAfford.bindForm({ stateSlug: 'california', defaultRegion: 'california', runOnLoad: true });
   </script>

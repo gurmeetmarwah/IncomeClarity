@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How Much Rent Can I Afford in Miami, FL? (2026 Guide) | Income Clarity</title>
+  <meta name="description" content="How much rent can you afford in Miami? Median rent $2,300/mo, salary tiers, neighborhood comparison, budget breakdown, and free calculator.">
+  <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/how-much-rent-can-i-afford/florida/miami">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
+  <link rel="stylesheet" href="/styles-rent.css">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="apple-touch-icon" href="/images/logo.png">
+  <script type="application/json" id="ra-city-data">{"medianRent": 2300, "defaultIncome": 90000, "defaultDebt": 450, "defaultFamily": 1, "defaultSave": 12, "taxTakehome": 0.77, "transport": 340}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is $2,500 rent affordable on $90k in Miami?", "acceptedAnswer": {"@type": "Answer", "text": "Stretch level for many — total housing with utilities may exceed 35% of take-home."}}, {"@type": "Question", "name": "What salary for a 2-bedroom in Miami?", "acceptedAnswer": {"@type": "Answer", "text": "Median 2BR near $3,100 implies $124k gross at 30%."}}, {"@type": "Question", "name": "How much should I spend on rent in Miami?", "acceptedAnswer": {"@type": "Answer", "text": "Cap take-home at 30% including utilities and renters insurance."}}, {"@type": "Question", "name": "Is Miami rent higher than Dallas?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — median 1BR is roughly 40–50% higher."}}, {"@type": "Question", "name": "Is Miami more expensive than Tampa for rent?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — median 1BR in Miami often runs $500+ above Tampa. Wages do not always close that gap."}}, {"@type": "Question", "name": "What salary for $2,500 rent in Miami?", "acceptedAnswer": {"@type": "Answer", "text": "Roughly $100,000 gross at 30% — stretch if debt is high or savings goal is 15%+."}}]}</script>
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path.endsWith("/index.html")) cleanPath = path.slice(0, -10);
+      else if (path.endsWith(".html")) cleanPath = path.slice(0, -5);
+      if (cleanPath !== path) window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+    })();
+  </script>
+</head>
+<body class="ra-page ra-city-page living-tool-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/hourly-to-salary-after-tax">Income</a>
+        <a href="/debt">Debt</a>
+        <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="ra-hero ra-city-hero" id="ra-calculator">
+      <div class="container container--wide">
+        <nav class="take-home-return-nav" aria-label="Breadcrumb">
+          <ol class="take-home-return-breadcrumbs">
+            <li><a href="/living/housing/how-much-rent-can-i-afford">Rent affordability</a></li>
+            <li aria-current="page">Miami</li>
+          </ol>
+        </nav>
+        <span class="label">Miami · FL</span>
+        <h1>How Much Rent Can I Afford in Miami?</h1>
+        <p class="lead">Find the maximum monthly rent you can comfortably afford based on your income, debts, and Miami housing costs. Median rent is about <strong>$2,300/month</strong> — use the calculator for your personal comfortable, stretch, and verdict.</p>
+        <div class="ha-hero-grid ra-city-hero-grid">
+          <div class="ra-city-calc-col">
+            <div class="ra-calc-shell ra-city-calc-shell">
+              <form id="ra-city-form" class="ra-calc-form ra-city-form" aria-label="Miami rent affordability calculator">
+                <label class="ra-field"><span>Annual income ($)</span><input type="number" id="ra-city-income" min="20000" step="1000" value="90000" required></label>
+                <label class="ra-field"><span>Monthly debt payments ($)</span><input type="number" id="ra-city-debt" min="0" step="25" value="450"></label>
+                <label class="ra-field"><span>Household size</span><input type="number" id="ra-city-family" min="1" max="8" step="1" value="1"></label>
+                <label class="ra-field"><span>Savings goal (% of take-home)</span><input type="number" id="ra-city-save" min="0" max="40" step="1" value="12"></label>
+                <div class="ra-field ra-field--full">
+                  <button type="submit" class="ra-btn" id="ra-city-calc-btn">Calculate Rent Affordability</button>
+                </div>
+              </form>
+            </div>
+            <div class="ra-city-instant" id="ra-city-instant" aria-live="polite">
+              <h2 class="ra-city-instant__title">Your Miami rent estimate</h2>
+              <dl class="ra-city-instant__grid">
+                <div><dt>Income</dt><dd id="ra-ci-income">$90,000</dd></div>
+                <div><dt>Recommended rent</dt><dd id="ra-ci-comfort">$1,980 – $2,318/month</dd></div>
+                <div><dt>Maximum stretch budget</dt><dd id="ra-ci-stretch">$2,588/month</dd></div>
+                <div><dt>Miami median rent</dt><dd id="ra-ci-median">$2,300/month</dd></div>
+                <div class="ra-city-instant__verdict"><dt>Verdict</dt><dd id="ra-ci-verdict" class="ra-verdict ra-verdict--good">Comfortable</dd></div>
+              </dl>
+              <p class="ra-city-instant__note" id="ra-ci-summary">Based on $90,000 gross and typical Miami take-home. Adjust debt and savings to see your range update instantly.</p>
+            </div>
+          </div>
+          <aside class="ha-city-toc ha-city-toc--hero" id="ra-toc">
+            <div class="ha-city-toc__card">
+              <button type="button" class="ha-city-toc__toggle" aria-expanded="true" aria-controls="ra-toc-panel">
+                <span class="ha-city-toc__toggle-text">
+                  <span class="ha-city-toc__title">On this page</span>
+                  <span class="ha-city-toc__kicker">Snapshot, neighborhoods, tiers &amp; more</span>
+                </span>
+                <svg class="ha-city-toc__toggle-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+              </button>
+              <nav class="ha-city-toc__panel" id="ra-toc-panel" aria-label="On this page">
+                <ul class="ha-city-toc__list">
+          <li><a href="#ra-calculator" class="ha-city-toc__link" data-ha-toc-link>Rent calculator</a></li>
+          <li><a href="#ra-rent-snapshot" class="ha-city-toc__link" data-ha-toc-link>Miami rent snapshot</a></li>
+          <li><a href="#ra-rent-rules" class="ha-city-toc__link" data-ha-toc-link>Gross vs net rent rules</a></li>
+          <li><a href="#ra-rent-by-income" class="ha-city-toc__link" data-ha-toc-link>Rent by income</a></li>
+          <li><a href="#ra-hidden-costs" class="ha-city-toc__link" data-ha-toc-link>Hidden rental costs</a></li>
+          <li><a href="#ra-neighborhoods" class="ha-city-toc__link" data-ha-toc-link>Neighborhood comparison</a></li>
+          <li><a href="#ra-budget-breakdown" class="ha-city-toc__link" data-ha-toc-link>Budget breakdown</a></li>
+          <li><a href="#ra-affordability-tiers" class="ha-city-toc__link" data-ha-toc-link>Affordability tiers</a></li>
+          <li><a href="#ra-lt-gross-net-miami" class="ha-city-toc__link" data-ha-toc-link>How Florida tax affects Miami rent budgets</a></li>
+          <li><a href="#ra-lt-2br-miami" class="ha-city-toc__link" data-ha-toc-link>2-bedroom rent in Miami</a></li>
+          <li><a href="#ra-lt-rent-buy-miami" class="ha-city-toc__link" data-ha-toc-link>Rent vs buy in Miami</a></li>
+          <li><a href="#ra-lt-tips-miami" class="ha-city-toc__link" data-ha-toc-link>Miami leasing tips</a></li>
+          <li><a href="#ra-related-income" class="ha-city-toc__link" data-ha-toc-link>Related income pages</a></li>
+          <li><a href="#ra-faq" class="ha-city-toc__link" data-ha-toc-link>FAQ</a></li>
+                </ul>
+              </nav>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt" id="ra-rent-snapshot">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Miami rent snapshot</h2>
+          <p class="ra-section-head__intro">Local benchmarks for Miami. Compare your calculator result to these medians before you tour apartments.</p>
+        </header>
+        <div class="ra-glance-row" aria-label="Miami rent at a glance">
+          <div class="ra-glance-pill"><span class="ra-glance-pill__n">$2,300</span><span class="ra-glance-pill__l">Median rent</span></div>
+          <div class="ra-glance-pill"><span class="ra-glance-pill__n">118</span><span class="ra-glance-pill__l">Cost of living index</span></div>
+          <div class="ra-glance-pill"><span class="ra-glance-pill__n">61/100</span><span class="ra-glance-pill__l">Affordability score</span></div>
+          <div class="ra-glance-pill"><span class="ra-glance-pill__n">30%</span><span class="ra-glance-pill__l">Rent-to-income rule</span></div>
+        </div>
+        <div class="ra-table-card">
+          <div class="ra-snapshot-table-wrap">
+            <table class="debt-data-table ra-city-table ra-snapshot-table">
+              <caption>Miami rent and cost benchmarks</caption>
+              <tbody>
+                <tr><th scope="row">Median rent</th><td>$2,300</td></tr>
+                <tr><th scope="row">Studio</th><td>$1,950</td></tr>
+                <tr><th scope="row">1 bedroom</th><td>$2,300</td></tr>
+                <tr><th scope="row">2 bedroom</th><td>$3,100</td></tr>
+                <tr><th scope="row">Rent-to-income benchmark</th><td>30%</td></tr>
+                <tr><th scope="row">Cost of living index</th><td>118 <span class="ra-table-muted">(US avg = 100)</span></td></tr>
+                <tr><th scope="row">Affordability score</th><td>61/100</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="ra-reading-block">
+          <p>Miami rent runs well above Tampa and Orlando. Hurricane insurance and flood zones affect total housing cost even for renters via building fees.</p>
+          <p>No state income tax helps take-home, but car insurance and parking in Brickell add up fast.</p>
+          <p>Seasonal rent swings matter — winter quotes can exceed summer listings in some buildings.</p>
+          <p>COL index 118 reflects tourism-driven prices. Median 1BR near $2,300 beats Tampa and Orlando by a wide margin.</p>
+          <p>Affordability score 61/100 — wages in hospitality and services lag rent growth in Brickell and Wynwood.</p>
+          <p>2BR median near $3,100 pushes families toward $100k+ gross unless they commute from Hialeah or Kendall.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ra-band" id="ra-rent-rules">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Gross vs net: how rent rules work in Miami</h2>
+          <p class="ra-section-head__intro">Landlords screen on gross income. Your budget runs on take-home pay. Both numbers matter — here is how to use them.</p>
+        </header>
+        <ul class="ra-insight-list">
+          <li class="ra-insight-item"><p>Miami landlords use standard 3× gross income screens. No Florida state income tax helps take-home, but insurance and parking costs are higher than inland cities.</p></li>
+          <li class="ra-insight-item"><p>Flood-zone buildings may pass insurance costs to tenants through fees — ask the leasing office what changed after recent storm seasons.</p></li>
+          <li class="ra-insight-item"><p>Seasonal demand spikes in winter — quotes in January can beat summer listings in some buildings.</p></li>
+          <li class="ra-insight-item"><p>If you earn commission or tips, bring two years of tax returns — Miami landlords see variable income often.</p></li>
+        </ul>
+        <p class="ra-cta-line">Run your exact take-home in our <a class="ra-text-link" href="/hourly-to-salary-after-tax/state/florida/">Florida paycheck calculator</a>, then compare the result to the comfortable band from the calculator above.</p>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt" id="ra-rent-by-income">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>How much rent can you afford in Miami?</h2>
+          <p class="ra-section-head__intro">Affordable monthly rent at the classic 30% of gross income rule. Your real ceiling may be lower once debt, savings, and utilities are in the picture.</p>
+        </header>
+        <div class="ra-table-card">
+          <div class="ra-snapshot-table-wrap">
+            <table class="debt-data-table ra-city-table ra-income-table">
+              <caption>Affordable rent by salary in Miami</caption>
+              <thead><tr><th scope="col">Salary</th><th scope="col">Affordable rent (30% gross)</th></tr></thead>
+              <tbody>
+              <tr><td>$50,000</td><td>$1,250</td></tr>
+              <tr><td>$75,000</td><td>$1,875</td></tr>
+              <tr><td>$100,000</td><td>$2,500</td></tr>
+              <tr><td>$150,000</td><td>$3,750</td></tr>
+              <tr><td>$200,000</td><td>$5,000</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <h3 class="ra-subhead">Common salary scenarios</h3>
+        <div class="ra-expand-stack">
+          <details class="ra-expand">
+            <summary class="ra-expand__summary">Can you afford $2,250 rent on $90k in Miami?</summary>
+            <div class="ra-expand__body">
+              <p>Near comfortable for many renters without heavy debt. Insurance and parking can push total housing higher.</p>
+            </div>
+          </details>
+          <details class="ra-expand">
+            <summary class="ra-expand__summary">Is $1,900 rent affordable on $75k?</summary>
+            <div class="ra-expand__body">
+              <p>Stretch in central zip codes; workable in Hialeah or with a roommate.</p>
+            </div>
+          </details>
+          <details class="ra-expand">
+            <summary class="ra-expand__summary">How much rent on $120k in Miami?</summary>
+            <div class="ra-expand__body">
+              <p>Gross cap near $3,000 — Brickell 1BR territory with tight savings if debt is high.</p>
+            </div>
+          </details>
+          <details class="ra-expand">
+            <summary class="ra-expand__summary">Can you rent in Miami on $65k?</summary>
+            <div class="ra-expand__body">
+              <p>Possible in Hialeah or with roommates — not Brickell solo at market rent.</p>
+              <p>Transport and insurance costs hit harder on lower incomes — budget all-in housing below $1,400 if net is near $4,200.</p>
+            </div>
+          </details>
+        </div>
+        <aside class="ra-callout" role="note">
+          <p class="ra-callout__title">How to use this table</p>
+          <p>These figures use the 30% gross rule. Debt, savings, and utilities can lower your real ceiling — that is why we show comfortable and stretch bands in the hero calculator, not just one max.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ra-band" id="ra-hidden-costs">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Hidden costs of renting in Miami</h2>
+          <p class="ra-section-head__intro">The listing price is not your total housing bill. Budget these lines before you compare apartments.</p>
+        </header>
+        <ul class="ra-insight-list">
+          <li class="ra-insight-item"><p>Hurricane-ready buildings charge amenity and reserve fees. Read the monthly fee sheet, not just base rent.</p></li>
+          <li class="ra-insight-item"><p>Car insurance in Miami-Dade is among the highest in the US — transport cost is not just gas and parking.</p></li>
+          <li class="ra-insight-item"><p>Condo association rules may restrict short-term guests — irrelevant to rent amount but matters for lifestyle.</p></li>
+          <li class="ra-insight-item"><p>Pest control and trash valet fees appear on many newer leases — $30 to $80 monthly combined is common.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt" id="ra-neighborhoods">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Miami neighborhood comparison</h2>
+          <p class="ra-section-head__intro">Typical asking rent and rough income needed for a comfortable 30% gross cap. Your block may differ — use these to narrow your search.</p>
+        </header>
+        <div class="ra-table-card">
+          <div class="ra-snapshot-table-wrap">
+            <table class="debt-data-table ra-city-table ra-nh-table">
+              <caption>Miami neighborhoods — rent and income benchmarks</caption>
+              <thead><tr><th scope="col">Neighborhood</th><th scope="col">Typical rent</th><th scope="col">Comfortable on</th></tr></thead>
+              <tbody>
+              <tr>
+                <th scope="row">Brickell</th>
+                <td>$3,200</td>
+                <td>$110,000+</td>
+              </tr>
+              <tr>
+                <th scope="row">Wynwood</th>
+                <td>$2,600</td>
+                <td>$90,000+</td>
+              </tr>
+              <tr>
+                <th scope="row">Coral Gables</th>
+                <td>$2,400</td>
+                <td>$85,000+</td>
+              </tr>
+              <tr>
+                <th scope="row">Hialeah</th>
+                <td>$1,900</td>
+                <td>$68,000+</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <aside class="ra-callout" role="note">
+          <p class="ra-callout__title">Neighborhood notes</p>
+          <p>Brickell and Wynwood target young professionals with high-rise amenities. Coral Gables trades leafy streets for moderate premiums. Hialeah and west-Dade offer lower bases with car commutes on 836 or 826.</p>
+        </aside>
+        <p class="ra-cta-line">Compare with <a class="ra-text-link" href="/living/housing/cost-of-living-by-city/florida/tampa">Tampa</a> or open our <a class="ra-text-link" href="/living/housing/cost-of-living-by-city/florida/miami">Miami cost of living guide</a> for groceries, transit, and tax context.</p>
+      </div>
+    </section>
+
+    <section class="ra-band" id="ra-budget-breakdown">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Monthly budget breakdown example ($90,000 income)</h2>
+          <p class="ra-section-head__intro">Illustrative split using Miami defaults — not your exact paycheck. Swap in your take-home from our after-tax calculator.</p>
+        </header>
+        <div class="ra-budget-visual">
+          <p class="ra-budget-visual__net">Monthly take-home pay: <strong>$5,775</strong></p>
+          <ul class="ra-budget-list">
+            <li class="ra-budget-row ra-budget-row--rent" style="--pct:37%">
+              <div class="ra-budget-row__meta"><span>Rent</span><strong>$2,160</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--util" style="--pct:4%">
+              <div class="ra-budget-row__meta"><span>Utilities</span><strong>$225</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--trans" style="--pct:6%">
+              <div class="ra-budget-row__meta"><span>Transportation</span><strong>$340</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--food" style="--pct:11%">
+              <div class="ra-budget-row__meta"><span>Food</span><strong>$635</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--save" style="--pct:12%">
+              <div class="ra-budget-row__meta"><span>Savings</span><strong>$693</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--other" style="--pct:30%">
+              <div class="ra-budget-row__meta"><span>Other</span><strong>$1,722</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="ra-reading-block">
+          <p>If rent plus utilities push past one-third of take-home, the other lines get squeezed fast — especially when debt payments are not shown in this simplified example.</p>
+          <p>If you need flood insurance as a renter through contents coverage, add it to renters insurance discussion — not in our base table.</p>
+          <p>Beach-adjacent units may include wind insurance surcharges in building fees even when you do not own the unit.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt" id="ra-affordability-tiers">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Affordability tiers in Miami</h2>
+          <p class="ra-section-head__intro">Planning bands tied to gross income — pair with our <a class="ra-text-link" href="/living/lifestyle/comfortable-salary/florida/miami">comfortable salary guide</a> for household-specific targets.</p>
+        </header>
+        <div class="ra-tier-grid">
+          <article class="ra-tier-card">
+            <h3>Survival budget</h3>
+            <p class="ra-tier-card__income">$60,000+</p>
+            <p>Roommate; far west or north.</p>
+          </article>
+          <article class="ra-tier-card">
+            <h3>Comfortable budget</h3>
+            <p class="ra-tier-card__income">$90,000+</p>
+            <p>1BR in many neighborhoods.</p>
+          </article>
+          <article class="ra-tier-card">
+            <h3>Very comfortable</h3>
+            <p class="ra-tier-card__income">$120,000+</p>
+            <p>Brickell or 2BR in suburbs.</p>
+          </article>
+          <article class="ra-tier-card">
+            <h3>Premium lifestyle</h3>
+            <p class="ra-tier-card__income">$160,000+</p>
+            <p>Waterfront or large 2BR with savings.</p>
+          </article>
+        </div>
+        <aside class="ra-callout" role="note">
+          <p class="ra-callout__title">How to read these tiers</p>
+          <p>Survival tier: roommates in west Miami-Dade. Comfortable: $90k household on $2,000 to $2,400 rent. Premium: Brickell waterfront or large 2BR on $140k+.</p>
+        </aside>
+      </div>
+    </section>
+    <section class="ra-band ra-article-band" id="ra-lt-gross-net-miami">
+      <div class="container container--wide">
+        <article class="ra-article-card">
+          <h2 class="ra-article-card__title">How Florida tax affects Miami rent budgets</h2>
+        <div class="ra-prose">
+          <p>No state wage tax means take-home is higher than NYC at the same gross — but rent and insurance eat the advantage.</p>
+          <p>A $90,000 salary might net near $5,800 a month. Comfortable rent near $2,250 leaves room if debt stays under $400.</p>
+          <p>Self-employed earners pay differently — use the 1099 vs W2 tool if you invoice clients from Miami Beach.</p>
+        </div>
+        </article>
+      </div>
+    </section>
+    <section class="ra-band ra-article-band ra-band--alt" id="ra-lt-2br-miami">
+      <div class="container container--wide">
+        <article class="ra-article-card">
+          <h2 class="ra-article-card__title">2-bedroom rent in Miami</h2>
+        <div class="ra-prose">
+          <p>Families targeting $3,100 median 2BR need roughly $124,000 gross at 30% — or a longer commute from lower-rent zip codes.</p>
+          <p>School choice drives Kendall and Coral Gables demand. Compare total cost to Tampa if remote work allows.</p>
+          <p>Run our Miami house affordability page if you are weighing rent against buying in a condo tower.</p>
+        </div>
+        </article>
+      </div>
+    </section>
+    <section class="ra-band ra-article-band" id="ra-lt-rent-buy-miami">
+      <div class="container container--wide">
+        <article class="ra-article-card">
+          <h2 class="ra-article-card__title">Rent vs buy in Miami</h2>
+        <div class="ra-prose">
+          <p>Condos carry HOA and insurance shocks — renters avoid down payment but miss appreciation in hot years.</p>
+          <p>If you might relocate seasonally, rent. If you will stay seven plus years, buying can pull ahead — run the calculator.</p>
+          <p>Storm risk makes insurance a bigger swing factor for owners than renters — still ask about building reserves.</p>
+        </div>
+        </article>
+      </div>
+    </section>
+    <section class="ra-band ra-article-band ra-band--alt" id="ra-lt-tips-miami">
+      <div class="container container--wide">
+        <article class="ra-article-card">
+          <h2 class="ra-article-card__title">Miami leasing tips</h2>
+        <div class="ra-prose">
+          <p>Tour at different times — parking and traffic near Brickell change rush hour comfort.</p>
+          <p>Ask about hurricane prep: generators, shutter storage, garage flood history.</p>
+          <p>Get wind coverage quote for your car if you park outside — it affects true transport cost.</p>
+        </div>
+        </article>
+      </div>
+    </section>
+    <section class="ra-band" id="ra-related-income">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Related income &amp; housing pages</h2>
+          <p class="ra-section-head__intro">Connect your rent cap to salary scenarios, cost of living, and buy-vs-rent decisions in Miami.</p>
+        </header>
+        <div class="ra-related-grid">
+          <a class="ra-related-card" href="/living/lifestyle/comfortable-salary/florida/miami/is-100k-enough-to-live-in-miami"><span>Is $100k enough to live in Miami?</span><strong>Open guide →</strong></a>
+          <a class="ra-related-card" href="/living/lifestyle/comfortable-salary/florida/miami"><span>Comfortable salary in Miami</span><strong>Open guide →</strong></a>
+          <a class="ra-related-card" href="/living/housing/cost-of-living-by-city/florida/miami"><span>Cost of living in Miami</span><strong>Open guide →</strong></a>
+          <a class="ra-related-card" href="/living/housing/how-much-house-can-i-afford/florida/miami"><span>How much house can I afford in Miami?</span><strong>Open guide →</strong></a>
+          <a class="ra-related-card" href="/living/housing/moving-cost-calculator/florida/miami"><span>Moving cost calculator — Miami</span><strong>Open guide →</strong></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt living-faq-section ra-city-faq" id="ra-faq">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Miami rent affordability FAQ</h2>
+          <p class="ra-section-head__intro">Short answers to common search questions. Run the calculator above for numbers tied to your income and debt.</p>
+        </header>
+        <div class="faq-stack ra-faq-stack">
+          <article class="faq-item">
+            <h3>Is $2,500 rent affordable on $90k in Miami?</h3>
+            <p>Stretch level for many — total housing with utilities may exceed 35% of take-home.</p>
+          </article>
+          <article class="faq-item">
+            <h3>What salary for a 2-bedroom in Miami?</h3>
+            <p>Median 2BR near $3,100 implies $124k gross at 30%.</p>
+          </article>
+          <article class="faq-item">
+            <h3>How much should I spend on rent in Miami?</h3>
+            <p>Cap take-home at 30% including utilities and renters insurance.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Is Miami rent higher than Dallas?</h3>
+            <p>Yes — median 1BR is roughly 40–50% higher.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Is Miami more expensive than Tampa for rent?</h3>
+            <p>Yes — median 1BR in Miami often runs $500+ above Tampa. Wages do not always close that gap.</p>
+          </article>
+          <article class="faq-item">
+            <h3>What salary for $2,500 rent in Miami?</h3>
+            <p>Roughly $100,000 gross at 30% — stretch if debt is high or savings goal is 15%+.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-description">US-only tools to calculate your real income after tax, understand debt, and make smarter financial decisions.</p>
+      <div class="footer-grid" role="navigation" aria-label="Footer">
+        <section class="footer-column" aria-labelledby="footer-popular-calculators">
+          <h2 id="footer-popular-calculators">Popular Calculators</h2>
+          <a href="/hourly-to-salary-after-tax">Hourly to Salary After Tax</a>
+          <a href="/debt/credit-cards/credit-card-payoff-calculator">Credit Card Payoff Calculator</a>
+          <a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a>
+          <a href="/1099-vs-w2-calculator">1099 vs W2 Calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-tools-category">
+          <h2 id="footer-tools-category">Tools by Category</h2>
+          <a href="/hourly-to-salary-after-tax">Income</a>
+          <a href="/debt">Debt</a>
+          <a href="/rent-vs-buy-calculator">Living</a>
+          <a href="/1099-vs-w2-calculator">Freelance</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-explore-more">
+          <h2 id="footer-explore-more">Explore More</h2>
+          <a href="/living/housing/how-much-rent-can-i-afford">Rent affordability hub</a>
+          <a href="/living/housing/cost-of-living-by-city/florida/miami">Cost of living in Miami</a>
+          <a href="/rent-vs-buy-calculator">Rent vs buy calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-company">
+          <h2 id="footer-company">Company</h2>
+          <a href="/about">About</a>
+          <a href="/editorial-policy">Editorial policy</a>
+          <a href="/contact">Contact</a>
+        </section>
+      </div>
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
+  <script src="/rent-afford-city.js"></script>
+  <script src="/page-toc.js" defer></script>
+</body>
+</html>

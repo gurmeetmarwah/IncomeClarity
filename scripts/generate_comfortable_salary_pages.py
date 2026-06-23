@@ -37,6 +37,7 @@ from generate_col_by_city_pages import (  # noqa: E402
     core_monthly,
     prepare_city_metrics,
 )
+from site_scripts import PAGE_TOC_SCRIPT  # noqa: E402
 
 HUB_OUT = ROOT / "living" / "lifestyle" / "comfortable-salary-us"
 STATE_OUT = ROOT / "living" / "lifestyle" / "comfortable-salary"
@@ -557,7 +558,7 @@ def render_hub() -> str:
   </main>
 {FOOTER}
   <script src="/comfortable-salary.js"></script>
-</body>
+{PAGE_TOC_SCRIPT}</body>
 </html>"""
 
 
@@ -787,7 +788,7 @@ def render_state(state_slug: str) -> str:
   </main>
 {FOOTER}
   <script src="/comfortable-salary.js"></script>
-</body>
+{PAGE_TOC_SCRIPT}</body>
 </html>"""
 
 
@@ -943,7 +944,7 @@ def render_city(state_slug: str, city_slug: str) -> str:
   </main>
 {FOOTER}
   <script src="/comfortable-salary.js"></script>
-</body>
+{PAGE_TOC_SCRIPT}</body>
 </html>"""
 
 

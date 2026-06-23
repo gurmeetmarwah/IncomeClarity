@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Can You Afford a Home in San Francisco? What California Buyers Actually Need (2026) | Income Clarity</title>
-  <meta name="description" content="Median prices in San Francisco don't tell your story. Run your income through the 28% rule and see what monthly payment — and home price — you can actually carry.">
+  <title>How Much House Can You Afford in San Francisco? Income, Payment &amp; Local Costs (2026) | Income Clarity</title>
+  <meta name="description" content="How much house can you afford in San Francisco, California? Median price $1,250,000, salary tiers, property tax, insurance, HOA, and a free PITI calculator.">
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/how-much-house-can-i-afford/california/san-francisco">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="icon" type="image/png" href="/images/logo.png">
   <link rel="apple-touch-icon" href="/images/logo.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I afford a home in San Francisco on $200k?", "acceptedAnswer": {"@type": "Answer", "text": "You may qualify for a smaller condo, not a median $1.25M listing. Run the calculator with your real debts."}}, {"@type": "Question", "name": "Why is SF so expensive?", "acceptedAnswer": {"@type": "Answer", "text": "Land is scarce, wages are high, and supply is tight. The payment stack still uses the same 28% rule."}}, {"@type": "Question", "name": "Can you buy in SF on $150k salary?", "acceptedAnswer": {"@type": "Answer", "text": "You may qualify for a small condo in outer neighborhoods — not a median $1.25M unit. Run the calculator with your real debts."}}, {"@type": "Question", "name": "Why is San Francisco HOA so high?", "acceptedAnswer": {"@type": "Answer", "text": "Labor, reserves, and insurance in dense buildings push fees up. Low HOA can signal deferred maintenance."}}, {"@type": "Question", "name": "Is SF property tax lower than LA?", "acceptedAnswer": {"@type": "Answer", "text": "Rates look lower on paper but assessed values are high. Maintenance fees are often the bigger swing factor."}}, {"@type": "Question", "name": "Should I buy in SF or rent?", "acceptedAnswer": {"@type": "Answer", "text": "If you might leave in three years, renting is often cheaper after closing costs and HOA. Use our rent vs buy tool with your timeline."}}]}</script>
   <script>
     (function () {
       const path = window.location.pathname;
@@ -19,7 +21,7 @@
     })();
   </script>
 </head>
-<body class="ha-page">
+<body class="ha-page living-tool-page ha-city-page">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
@@ -27,11 +29,12 @@
         <a href="/hourly-to-salary-after-tax">Income</a>
         <a href="/debt">Debt</a>
         <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
       </nav>
     </div>
   </header>
   <main>
-    <section class="ha-hero">
+    <section class="ha-hero" id="ha-calculator">
       <div class="container">
         <nav class="take-home-return-nav" aria-label="Breadcrumb">
           <ol class="take-home-return-breadcrumbs">
@@ -42,64 +45,294 @@
         </nav>
         <span class="label">San Francisco · California</span>
         <h1>How Much House Can You Afford in San Francisco?</h1>
-        <p class="lead">Median home near <strong>$1,250,000</strong>. Typical household income near <strong>$140,000</strong>. Extreme — even strong earners often rent or buy with a large down payment. Calculator below uses San Francisco tax and insurance defaults.</p>
+        <p class="lead">Median home near <strong>$1,250,000</strong>. Typical income near <strong>$140,000</strong>. Extreme — even strong earners often rent or buy with a large down payment. Run the calculator — this page also has salary tiers, neighborhood prices, and local buyer guides.</p>
+        <div class="ha-hero-grid">
         <div class="ha-calc-shell">
-          <form id="ha-calc-form" class="ha-calc-form">
-            <label class="ha-calc__field"><span>Annual income</span><input type="number" id="ha-income" value="140000" required></label>
-            <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" value="300" required></label>
-            <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" value="250000" required></label>
-            <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" value="6.5" step="0.05" required></label>
+          <form id="ha-calc-form" class="ha-calc-form" aria-label="San Francisco house affordability calculator">
+            <label class="ha-calc__field"><span>Annual income ($)</span><input type="number" id="ha-income" min="20000" step="1000" value="140000" required></label>
+            <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" min="0" step="25" value="300" required></label>
+            <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" min="0" step="5000" value="250000" required></label>
+            <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" min="2" max="15" step="0.05" value="6.5" required></label>
             <input type="hidden" id="ha-location" value="california">
-            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate</button></div>
+            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate max home price</button></div>
           </form>
           <div id="ha-calc-results" class="ha-results" hidden aria-live="polite"></div>
         </div>
+      <aside class="ha-city-toc ha-city-toc--hero" id="ha-toc">
+        <div class="ha-city-toc__card">
+          <button type="button" class="ha-city-toc__toggle" aria-expanded="true" aria-controls="ha-toc-panel">
+            <span class="ha-city-toc__toggle-text">
+              <span class="ha-city-toc__title">On this page</span>
+              <span class="ha-city-toc__kicker">Guides, salary tiers, neighborhoods &amp; more</span>
+            </span>
+            <svg class="ha-city-toc__toggle-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <nav class="ha-city-toc__panel" id="ha-toc-panel" aria-label="On this page">
+            <ul class="ha-city-toc__list">
+          <li><a href="#ha-calculator" class="ha-city-toc__link" data-ha-toc-link>Affordability calculator</a></li>
+          <li><a href="#ha-local-stats" class="ha-city-toc__link" data-ha-toc-link>At a glance</a></li>
+          <li><a href="#ha-piti-breakdown" class="ha-city-toc__link" data-ha-toc-link>Payment breakdown</a></li>
+          <li><a href="#ha-income-tiers" class="ha-city-toc__link" data-ha-toc-link>Salary tiers</a></li>
+          <li><a href="#ha-neighborhoods" class="ha-city-toc__link" data-ha-toc-link>Neighborhoods</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">Local guides</li>
+          <li><a href="#ha-rules" class="ha-city-toc__link" data-ha-toc-link>28/36 rule</a></li>
+          <li><a href="#ha-narrative-san-francisco" class="ha-city-toc__link" data-ha-toc-link>Local context</a></li>
+          <li><a href="#ha-lt-san-francisco-0" class="ha-city-toc__link" data-ha-toc-link>How much house can I afford in San Francisco on $20…</a></li>
+          <li><a href="#ha-lt-san-francisco-1" class="ha-city-toc__link" data-ha-toc-link>San Francisco co-op vs condo: what changes your pay…</a></li>
+          <li><a href="#ha-lt-san-francisco-2" class="ha-city-toc__link" data-ha-toc-link>What income do you need to buy in San Francisco?</a></li>
+          <li><a href="#ha-rent-buy" class="ha-city-toc__link" data-ha-toc-link>Rent vs buy</a></li>
+          <li><a href="#ha-tips" class="ha-city-toc__link" data-ha-toc-link>First-time buyer tips</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">More</li>
+          <li><a href="#ha-related" class="ha-city-toc__link" data-ha-toc-link>Related tools</a></li>
+          <li><a href="#ha-faq" class="ha-city-toc__link" data-ha-toc-link>FAQ</a></li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+        </div>
       </div>
     </section>
-    <section class="ha-section">
+
+    <section class="ha-section" id="ha-local-stats" aria-labelledby="ha-glance-title">
       <div class="container content-page">
-        <h2>Local numbers for San Francisco</h2>
-        <div class="debt-stats-grid">
-          <div class="debt-stat-block"><span class="debt-stat-value">$1,250,000</span><span class="debt-stat-label">Median home price</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">$390,625+</span><span class="debt-stat-label">Rough gross income for median home (3× rule)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">0.7%</span><span class="debt-stat-label">Property tax (effective)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">0.42%</span><span class="debt-stat-label">Insurance (of home value / yr)</span></div>
+        <h2 id="ha-glance-title">San Francisco home affordability at a glance</h2>
+        <p class="ha-section__lead">Planning figures for San Francisco, California. Your lender quote and tax bill may differ — use these as a starting point.</p>
+        <div class="ha-glance-grid">
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$1,250,000</span><span class="ha-glance-card__l">Median home price</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$140,000</span><span class="ha-glance-card__l">Median household income</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$390,625+</span><span class="ha-glance-card__l">Rough gross for median (3× rule)</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$7,937/mo</span><span class="ha-glance-card__l">Est. PITI on median (20% down)</span></div>
         </div>
-        <p>On a median $1,250,000 home, tax near 0.7% is about <strong>$729/month</strong>. Insurance near 0.42% is about <strong>$437/month</strong>. HOA near <strong>$450/month</strong> where it applies.</p>
+        <p>On a median $1,250,000 home, property tax near 0.7% is about <strong>$729/month</strong>. Insurance near 0.42% of value is about <strong>$437/month</strong>. HOA is about <strong>$450/month</strong> where it applies.</p>
         <p>Condos and co-ops add HOA and reserve fees. Many buyers need dual incomes well above $200k for a median unit.</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Change income, debt, and down payment in the calculator. Compare with <a href="/living/housing/how-much-house-can-i-afford/california/los-angeles">Los Angeles</a> · <a href="/living/housing/how-much-house-can-i-afford/california/san-diego">San Diego</a>.</p>
+          <p>Change income, debt, and down payment in the calculator above. Compare with <a href="/living/housing/how-much-house-can-i-afford/california/los-angeles">Los Angeles</a> · <a href="/living/housing/how-much-house-can-i-afford/california/san-diego">San Diego</a>.</p>
         </aside>
-        <p><a href="/living/housing/how-much-house-can-i-afford/california">All California cities</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
       </div>
     </section>
-    <section class="ha-section" aria-labelledby="ha-city-narrative-san-francisco">
+
+    <section class="ha-section ha-section--tone" id="ha-piti-breakdown" aria-labelledby="ha-piti-title">
       <div class="container content-page">
-        <h2 id="ha-city-narrative-san-francisco">Affordability in San Francisco: local context</h2>
+        <h2 id="ha-piti-title">Monthly payment breakdown on a median San Francisco home</h2>
+        <p class="ha-section__lead">Estimated PITI at $1,250,000 list, 20% down, 6.5% rate, and San Francisco tax and insurance defaults. Principal and interest are the largest line — but tax, insurance, and HOA still move the stress meter.</p>
+        <div class="ha-piti-visual">
+          <div class="ha-piti-visual__total">
+            <span class="ha-results__label">Estimated monthly PITI</span>
+            <p class="ha-results__price">$7,937<span>/mo</span></p>
+          </div>
+          <div class="ha-piti-bars">
+            <div class="ha-piti-bar-row"><span>Principal &amp; interest</span><div class="ha-piti-bar"><span style="width:80%"></span></div><span>$6,320</span></div>
+            <div class="ha-piti-bar-row"><span>Property tax</span><div class="ha-piti-bar"><span style="width:9%"></span></div><span>$729</span></div>
+            <div class="ha-piti-bar-row"><span>Insurance</span><div class="ha-piti-bar"><span style="width:6%"></span></div><span>$437</span></div>
+            <div class="ha-piti-bar-row"><span>HOA</span><div class="ha-piti-bar"><span style="width:6%"></span></div><span>$450</span></div>
+          </div>
+        </div>
+        <p>In San Francisco, buyers who only compare list price to income miss tax and insurance. Run the calculator with your real debts — the 36% back-end rule includes car loans and cards.</p>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-income-tiers" aria-labelledby="ha-tiers-title">
+      <div class="container content-page">
+        <h2 id="ha-tiers-title">How much house can you afford in San Francisco by salary?</h2>
+        <p class="ha-section__lead">Max home price at common gross salaries, 6.5% rate, $300/month other debt, and San Francisco tax and insurance. Stress label uses the 28% housing cap.</p>
+        <div class="ha-compare-table-wrap">
+          <table class="debt-data-table ha-tier-table">
+            <caption>Affordable home price by gross annual income in San Francisco</caption>
+            <thead><tr><th scope="col">Gross salary</th><th scope="col">Max home (est.)</th><th scope="col">Stress</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>$75,000</td>
+                <td>$179,211</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$100,000</td>
+                <td>$259,626</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$125,000</td>
+                <td>$340,041</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$150,000</td>
+                <td>$420,456</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$200,000</td>
+                <td>$581,287</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>These rows assume no down payment in the solver — your down payment raises what you can buy. Enter your real numbers in the calculator for a personal max.</p>
+        <p><a href="/hourly-to-salary-after-tax/state/california/">California take-home pay calculator</a> · <a href="/living/lifestyle/comfortable-salary/california/san-francisco">Comfortable salary in San Francisco</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-neighborhoods" aria-labelledby="ha-nh-title">
+      <div class="container content-page">
+        <h2 id="ha-nh-title">San Francisco home prices by area</h2>
+        <p class="ha-section__lead">The citywide median blends expensive and affordable pockets. Use these ranges as a map — not a guarantee for any one listing.</p>
+        <div class="ha-nh-grid">
+          <article class="ha-nh-card">
+            <h3>Mission / Bernal</h3>
+            <p class="ha-nh-card__range">$900k–$1.3M</p>
+            <p>Dense condo stock. HOA and reserves vary by building age.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>Sunset / Richmond</h3>
+            <p class="ha-nh-card__range">$1M–$1.4M</p>
+            <p>More single-family homes. Fog belt prices still top US norms.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>SoMa / South Beach</h3>
+            <p class="ha-nh-card__range">$1.1M–$1.8M</p>
+            <p>High-rise condos with HOA often above $500 a month.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>Oakland (nearby)</h3>
+            <p class="ha-nh-card__range">$650k–$950k</p>
+            <p>Not SF proper but common for buyers who work in the city.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-rules" aria-labelledby="ha-rules-title">
+      <div class="container content-page">
+        <h2 id="ha-rules-title">The 28/36 rule in San Francisco</h2>
+        <p class="ha-section__lead">Lenders often use two caps. Our calculator applies both so you see a realistic max — not just what a bank might pre-approve.</p>
+        <div class="ha-rules-grid">
+          <article class="ha-rules-card">
+            <h3>28% front-end</h3>
+            <p>Your full housing payment — mortgage, tax, insurance, and HOA — should stay near or below 28% of gross monthly income. In San Francisco, insurance and HOA often push buyers over this line before list price does.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>36% back-end</h3>
+            <p>All monthly debt plus housing should stay near or below 36% of gross income. A $400 car payment and $250 in student loans shrink your max home price even when income is strong.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>Stress meter</h3>
+            <p>We label results Comfortable, Moderate, Stretched, or Over limit. Shop below your max if you want room for repairs, childcare, or savings — especially in California where tax and insurance vary by block.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-narrative-san-francisco" aria-labelledby="ha-narrative-title-san-francisco">
+      <div class="container content-page">
+        <h2 id="ha-narrative-title-san-francisco">Buying a home in San Francisco: local context</h2>
         <p>San Francisco has the highest median price in this guide. A $1.25M median condo is not what most $140k earners buy without a large down payment or help from family.</p>
         <p>Co-ops and condos add HOA near $450 a month in our default. Maintenance and reserves can rise after an inspection. Cash buyers still compete in popular buildings.</p>
         <p>Tech wages pulled prices up for years. Remote work eased some blocks, but supply is still tight. Renting while saving a 20% down payment is a common path.</p>
         <p>If you earn $200k gross, run the calculator with your real car and student loans. You may afford a smaller unit — not the citywide median listing.</p>
+        <p>San Francisco prices reflect scarce land and high wages. The median is not what most $140k earners buy without help from savings, family, or a second income.</p>
+        <p>Remote work shifted some demand to suburbs. City condos still compete with cash buyers in popular buildings.</p>
+        <p>Parking, storage, and move-in fees can add $50k+ to your real cost. Ask the listing agent for one-time building charges.</p>
+        <p>Earthquake insurance is separate from fire and liability. Budget it if your lender or building requires it.</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Your max price drops when debt is high or insurance is above our default. Run the calculator twice — once at list price and once $50k below — to see the stress change.</p>
+          <p>Run the calculator twice — once at list price and once $50k below — to see how fast the stress label changes in San Francisco.</p>
         </aside>
       </div>
     </section>
-    <section class="ha-faq-section">
+
+      <section class="ha-section ha-section--alt" id="ha-lt-san-francisco-0" aria-labelledby="ha-lt-san-francisco-0-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-san-francisco-0-title">How much house can I afford in San Francisco on $200k?</h2>
+          <p>At $200,000 gross, the 28% cap is about $4,667 a month for housing. That can support a smaller condo near $900,000–$1,000,000 with 20% down — not the citywide median near $1.25M.</p>
+          <p>Co-op and condo fees eat cash flow. Our default HOA is $450 a month; luxury buildings run higher. Add that before you compare list price to income.</p>
+          <p>Tech stock and bonus income may not count fully in underwriting. Use base salary in the calculator, then see if RSU income changes your comfort level.</p>
+        </div>
+      </section>
+      <section class="ha-section ha-section--alt" id="ha-lt-san-francisco-1" aria-labelledby="ha-lt-san-francisco-1-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-san-francisco-1-title">San Francisco co-op vs condo: what changes your payment</h2>
+          <p>Co-ops may need 25–50% down and board approval. Monthly maintenance can include property tax and building debt — not just amenities.</p>
+          <p>Condos have clearer HOA lines but still carry reserve risk. Older buildings faced insurance and inspection scrutiny after statewide reforms.</p>
+          <p>Run two scenarios: one at list price and one $150k below. The stress label shifts fast when HOA is high.</p>
+        </div>
+      </section>
+      <section class="ha-section ha-section--alt" id="ha-lt-san-francisco-2" aria-labelledby="ha-lt-san-francisco-2-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-san-francisco-2-title">What income do you need to buy in San Francisco?</h2>
+          <p>For a median unit near $1.25M with 20% down, plan on $250,000+ gross to sit near the 28% line at 6.5%. Many buyers earn less and shop smaller units or outer neighborhoods.</p>
+          <p>Dual income above $200k each is common in tech-heavy buildings. Still model student loans and car payments — the 36% rule includes all debt.</p>
+          <p>Renting while saving a 20% down payment is a common path. Use rent vs buy with your real stay timeline before you rush an offer.</p>
+        </div>
+      </section>
+    <section class="ha-section" id="ha-rent-buy" aria-labelledby="ha-rent-buy-title">
       <div class="container content-page">
-        <h2>FAQ — San Francisco</h2>
+        <h2 id="ha-rent-buy-title">Rent vs buy in San Francisco</h2>
+        <p>SF rent is high but so is the entry price for ownership. Buying often pays off only if you stay seven to ten years and your building's finances stay stable. Run your break-even with real HOA and tax.</p>
+        <p><a href="/living/housing/rent-vs-buy-california.html">Rent vs buy calculator</a> · <a href="/living/housing/how-much-rent-can-i-afford">How much rent can I afford?</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-tips" aria-labelledby="ha-tips-title">
+      <div class="container content-page">
+        <h2 id="ha-tips-title">First-time buyer tips in San Francisco</h2>
+        <ul class="ha-tips-list">
+          <li>Read co-op financials and board minutes before you pay for an inspection.</li>
+          <li>Ask for the building's insurance quote history — some associations faced huge hikes.</li>
+          <li>Model a pay-cut scenario if you work in tech — do not max out on bonus income.</li>
+          <li>Compare Oakland and Peninsula listings if you need space under $1M.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-related" aria-labelledby="ha-related-title">
+      <div class="container content-page">
+        <h2 id="ha-related-title">Related tools for San Francisco</h2>
+        <div class="ha-related-grid">
+          <a class="ha-related-card" href="/living/housing/cost-of-living-by-city/california/san-francisco"><span>Cost of living</span><strong>San Francisco COL guide →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/california/san-francisco"><span>Comfortable salary</span><strong>San Francisco salary target →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford/california"><span>California overview</span><strong>All California cities →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford"><span>US calculator</span><strong>National affordability →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/california/san-francisco/is-150k-enough-to-live-in-san-francisco"><span>$150k in SF</span><strong>Salary scenario →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/california/san-francisco/is-200k-enough-to-live-in-san-francisco"><span>$200k in SF</span><strong>Salary scenario →</strong></a>
+        </div>
+        <p><a href="/living/housing/how-much-house-can-i-afford/california">All California cities</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
+      </div>
+    </section>
+
+    <section class="ha-faq-section" id="ha-faq">
+      <div class="container content-page">
+        <h2>FAQ — how much house can I afford in San Francisco?</h2>
         <div class="faq-stack">
           <article class="faq-item"><h3>Can I afford a home in San Francisco on $200k?</h3><p>You may qualify for a smaller condo, not a median $1.25M listing. Run the calculator with your real debts.</p></article>
           <article class="faq-item"><h3>Why is SF so expensive?</h3><p>Land is scarce, wages are high, and supply is tight. The payment stack still uses the same 28% rule.</p></article>
+          <article class="faq-item"><h3>Can you buy in SF on $150k salary?</h3><p>You may qualify for a small condo in outer neighborhoods — not a median $1.25M unit. Run the calculator with your real debts.</p></article>
+          <article class="faq-item"><h3>Why is San Francisco HOA so high?</h3><p>Labor, reserves, and insurance in dense buildings push fees up. Low HOA can signal deferred maintenance.</p></article>
+          <article class="faq-item"><h3>Is SF property tax lower than LA?</h3><p>Rates look lower on paper but assessed values are high. Maintenance fees are often the bigger swing factor.</p></article>
+          <article class="faq-item"><h3>Should I buy in SF or rent?</h3><p>If you might leave in three years, renting is often cheaper after closing costs and HOA. Use our rent vs buy tool with your timeline.</p></article>
         </div>
       </div>
     </section>
+
+    <div class="container content-page">
+      <aside class="eeat-trust" aria-labelledby="eeat-san-francisco-title">
+        <header class="eeat-trust__header">
+          <span class="eeat-trust__kicker">How we built this</span>
+          <h2 id="eeat-san-francisco-title" class="eeat-trust__title">San Francisco affordability data</h2>
+          <p class="eeat-trust__meta"><time datetime="2026-06-01">Last reviewed: June 1, 2026</time> · <a href="/methodology#affordability">Methodology</a></p>
+        </header>
+        <p>Median prices, tax, and insurance are rounded planning figures from public listing and census sources. Your quote and lender rules may differ. This is not a loan offer or tax advice.</p>
+      </aside>
+    </div>
   </main>
-  <footer class="site-footer"><div class="container"><p class="footer-review" role="note"><time datetime="2026-06-01">Last reviewed: June 2026</time> · Reviewed by the <a href="/about">Income Clarity editorial team</a> · <a href="/editorial-policy">Editorial policy</a></p>
-      <p class="footer-copy">© 2026 IncomeClarityLab</p></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
   <script src="/house-afford.js"></script>
+  <script src="/ha-city-toc.js"></script>
   <script>
     HouseAfford.bindForm({
       stateSlug: 'california',

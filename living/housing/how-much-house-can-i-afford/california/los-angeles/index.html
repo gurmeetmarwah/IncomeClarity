@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Can You Afford a Home in Los Angeles? What California Buyers Actually Need (2026) | Income Clarity</title>
-  <meta name="description" content="Median prices in Los Angeles don't tell your story. Run your income through the 28% rule and see what monthly payment — and home price — you can actually carry.">
+  <title>How Much House Can You Afford in Los Angeles? Income, Payment &amp; Local Costs (2026) | Income Clarity</title>
+  <meta name="description" content="How much house can you afford in Los Angeles, California? Median price $875,000, salary tiers, property tax, insurance, HOA, and a free PITI calculator.">
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/how-much-house-can-i-afford/california/los-angeles">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="icon" type="image/png" href="/images/logo.png">
   <link rel="apple-touch-icon" href="/images/logo.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What income do I need to buy in Los Angeles?", "acceptedAnswer": {"@type": "Answer", "text": "For a median home near $875k, plan on $200k+ gross with 20% down at today’s rates — or a smaller home in the Valley."}}, {"@type": "Question", "name": "Is LA cheaper than San Francisco?", "acceptedAnswer": {"@type": "Answer", "text": "List prices are lower than SF, but insurance and HOA can still push the full payment high."}}, {"@type": "Question", "name": "Can I afford a $700k house in Los Angeles?", "acceptedAnswer": {"@type": "Answer", "text": "On $150k–$175k gross with 20% down and modest debt, $700k is often in range. Above $200k list on one income usually needs a larger down payment or lower rate."}}, {"@type": "Question", "name": "Is it better to buy a condo or house in LA?", "acceptedAnswer": {"@type": "Answer", "text": "Condos can lower the list price but HOA and reserves matter. Houses offer space but insurance in fire zones can be steep."}}, {"@type": "Question", "name": "How much down payment do LA buyers use?", "acceptedAnswer": {"@type": "Answer", "text": "20% avoids PMI and strengthens offers. Many first-time buyers use 10% with PMI — the same income buys less house."}}, {"@type": "Question", "name": "Does LA have first-time buyer programs?", "acceptedAnswer": {"@type": "Answer", "text": "CalHFA and local programs exist. They may help with down payment — still run the full PITI through our calculator."}}]}</script>
   <script>
     (function () {
       const path = window.location.pathname;
@@ -19,7 +21,7 @@
     })();
   </script>
 </head>
-<body class="ha-page">
+<body class="ha-page living-tool-page ha-city-page">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
@@ -27,11 +29,12 @@
         <a href="/hourly-to-salary-after-tax">Income</a>
         <a href="/debt">Debt</a>
         <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
       </nav>
     </div>
   </header>
   <main>
-    <section class="ha-hero">
+    <section class="ha-hero" id="ha-calculator">
       <div class="container">
         <nav class="take-home-return-nav" aria-label="Breadcrumb">
           <ol class="take-home-return-breadcrumbs">
@@ -42,64 +45,294 @@
         </nav>
         <span class="label">Los Angeles · California</span>
         <h1>How Much House Can You Afford in Los Angeles?</h1>
-        <p class="lead">Median home near <strong>$875,000</strong>. Typical household income near <strong>$82,000</strong>. Very high — median list prices sit above the 28% line for typical salaries. Calculator below uses Los Angeles tax and insurance defaults.</p>
+        <p class="lead">Median home near <strong>$875,000</strong>. Typical income near <strong>$82,000</strong>. Very high — median list prices sit above the 28% line for typical salaries. Run the calculator — this page also has salary tiers, neighborhood prices, and local buyer guides.</p>
+        <div class="ha-hero-grid">
         <div class="ha-calc-shell">
-          <form id="ha-calc-form" class="ha-calc-form">
-            <label class="ha-calc__field"><span>Annual income</span><input type="number" id="ha-income" value="82000" required></label>
-            <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" value="300" required></label>
-            <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" value="175000" required></label>
-            <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" value="6.5" step="0.05" required></label>
+          <form id="ha-calc-form" class="ha-calc-form" aria-label="Los Angeles house affordability calculator">
+            <label class="ha-calc__field"><span>Annual income ($)</span><input type="number" id="ha-income" min="20000" step="1000" value="82000" required></label>
+            <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" min="0" step="25" value="300" required></label>
+            <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" min="0" step="5000" value="175000" required></label>
+            <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" min="2" max="15" step="0.05" value="6.5" required></label>
             <input type="hidden" id="ha-location" value="california">
-            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate</button></div>
+            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate max home price</button></div>
           </form>
           <div id="ha-calc-results" class="ha-results" hidden aria-live="polite"></div>
         </div>
+      <aside class="ha-city-toc ha-city-toc--hero" id="ha-toc">
+        <div class="ha-city-toc__card">
+          <button type="button" class="ha-city-toc__toggle" aria-expanded="true" aria-controls="ha-toc-panel">
+            <span class="ha-city-toc__toggle-text">
+              <span class="ha-city-toc__title">On this page</span>
+              <span class="ha-city-toc__kicker">Guides, salary tiers, neighborhoods &amp; more</span>
+            </span>
+            <svg class="ha-city-toc__toggle-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <nav class="ha-city-toc__panel" id="ha-toc-panel" aria-label="On this page">
+            <ul class="ha-city-toc__list">
+          <li><a href="#ha-calculator" class="ha-city-toc__link" data-ha-toc-link>Affordability calculator</a></li>
+          <li><a href="#ha-local-stats" class="ha-city-toc__link" data-ha-toc-link>At a glance</a></li>
+          <li><a href="#ha-piti-breakdown" class="ha-city-toc__link" data-ha-toc-link>Payment breakdown</a></li>
+          <li><a href="#ha-income-tiers" class="ha-city-toc__link" data-ha-toc-link>Salary tiers</a></li>
+          <li><a href="#ha-neighborhoods" class="ha-city-toc__link" data-ha-toc-link>Neighborhoods</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">Local guides</li>
+          <li><a href="#ha-rules" class="ha-city-toc__link" data-ha-toc-link>28/36 rule</a></li>
+          <li><a href="#ha-narrative-los-angeles" class="ha-city-toc__link" data-ha-toc-link>Local context</a></li>
+          <li><a href="#ha-lt-los-angeles-0" class="ha-city-toc__link" data-ha-toc-link>How much house can I afford in Los Angeles on $150k?</a></li>
+          <li><a href="#ha-lt-los-angeles-1" class="ha-city-toc__link" data-ha-toc-link>What salary do you need to buy a house in Los Angel…</a></li>
+          <li><a href="#ha-lt-los-angeles-2" class="ha-city-toc__link" data-ha-toc-link>LA property tax, insurance, and HOA on a typical ho…</a></li>
+          <li><a href="#ha-rent-buy" class="ha-city-toc__link" data-ha-toc-link>Rent vs buy</a></li>
+          <li><a href="#ha-tips" class="ha-city-toc__link" data-ha-toc-link>First-time buyer tips</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">More</li>
+          <li><a href="#ha-related" class="ha-city-toc__link" data-ha-toc-link>Related tools</a></li>
+          <li><a href="#ha-faq" class="ha-city-toc__link" data-ha-toc-link>FAQ</a></li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+        </div>
       </div>
     </section>
-    <section class="ha-section">
+
+    <section class="ha-section" id="ha-local-stats" aria-labelledby="ha-glance-title">
       <div class="container content-page">
-        <h2>Local numbers for Los Angeles</h2>
-        <div class="debt-stats-grid">
-          <div class="debt-stat-block"><span class="debt-stat-value">$875,000</span><span class="debt-stat-label">Median home price</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">$273,437+</span><span class="debt-stat-label">Rough gross income for median home (3× rule)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">0.72%</span><span class="debt-stat-label">Property tax (effective)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">0.5%</span><span class="debt-stat-label">Insurance (of home value / yr)</span></div>
+        <h2 id="ha-glance-title">Los Angeles home affordability at a glance</h2>
+        <p class="ha-section__lead">Planning figures for Los Angeles, California. Your lender quote and tax bill may differ — use these as a starting point.</p>
+        <div class="ha-glance-grid">
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$875,000</span><span class="ha-glance-card__l">Median home price</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$82,000</span><span class="ha-glance-card__l">Median household income</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$273,437+</span><span class="ha-glance-card__l">Rough gross for median (3× rule)</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$5,589/mo</span><span class="ha-glance-card__l">Est. PITI on median (20% down)</span></div>
         </div>
-        <p>On a median $875,000 home, tax near 0.72% is about <strong>$525/month</strong>. Insurance near 0.5% is about <strong>$364/month</strong>. HOA near <strong>$275/month</strong> where it applies.</p>
+        <p>On a median $875,000 home, property tax near 0.72% is about <strong>$525/month</strong>. Insurance near 0.5% of value is about <strong>$364/month</strong>. HOA is about <strong>$275/month</strong> where it applies.</p>
         <p>LA buyers often compete with all-cash offers. Insurance in fire zones can add $300+ a month on top of tax.</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Change income, debt, and down payment in the calculator. Compare with <a href="/living/housing/how-much-house-can-i-afford/california/san-francisco">San Francisco</a> · <a href="/living/housing/how-much-house-can-i-afford/california/san-diego">San Diego</a>.</p>
+          <p>Change income, debt, and down payment in the calculator above. Compare with <a href="/living/housing/how-much-house-can-i-afford/california/san-francisco">San Francisco</a> · <a href="/living/housing/how-much-house-can-i-afford/california/san-diego">San Diego</a>.</p>
         </aside>
-        <p><a href="/living/housing/how-much-house-can-i-afford/california">All California cities</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
       </div>
     </section>
-    <section class="ha-section" aria-labelledby="ha-city-narrative-los-angeles">
+
+    <section class="ha-section ha-section--tone" id="ha-piti-breakdown" aria-labelledby="ha-piti-title">
       <div class="container content-page">
-        <h2 id="ha-city-narrative-los-angeles">Affordability in Los Angeles: local context</h2>
+        <h2 id="ha-piti-title">Monthly payment breakdown on a median Los Angeles home</h2>
+        <p class="ha-section__lead">Estimated PITI at $875,000 list, 20% down, 6.5% rate, and Los Angeles tax and insurance defaults. Principal and interest are the largest line — but tax, insurance, and HOA still move the stress meter.</p>
+        <div class="ha-piti-visual">
+          <div class="ha-piti-visual__total">
+            <span class="ha-results__label">Estimated monthly PITI</span>
+            <p class="ha-results__price">$5,589<span>/mo</span></p>
+          </div>
+          <div class="ha-piti-bars">
+            <div class="ha-piti-bar-row"><span>Principal &amp; interest</span><div class="ha-piti-bar"><span style="width:79%"></span></div><span>$4,424</span></div>
+            <div class="ha-piti-bar-row"><span>Property tax</span><div class="ha-piti-bar"><span style="width:9%"></span></div><span>$525</span></div>
+            <div class="ha-piti-bar-row"><span>Insurance</span><div class="ha-piti-bar"><span style="width:7%"></span></div><span>$364</span></div>
+            <div class="ha-piti-bar-row"><span>HOA</span><div class="ha-piti-bar"><span style="width:5%"></span></div><span>$275</span></div>
+          </div>
+        </div>
+        <p>In Los Angeles, buyers who only compare list price to income miss tax and insurance. Run the calculator with your real debts — the 36% back-end rule includes car loans and cards.</p>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-income-tiers" aria-labelledby="ha-tiers-title">
+      <div class="container content-page">
+        <h2 id="ha-tiers-title">How much house can you afford in Los Angeles by salary?</h2>
+        <p class="ha-section__lead">Max home price at common gross salaries, 6.5% rate, $300/month other debt, and Los Angeles tax and insurance. Stress label uses the 28% housing cap.</p>
+        <div class="ha-compare-table-wrap">
+          <table class="debt-data-table ha-tier-table">
+            <caption>Affordable home price by gross annual income in Los Angeles</caption>
+            <thead><tr><th scope="col">Gross salary</th><th scope="col">Max home (est.)</th><th scope="col">Stress</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>$75,000</td>
+                <td>$201,026</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$100,000</td>
+                <td>$280,528</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$125,000</td>
+                <td>$360,030</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$150,000</td>
+                <td>$439,532</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$200,000</td>
+                <td>$598,536</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>These rows assume no down payment in the solver — your down payment raises what you can buy. Enter your real numbers in the calculator for a personal max.</p>
+        <p><a href="/hourly-to-salary-after-tax/state/california/">California take-home pay calculator</a> · <a href="/living/lifestyle/comfortable-salary/california/los-angeles">Comfortable salary in Los Angeles</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-neighborhoods" aria-labelledby="ha-nh-title">
+      <div class="container content-page">
+        <h2 id="ha-nh-title">Los Angeles home prices by area</h2>
+        <p class="ha-section__lead">The citywide median blends expensive and affordable pockets. Use these ranges as a map — not a guarantee for any one listing.</p>
+        <div class="ha-nh-grid">
+          <article class="ha-nh-card">
+            <h3>San Fernando Valley</h3>
+            <p class="ha-nh-card__range">$650k–$900k</p>
+            <p>More space and yards. Commute to the Westside can run 45–75 minutes at rush hour.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>South Bay</h3>
+            <p class="ha-nh-card__range">$750k–$1.1M</p>
+            <p>Beach-adjacent blocks cost more. Insurance quotes vary by wildfire zone.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>East LA / Boyle Heights</h3>
+            <p class="ha-nh-card__range">$550k–$750k</p>
+            <p>Lower list prices than the Westside. Still above many US metros.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>Downtown / Koreatown</h3>
+            <p class="ha-nh-card__range">$500k–$700k</p>
+            <p>Condos and older stock. Read HOA docs and parking rules before you offer.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-rules" aria-labelledby="ha-rules-title">
+      <div class="container content-page">
+        <h2 id="ha-rules-title">The 28/36 rule in Los Angeles</h2>
+        <p class="ha-section__lead">Lenders often use two caps. Our calculator applies both so you see a realistic max — not just what a bank might pre-approve.</p>
+        <div class="ha-rules-grid">
+          <article class="ha-rules-card">
+            <h3>28% front-end</h3>
+            <p>Your full housing payment — mortgage, tax, insurance, and HOA — should stay near or below 28% of gross monthly income. In Los Angeles, insurance and HOA often push buyers over this line before list price does.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>36% back-end</h3>
+            <p>All monthly debt plus housing should stay near or below 36% of gross income. A $400 car payment and $250 in student loans shrink your max home price even when income is strong.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>Stress meter</h3>
+            <p>We label results Comfortable, Moderate, Stretched, or Over limit. Shop below your max if you want room for repairs, childcare, or savings — especially in California where tax and insurance vary by block.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-narrative-los-angeles" aria-labelledby="ha-narrative-title-los-angeles">
+      <div class="container content-page">
+        <h2 id="ha-narrative-title-los-angeles">Buying a home in Los Angeles: local context</h2>
         <p>Los Angeles spans the Valley, the Westside, and South Bay. Median price near $875k is a blend — many areas sit higher. Do not assume the median fits your target zip.</p>
         <p>Dual income is common. Even then, list prices and HOA can push the stress meter to Stretched at the 28% cap. A smaller home or a longer commute often beats maxing the lender limit.</p>
         <p>Wildfire insurance changed the math. Ask for an insurance quote with the address, not a state average. Tax in LA County is near 0.72% of value on many homes.</p>
         <p>First-time buyers sometimes target condos with lower list prices. Read the HOA docs — special assessments can hit like a second mortgage.</p>
+        <p>Los Angeles is not one price map. The citywide median blends the Valley, South Bay, and Westside. Your target neighborhood may sit $200,000 above or below the number on this page.</p>
+        <p>Traffic shapes real affordability. A cheaper home with a 90-minute round trip adds gas, wear, and time cost. Some buyers pay more for housing to cut the commute.</p>
+        <p>Entertainment and gig income can vary month to month. Lenders use W-2 or two-year averages for self-employment. Plan your down payment on stable income, not your best quarter.</p>
+        <p>Many LA buyers use gift funds or co-buyers with family. If that applies to you, still run the stress meter on your own income in case the gift is one-time.</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Your max price drops when debt is high or insurance is above our default. Run the calculator twice — once at list price and once $50k below — to see the stress change.</p>
+          <p>Run the calculator twice — once at list price and once $50k below — to see how fast the stress label changes in Los Angeles.</p>
         </aside>
       </div>
     </section>
-    <section class="ha-faq-section">
+
+      <section class="ha-section ha-section--alt" id="ha-lt-los-angeles-0" aria-labelledby="ha-lt-los-angeles-0-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-los-angeles-0-title">How much house can I afford in Los Angeles on $150k?</h2>
+          <p>At $150,000 gross, the 28% rule caps your full housing payment near $3,500 a month. That often maps to a home near $550,000–$650,000 with 20% down at 6.5% — not the citywide median near $875,000.</p>
+          <p>State income tax lowers take-home pay. Run our California take-home tool first. Then enter your real car payment and student loans in the calculator. Other debt shrinks the 36% back-end cap.</p>
+          <p>If you earn $150k and want a Westside zip, plan a larger down payment or a condo below $600k. Many buyers pair two incomes and still shop under the median list price.</p>
+        </div>
+      </section>
+      <section class="ha-section ha-section--alt" id="ha-lt-los-angeles-1" aria-labelledby="ha-lt-los-angeles-1-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-los-angeles-1-title">What salary do you need to buy a house in Los Angeles?</h2>
+          <p>For a median home near $875,000 with 20% down, many lenders want gross pay near $200,000+ to stay inside the 28% line at today's rates. That is a planning figure — your quote and debts change the number.</p>
+          <p>Dual income is common. Two earners at $100k each do not always clear a $900k list price once tax, HOA, and insurance stack up. Use the stress label in the calculator, not the pre-approval letter alone.</p>
+          <p>First-time buyers often target $600k–$700k in the Valley or Eastside. That keeps the monthly payment in Moderate instead of Stretched on one or two middle incomes.</p>
+        </div>
+      </section>
+      <section class="ha-section ha-section--alt" id="ha-lt-los-angeles-2" aria-labelledby="ha-lt-los-angeles-2-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-los-angeles-2-title">LA property tax, insurance, and HOA on a typical home</h2>
+          <p>LA County property tax often runs near 0.72% of assessed value. On an $875,000 purchase, that is about $525 a month in year one. Prop 13 limits how fast tax can rise after you buy.</p>
+          <p>Wildfire insurance changed the math in many zip codes. A quote can add $200–$400 a month above a national average. Get a quote with the full address before you set your max price.</p>
+          <p>Condos and townhomes may add HOA near $275 a month or more. Special assessments can hit like a second mortgage. Read the HOA packet before you waive inspection.</p>
+        </div>
+      </section>
+    <section class="ha-section" id="ha-rent-buy" aria-labelledby="ha-rent-buy-title">
       <div class="container content-page">
-        <h2>FAQ — Los Angeles</h2>
+        <h2 id="ha-rent-buy-title">Rent vs buy in Los Angeles</h2>
+        <p>Median rent near $2,600 makes buying a long game in LA. If you stay five to seven years and your rate is fixed, equity can beat renting in stable zip codes. If you might move in two years, renting while you save a larger down payment is often smarter.</p>
+        <p><a href="/living/housing/rent-vs-buy-california.html">Rent vs buy calculator</a> · <a href="/living/housing/how-much-rent-can-i-afford">How much rent can I afford?</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-tips" aria-labelledby="ha-tips-title">
+      <div class="container content-page">
+        <h2 id="ha-tips-title">First-time buyer tips in Los Angeles</h2>
+        <ul class="ha-tips-list">
+          <li>Get an insurance quote with the listing address — not a state average.</li>
+          <li>Budget Mello-Roos and supplemental tax on newer tracts in the Valley.</li>
+          <li>Compare condo HOA and reserve funds; low HOA can mean a future special assessment.</li>
+          <li>Run the calculator at 10% down and 20% down to see PMI impact.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-related" aria-labelledby="ha-related-title">
+      <div class="container content-page">
+        <h2 id="ha-related-title">Related tools for Los Angeles</h2>
+        <div class="ha-related-grid">
+          <a class="ha-related-card" href="/living/housing/cost-of-living-by-city/california/los-angeles"><span>Cost of living</span><strong>Los Angeles COL guide →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/california/los-angeles"><span>Comfortable salary</span><strong>Los Angeles salary target →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford/california"><span>California overview</span><strong>All California cities →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford"><span>US calculator</span><strong>National affordability →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/california/los-angeles/is-100k-enough-to-live-in-los-angeles"><span>$100k in LA</span><strong>Salary scenario →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/california/los-angeles/is-150k-enough-to-live-in-los-angeles"><span>$150k in LA</span><strong>Salary scenario →</strong></a>
+        </div>
+        <p><a href="/living/housing/how-much-house-can-i-afford/california">All California cities</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
+      </div>
+    </section>
+
+    <section class="ha-faq-section" id="ha-faq">
+      <div class="container content-page">
+        <h2>FAQ — how much house can I afford in Los Angeles?</h2>
         <div class="faq-stack">
           <article class="faq-item"><h3>What income do I need to buy in Los Angeles?</h3><p>For a median home near $875k, plan on $200k+ gross with 20% down at today’s rates — or a smaller home in the Valley.</p></article>
           <article class="faq-item"><h3>Is LA cheaper than San Francisco?</h3><p>List prices are lower than SF, but insurance and HOA can still push the full payment high.</p></article>
+          <article class="faq-item"><h3>Can I afford a $700k house in Los Angeles?</h3><p>On $150k–$175k gross with 20% down and modest debt, $700k is often in range. Above $200k list on one income usually needs a larger down payment or lower rate.</p></article>
+          <article class="faq-item"><h3>Is it better to buy a condo or house in LA?</h3><p>Condos can lower the list price but HOA and reserves matter. Houses offer space but insurance in fire zones can be steep.</p></article>
+          <article class="faq-item"><h3>How much down payment do LA buyers use?</h3><p>20% avoids PMI and strengthens offers. Many first-time buyers use 10% with PMI — the same income buys less house.</p></article>
+          <article class="faq-item"><h3>Does LA have first-time buyer programs?</h3><p>CalHFA and local programs exist. They may help with down payment — still run the full PITI through our calculator.</p></article>
         </div>
       </div>
     </section>
+
+    <div class="container content-page">
+      <aside class="eeat-trust" aria-labelledby="eeat-los-angeles-title">
+        <header class="eeat-trust__header">
+          <span class="eeat-trust__kicker">How we built this</span>
+          <h2 id="eeat-los-angeles-title" class="eeat-trust__title">Los Angeles affordability data</h2>
+          <p class="eeat-trust__meta"><time datetime="2026-06-01">Last reviewed: June 1, 2026</time> · <a href="/methodology#affordability">Methodology</a></p>
+        </header>
+        <p>Median prices, tax, and insurance are rounded planning figures from public listing and census sources. Your quote and lender rules may differ. This is not a loan offer or tax advice.</p>
+      </aside>
+    </div>
   </main>
-  <footer class="site-footer"><div class="container"><p class="footer-review" role="note"><time datetime="2026-06-01">Last reviewed: June 2026</time> · Reviewed by the <a href="/about">Income Clarity editorial team</a> · <a href="/editorial-policy">Editorial policy</a></p>
-      <p class="footer-copy">© 2026 IncomeClarityLab</p></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
   <script src="/house-afford.js"></script>
+  <script src="/ha-city-toc.js"></script>
   <script>
     HouseAfford.bindForm({
       stateSlug: 'california',

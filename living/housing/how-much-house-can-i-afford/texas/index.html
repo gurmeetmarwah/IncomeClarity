@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Can You Afford a Home in Texas? Here's What Your Income Buys (2026) | Income Clarity</title>
-  <meta name="description" content="Before you tour listings in Texas, see what home price fits the 28% rule on your real income — with local tax, insurance, and city breakdowns.">
+  <title>How Much House Can You Afford in Texas? Income, Tax &amp; City Guide (2026) | Income Clarity</title>
+  <meta name="description" content="How much house can you afford in Texas? Median price $345,000, salary tiers, property tax, insurance, city breakdowns, and free PITI calculator.">
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/how-much-house-can-i-afford/texas">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="icon" type="image/png" href="/images/logo.png">
   <link rel="apple-touch-icon" href="/images/logo.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much house can I afford in Texas on $90k?", "acceptedAnswer": {"@type": "Answer", "text": "About $2,100 a month at 28% gross. That often supports a home near $280k–$320k with 20% down at 6.5% — more in cheaper metros."}}, {"@type": "Question", "name": "Why is Texas property tax so high?", "acceptedAnswer": {"@type": "Answer", "text": "Texas funds schools and local services largely through property tax instead of state income tax."}}, {"@type": "Question", "name": "Is buying better than renting in Texas?", "acceptedAnswer": {"@type": "Answer", "text": "Often after 5–7 years in stable markets. Run your stay and rate in the rent vs buy tool."}}, {"@type": "Question", "name": "Can I afford a $400k home in Texas on $100k?", "acceptedAnswer": {"@type": "Answer", "text": "Often yes with 20% down and low debt in Houston or DFW suburbs. Austin at $400k may feel Moderate to Stretched depending on HOA and tax district."}}, {"@type": "Question", "name": "Is Texas cheaper than California for buyers?", "acceptedAnswer": {"@type": "Answer", "text": "List prices are lower and there is no state income tax. Property tax and insurance still stack up — compare full PITI, not list price alone."}}, {"@type": "Question", "name": "How much down payment do Texas buyers use?", "acceptedAnswer": {"@type": "Answer", "text": "20% avoids PMI and strengthens offers. FHA and VA loans allow less — still run the full payment through our calculator."}}, {"@type": "Question", "name": "Which Texas city is most affordable?", "acceptedAnswer": {"@type": "Answer", "text": "Houston median is lowest among our featured cities. Austin is highest. Open each city page for local tax and insurance defaults."}}]}</script>
   <script>
     (function () {
       const path = window.location.pathname;
@@ -19,7 +21,7 @@
     })();
   </script>
 </head>
-<body class="ha-page">
+<body class="ha-page living-tool-page ha-city-page">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
@@ -32,7 +34,7 @@
     </div>
   </header>
   <main>
-    <section class="ha-hero" aria-labelledby="ha-title">
+    <section class="ha-hero" id="ha-calculator" aria-labelledby="ha-title">
       <div class="container">
         <nav class="take-home-return-nav" aria-label="Breadcrumb">
           <ol class="take-home-return-breadcrumbs">
@@ -42,17 +44,50 @@
         </nav>
         <span class="label">Living · Texas</span>
         <h1 id="ha-title">How Much House Can You Afford in Texas?</h1>
-        <p class="lead">Texas has no state income tax, which boosts take-home pay. Property tax is among the highest in the US, so the full PITI still matters. Use the calculator with Texas tax and insurance defaults. Then open a city page for local median prices.</p>
+        <p class="lead">Texas has no state income tax, which boosts take-home pay. Property tax is among the highest in the US, so the full PITI still matters. Run the calculator — this page also has salary tiers, city comparisons, and Texas buyer guides.</p>
+        <div class="ha-hero-grid">
         <div class="ha-calc-shell">
-          <form id="ha-calc-form" class="ha-calc-form" aria-label="Texas house affordability">
-            <label class="ha-calc__field"><span>Annual income</span><input type="number" id="ha-income" min="20000" step="1000" value="72000" required></label>
+          <form id="ha-calc-form" class="ha-calc-form" aria-label="Texas house affordability calculator">
+            <label class="ha-calc__field"><span>Annual income ($)</span><input type="number" id="ha-income" min="20000" step="1000" value="72000" required></label>
             <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" min="0" step="25" value="300" required></label>
             <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" min="0" step="5000" value="69000" required></label>
             <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" min="2" max="15" step="0.05" value="6.5" required></label>
             <input type="hidden" id="ha-location" value="texas">
-            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate</button></div>
+            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate max home price</button></div>
           </form>
           <div id="ha-calc-results" class="ha-results" hidden aria-live="polite"></div>
+        </div>
+      <aside class="ha-city-toc ha-city-toc--hero" id="ha-toc">
+        <div class="ha-city-toc__card">
+          <button type="button" class="ha-city-toc__toggle" aria-expanded="true" aria-controls="ha-toc-panel">
+            <span class="ha-city-toc__toggle-text">
+              <span class="ha-city-toc__title">On this page</span>
+              <span class="ha-city-toc__kicker">City guides, salary tiers, tax breakdown &amp; more</span>
+            </span>
+            <svg class="ha-city-toc__toggle-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <nav class="ha-city-toc__panel" id="ha-toc-panel" aria-label="On this page">
+            <ul class="ha-city-toc__list">
+          <li><a href="#ha-calculator" class="ha-city-toc__link" data-ha-toc-link>Affordability calculator</a></li>
+          <li><a href="#ha-local-stats" class="ha-city-toc__link" data-ha-toc-link>At a glance</a></li>
+          <li><a href="#ha-piti-breakdown" class="ha-city-toc__link" data-ha-toc-link>Payment breakdown</a></li>
+          <li><a href="#ha-income-tiers" class="ha-city-toc__link" data-ha-toc-link>Salary tiers</a></li>
+          <li><a href="#ha-cities" class="ha-city-toc__link" data-ha-toc-link>City comparison</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">State guides</li>
+          <li><a href="#ha-rules" class="ha-city-toc__link" data-ha-toc-link>28/36 rule</a></li>
+          <li><a href="#ha-narrative-texas" class="ha-city-toc__link" data-ha-toc-link>Buying context</a></li>
+          <li><a href="#ha-lt-texas-0" class="ha-city-toc__link" data-ha-toc-link>How much house can I afford in Texas on $90,000?</a></li>
+          <li><a href="#ha-lt-texas-1" class="ha-city-toc__link" data-ha-toc-link>Texas property tax and why it changes your max price</a></li>
+          <li><a href="#ha-lt-texas-2" class="ha-city-toc__link" data-ha-toc-link>What salary do you need to buy a house in Texas?</a></li>
+          <li><a href="#ha-rent-buy" class="ha-city-toc__link" data-ha-toc-link>Rent vs buy</a></li>
+          <li><a href="#ha-tips" class="ha-city-toc__link" data-ha-toc-link>First-time buyer tips</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">More</li>
+          <li><a href="#ha-related" class="ha-city-toc__link" data-ha-toc-link>Related tools</a></li>
+          <li><a href="#ha-faq" class="ha-city-toc__link" data-ha-toc-link>FAQ</a></li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
         </div>
         <div class="ha-city-chips" aria-label="Cities in Texas">
                     <a class="ha-city-chip" href="/living/housing/how-much-house-can-i-afford/texas/houston">Houston</a>
@@ -61,42 +96,116 @@
         </div>
       </div>
     </section>
-    <section class="ha-section">
+
+    <section class="ha-section" id="ha-local-stats" aria-labelledby="ha-glance-title">
       <div class="container content-page">
-        <h2>Texas at a glance</h2>
-        <div class="debt-stats-grid">
-          <div class="debt-stat-block"><span class="debt-stat-value">$345,000</span><span class="debt-stat-label">Median home price (approx.)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">$72,000</span><span class="debt-stat-label">Median household income</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">1.6%</span><span class="debt-stat-label">Typical property tax rate</span></div>
+        <h2 id="ha-glance-title">Texas home affordability at a glance</h2>
+        <p class="ha-section__lead">Planning figures for Texas. Your lender quote and tax bill may differ — use these as a starting point, then open a city page for local medians.</p>
+        <div class="ha-glance-grid">
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$345,000</span><span class="ha-glance-card__l">Median home price</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$72,000</span><span class="ha-glance-card__l">Median household income</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$107,812+</span><span class="ha-glance-card__l">Rough gross for median (3× rule)</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$2,394/mo</span><span class="ha-glance-card__l">Est. PITI on median (20% down)</span></div>
         </div>
-        <p>On a $345,000 home, tax near 1.6% is about <strong>$460/month</strong>. Insurance near 0.4% of value is about <strong>$115/month</strong>. HOA is about <strong>$75/month</strong> where it applies.</p>
+        <p>On a median $345,000 home, property tax near 1.6% is about <strong>$460/month</strong>. Insurance near 0.4% of value is about <strong>$115/month</strong>. HOA is about <strong>$75/month</strong> where it applies.</p>
         <p>Texas has no state income tax, so take-home pay helps. Property tax near 1.6% still pulls $400–$600 a month on a $350k home.</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Use the calculator with your real income and debts. If the stress label is <strong>Stretched</strong>, open a city page — inland or smaller metros may fit where the state median does not.</p>
+          <p>Use the calculator with your real income and debts. If the stress label is <strong>Stretched</strong>, open a city page — smaller metros may fit where the state median does not.</p>
         </aside>
         <p>Compare with <a href="/living/housing/how-much-house-can-i-afford/california">California</a>: Higher prices on the coast but income tax shrinks net pay.</p>
-        <p><a href="/hourly-to-salary-after-tax/state/texas/">Texas take-home pay</a> · <a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
       </div>
     </section>
-    <section class="ha-section" aria-labelledby="ha-col-links-texas">
+
+    <section class="ha-section ha-section--tone" id="ha-piti-breakdown" aria-labelledby="ha-piti-title">
       <div class="container content-page">
-        <h2 id="ha-col-links-texas">Living costs in Texas</h2>
-        <p class="ha-section__lead">Home price is one line. Rent, groceries, tax, and salary needs shape whether a payment feels comfortable.</p>
-        <ul class="col-related__list">
-          <li><a href="/living/housing/cost-of-living-by-city/texas">Cost of living in Texas</a></li>
-          <li><a href="/living/housing/how-much-rent-can-i-afford">Rent affordability in Texas</a></li>
-          <li><a href="/living/lifestyle-family/comfortable-salary-texas">Comfortable salary in Texas</a></li>
-        </ul>
+        <h2 id="ha-piti-title">Monthly payment breakdown on a median Texas home</h2>
+        <p class="ha-section__lead">Estimated PITI at $345,000 list, 20% down, 6.5% rate, and Texas tax and insurance defaults.</p>
+        <div class="ha-piti-visual">
+          <div class="ha-piti-visual__total">
+            <span class="ha-results__label">Estimated monthly PITI</span>
+            <p class="ha-results__price">$2,394<span>/mo</span></p>
+          </div>
+          <div class="ha-piti-bars">
+            <div class="ha-piti-bar-row"><span>Principal &amp; interest</span><div class="ha-piti-bar"><span style="width:73%"></span></div><span>$1,744</span></div>
+            <div class="ha-piti-bar-row"><span>Property tax</span><div class="ha-piti-bar"><span style="width:19%"></span></div><span>$460</span></div>
+            <div class="ha-piti-bar-row"><span>Insurance</span><div class="ha-piti-bar"><span style="width:5%"></span></div><span>$115</span></div>
+            <div class="ha-piti-bar-row"><span>HOA</span><div class="ha-piti-bar"><span style="width:4%"></span></div><span>$75</span></div>
+          </div>
+        </div>
+        <p>In Texas, buyers who only compare list price to income miss tax and insurance. Run the calculator with your real debts — the 36% back-end rule includes car loans and cards.</p>
       </div>
     </section>
-    <section class="ha-section">
+
+    <section class="ha-section" id="ha-income-tiers" aria-labelledby="ha-tiers-title">
       <div class="container content-page">
-        <h2>Top cities in Texas</h2>
+        <h2 id="ha-tiers-title">How much house can you afford in Texas by salary?</h2>
+        <p class="ha-section__lead">Max home price at common gross salaries, 6.5% rate, $300/month other debt, and Texas tax and insurance defaults.</p>
+        <div class="ha-compare-table-wrap">
+          <table class="debt-data-table ha-tier-table">
+            <caption>Affordable home price by gross annual income in Texas</caption>
+            <thead><tr><th scope="col">Gross salary</th><th scope="col">Max home (est.)</th><th scope="col">Stress</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>$75,000</td>
+                <td>$209,706</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$100,000</td>
+                <td>$282,738</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$125,000</td>
+                <td>$355,771</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$150,000</td>
+                <td>$428,803</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$200,000</td>
+                <td>$574,867</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>These rows assume no down payment in the solver — your down payment raises what you can buy. City medians vary — open Houston, Dallas, or your target city for local numbers.</p>
+        <p><a href="/hourly-to-salary-after-tax/state/texas/">Texas take-home pay calculator</a> · <a href="/living/lifestyle/comfortable-salary/texas">Comfortable salary in Texas</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-cities" aria-labelledby="ha-cities-title">
+      <div class="container content-page">
+        <h2 id="ha-cities-title">Top cities in Texas for home buyers</h2>
         <p class="ha-section__lead">Median price and income vary a lot inside one state. Pick your city for local tax, insurance, and a prefilled calculator.</p>
+        <div class="ha-state-grid">
+          <a class="ha-state-card" href="/living/housing/how-much-house-can-i-afford/texas/houston">
+            <h3>Houston</h3>
+            <p class="ha-state-card__meta">Median $310,000 · Income $68,000</p>
+            <p class="ha-state-card__meta">Moderate — prices stay below many coastal metros.</p>
+            <span class="ha-state-card__cta">Open Houston calculator →</span>
+          </a>
+          <a class="ha-state-card" href="/living/housing/how-much-house-can-i-afford/texas/dallas">
+            <h3>Dallas</h3>
+            <p class="ha-state-card__meta">Median $385,000 · Income $75,000</p>
+            <p class="ha-state-card__meta">Moderate to high — growth pushed prices in some suburbs.</p>
+            <span class="ha-state-card__cta">Open Dallas calculator →</span>
+          </a>
+          <a class="ha-state-card" href="/living/housing/how-much-house-can-i-afford/texas/austin">
+            <h3>Austin</h3>
+            <p class="ha-state-card__meta">Median $485,000 · Income $88,000</p>
+            <p class="ha-state-card__meta">Higher than Houston — tech wages help but list prices rose quickly.</p>
+            <span class="ha-state-card__cta">Open Austin calculator →</span>
+          </a>
+        </div>
         <div class="ha-compare-table-wrap">
           <table class="debt-data-table">
-            <caption>Median price, income, and affordability pressure by city</caption>
+            <caption>Median price, income, and affordability pressure by city in Texas</caption>
             <thead><tr><th scope="col">City</th><th scope="col">Median price</th><th scope="col">Median income</th><th scope="col">Pressure</th></tr></thead>
             <tbody>
               <tr>
@@ -122,34 +231,141 @@
         </div>
       </div>
     </section>
-    <section class="ha-faq-section">
+
+    <section class="ha-section" id="ha-rules" aria-labelledby="ha-rules-title">
       <div class="container content-page">
-        <h2>FAQ — Texas</h2>
+        <h2 id="ha-rules-title">The 28/36 rule in Texas</h2>
+        <p class="ha-section__lead">Lenders often use two caps. Our calculator applies both so you see a realistic max — not just what a bank might pre-approve.</p>
+        <div class="ha-rules-grid">
+          <article class="ha-rules-card">
+            <h3>28% front-end</h3>
+            <p>Your full housing payment — mortgage, tax, insurance, and HOA — should stay near or below 28% of gross monthly income. In Texas, tax and insurance often move the stress meter before list price does.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>36% back-end</h3>
+            <p>All monthly debt plus housing should stay near or below 36% of gross income. Car loans and student debt shrink your max home price even when income is strong.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>Stress meter</h3>
+            <p>We label results Comfortable, Moderate, Stretched, or Over limit. Shop below your max if you want room for repairs, childcare, or savings.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-narrative-texas" aria-labelledby="ha-narrative-title-texas">
+      <div class="container content-page">
+        <h2 id="ha-narrative-title-texas">Buying a home in Texas: what to know</h2>
+        <p>Texas has no state income tax. That helps your take-home pay. Property tax is among the highest in the US, so your monthly housing stack is still heavy.</p>
+        <p>Schools and local services are funded largely through property tax, not income tax. A $345k home can mean $460 a month in tax alone at 1.6%.</p>
+        <p>Houston, Dallas, and Austin sit at different price points. Austin rose fast with tech jobs. Houston stayed more affordable on median price.</p>
+        <p>Flood and wind insurance matter on the Gulf Coast. Inland metros see lower insurance but still need a hail and wind quote.</p>
+        <p>Buying often beats renting after five to seven years if you stay put. Run your timeline in the rent vs buy tool before you size up.</p>
+        <p>Texas is a spread-out state with very different metros. The statewide median near $345k blends affordable Houston stock with pricier Austin and DFW suburbs.</p>
+        <p>Migration from California and the Midwest pushed prices in some rings after 2020. Competition cooled from peak years but popular school zones still see multiple offers.</p>
+        <p>Energy, tech, and healthcare jobs anchor wages. Remote workers keeping coastal salaries helped Austin demand — still model a pay-cut case before you max out.</p>
+        <p>Summer electric on large suburban homes can add $200+ a month. Budget utilities outside PITI when you compare cities.</p>
+        <aside class="what-this-means" role="note">
+          <p class="what-this-means__title">What this means for you</p>
+          <p>The state median is a blend — your target city may sit far above or below. Open a city page before you set a max offer price.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-lt-texas-0" aria-labelledby="ha-lt-texas-0-title">
+      <div class="container content-page">
+        <h2 id="ha-lt-texas-0-title">How much house can I afford in Texas on $90,000?</h2>
+        <p>At $90,000 gross, the 28% rule caps your full housing payment near $2,100 a month. That often supports a home near $280,000–$320,000 with 20% down at 6.5% — more in Houston, less in Austin.</p>
+        <p>Texas has no state income tax, so your take-home pay is higher than California or New York at the same gross. Still run property tax in the calculator — it is often $400+ a month on a $300k home.</p>
+        <p>If you carry $400 in car and student loan payments, the 36% back-end cap may bind before the 28% housing line. Enter real debts in the form above.</p>
+      </div>
+    </section>
+    <section class="ha-section ha-section--alt" id="ha-lt-texas-1" aria-labelledby="ha-lt-texas-1-title">
+      <div class="container content-page">
+        <h2 id="ha-lt-texas-1-title">Texas property tax and why it changes your max price</h2>
+        <p>Texas schools and local services are funded largely through property tax, not income tax. Effective rates near 1.6% mean a $345,000 home can carry $460 a month in tax alone.</p>
+        <p>Tax districts differ by county, city, and school district. A home in Collin County may tax differently than the same list price in Harris County. Use the seller's tax certificate, not a statewide average.</p>
+        <p>Homestead exemptions help after you buy, but your first-year bill still tracks purchase price. Budget the full assessed amount when you set a max list price.</p>
+      </div>
+    </section>
+    <section class="ha-section ha-section--alt" id="ha-lt-texas-2" aria-labelledby="ha-lt-texas-2-title">
+      <div class="container content-page">
+        <h2 id="ha-lt-texas-2-title">What salary do you need to buy a house in Texas?</h2>
+        <p>For a median home near $345,000 with 20% down, plan on $85,000–$100,000 gross at 6.5% with modest debt. Houston and San Antonio often fit below that; Austin runs higher.</p>
+        <p>Dual income is common in DFW and Houston suburbs. Two earners at $50k–$60k each can often land in Comfortable stress below the state median.</p>
+        <p>Open a city page before you trust the state median alone. Austin median near $485k needs far more gross pay than Houston near $310k.</p>
+      </div>
+    </section>
+    <section class="ha-section" id="ha-rent-buy" aria-labelledby="ha-rent-buy-title">
+      <div class="container content-page">
+        <h2 id="ha-rent-buy-title">Rent vs buy in Texas</h2>
+        <p>Texas rent is moderate in many metros, and property tax is high — so buying is not automatic math. If you stay five to seven years and lock a rate, equity often beats renting in Houston and DFW suburbs. Run your timeline in the rent vs buy tool.</p>
+        <p><a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy calculator</a> · <a href="/living/housing/how-much-rent-can-i-afford">How much rent can I afford?</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-tips" aria-labelledby="ha-tips-title">
+      <div class="container content-page">
+        <h2 id="ha-tips-title">First-time buyer tips in Texas</h2>
+        <ul class="ha-tips-list">
+          <li>Pull flood maps on Gulf Coast and Houston-area listings before you offer.</li>
+          <li>Ask for MUD, PID, and ISD tax lines on new construction — they add to the monthly bill.</li>
+          <li>Compare Houston, Dallas, and Austin city pages if you are flexible on job location.</li>
+          <li>Get a wind and hail quote early — roof age changes premiums fast.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-related" aria-labelledby="ha-related-title">
+      <div class="container content-page">
+        <h2 id="ha-related-title">Related tools for Texas buyers</h2>
+        <div class="ha-related-grid">
+          <a class="ha-related-card" href="/living/housing/cost-of-living-by-city/texas"><span>Cost of living</span><strong>Texas COL guide →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/texas"><span>Comfortable salary</span><strong>Texas salary target →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford"><span>US calculator</span><strong>National affordability →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford/california"><span>Compare states</span><strong>California affordability →</strong></a>
+        </div>
+        <ul class="col-related__list">
+          <li><a href="/living/housing/cost-of-living-by-city/texas">Cost of living in Texas</a></li>
+          <li><a href="/living/housing/how-much-rent-can-i-afford">Rent affordability in Texas</a></li>
+          <li><a href="/hourly-to-salary-after-tax/state/texas/">Texas take-home pay</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ha-faq-section" id="ha-faq">
+      <div class="container content-page">
+        <h2>FAQ — how much house can I afford in Texas?</h2>
         <div class="faq-stack">
           <article class="faq-item"><h3>How much house can I afford in Texas on $90k?</h3><p>About $2,100 a month at 28% gross. That often supports a home near $280k–$320k with 20% down at 6.5% — more in cheaper metros.</p></article>
           <article class="faq-item"><h3>Why is Texas property tax so high?</h3><p>Texas funds schools and local services largely through property tax instead of state income tax.</p></article>
           <article class="faq-item"><h3>Is buying better than renting in Texas?</h3><p>Often after 5–7 years in stable markets. Run your stay and rate in the rent vs buy tool.</p></article>
+          <article class="faq-item"><h3>Can I afford a $400k home in Texas on $100k?</h3><p>Often yes with 20% down and low debt in Houston or DFW suburbs. Austin at $400k may feel Moderate to Stretched depending on HOA and tax district.</p></article>
+          <article class="faq-item"><h3>Is Texas cheaper than California for buyers?</h3><p>List prices are lower and there is no state income tax. Property tax and insurance still stack up — compare full PITI, not list price alone.</p></article>
+          <article class="faq-item"><h3>How much down payment do Texas buyers use?</h3><p>20% avoids PMI and strengthens offers. FHA and VA loans allow less — still run the full payment through our calculator.</p></article>
+          <article class="faq-item"><h3>Which Texas city is most affordable?</h3><p>Houston median is lowest among our featured cities. Austin is highest. Open each city page for local tax and insurance defaults.</p></article>
         </div>
       </div>
     </section>
+
     <div class="container content-page">
       <aside class="eeat-trust" aria-labelledby="eeat-texas-title">
         <header class="eeat-trust__header">
           <span class="eeat-trust__kicker">How we built this</span>
           <h2 id="eeat-texas-title" class="eeat-trust__title">Texas affordability data</h2>
-          <p class="eeat-trust__meta"><time datetime="2026-06-01">Last reviewed: June 2026</time> · <a href="/methodology#affordability">Methodology</a> · <a href="/editorial-policy">Editorial policy</a> · <a href="/calculator-methodology">Calculator methodology</a></p>
+          <p class="eeat-trust__meta"><time datetime="2026-06-01">Last reviewed: June 1, 2026</time> · <a href="/methodology#affordability">Methodology</a></p>
         </header>
-        <p>Medians are rounded planning figures from public listing and census sources. Tax and insurance use state defaults — your quote may differ. This is not a loan offer.</p>
+        <p>Median prices, tax, and insurance are rounded planning figures from public listing and census sources. Your quote and lender rules may differ. This is not a loan offer or tax advice.</p>
       </aside>
     </div>
   </main>
   <footer class="site-footer">
     <div class="container footer-layout">
-      <p class="footer-review" role="note"><time datetime="2026-06-01">Last reviewed: June 2026</time> · Reviewed by the <a href="/about">Income Clarity editorial team</a> · <a href="/editorial-policy">Editorial policy</a></p>
       <p class="footer-copy">© 2026 IncomeClarityLab</p>
     </div>
   </footer>
   <script src="/house-afford.js"></script>
+  <script src="/page-toc.js" defer></script>
   <script>
     HouseAfford.bindForm({ stateSlug: 'texas', defaultRegion: 'texas', runOnLoad: true });
   </script>

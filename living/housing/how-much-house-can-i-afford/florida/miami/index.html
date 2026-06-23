@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Can You Afford a Home in Miami? What Florida Buyers Actually Need (2026) | Income Clarity</title>
-  <meta name="description" content="Median prices in Miami don't tell your story. Run your income through the 28% rule and see what monthly payment — and home price — you can actually carry.">
+  <title>How Much House Can You Afford in Miami? Income, Payment &amp; Local Costs (2026) | Income Clarity</title>
+  <meta name="description" content="How much house can you afford in Miami, Florida? Median price $580,000, salary tiers, property tax, insurance, HOA, and a free PITI calculator.">
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/how-much-house-can-i-afford/florida/miami">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="icon" type="image/png" href="/images/logo.png">
   <link rel="apple-touch-icon" href="/images/logo.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why is Miami insurance so high?", "acceptedAnswer": {"@type": "Answer", "text": "Hurricane risk and reinsurance costs pushed premiums up statewide."}}, {"@type": "Question", "name": "Can I afford Miami on $75k?", "acceptedAnswer": {"@type": "Answer", "text": "The median home is a stretch at $75k gross. Look at lower price points or rent while saving."}}, {"@type": "Question", "name": "Why is Miami insurance so high?", "acceptedAnswer": {"@type": "Answer", "text": "Hurricane risk and reinsurance costs pushed premiums up statewide."}}, {"@type": "Question", "name": "Can I buy a Miami condo with 10% down?", "acceptedAnswer": {"@type": "Answer", "text": "Some buildings allow it; others require 25% for investors or weak reserves."}}, {"@type": "Question", "name": "Is Miami cheaper than NYC?", "acceptedAnswer": {"@type": "Answer", "text": "List can be lower but insurance and HOA often exceed northeast norms on coastal condos."}}, {"@type": "Question", "name": "Do I need flood insurance in Miami?", "acceptedAnswer": {"@type": "Answer", "text": "Many zones yes — it is separate from homeowners and can be $150+ a month."}}]}</script>
   <script>
     (function () {
       const path = window.location.pathname;
@@ -19,7 +21,7 @@
     })();
   </script>
 </head>
-<body class="ha-page">
+<body class="ha-page living-tool-page ha-city-page">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
@@ -27,11 +29,12 @@
         <a href="/hourly-to-salary-after-tax">Income</a>
         <a href="/debt">Debt</a>
         <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
       </nav>
     </div>
   </header>
   <main>
-    <section class="ha-hero">
+    <section class="ha-hero" id="ha-calculator">
       <div class="container">
         <nav class="take-home-return-nav" aria-label="Breadcrumb">
           <ol class="take-home-return-breadcrumbs">
@@ -42,64 +45,294 @@
         </nav>
         <span class="label">Miami · Florida</span>
         <h1>How Much House Can You Afford in Miami?</h1>
-        <p class="lead">Median home near <strong>$580,000</strong>. Typical household income near <strong>$62,000</strong>. Very high — insurance and condo HOA often exceed the mortgage. Calculator below uses Miami tax and insurance defaults.</p>
+        <p class="lead">Median home near <strong>$580,000</strong>. Typical income near <strong>$62,000</strong>. Very high — insurance and condo HOA often exceed the mortgage. Run the calculator — this page also has salary tiers, neighborhood prices, and local buyer guides.</p>
+        <div class="ha-hero-grid">
         <div class="ha-calc-shell">
-          <form id="ha-calc-form" class="ha-calc-form">
-            <label class="ha-calc__field"><span>Annual income</span><input type="number" id="ha-income" value="62000" required></label>
-            <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" value="300" required></label>
-            <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" value="116000" required></label>
-            <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" value="6.5" step="0.05" required></label>
+          <form id="ha-calc-form" class="ha-calc-form" aria-label="Miami house affordability calculator">
+            <label class="ha-calc__field"><span>Annual income ($)</span><input type="number" id="ha-income" min="20000" step="1000" value="62000" required></label>
+            <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" min="0" step="25" value="300" required></label>
+            <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" min="0" step="5000" value="116000" required></label>
+            <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" min="2" max="15" step="0.05" value="6.5" required></label>
             <input type="hidden" id="ha-location" value="florida">
-            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate</button></div>
+            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate max home price</button></div>
           </form>
           <div id="ha-calc-results" class="ha-results" hidden aria-live="polite"></div>
         </div>
+      <aside class="ha-city-toc ha-city-toc--hero" id="ha-toc">
+        <div class="ha-city-toc__card">
+          <button type="button" class="ha-city-toc__toggle" aria-expanded="true" aria-controls="ha-toc-panel">
+            <span class="ha-city-toc__toggle-text">
+              <span class="ha-city-toc__title">On this page</span>
+              <span class="ha-city-toc__kicker">Guides, salary tiers, neighborhoods &amp; more</span>
+            </span>
+            <svg class="ha-city-toc__toggle-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <nav class="ha-city-toc__panel" id="ha-toc-panel" aria-label="On this page">
+            <ul class="ha-city-toc__list">
+          <li><a href="#ha-calculator" class="ha-city-toc__link" data-ha-toc-link>Affordability calculator</a></li>
+          <li><a href="#ha-local-stats" class="ha-city-toc__link" data-ha-toc-link>At a glance</a></li>
+          <li><a href="#ha-piti-breakdown" class="ha-city-toc__link" data-ha-toc-link>Payment breakdown</a></li>
+          <li><a href="#ha-income-tiers" class="ha-city-toc__link" data-ha-toc-link>Salary tiers</a></li>
+          <li><a href="#ha-neighborhoods" class="ha-city-toc__link" data-ha-toc-link>Neighborhoods</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">Local guides</li>
+          <li><a href="#ha-rules" class="ha-city-toc__link" data-ha-toc-link>28/36 rule</a></li>
+          <li><a href="#ha-narrative-miami" class="ha-city-toc__link" data-ha-toc-link>Local context</a></li>
+          <li><a href="#ha-lt-miami-0" class="ha-city-toc__link" data-ha-toc-link>How much house can I afford in Miami on $75k?</a></li>
+          <li><a href="#ha-lt-miami-1" class="ha-city-toc__link" data-ha-toc-link>Miami condo insurance and HOA costs</a></li>
+          <li><a href="#ha-lt-miami-2" class="ha-city-toc__link" data-ha-toc-link>What salary do you need to buy in Miami?</a></li>
+          <li><a href="#ha-rent-buy" class="ha-city-toc__link" data-ha-toc-link>Rent vs buy</a></li>
+          <li><a href="#ha-tips" class="ha-city-toc__link" data-ha-toc-link>First-time buyer tips</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">More</li>
+          <li><a href="#ha-related" class="ha-city-toc__link" data-ha-toc-link>Related tools</a></li>
+          <li><a href="#ha-faq" class="ha-city-toc__link" data-ha-toc-link>FAQ</a></li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+        </div>
       </div>
     </section>
-    <section class="ha-section">
+
+    <section class="ha-section" id="ha-local-stats" aria-labelledby="ha-glance-title">
       <div class="container content-page">
-        <h2>Local numbers for Miami</h2>
-        <div class="debt-stats-grid">
-          <div class="debt-stat-block"><span class="debt-stat-value">$580,000</span><span class="debt-stat-label">Median home price</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">$181,250+</span><span class="debt-stat-label">Rough gross income for median home (3× rule)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">0.95%</span><span class="debt-stat-label">Property tax (effective)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">0.65%</span><span class="debt-stat-label">Insurance (of home value / yr)</span></div>
+        <h2 id="ha-glance-title">Miami home affordability at a glance</h2>
+        <p class="ha-section__lead">Planning figures for Miami, Florida. Your lender quote and tax bill may differ — use these as a starting point.</p>
+        <div class="ha-glance-grid">
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$580,000</span><span class="ha-glance-card__l">Median home price</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$62,000</span><span class="ha-glance-card__l">Median household income</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$181,250+</span><span class="ha-glance-card__l">Rough gross for median (3× rule)</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$3,986/mo</span><span class="ha-glance-card__l">Est. PITI on median (20% down)</span></div>
         </div>
-        <p>On a median $580,000 home, tax near 0.95% is about <strong>$459/month</strong>. Insurance near 0.65% is about <strong>$314/month</strong>. HOA near <strong>$280/month</strong> where it applies.</p>
+        <p>On a median $580,000 home, property tax near 0.95% is about <strong>$459/month</strong>. Insurance near 0.65% of value is about <strong>$314/month</strong>. HOA is about <strong>$280/month</strong> where it applies.</p>
         <p>Condos need reserves and wind coverage. Lenders may require higher down on older buildings.</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Change income, debt, and down payment in the calculator. Compare with <a href="/living/housing/how-much-house-can-i-afford/florida/tampa">Tampa</a> · <a href="/living/housing/how-much-house-can-i-afford/florida/orlando">Orlando</a>.</p>
+          <p>Change income, debt, and down payment in the calculator above. Compare with <a href="/living/housing/how-much-house-can-i-afford/florida/tampa">Tampa</a> · <a href="/living/housing/how-much-house-can-i-afford/florida/orlando">Orlando</a>.</p>
         </aside>
-        <p><a href="/living/housing/how-much-house-can-i-afford/florida">All Florida cities</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
       </div>
     </section>
-    <section class="ha-section" aria-labelledby="ha-city-narrative-miami">
+
+    <section class="ha-section ha-section--tone" id="ha-piti-breakdown" aria-labelledby="ha-piti-title">
       <div class="container content-page">
-        <h2 id="ha-city-narrative-miami">Affordability in Miami: local context</h2>
+        <h2 id="ha-piti-title">Monthly payment breakdown on a median Miami home</h2>
+        <p class="ha-section__lead">Estimated PITI at $580,000 list, 20% down, 6.5% rate, and Miami tax and insurance defaults. Principal and interest are the largest line — but tax, insurance, and HOA still move the stress meter.</p>
+        <div class="ha-piti-visual">
+          <div class="ha-piti-visual__total">
+            <span class="ha-results__label">Estimated monthly PITI</span>
+            <p class="ha-results__price">$3,986<span>/mo</span></p>
+          </div>
+          <div class="ha-piti-bars">
+            <div class="ha-piti-bar-row"><span>Principal &amp; interest</span><div class="ha-piti-bar"><span style="width:74%"></span></div><span>$2,932</span></div>
+            <div class="ha-piti-bar-row"><span>Property tax</span><div class="ha-piti-bar"><span style="width:12%"></span></div><span>$459</span></div>
+            <div class="ha-piti-bar-row"><span>Insurance</span><div class="ha-piti-bar"><span style="width:8%"></span></div><span>$314</span></div>
+            <div class="ha-piti-bar-row"><span>HOA</span><div class="ha-piti-bar"><span style="width:7%"></span></div><span>$280</span></div>
+          </div>
+        </div>
+        <p>In Miami, buyers who only compare list price to income miss tax and insurance. Run the calculator with your real debts — the 36% back-end rule includes car loans and cards.</p>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-income-tiers" aria-labelledby="ha-tiers-title">
+      <div class="container content-page">
+        <h2 id="ha-tiers-title">How much house can you afford in Miami by salary?</h2>
+        <p class="ha-section__lead">Max home price at common gross salaries, 6.5% rate, $300/month other debt, and Miami tax and insurance. Stress label uses the 28% housing cap.</p>
+        <div class="ha-compare-table-wrap">
+          <table class="debt-data-table ha-tier-table">
+            <caption>Affordable home price by gross annual income in Miami</caption>
+            <thead><tr><th scope="col">Gross salary</th><th scope="col">Max home (est.)</th><th scope="col">Stress</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>$75,000</td>
+                <td>$192,056</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$100,000</td>
+                <td>$268,268</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$125,000</td>
+                <td>$344,481</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$150,000</td>
+                <td>$420,694</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$200,000</td>
+                <td>$573,119</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>These rows assume no down payment in the solver — your down payment raises what you can buy. Enter your real numbers in the calculator for a personal max.</p>
+        <p><a href="/hourly-to-salary-after-tax/state/florida/">Florida take-home pay calculator</a> · <a href="/living/lifestyle/comfortable-salary/florida/miami">Comfortable salary in Miami</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-neighborhoods" aria-labelledby="ha-nh-title">
+      <div class="container content-page">
+        <h2 id="ha-nh-title">Miami home prices by area</h2>
+        <p class="ha-section__lead">The citywide median blends expensive and affordable pockets. Use these ranges as a map — not a guarantee for any one listing.</p>
+        <div class="ha-nh-grid">
+          <article class="ha-nh-card">
+            <h3>Brickell</h3>
+            <p class="ha-nh-card__range">$500k–$900k</p>
+            <p>High-rise condos. HOA and wind insurance dominate the payment.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>Coral Gables</h3>
+            <p class="ha-nh-card__range">$700k–$1.2M</p>
+            <p>Single-family premiums. Flood zones along canals matter.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>Hialeah / Westchester</h3>
+            <p class="ha-nh-card__range">$400k–$550k</p>
+            <p>More reachable than coastal condos. Still check roof age for insurance.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>Fort Lauderdale (nearby)</h3>
+            <p class="ha-nh-card__range">$450k–$650k</p>
+            <p>Common alternative for buyers priced out of Miami-Dade condos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-rules" aria-labelledby="ha-rules-title">
+      <div class="container content-page">
+        <h2 id="ha-rules-title">The 28/36 rule in Miami</h2>
+        <p class="ha-section__lead">Lenders often use two caps. Our calculator applies both so you see a realistic max — not just what a bank might pre-approve.</p>
+        <div class="ha-rules-grid">
+          <article class="ha-rules-card">
+            <h3>28% front-end</h3>
+            <p>Your full housing payment — mortgage, tax, insurance, and HOA — should stay near or below 28% of gross monthly income. In Miami, insurance and HOA often push buyers over this line before list price does.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>36% back-end</h3>
+            <p>All monthly debt plus housing should stay near or below 36% of gross income. A $400 car payment and $250 in student loans shrink your max home price even when income is strong.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>Stress meter</h3>
+            <p>We label results Comfortable, Moderate, Stretched, or Over limit. Shop below your max if you want room for repairs, childcare, or savings — especially in Florida where tax and insurance vary by block.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-narrative-miami" aria-labelledby="ha-narrative-title-miami">
+      <div class="container content-page">
+        <h2 id="ha-narrative-title-miami">Buying a home in Miami: local context</h2>
         <p>Miami is one of the toughest affordability matches in Florida. Median income near $62k and median price near $580k leave a wide gap at the 28% rule.</p>
         <p>Condos dominate many buyer searches. HOA near $280 a month in our default plus high wind insurance can exceed principal and interest.</p>
         <p>Lenders tightened rules on older coastal buildings after insurance market stress. Expect more questions on reserves and roof age.</p>
         <p>If you earn $75k to $90k, target a price well below median or plan a larger down payment. Run the stress label — Stretched is common at median list.</p>
+        <p>Miami is one of the toughest matches in Florida. Median income and median price sit far apart at the 28% rule.</p>
+        <p>Tourism and finance wages vary. Lenders want stable W-2 history — commission-heavy jobs need two-year averages.</p>
+        <p>Flood maps change with sea-level projects. A block that was dry in 2010 may rate differently today.</p>
+        <p>Parking and special assessments hit older condos hard. Low list price can hide a $30k assessment.</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Your max price drops when debt is high or insurance is above our default. Run the calculator twice — once at list price and once $50k below — to see the stress change.</p>
+          <p>Run the calculator twice — once at list price and once $50k below — to see how fast the stress label changes in Miami.</p>
         </aside>
       </div>
     </section>
-    <section class="ha-faq-section">
+
+      <section class="ha-section ha-section--alt" id="ha-lt-miami-0" aria-labelledby="ha-lt-miami-0-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-miami-0-title">How much house can I afford in Miami on $75k?</h2>
+          <p>At $75,000 gross, the 28% cap is about $1,750 a month. The citywide median near $580,000 is a stretch at that income once insurance and HOA stack up.</p>
+          <p>Target $350,000–$420,000 or plan a larger down payment. Condos with high HOA can fail the payment test even when list price looks OK.</p>
+          <p>Florida has no state income tax, which helps take-home. Wind insurance often takes that back on coastal units.</p>
+        </div>
+      </section>
+      <section class="ha-section ha-section--alt" id="ha-lt-miami-1" aria-labelledby="ha-lt-miami-1-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-miami-1-title">Miami condo insurance and HOA costs</h2>
+          <p>After statewide insurance reforms, older buildings face reserve and inspection rules. Lenders may require higher down payments.</p>
+          <p>HOA near $280 a month is a floor in our model. Luxury towers run $800+ with amenities and reserves.</p>
+          <p>Wind and flood are separate lines. Budget both before you set a max price.</p>
+        </div>
+      </section>
+      <section class="ha-section ha-section--alt" id="ha-lt-miami-2" aria-labelledby="ha-lt-miami-2-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-miami-2-title">What salary do you need to buy in Miami?</h2>
+          <p>For a median home near $580,000 with 20% down, plan on $140,000–$165,000 gross at 6.5% once insurance and HOA are in the stack.</p>
+          <p>Median income near $62k leaves a wide gap at the 28% rule. Dual income and larger down payments are common.</p>
+          <p>International buyers and cash offers still compete in Brickell. Payment comfort matters more than winning a bidding war.</p>
+        </div>
+      </section>
+    <section class="ha-section" id="ha-rent-buy" aria-labelledby="ha-rent-buy-title">
       <div class="container content-page">
-        <h2>FAQ — Miami</h2>
+        <h2 id="ha-rent-buy-title">Rent vs buy in Miami</h2>
+        <p>Miami rent near $2,200 and high insurance make buying a long bet. Condos need stable reserves and insurable roofs. Rent while you save if your stay is under five years.</p>
+        <p><a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy calculator</a> · <a href="/living/housing/how-much-rent-can-i-afford">How much rent can I afford?</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-tips" aria-labelledby="ha-tips-title">
+      <div class="container content-page">
+        <h2 id="ha-tips-title">First-time buyer tips in Miami</h2>
+        <ul class="ha-tips-list">
+          <li>Read the condo's milestone inspection and reserve study.</li>
+          <li>Get wind and flood quotes before inspection period ends.</li>
+          <li>Ask if the building is on an insurer's watch list.</li>
+          <li>Compare Broward listings if Miami-Dade HOA feels too high.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-related" aria-labelledby="ha-related-title">
+      <div class="container content-page">
+        <h2 id="ha-related-title">Related tools for Miami</h2>
+        <div class="ha-related-grid">
+          <a class="ha-related-card" href="/living/housing/cost-of-living-by-city/florida/miami"><span>Cost of living</span><strong>Miami COL guide →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/florida/miami"><span>Comfortable salary</span><strong>Miami salary target →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford/florida"><span>Florida overview</span><strong>All Florida cities →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford"><span>US calculator</span><strong>National affordability →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/florida/miami/is-100k-enough-to-live-in-miami"><span>$100k in Miami</span><strong>Salary scenario →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/florida/miami/is-150k-enough-to-live-in-miami"><span>$150k in Miami</span><strong>Salary scenario →</strong></a>
+        </div>
+        <p><a href="/living/housing/how-much-house-can-i-afford/florida">All Florida cities</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
+      </div>
+    </section>
+
+    <section class="ha-faq-section" id="ha-faq">
+      <div class="container content-page">
+        <h2>FAQ — how much house can I afford in Miami?</h2>
         <div class="faq-stack">
           <article class="faq-item"><h3>Why is Miami insurance so high?</h3><p>Hurricane risk and reinsurance costs pushed premiums up statewide.</p></article>
           <article class="faq-item"><h3>Can I afford Miami on $75k?</h3><p>The median home is a stretch at $75k gross. Look at lower price points or rent while saving.</p></article>
+          <article class="faq-item"><h3>Why is Miami insurance so high?</h3><p>Hurricane risk and reinsurance costs pushed premiums up statewide.</p></article>
+          <article class="faq-item"><h3>Can I buy a Miami condo with 10% down?</h3><p>Some buildings allow it; others require 25% for investors or weak reserves.</p></article>
+          <article class="faq-item"><h3>Is Miami cheaper than NYC?</h3><p>List can be lower but insurance and HOA often exceed northeast norms on coastal condos.</p></article>
+          <article class="faq-item"><h3>Do I need flood insurance in Miami?</h3><p>Many zones yes — it is separate from homeowners and can be $150+ a month.</p></article>
         </div>
       </div>
     </section>
+
+    <div class="container content-page">
+      <aside class="eeat-trust" aria-labelledby="eeat-miami-title">
+        <header class="eeat-trust__header">
+          <span class="eeat-trust__kicker">How we built this</span>
+          <h2 id="eeat-miami-title" class="eeat-trust__title">Miami affordability data</h2>
+          <p class="eeat-trust__meta"><time datetime="2026-06-01">Last reviewed: June 1, 2026</time> · <a href="/methodology#affordability">Methodology</a></p>
+        </header>
+        <p>Median prices, tax, and insurance are rounded planning figures from public listing and census sources. Your quote and lender rules may differ. This is not a loan offer or tax advice.</p>
+      </aside>
+    </div>
   </main>
-  <footer class="site-footer"><div class="container"><p class="footer-review" role="note"><time datetime="2026-06-01">Last reviewed: June 2026</time> · Reviewed by the <a href="/about">Income Clarity editorial team</a> · <a href="/editorial-policy">Editorial policy</a></p>
-      <p class="footer-copy">© 2026 IncomeClarityLab</p></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
   <script src="/house-afford.js"></script>
+  <script src="/ha-city-toc.js"></script>
   <script>
     HouseAfford.bindForm({
       stateSlug: 'florida',

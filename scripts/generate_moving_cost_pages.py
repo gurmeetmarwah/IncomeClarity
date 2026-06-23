@@ -33,6 +33,7 @@ from moving_cost_data import (  # noqa: E402
     state_moving_insights,
     state_moving_tips,
 )
+from site_scripts import PAGE_TOC_SCRIPT  # noqa: E402
 
 OUT = ROOT / "living" / "housing" / "moving-cost-calculator"
 
@@ -388,7 +389,8 @@ def hub_sections() -> str:
 def footer_scripts(default_from: str = "texas/dallas", default_to: str = "seattle") -> str:
     return f"""{FOOTER}
   <script src="/moving-cost.js"></script>
-  <script>MovingCost.bindForm({{ defaultFrom: '{default_from}', defaultTo: '{default_to}', runOnLoad: true }});</script>"""
+  <script>MovingCost.bindForm({{ defaultFrom: '{default_from}', defaultTo: '{default_to}', runOnLoad: true }});</script>
+{PAGE_TOC_SCRIPT}"""
 
 
 def render_hub() -> str:
@@ -997,7 +999,7 @@ def render_state(state_slug: str, st: dict) -> str:
   </main>
 {FOOTER}
 {extra}
-</body></html>"""
+{PAGE_TOC_SCRIPT}</body></html>"""
     return head(
         f"How Much Does It Cost to Move to {name}? Real Numbers (2026) | Income Clarity",
         f"Planning a move to {name}? Estimate movers, deposits, utilities, and how your monthly budget changes — before you commit.",
@@ -1059,7 +1061,7 @@ def render_city(state_slug: str, city_slug: str, st: dict, c: dict, *, standalon
 {FOOTER}
   <script src="/moving-cost.js"></script>
   <script>document.addEventListener('DOMContentLoaded',function(){{MovingCost.bindForm({{defaultTo:'{cid}',runOnLoad:true}});}});</script>
-</body></html>"""
+{PAGE_TOC_SCRIPT}</body></html>"""
     body = body.replace(
         f"/living/housing/cost-of-living-by-city/{state_slug}/{city_slug if state_slug in STATES else city_slug}",
         col_path,

@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Can You Afford a Home in Orlando? What Florida Buyers Actually Need (2026) | Income Clarity</title>
-  <meta name="description" content="Median prices in Orlando don't tell your story. Run your income through the 28% rule and see what monthly payment — and home price — you can actually carry.">
+  <title>How Much House Can You Afford in Orlando? Income, Payment &amp; Local Costs (2026) | Income Clarity</title>
+  <meta name="description" content="How much house can you afford in Orlando, Florida? Median price $410,000, salary tiers, property tax, insurance, HOA, and a free PITI calculator.">
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/how-much-house-can-i-afford/florida/orlando">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="icon" type="image/png" href="/images/logo.png">
   <link rel="apple-touch-icon" href="/images/logo.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is Orlando cheaper than Miami?", "acceptedAnswer": {"@type": "Answer", "text": "Median price and insurance are lower. HOA is still common in new builds."}}, {"@type": "Question", "name": "What income for a median Orlando home?", "acceptedAnswer": {"@type": "Answer", "text": "Plan on $85k–$100k gross with 20% down at 6.5%, plus room for insurance quotes."}}, {"@type": "Question", "name": "Is Orlando cheaper than Miami?", "acceptedAnswer": {"@type": "Answer", "text": "Median price and insurance are lower. HOA is still common in new builds."}}, {"@type": "Question", "name": "Can theme-park workers afford Orlando homes?", "acceptedAnswer": {"@type": "Answer", "text": "Many target below $350k or rent while saving. Dual income helps for median listings."}}, {"@type": "Question", "name": "What about Disney area condos?", "acceptedAnswer": {"@type": "Answer", "text": "Tourist corridors have special insurance and HOA rules — read docs carefully."}}, {"@type": "Question", "name": "Orlando vs Tampa for families?", "acceptedAnswer": {"@type": "Answer", "text": "Both are mid-range Florida markets. Compare school zones and commute to your job."}}]}</script>
   <script>
     (function () {
       const path = window.location.pathname;
@@ -19,7 +21,7 @@
     })();
   </script>
 </head>
-<body class="ha-page">
+<body class="ha-page living-tool-page ha-city-page">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
@@ -27,11 +29,12 @@
         <a href="/hourly-to-salary-after-tax">Income</a>
         <a href="/debt">Debt</a>
         <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
       </nav>
     </div>
   </header>
   <main>
-    <section class="ha-hero">
+    <section class="ha-hero" id="ha-calculator">
       <div class="container">
         <nav class="take-home-return-nav" aria-label="Breadcrumb">
           <ol class="take-home-return-breadcrumbs">
@@ -42,64 +45,294 @@
         </nav>
         <span class="label">Orlando · Florida</span>
         <h1>How Much House Can You Afford in Orlando?</h1>
-        <p class="lead">Median home near <strong>$410,000</strong>. Typical household income near <strong>$64,000</strong>. Moderate — tourism wages can lag list prices. Calculator below uses Orlando tax and insurance defaults.</p>
+        <p class="lead">Median home near <strong>$410,000</strong>. Typical income near <strong>$64,000</strong>. Moderate — tourism wages can lag list prices. Run the calculator — this page also has salary tiers, neighborhood prices, and local buyer guides.</p>
+        <div class="ha-hero-grid">
         <div class="ha-calc-shell">
-          <form id="ha-calc-form" class="ha-calc-form">
-            <label class="ha-calc__field"><span>Annual income</span><input type="number" id="ha-income" value="64000" required></label>
-            <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" value="300" required></label>
-            <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" value="82000" required></label>
-            <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" value="6.5" step="0.05" required></label>
+          <form id="ha-calc-form" class="ha-calc-form" aria-label="Orlando house affordability calculator">
+            <label class="ha-calc__field"><span>Annual income ($)</span><input type="number" id="ha-income" min="20000" step="1000" value="64000" required></label>
+            <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" min="0" step="25" value="300" required></label>
+            <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" min="0" step="5000" value="82000" required></label>
+            <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" min="2" max="15" step="0.05" value="6.5" required></label>
             <input type="hidden" id="ha-location" value="florida">
-            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate</button></div>
+            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate max home price</button></div>
           </form>
           <div id="ha-calc-results" class="ha-results" hidden aria-live="polite"></div>
         </div>
+      <aside class="ha-city-toc ha-city-toc--hero" id="ha-toc">
+        <div class="ha-city-toc__card">
+          <button type="button" class="ha-city-toc__toggle" aria-expanded="true" aria-controls="ha-toc-panel">
+            <span class="ha-city-toc__toggle-text">
+              <span class="ha-city-toc__title">On this page</span>
+              <span class="ha-city-toc__kicker">Guides, salary tiers, neighborhoods &amp; more</span>
+            </span>
+            <svg class="ha-city-toc__toggle-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <nav class="ha-city-toc__panel" id="ha-toc-panel" aria-label="On this page">
+            <ul class="ha-city-toc__list">
+          <li><a href="#ha-calculator" class="ha-city-toc__link" data-ha-toc-link>Affordability calculator</a></li>
+          <li><a href="#ha-local-stats" class="ha-city-toc__link" data-ha-toc-link>At a glance</a></li>
+          <li><a href="#ha-piti-breakdown" class="ha-city-toc__link" data-ha-toc-link>Payment breakdown</a></li>
+          <li><a href="#ha-income-tiers" class="ha-city-toc__link" data-ha-toc-link>Salary tiers</a></li>
+          <li><a href="#ha-neighborhoods" class="ha-city-toc__link" data-ha-toc-link>Neighborhoods</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">Local guides</li>
+          <li><a href="#ha-rules" class="ha-city-toc__link" data-ha-toc-link>28/36 rule</a></li>
+          <li><a href="#ha-narrative-orlando" class="ha-city-toc__link" data-ha-toc-link>Local context</a></li>
+          <li><a href="#ha-lt-orlando-0" class="ha-city-toc__link" data-ha-toc-link>How much house can I afford in Orlando on $65k?</a></li>
+          <li><a href="#ha-lt-orlando-1" class="ha-city-toc__link" data-ha-toc-link>Orlando HOA and CDD fees on new construction</a></li>
+          <li><a href="#ha-lt-orlando-2" class="ha-city-toc__link" data-ha-toc-link>What income for a median Orlando home?</a></li>
+          <li><a href="#ha-rent-buy" class="ha-city-toc__link" data-ha-toc-link>Rent vs buy</a></li>
+          <li><a href="#ha-tips" class="ha-city-toc__link" data-ha-toc-link>First-time buyer tips</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">More</li>
+          <li><a href="#ha-related" class="ha-city-toc__link" data-ha-toc-link>Related tools</a></li>
+          <li><a href="#ha-faq" class="ha-city-toc__link" data-ha-toc-link>FAQ</a></li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+        </div>
       </div>
     </section>
-    <section class="ha-section">
+
+    <section class="ha-section" id="ha-local-stats" aria-labelledby="ha-glance-title">
       <div class="container content-page">
-        <h2>Local numbers for Orlando</h2>
-        <div class="debt-stats-grid">
-          <div class="debt-stat-block"><span class="debt-stat-value">$410,000</span><span class="debt-stat-label">Median home price</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">$128,125+</span><span class="debt-stat-label">Rough gross income for median home (3× rule)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">0.9%</span><span class="debt-stat-label">Property tax (effective)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">0.5%</span><span class="debt-stat-label">Insurance (of home value / yr)</span></div>
+        <h2 id="ha-glance-title">Orlando home affordability at a glance</h2>
+        <p class="ha-section__lead">Planning figures for Orlando, Florida. Your lender quote and tax bill may differ — use these as a starting point.</p>
+        <div class="ha-glance-grid">
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$410,000</span><span class="ha-glance-card__l">Median home price</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$64,000</span><span class="ha-glance-card__l">Median household income</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$128,125+</span><span class="ha-glance-card__l">Rough gross for median (3× rule)</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$2,676/mo</span><span class="ha-glance-card__l">Est. PITI on median (20% down)</span></div>
         </div>
-        <p>On a median $410,000 home, tax near 0.9% is about <strong>$307/month</strong>. Insurance near 0.5% is about <strong>$170/month</strong>. HOA near <strong>$125/month</strong> where it applies.</p>
+        <p>On a median $410,000 home, property tax near 0.9% is about <strong>$307/month</strong>. Insurance near 0.5% of value is about <strong>$170/month</strong>. HOA is about <strong>$125/month</strong> where it applies.</p>
         <p>Theme-park and service jobs dominate wages. Dual income often makes the median home workable.</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Change income, debt, and down payment in the calculator. Compare with <a href="/living/housing/how-much-house-can-i-afford/florida/miami">Miami</a> · <a href="/living/housing/how-much-house-can-i-afford/florida/tampa">Tampa</a>.</p>
+          <p>Change income, debt, and down payment in the calculator above. Compare with <a href="/living/housing/how-much-house-can-i-afford/florida/miami">Miami</a> · <a href="/living/housing/how-much-house-can-i-afford/florida/tampa">Tampa</a>.</p>
         </aside>
-        <p><a href="/living/housing/how-much-house-can-i-afford/florida">All Florida cities</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
       </div>
     </section>
-    <section class="ha-section" aria-labelledby="ha-city-narrative-orlando">
+
+    <section class="ha-section ha-section--tone" id="ha-piti-breakdown" aria-labelledby="ha-piti-title">
       <div class="container content-page">
-        <h2 id="ha-city-narrative-orlando">Affordability in Orlando: local context</h2>
+        <h2 id="ha-piti-title">Monthly payment breakdown on a median Orlando home</h2>
+        <p class="ha-section__lead">Estimated PITI at $410,000 list, 20% down, 6.5% rate, and Orlando tax and insurance defaults. Principal and interest are the largest line — but tax, insurance, and HOA still move the stress meter.</p>
+        <div class="ha-piti-visual">
+          <div class="ha-piti-visual__total">
+            <span class="ha-results__label">Estimated monthly PITI</span>
+            <p class="ha-results__price">$2,676<span>/mo</span></p>
+          </div>
+          <div class="ha-piti-bars">
+            <div class="ha-piti-bar-row"><span>Principal &amp; interest</span><div class="ha-piti-bar"><span style="width:77%"></span></div><span>$2,073</span></div>
+            <div class="ha-piti-bar-row"><span>Property tax</span><div class="ha-piti-bar"><span style="width:11%"></span></div><span>$307</span></div>
+            <div class="ha-piti-bar-row"><span>Insurance</span><div class="ha-piti-bar"><span style="width:6%"></span></div><span>$170</span></div>
+            <div class="ha-piti-bar-row"><span>HOA</span><div class="ha-piti-bar"><span style="width:5%"></span></div><span>$125</span></div>
+          </div>
+        </div>
+        <p>In Orlando, buyers who only compare list price to income miss tax and insurance. Run the calculator with your real debts — the 36% back-end rule includes car loans and cards.</p>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-income-tiers" aria-labelledby="ha-tiers-title">
+      <div class="container content-page">
+        <h2 id="ha-tiers-title">How much house can you afford in Orlando by salary?</h2>
+        <p class="ha-section__lead">Max home price at common gross salaries, 6.5% rate, $300/month other debt, and Orlando tax and insurance. Stress label uses the 28% housing cap.</p>
+        <div class="ha-compare-table-wrap">
+          <table class="debt-data-table ha-tier-table">
+            <caption>Affordable home price by gross annual income in Orlando</caption>
+            <thead><tr><th scope="col">Gross salary</th><th scope="col">Max home (est.)</th><th scope="col">Stress</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>$75,000</td>
+                <td>$217,032</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$100,000</td>
+                <td>$294,942</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$125,000</td>
+                <td>$372,851</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$150,000</td>
+                <td>$450,760</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$200,000</td>
+                <td>$606,578</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>These rows assume no down payment in the solver — your down payment raises what you can buy. Enter your real numbers in the calculator for a personal max.</p>
+        <p><a href="/hourly-to-salary-after-tax/state/florida/">Florida take-home pay calculator</a> · <a href="/living/lifestyle/comfortable-salary/florida/orlando">Comfortable salary in Orlando</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-neighborhoods" aria-labelledby="ha-nh-title">
+      <div class="container content-page">
+        <h2 id="ha-nh-title">Orlando home prices by area</h2>
+        <p class="ha-section__lead">The citywide median blends expensive and affordable pockets. Use these ranges as a map — not a guarantee for any one listing.</p>
+        <div class="ha-nh-grid">
+          <article class="ha-nh-card">
+            <h3>Winter Park</h3>
+            <p class="ha-nh-card__range">$450k–$650k</p>
+            <p>Premium suburb near downtown. Older homes need roof and HVAC checks.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>Lake Nona</h3>
+            <p class="ha-nh-card__range">$400k–$550k</p>
+            <p>Medical city growth. New builds with HOA and CDD fees.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>Kissimmee / Osceola</h3>
+            <p class="ha-nh-card__range">$300k–$380k</p>
+            <p>More reachable for service-sector wages. Tourist-area traffic is real.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>Dr. Phillips</h3>
+            <p class="ha-nh-card__range">$420k–$550k</p>
+            <p>Popular with families. Good schools drive list prices up.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-rules" aria-labelledby="ha-rules-title">
+      <div class="container content-page">
+        <h2 id="ha-rules-title">The 28/36 rule in Orlando</h2>
+        <p class="ha-section__lead">Lenders often use two caps. Our calculator applies both so you see a realistic max — not just what a bank might pre-approve.</p>
+        <div class="ha-rules-grid">
+          <article class="ha-rules-card">
+            <h3>28% front-end</h3>
+            <p>Your full housing payment — mortgage, tax, insurance, and HOA — should stay near or below 28% of gross monthly income. In Orlando, insurance and HOA often push buyers over this line before list price does.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>36% back-end</h3>
+            <p>All monthly debt plus housing should stay near or below 36% of gross income. A $400 car payment and $250 in student loans shrink your max home price even when income is strong.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>Stress meter</h3>
+            <p>We label results Comfortable, Moderate, Stretched, or Over limit. Shop below your max if you want room for repairs, childcare, or savings — especially in Florida where tax and insurance vary by block.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-narrative-orlando" aria-labelledby="ha-narrative-title-orlando">
+      <div class="container content-page">
+        <h2 id="ha-narrative-title-orlando">Buying a home in Orlando: local context</h2>
         <p>Orlando runs on tourism, healthcare, and growth from relocation. Wages near $64k median mean many families need two incomes for a median home near $410k.</p>
         <p>Insurance is lower than Miami but not cheap. New subdivisions often carry HOA near $125 a month — include it in the calculator.</p>
         <p>Compared to Tampa, Orlando can be a wash on price depending on zip. Compare both city pages if you are flexible on job location.</p>
         <p>First-time buyers often target townhomes below the median. That keeps the stress meter in Moderate instead of Stretched.</p>
+        <p>Orlando runs on tourism, healthcare, and relocation growth. Wages near $64k median mean two incomes for many median listings.</p>
+        <p>Lake Nona and Medical City pulled professional wages up. Service jobs still lag list price growth.</p>
+        <p>Short-term rental rules vary by HOA and county. Verify before you buy an investment unit.</p>
+        <p>Compared to Tampa, Orlando can be a wash on price depending on zip — compare both calculators if you are flexible.</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Your max price drops when debt is high or insurance is above our default. Run the calculator twice — once at list price and once $50k below — to see the stress change.</p>
+          <p>Run the calculator twice — once at list price and once $50k below — to see how fast the stress label changes in Orlando.</p>
         </aside>
       </div>
     </section>
-    <section class="ha-faq-section">
+
+      <section class="ha-section ha-section--alt" id="ha-lt-orlando-0" aria-labelledby="ha-lt-orlando-0-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-orlando-0-title">How much house can I afford in Orlando on $65k?</h2>
+          <p>At $65,000 gross, the 28% cap is about $1,517 a month. That often fits $220,000–$260,000 with 20% down — below the median near $410,000.</p>
+          <p>Tourism wages can lag list prices. Dual income is common for median-priced homes.</p>
+          <p>HOA near $125 a month on new subdivisions — enter the real fee from the listing.</p>
+        </div>
+      </section>
+      <section class="ha-section ha-section--alt" id="ha-lt-orlando-1" aria-labelledby="ha-lt-orlando-1-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-orlando-1-title">Orlando HOA and CDD fees on new construction</h2>
+          <p>Community Development Districts add tax-like payments on new master plans. Ask for the full CDD schedule.</p>
+          <p>Resort-area condos may restrict owner occupancy. Read HOA rental rules if you plan Airbnb.</p>
+          <p>Insurance is lower than Miami but not cheap — roof age still matters for wind credits.</p>
+        </div>
+      </section>
+      <section class="ha-section ha-section--alt" id="ha-lt-orlando-2" aria-labelledby="ha-lt-orlando-2-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-orlando-2-title">What income for a median Orlando home?</h2>
+          <p>For a $410,000 median home with 20% down, plan on $95,000–$110,000 gross at 6.5%.</p>
+          <p>Theme-park and healthcare jobs mix with remote workers. Median income near $64k means many shop below median.</p>
+          <p>Townhomes near $320k can land in Moderate stress for dual $50k incomes with low debt.</p>
+        </div>
+      </section>
+    <section class="ha-section" id="ha-rent-buy" aria-labelledby="ha-rent-buy-title">
       <div class="container content-page">
-        <h2>FAQ — Orlando</h2>
+        <h2 id="ha-rent-buy-title">Rent vs buy in Orlando</h2>
+        <p>Orlando rent near $1,600 and tourism-driven job volatility make a five-year stay test important. Buying works when rate, insurance, and job stability align.</p>
+        <p><a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy calculator</a> · <a href="/living/housing/how-much-rent-can-i-afford">How much rent can I afford?</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-tips" aria-labelledby="ha-tips-title">
+      <div class="container content-page">
+        <h2 id="ha-tips-title">First-time buyer tips in Orlando</h2>
+        <ul class="ha-tips-list">
+          <li>Ask for CDD and HOA on any home built after 2005.</li>
+          <li>Compare Orange vs Osceola tax on the same list price.</li>
+          <li>Budget pest and lawn care on older Florida block homes.</li>
+          <li>Winter Park premiums may need $110k+ gross — run the calculator early.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-related" aria-labelledby="ha-related-title">
+      <div class="container content-page">
+        <h2 id="ha-related-title">Related tools for Orlando</h2>
+        <div class="ha-related-grid">
+          <a class="ha-related-card" href="/living/housing/cost-of-living-by-city/florida/orlando"><span>Cost of living</span><strong>Orlando COL guide →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/florida/orlando"><span>Comfortable salary</span><strong>Orlando salary target →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford/florida"><span>Florida overview</span><strong>All Florida cities →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford"><span>US calculator</span><strong>National affordability →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/florida/orlando/is-80k-enough-to-live-in-orlando"><span>$80k in Orlando</span><strong>Salary scenario →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/florida/orlando/is-100k-enough-to-live-in-orlando"><span>$100k in Orlando</span><strong>Salary scenario →</strong></a>
+        </div>
+        <p><a href="/living/housing/how-much-house-can-i-afford/florida">All Florida cities</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
+      </div>
+    </section>
+
+    <section class="ha-faq-section" id="ha-faq">
+      <div class="container content-page">
+        <h2>FAQ — how much house can I afford in Orlando?</h2>
         <div class="faq-stack">
           <article class="faq-item"><h3>Is Orlando cheaper than Miami?</h3><p>Median price and insurance are lower. HOA is still common in new builds.</p></article>
           <article class="faq-item"><h3>What income for a median Orlando home?</h3><p>Plan on $85k–$100k gross with 20% down at 6.5%, plus room for insurance quotes.</p></article>
+          <article class="faq-item"><h3>Is Orlando cheaper than Miami?</h3><p>Median price and insurance are lower. HOA is still common in new builds.</p></article>
+          <article class="faq-item"><h3>Can theme-park workers afford Orlando homes?</h3><p>Many target below $350k or rent while saving. Dual income helps for median listings.</p></article>
+          <article class="faq-item"><h3>What about Disney area condos?</h3><p>Tourist corridors have special insurance and HOA rules — read docs carefully.</p></article>
+          <article class="faq-item"><h3>Orlando vs Tampa for families?</h3><p>Both are mid-range Florida markets. Compare school zones and commute to your job.</p></article>
         </div>
       </div>
     </section>
+
+    <div class="container content-page">
+      <aside class="eeat-trust" aria-labelledby="eeat-orlando-title">
+        <header class="eeat-trust__header">
+          <span class="eeat-trust__kicker">How we built this</span>
+          <h2 id="eeat-orlando-title" class="eeat-trust__title">Orlando affordability data</h2>
+          <p class="eeat-trust__meta"><time datetime="2026-06-01">Last reviewed: June 1, 2026</time> · <a href="/methodology#affordability">Methodology</a></p>
+        </header>
+        <p>Median prices, tax, and insurance are rounded planning figures from public listing and census sources. Your quote and lender rules may differ. This is not a loan offer or tax advice.</p>
+      </aside>
+    </div>
   </main>
-  <footer class="site-footer"><div class="container"><p class="footer-review" role="note"><time datetime="2026-06-01">Last reviewed: June 2026</time> · Reviewed by the <a href="/about">Income Clarity editorial team</a> · <a href="/editorial-policy">Editorial policy</a></p>
-      <p class="footer-copy">© 2026 IncomeClarityLab</p></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
   <script src="/house-afford.js"></script>
+  <script src="/ha-city-toc.js"></script>
   <script>
     HouseAfford.bindForm({
       stateSlug: 'florida',

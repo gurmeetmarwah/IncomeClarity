@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 """Generate state and city house affordability pages."""
+import json
+import math
+import re
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from house_afford_city_content import EXTENDED
+from house_afford_state_content import STATE_EXTENDED
 
 ROOT = Path(__file__).resolve().parent.parent
 BASE = ROOT / "living" / "housing" / "how-much-house-can-i-afford"
@@ -327,18 +335,174 @@ def fmt(n):
     return f"${n:,}"
 
 
-def paragraphs_html(paragraphs: list[str]) -> str:
-    return "\n".join(f"        <p>{p}</p>" for p in paragraphs)
+def paragraphs_html(paragraphs: list[str], indent: str = "        ") -> str:
+    return "\n".join(f"{indent}<p>{p}</p>" for p in paragraphs)
+
+
+def solve_price(payment_cap, down, annual_rate=6.5, tax_pct=1.1, ins_pct=0.35, hoa=0):
+    rate = (annual_rate / 100) / 12
+    n = 360
+    factor = rate * math.pow(1 + rate, n) / (math.pow(1 + rate, n) - 1)
+    tax_ins_monthly_rate = (tax_pct / 100 + ins_pct / 100) / 12
+    fixed_hoa = hoa or 0
+    mortgage_budget = payment_cap - fixed_hoa
+    if mortgage_budget <= 0:
+        return {"price": 0, "mortgage": 0, "tax": 0, "ins": 0, "hoa": fixed_hoa, "piti": payment_cap}
+    denom = factor + tax_ins_monthly_rate
+    loan = max(0, (mortgage_budget - down * tax_ins_monthly_rate) / denom)
+    price = loan + down
+    mortgage = loan * factor
+    tax = (price * tax_pct / 100) / 12
+    ins = (price * ins_pct / 100) / 12
+    piti = mortgage + tax + ins + fixed_hoa
+    return {"price": price, "mortgage": mortgage, "tax": tax, "ins": ins, "hoa": fixed_hoa, "piti": piti}
+
+
+def stress_label(piti, gross, debts=300):
+    monthly_gross = gross / 12
+    housing_cap = monthly_gross * 0.28
+    total_cap = monthly_gross * 0.36 - debts
+    payment_cap = min(housing_cap, total_cap)
+    pct = (piti / monthly_gross) * 100 if monthly_gross else 0
+    if payment_cap < housing_cap - 1:
+        return "Over limit", "ha-stress--over"
+    if pct > 32:
+        return "Stretched", "ha-stress--high"
+    if pct > 26:
+        return "Moderate", "ha-stress--moderate"
+    return "Comfortable", "ha-stress--comfortable"
+
+
+def income_tier_rows(city, salaries=(75000, 100000, 125000, 150000, 200000), debts=300, rate=6.5):
+    down_pct = 0.2
+    rows = []
+    for gross in salaries:
+        monthly_gross = gross / 12
+        housing_cap = monthly_gross * 0.28
+        total_cap = monthly_gross * 0.36 - debts
+        payment_cap = min(housing_cap, total_cap)
+        down = 0
+        out = solve_price(payment_cap, down, rate, city["tax_pct"], city["ins_pct"], city["hoa"])
+        label, cls = stress_label(out["piti"], gross, debts)
+        rows.append((gross, int(out["price"]), label, cls))
+    return rows
+
+
+def median_piti(city, rate=6.5):
+    down = int(city["median_price"] * 0.2)
+    loan = city["median_price"] - down
+    r = (rate / 100) / 12
+    n = 360
+    factor = r * math.pow(1 + r, n) / (math.pow(1 + r, n) - 1)
+    mortgage = loan * factor
+    tax = (city["median_price"] * city["tax_pct"] / 100) / 12
+    ins = (city["median_price"] * city["ins_pct"] / 100) / 12
+    hoa = city["hoa"]
+    piti = mortgage + tax + ins + hoa
+    total = piti or 1
+    return {
+        "mortgage": mortgage,
+        "tax": tax,
+        "ins": ins,
+        "hoa": hoa,
+        "piti": piti,
+        "pct": {
+            "mortgage": round(mortgage / total * 100),
+            "tax": round(tax / total * 100),
+            "ins": round(ins / total * 100),
+            "hoa": round(hoa / total * 100),
+        },
+    }
+
+
+def count_syllables(word: str) -> int:
+    word = word.lower().strip(".,!?;:'\"()[]")
+    if not word:
+        return 0
+    if len(word) <= 3:
+        return 1
+    word = re.sub(r"e$", "", word)
+    vowels = "aeiouy"
+    count = 0
+    prev_vowel = False
+    for ch in word:
+        is_vowel = ch in vowels
+        if is_vowel and not prev_vowel:
+            count += 1
+        prev_vowel = is_vowel
+    return max(1, count)
+
+
+def flesch_reading_ease(text: str) -> float:
+    words = re.findall(r"[A-Za-z']+", text)
+    if not words:
+        return 0.0
+    sentences = max(1, len(re.findall(r"[.!?]+", text)))
+    syllables = sum(count_syllables(w) for w in words)
+    return 206.835 - 1.015 * (len(words) / sentences) - 84.6 * (syllables / len(words))
+
+
+def visible_text_words(html: str) -> int:
+    text = re.sub(r"<script[\s\S]*?</script>", " ", html, flags=re.I)
+    text = re.sub(r"<style[\s\S]*?</style>", " ", text, flags=re.I)
+    text = re.sub(r"<[^>]+>", " ", text)
+    return len(text.split())
+
+
+def build_state_toc_html(slug: str, ext: dict) -> str:
+    entries: list[tuple[str, str, str | None]] = [
+        ("ha-calculator", "Affordability calculator", None),
+        ("ha-local-stats", "At a glance", None),
+        ("ha-piti-breakdown", "Payment breakdown", None),
+        ("ha-income-tiers", "Salary tiers", None),
+        ("ha-cities", "City comparison", None),
+        ("ha-rules", "28/36 rule", "State guides"),
+        (f"ha-narrative-{slug}", "Buying context", None),
+    ]
+    for i, block in enumerate(ext.get("long_tail", [])):
+        entries.append((f"ha-lt-{slug}-{i}", toc_label(block["h2"]), None))
+    entries.extend([
+        ("ha-rent-buy", "Rent vs buy", None),
+        ("ha-tips", "First-time buyer tips", None),
+        ("ha-related", "Related tools", "More"),
+        ("ha-faq", "FAQ", None),
+    ])
+    rows: list[str] = []
+    current_group = None
+    for anchor_id, label, group in entries:
+        if group and group != current_group:
+            rows.append(f'          <li class="ha-city-toc__group" aria-hidden="true">{group}</li>')
+            current_group = group
+        rows.append(
+            f'          <li><a href="#{anchor_id}" class="ha-city-toc__link" data-ha-toc-link>{label}</a></li>'
+        )
+    return "\n".join(rows)
 
 
 def state_page(slug, data):
+    ext = STATE_EXTENDED.get(slug, {})
+    all_faqs = list(data.get("faqs", [])) + ext.get("extra_faqs", [])
+    faq_html = "\n".join(
+        f'          <article class="faq-item"><h3>{q}</h3><p>{a}</p></article>'
+        for q, a in all_faqs
+    )
+    faq_schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in all_faqs],
+    }
     cities_html = "\n".join(
         f'          <a class="ha-city-chip" href="/living/housing/how-much-house-can-i-afford/{slug}/{cs}">{c["name"]}</a>'
         for cs, c in data["cities"].items()
     )
-    faq_html = "\n".join(
-        f'          <article class="faq-item"><h3>{q}</h3><p>{a}</p></article>'
-        for q, a in data["faqs"]
+    city_cards = "\n".join(
+        f"""          <a class="ha-state-card" href="/living/housing/how-much-house-can-i-afford/{slug}/{cs}">
+            <h3>{c['name']}</h3>
+            <p class="ha-state-card__meta">Median {fmt(c['median_price'])} · Income {fmt(c['median_income'])}</p>
+            <p class="ha-state-card__meta">{c['pressure']}</p>
+            <span class="ha-state-card__cta">Open {c['name']} calculator →</span>
+          </a>"""
+        for cs, c in data["cities"].items()
     )
     city_rows = "\n".join(
         f"""              <tr>
@@ -350,25 +514,59 @@ def state_page(slug, data):
         for cs, c in data["cities"].items()
     )
     down_default = int(data["median_price"] * 0.2)
+    income_needed = int(data["median_price"] / 3.2)
     salary_blurb = data.get("salary_blurb", f"Median home near {fmt(data['median_price'])} often needs gross pay well above {fmt(data['median_income'])} to stay inside the 28% rule with 20% down.")
     ins_month = int(data["median_price"] * data["ins_pct"] / 100 / 12)
     tax_month = int(data["median_price"] * data["tax_pct"] / 100 / 12)
     state_narrative = paragraphs_html(data.get("narrative", []))
+    extra_narrative = paragraphs_html(ext.get("extra_narrative", []))
+    piti = median_piti(data)
+    tier_rows = income_tier_rows(data)
+    tier_table = "\n".join(
+        f"""              <tr>
+                <td>{fmt(gross)}</td>
+                <td>{fmt(price)}</td>
+                <td><span class="ha-results__stress {cls}">{label}</span></td>
+              </tr>"""
+        for gross, price, label, cls in tier_rows
+    )
+    long_tail_html = ""
+    for i, block in enumerate(ext.get("long_tail", [])):
+        sid = f"ha-lt-{slug}-{i}"
+        long_tail_html += f"""
+    <section class="ha-section ha-section--alt" id="{sid}" aria-labelledby="{sid}-title">
+      <div class="container content-page">
+        <h2 id="{sid}-title">{block['h2']}</h2>
+{paragraphs_html(block['paras'], indent="        ")}
+      </div>
+    </section>"""
+    tips_html = "\n".join(f"          <li>{t}</li>" for t in ext.get("buyer_tips", []))
+    rent_vs_buy = ext.get(
+        "rent_vs_buy",
+        f"Compare rent and buy with your stay timeline in {data['name']}. Run both sides in our rent vs buy tool before you size up.",
+    )
+    toc_list_html = build_state_toc_html(slug, ext)
+    col_link = data.get("col_link", "/living/housing/cost-of-living-by-city")
+    salary_link = data.get("salary_link", "/living/lifestyle/comfortable-salary-us")
+    rent_link = data.get("rent_link", "/rent-vs-buy-calculator")
+    tax_link = data.get("tax_link", f"/hourly-to-salary-after-tax/state/{slug}/")
+
     return f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Can You Afford a Home in {data['name']}? Here's What Your Income Buys (2026) | Income Clarity</title>
-  <meta name="description" content="How much house can you afford in {data['name']}? Median price {fmt(data['median_price'])}, local tax and insurance, salary needed, and city breakdowns with calculator.">
+  <title>How Much House Can You Afford in {data['name']}? Income, Tax &amp; City Guide (2026) | Income Clarity</title>
+  <meta name="description" content="How much house can you afford in {data['name']}? Median price {fmt(data['median_price'])}, salary tiers, property tax, insurance, city breakdowns, and free PITI calculator.">
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/how-much-house-can-i-afford/{slug}">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="icon" type="image/png" href="/images/logo.png">
   <link rel="apple-touch-icon" href="/images/logo.png">
+  <script type="application/ld+json">{json.dumps(faq_schema, ensure_ascii=False)}</script>
 {URL_SCRIPT}
 </head>
-<body class="ha-page living-tool-page">
+<body class="ha-page living-tool-page ha-city-page">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
@@ -381,7 +579,7 @@ def state_page(slug, data):
     </div>
   </header>
   <main>
-    <section class="ha-hero" aria-labelledby="ha-title">
+    <section class="ha-hero" id="ha-calculator" aria-labelledby="ha-title">
       <div class="container">
         <nav class="take-home-return-nav" aria-label="Breadcrumb">
           <ol class="take-home-return-breadcrumbs">
@@ -391,59 +589,110 @@ def state_page(slug, data):
         </nav>
         <span class="label">Living · {data['name']}</span>
         <h1 id="ha-title">How Much House Can You Afford in {data['name']}?</h1>
-        <p class="lead">{data['insight']} Use the calculator with {data['name']} tax and insurance defaults. Then open a city page for local median prices.</p>
+        <p class="lead">{data['insight']} Run the calculator — this page also has salary tiers, city comparisons, and {data['name']} buyer guides.</p>
+        <div class="ha-hero-grid">
         <div class="ha-calc-shell">
-          <form id="ha-calc-form" class="ha-calc-form" aria-label="{data['name']} house affordability">
-            <label class="ha-calc__field"><span>Annual income</span><input type="number" id="ha-income" min="20000" step="1000" value="{data['median_income']}" required></label>
+          <form id="ha-calc-form" class="ha-calc-form" aria-label="{data['name']} house affordability calculator">
+            <label class="ha-calc__field"><span>Annual income ($)</span><input type="number" id="ha-income" min="20000" step="1000" value="{data['median_income']}" required></label>
             <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" min="0" step="25" value="300" required></label>
             <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" min="0" step="5000" value="{down_default}" required></label>
             <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" min="2" max="15" step="0.05" value="6.5" required></label>
             <input type="hidden" id="ha-location" value="{slug}">
-            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate</button></div>
+            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate max home price</button></div>
           </form>
           <div id="ha-calc-results" class="ha-results" hidden aria-live="polite"></div>
+        </div>
+      <aside class="ha-city-toc ha-city-toc--hero" id="ha-toc">
+        <div class="ha-city-toc__card">
+          <button type="button" class="ha-city-toc__toggle" aria-expanded="true" aria-controls="ha-toc-panel">
+            <span class="ha-city-toc__toggle-text">
+              <span class="ha-city-toc__title">On this page</span>
+              <span class="ha-city-toc__kicker">City guides, salary tiers, tax breakdown &amp; more</span>
+            </span>
+            <svg class="ha-city-toc__toggle-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <nav class="ha-city-toc__panel" id="ha-toc-panel" aria-label="On this page">
+            <ul class="ha-city-toc__list">
+{toc_list_html}
+            </ul>
+          </nav>
+        </div>
+      </aside>
         </div>
         <div class="ha-city-chips" aria-label="Cities in {data['name']}">
           {cities_html}
         </div>
       </div>
     </section>
-    <section class="ha-section">
+
+    <section class="ha-section" id="ha-local-stats" aria-labelledby="ha-glance-title">
       <div class="container content-page">
-        <h2>{data['name']} at a glance</h2>
-        <div class="debt-stats-grid">
-          <div class="debt-stat-block"><span class="debt-stat-value">{fmt(data['median_price'])}</span><span class="debt-stat-label">Median home price (approx.)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">{fmt(data['median_income'])}</span><span class="debt-stat-label">Median household income</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">{data['tax_pct']}%</span><span class="debt-stat-label">Typical property tax rate</span></div>
+        <h2 id="ha-glance-title">{data['name']} home affordability at a glance</h2>
+        <p class="ha-section__lead">Planning figures for {data['name']}. Your lender quote and tax bill may differ — use these as a starting point, then open a city page for local medians.</p>
+        <div class="ha-glance-grid">
+          <div class="ha-glance-card"><span class="ha-glance-card__n">{fmt(data['median_price'])}</span><span class="ha-glance-card__l">Median home price</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">{fmt(data['median_income'])}</span><span class="ha-glance-card__l">Median household income</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">{fmt(income_needed)}+</span><span class="ha-glance-card__l">Rough gross for median (3× rule)</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">{fmt(int(piti['piti']))}/mo</span><span class="ha-glance-card__l">Est. PITI on median (20% down)</span></div>
         </div>
-        <p>On a {fmt(data['median_price'])} home, tax near {data['tax_pct']}% is about <strong>{fmt(tax_month)}/month</strong>. Insurance near {data['ins_pct']}% of value is about <strong>{fmt(ins_month)}/month</strong>. HOA is about <strong>{fmt(data['hoa'])}/month</strong> where it applies.</p>
+        <p>On a median {fmt(data['median_price'])} home, property tax near {data['tax_pct']}% is about <strong>{fmt(tax_month)}/month</strong>. Insurance near {data['ins_pct']}% of value is about <strong>{fmt(ins_month)}/month</strong>. HOA is about <strong>{fmt(data['hoa'])}/month</strong> where it applies.</p>
         <p>{salary_blurb}</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Use the calculator with your real income and debts. If the stress label is <strong>Stretched</strong>, open a city page — inland or smaller metros may fit where the state median does not.</p>
+          <p>Use the calculator with your real income and debts. If the stress label is <strong>Stretched</strong>, open a city page — smaller metros may fit where the state median does not.</p>
         </aside>
         <p>Compare with <a href="/living/housing/how-much-house-can-i-afford/{data['compare_slug']}">{data['compare']}</a>: {data['compare_note']}</p>
-        <p><a href="{data['tax_link']}">{data['name']} take-home pay</a> · <a href="{data['rent_link']}">Rent vs buy</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
       </div>
     </section>
-    <section class="ha-section" aria-labelledby="ha-col-links-{slug}">
+
+    <section class="ha-section ha-section--tone" id="ha-piti-breakdown" aria-labelledby="ha-piti-title">
       <div class="container content-page">
-        <h2 id="ha-col-links-{slug}">Living costs in {data['name']}</h2>
-        <p class="ha-section__lead">Home price is one line. Rent, groceries, tax, and salary needs shape whether a payment feels comfortable.</p>
-        <ul class="col-related__list">
-          <li><a href="{data.get('col_link', '/living/housing/cost-of-living-by-city')}">Cost of living in {data['name']}</a></li>
-          <li><a href="/living/housing/how-much-rent-can-i-afford">Rent affordability in {data['name']}</a></li>
-          <li><a href="{data.get('salary_link', '/living/lifestyle/comfortable-salary-us')}">Comfortable salary in {data['name']}</a></li>
-        </ul>
+        <h2 id="ha-piti-title">Monthly payment breakdown on a median {data['name']} home</h2>
+        <p class="ha-section__lead">Estimated PITI at {fmt(data['median_price'])} list, 20% down, 6.5% rate, and {data['name']} tax and insurance defaults.</p>
+        <div class="ha-piti-visual">
+          <div class="ha-piti-visual__total">
+            <span class="ha-results__label">Estimated monthly PITI</span>
+            <p class="ha-results__price">{fmt(int(piti['piti']))}<span>/mo</span></p>
+          </div>
+          <div class="ha-piti-bars">
+            <div class="ha-piti-bar-row"><span>Principal &amp; interest</span><div class="ha-piti-bar"><span style="width:{piti['pct']['mortgage']}%"></span></div><span>{fmt(int(piti['mortgage']))}</span></div>
+            <div class="ha-piti-bar-row"><span>Property tax</span><div class="ha-piti-bar"><span style="width:{piti['pct']['tax']}%"></span></div><span>{fmt(int(piti['tax']))}</span></div>
+            <div class="ha-piti-bar-row"><span>Insurance</span><div class="ha-piti-bar"><span style="width:{piti['pct']['ins']}%"></span></div><span>{fmt(int(piti['ins']))}</span></div>
+            <div class="ha-piti-bar-row"><span>HOA</span><div class="ha-piti-bar"><span style="width:{max(piti['pct']['hoa'], 4)}%"></span></div><span>{fmt(int(piti['hoa']))}</span></div>
+          </div>
+        </div>
+        <p>In {data['name']}, buyers who only compare list price to income miss tax and insurance. Run the calculator with your real debts — the 36% back-end rule includes car loans and cards.</p>
       </div>
     </section>
-    <section class="ha-section">
+
+    <section class="ha-section" id="ha-income-tiers" aria-labelledby="ha-tiers-title">
       <div class="container content-page">
-        <h2>Top cities in {data['name']}</h2>
+        <h2 id="ha-tiers-title">How much house can you afford in {data['name']} by salary?</h2>
+        <p class="ha-section__lead">Max home price at common gross salaries, 6.5% rate, $300/month other debt, and {data['name']} tax and insurance defaults.</p>
+        <div class="ha-compare-table-wrap">
+          <table class="debt-data-table ha-tier-table">
+            <caption>Affordable home price by gross annual income in {data['name']}</caption>
+            <thead><tr><th scope="col">Gross salary</th><th scope="col">Max home (est.)</th><th scope="col">Stress</th></tr></thead>
+            <tbody>
+{tier_table}
+            </tbody>
+          </table>
+        </div>
+        <p>These rows assume no down payment in the solver — your down payment raises what you can buy. City medians vary — open Houston, Dallas, or your target city for local numbers.</p>
+        <p><a href="{tax_link}">{data['name']} take-home pay calculator</a> · <a href="{salary_link}">Comfortable salary in {data['name']}</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-cities" aria-labelledby="ha-cities-title">
+      <div class="container content-page">
+        <h2 id="ha-cities-title">Top cities in {data['name']} for home buyers</h2>
         <p class="ha-section__lead">Median price and income vary a lot inside one state. Pick your city for local tax, insurance, and a prefilled calculator.</p>
+        <div class="ha-state-grid">
+{city_cards}
+        </div>
         <div class="ha-compare-table-wrap">
           <table class="debt-data-table">
-            <caption>Median price, income, and affordability pressure by city</caption>
+            <caption>Median price, income, and affordability pressure by city in {data['name']}</caption>
             <thead><tr><th scope="col">City</th><th scope="col">Median price</th><th scope="col">Median income</th><th scope="col">Pressure</th></tr></thead>
             <tbody>
 {city_rows}
@@ -452,22 +701,91 @@ def state_page(slug, data):
         </div>
       </div>
     </section>
-    <section class="ha-faq-section">
+
+    <section class="ha-section" id="ha-rules" aria-labelledby="ha-rules-title">
       <div class="container content-page">
-        <h2>FAQ — {data['name']}</h2>
+        <h2 id="ha-rules-title">The 28/36 rule in {data['name']}</h2>
+        <p class="ha-section__lead">Lenders often use two caps. Our calculator applies both so you see a realistic max — not just what a bank might pre-approve.</p>
+        <div class="ha-rules-grid">
+          <article class="ha-rules-card">
+            <h3>28% front-end</h3>
+            <p>Your full housing payment — mortgage, tax, insurance, and HOA — should stay near or below 28% of gross monthly income. In {data['name']}, tax and insurance often move the stress meter before list price does.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>36% back-end</h3>
+            <p>All monthly debt plus housing should stay near or below 36% of gross income. Car loans and student debt shrink your max home price even when income is strong.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>Stress meter</h3>
+            <p>We label results Comfortable, Moderate, Stretched, or Over limit. Shop below your max if you want room for repairs, childcare, or savings.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-narrative-{slug}" aria-labelledby="ha-narrative-title-{slug}">
+      <div class="container content-page">
+        <h2 id="ha-narrative-title-{slug}">Buying a home in {data['name']}: what to know</h2>
+{state_narrative}
+{extra_narrative}
+        <aside class="what-this-means" role="note">
+          <p class="what-this-means__title">What this means for you</p>
+          <p>The state median is a blend — your target city may sit far above or below. Open a city page before you set a max offer price.</p>
+        </aside>
+      </div>
+    </section>
+{long_tail_html}
+    <section class="ha-section" id="ha-rent-buy" aria-labelledby="ha-rent-buy-title">
+      <div class="container content-page">
+        <h2 id="ha-rent-buy-title">Rent vs buy in {data['name']}</h2>
+        <p>{rent_vs_buy}</p>
+        <p><a href="{rent_link}">Rent vs buy calculator</a> · <a href="/living/housing/how-much-rent-can-i-afford">How much rent can I afford?</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-tips" aria-labelledby="ha-tips-title">
+      <div class="container content-page">
+        <h2 id="ha-tips-title">First-time buyer tips in {data['name']}</h2>
+        <ul class="ha-tips-list">
+{tips_html}
+        </ul>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-related" aria-labelledby="ha-related-title">
+      <div class="container content-page">
+        <h2 id="ha-related-title">Related tools for {data['name']} buyers</h2>
+        <div class="ha-related-grid">
+          <a class="ha-related-card" href="{col_link}"><span>Cost of living</span><strong>{data['name']} COL guide →</strong></a>
+          <a class="ha-related-card" href="{salary_link}"><span>Comfortable salary</span><strong>{data['name']} salary target →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford"><span>US calculator</span><strong>National affordability →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford/{data['compare_slug']}"><span>Compare states</span><strong>{data['compare']} affordability →</strong></a>
+        </div>
+        <ul class="col-related__list">
+          <li><a href="{col_link}">Cost of living in {data['name']}</a></li>
+          <li><a href="/living/housing/how-much-rent-can-i-afford">Rent affordability in {data['name']}</a></li>
+          <li><a href="{tax_link}">{data['name']} take-home pay</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ha-faq-section" id="ha-faq">
+      <div class="container content-page">
+        <h2>FAQ — how much house can I afford in {data['name']}?</h2>
         <div class="faq-stack">
 {faq_html}
         </div>
       </div>
     </section>
+
     <div class="container content-page">
       <aside class="eeat-trust" aria-labelledby="eeat-{slug}-title">
         <header class="eeat-trust__header">
           <span class="eeat-trust__kicker">How we built this</span>
           <h2 id="eeat-{slug}-title" class="eeat-trust__title">{data['name']} affordability data</h2>
-          <p class="eeat-trust__meta"><time datetime="2026-05-27">Last reviewed: May 27, 2026</time> · <a href="/methodology#affordability">Methodology</a></p>
+          <p class="eeat-trust__meta"><time datetime="2026-06-01">Last reviewed: June 1, 2026</time> · <a href="/methodology#affordability">Methodology</a></p>
         </header>
-        <p>Medians are rounded planning figures from public listing and census sources. Tax and insurance use state defaults — your quote may differ. This is not a loan offer.</p>
+        <p>Median prices, tax, and insurance are rounded planning figures from public listing and census sources. Your quote and lender rules may differ. This is not a loan offer or tax advice.</p>
       </aside>
     </div>
   </main>
@@ -477,6 +795,7 @@ def state_page(slug, data):
     </div>
   </footer>
   <script src="/house-afford.js"></script>
+  <script src="/page-toc.js" defer></script>
   <script>
     HouseAfford.bindForm({{ stateSlug: '{slug}', defaultRegion: '{slug}', runOnLoad: true }});
   </script>
@@ -485,42 +804,128 @@ def state_page(slug, data):
 """
 
 
+def toc_label(text: str, max_len: int = 52) -> str:
+    if len(text) <= max_len:
+        return text
+    return text[: max_len - 1].rstrip() + "…"
+
+
+def build_city_toc_html(city_slug: str, ext: dict) -> str:
+    entries: list[tuple[str, str, str | None]] = [
+        ("ha-calculator", "Affordability calculator", None),
+        ("ha-local-stats", "At a glance", None),
+        ("ha-piti-breakdown", "Payment breakdown", None),
+        ("ha-income-tiers", "Salary tiers", None),
+        ("ha-neighborhoods", "Neighborhoods", None),
+        ("ha-rules", "28/36 rule", "Local guides"),
+        (f"ha-narrative-{city_slug}", "Local context", None),
+    ]
+    for i, block in enumerate(ext.get("long_tail", [])):
+        entries.append((f"ha-lt-{city_slug}-{i}", toc_label(block["h2"]), None))
+    entries.extend([
+        ("ha-rent-buy", "Rent vs buy", None),
+        ("ha-tips", "First-time buyer tips", None),
+        ("ha-related", "Related tools", "More"),
+        ("ha-faq", "FAQ", None),
+    ])
+    rows: list[str] = []
+    current_group = None
+    for anchor_id, label, group in entries:
+        if group and group != current_group:
+            rows.append(f'          <li class="ha-city-toc__group" aria-hidden="true">{group}</li>')
+            current_group = group
+        rows.append(
+            f'          <li><a href="#{anchor_id}" class="ha-city-toc__link" data-ha-toc-link>{label}</a></li>'
+        )
+    return "\n".join(rows)
+
+
 def city_page(state_slug, state_data, city_slug, city):
     down = int(city["median_price"] * 0.2)
     income_needed = int(city["median_price"] / 3.2)
     local_note = city.get("local_note", city["pressure"])
-    city_faqs = city.get("faqs", [])
+    ext = EXTENDED.get((state_slug, city_slug), {})
+    all_faqs = list(city.get("faqs", [])) + ext.get("extra_faqs", [])
     faq_html = "\n".join(
         f'          <article class="faq-item"><h3>{q}</h3><p>{a}</p></article>'
-        for q, a in city_faqs
+        for q, a in all_faqs
     )
+    faq_schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in all_faqs],
+    }
     tax_month = int(city["median_price"] * city["tax_pct"] / 100 / 12)
     ins_month = int(city["median_price"] * city["ins_pct"] / 100 / 12)
-    other_cities = [
-        (cs, c["name"])
-        for cs, c in state_data["cities"].items()
-        if cs != city_slug
-    ]
+    piti = median_piti(city)
+    tier_rows = income_tier_rows(city)
+    other_cities = [(cs, c["name"]) for cs, c in state_data["cities"].items() if cs != city_slug]
     sibling_links = " · ".join(
         f'<a href="/living/housing/how-much-house-can-i-afford/{state_slug}/{cs}">{name}</a>'
         for cs, name in other_cities
     )
     city_narrative = paragraphs_html(city.get("narrative", []))
+    extra_narrative = paragraphs_html(ext.get("extra_narrative", []))
+    rent_vs_buy = ext.get("rent_vs_buy", f"Compare rent and buy with your stay timeline. {state_data['name']} has no one-size answer — run the numbers for your zip and rate.")
+    col_link = ext.get("col_link", f"/living/housing/cost-of-living-by-city/{state_slug}/{city_slug}")
+    salary_link = ext.get("salary_link", state_data.get("salary_link", "/living/lifestyle/comfortable-salary-us"))
+    rent_link = state_data.get("rent_link", "/rent-vs-buy-calculator")
+    tax_link = state_data.get("tax_link", f"/hourly-to-salary-after-tax/state/{state_slug}/")
+    scenario_links = ext.get("scenario_links", [])
+
+    neighborhoods = ext.get("neighborhoods", [])
+    nh_cards = "\n".join(
+        f"""          <article class="ha-nh-card">
+            <h3>{n['name']}</h3>
+            <p class="ha-nh-card__range">{n['range']}</p>
+            <p>{n['note']}</p>
+          </article>"""
+        for n in neighborhoods
+    )
+
+    tier_table = "\n".join(
+        f"""              <tr>
+                <td>{fmt(gross)}</td>
+                <td>{fmt(price)}</td>
+                <td><span class="ha-results__stress {cls}">{label}</span></td>
+              </tr>"""
+        for gross, price, label, cls in tier_rows
+    )
+
+    long_tail_html = ""
+    for i, block in enumerate(ext.get("long_tail", [])):
+        sid = f"ha-lt-{city_slug}-{i}"
+        long_tail_html += f"""
+      <section class="ha-section ha-section--alt" id="{sid}" aria-labelledby="{sid}-title">
+        <div class="container content-page">
+          <h2 id="{sid}-title">{block['h2']}</h2>
+{paragraphs_html(block['paras'], indent="          ")}
+        </div>
+      </section>"""
+
+    tips_html = "\n".join(f"          <li>{t}</li>" for t in ext.get("buyer_tips", []))
+    scenario_html = "\n".join(
+        f'          <a class="ha-related-card" href="{href}"><span>{label}</span><strong>Salary scenario →</strong></a>'
+        for label, href in scenario_links
+    )
+    toc_list_html = build_city_toc_html(city_slug, ext)
+
     return f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Can You Afford a Home in {city['name']}? What {state_data['name']} Buyers Actually Need (2026) | Income Clarity</title>
-  <meta name="description" content="Afford a home in {city['name']}? Median price {fmt(city['median_price'])}, income near {fmt(city['median_income'])}, local tax, insurance, and payment calculator.">
+  <title>How Much House Can You Afford in {city['name']}? Income, Payment &amp; Local Costs (2026) | Income Clarity</title>
+  <meta name="description" content="How much house can you afford in {city['name']}, {state_data['name']}? Median price {fmt(city['median_price'])}, salary tiers, property tax, insurance, HOA, and a free PITI calculator.">
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/how-much-house-can-i-afford/{state_slug}/{city_slug}">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="icon" type="image/png" href="/images/logo.png">
   <link rel="apple-touch-icon" href="/images/logo.png">
+  <script type="application/ld+json">{json.dumps(faq_schema, ensure_ascii=False)}</script>
 {URL_SCRIPT}
 </head>
-<body class="ha-page living-tool-page">
+<body class="ha-page living-tool-page ha-city-page">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
@@ -528,11 +933,12 @@ def city_page(state_slug, state_data, city_slug, city):
         <a href="/hourly-to-salary-after-tax">Income</a>
         <a href="/debt">Debt</a>
         <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
       </nav>
     </div>
   </header>
   <main>
-    <section class="ha-hero">
+    <section class="ha-hero" id="ha-calculator">
       <div class="container">
         <nav class="take-home-return-nav" aria-label="Breadcrumb">
           <ol class="take-home-return-breadcrumbs">
@@ -543,59 +949,197 @@ def city_page(state_slug, state_data, city_slug, city):
         </nav>
         <span class="label">{city['name']} · {state_data['name']}</span>
         <h1>How Much House Can You Afford in {city['name']}?</h1>
-        <p class="lead">Median home near <strong>{fmt(city['median_price'])}</strong>. Typical household income near <strong>{fmt(city['median_income'])}</strong>. {city['pressure']} Calculator below uses {city['name']} tax and insurance defaults.</p>
+        <p class="lead">Median home near <strong>{fmt(city['median_price'])}</strong>. Typical income near <strong>{fmt(city['median_income'])}</strong>. {city['pressure']} Run the calculator — this page also has salary tiers, neighborhood prices, and local buyer guides.</p>
+        <div class="ha-hero-grid">
         <div class="ha-calc-shell">
-          <form id="ha-calc-form" class="ha-calc-form">
-            <label class="ha-calc__field"><span>Annual income</span><input type="number" id="ha-income" value="{city['median_income']}" required></label>
-            <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" value="300" required></label>
-            <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" value="{down}" required></label>
-            <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" value="6.5" step="0.05" required></label>
+          <form id="ha-calc-form" class="ha-calc-form" aria-label="{city['name']} house affordability calculator">
+            <label class="ha-calc__field"><span>Annual income ($)</span><input type="number" id="ha-income" min="20000" step="1000" value="{city['median_income']}" required></label>
+            <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" min="0" step="25" value="300" required></label>
+            <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" min="0" step="5000" value="{down}" required></label>
+            <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" min="2" max="15" step="0.05" value="6.5" required></label>
             <input type="hidden" id="ha-location" value="{state_slug}">
-            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate</button></div>
+            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate max home price</button></div>
           </form>
           <div id="ha-calc-results" class="ha-results" hidden aria-live="polite"></div>
         </div>
+      <aside class="ha-city-toc ha-city-toc--hero" id="ha-toc">
+        <div class="ha-city-toc__card">
+          <button type="button" class="ha-city-toc__toggle" aria-expanded="true" aria-controls="ha-toc-panel">
+            <span class="ha-city-toc__toggle-text">
+              <span class="ha-city-toc__title">On this page</span>
+              <span class="ha-city-toc__kicker">Guides, salary tiers, neighborhoods &amp; more</span>
+            </span>
+            <svg class="ha-city-toc__toggle-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <nav class="ha-city-toc__panel" id="ha-toc-panel" aria-label="On this page">
+            <ul class="ha-city-toc__list">
+{toc_list_html}
+            </ul>
+          </nav>
+        </div>
+      </aside>
+        </div>
       </div>
     </section>
-    <section class="ha-section">
+
+    <section class="ha-section" id="ha-local-stats" aria-labelledby="ha-glance-title">
       <div class="container content-page">
-        <h2>Local numbers for {city['name']}</h2>
-        <div class="debt-stats-grid">
-          <div class="debt-stat-block"><span class="debt-stat-value">{fmt(city['median_price'])}</span><span class="debt-stat-label">Median home price</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">{fmt(income_needed)}+</span><span class="debt-stat-label">Rough gross income for median home (3× rule)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">{city['tax_pct']}%</span><span class="debt-stat-label">Property tax (effective)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">{city['ins_pct']}%</span><span class="debt-stat-label">Insurance (of home value / yr)</span></div>
+        <h2 id="ha-glance-title">{city['name']} home affordability at a glance</h2>
+        <p class="ha-section__lead">Planning figures for {city['name']}, {state_data['name']}. Your lender quote and tax bill may differ — use these as a starting point.</p>
+        <div class="ha-glance-grid">
+          <div class="ha-glance-card"><span class="ha-glance-card__n">{fmt(city['median_price'])}</span><span class="ha-glance-card__l">Median home price</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">{fmt(city['median_income'])}</span><span class="ha-glance-card__l">Median household income</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">{fmt(income_needed)}+</span><span class="ha-glance-card__l">Rough gross for median (3× rule)</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">{fmt(int(piti['piti']))}/mo</span><span class="ha-glance-card__l">Est. PITI on median (20% down)</span></div>
         </div>
-        <p>On a median {fmt(city['median_price'])} home, tax near {city['tax_pct']}% is about <strong>{fmt(tax_month)}/month</strong>. Insurance near {city['ins_pct']}% is about <strong>{fmt(ins_month)}/month</strong>. HOA near <strong>{fmt(city['hoa'])}/month</strong> where it applies.</p>
+        <p>On a median {fmt(city['median_price'])} home, property tax near {city['tax_pct']}% is about <strong>{fmt(tax_month)}/month</strong>. Insurance near {city['ins_pct']}% of value is about <strong>{fmt(ins_month)}/month</strong>. HOA is about <strong>{fmt(city['hoa'])}/month</strong> where it applies.</p>
         <p>{local_note}</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Change income, debt, and down payment in the calculator. Compare with {sibling_links}.</p>
+          <p>Change income, debt, and down payment in the calculator above. Compare with {sibling_links}.</p>
         </aside>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--tone" id="ha-piti-breakdown" aria-labelledby="ha-piti-title">
+      <div class="container content-page">
+        <h2 id="ha-piti-title">Monthly payment breakdown on a median {city['name']} home</h2>
+        <p class="ha-section__lead">Estimated PITI at {fmt(city['median_price'])} list, 20% down, 6.5% rate, and {city['name']} tax and insurance defaults. Principal and interest are the largest line — but tax, insurance, and HOA still move the stress meter.</p>
+        <div class="ha-piti-visual">
+          <div class="ha-piti-visual__total">
+            <span class="ha-results__label">Estimated monthly PITI</span>
+            <p class="ha-results__price">{fmt(int(piti['piti']))}<span>/mo</span></p>
+          </div>
+          <div class="ha-piti-bars">
+            <div class="ha-piti-bar-row"><span>Principal &amp; interest</span><div class="ha-piti-bar"><span style="width:{piti['pct']['mortgage']}%"></span></div><span>{fmt(int(piti['mortgage']))}</span></div>
+            <div class="ha-piti-bar-row"><span>Property tax</span><div class="ha-piti-bar"><span style="width:{piti['pct']['tax']}%"></span></div><span>{fmt(int(piti['tax']))}</span></div>
+            <div class="ha-piti-bar-row"><span>Insurance</span><div class="ha-piti-bar"><span style="width:{piti['pct']['ins']}%"></span></div><span>{fmt(int(piti['ins']))}</span></div>
+            <div class="ha-piti-bar-row"><span>HOA</span><div class="ha-piti-bar"><span style="width:{max(piti['pct']['hoa'], 4)}%"></span></div><span>{fmt(int(piti['hoa']))}</span></div>
+          </div>
+        </div>
+        <p>In {city['name']}, buyers who only compare list price to income miss tax and insurance. Run the calculator with your real debts — the 36% back-end rule includes car loans and cards.</p>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-income-tiers" aria-labelledby="ha-tiers-title">
+      <div class="container content-page">
+        <h2 id="ha-tiers-title">How much house can you afford in {city['name']} by salary?</h2>
+        <p class="ha-section__lead">Max home price at common gross salaries, 6.5% rate, $300/month other debt, and {city['name']} tax and insurance. Stress label uses the 28% housing cap.</p>
+        <div class="ha-compare-table-wrap">
+          <table class="debt-data-table ha-tier-table">
+            <caption>Affordable home price by gross annual income in {city['name']}</caption>
+            <thead><tr><th scope="col">Gross salary</th><th scope="col">Max home (est.)</th><th scope="col">Stress</th></tr></thead>
+            <tbody>
+{tier_table}
+            </tbody>
+          </table>
+        </div>
+        <p>These rows assume no down payment in the solver — your down payment raises what you can buy. Enter your real numbers in the calculator for a personal max.</p>
+        <p><a href="{tax_link}">{state_data['name']} take-home pay calculator</a> · <a href="{salary_link}">Comfortable salary in {city['name']}</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-neighborhoods" aria-labelledby="ha-nh-title">
+      <div class="container content-page">
+        <h2 id="ha-nh-title">{city['name']} home prices by area</h2>
+        <p class="ha-section__lead">The citywide median blends expensive and affordable pockets. Use these ranges as a map — not a guarantee for any one listing.</p>
+        <div class="ha-nh-grid">
+{nh_cards}
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-rules" aria-labelledby="ha-rules-title">
+      <div class="container content-page">
+        <h2 id="ha-rules-title">The 28/36 rule in {city['name']}</h2>
+        <p class="ha-section__lead">Lenders often use two caps. Our calculator applies both so you see a realistic max — not just what a bank might pre-approve.</p>
+        <div class="ha-rules-grid">
+          <article class="ha-rules-card">
+            <h3>28% front-end</h3>
+            <p>Your full housing payment — mortgage, tax, insurance, and HOA — should stay near or below 28% of gross monthly income. In {city['name']}, insurance and HOA often push buyers over this line before list price does.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>36% back-end</h3>
+            <p>All monthly debt plus housing should stay near or below 36% of gross income. A $400 car payment and $250 in student loans shrink your max home price even when income is strong.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>Stress meter</h3>
+            <p>We label results Comfortable, Moderate, Stretched, or Over limit. Shop below your max if you want room for repairs, childcare, or savings — especially in {state_data['name']} where tax and insurance vary by block.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-narrative-{city_slug}" aria-labelledby="ha-narrative-title-{city_slug}">
+      <div class="container content-page">
+        <h2 id="ha-narrative-title-{city_slug}">Buying a home in {city['name']}: local context</h2>
+{city_narrative}
+{extra_narrative}
+        <aside class="what-this-means" role="note">
+          <p class="what-this-means__title">What this means for you</p>
+          <p>Run the calculator twice — once at list price and once $50k below — to see how fast the stress label changes in {city['name']}.</p>
+        </aside>
+      </div>
+    </section>
+{long_tail_html}
+    <section class="ha-section" id="ha-rent-buy" aria-labelledby="ha-rent-buy-title">
+      <div class="container content-page">
+        <h2 id="ha-rent-buy-title">Rent vs buy in {city['name']}</h2>
+        <p>{rent_vs_buy}</p>
+        <p><a href="{rent_link}">Rent vs buy calculator</a> · <a href="/living/housing/how-much-rent-can-i-afford">How much rent can I afford?</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-tips" aria-labelledby="ha-tips-title">
+      <div class="container content-page">
+        <h2 id="ha-tips-title">First-time buyer tips in {city['name']}</h2>
+        <ul class="ha-tips-list">
+{tips_html}
+        </ul>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-related" aria-labelledby="ha-related-title">
+      <div class="container content-page">
+        <h2 id="ha-related-title">Related tools for {city['name']}</h2>
+        <div class="ha-related-grid">
+          <a class="ha-related-card" href="{col_link}"><span>Cost of living</span><strong>{city['name']} COL guide →</strong></a>
+          <a class="ha-related-card" href="{salary_link}"><span>Comfortable salary</span><strong>{city['name']} salary target →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford/{state_slug}"><span>{state_data['name']} overview</span><strong>All {state_data['name']} cities →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford"><span>US calculator</span><strong>National affordability →</strong></a>
+{scenario_html}
+        </div>
         <p><a href="/living/housing/how-much-house-can-i-afford/{state_slug}">All {state_data['name']} cities</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
       </div>
     </section>
-    <section class="ha-section" aria-labelledby="ha-city-narrative-{city_slug}">
+
+    <section class="ha-faq-section" id="ha-faq">
       <div class="container content-page">
-        <h2 id="ha-city-narrative-{city_slug}">Affordability in {city['name']}: local context</h2>
-{city_narrative}
-        <aside class="what-this-means" role="note">
-          <p class="what-this-means__title">What this means for you</p>
-          <p>Your max price drops when debt is high or insurance is above our default. Run the calculator twice — once at list price and once $50k below — to see the stress change.</p>
-        </aside>
-      </div>
-    </section>
-    <section class="ha-faq-section">
-      <div class="container content-page">
-        <h2>FAQ — {city['name']}</h2>
+        <h2>FAQ — how much house can I afford in {city['name']}?</h2>
         <div class="faq-stack">
 {faq_html}
         </div>
       </div>
     </section>
+
+    <div class="container content-page">
+      <aside class="eeat-trust" aria-labelledby="eeat-{city_slug}-title">
+        <header class="eeat-trust__header">
+          <span class="eeat-trust__kicker">How we built this</span>
+          <h2 id="eeat-{city_slug}-title" class="eeat-trust__title">{city['name']} affordability data</h2>
+          <p class="eeat-trust__meta"><time datetime="2026-06-01">Last reviewed: June 1, 2026</time> · <a href="/methodology#affordability">Methodology</a></p>
+        </header>
+        <p>Median prices, tax, and insurance are rounded planning figures from public listing and census sources. Your quote and lender rules may differ. This is not a loan offer or tax advice.</p>
+      </aside>
+    </div>
   </main>
-  <footer class="site-footer"><div class="container"><p class="footer-copy">© 2026 IncomeClarityLab</p></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
   <script src="/house-afford.js"></script>
+  <script src="/page-toc.js" defer></script>
   <script>
     HouseAfford.bindForm({{
       stateSlug: '{state_slug}',
@@ -609,15 +1153,41 @@ def city_page(state_slug, state_data, city_slug, city):
 
 
 def main():
+    issues = []
     for slug, data in STATES.items():
         state_dir = BASE / slug
         state_dir.mkdir(parents=True, exist_ok=True)
-        (state_dir / "index.html").write_text(state_page(slug, data), encoding="utf-8")
+        state_html = state_page(slug, data)
+        (state_dir / "index.html").write_text(state_html, encoding="utf-8")
+        state_words = visible_text_words(state_html)
+        state_text = re.sub(r"<script[\s\S]*?</script>", " ", state_html, flags=re.I)
+        state_text = re.sub(r"<[^>]+>", " ", state_text)
+        state_fre = flesch_reading_ease(state_text)
+        if state_words < 1200:
+            issues.append(f"{slug} (state): {state_words} words (need 1200+)")
+        if state_fre < 60:
+            issues.append(f"{slug} (state): FRE {state_fre:.1f} (need 60+)")
+        print(f"  {slug} (state): {state_words} words, FRE {state_fre:.1f}")
         for cs, city in data["cities"].items():
             city_dir = state_dir / cs
             city_dir.mkdir(parents=True, exist_ok=True)
-            (city_dir / "index.html").write_text(city_page(slug, data, cs, city), encoding="utf-8")
+            html = city_page(slug, data, cs, city)
+            (city_dir / "index.html").write_text(html, encoding="utf-8")
+            words = visible_text_words(html)
+            text = re.sub(r"<script[\s\S]*?</script>", " ", html, flags=re.I)
+            text = re.sub(r"<[^>]+>", " ", text)
+            fre = flesch_reading_ease(text)
+            if words < 1200:
+                issues.append(f"{slug}/{cs}: {words} words (need 1200+)")
+            if fre < 60:
+                issues.append(f"{slug}/{cs}: FRE {fre:.1f} (need 60+)")
+            print(f"  {slug}/{cs}: {words} words, FRE {fre:.1f}")
         print(f"Wrote {slug} + {len(data['cities'])} cities")
+    if issues:
+        print("\nValidation issues:")
+        for i in issues:
+            print(f"  - {i}")
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":

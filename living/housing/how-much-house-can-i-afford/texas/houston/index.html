@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Can You Afford a Home in Houston? What Texas Buyers Actually Need (2026) | Income Clarity</title>
-  <meta name="description" content="Median prices in Houston don't tell your story. Run your income through the 28% rule and see what monthly payment — and home price — you can actually carry.">
+  <title>How Much House Can You Afford in Houston? Income, Payment &amp; Local Costs (2026) | Income Clarity</title>
+  <meta name="description" content="How much house can you afford in Houston, Texas? Median price $310,000, salary tiers, property tax, insurance, HOA, and a free PITI calculator.">
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/how-much-house-can-i-afford/texas/houston">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="icon" type="image/png" href="/images/logo.png">
   <link rel="apple-touch-icon" href="/images/logo.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much house can I afford in Houston on $80k?", "acceptedAnswer": {"@type": "Answer", "text": "About $1,867 a month at 28%. That often fits a home near $250k–$290k with 20% down."}}, {"@type": "Question", "name": "Is Houston cheaper than Austin?", "acceptedAnswer": {"@type": "Answer", "text": "Yes on median price. Austin wages are higher but list prices rose faster."}}, {"@type": "Question", "name": "Is Houston cheaper than Austin?", "acceptedAnswer": {"@type": "Answer", "text": "Yes on median price. Austin wages are higher but list prices rose faster in the 2020s."}}, {"@type": "Question", "name": "Do I need flood insurance in Houston?", "acceptedAnswer": {"@type": "Answer", "text": "Many lenders require it in Zone A or V. Even in X zones, optional coverage is worth quoting."}}, {"@type": "Question", "name": "How high is Houston property tax?", "acceptedAnswer": {"@type": "Answer", "text": "Near 1.65% of value in our model — often $425+ a month on a $310k home."}}, {"@type": "Question", "name": "Can I afford a $350k home on $90k?", "acceptedAnswer": {"@type": "Answer", "text": "Often yes with 20% down and low debt. Run the calculator with your real car payment."}}]}</script>
   <script>
     (function () {
       const path = window.location.pathname;
@@ -19,7 +21,7 @@
     })();
   </script>
 </head>
-<body class="ha-page">
+<body class="ha-page living-tool-page ha-city-page">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
@@ -27,11 +29,12 @@
         <a href="/hourly-to-salary-after-tax">Income</a>
         <a href="/debt">Debt</a>
         <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
       </nav>
     </div>
   </header>
   <main>
-    <section class="ha-hero">
+    <section class="ha-hero" id="ha-calculator">
       <div class="container">
         <nav class="take-home-return-nav" aria-label="Breadcrumb">
           <ol class="take-home-return-breadcrumbs">
@@ -42,64 +45,294 @@
         </nav>
         <span class="label">Houston · Texas</span>
         <h1>How Much House Can You Afford in Houston?</h1>
-        <p class="lead">Median home near <strong>$310,000</strong>. Typical household income near <strong>$68,000</strong>. Moderate — prices stay below many coastal metros. Calculator below uses Houston tax and insurance defaults.</p>
+        <p class="lead">Median home near <strong>$310,000</strong>. Typical income near <strong>$68,000</strong>. Moderate — prices stay below many coastal metros. Run the calculator — this page also has salary tiers, neighborhood prices, and local buyer guides.</p>
+        <div class="ha-hero-grid">
         <div class="ha-calc-shell">
-          <form id="ha-calc-form" class="ha-calc-form">
-            <label class="ha-calc__field"><span>Annual income</span><input type="number" id="ha-income" value="68000" required></label>
-            <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" value="300" required></label>
-            <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" value="62000" required></label>
-            <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" value="6.5" step="0.05" required></label>
+          <form id="ha-calc-form" class="ha-calc-form" aria-label="Houston house affordability calculator">
+            <label class="ha-calc__field"><span>Annual income ($)</span><input type="number" id="ha-income" min="20000" step="1000" value="68000" required></label>
+            <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" min="0" step="25" value="300" required></label>
+            <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" min="0" step="5000" value="62000" required></label>
+            <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" min="2" max="15" step="0.05" value="6.5" required></label>
             <input type="hidden" id="ha-location" value="texas">
-            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate</button></div>
+            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate max home price</button></div>
           </form>
           <div id="ha-calc-results" class="ha-results" hidden aria-live="polite"></div>
         </div>
+      <aside class="ha-city-toc ha-city-toc--hero" id="ha-toc">
+        <div class="ha-city-toc__card">
+          <button type="button" class="ha-city-toc__toggle" aria-expanded="true" aria-controls="ha-toc-panel">
+            <span class="ha-city-toc__toggle-text">
+              <span class="ha-city-toc__title">On this page</span>
+              <span class="ha-city-toc__kicker">Guides, salary tiers, neighborhoods &amp; more</span>
+            </span>
+            <svg class="ha-city-toc__toggle-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <nav class="ha-city-toc__panel" id="ha-toc-panel" aria-label="On this page">
+            <ul class="ha-city-toc__list">
+          <li><a href="#ha-calculator" class="ha-city-toc__link" data-ha-toc-link>Affordability calculator</a></li>
+          <li><a href="#ha-local-stats" class="ha-city-toc__link" data-ha-toc-link>At a glance</a></li>
+          <li><a href="#ha-piti-breakdown" class="ha-city-toc__link" data-ha-toc-link>Payment breakdown</a></li>
+          <li><a href="#ha-income-tiers" class="ha-city-toc__link" data-ha-toc-link>Salary tiers</a></li>
+          <li><a href="#ha-neighborhoods" class="ha-city-toc__link" data-ha-toc-link>Neighborhoods</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">Local guides</li>
+          <li><a href="#ha-rules" class="ha-city-toc__link" data-ha-toc-link>28/36 rule</a></li>
+          <li><a href="#ha-narrative-houston" class="ha-city-toc__link" data-ha-toc-link>Local context</a></li>
+          <li><a href="#ha-lt-houston-0" class="ha-city-toc__link" data-ha-toc-link>How much house can I afford in Houston on $80k?</a></li>
+          <li><a href="#ha-lt-houston-1" class="ha-city-toc__link" data-ha-toc-link>Houston flood zones and insurance costs</a></li>
+          <li><a href="#ha-lt-houston-2" class="ha-city-toc__link" data-ha-toc-link>What salary for a median Houston home?</a></li>
+          <li><a href="#ha-rent-buy" class="ha-city-toc__link" data-ha-toc-link>Rent vs buy</a></li>
+          <li><a href="#ha-tips" class="ha-city-toc__link" data-ha-toc-link>First-time buyer tips</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">More</li>
+          <li><a href="#ha-related" class="ha-city-toc__link" data-ha-toc-link>Related tools</a></li>
+          <li><a href="#ha-faq" class="ha-city-toc__link" data-ha-toc-link>FAQ</a></li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+        </div>
       </div>
     </section>
-    <section class="ha-section">
+
+    <section class="ha-section" id="ha-local-stats" aria-labelledby="ha-glance-title">
       <div class="container content-page">
-        <h2>Local numbers for Houston</h2>
-        <div class="debt-stats-grid">
-          <div class="debt-stat-block"><span class="debt-stat-value">$310,000</span><span class="debt-stat-label">Median home price</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">$96,875+</span><span class="debt-stat-label">Rough gross income for median home (3× rule)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">1.65%</span><span class="debt-stat-label">Property tax (effective)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">0.45%</span><span class="debt-stat-label">Insurance (of home value / yr)</span></div>
+        <h2 id="ha-glance-title">Houston home affordability at a glance</h2>
+        <p class="ha-section__lead">Planning figures for Houston, Texas. Your lender quote and tax bill may differ — use these as a starting point.</p>
+        <div class="ha-glance-grid">
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$310,000</span><span class="ha-glance-card__l">Median home price</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$68,000</span><span class="ha-glance-card__l">Median household income</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$96,875+</span><span class="ha-glance-card__l">Rough gross for median (3× rule)</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$2,170/mo</span><span class="ha-glance-card__l">Est. PITI on median (20% down)</span></div>
         </div>
-        <p>On a median $310,000 home, tax near 1.65% is about <strong>$426/month</strong>. Insurance near 0.45% is about <strong>$116/month</strong>. HOA near <strong>$60/month</strong> where it applies.</p>
+        <p>On a median $310,000 home, property tax near 1.65% is about <strong>$426/month</strong>. Insurance near 0.45% of value is about <strong>$116/month</strong>. HOA is about <strong>$60/month</strong> where it applies.</p>
         <p>Flood zones matter. Insurance and tax can rival the mortgage on older homes without updates.</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Change income, debt, and down payment in the calculator. Compare with <a href="/living/housing/how-much-house-can-i-afford/texas/dallas">Dallas</a> · <a href="/living/housing/how-much-house-can-i-afford/texas/austin">Austin</a>.</p>
+          <p>Change income, debt, and down payment in the calculator above. Compare with <a href="/living/housing/how-much-house-can-i-afford/texas/dallas">Dallas</a> · <a href="/living/housing/how-much-house-can-i-afford/texas/austin">Austin</a>.</p>
         </aside>
-        <p><a href="/living/housing/how-much-house-can-i-afford/texas">All Texas cities</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
       </div>
     </section>
-    <section class="ha-section" aria-labelledby="ha-city-narrative-houston">
+
+    <section class="ha-section ha-section--tone" id="ha-piti-breakdown" aria-labelledby="ha-piti-title">
       <div class="container content-page">
-        <h2 id="ha-city-narrative-houston">Affordability in Houston: local context</h2>
+        <h2 id="ha-piti-title">Monthly payment breakdown on a median Houston home</h2>
+        <p class="ha-section__lead">Estimated PITI at $310,000 list, 20% down, 6.5% rate, and Houston tax and insurance defaults. Principal and interest are the largest line — but tax, insurance, and HOA still move the stress meter.</p>
+        <div class="ha-piti-visual">
+          <div class="ha-piti-visual__total">
+            <span class="ha-results__label">Estimated monthly PITI</span>
+            <p class="ha-results__price">$2,170<span>/mo</span></p>
+          </div>
+          <div class="ha-piti-bars">
+            <div class="ha-piti-bar-row"><span>Principal &amp; interest</span><div class="ha-piti-bar"><span style="width:72%"></span></div><span>$1,567</span></div>
+            <div class="ha-piti-bar-row"><span>Property tax</span><div class="ha-piti-bar"><span style="width:20%"></span></div><span>$426</span></div>
+            <div class="ha-piti-bar-row"><span>Insurance</span><div class="ha-piti-bar"><span style="width:5%"></span></div><span>$116</span></div>
+            <div class="ha-piti-bar-row"><span>HOA</span><div class="ha-piti-bar"><span style="width:4%"></span></div><span>$60</span></div>
+          </div>
+        </div>
+        <p>In Houston, buyers who only compare list price to income miss tax and insurance. Run the calculator with your real debts — the 36% back-end rule includes car loans and cards.</p>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-income-tiers" aria-labelledby="ha-tiers-title">
+      <div class="container content-page">
+        <h2 id="ha-tiers-title">How much house can you afford in Houston by salary?</h2>
+        <p class="ha-section__lead">Max home price at common gross salaries, 6.5% rate, $300/month other debt, and Houston tax and insurance. Stress label uses the 28% housing cap.</p>
+        <div class="ha-compare-table-wrap">
+          <table class="debt-data-table ha-tier-table">
+            <caption>Affordable home price by gross annual income in Houston</caption>
+            <thead><tr><th scope="col">Gross salary</th><th scope="col">Max home (est.)</th><th scope="col">Stress</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>$75,000</td>
+                <td>$209,399</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$100,000</td>
+                <td>$281,678</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$125,000</td>
+                <td>$353,956</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$150,000</td>
+                <td>$426,234</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$200,000</td>
+                <td>$570,790</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>These rows assume no down payment in the solver — your down payment raises what you can buy. Enter your real numbers in the calculator for a personal max.</p>
+        <p><a href="/hourly-to-salary-after-tax/state/texas/">Texas take-home pay calculator</a> · <a href="/living/lifestyle/comfortable-salary/texas/houston">Comfortable salary in Houston</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-neighborhoods" aria-labelledby="ha-nh-title">
+      <div class="container content-page">
+        <h2 id="ha-nh-title">Houston home prices by area</h2>
+        <p class="ha-section__lead">The citywide median blends expensive and affordable pockets. Use these ranges as a map — not a guarantee for any one listing.</p>
+        <div class="ha-nh-grid">
+          <article class="ha-nh-card">
+            <h3>The Woodlands</h3>
+            <p class="ha-nh-card__range">$400k–$550k</p>
+            <p>Master-planned suburbs with HOA. Strong schools drive demand.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>Katy / Cinco Ranch</h3>
+            <p class="ha-nh-card__range">$350k–$480k</p>
+            <p>Family-friendly. Commute to Energy Corridor or Galleria.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>Inner Loop</h3>
+            <p class="ha-nh-card__range">$380k–$520k</p>
+            <p>Older homes, smaller lots. Flood zone checks are critical.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>Pearland / Friendswood</h3>
+            <p class="ha-nh-card__range">$320k–$420k</p>
+            <p>Often below Houston median. Still verify flood and wind insurance.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-rules" aria-labelledby="ha-rules-title">
+      <div class="container content-page">
+        <h2 id="ha-rules-title">The 28/36 rule in Houston</h2>
+        <p class="ha-section__lead">Lenders often use two caps. Our calculator applies both so you see a realistic max — not just what a bank might pre-approve.</p>
+        <div class="ha-rules-grid">
+          <article class="ha-rules-card">
+            <h3>28% front-end</h3>
+            <p>Your full housing payment — mortgage, tax, insurance, and HOA — should stay near or below 28% of gross monthly income. In Houston, insurance and HOA often push buyers over this line before list price does.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>36% back-end</h3>
+            <p>All monthly debt plus housing should stay near or below 36% of gross income. A $400 car payment and $250 in student loans shrink your max home price even when income is strong.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>Stress meter</h3>
+            <p>We label results Comfortable, Moderate, Stretched, or Over limit. Shop below your max if you want room for repairs, childcare, or savings — especially in Texas where tax and insurance vary by block.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-narrative-houston" aria-labelledby="ha-narrative-title-houston">
+      <div class="container content-page">
+        <h2 id="ha-narrative-title-houston">Buying a home in Houston: local context</h2>
         <p>Houston is one of the more affordable big Texas metros. Median price near $310k fits many middle incomes with 20% down at today's rates.</p>
         <p>Flood maps matter. Harvey taught many buyers to check FEMA zones and insurance cost before they fall in love with a kitchen.</p>
         <p>Energy and medical jobs anchor wages. Suburbs in Katy, Pearland, and The Woodlands trade commute time for more house per dollar.</p>
         <p>Property tax near 1.65% is a real line item. On a $300k home that is over $400 a month — not pocket change.</p>
+        <p>Houston sprawls across counties with different tax rates. The median price is a midpoint — The Woodlands runs higher, some east-side blocks lower.</p>
+        <p>No zoning means land use varies block to block. Check what's planned next door before you buy.</p>
+        <p>Humidity and foundation issues show up on inspection. Set aside cash for pier work on older slabs.</p>
+        <p>Job growth in energy and healthcare supports demand. Still run the stress meter — stretched buyers feel rate hikes fast.</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Your max price drops when debt is high or insurance is above our default. Run the calculator twice — once at list price and once $50k below — to see the stress change.</p>
+          <p>Run the calculator twice — once at list price and once $50k below — to see how fast the stress label changes in Houston.</p>
         </aside>
       </div>
     </section>
-    <section class="ha-faq-section">
+
+      <section class="ha-section ha-section--alt" id="ha-lt-houston-0" aria-labelledby="ha-lt-houston-0-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-houston-0-title">How much house can I afford in Houston on $80k?</h2>
+          <p>At $80,000 gross, the 28% cap is about $1,867 a month. That often supports a home near $250,000–$290,000 with 20% down at 6.5%.</p>
+          <p>Texas has no state income tax, so take-home pay helps versus California at the same gross. Property tax near 1.65% still adds $400+ a month on a $300k home.</p>
+          <p>If you have $500 a month in car and student debt, the 36% back-end cap may bind before the 28% housing rule. Enter real debts in the calculator.</p>
+        </div>
+      </section>
+      <section class="ha-section ha-section--alt" id="ha-lt-houston-1" aria-labelledby="ha-lt-houston-1-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-houston-1-title">Houston flood zones and insurance costs</h2>
+          <p>Harvey showed that flood risk is not only on the coast. Check FEMA maps and get a flood quote even outside mandatory zones.</p>
+          <p>Wind and hail coverage can rival property tax on older roofs. Some carriers ask for a roof age inspection at renewal.</p>
+          <p>A home that looks cheap on list price may fail the full PITI test once insurance is real.</p>
+        </div>
+      </section>
+      <section class="ha-section ha-section--alt" id="ha-lt-houston-2" aria-labelledby="ha-lt-houston-2-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-houston-2-title">What salary for a median Houston home?</h2>
+          <p>For a median home near $310,000 with 20% down, plan on $75,000–$90,000 gross at 6.5% with modest debt. Houston is among the more reachable big Texas metros.</p>
+          <p>Energy and medical jobs anchor wages. Dual income at $70k each often lands in Comfortable stress below the median.</p>
+          <p>Suburbs trade commute time for space. Gas and tolls are real costs — do not ignore them when you stretch the payment.</p>
+        </div>
+      </section>
+    <section class="ha-section" id="ha-rent-buy" aria-labelledby="ha-rent-buy-title">
       <div class="container content-page">
-        <h2>FAQ — Houston</h2>
+        <h2 id="ha-rent-buy-title">Rent vs buy in Houston</h2>
+        <p>Houston rent near $1,400 and lower list prices make buying workable after five to seven years in many suburbs. Flood insurance can tilt the math — include it in rent vs buy.</p>
+        <p><a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy calculator</a> · <a href="/living/housing/how-much-rent-can-i-afford">How much rent can I afford?</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-tips" aria-labelledby="ha-tips-title">
+      <div class="container content-page">
+        <h2 id="ha-tips-title">First-time buyer tips in Houston</h2>
+        <ul class="ha-tips-list">
+          <li>Pull a flood map for every address you like.</li>
+          <li>Ask for the seller's tax certificate — MUD and ISD lines change the bill.</li>
+          <li>Budget roof and HVAC reserves on 1980s stock in the Loop.</li>
+          <li>Compare Katy and Pearland if the Inner Loop median feels tight.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-related" aria-labelledby="ha-related-title">
+      <div class="container content-page">
+        <h2 id="ha-related-title">Related tools for Houston</h2>
+        <div class="ha-related-grid">
+          <a class="ha-related-card" href="/living/housing/cost-of-living-by-city/texas/houston"><span>Cost of living</span><strong>Houston COL guide →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/texas/houston"><span>Comfortable salary</span><strong>Houston salary target →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford/texas"><span>Texas overview</span><strong>All Texas cities →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford"><span>US calculator</span><strong>National affordability →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/texas/houston/is-75k-enough-to-live-in-houston"><span>$75k in Houston</span><strong>Salary scenario →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/texas/houston/is-100k-enough-to-live-in-houston"><span>$100k in Houston</span><strong>Salary scenario →</strong></a>
+        </div>
+        <p><a href="/living/housing/how-much-house-can-i-afford/texas">All Texas cities</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
+      </div>
+    </section>
+
+    <section class="ha-faq-section" id="ha-faq">
+      <div class="container content-page">
+        <h2>FAQ — how much house can I afford in Houston?</h2>
         <div class="faq-stack">
           <article class="faq-item"><h3>How much house can I afford in Houston on $80k?</h3><p>About $1,867 a month at 28%. That often fits a home near $250k–$290k with 20% down.</p></article>
           <article class="faq-item"><h3>Is Houston cheaper than Austin?</h3><p>Yes on median price. Austin wages are higher but list prices rose faster.</p></article>
+          <article class="faq-item"><h3>Is Houston cheaper than Austin?</h3><p>Yes on median price. Austin wages are higher but list prices rose faster in the 2020s.</p></article>
+          <article class="faq-item"><h3>Do I need flood insurance in Houston?</h3><p>Many lenders require it in Zone A or V. Even in X zones, optional coverage is worth quoting.</p></article>
+          <article class="faq-item"><h3>How high is Houston property tax?</h3><p>Near 1.65% of value in our model — often $425+ a month on a $310k home.</p></article>
+          <article class="faq-item"><h3>Can I afford a $350k home on $90k?</h3><p>Often yes with 20% down and low debt. Run the calculator with your real car payment.</p></article>
         </div>
       </div>
     </section>
+
+    <div class="container content-page">
+      <aside class="eeat-trust" aria-labelledby="eeat-houston-title">
+        <header class="eeat-trust__header">
+          <span class="eeat-trust__kicker">How we built this</span>
+          <h2 id="eeat-houston-title" class="eeat-trust__title">Houston affordability data</h2>
+          <p class="eeat-trust__meta"><time datetime="2026-06-01">Last reviewed: June 1, 2026</time> · <a href="/methodology#affordability">Methodology</a></p>
+        </header>
+        <p>Median prices, tax, and insurance are rounded planning figures from public listing and census sources. Your quote and lender rules may differ. This is not a loan offer or tax advice.</p>
+      </aside>
+    </div>
   </main>
-  <footer class="site-footer"><div class="container"><p class="footer-review" role="note"><time datetime="2026-06-01">Last reviewed: June 2026</time> · Reviewed by the <a href="/about">Income Clarity editorial team</a> · <a href="/editorial-policy">Editorial policy</a></p>
-      <p class="footer-copy">© 2026 IncomeClarityLab</p></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
   <script src="/house-afford.js"></script>
+  <script src="/ha-city-toc.js"></script>
   <script>
     HouseAfford.bindForm({
       stateSlug: 'texas',

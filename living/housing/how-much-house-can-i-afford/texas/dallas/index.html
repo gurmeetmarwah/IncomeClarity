@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Can You Afford a Home in Dallas? What Texas Buyers Actually Need (2026) | Income Clarity</title>
-  <meta name="description" content="Median prices in Dallas don't tell your story. Run your income through the 28% rule and see what monthly payment — and home price — you can actually carry.">
+  <title>How Much House Can You Afford in Dallas? Income, Payment &amp; Local Costs (2026) | Income Clarity</title>
+  <meta name="description" content="How much house can you afford in Dallas, Texas? Median price $385,000, salary tiers, property tax, insurance, HOA, and a free PITI calculator.">
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/how-much-house-can-i-afford/texas/dallas">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="icon" type="image/png" href="/images/logo.png">
   <link rel="apple-touch-icon" href="/images/logo.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What salary do I need for a median Dallas home?", "acceptedAnswer": {"@type": "Answer", "text": "Roughly $95k–$110k gross with 20% down at 6.5%, before other debts."}}, {"@type": "Question", "name": "Do Dallas homes have HOA?", "acceptedAnswer": {"@type": "Answer", "text": "Many suburbs do. Enter $85+ in the calculator if you are buying in a planned community."}}, {"@type": "Question", "name": "Is Dallas more expensive than Houston?", "acceptedAnswer": {"@type": "Answer", "text": "Median list is higher in Dallas in our data. Property tax rates are similar."}}, {"@type": "Question", "name": "Do Dallas homes have HOA?", "acceptedAnswer": {"@type": "Answer", "text": "Many suburbs do. Enter the real HOA from the listing in the calculator."}}, {"@type": "Question", "name": "Can I afford Dallas on $75k?", "acceptedAnswer": {"@type": "Answer", "text": "You can often target $250k–$300k with 20% down. Above $350k may feel Stretched with debt."}}, {"@type": "Question", "name": "What about Collin County vs Dallas County?", "acceptedAnswer": {"@type": "Answer", "text": "Tax and school lines change the bill. Always use the address-specific rate."}}]}</script>
   <script>
     (function () {
       const path = window.location.pathname;
@@ -19,7 +21,7 @@
     })();
   </script>
 </head>
-<body class="ha-page">
+<body class="ha-page living-tool-page ha-city-page">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
@@ -27,11 +29,12 @@
         <a href="/hourly-to-salary-after-tax">Income</a>
         <a href="/debt">Debt</a>
         <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
       </nav>
     </div>
   </header>
   <main>
-    <section class="ha-hero">
+    <section class="ha-hero" id="ha-calculator">
       <div class="container">
         <nav class="take-home-return-nav" aria-label="Breadcrumb">
           <ol class="take-home-return-breadcrumbs">
@@ -42,64 +45,294 @@
         </nav>
         <span class="label">Dallas · Texas</span>
         <h1>How Much House Can You Afford in Dallas?</h1>
-        <p class="lead">Median home near <strong>$385,000</strong>. Typical household income near <strong>$75,000</strong>. Moderate to high — growth pushed prices in some suburbs. Calculator below uses Dallas tax and insurance defaults.</p>
+        <p class="lead">Median home near <strong>$385,000</strong>. Typical income near <strong>$75,000</strong>. Moderate to high — growth pushed prices in some suburbs. Run the calculator — this page also has salary tiers, neighborhood prices, and local buyer guides.</p>
+        <div class="ha-hero-grid">
         <div class="ha-calc-shell">
-          <form id="ha-calc-form" class="ha-calc-form">
-            <label class="ha-calc__field"><span>Annual income</span><input type="number" id="ha-income" value="75000" required></label>
-            <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" value="300" required></label>
-            <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" value="77000" required></label>
-            <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" value="6.5" step="0.05" required></label>
+          <form id="ha-calc-form" class="ha-calc-form" aria-label="Dallas house affordability calculator">
+            <label class="ha-calc__field"><span>Annual income ($)</span><input type="number" id="ha-income" min="20000" step="1000" value="75000" required></label>
+            <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" min="0" step="25" value="300" required></label>
+            <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" min="0" step="5000" value="77000" required></label>
+            <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" min="2" max="15" step="0.05" value="6.5" required></label>
             <input type="hidden" id="ha-location" value="texas">
-            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate</button></div>
+            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate max home price</button></div>
           </form>
           <div id="ha-calc-results" class="ha-results" hidden aria-live="polite"></div>
         </div>
+      <aside class="ha-city-toc ha-city-toc--hero" id="ha-toc">
+        <div class="ha-city-toc__card">
+          <button type="button" class="ha-city-toc__toggle" aria-expanded="true" aria-controls="ha-toc-panel">
+            <span class="ha-city-toc__toggle-text">
+              <span class="ha-city-toc__title">On this page</span>
+              <span class="ha-city-toc__kicker">Guides, salary tiers, neighborhoods &amp; more</span>
+            </span>
+            <svg class="ha-city-toc__toggle-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <nav class="ha-city-toc__panel" id="ha-toc-panel" aria-label="On this page">
+            <ul class="ha-city-toc__list">
+          <li><a href="#ha-calculator" class="ha-city-toc__link" data-ha-toc-link>Affordability calculator</a></li>
+          <li><a href="#ha-local-stats" class="ha-city-toc__link" data-ha-toc-link>At a glance</a></li>
+          <li><a href="#ha-piti-breakdown" class="ha-city-toc__link" data-ha-toc-link>Payment breakdown</a></li>
+          <li><a href="#ha-income-tiers" class="ha-city-toc__link" data-ha-toc-link>Salary tiers</a></li>
+          <li><a href="#ha-neighborhoods" class="ha-city-toc__link" data-ha-toc-link>Neighborhoods</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">Local guides</li>
+          <li><a href="#ha-rules" class="ha-city-toc__link" data-ha-toc-link>28/36 rule</a></li>
+          <li><a href="#ha-narrative-dallas" class="ha-city-toc__link" data-ha-toc-link>Local context</a></li>
+          <li><a href="#ha-lt-dallas-0" class="ha-city-toc__link" data-ha-toc-link>How much house can I afford in Dallas on $100k?</a></li>
+          <li><a href="#ha-lt-dallas-1" class="ha-city-toc__link" data-ha-toc-link>Dallas property tax and HOA in master-planned subur…</a></li>
+          <li><a href="#ha-lt-dallas-2" class="ha-city-toc__link" data-ha-toc-link>What income do you need for a median Dallas home?</a></li>
+          <li><a href="#ha-rent-buy" class="ha-city-toc__link" data-ha-toc-link>Rent vs buy</a></li>
+          <li><a href="#ha-tips" class="ha-city-toc__link" data-ha-toc-link>First-time buyer tips</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">More</li>
+          <li><a href="#ha-related" class="ha-city-toc__link" data-ha-toc-link>Related tools</a></li>
+          <li><a href="#ha-faq" class="ha-city-toc__link" data-ha-toc-link>FAQ</a></li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+        </div>
       </div>
     </section>
-    <section class="ha-section">
+
+    <section class="ha-section" id="ha-local-stats" aria-labelledby="ha-glance-title">
       <div class="container content-page">
-        <h2>Local numbers for Dallas</h2>
-        <div class="debt-stats-grid">
-          <div class="debt-stat-block"><span class="debt-stat-value">$385,000</span><span class="debt-stat-label">Median home price</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">$120,312+</span><span class="debt-stat-label">Rough gross income for median home (3× rule)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">1.7%</span><span class="debt-stat-label">Property tax (effective)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">0.42%</span><span class="debt-stat-label">Insurance (of home value / yr)</span></div>
+        <h2 id="ha-glance-title">Dallas home affordability at a glance</h2>
+        <p class="ha-section__lead">Planning figures for Dallas, Texas. Your lender quote and tax bill may differ — use these as a starting point.</p>
+        <div class="ha-glance-grid">
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$385,000</span><span class="ha-glance-card__l">Median home price</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$75,000</span><span class="ha-glance-card__l">Median household income</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$120,312+</span><span class="ha-glance-card__l">Rough gross for median (3× rule)</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$2,711/mo</span><span class="ha-glance-card__l">Est. PITI on median (20% down)</span></div>
         </div>
-        <p>On a median $385,000 home, tax near 1.7% is about <strong>$545/month</strong>. Insurance near 0.42% is about <strong>$134/month</strong>. HOA near <strong>$85/month</strong> where it applies.</p>
+        <p>On a median $385,000 home, property tax near 1.7% is about <strong>$545/month</strong>. Insurance near 0.42% of value is about <strong>$134/month</strong>. HOA is about <strong>$85/month</strong> where it applies.</p>
         <p>DFW spans many tax districts. Check the county rate on the listing, not just the state average.</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Change income, debt, and down payment in the calculator. Compare with <a href="/living/housing/how-much-house-can-i-afford/texas/houston">Houston</a> · <a href="/living/housing/how-much-house-can-i-afford/texas/austin">Austin</a>.</p>
+          <p>Change income, debt, and down payment in the calculator above. Compare with <a href="/living/housing/how-much-house-can-i-afford/texas/houston">Houston</a> · <a href="/living/housing/how-much-house-can-i-afford/texas/austin">Austin</a>.</p>
         </aside>
-        <p><a href="/living/housing/how-much-house-can-i-afford/texas">All Texas cities</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
       </div>
     </section>
-    <section class="ha-section" aria-labelledby="ha-city-narrative-dallas">
+
+    <section class="ha-section ha-section--tone" id="ha-piti-breakdown" aria-labelledby="ha-piti-title">
       <div class="container content-page">
-        <h2 id="ha-city-narrative-dallas">Affordability in Dallas: local context</h2>
+        <h2 id="ha-piti-title">Monthly payment breakdown on a median Dallas home</h2>
+        <p class="ha-section__lead">Estimated PITI at $385,000 list, 20% down, 6.5% rate, and Dallas tax and insurance defaults. Principal and interest are the largest line — but tax, insurance, and HOA still move the stress meter.</p>
+        <div class="ha-piti-visual">
+          <div class="ha-piti-visual__total">
+            <span class="ha-results__label">Estimated monthly PITI</span>
+            <p class="ha-results__price">$2,711<span>/mo</span></p>
+          </div>
+          <div class="ha-piti-bars">
+            <div class="ha-piti-bar-row"><span>Principal &amp; interest</span><div class="ha-piti-bar"><span style="width:72%"></span></div><span>$1,946</span></div>
+            <div class="ha-piti-bar-row"><span>Property tax</span><div class="ha-piti-bar"><span style="width:20%"></span></div><span>$545</span></div>
+            <div class="ha-piti-bar-row"><span>Insurance</span><div class="ha-piti-bar"><span style="width:5%"></span></div><span>$134</span></div>
+            <div class="ha-piti-bar-row"><span>HOA</span><div class="ha-piti-bar"><span style="width:4%"></span></div><span>$85</span></div>
+          </div>
+        </div>
+        <p>In Dallas, buyers who only compare list price to income miss tax and insurance. Run the calculator with your real debts — the 36% back-end rule includes car loans and cards.</p>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-income-tiers" aria-labelledby="ha-tiers-title">
+      <div class="container content-page">
+        <h2 id="ha-tiers-title">How much house can you afford in Dallas by salary?</h2>
+        <p class="ha-section__lead">Max home price at common gross salaries, 6.5% rate, $300/month other debt, and Dallas tax and insurance. Stress label uses the 28% housing cap.</p>
+        <div class="ha-compare-table-wrap">
+          <table class="debt-data-table ha-tier-table">
+            <caption>Affordable home price by gross annual income in Dallas</caption>
+            <thead><tr><th scope="col">Gross salary</th><th scope="col">Max home (est.)</th><th scope="col">Stress</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>$75,000</td>
+                <td>$205,877</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$100,000</td>
+                <td>$278,006</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$125,000</td>
+                <td>$350,135</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$150,000</td>
+                <td>$422,264</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$200,000</td>
+                <td>$566,522</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>These rows assume no down payment in the solver — your down payment raises what you can buy. Enter your real numbers in the calculator for a personal max.</p>
+        <p><a href="/hourly-to-salary-after-tax/state/texas/">Texas take-home pay calculator</a> · <a href="/living/lifestyle/comfortable-salary/texas/dallas">Comfortable salary in Dallas</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-neighborhoods" aria-labelledby="ha-nh-title">
+      <div class="container content-page">
+        <h2 id="ha-nh-title">Dallas home prices by area</h2>
+        <p class="ha-section__lead">The citywide median blends expensive and affordable pockets. Use these ranges as a map — not a guarantee for any one listing.</p>
+        <div class="ha-nh-grid">
+          <article class="ha-nh-card">
+            <h3>Plano / Frisco</h3>
+            <p class="ha-nh-card__range">$450k–$600k</p>
+            <p>Corporate jobs and strong schools. HOA common in new builds.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>Oak Cliff / Bishop Arts</h3>
+            <p class="ha-nh-card__range">$320k–$450k</p>
+            <p>Urban reinvestment zone. Prices rose with migration from coastal states.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>Garland / Richardson</h3>
+            <p class="ha-nh-card__range">$300k–$380k</p>
+            <p>Often below DFW median. Good rail access in some pockets.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>Fort Worth (DFW)</h3>
+            <p class="ha-nh-card__range">$280k–$400k</p>
+            <p>Western half of the metro often cheaper than Dallas proper.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-rules" aria-labelledby="ha-rules-title">
+      <div class="container content-page">
+        <h2 id="ha-rules-title">The 28/36 rule in Dallas</h2>
+        <p class="ha-section__lead">Lenders often use two caps. Our calculator applies both so you see a realistic max — not just what a bank might pre-approve.</p>
+        <div class="ha-rules-grid">
+          <article class="ha-rules-card">
+            <h3>28% front-end</h3>
+            <p>Your full housing payment — mortgage, tax, insurance, and HOA — should stay near or below 28% of gross monthly income. In Dallas, insurance and HOA often push buyers over this line before list price does.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>36% back-end</h3>
+            <p>All monthly debt plus housing should stay near or below 36% of gross income. A $400 car payment and $250 in student loans shrink your max home price even when income is strong.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>Stress meter</h3>
+            <p>We label results Comfortable, Moderate, Stretched, or Over limit. Shop below your max if you want room for repairs, childcare, or savings — especially in Texas where tax and insurance vary by block.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-narrative-dallas" aria-labelledby="ha-narrative-title-dallas">
+      <div class="container content-page">
+        <h2 id="ha-narrative-title-dallas">Buying a home in Dallas: local context</h2>
         <p>Dallas–Fort Worth is a spread-out market. Median price near $385k is a midpoint — Plano and Frisco run higher, southern suburbs often lower.</p>
         <p>Job growth pulled prices up in some rings. Wages near $75k median mean many buyers target homes below the median to stay Comfortable on the stress meter.</p>
         <p>HOA is common in master-planned suburbs. Add $85 or more in the calculator if the listing has an HOA line.</p>
         <p>Tax districts differ by county and city. Use the seller's tax certificate, not a statewide guess, when you plan your payment.</p>
+        <p>Dallas–Fort Worth is a spread-out market. Median price near $385k blends pricey northern suburbs and more affordable southern blocks.</p>
+        <p>Job growth pulled migration from California and the Midwest. Competition is softer than 2021 but still real in top school zones.</p>
+        <p>Summer electric bills on large homes can add $200+ a month. Budget utilities beyond PITI.</p>
+        <p>Foundation and soil movement show up in inspections. Older pier-and-beam homes need a careful structural review.</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Your max price drops when debt is high or insurance is above our default. Run the calculator twice — once at list price and once $50k below — to see the stress change.</p>
+          <p>Run the calculator twice — once at list price and once $50k below — to see how fast the stress label changes in Dallas.</p>
         </aside>
       </div>
     </section>
-    <section class="ha-faq-section">
+
+      <section class="ha-section ha-section--alt" id="ha-lt-dallas-0" aria-labelledby="ha-lt-dallas-0-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-dallas-0-title">How much house can I afford in Dallas on $100k?</h2>
+          <p>At $100,000 gross, the 28% line is about $2,333 a month. That often maps to $320,000–$380,000 with 20% down at 6.5% — near or below the metro median near $385,000.</p>
+          <p>Property tax near 1.7% is a big line item. On a $350k home that is roughly $495 a month before insurance.</p>
+          <p>DFW spans many tax districts. Use the listing's tax certificate, not a statewide guess.</p>
+        </div>
+      </section>
+      <section class="ha-section ha-section--alt" id="ha-lt-dallas-1" aria-labelledby="ha-lt-dallas-1-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-dallas-1-title">Dallas property tax and HOA in master-planned suburbs</h2>
+          <p>Texas schools are funded largely through property tax. A low list price does not mean a low tax bill.</p>
+          <p>HOA near $85 a month is our default — Plano and Frisco plans often run $100–$200.</p>
+          <p>MUD taxes on new developments can add $200+ a month until bonds pay down.</p>
+        </div>
+      </section>
+      <section class="ha-section ha-section--alt" id="ha-lt-dallas-2" aria-labelledby="ha-lt-dallas-2-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-dallas-2-title">What income do you need for a median Dallas home?</h2>
+          <p>For a $385,000 median home with 20% down, plan on $95,000–$110,000 gross at 6.5% with modest debt.</p>
+          <p>Tech and finance transfers from coastal states pushed some suburb prices up. Wages near $75k median mean many buyers shop below the median.</p>
+          <p>Dual income at $55k–$65k each can reach Comfortable on a $320k home with low debt.</p>
+        </div>
+      </section>
+    <section class="ha-section" id="ha-rent-buy" aria-labelledby="ha-rent-buy-title">
       <div class="container content-page">
-        <h2>FAQ — Dallas</h2>
+        <h2 id="ha-rent-buy-title">Rent vs buy in Dallas</h2>
+        <p>DFW rent near $1,550 and moderate list prices favor buying after five to seven years in many suburbs. Hail insurance and tax still matter — run both sides in rent vs buy.</p>
+        <p><a href="/rent-vs-buy-calculator#rent-vs-buy">Rent vs buy calculator</a> · <a href="/living/housing/how-much-rent-can-i-afford">How much rent can I afford?</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-tips" aria-labelledby="ha-tips-title">
+      <div class="container content-page">
+        <h2 id="ha-tips-title">First-time buyer tips in Dallas</h2>
+        <ul class="ha-tips-list">
+          <li>Compare Plano tax vs Dallas city tax on similar list prices.</li>
+          <li>Ask about MUD and PID fees on new construction.</li>
+          <li>Hail claims history can raise premiums — check the CLUE report if you can.</li>
+          <li>Model a longer commute from Fort Worth to see payment vs gas tradeoffs.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-related" aria-labelledby="ha-related-title">
+      <div class="container content-page">
+        <h2 id="ha-related-title">Related tools for Dallas</h2>
+        <div class="ha-related-grid">
+          <a class="ha-related-card" href="/living/housing/cost-of-living-by-city/texas/dallas"><span>Cost of living</span><strong>Dallas COL guide →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/texas/dallas"><span>Comfortable salary</span><strong>Dallas salary target →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford/texas"><span>Texas overview</span><strong>All Texas cities →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford"><span>US calculator</span><strong>National affordability →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/texas/dallas/is-75k-enough-to-live-in-dallas"><span>$75k in Dallas</span><strong>Salary scenario →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/texas/dallas/is-100k-enough-to-live-in-dallas"><span>$100k in Dallas</span><strong>Salary scenario →</strong></a>
+        </div>
+        <p><a href="/living/housing/how-much-house-can-i-afford/texas">All Texas cities</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
+      </div>
+    </section>
+
+    <section class="ha-faq-section" id="ha-faq">
+      <div class="container content-page">
+        <h2>FAQ — how much house can I afford in Dallas?</h2>
         <div class="faq-stack">
           <article class="faq-item"><h3>What salary do I need for a median Dallas home?</h3><p>Roughly $95k–$110k gross with 20% down at 6.5%, before other debts.</p></article>
           <article class="faq-item"><h3>Do Dallas homes have HOA?</h3><p>Many suburbs do. Enter $85+ in the calculator if you are buying in a planned community.</p></article>
+          <article class="faq-item"><h3>Is Dallas more expensive than Houston?</h3><p>Median list is higher in Dallas in our data. Property tax rates are similar.</p></article>
+          <article class="faq-item"><h3>Do Dallas homes have HOA?</h3><p>Many suburbs do. Enter the real HOA from the listing in the calculator.</p></article>
+          <article class="faq-item"><h3>Can I afford Dallas on $75k?</h3><p>You can often target $250k–$300k with 20% down. Above $350k may feel Stretched with debt.</p></article>
+          <article class="faq-item"><h3>What about Collin County vs Dallas County?</h3><p>Tax and school lines change the bill. Always use the address-specific rate.</p></article>
         </div>
       </div>
     </section>
+
+    <div class="container content-page">
+      <aside class="eeat-trust" aria-labelledby="eeat-dallas-title">
+        <header class="eeat-trust__header">
+          <span class="eeat-trust__kicker">How we built this</span>
+          <h2 id="eeat-dallas-title" class="eeat-trust__title">Dallas affordability data</h2>
+          <p class="eeat-trust__meta"><time datetime="2026-06-01">Last reviewed: June 1, 2026</time> · <a href="/methodology#affordability">Methodology</a></p>
+        </header>
+        <p>Median prices, tax, and insurance are rounded planning figures from public listing and census sources. Your quote and lender rules may differ. This is not a loan offer or tax advice.</p>
+      </aside>
+    </div>
   </main>
-  <footer class="site-footer"><div class="container"><p class="footer-review" role="note"><time datetime="2026-06-01">Last reviewed: June 2026</time> · Reviewed by the <a href="/about">Income Clarity editorial team</a> · <a href="/editorial-policy">Editorial policy</a></p>
-      <p class="footer-copy">© 2026 IncomeClarityLab</p></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
   <script src="/house-afford.js"></script>
+  <script src="/ha-city-toc.js"></script>
   <script>
     HouseAfford.bindForm({
       stateSlug: 'texas',

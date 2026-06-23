@@ -143,13 +143,13 @@
       if (ranges) {
         ranges.innerHTML =
           '<article class="ra-range ra-range--good">' +
-            '<h3>Comfortable</h3><strong>' + fmt(low) + ' – ' + fmt(high) + '</strong>' +
+            '<h4>Comfortable</h4><strong>' + fmt(low) + ' – ' + fmt(high) + '</strong>' +
             '<p>Room for savings and emergencies.</p></article>' +
           '<article class="ra-range ra-range--mid">' +
-            '<h3>Stretch budget</h3><strong>' + fmt(stretch) + '</strong>' +
+            '<h4>Stretch budget</h4><strong>' + fmt(stretch) + '</strong>' +
             '<p>Lower margin for surprises.</p></article>' +
           '<article class="ra-range ra-range--risk">' +
-            '<h3>High risk</h3><strong>' + fmt(risk) + '+</strong>' +
+            '<h4>High risk</h4><strong>' + fmt(risk) + '+</strong>' +
             '<p>Higher stress and less flexibility.</p></article>';
       }
 

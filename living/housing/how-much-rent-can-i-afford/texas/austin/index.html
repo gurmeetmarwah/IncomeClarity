@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How Much Rent Can I Afford in Austin, TX? (2026 Guide) | Income Clarity</title>
+  <meta name="description" content="How much rent can you afford in Austin? Median rent $1,780/mo, salary tiers, neighborhood comparison, budget breakdown, and free calculator.">
+  <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/how-much-rent-can-i-afford/texas/austin">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
+  <link rel="stylesheet" href="/styles-rent.css">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="apple-touch-icon" href="/images/logo.png">
+  <script type="application/json" id="ra-city-data">{"medianRent": 1780, "defaultIncome": 75000, "defaultDebt": 350, "defaultFamily": 1, "defaultSave": 15, "taxTakehome": 0.78, "transport": 370}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is $2,000 rent affordable on a $75k salary in Austin?", "acceptedAnswer": {"@type": "Answer", "text": "It is at the top of the comfortable band for many renters. Add utilities and parking — if total housing passes 35% of take-home, treat it as stretch rent."}}, {"@type": "Question", "name": "What salary do I need for a 2-bedroom apartment in Austin?", "acceptedAnswer": {"@type": "Answer", "text": "Median 2BR near $2,280 implies roughly $91k gross at the 30% rule — more if you want savings room and low debt."}}, {"@type": "Question", "name": "How much should I spend on rent in Austin?", "acceptedAnswer": {"@type": "Answer", "text": "Start at 30% of gross for landlord math, then cap at 30% of take-home for your real budget. Use the lower number."}}, {"@type": "Question", "name": "Is Austin rent higher than Dallas?", "acceptedAnswer": {"@type": "Answer", "text": "Yes on median 1BR in most years. Dallas offers more suburban stock below $1,600; Austin's tech corridor pulls medians up."}}, {"@type": "Question", "name": "How much is average rent in Austin for a 1-bedroom?", "acceptedAnswer": {"@type": "Answer", "text": "Planning figures center near $1,750, with studios lower and renovated central units higher. Always verify with current listings in your target zip."}}, {"@type": "Question", "name": "Can I afford Austin rent on $60,000 a year?", "acceptedAnswer": {"@type": "Answer", "text": "Gross cap near $1,500 a month — usually a roommate, studio, or suburb. Comfortable solo 1BR at median rent typically needs closer to $70,000+ with low debt."}}]}</script>
+  <script>
+    (function () {
+      const path = window.location.pathname;
+      let cleanPath = path;
+      if (path.endsWith("/index.html")) cleanPath = path.slice(0, -10);
+      else if (path.endsWith(".html")) cleanPath = path.slice(0, -5);
+      if (cleanPath !== path) window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+    })();
+  </script>
+</head>
+<body class="ra-page ra-city-page living-tool-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/hourly-to-salary-after-tax">Income</a>
+        <a href="/debt">Debt</a>
+        <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="ra-hero ra-city-hero" id="ra-calculator">
+      <div class="container container--wide">
+        <nav class="take-home-return-nav" aria-label="Breadcrumb">
+          <ol class="take-home-return-breadcrumbs">
+            <li><a href="/living/housing/how-much-rent-can-i-afford">Rent affordability</a></li>
+            <li aria-current="page">Austin</li>
+          </ol>
+        </nav>
+        <span class="label">Austin · TX</span>
+        <h1>How Much Rent Can I Afford in Austin?</h1>
+        <p class="lead">Find the maximum monthly rent you can comfortably afford based on your income, debts, and Austin housing costs. Median rent is about <strong>$1,780/month</strong> — use the calculator for your personal comfortable, stretch, and verdict.</p>
+        <div class="ha-hero-grid ra-city-hero-grid">
+          <div class="ra-city-calc-col">
+            <div class="ra-calc-shell ra-city-calc-shell">
+              <form id="ra-city-form" class="ra-calc-form ra-city-form" aria-label="Austin rent affordability calculator">
+                <label class="ra-field"><span>Annual income ($)</span><input type="number" id="ra-city-income" min="20000" step="1000" value="75000" required></label>
+                <label class="ra-field"><span>Monthly debt payments ($)</span><input type="number" id="ra-city-debt" min="0" step="25" value="350"></label>
+                <label class="ra-field"><span>Household size</span><input type="number" id="ra-city-family" min="1" max="8" step="1" value="1"></label>
+                <label class="ra-field"><span>Savings goal (% of take-home)</span><input type="number" id="ra-city-save" min="0" max="40" step="1" value="15"></label>
+                <div class="ra-field ra-field--full">
+                  <button type="submit" class="ra-btn" id="ra-city-calc-btn">Calculate Rent Affordability</button>
+                </div>
+              </form>
+            </div>
+            <div class="ra-city-instant" id="ra-city-instant" aria-live="polite">
+              <h2 class="ra-city-instant__title">Your Austin rent estimate</h2>
+              <dl class="ra-city-instant__grid">
+                <div><dt>Income</dt><dd id="ra-ci-income">$75,000</dd></div>
+                <div><dt>Recommended rent</dt><dd id="ra-ci-comfort">$1,650 – $1,931/month</dd></div>
+                <div><dt>Maximum stretch budget</dt><dd id="ra-ci-stretch">$2,156/month</dd></div>
+                <div><dt>Austin median rent</dt><dd id="ra-ci-median">$1,780/month</dd></div>
+                <div class="ra-city-instant__verdict"><dt>Verdict</dt><dd id="ra-ci-verdict" class="ra-verdict ra-verdict--good">Comfortable</dd></div>
+              </dl>
+              <p class="ra-city-instant__note" id="ra-ci-summary">Based on $75,000 gross and typical Austin take-home. Adjust debt and savings to see your range update instantly.</p>
+            </div>
+          </div>
+          <aside class="ha-city-toc ha-city-toc--hero" id="ra-toc">
+            <div class="ha-city-toc__card">
+              <button type="button" class="ha-city-toc__toggle" aria-expanded="true" aria-controls="ra-toc-panel">
+                <span class="ha-city-toc__toggle-text">
+                  <span class="ha-city-toc__title">On this page</span>
+                  <span class="ha-city-toc__kicker">Snapshot, neighborhoods, tiers &amp; more</span>
+                </span>
+                <svg class="ha-city-toc__toggle-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+              </button>
+              <nav class="ha-city-toc__panel" id="ra-toc-panel" aria-label="On this page">
+                <ul class="ha-city-toc__list">
+          <li><a href="#ra-calculator" class="ha-city-toc__link" data-ha-toc-link>Rent calculator</a></li>
+          <li><a href="#ra-rent-snapshot" class="ha-city-toc__link" data-ha-toc-link>Austin rent snapshot</a></li>
+          <li><a href="#ra-rent-rules" class="ha-city-toc__link" data-ha-toc-link>Gross vs net rent rules</a></li>
+          <li><a href="#ra-rent-by-income" class="ha-city-toc__link" data-ha-toc-link>Rent by income</a></li>
+          <li><a href="#ra-hidden-costs" class="ha-city-toc__link" data-ha-toc-link>Hidden rental costs</a></li>
+          <li><a href="#ra-neighborhoods" class="ha-city-toc__link" data-ha-toc-link>Neighborhood comparison</a></li>
+          <li><a href="#ra-budget-breakdown" class="ha-city-toc__link" data-ha-toc-link>Budget breakdown</a></li>
+          <li><a href="#ra-affordability-tiers" class="ha-city-toc__link" data-ha-toc-link>Affordability tiers</a></li>
+          <li><a href="#ra-lt-gross-net-austin" class="ha-city-toc__link" data-ha-toc-link>Is rent 30% of gross or net income in Austin?</a></li>
+          <li><a href="#ra-lt-2br-austin" class="ha-city-toc__link" data-ha-toc-link>What salary do you need for a 2-bedroom apartment in Austin?</a></li>
+          <li><a href="#ra-lt-rent-buy-austin" class="ha-city-toc__link" data-ha-toc-link>Should you rent or buy in Austin right now?</a></li>
+          <li><a href="#ra-lt-tips-austin" class="ha-city-toc__link" data-ha-toc-link>First-time renter tips in Austin</a></li>
+          <li><a href="#ra-related-income" class="ha-city-toc__link" data-ha-toc-link>Related income pages</a></li>
+          <li><a href="#ra-faq" class="ha-city-toc__link" data-ha-toc-link>FAQ</a></li>
+                </ul>
+              </nav>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt" id="ra-rent-snapshot">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Austin rent snapshot</h2>
+          <p class="ra-section-head__intro">Local benchmarks for Austin. Compare your calculator result to these medians before you tour apartments.</p>
+        </header>
+        <div class="ra-glance-row" aria-label="Austin rent at a glance">
+          <div class="ra-glance-pill"><span class="ra-glance-pill__n">$1,780</span><span class="ra-glance-pill__l">Median rent</span></div>
+          <div class="ra-glance-pill"><span class="ra-glance-pill__n">108</span><span class="ra-glance-pill__l">Cost of living index</span></div>
+          <div class="ra-glance-pill"><span class="ra-glance-pill__n">74/100</span><span class="ra-glance-pill__l">Affordability score</span></div>
+          <div class="ra-glance-pill"><span class="ra-glance-pill__n">30%</span><span class="ra-glance-pill__l">Rent-to-income rule</span></div>
+        </div>
+        <div class="ra-table-card">
+          <div class="ra-snapshot-table-wrap">
+            <table class="debt-data-table ra-city-table ra-snapshot-table">
+              <caption>Austin rent and cost benchmarks</caption>
+              <tbody>
+                <tr><th scope="row">Median rent</th><td>$1,780</td></tr>
+                <tr><th scope="row">Studio</th><td>$1,420</td></tr>
+                <tr><th scope="row">1 bedroom</th><td>$1,750</td></tr>
+                <tr><th scope="row">2 bedroom</th><td>$2,280</td></tr>
+                <tr><th scope="row">Rent-to-income benchmark</th><td>30%</td></tr>
+                <tr><th scope="row">Cost of living index</th><td>108 <span class="ra-table-muted">(US avg = 100)</span></td></tr>
+                <tr><th scope="row">Affordability score</th><td>74/100</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="ra-reading-block">
+          <p>Austin rent cooled slightly after the 2022 peak but still runs above Houston and San Antonio. Tech wages help, yet list prices in popular corridors stay sticky.</p>
+          <p>No Texas state income tax boosts take-home pay versus coastal metros. Property tax matters more if you buy — renters still face rising insurance pass-throughs in some buildings.</p>
+          <p>Many newcomers underestimate commute time on I-35 and MoPac. A cheaper suburb can erase savings if you add tolls and gas.</p>
+          <p>Austin's cost-of-living index near 108 means everyday bills run a bit above the US average. Rent is the biggest line, but groceries near $400 a month and transport near $370 still compete with your lease payment.</p>
+          <p>The affordability score of 74/100 on this page reflects median rent against typical wages — not your personal offer. A remote worker paid California wages rents very differently than a local service wage.</p>
+          <p>Studios near $1,420 and 2-bedrooms near $2,280 bracket the median. Families often need the 2BR row while singles target studios or shared leases in the urban core.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ra-band" id="ra-rent-rules">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Gross vs net: how rent rules work in Austin</h2>
+          <p class="ra-section-head__intro">Landlords screen on gross income. Your budget runs on take-home pay. Both numbers matter — here is how to use them.</p>
+        </header>
+        <ul class="ra-insight-list">
+          <li class="ra-insight-item"><p>Landlords in Austin often ask for gross income at 40 times monthly rent. That is the same math as spending 30% of gross on rent — just written for lease applications. A $1,750 listing implies about $70,000 yearly gross to pass the screen.</p></li>
+          <li class="ra-insight-item"><p>Your budget should still run on take-home pay. With no Texas state income tax, Austin workers often keep 75% to 80% of gross after federal and FICA. A $75,000 salary might land near $4,900 a month in take-home — your rent cap should come from that number, not the offer letter alone.</p></li>
+          <li class="ra-insight-item"><p>Debt changes the picture fast. A $350 car payment and $200 in student loans can pull your comfortable rent band down by $150 to $250 a month even when gross income looks fine on an application.</p></li>
+          <li class="ra-insight-item"><p>Savings goals matter too. If you want 15% of take-home set aside, you may need to rent below the landlord maximum. That is intentional — it leaves room for Austin rent hikes, which averaged 3% to 5% annually in many buildings before cooling.</p></li>
+        </ul>
+        <p class="ra-cta-line">Run your exact take-home in our <a class="ra-text-link" href="/hourly-to-salary-after-tax/state/texas/">Texas paycheck calculator</a>, then compare the result to the comfortable band from the calculator above.</p>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt" id="ra-rent-by-income">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>How much rent can you afford in Austin?</h2>
+          <p class="ra-section-head__intro">Affordable monthly rent at the classic 30% of gross income rule. Your real ceiling may be lower once debt, savings, and utilities are in the picture.</p>
+        </header>
+        <div class="ra-table-card">
+          <div class="ra-snapshot-table-wrap">
+            <table class="debt-data-table ra-city-table ra-income-table">
+              <caption>Affordable rent by salary in Austin</caption>
+              <thead><tr><th scope="col">Salary</th><th scope="col">Affordable rent (30% gross)</th></tr></thead>
+              <tbody>
+              <tr><td>$50,000</td><td>$1,250</td></tr>
+              <tr><td>$75,000</td><td>$1,875</td></tr>
+              <tr><td>$100,000</td><td>$2,500</td></tr>
+              <tr><td>$150,000</td><td>$3,750</td></tr>
+              <tr><td>$200,000</td><td>$5,000</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <h3 class="ra-subhead">Common salary scenarios</h3>
+        <div class="ra-expand-stack">
+          <details class="ra-expand">
+            <summary class="ra-expand__summary">Can you afford $1,800 rent on $75k in Austin?</summary>
+            <div class="ra-expand__body">
+              <p>Yes. A $75k salary generally supports rent around $1,800–$1,900 while maintaining room for savings. At 30% of gross, the ceiling is $1,875/month before utilities.</p>
+            </div>
+          </details>
+          <details class="ra-expand">
+            <summary class="ra-expand__summary">Is $2,200 rent affordable on $100k in Austin?</summary>
+            <div class="ra-expand__body">
+              <p>It can work as a stretch budget if debt is low and you still save 10–15% of take-home. Comfortable rent on $100k is closer to $2,000–$2,300 depending on debt and savings goals.</p>
+            </div>
+          </details>
+          <details class="ra-expand">
+            <summary class="ra-expand__summary">How much rent on $50k in Austin?</summary>
+            <div class="ra-expand__body">
+              <p>Plan near $1,250/month at the 30% gross rule — often a studio or roommate situation in central zip codes.</p>
+            </div>
+          </details>
+          <details class="ra-expand">
+            <summary class="ra-expand__summary">Can a single person afford Austin on $60k?</summary>
+            <div class="ra-expand__body">
+              <p>Possible with a roommate or a studio outside the core. Solo 1BR at median rent is a stretch without low debt and a tight savings goal.</p>
+              <p>Budget $1,500 rent plus $200 utilities and $350 transport before you count groceries. That often means living north or east of central Austin.</p>
+            </div>
+          </details>
+          <details class="ra-expand">
+            <summary class="ra-expand__summary">How much rent on $125k in Austin?</summary>
+            <div class="ra-expand__body">
+              <p>Gross rule allows about $3,125 a month — enough for premium 1BR or many 2BR units with savings room if debt stays moderate.</p>
+              <p>High earners still overspend on square footage. Cap rent so you keep 15% savings for down payment if you plan to buy within five years.</p>
+            </div>
+          </details>
+        </div>
+        <aside class="ra-callout" role="note">
+          <p class="ra-callout__title">How to use this table</p>
+          <p>These figures use the 30% gross rule. Debt, savings, and utilities can lower your real ceiling — that is why we show comfortable and stretch bands in the hero calculator, not just one max.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ra-band" id="ra-hidden-costs">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Hidden costs of renting in Austin</h2>
+          <p class="ra-section-head__intro">The listing price is not your total housing bill. Budget these lines before you compare apartments.</p>
+        </header>
+        <ul class="ra-insight-list">
+          <li class="ra-insight-item"><p>Listed rent rarely includes electricity, gas, water, trash, or internet. In Austin, plan $150 to $250 a month for utilities on a 1-bedroom, higher in summer when AC runs hard.</p></li>
+          <li class="ra-insight-item"><p>Renters insurance is cheap but required in most leases — budget $15 to $25 a month. Parking downtown can add $100 to $250 if it is not included.</p></li>
+          <li class="ra-insight-item"><p>Move-in costs hit once: first month, deposit, and sometimes an admin fee. That can mean $4,000 to $5,000 cash due at signing on a $1,800 unit before you buy furniture.</p></li>
+          <li class="ra-insight-item"><p>Pet rent and breed restrictions are common in newer Austin complexes. A $50 monthly pet fee is effectively part of your housing cost when you compare listings.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt" id="ra-neighborhoods">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Austin neighborhood comparison</h2>
+          <p class="ra-section-head__intro">Typical asking rent and rough income needed for a comfortable 30% gross cap. Your block may differ — use these to narrow your search.</p>
+        </header>
+        <div class="ra-table-card">
+          <div class="ra-snapshot-table-wrap">
+            <table class="debt-data-table ra-city-table ra-nh-table">
+              <caption>Austin neighborhoods — rent and income benchmarks</caption>
+              <thead><tr><th scope="col">Neighborhood</th><th scope="col">Typical rent</th><th scope="col">Comfortable on</th></tr></thead>
+              <tbody>
+              <tr>
+                <th scope="row">Downtown</th>
+                <td>$2,500</td>
+                <td>$100,000+</td>
+              </tr>
+              <tr>
+                <th scope="row">South Congress</th>
+                <td>$2,100</td>
+                <td>$85,000+</td>
+              </tr>
+              <tr>
+                <th scope="row">North Austin</th>
+                <td>$1,700</td>
+                <td>$70,000+</td>
+              </tr>
+              <tr>
+                <th scope="row">Round Rock</th>
+                <td>$1,500</td>
+                <td>$60,000+</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <aside class="ra-callout" role="note">
+          <p class="ra-callout__title">Neighborhood notes</p>
+          <p>Downtown and South Congress command premiums for walkability and nightlife. North Austin and Round Rock trade commute time for square footage. When you tour, ask about average utility bills and parking — two lines that swing the true monthly cost more than a $100 rent difference.</p>
+        </aside>
+        <p class="ra-cta-line">Compare with <a class="ra-text-link" href="/living/housing/how-much-rent-can-i-afford/texas/dallas">Dallas</a> or open our <a class="ra-text-link" href="/living/housing/cost-of-living-by-city/texas/austin">Austin cost of living guide</a> for groceries, transit, and tax context.</p>
+      </div>
+    </section>
+
+    <section class="ra-band" id="ra-budget-breakdown">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Monthly budget breakdown example ($75,000 income)</h2>
+          <p class="ra-section-head__intro">Illustrative split using Austin defaults — not your exact paycheck. Swap in your take-home from our after-tax calculator.</p>
+        </header>
+        <div class="ra-budget-visual">
+          <p class="ra-budget-visual__net">Monthly take-home pay: <strong>$4,875</strong></p>
+          <ul class="ra-budget-list">
+            <li class="ra-budget-row ra-budget-row--rent" style="--pct:37%">
+              <div class="ra-budget-row__meta"><span>Rent</span><strong>$1,800</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--util" style="--pct:4%">
+              <div class="ra-budget-row__meta"><span>Utilities</span><strong>$195</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--trans" style="--pct:8%">
+              <div class="ra-budget-row__meta"><span>Transportation</span><strong>$370</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--food" style="--pct:11%">
+              <div class="ra-budget-row__meta"><span>Food</span><strong>$536</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--save" style="--pct:15%">
+              <div class="ra-budget-row__meta"><span>Savings</span><strong>$731</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+            <li class="ra-budget-row ra-budget-row--other" style="--pct:25%">
+              <div class="ra-budget-row__meta"><span>Other</span><strong>$1,243</strong></div>
+              <span class="ra-budget-row__track" aria-hidden="true"><span class="ra-budget-row__fill"></span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="ra-reading-block">
+          <p>If rent plus utilities push past one-third of take-home, the other lines get squeezed fast — especially when debt payments are not shown in this simplified example.</p>
+          <p>This example assumes moderate debt entered in the calculator. If you carry $600 a month in loan payments, cut the rent line before you cut groceries or savings.</p>
+          <p>Austin commuters on toll roads (183A, 290 toll) should add those charges to transportation — they can rival a utility bill over a month of daily driving.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt" id="ra-affordability-tiers">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Affordability tiers in Austin</h2>
+          <p class="ra-section-head__intro">Planning bands tied to gross income — pair with our <a class="ra-text-link" href="/living/lifestyle/comfortable-salary/texas/austin">comfortable salary guide</a> for household-specific targets.</p>
+        </header>
+        <div class="ra-tier-grid">
+          <article class="ra-tier-card">
+            <h3>Survival budget</h3>
+            <p class="ra-tier-card__income">$55,000+</p>
+            <p>Studio or roommate; tight margin for savings.</p>
+          </article>
+          <article class="ra-tier-card">
+            <h3>Comfortable budget</h3>
+            <p class="ra-tier-card__income">$75,000+</p>
+            <p>1BR in many neighborhoods with modest savings.</p>
+          </article>
+          <article class="ra-tier-card">
+            <h3>Very comfortable</h3>
+            <p class="ra-tier-card__income">$100,000+</p>
+            <p>1BR premium areas or 2BR in suburbs.</p>
+          </article>
+          <article class="ra-tier-card">
+            <h3>Premium lifestyle</h3>
+            <p class="ra-tier-card__income">$150,000+</p>
+            <p>Downtown or large 2BR with strong savings rate.</p>
+          </article>
+        </div>
+        <aside class="ra-callout" role="note">
+          <p class="ra-callout__title">How to read these tiers</p>
+          <p>Austin's tier bands map to real listing tiers: survival often means roommates east of I-35 or far north; comfortable fits many 1BRs at $1,600 to $1,900; premium assumes dual income or remote tech wages at $2,400+ for central zip codes.</p>
+        </aside>
+      </div>
+    </section>
+    <section class="ra-band ra-article-band" id="ra-lt-gross-net-austin">
+      <div class="container container--wide">
+        <article class="ra-article-card">
+          <h2 class="ra-article-card__title">Is rent 30% of gross or net income in Austin?</h2>
+        <div class="ra-prose">
+          <p>Use gross for landlord approval and net for your real life. Austin property managers commonly require 2.5× to 3× rent in monthly gross income. The 40× annual rule is the same test in different clothes.</p>
+          <p>For budgeting, multiply take-home pay by 0.30 — or use our calculator, which also factors debt and savings. On $4,900 take-home, that is $1,470 a month all-in for rent plus utilities if you want a strict cap.</p>
+          <p>Texas has no state income tax, so the gross-to-net gap is smaller than in California or New York. Still, benefits and 401(k) deferrals shrink spendable cash. Paste your actual paycheck into the tool after you run state withholding.</p>
+        </div>
+        </article>
+      </div>
+    </section>
+    <section class="ra-band ra-article-band ra-band--alt" id="ra-lt-2br-austin">
+      <div class="container container--wide">
+        <article class="ra-article-card">
+          <h2 class="ra-article-card__title">What salary do you need for a 2-bedroom apartment in Austin?</h2>
+        <div class="ra-prose">
+          <p>Median 2-bedroom rent near $2,280 implies about $91,200 gross at the 30% rule — before utilities, parking, or debt. Dual earners often combine income on the lease; solo renters may need roommates at that price point.</p>
+          <p>Suburbs like Pflugerville, Kyle, and Cedar Park sometimes list 2BR units closer to $1,900. Factor commute gas and tolls before you count the savings.</p>
+          <p>If you have children, daycare can matter more than an extra bedroom. Run the comfortable salary guide for Austin to layer childcare on top of rent.</p>
+        </div>
+        </article>
+      </div>
+    </section>
+    <section class="ra-band ra-article-band" id="ra-lt-rent-buy-austin">
+      <div class="container container--wide">
+        <article class="ra-article-card">
+          <h2 class="ra-article-card__title">Should you rent or buy in Austin right now?</h2>
+        <div class="ra-prose">
+          <p>Renting wins on flexibility when job or neighborhood plans are uncertain. Buying pulls ahead after several years if you stay put and rates stabilize — but Austin property tax is heavy for owners.</p>
+          <p>Use our rent vs buy calculator with your real stay length. Many Austin renters upgrade to buying only after they know their corridor — not on day one of a new job.</p>
+          <p>If your comfortable rent is far below median, buying may be years away. That is normal — build savings while you rent under budget instead of stretching to the landlord max.</p>
+        </div>
+        </article>
+      </div>
+    </section>
+    <section class="ra-band ra-article-band ra-band--alt" id="ra-lt-tips-austin">
+      <div class="container container--wide">
+        <article class="ra-article-card">
+          <h2 class="ra-article-card__title">First-time renter tips in Austin</h2>
+        <div class="ra-prose">
+          <p>Tour in summer if the unit includes AC — you will feel how hard the system works. Ask the current tenant or landlord for last summer's electric bill.</p>
+          <p>Read the lease for automatic renewal and rent-increase clauses. Texas notices vary; know how much lead time you have if the landlord raises rent at renewal.</p>
+          <p>Get renters insurance before move-in — most leases require it and it is inexpensive. Bundle with auto if you already insure a car in Texas.</p>
+        </div>
+        </article>
+      </div>
+    </section>
+    <section class="ra-band" id="ra-related-income">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Related income &amp; housing pages</h2>
+          <p class="ra-section-head__intro">Connect your rent cap to salary scenarios, cost of living, and buy-vs-rent decisions in Austin.</p>
+        </header>
+        <div class="ra-related-grid">
+          <a class="ra-related-card" href="/living/lifestyle/comfortable-salary/texas/austin/is-75k-enough-to-live-in-austin"><span>Is $75k enough to live in Austin?</span><strong>Open guide →</strong></a>
+          <a class="ra-related-card" href="/living/lifestyle/comfortable-salary/texas/austin/is-100k-enough-to-live-in-austin"><span>Is $100k enough to live in Austin?</span><strong>Open guide →</strong></a>
+          <a class="ra-related-card" href="/living/lifestyle/comfortable-salary/texas/austin"><span>Comfortable salary in Austin</span><strong>Open guide →</strong></a>
+          <a class="ra-related-card" href="/living/housing/cost-of-living-by-city/texas/austin"><span>Cost of living in Austin</span><strong>Open guide →</strong></a>
+          <a class="ra-related-card" href="/living/housing/how-much-house-can-i-afford/texas/austin"><span>How much house can I afford in Austin?</span><strong>Open guide →</strong></a>
+          <a class="ra-related-card" href="/living/housing/moving-cost-calculator/texas/austin"><span>Moving cost calculator — Austin</span><strong>Open guide →</strong></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ra-band ra-band--alt living-faq-section ra-city-faq" id="ra-faq">
+      <div class="container container--wide">
+        <header class="ra-section-head">
+          <h2>Austin rent affordability FAQ</h2>
+          <p class="ra-section-head__intro">Short answers to common search questions. Run the calculator above for numbers tied to your income and debt.</p>
+        </header>
+        <div class="faq-stack ra-faq-stack">
+          <article class="faq-item">
+            <h3>Is $2,000 rent affordable on a $75k salary in Austin?</h3>
+            <p>It is at the top of the comfortable band for many renters. Add utilities and parking — if total housing passes 35% of take-home, treat it as stretch rent.</p>
+          </article>
+          <article class="faq-item">
+            <h3>What salary do I need for a 2-bedroom apartment in Austin?</h3>
+            <p>Median 2BR near $2,280 implies roughly $91k gross at the 30% rule — more if you want savings room and low debt.</p>
+          </article>
+          <article class="faq-item">
+            <h3>How much should I spend on rent in Austin?</h3>
+            <p>Start at 30% of gross for landlord math, then cap at 30% of take-home for your real budget. Use the lower number.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Is Austin rent higher than Dallas?</h3>
+            <p>Yes on median 1BR in most years. Dallas offers more suburban stock below $1,600; Austin's tech corridor pulls medians up.</p>
+          </article>
+          <article class="faq-item">
+            <h3>How much is average rent in Austin for a 1-bedroom?</h3>
+            <p>Planning figures center near $1,750, with studios lower and renovated central units higher. Always verify with current listings in your target zip.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Can I afford Austin rent on $60,000 a year?</h3>
+            <p>Gross cap near $1,500 a month — usually a roommate, studio, or suburb. Comfortable solo 1BR at median rent typically needs closer to $70,000+ with low debt.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-description">US-only tools to calculate your real income after tax, understand debt, and make smarter financial decisions.</p>
+      <div class="footer-grid" role="navigation" aria-label="Footer">
+        <section class="footer-column" aria-labelledby="footer-popular-calculators">
+          <h2 id="footer-popular-calculators">Popular Calculators</h2>
+          <a href="/hourly-to-salary-after-tax">Hourly to Salary After Tax</a>
+          <a href="/debt/credit-cards/credit-card-payoff-calculator">Credit Card Payoff Calculator</a>
+          <a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a>
+          <a href="/1099-vs-w2-calculator">1099 vs W2 Calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-tools-category">
+          <h2 id="footer-tools-category">Tools by Category</h2>
+          <a href="/hourly-to-salary-after-tax">Income</a>
+          <a href="/debt">Debt</a>
+          <a href="/rent-vs-buy-calculator">Living</a>
+          <a href="/1099-vs-w2-calculator">Freelance</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-explore-more">
+          <h2 id="footer-explore-more">Explore More</h2>
+          <a href="/living/housing/how-much-rent-can-i-afford">Rent affordability hub</a>
+          <a href="/living/housing/cost-of-living-by-city/texas/austin">Cost of living in Austin</a>
+          <a href="/rent-vs-buy-calculator">Rent vs buy calculator</a>
+        </section>
+        <section class="footer-column" aria-labelledby="footer-company">
+          <h2 id="footer-company">Company</h2>
+          <a href="/about">About</a>
+          <a href="/editorial-policy">Editorial policy</a>
+          <a href="/contact">Contact</a>
+        </section>
+      </div>
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
+  <script src="/rent-afford-city.js"></script>
+  <script src="/page-toc.js" defer></script>
+</body>
+</html>

@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Can You Afford a Home in New York City? What New York Buyers Actually Need (2026) | Income Clarity</title>
-  <meta name="description" content="Median prices in New York City don't tell your story. Run your income through the 28% rule and see what monthly payment — and home price — you can actually carry.">
+  <title>How Much House Can You Afford in New York City? Income, Payment &amp; Local Costs (2026) | Income Clarity</title>
+  <meta name="description" content="How much house can you afford in New York City, New York? Median price $725,000, salary tiers, property tax, insurance, HOA, and a free PITI calculator.">
   <link rel="canonical" href="https://www.incomeclaritylab.com/living/housing/how-much-house-can-i-afford/new-york/new-york-city">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles-living-system.css">
   <link rel="icon" type="image/png" href="/images/logo.png">
   <link rel="apple-touch-icon" href="/images/logo.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What income to buy in NYC?", "acceptedAnswer": {"@type": "Answer", "text": "Often $180k+ gross for a median condo payment with 20% down — borough and building matter."}}, {"@type": "Question", "name": "Are NYC property taxes low?", "acceptedAnswer": {"@type": "Answer", "text": "Rates look low on paper but assessed values are high. Maintenance fees are the wild card."}}, {"@type": "Question", "name": "What income to buy in NYC?", "acceptedAnswer": {"@type": "Answer", "text": "Often $180k+ gross for a median condo payment with 20% down — borough matters."}}, {"@type": "Question", "name": "Are NYC property taxes low?", "acceptedAnswer": {"@type": "Answer", "text": "Rates look low on paper but values are high. Maintenance is the wild card."}}, {"@type": "Question", "name": "Can I buy in NYC on $120k?", "acceptedAnswer": {"@type": "Answer", "text": "Outer-borough studios and small condos may work — not median listings with high maintenance."}}, {"@type": "Question", "name": "Co-op vs condo in NYC?", "acceptedAnswer": {"@type": "Answer", "text": "Co-ops often cost less upfront but have stricter boards and higher maintenance risk."}}]}</script>
   <script>
     (function () {
       const path = window.location.pathname;
@@ -19,7 +21,7 @@
     })();
   </script>
 </head>
-<body class="ha-page">
+<body class="ha-page living-tool-page ha-city-page">
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="/"><img src="/images/logo.png" alt="" width="32" height="32"><span class="logo-text">Income Clarity</span></a>
@@ -27,11 +29,12 @@
         <a href="/hourly-to-salary-after-tax">Income</a>
         <a href="/debt">Debt</a>
         <a href="/rent-vs-buy-calculator">Living</a>
+        <a href="/1099-vs-w2-calculator">Freelance</a>
       </nav>
     </div>
   </header>
   <main>
-    <section class="ha-hero">
+    <section class="ha-hero" id="ha-calculator">
       <div class="container">
         <nav class="take-home-return-nav" aria-label="Breadcrumb">
           <ol class="take-home-return-breadcrumbs">
@@ -42,65 +45,295 @@
         </nav>
         <span class="label">New York City · New York</span>
         <h1>How Much House Can You Afford in New York City?</h1>
-        <p class="lead">Median home near <strong>$725,000</strong>. Typical household income near <strong>$95,000</strong>. Very high — co-op maintenance and local tax squeeze cash flow. Calculator below uses New York City tax and insurance defaults.</p>
+        <p class="lead">Median home near <strong>$725,000</strong>. Typical income near <strong>$95,000</strong>. Very high — co-op maintenance and local tax squeeze cash flow. Run the calculator — this page also has salary tiers, neighborhood prices, and local buyer guides.</p>
+        <div class="ha-hero-grid">
         <div class="ha-calc-shell">
-          <form id="ha-calc-form" class="ha-calc-form">
-            <label class="ha-calc__field"><span>Annual income</span><input type="number" id="ha-income" value="95000" required></label>
-            <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" value="300" required></label>
-            <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" value="145000" required></label>
-            <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" value="6.5" step="0.05" required></label>
+          <form id="ha-calc-form" class="ha-calc-form" aria-label="New York City house affordability calculator">
+            <label class="ha-calc__field"><span>Annual income ($)</span><input type="number" id="ha-income" min="20000" step="1000" value="95000" required></label>
+            <label class="ha-calc__field"><span>Other monthly debt ($)</span><input type="number" id="ha-debt" min="0" step="25" value="300" required></label>
+            <label class="ha-calc__field"><span>Down payment ($)</span><input type="number" id="ha-down" min="0" step="5000" value="145000" required></label>
+            <label class="ha-calc__field"><span>Interest rate (%)</span><input type="number" id="ha-rate" min="2" max="15" step="0.05" value="6.5" required></label>
             <input type="hidden" id="ha-location" value="new-york">
-            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate</button></div>
+            <div class="ha-calc__actions"><button type="submit" class="ha-calc__btn">Calculate max home price</button></div>
           </form>
           <div id="ha-calc-results" class="ha-results" hidden aria-live="polite"></div>
         </div>
+      <aside class="ha-city-toc ha-city-toc--hero" id="ha-toc">
+        <div class="ha-city-toc__card">
+          <button type="button" class="ha-city-toc__toggle" aria-expanded="true" aria-controls="ha-toc-panel">
+            <span class="ha-city-toc__toggle-text">
+              <span class="ha-city-toc__title">On this page</span>
+              <span class="ha-city-toc__kicker">Guides, salary tiers, neighborhoods &amp; more</span>
+            </span>
+            <svg class="ha-city-toc__toggle-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <nav class="ha-city-toc__panel" id="ha-toc-panel" aria-label="On this page">
+            <ul class="ha-city-toc__list">
+          <li><a href="#ha-calculator" class="ha-city-toc__link" data-ha-toc-link>Affordability calculator</a></li>
+          <li><a href="#ha-local-stats" class="ha-city-toc__link" data-ha-toc-link>At a glance</a></li>
+          <li><a href="#ha-piti-breakdown" class="ha-city-toc__link" data-ha-toc-link>Payment breakdown</a></li>
+          <li><a href="#ha-income-tiers" class="ha-city-toc__link" data-ha-toc-link>Salary tiers</a></li>
+          <li><a href="#ha-neighborhoods" class="ha-city-toc__link" data-ha-toc-link>Neighborhoods</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">Local guides</li>
+          <li><a href="#ha-rules" class="ha-city-toc__link" data-ha-toc-link>28/36 rule</a></li>
+          <li><a href="#ha-narrative-new-york-city" class="ha-city-toc__link" data-ha-toc-link>Local context</a></li>
+          <li><a href="#ha-lt-new-york-city-0" class="ha-city-toc__link" data-ha-toc-link>How much house can I afford in NYC on $150k?</a></li>
+          <li><a href="#ha-lt-new-york-city-1" class="ha-city-toc__link" data-ha-toc-link>NYC co-op maintenance and board approval</a></li>
+          <li><a href="#ha-lt-new-york-city-2" class="ha-city-toc__link" data-ha-toc-link>What salary do you need to buy in New York City?</a></li>
+          <li><a href="#ha-rent-buy" class="ha-city-toc__link" data-ha-toc-link>Rent vs buy</a></li>
+          <li><a href="#ha-tips" class="ha-city-toc__link" data-ha-toc-link>First-time buyer tips</a></li>
+          <li class="ha-city-toc__group" aria-hidden="true">More</li>
+          <li><a href="#ha-related" class="ha-city-toc__link" data-ha-toc-link>Related tools</a></li>
+          <li><a href="#ha-faq" class="ha-city-toc__link" data-ha-toc-link>FAQ</a></li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+        </div>
       </div>
     </section>
-    <section class="ha-section">
+
+    <section class="ha-section" id="ha-local-stats" aria-labelledby="ha-glance-title">
       <div class="container content-page">
-        <h2>Local numbers for New York City</h2>
-        <div class="debt-stats-grid">
-          <div class="debt-stat-block"><span class="debt-stat-value">$725,000</span><span class="debt-stat-label">Median home price</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">$226,562+</span><span class="debt-stat-label">Rough gross income for median home (3× rule)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">0.88%</span><span class="debt-stat-label">Property tax (effective)</span></div>
-          <div class="debt-stat-block"><span class="debt-stat-value">0.45%</span><span class="debt-stat-label">Insurance (of home value / yr)</span></div>
+        <h2 id="ha-glance-title">New York City home affordability at a glance</h2>
+        <p class="ha-section__lead">Planning figures for New York City, New York. Your lender quote and tax bill may differ — use these as a starting point.</p>
+        <div class="ha-glance-grid">
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$725,000</span><span class="ha-glance-card__l">Median home price</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$95,000</span><span class="ha-glance-card__l">Median household income</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$226,562+</span><span class="ha-glance-card__l">Rough gross for median (3× rule)</span></div>
+          <div class="ha-glance-card"><span class="ha-glance-card__n">$4,919/mo</span><span class="ha-glance-card__l">Est. PITI on median (20% down)</span></div>
         </div>
-        <p>On a median $725,000 home, tax near 0.88% is about <strong>$531/month</strong>. Insurance near 0.45% is about <strong>$271/month</strong>. HOA near <strong>$450/month</strong> where it applies.</p>
+        <p>On a median $725,000 home, property tax near 0.88% is about <strong>$531/month</strong>. Insurance near 0.45% of value is about <strong>$271/month</strong>. HOA is about <strong>$450/month</strong> where it applies.</p>
         <p>Co-ops may need 20–50% down and board approval. City income tax hits take-home before you shop.</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Change income, debt, and down payment in the calculator. Compare with <a href="/living/housing/how-much-house-can-i-afford/new-york/buffalo">Buffalo</a> · <a href="/living/housing/how-much-house-can-i-afford/new-york/albany">Albany</a>.</p>
+          <p>Change income, debt, and down payment in the calculator above. Compare with <a href="/living/housing/how-much-house-can-i-afford/new-york/buffalo">Buffalo</a> · <a href="/living/housing/how-much-house-can-i-afford/new-york/albany">Albany</a>.</p>
         </aside>
-        <p><a href="/living/housing/how-much-house-can-i-afford/new-york">All New York cities</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
       </div>
     </section>
-    <section class="ha-section" aria-labelledby="ha-city-narrative-new-york-city">
+
+    <section class="ha-section ha-section--tone" id="ha-piti-breakdown" aria-labelledby="ha-piti-title">
       <div class="container content-page">
-        <h2 id="ha-city-narrative-new-york-city">Affordability in New York City: local context</h2>
+        <h2 id="ha-piti-title">Monthly payment breakdown on a median New York City home</h2>
+        <p class="ha-section__lead">Estimated PITI at $725,000 list, 20% down, 6.5% rate, and New York City tax and insurance defaults. Principal and interest are the largest line — but tax, insurance, and HOA still move the stress meter.</p>
+        <div class="ha-piti-visual">
+          <div class="ha-piti-visual__total">
+            <span class="ha-results__label">Estimated monthly PITI</span>
+            <p class="ha-results__price">$4,919<span>/mo</span></p>
+          </div>
+          <div class="ha-piti-bars">
+            <div class="ha-piti-bar-row"><span>Principal &amp; interest</span><div class="ha-piti-bar"><span style="width:75%"></span></div><span>$3,665</span></div>
+            <div class="ha-piti-bar-row"><span>Property tax</span><div class="ha-piti-bar"><span style="width:11%"></span></div><span>$531</span></div>
+            <div class="ha-piti-bar-row"><span>Insurance</span><div class="ha-piti-bar"><span style="width:6%"></span></div><span>$271</span></div>
+            <div class="ha-piti-bar-row"><span>HOA</span><div class="ha-piti-bar"><span style="width:9%"></span></div><span>$450</span></div>
+          </div>
+        </div>
+        <p>In New York City, buyers who only compare list price to income miss tax and insurance. Run the calculator with your real debts — the 36% back-end rule includes car loans and cards.</p>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-income-tiers" aria-labelledby="ha-tiers-title">
+      <div class="container content-page">
+        <h2 id="ha-tiers-title">How much house can you afford in New York City by salary?</h2>
+        <p class="ha-section__lead">Max home price at common gross salaries, 6.5% rate, $300/month other debt, and New York City tax and insurance. Stress label uses the 28% housing cap.</p>
+        <div class="ha-compare-table-wrap">
+          <table class="debt-data-table ha-tier-table">
+            <caption>Affordable home price by gross annual income in New York City</caption>
+            <thead><tr><th scope="col">Gross salary</th><th scope="col">Max home (est.)</th><th scope="col">Stress</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>$75,000</td>
+                <td>$174,989</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$100,000</td>
+                <td>$253,510</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$125,000</td>
+                <td>$332,031</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$150,000</td>
+                <td>$410,552</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+              <tr>
+                <td>$200,000</td>
+                <td>$567,594</td>
+                <td><span class="ha-results__stress ha-stress--moderate">Moderate</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>These rows assume no down payment in the solver — your down payment raises what you can buy. Enter your real numbers in the calculator for a personal max.</p>
+        <p><a href="/hourly-to-salary-after-tax/state/new-york/">New York take-home pay calculator</a> · <a href="/living/lifestyle/comfortable-salary/new-york/new-york-city">Comfortable salary in New York City</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-neighborhoods" aria-labelledby="ha-nh-title">
+      <div class="container content-page">
+        <h2 id="ha-nh-title">New York City home prices by area</h2>
+        <p class="ha-section__lead">The citywide median blends expensive and affordable pockets. Use these ranges as a map — not a guarantee for any one listing.</p>
+        <div class="ha-nh-grid">
+          <article class="ha-nh-card">
+            <h3>Queens (Astoria, Jackson Hts)</h3>
+            <p class="ha-nh-card__range">$500k–$750k</p>
+            <p>Co-ops and condos below Manhattan medians. Still above US norms.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>Brooklyn (Bed-Stuy, Bushwick)</h3>
+            <p class="ha-nh-card__range">$650k–$950k</p>
+            <p>Row houses and condos. Maintenance varies by building.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>Manhattan</h3>
+            <p class="ha-nh-card__range">$900k–$2M+</p>
+            <p>Co-op heavy. Board approval and high maintenance common.</p>
+          </article>
+          <article class="ha-nh-card">
+            <h3>Bronx</h3>
+            <p class="ha-nh-card__range">$400k–$600k</p>
+            <p>Most reachable borough for many first-time buyers.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-rules" aria-labelledby="ha-rules-title">
+      <div class="container content-page">
+        <h2 id="ha-rules-title">The 28/36 rule in New York City</h2>
+        <p class="ha-section__lead">Lenders often use two caps. Our calculator applies both so you see a realistic max — not just what a bank might pre-approve.</p>
+        <div class="ha-rules-grid">
+          <article class="ha-rules-card">
+            <h3>28% front-end</h3>
+            <p>Your full housing payment — mortgage, tax, insurance, and HOA — should stay near or below 28% of gross monthly income. In New York City, insurance and HOA often push buyers over this line before list price does.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>36% back-end</h3>
+            <p>All monthly debt plus housing should stay near or below 36% of gross income. A $400 car payment and $250 in student loans shrink your max home price even when income is strong.</p>
+          </article>
+          <article class="ha-rules-card">
+            <h3>Stress meter</h3>
+            <p>We label results Comfortable, Moderate, Stretched, or Over limit. Shop below your max if you want room for repairs, childcare, or savings — especially in New York where tax and insurance vary by block.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-narrative-new-york-city" aria-labelledby="ha-narrative-title-new-york-city">
+      <div class="container content-page">
+        <h2 id="ha-narrative-title-new-york-city">Buying a home in New York City: local context</h2>
         <p>New York City is the most complex market in this guide. Co-ops, condos, and townhomes each carry different fees and board rules.</p>
         <p>City income tax stacks on state tax. Check take-home pay before you trust gross salary in the calculator.</p>
         <p>Median price near $725k is not one borough. Queens and Bronx listings can sit far below Manhattan medians — still above national norms.</p>
         <p>HOA and maintenance near $450 a month in our default is a floor, not a cap. Luxury buildings run much higher.</p>
         <p>Many buyers need $180k+ gross for a median condo payment with 20% down. If you are below that, size down or widen your search to outer boroughs.</p>
+        <p>New York City is the most complex market in this guide. Co-ops, condos, and townhomes each carry different fees and rules.</p>
+        <p>City income tax stacks on state tax. $100k in NYC does not spend like $100k in Florida after tax.</p>
+        <p>Median price near $725k blends boroughs — Manhattan medians run much higher.</p>
+        <p>Many buyers need help from savings or family for down payment. Still run stress on income you control long term.</p>
         <aside class="what-this-means" role="note">
           <p class="what-this-means__title">What this means for you</p>
-          <p>Your max price drops when debt is high or insurance is above our default. Run the calculator twice — once at list price and once $50k below — to see the stress change.</p>
+          <p>Run the calculator twice — once at list price and once $50k below — to see how fast the stress label changes in New York City.</p>
         </aside>
       </div>
     </section>
-    <section class="ha-faq-section">
+
+      <section class="ha-section ha-section--alt" id="ha-lt-new-york-city-0" aria-labelledby="ha-lt-new-york-city-0-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-new-york-city-0-title">How much house can I afford in NYC on $150k?</h2>
+          <p>At $150,000 gross, city and state tax cut take-home before you shop. The 28% cap is about $3,500 a month on gross — but net pay feels tighter than in no-tax states.</p>
+          <p>That payment often fits a smaller condo near $550,000–$650,000 in outer boroughs — not a Manhattan median.</p>
+          <p>Co-op maintenance can add $800–$1,500 a month in some buildings. Raise HOA in the calculator to match the listing.</p>
+        </div>
+      </section>
+      <section class="ha-section ha-section--alt" id="ha-lt-new-york-city-1" aria-labelledby="ha-lt-new-york-city-1-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-new-york-city-1-title">NYC co-op maintenance and board approval</h2>
+          <p>Co-ops may need 20–50% down and months of board review. Debt-to-income rules can be stricter than banks.</p>
+          <p>Maintenance often includes building mortgage and tax — not just amenities.</p>
+          <p>Condos have clearer fee lines but still carry reserve risk in older walk-ups.</p>
+        </div>
+      </section>
+      <section class="ha-section ha-section--alt" id="ha-lt-new-york-city-2" aria-labelledby="ha-lt-new-york-city-2-title">
+        <div class="container content-page">
+          <h2 id="ha-lt-new-york-city-2-title">What salary do you need to buy in New York City?</h2>
+          <p>For a median unit near $725,000 with 20% down, plan on $180,000+ gross at 6.5% before other debt. Borough and building type move the number a lot.</p>
+          <p>Dual income is standard. Two earners at $100k each may still shop below median once maintenance is in the stack.</p>
+          <p>Use our NYC take-home tool — city tax stacks on state tax for residents.</p>
+        </div>
+      </section>
+    <section class="ha-section" id="ha-rent-buy" aria-labelledby="ha-rent-buy-title">
       <div class="container content-page">
-        <h2>FAQ — New York City</h2>
+        <h2 id="ha-rent-buy-title">Rent vs buy in New York City</h2>
+        <p>NYC rent near $3,400 is high but so is the buy-in. Co-op flip taxes and closing costs favor longer stays. Run rent vs buy with maintenance, not mortgage alone.</p>
+        <p><a href="/living/cost-of-living/nyc-vs-austin-cost-of-living.html">Rent vs buy calculator</a> · <a href="/living/housing/how-much-rent-can-i-afford">How much rent can I afford?</a></p>
+      </div>
+    </section>
+
+    <section class="ha-section ha-section--alt" id="ha-tips" aria-labelledby="ha-tips-title">
+      <div class="container content-page">
+        <h2 id="ha-tips-title">First-time buyer tips in New York City</h2>
+        <ul class="ha-tips-list">
+          <li>Model co-op maintenance at the real listing number — not our default.</li>
+          <li>Get board package requirements before you pay for appraisal.</li>
+          <li>Compare Queens and Bronx if Brooklyn feels stretched.</li>
+          <li>Budget mover fees, board fees, and working capital for co-ops.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ha-section" id="ha-related" aria-labelledby="ha-related-title">
+      <div class="container content-page">
+        <h2 id="ha-related-title">Related tools for New York City</h2>
+        <div class="ha-related-grid">
+          <a class="ha-related-card" href="/living/housing/cost-of-living-by-city/new-york/new-york-city"><span>Cost of living</span><strong>New York City COL guide →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/new-york/new-york-city"><span>Comfortable salary</span><strong>New York City salary target →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford/new-york"><span>New York overview</span><strong>All New York cities →</strong></a>
+          <a class="ha-related-card" href="/living/housing/how-much-house-can-i-afford"><span>US calculator</span><strong>National affordability →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/new-york/new-york-city/is-100k-enough-to-live-in-new-york-city"><span>$100k in NYC</span><strong>Salary scenario →</strong></a>
+          <a class="ha-related-card" href="/living/lifestyle/comfortable-salary/new-york/new-york-city/is-150k-enough-to-live-in-new-york-city"><span>$150k in NYC</span><strong>Salary scenario →</strong></a>
+        </div>
+        <p><a href="/living/housing/how-much-house-can-i-afford/new-york">All New York cities</a> · <a href="/living/housing/how-much-house-can-i-afford">US calculator</a></p>
+      </div>
+    </section>
+
+    <section class="ha-faq-section" id="ha-faq">
+      <div class="container content-page">
+        <h2>FAQ — how much house can I afford in New York City?</h2>
         <div class="faq-stack">
           <article class="faq-item"><h3>What income to buy in NYC?</h3><p>Often $180k+ gross for a median condo payment with 20% down — borough and building matter.</p></article>
           <article class="faq-item"><h3>Are NYC property taxes low?</h3><p>Rates look low on paper but assessed values are high. Maintenance fees are the wild card.</p></article>
+          <article class="faq-item"><h3>What income to buy in NYC?</h3><p>Often $180k+ gross for a median condo payment with 20% down — borough matters.</p></article>
+          <article class="faq-item"><h3>Are NYC property taxes low?</h3><p>Rates look low on paper but values are high. Maintenance is the wild card.</p></article>
+          <article class="faq-item"><h3>Can I buy in NYC on $120k?</h3><p>Outer-borough studios and small condos may work — not median listings with high maintenance.</p></article>
+          <article class="faq-item"><h3>Co-op vs condo in NYC?</h3><p>Co-ops often cost less upfront but have stricter boards and higher maintenance risk.</p></article>
         </div>
       </div>
     </section>
+
+    <div class="container content-page">
+      <aside class="eeat-trust" aria-labelledby="eeat-new-york-city-title">
+        <header class="eeat-trust__header">
+          <span class="eeat-trust__kicker">How we built this</span>
+          <h2 id="eeat-new-york-city-title" class="eeat-trust__title">New York City affordability data</h2>
+          <p class="eeat-trust__meta"><time datetime="2026-06-01">Last reviewed: June 1, 2026</time> · <a href="/methodology#affordability">Methodology</a></p>
+        </header>
+        <p>Median prices, tax, and insurance are rounded planning figures from public listing and census sources. Your quote and lender rules may differ. This is not a loan offer or tax advice.</p>
+      </aside>
+    </div>
   </main>
-  <footer class="site-footer"><div class="container"><p class="footer-review" role="note"><time datetime="2026-06-01">Last reviewed: June 2026</time> · Reviewed by the <a href="/about">Income Clarity editorial team</a> · <a href="/editorial-policy">Editorial policy</a></p>
-      <p class="footer-copy">© 2026 IncomeClarityLab</p></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p class="footer-copy">© 2026 IncomeClarityLab</p>
+    </div>
+  </footer>
   <script src="/house-afford.js"></script>
+  <script src="/ha-city-toc.js"></script>
   <script>
     HouseAfford.bindForm({
       stateSlug: 'new-york',

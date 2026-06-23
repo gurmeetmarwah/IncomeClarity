@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 from col_hub_content import build_catalog, render_hub_page  # noqa: E402
+from site_scripts import PAGE_TOC_SCRIPT  # noqa: E402
 
 STYLES_LIVING = '  <link rel="stylesheet" href="/styles-living-system.css">'
 STYLES_COL = STYLES_LIVING + '\n  <link rel="stylesheet" href="/styles-col.css">'
@@ -1454,7 +1455,7 @@ def city_page(
   </main>
 {FOOTER}
   <script src="/guide-back.js"></script>
-</body>
+{PAGE_TOC_SCRIPT}</body>
 </html>
 """
 
@@ -1641,7 +1642,7 @@ def state_page(slug: str, data: dict) -> str:
 {col_eeat_block(data['name'], state_metrics)}
   </main>
 {FOOTER}
-</body>
+{PAGE_TOC_SCRIPT}</body>
 </html>
 """
 
@@ -1834,7 +1835,7 @@ def compare_page(slug: str, c: dict) -> str:
     </section>
   </main>
 {FOOTER}
-</body>
+{PAGE_TOC_SCRIPT}</body>
 </html>
 """
 
